@@ -1,7 +1,6 @@
 <template>
     <Header />
     <div id="container">
-        <strong>Guide_Wrap</strong>
         <div class="guide_wrap">
             <router-view></router-view>
         </div>
@@ -80,6 +79,7 @@ import Header from '@/layout/Guide_Header.vue'
         .toolbar {
             background-color:#eee;
             display:flex;
+            flex-wrap:wrap;
             li {
                 padding:8px;
                 > * {
@@ -124,8 +124,6 @@ import Header from '@/layout/Guide_Header.vue'
     line-height:1.8;
     background-color:#000;
     border:10px solid #f2f2f2;
-    pre {
-        overflow:auto;
-    }
+    overflow:auto;
 }
 </style>

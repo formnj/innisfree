@@ -101,9 +101,9 @@ em {font-style:normal;}
 .check_ani input[type='checkbox']:checked + .label:after {left:22px;}
 
 label.input, label.select > div {position:relative; display:block;}
-label.input i {color:#aaa; font-size:16px; line-height:18px; position:absolute; top:50%; left:15px; transform:translateY(-50%);}/* placeholder */
-label.input input[type='text'], label.input input[type='password'], label.input input[type='number'] {width:100%; font-size:16px; font-family:'MyLotte'; line-height:18px;}
-label.input .err_txt {margin-top:5px; color:#ff7200; font-size:12px; font-family:'Noto Sans'; line-height:18px; display:none;}
+label.input i {color:#aaa; font-size:16px; font-style:normal; line-height:18px; position:absolute; top:50%; left:15px; transform:translateY(-50%);}/* placeholder */
+label.input input[type='text'], label.input input[type='password'], label.input input[type='number'] {width:100%; font-size:16px;; line-height:18px;}
+label.input .err_txt {margin-top:5px; color:#ff7200; font-size:12px; line-height:18px; display:none;}
 label.input.err .err_txt {display:block;}
 label.input * {flex:1 auto;}
 

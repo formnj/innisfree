@@ -1,10 +1,12 @@
 <template>
     <header>
-        <h1><a :href="path">Vue Guide</a></h1>
-        <ul class="gnb">
-            <li><a :href="path+'list'">list</a></li>
-            <li><a :href="path+'components'">Components</a></li>
-        </ul>
+        <div class="inner">
+            <h1><a href="/"><img src="../assets/images/common/logo_innisfree.png"></a> Guide</h1>
+            <ul class="gnb">
+                <li><a :href="path">list</a></li>
+                <li><a :href="path+'components'">Components</a></li>
+            </ul>
+        </div>
     </header>
 </template>
 
@@ -13,18 +15,21 @@ let path = '/guide/'
 
 </script>
 
-<style lang="scss" scoped>    
+<style lang="scss" scoped>
+    @import url("@/assets/css/common.scss");
     header {
         padding:20px;
         border-bottom:1px solid #ddd;
-        display:flex;
-        justify-content:space-between;
+        .inner {
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap;
+        }
         a {
             color:#222;
             text-decoration:none;
         }
         .gnb {
-            margin-top:20px;
             display:flex;
             li {
                 position:relative;

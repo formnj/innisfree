@@ -4,18 +4,6 @@ var path = '/';
 
 const routes = [
     {
-        path: path+"guide/", //기본 path이면
-        component: () => import("@/layout/Guide_Wrap"),
-        children: [
-            {
-                path: path+"guide/list",
-                component: () => import("@/guide/list"),
-            },{
-                path: path+"guide/components", //기본 path이면
-                component: () => import("@/guide/components"),
-            }
-        ]
-    }, {
         path: path,
         component: () => import("@/layout/Wrap"),
         children: [
@@ -25,8 +13,26 @@ const routes = [
             }
         ]
     }, {
+        path: path+"guide", //기본 path이면
+        component: () => import("@/layout/Guide_Wrap"),
+        children: [
+            {
+                path: path+"guide",
+                component: () => import("@/guide/list"),
+            },{
+                path: path+"guide/components", //기본 path이면
+                component: () => import("@/guide/components"),
+            }
+        ]
+    }, {
         path: path+":pathMatch(.*)*", //매칭되는 path가 없는 경우
-        component: () => import("@/views/notFound")
+        component: () => import("@/layout/Wrap"),
+        children: [
+            {
+                path: path+":pathMatch(.*)*",
+                component: () => import("@/views/notFound"),
+            }
+        ]
     }
 ];
 
