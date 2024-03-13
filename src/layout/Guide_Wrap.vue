@@ -105,17 +105,6 @@ import Header from '@/layout/Guide_Header.vue'
 .design_box {
     padding:15px;
     border:1px solid #eee;
-    > ul:not(.form_group) {
-        margin-top:-15px;
-        margin-left:-15px;
-        display:flex;
-        flex-wrap:wrap;
-        align-items:center;
-        > li {
-            padding-top:15px;
-            padding-left:15px;
-        }
-    }
 }
 
 .code_box {

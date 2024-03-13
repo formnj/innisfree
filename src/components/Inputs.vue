@@ -110,7 +110,7 @@ label.input * {flex:1 auto;}
 .label_wrap {position:relative; flex:1;}
 .label_wrap button[class*='icon_'] {width:24px; height:24px; font-size:0; background-repeat:no-repeat; border-radius:50%; position:absolute; top:9px; right:15px; z-index:1; display:none;}
 .label_wrap button[class*='icon_'] + button[class*='icon_'] {margin-right:34px;}
-.label_wrap button[class*='icon_'] {background-image:url('@/assets/images/common/icon_split.png'); background-repeat:no-repeat; background-size:150px auto;}
+.label_wrap button[class*='icon_'] {background-image:url('@/assets/images/common/icon_split.png'); background-repeat:no-repeat; background-size:250px auto;}
 .label_wrap button.icon_del {background-position:0 0;}
 .label_wrap button.icon_pass {background-position:-80px 0;}
 .label_wrap button.icon_text {background-position:-40px 0;}

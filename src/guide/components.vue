@@ -95,6 +95,13 @@
                 </ul>
             </div>
         </div>
+        <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
+    &lt;ul class="goods_list"&gt;
+        &lt;li v-for="(item, idx) in sample_goods" :key="idx"&gt;
+            &lt;GoodsItem :item="item" :link="item.link" /&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
     </section>
     
 </template>
@@ -123,17 +130,29 @@ const select_opt = `[
 const sample_goods = [
     {
         img:require("@/assets/images/sam/sam_goods_list_01.jpg"),
-        overflip:require("@/assets/images/sam/sam_goods_list_01-1.jpg")
+        overflip:require("@/assets/images/sam/sam_goods_list_01-1.jpg"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'type01', type:'type01'},
+            {txt:'type02', type:'type02'},
+            {txt:'type03', type:'type03'},
+            {txt:'type04', type:'type04'}
+        ]
     }, {
         img:require("@/assets/images/sam/sam_goods_list_02.jpg"),
+        overflip:require("@/assets/images/sam/sam_goods_list_02-1.jpg"),
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        sticker:[
+            {txt:'증정', type:'type02'}
+        ]
     }, {
         img:require("@/assets/images/sam/sam_goods_list_03.jpg"),
     }, {
         img:require("@/assets/images/sam/sam_goods_list_04.jpg"),
     }
 ]
-
-// const _text = str(select_opt);
 
 const tool_select = (props) => {
 

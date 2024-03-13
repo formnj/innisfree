@@ -43,5 +43,8 @@
     &[class*='_min'] {
         height:30px;
     }
+    &[class*='_txt'] {
+        height:auto;
+    }
 }
 </style>
