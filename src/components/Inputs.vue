@@ -89,7 +89,7 @@ em {font-style:normal;}
 
 /* checkbox */
 .check input[type='checkbox'], .check input[type='checkbox'] + .label:before {width:20px; height:20px; background-color:#fff; border:1px solid #ccc; box-sizing:border-box; top:0; left:0;}
-.check input[type='checkbox']:checked + .label:after {width:6px; height:10px; border:3px solid #333; border-top:0; border-left:0; top:1px; left:6px; -webkit-transform:rotate(45deg); transform:rotate(45deg);}
+.check input[type='checkbox']:checked + .label:after {width:8px; height:13px; border:2px solid #333; border-top:0; border-left:0; top:1px; left:6px; -webkit-transform:rotate(45deg); transform:rotate(45deg);}
 
 .check_ani {position:relative; display:inline-block;}
 .check_ani input {margin:0 0 0 1px; position:absolute; opacity:0;}

@@ -4,3 +4,29 @@ header {
         margin:0 auto;
     }
 }
+
+.form_group {
+    > li + li {
+        margin-top:20px;
+    }
+    .form_tit {
+        margin-bottom:10px;
+        font-size:14px;
+    }
+}
+
+.multi_form {
+    display:flex;
+    gap:10px;
+
+}
+
+/* goods list */
+.goods_list {
+    display:flex;
+    flex-wrap:wrap;
+    gap: 40px 20px;
+    > li {
+        width:20%;
+    }
+}
