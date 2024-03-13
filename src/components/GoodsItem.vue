@@ -1,5 +1,5 @@
 <template>
-    <div class="goods_item">
+    <div class="goods_item" :class="item.status">
         <div class="img_wrap">
             <a :href="props.link">
                 <span class="thumb">
@@ -47,6 +47,39 @@ const props = defineProps({
 
 <style lang="scss">
 .goods_item {
+    &.sold_out, &.coming_soon {
+        .img_wrap:before, .img_wrap:after {
+            content:'';
+            display:block;
+        }
+        .img_wrap:before {
+            background-color:rgba(0,0,0,0.3);
+            position:absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            z-index:1;
+        }
+        .img_wrap:after {
+            color:#fff;
+            position:absolute;
+            top:50%;
+            left:50%;
+            z-index:1;
+            transform:translate(-50%, -50%);
+        }
+        &.sold_out {
+            .img_wrap:after {
+                content:'sold out';
+            }
+        }
+        &.coming_soon {
+            .img_wrap:after {
+                content:'coming soon';
+            }
+        }
+    }
     .img_wrap {
         position:relative;
         overflow:hidden;
@@ -82,6 +115,7 @@ const props = defineProps({
             right:0;
             bottom:0;
             left:0;
+            z-index:1;
             display:flex;
             justify-content:space-around;
             transform:translateY(100%);
@@ -128,5 +162,21 @@ const props = defineProps({
             }
         }
     }
+    .review_score {
+        color:#999e9c;
+        font-size:12px;
+        display:flex;
+        align-items:center;
+        &:before {
+            width:12px;
+            height:12px;
+            margin-right:2px;
+            background-image:url('@/assets/images/common/icon_split.png');
+            background-position:-400px 0;
+            background-repeat:no-repeat;
+            content:'';
+            display:block;
+        }
+    }    
 }
 </style>

@@ -86,6 +86,9 @@
 
     <section>
         <h2>Goods</h2>
+        <ul class="explain">
+            <li>sold out, coming soon = status:'sold_out' or 'coming_soon'</li>
+        </ul>
         <div class="design_box">
             <div class="list_wrap">
                 <ul class="goods_list">
@@ -103,6 +106,17 @@
     &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
     </section>
+
+    <section>
+        <h2>Modal</h2>
+        <div class="design_box">
+            <Button txt="Modal" />
+        </div>
+    </section>
+
+    <Modal />
+
+    <Inputs _type="checkbox" />
     
 </template>
 
@@ -112,6 +126,8 @@ import Inputs from '@/components/Inputs'
 import Selectbox from '@/components/Selectbox'
 import Button from '@/components/Button'
 import GoodsItem from '@/components/GoodsItem'
+
+import Modal from '@/components/Modal'
 
 const input_opt = reactive(
     {
@@ -134,6 +150,7 @@ const sample_goods = [
         cate:'BEST',
         name:'히알루론 수분 선크림 SPF 50+ PA++++',
         price:'11,000', sale:'~50%', cost:'26,000',
+        status:'sold_out',
         sticker:[
             {txt:'type01', type:'type01'},
             {txt:'type02', type:'type02'},
@@ -144,11 +161,14 @@ const sample_goods = [
         img:require("@/assets/images/sam/sam_goods_list_02.jpg"),
         overflip:require("@/assets/images/sam/sam_goods_list_02-1.jpg"),
         name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        status:'coming_soon',
         sticker:[
             {txt:'증정', type:'type02'}
         ]
     }, {
         img:require("@/assets/images/sam/sam_goods_list_03.jpg"),
+    }, {
+        img:require("@/assets/images/sam/sam_goods_list_04.jpg"),
     }, {
         img:require("@/assets/images/sam/sam_goods_list_04.jpg"),
     }

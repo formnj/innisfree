@@ -1,6 +1,8 @@
 <template>
     <Header />
-    <router-view></router-view>
+    <div id="container">
+        <router-view></router-view>
+    </div>
 </template>
 
 <script setup>
