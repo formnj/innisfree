@@ -60,6 +60,8 @@ const props = defineProps({
         }
         .img_wrap:before {
             background-color:rgba(0,0,0,0.3);
+            background-position:50%;
+            background-repeat:no-repeat;
             position:absolute;
             top:0;
             right:0;
@@ -67,22 +69,14 @@ const props = defineProps({
             left:0;
             z-index:1;
         }
-        .img_wrap:after {
-            color:#fff;
-            position:absolute;
-            top:50%;
-            left:50%;
-            z-index:1;
-            transform:translate(-50%, -50%);
-        }
         &.sold_out {
-            .img_wrap:after {
-                content:'sold out';
+            .img_wrap:before {
+                background-image:url('@/assets/images/ui/overlay_soldout.png');
             }
         }
         &.coming_soon {
-            .img_wrap:after {
-                content:'coming soon';
+            .img_wrap:before {
+                background-image:url('@/assets/images/ui/overlay_comingsoon.png');
             }
         }
     }

@@ -19,46 +19,50 @@
 /* Button : size = [_big, _mid, min] / border = [_outline] */
 [class*='btn_'] {
     height:40px;
+    color:#fff;
+    font-size:14px;
     background-color:#222;
     display:flex;
     align-items:center;
     justify-content:center;
     em {
         padding:0 20px;
-        color:#fff;
         display:block;
     }
     &[class*='_outline'] {
+        color:#222;
         background-color:transparent !important;
         border:1px solid #222;
-        em {
-            color:#222;
-        }
     }
     &[class*='_big'] {
         height:60px;
+        font-size:16px;
+        font-weight:600;
     }
     &[class*='_mid'] {
         height:50px;
+        font-size:14px;
+        font-weight:600;
     }
     &[class*='_min'] {
         height:30px;
+        font-size:12px;
+    }
+    &[class*='_small'] {
+        height:24px;
+        font-size:10px;
     }
     &[class*='_txt'] {
         height:auto;
     }
 
     /* backgroun-color */
-    &.confirm {
+    &[class*='_primary'] {
         background-color:#00BC70;
-        em {
-            color:#fff;
-        }
+        color:#fff;
         &[class*='_outline'] {
+            color:#00BC70;
             border-color:#00BC70;
-            em {
-                color:#00BC70;
-            }
         }
     }
 }

@@ -22,7 +22,7 @@ import Header from '@/layout/Guide_Header.vue'
             padding-top:30px;
             border-top:1px dashed #ababab;
         }
-        h2 {
+        > h2 {
             margin-bottom:20px;
             padding:10px 10px 10px 20px;
             font-size: 24px;

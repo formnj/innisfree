@@ -34,17 +34,19 @@
             <li>클래스 규칙 : btn_크기_타입(보더유무)<br/>
                 ex) &lt;Button class="btn_big_outline" /&gt;]
             </li>
-            <li>size : default = 40 / [_big] = 60 / [_mid] = 50 / [_min] = 30</li>
+            <li>size : default = 40 / [_big] = 60 / [_mid] = 50 / [_min] = 30 / [_small] = 24</li>
         </ul>
         <div class="design_box">
             <div class="multi_form">
-                <Button class="btn_big" txt="btn_big (60px)sss" />
+                <Button class="btn_big" txt="btn_big (60px)" />
 
                 <Button class="btn_mid" txt="btn_mid (50px)" />
 
                 <Button txt="default (40px)" />
 
                 <Button class="btn_min" txt="btn_min (30px)" />
+
+                <Button class="btn_small" txt="btn_small (24px)" />
 
                 <Button class="btn_big_outline" txt="btn_big_outline (60px)" />
 
@@ -53,7 +55,11 @@
                 <Button class="btn_outline" txt="btn_outline (40px)" />
 
                 <Button class="btn_min_outline" txt="btn_min_outline (30px)" />
+
+                <Button class="btn_small_outline" txt="btn_small_outline (24px)" />
             </div>
+
+
         </div>
         <pre class="code_box"><code>&lt;Button /&gt;</code></pre>
     </section>
@@ -135,26 +141,26 @@
     &lt;/div&gt;
     &lt;div class="overlay" @click="modal.close(this);"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-    </section>
 
-    <!-- modal -->
-    <div class="modal_wrap" id="sample_modal">
-        <div class="modal_container">
-            <div class="modal_header">
-                <h2>Modal Title</h2>
-                <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <!-- modal -->
+        <div class="modal_wrap" id="sample_modal">
+            <div class="modal_container">
+                <div class="modal_header">
+                    <h2>Modal Title</h2>
+                    <button class="btn_close" @click="modal.close(this);">닫기</button>
+                </div>
+                <div class="modal_content">
+                    <div>Sample Modal</div>
+                </div>
+                <div class="modal_footer">
+                    <Button class="btn_outline" txt="cancel" />
+                    <Button class="btn_primary" txt="OK" />
+                </div>
             </div>
-            <div class="modal_content">
-                <div>Sample Modal</div>
-            </div>
-            <div class="modal_footer">
-                <Button class="btn_outline" txt="cancel" />
-                <Button txt="OK" />
-            </div>
+            <div class="overlay" @click="modal.close(this);"></div>
         </div>
-        <div class="overlay" @click="modal.close(this);"></div>
-    </div>
-    <!-- //modal -->
+        <!-- //modal -->
+    </section>
     
 </template>
 

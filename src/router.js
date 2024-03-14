@@ -33,6 +33,15 @@ const routes = [
                 component: () => import("@/views/notFound"),
             }
         ]
+    }, {
+        path: path+"hgkim", //hgkim layout
+        component: () => import("@/hgkim/HG_Wrap"),
+        children: [
+            {
+                path: path+"hgkim",
+                component: () => import("@/hgkim/main"),
+            }
+        ]
     }
 ];
 
