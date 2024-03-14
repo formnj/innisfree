@@ -22,13 +22,14 @@
     background-color:#222;
     display:flex;
     align-items:center;
+    justify-content:center;
     em {
         padding:0 20px;
         color:#fff;
         display:block;
     }
     &[class*='_outline'] {
-        background-color:transparent;
+        background-color:transparent !important;
         border:1px solid #222;
         em {
             color:#222;
@@ -45,6 +46,20 @@
     }
     &[class*='_txt'] {
         height:auto;
+    }
+
+    /* backgroun-color */
+    &.confirm {
+        background-color:#00BC70;
+        em {
+            color:#fff;
+        }
+        &[class*='_outline'] {
+            border-color:#00BC70;
+            em {
+                color:#00BC70;
+            }
+        }
     }
 }
 </style>

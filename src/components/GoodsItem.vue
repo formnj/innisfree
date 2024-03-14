@@ -22,7 +22,12 @@
                     <span>{{ item.sale }}</span>
                     <em>{{ item.cost }}</em>
                 </p>
+                <!-- sticker -->
                 <Sticker :item="item.sticker" />
+                <!-- //sticker -->
+                <!-- Hash -->
+                <Hash :item="item.hash" />
+                <!-- //Hash -->
                 <p class="review_score">
                     4.8
                     <em>2,655</em>
@@ -35,6 +40,7 @@
 <script setup>
 import Button from '@/components/Button'
 import Sticker from '@/components/Sticker'
+import Hash from '@/components/Hash'
 
 const props = defineProps({
     item: Array,

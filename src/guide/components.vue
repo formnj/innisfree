@@ -38,7 +38,7 @@
         </ul>
         <div class="design_box">
             <div class="multi_form">
-                <Button class="btn_big" txt="btn_big (60px)" />
+                <Button class="btn_big" txt="btn_big (60px)sss" />
 
                 <Button class="btn_mid" txt="btn_mid (50px)" />
 
@@ -109,14 +109,52 @@
 
     <section>
         <h2>Modal</h2>
+        <ul class="explain">
+            <li>Open : modal.open(모달아이디, 타입);<br/> 타입 = full / alert</li>
+            <li>Close : modal.close();</li>
+        </ul>
         <div class="design_box">
-            <Button txt="Modal" />
+            <div class="multi_form">
+                <Button txt="Modal full" @click="modal.open('sample_modal', 'full');" />
+                <Button txt="Modal alert" @click="modal.open('sample_modal', 'alert');" />
+            </div>
         </div>
+        <pre class="code_box"><code>&lt;div class="modal_wrap" id="sample_modal"&gt;
+    &lt;div class="modal_container"&gt;
+        &lt;div class="modal_header"&gt;
+            &lt;h2&gt;Modal Title&lt;/h2&gt;
+            &lt;button class="btn_close" @click="modal.close(this);"&gt;닫기&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="modal_content"&gt;
+            &lt;div&gt; Sample Modal &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="modal_footer"&gt;
+            &lt;Button class="btn_outline" txt="cancel" /&gt;
+            &lt;Button txt="OK" /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="overlay" @click="modal.close(this);"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
     </section>
 
-    <Modal />
-
-    <Inputs _type="checkbox" />
+    <!-- modal -->
+    <div class="modal_wrap" id="sample_modal">
+        <div class="modal_container">
+            <div class="modal_header">
+                <h2>Modal Title</h2>
+                <button class="btn_close" @click="modal.close(this);">닫기</button>
+            </div>
+            <div class="modal_content">
+                <div>Sample Modal</div>
+            </div>
+            <div class="modal_footer">
+                <Button class="btn_outline" txt="cancel" />
+                <Button txt="OK" />
+            </div>
+        </div>
+        <div class="overlay" @click="modal.close(this);"></div>
+    </div>
+    <!-- //modal -->
     
 </template>
 
@@ -127,8 +165,7 @@ import Selectbox from '@/components/Selectbox'
 import Button from '@/components/Button'
 import GoodsItem from '@/components/GoodsItem'
 
-import Modal from '@/components/Modal'
-
+/* component sample data */
 const input_opt = reactive(
     {
         Placeholder: '문구를 입력해주세요.',
@@ -156,7 +193,8 @@ const sample_goods = [
             {txt:'type02', type:'type02'},
             {txt:'type03', type:'type03'},
             {txt:'type04', type:'type04'}
-        ]
+        ],
+        hash:['#스킨팩','#화장솜','#순면화장솜']
     }, {
         img:require("@/assets/images/sam/sam_goods_list_02.jpg"),
         overflip:require("@/assets/images/sam/sam_goods_list_02-1.jpg"),
@@ -173,7 +211,9 @@ const sample_goods = [
         img:require("@/assets/images/sam/sam_goods_list_04.jpg"),
     }
 ]
+/* //component sample data */
 
+/* inputs type function */
 const tool_select = (props) => {
 
     for (var i = 0; i < event.currentTarget.closest('.toolbar').querySelectorAll('button').length; i++) {
@@ -213,6 +253,40 @@ const tool_select = (props) => {
             input_opt.Placeholder = '문구를 입력해주세요',
             input_opt.opt = '_type="' + input_opt.type + '" _placeholder="' + input_opt.Placeholder + '"'
             break;
+    }
+}
+/* //inputs type function */
+
+const modal = {
+    open: (_target, _type) => {
+        document.getElementById(_target).classList.add('active', _type);
+        const body = document.querySelector("body");
+        const pageY = document.body.scrollTop || document.documentElement.scrollTop;
+
+        if (!body.hasAttribute("scrollY")) {
+            body.setAttribute("scrollY", String(pageY));
+            body.classList.add("lockbody");
+        }
+        body.addEventListener("touchmove", modal.lockScrollHandle, { passive: false });
+    }, close: (_target) => {
+        event.target.closest('.modal_wrap').setAttribute('class','modal_wrap');
+        const body = document.querySelector("body");
+
+        if (body.hasAttribute("scrollY")) {
+            body.classList.remove("lockbody");
+            body.scrollTop = Number(body.getAttribute("scrollY"));
+            body.removeAttribute("scrollY");
+        }
+
+        body.removeEventListener("touchmove", modal.lockScrollHandle, { passive: true });
+    }, lockScrollHandle(event) {
+        const e = event || window.event;
+
+        // 멀티 터치는 터치 되게 한다
+        if (e.touches.length > 1) return;
+
+        // event 초기화 속성이 있음 초기화
+        e.preventDefault();
     }
 }
 </script>
