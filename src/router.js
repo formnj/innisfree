@@ -20,8 +20,11 @@ const routes = [
                 path: path+"guide",
                 component: () => import("@/guide/list"),
             },{
-                path: path+"guide/components", //기본 path이면
+                path: path+"guide/components",
                 component: () => import("@/guide/components"),
+            },{
+                path: path+"guide/swiper",
+                component: () => import("@/guide/swiper"),
             }
         ]
     }, {

@@ -141,7 +141,6 @@
     &lt;/div&gt;
     &lt;div class="overlay" @click="modal.close(this);"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-
         <!-- modal -->
         <div class="modal_wrap" id="sample_modal">
             <div class="modal_container">

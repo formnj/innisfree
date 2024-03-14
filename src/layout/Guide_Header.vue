@@ -5,6 +5,7 @@
             <ul class="gnb">
                 <li><a :href="path">list</a></li>
                 <li><a :href="path+'components'">Components</a></li>
+                <li><a :href="path+'swiper'">Swiper</a></li>
             </ul>
         </div>
     </header>
