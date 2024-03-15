@@ -16,10 +16,10 @@ const routes = [
                 path: path,
                 component: () => import("@/guide/list"),
             },{
-                path: path+"guide/components",
+                path: path+"components",
                 component: () => import("@/guide/components"),
             },{
-                path: path+"guide/swiper",
+                path: path+"swiper",
                 component: () => import("@/guide/swiper"),
             }
         ]
