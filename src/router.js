@@ -13,14 +13,8 @@ const routes = [
         component: () => import("@/layout/Guide_Wrap"),
         children: [
             {
-                path: path,
-                component: () => import("@/guide/list"),
-            },{
                 path: path+"components",
                 component: () => import("@/guide/components"),
-            },{
-                path: path+"swiper",
-                component: () => import("@/guide/swiper"),
             }
         ]
     }, {

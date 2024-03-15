@@ -1,12 +1,7 @@
 <template>
     <header>
         <div class="inner">
-            <h1><a href="/"><img src="../assets/images/common/logo_innisfree.png"></a> Guide</h1>
-            <ul class="gnb">
-                <li><a :href="path">list</a></li>
-                <li><a :href="path+'components'">Components</a></li>
-                <li><a :href="path+'swiper'">Swiper</a></li>
-            </ul>
+            <h1><a :href=path><img src="../assets/images/common/logo_innisfree.png"></a> Guide</h1>
         </div>
     </header>
 </template>
