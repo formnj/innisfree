@@ -10,8 +10,10 @@
 var path;
 if(window.location.hostname == 'formnj.github.io'){
     path = '/innisfree/';
+    console.log('if : '+path);
 } else {
     path = '/';
+    console.log('else : '+path);
 }
 
 </script>
