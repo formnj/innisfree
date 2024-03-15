@@ -1,6 +1,11 @@
 import { createWebHistory, createRouter } from "vue-router";
 
-var path = '/';
+// var path = '/';
+if(window.location.hostname == 'formnj.github.io'){
+    var path = '/innisfree/';
+} else {
+    var path = '/';
+}
 
 const routes = [
     {
