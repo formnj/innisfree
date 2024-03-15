@@ -5,3 +5,4 @@ module.exports = defineConfig({
     outputDir: './docs',
     publicPath: '/innisfree/'
 })
+
