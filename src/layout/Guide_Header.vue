@@ -12,7 +12,12 @@
 </template>
 
 <script setup>
-let path = '/guide/'
+var path;
+if(window.location.hostname == 'formnj.github.io'){
+    path = '/innisfree/';
+} else {
+    path = '/';
+}
 
 </script>
 
@@ -20,7 +25,11 @@ let path = '/guide/'
     @import url("@/assets/css/common.scss");
     header {
         padding:20px;
+        background-color:#fff;
         border-bottom:1px solid #ddd;
+        position:sticky;
+        top:0;
+        z-index:11;
         .inner {
             display:flex;
             justify-content:space-between;
