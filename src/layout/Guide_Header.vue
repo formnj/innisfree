@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-let path = '/innisfree/'
+let path = '/guide/'
 
 </script>
 

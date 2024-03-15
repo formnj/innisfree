@@ -9,17 +9,26 @@ if(window.location.hostname == 'formnj.github.io'){
 
 const routes = [
     {
-        path: path, //기본 path이면
-        component: () => import("@/layout/Guide_Wrap"),
+        path: path,
+        component: () => import("@/layout/Wrap"),
         children: [
             {
                 path: path,
+                component: () => import("@/views/main")
+            }
+        ]
+    }, {
+        path: path+"guide", //기본 path이면
+        component: () => import("@/layout/Guide_Wrap"),
+        children: [
+            {
+                path: path+"guide",
                 component: () => import("@/guide/list"),
             },{
-                path: path+"components",
+                path: path+"guide/components",
                 component: () => import("@/guide/components"),
             },{
-                path: path+"swiper",
+                path: path+"guide/swiper",
                 component: () => import("@/guide/swiper"),
             }
         ]
