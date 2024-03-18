@@ -8,7 +8,7 @@
         ...
     </swiper>
 </template>
-<script>
+<script setup>
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
@@ -22,25 +22,15 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 // Import Swiper styles
-export default {
-    components: {
-        Swiper,
-        SwiperSlide,
-    },
-    setup() {
-        const onSwiper = (swiper) => {
-            console.log(swiper);
-        };
-        const onSlideChange = () => {
-            console.log('slide change');
-        };
-        return {
-            onSwiper,
-            onSlideChange,
-            modules: [Navigation, Pagination, Scrollbar, A11y],
-        };
-    },
+
+const onSwiper = (swiper) => {
+    console.log(swiper);
 };
+const onSlideChange = () => {
+    console.log('slide change');
+};
+
+const modules= [Navigation, Pagination, Scrollbar, A11y]
 </script>
 
 <style lang="scss" scoped>
