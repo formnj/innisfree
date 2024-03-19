@@ -167,7 +167,6 @@ definePageMeta({
 const input_opt = reactive(
     {
         Placeholder: '문구를 입력해주세요.',
-        type: 'text', //default type
         isswitch: Boolean,
         opt: '_type="text" _placeholder="문구를 입력해주세요"'
     }
