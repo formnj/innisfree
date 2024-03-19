@@ -85,7 +85,7 @@
     </section>
 
     <section>
-        <h2>Goods</h2>
+        <h2>Goods Item</h2>
         <ul class="explain">
             <li>sold out, coming soon = status:'sold_out' or 'coming_soon'</li>
         </ul>
