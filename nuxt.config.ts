@@ -7,7 +7,6 @@ export default defineNuxtConfig({
   plugins: ['~/plugins/checkout.ts'],
   image: {
     cloudinary: {
-      // baseURL: 'https://res.cloudinary.com/nuxt/image/upload/'
       baseURL: 'https://res.cloudinary.com/nuxt/image/upload/'
     }
   },

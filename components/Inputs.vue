@@ -18,7 +18,11 @@
     const props = defineProps({
         _id: String, //input ID
         _name: String, // Input NAME
-        _type: String, // Input TYPE
+        // _type: String, // Input TYPE
+        _type: {
+            type: String,
+            default: 'text'
+        }, // Input TYPE
         _text: String, // checkbox, radio 문구
         _placeholder: String, // Input PLACEHOLDER
         _value: null, // Input VALUE

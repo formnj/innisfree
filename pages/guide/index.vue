@@ -16,7 +16,7 @@
                 <th>2Depth</th>
                 <th>3Depth</th>
                 <th>4Depth</th>
-                <th>ID</th>
+                <th>link</th>
                 <th>비고</th>
                 <th>시작일</th>
                 <th>종료일</th>
@@ -36,7 +36,7 @@ import { onMounted } from 'vue'
 const page_arry = ([
     {
         depth:['main','','',''],
-        id:'main', status:'',
+        id:'/', status:'',
         type:'', note:'',
         sDate:'', eDate:''
     }
@@ -56,9 +56,9 @@ onMounted(() => {
 
         /* path */
         if(page_arry[i].type == 'modal'){
-            path = '/modal/'
+            path = '/publish/modal/'
         } else {
-            path = '/'
+            path = '/publish/'
         }
 
         document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'

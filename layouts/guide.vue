@@ -1,5 +1,5 @@
 <template>
-    <GuideHeader />
+    <HeaderGuide />
     <div id="container">
         <div class="guide_wrap">
             <slot />
@@ -8,8 +8,6 @@
 </template>
 
 <script setup>
-// import Header from '@/layout/Guide_Header.vue'
-
 </script>
 
 <style lang="scss">
