@@ -3,6 +3,7 @@
     <div id="container">
         <router-view></router-view>
     </div>
+    <FooterPublish />
 </template>
 
 <script setup>
