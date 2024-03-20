@@ -68,7 +68,7 @@
           <li class="mo"><a href="#none">사업자정보확인</a></li>
           <li class="mo"><a href="#none">약관및법적고지확인</a></li>
           <li class="pc"><a href="#none">서비스 이용약관</a></li>
-          <li class="pc"><a href="#none">개인정보처리방침</a></li>
+          <li class="pc"><a href="#none" class="active">개인정보처리방침</a></li>
           <li class="pc"><a href="#none">영상정보처리기기 운영/관리 방침</a></li>
           <li class="pc"><a href="#none">공지사항</a></li>
           <li class="pc"><a href="#none">고객센터</a></li>
