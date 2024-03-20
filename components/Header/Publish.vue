@@ -8,12 +8,21 @@
             <h1><a href="/publish"><img src="/assets/images/common/logo_innisfree.png"></a></h1>
             <div class="search_wrap">
                 <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
-                <Button />
+                <Button class="btn_search" />
             </div>
             <div class="keyword_wrap">
                 <ol>
                     <li>
-                        <a href="#none" class="up">1. 장원영 네컷</a>
+                        <a href="#none" class="up"><em>1.</em>Keyword Up</a>
+                    </li>
+                    <li>
+                        <a href="#none"><em>2.</em>Keyword default</a>
+                    </li>
+                    <li>
+                        <a href="#none" class="down"><em>3.</em>Keyword down</a>
+                    </li>
+                    <li>
+                        <a href="#none" class="new"><em>4.</em>Keyword new</a>
                     </li>
                 </ol>
             </div>
@@ -114,25 +123,54 @@
 
 <script setup>
 onMounted(() => {
+    /* category open */
     var el = document.querySelector('.navCategory');
     document.querySelector('.btn_category').addEventListener('mouseover', () => {
         el.classList.add('show');
 
-        // el.style.height = 'auto'
-        // var height = el.clientHeight + 'px';
-        // el.style.height = '0px'
-        // setTimeout(() => {
-        //     el.style.height = height
-        // });
+        el.style.height = 'auto'
+        var height = el.clientHeight + 'px';
+        el.style.height = '0px'
+        setTimeout(() => {
+            el.style.height = height
+        });
     });
 
     el.addEventListener('mouseleave', () => {
-        // el.style.height = '0px'
+        el.style.height = '0px'
 
-        // el.addEventListener('transitionend', () => {
+        el.addEventListener('transitionend', () => {
             el.classList.remove('show');
-        // }, {once: true});
+        }, {once: true});
     });
+    /* //category open */
+
+    /* keyword rolling */
+    var keyword_pos = document.querySelector('.keyword_wrap ol'),
+    roll_size = keyword_pos.querySelectorAll('li'),
+    roll_timer = 1000;
+
+    var i = 1,
+    clone_roll = roll_size[0];
+
+    keyword_pos.insertAdjacentHTML('beforeend', '<li>'+clone_roll.innerHTML+'</li>');
+
+    let key_rolling = setInterval(() => {
+        keyword_pos.style.cssText='transform:translateY(-'+(i*40)+'px); transition:all 0.35s ease-in;'
+        if(i < (roll_size.length+1)){
+            i++;
+
+            if(i == (roll_size.length+1)){
+                console.log('asdfasdf')
+
+                keyword_pos.addEventListener('transitionend', () => {
+                    keyword_pos.removeAttribute('style');
+                }, {once: true});
+                i = 1;
+            }
+        }
+    }, roll_timer);
+    /* //keyword rolling */
 });
 
 const global_menu = [
@@ -212,7 +250,7 @@ const global_menu = [
 ]
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     header {
         border-bottom:1px solid #ddd;
         position:relative;
@@ -233,7 +271,71 @@ const global_menu = [
             }
             .search_wrap {
                 margin:30px;
+                padding-right:15px;
+                border:1px solid #00BC70;
+                border-radius:40px;
+                overflow:hidden;
                 display:flex;
+                align-items:center;
+                .input {
+                    width:331px;
+                    input {
+                        height:38px;
+                        padding:0 10px 0 20px;
+                        border:0;
+                    }
+                }
+                .btn_search {
+                    width:24px;
+                    height:24px;
+                    font-size:0;
+                    background-color:transparent;
+                    background-image:url('/_nuxt/assets/images/common/icon_split.png');
+                    background-position:0 -30px;
+                    background-repeat:no-repeat;
+                    background-size:250px auto;
+                    position:relative;
+                }
+            }
+            .keyword_wrap {
+                height:40px;
+                font-weight:600;
+                overflow:hidden;
+                // ol {
+                //     transition:all 0.3s ease-out;
+                // }
+                li > * {
+                    padding:11px 0;
+                    line-height:18px;
+                    display:flex;
+                    align-items:center;
+                        em {
+                            width:22px;
+                            margin-right:5px;
+                            font-size:13px;
+                            text-align:center;
+                        }
+                    &:after {
+                        width:12px;
+                        height:12px;
+                        margin-left:10px;
+                        background-image:url('/_nuxt/assets/images/common/icon_split.png');
+                        background-position:-20px -60px;
+                        background-repeat:no-repeat;
+                        background-size:250px auto;
+                        content:'';
+                        display:block;
+                    }
+                    &.up:after {
+                        background-position:0 -60px;
+                    }
+                    &.down:after {
+                        background-position:-40px -60px;
+                    }
+                    &.new:after {
+                        background-position:-60px -60px;
+                    }
+                }
             }
             .quick_wrap {
                 margin-top:20px;

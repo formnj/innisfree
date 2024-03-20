@@ -3,6 +3,7 @@
         <h2>Inputs</h2>
         <ul class="toolbar">
             <li><button class="current" @click="tool_select('text');">Text</button></li>
+            <li><button @click="tool_select('error');">Error</button></li>
             <li><button @click="tool_select('pw');">Password</button></li>
             <li><button @click="tool_select('check');">Checkbox</button></li>
             <li><button @click="tool_select('radio');">Radio</button></li>
@@ -10,7 +11,7 @@
         </ul>
         <div class="design_box">
             <Inputs :_type="input_opt.type" :isswitch="input_opt.isswitch" :_placeholder="input_opt.Placeholder"
-                _text="Label" :isDisabled="_disabled" />
+                _text="Label" :isDisabled="_disabled" :isError="input_opt.isError" :_err_text="input_opt.err_text" />
         </div>
         <pre class="code_box"><code>&lt;Inputs {{ input_opt.opt }} /&gt;</code></pre>
     </section>
@@ -168,7 +169,8 @@ const input_opt = reactive(
     {
         Placeholder: '문구를 입력해주세요.',
         isswitch: Boolean,
-        opt: '_type="text" _placeholder="문구를 입력해주세요"'
+        opt: '_type="text" _placeholder="문구를 입력해주세요"',
+        isError: false
     }
 )
 
@@ -221,35 +223,46 @@ const tool_select = (props) => {
 
     switch (props) {
         case 'isswitch':
-            input_opt.isswitch = true
+            input_opt.isswitch = true,
             input_opt.type = 'checkbox',
             input_opt.opt = '_type="' + input_opt.type + '" :isswitch="' + input_opt.isswitch + '" _text="Label"'
             break;
 
+        case 'error':
+            input_opt.isswitch = false,
+            input_opt.type = 'text',
+            input_opt.Placeholder = '문구를 입력해주세요',
+            input_opt.opt = '_type="' + input_opt.type + '" _placeholder="' + input_opt.Placeholder + '"' + '" :isError="' + input_opt.isError + '" _err_text="Error Text"',
+            input_opt.isError = true,
+            input_opt.err_text = 'Error Text'
+            break;
+
         case 'pw':
-            input_opt.isswitch = false
+            input_opt.isswitch = false,
             input_opt.type = 'password',
             input_opt.Placeholder = '비밀번호를 입력해주세요',
-            input_opt.opt = '_type="' + input_opt.type + '" _placeholder="' + input_opt.Placeholder + '"'
+            input_opt.opt = '_type="' + input_opt.type + '" _placeholder="' + input_opt.Placeholder + '"',
+            input_opt.isError = false
             break;
 
         case 'check':
-            input_opt.isswitch = false
+            input_opt.isswitch = false,
             input_opt.type = 'checkbox',
             input_opt.opt = '_type="' + input_opt.type + '" _text="Label"'
             break;
 
         case 'radio':
-            input_opt.isswitch = false
+            input_opt.isswitch = false,
             input_opt.type = 'radio',
             input_opt.opt = '_type="' + input_opt.type + '" _text="Label"'
             break;
 
         default:
-            input_opt.isswitch = false
+            input_opt.isswitch = false,
             input_opt.type = 'text',
             input_opt.Placeholder = '문구를 입력해주세요',
-            input_opt.opt = '_type="' + input_opt.type + '" _placeholder="' + input_opt.Placeholder + '"'
+            input_opt.opt = '_type="' + input_opt.type + '" _placeholder="' + input_opt.Placeholder + '"',
+            input_opt.isError = false
             break;
     }
 }

@@ -36,7 +36,7 @@ import { onMounted } from 'vue'
 const page_arry = ([
     {
         depth:['main','','',''],
-        id:'/', status:'',
+        id:'main', status:'',
         type:'', note:'',
         sDate:'', eDate:''
     }
@@ -44,7 +44,8 @@ const page_arry = ([
 
 onMounted(() => {
     var row_chk,
-        path;
+        path,
+        link;
 
     for (var i=0; i<page_arry.length;i++) {
         /* row 시작 체크 */
@@ -61,12 +62,18 @@ onMounted(() => {
             path = '/publish/'
         }
 
+        if(page_arry[i].depth[0] == 'main'){
+            link = path
+        } else {
+            link = path+page_arry[i].id
+        }
+
         document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'
         +   '<th>'+page_arry[i].depth[0]+'</th>'
         +   '<td class="'+page_arry[i].status+'">'+page_arry[i].depth[1]+'</td>'
         +   '<td class="'+page_arry[i].status+'">'+page_arry[i].depth[2]+'</td>'
         +   '<td class="'+page_arry[i].status+'">'+page_arry[i].depth[3]+'</td>'
-        +   '<td class="ac '+page_arry[i].status+'"><a href="'+path+page_arry[i].id+'" target="_blank" class="'+page_arry[i].type+'">'+page_arry[i].id+'</a></td>'
+        +   '<td class="ac '+page_arry[i].status+'"><a href="'+link+'" target="_blank" class="'+page_arry[i].type+'">'+page_arry[i].id+'</a></td>'
         +   '<td class="'+page_arry[i].status+'">'+page_arry[i].note+'</td>'
         +   '<td class="ac '+page_arry[i].status+'">'+page_arry[i].sDate+'</td>'
         +   '<td class="ac '+page_arry[i].status+'">'+page_arry[i].eDate+'</td>'

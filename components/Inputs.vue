@@ -7,7 +7,7 @@
         <label class="input" :class="{'err':isError}">
             <i v-if="_placeholder && !isDisabled">{{_placeholder}}</i>
             <input :type="_type" :id="_id" :value="_value" @focus="hidePlaceholder" @blur="valueChk" @keyup="input_btn_chk" :readonly="isReadonly" :disabled="isDisabled" />
-            <em class="err_txt">{{err_text}}</em>
+            <em v-if="isError" class="err_txt">{{_err_text}}</em>
             <button class="icon_del" v-if="_type != 'password'" @click="input_btn_fn">Delete</button>
             <button class="icon_pass" v-if="_type == 'password'" @click="input_btn_fn">password</button>
         </label>
@@ -105,7 +105,7 @@ em {font-style:normal;}
 .check_ani input[type='checkbox']:checked + .label:after {left:22px;}
 
 label.input, label.select > div {position:relative; display:block;}
-label.input i {color:#aaa; font-size:16px; font-style:normal; line-height:18px; position:absolute; top:50%; left:15px; transform:translateY(-50%);}/* placeholder */
+label.input i {color:#aaa; font-size:16px; font-style:normal; line-height:18px; position:absolute; top:20px; left:15px; transform:translateY(-50%);}/* placeholder */
 label.input input[type='text'], label.input input[type='password'], label.input input[type='number'] {width:100%; font-size:16px;; line-height:18px;}
 label.input .err_txt {margin-top:5px; color:#ff7200; font-size:12px; line-height:18px; display:none;}
 label.input.err .err_txt {display:block;}

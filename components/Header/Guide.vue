@@ -24,11 +24,15 @@ let path = '/guide/'
             justify-content:space-between;
             flex-wrap:wrap;
             h1 {
-                font-size:2em;
-                font-weight:bold;
                 display:flex;
                 align-items:center;
                 gap:15px;
+                a {
+                    display:block;
+                    img {
+                        height:20px;
+                    }
+                }
             }
         }
         a {
