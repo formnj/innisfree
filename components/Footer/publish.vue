@@ -1,5 +1,5 @@
 <template>
-  <footer class="mo">
+  <footer class="pc">
     <div class="inner">
       <a href="#none"><img src="../../assets/images/footer/Wordmark.png" alt=""></a>
       <div class="mo_cont_footer">
@@ -62,8 +62,8 @@
       <div class="footer_common">
         <ul>
           <li class="mo"><a href="#none">이용약관</a></li>
-          <li><a href="#none" class="active">개인정보처리방침</a></li>
-          <li><a href="#none">영상기기관리방침</a></li>  
+          <li class="mo"><a href="#none" class="active">개인정보처리방침</a></li>
+          <li class="mo"><a href="#none">영상기기관리방침</a></li>  
           <li class="mo"><a href="#none">위치기반서비스 이용약관</a></li>
           <li class="mo"><a href="#none">사업자정보확인</a></li>
           <li class="mo"><a href="#none">약관및법적고지확인</a></li>
@@ -310,8 +310,10 @@ footer {
 
           }
           > span {
+            max-width:90px;
             color:#666;
             font-size:9px;
+            display:inline-block;
           }
         }
       }
