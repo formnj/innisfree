@@ -1,18 +1,17 @@
 <template>
     <p style="display:flex;">
-        Device : <Button class="btn_small_outline" txt="Mobile" @click="change_device()" />
+        Device : <Button class="btn_small_outline" txt="PC" @click="change_device()" />
     </p>
     <HeaderPublish />
     <div id="container">
         <router-view></router-view>
-        <CategorylistPublish />
-        <ActionbarPublish />
     </div>
     <FooterPublish :device="device" />
+    <Actionbar :device="device"/>
 </template>
 
 <script setup>
-const device = ref('MO');
+const device = ref('PC');
 
 const change_device = () => {
     if(event.target.textContent == 'Mobile'){
