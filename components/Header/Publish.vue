@@ -52,70 +52,74 @@
                         <a href="#none" class="delivery">배송조회</a>
                     </li>
                     <li>
-                        <a href="#none" class="cart">장바구니</a>
+                        <a href="#none" class="cart">장바구니
+                            <em>5</em>
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="gnb_wrap">
-            <Button class="btn_category" txt="카테고리" />
-            <nav>
-                <ul>
+            <div class="inner">
+                <Button class="btn_category" txt="카테고리" />
+                <nav class="navGnb">
+                    <ul>
+                        <li>
+                            <a href="#none">특가</a>
+                        </li>
+                        <li>
+                            <a href="#none">이벤트</a>
+                        </li>
+                        <li>
+                            <a href="#none">베스트</a>
+                        </li>
+                        <li>
+                            <a href="#none">쿠폰존</a>
+                        </li>
+                        <li>
+                            <a href="#none">쇼케이스</a>
+                        </li>
+                        <li>
+                            <a href="#none">라이브</a>
+                        </li>
+                        <li>
+                            <a href="#none">FOR ME</a>
+                        </li>
+                        <li>
+                            <a href="#none">임직원샵</a>
+                        </li>
+                    </ul>
+                </nav>
+                <ul class="quick">
                     <li>
-                        <a href="#none">특가</a>
+                        <a href="#none">신규가입혜택</a>
                     </li>
                     <li>
-                        <a href="#none">이벤트</a>
+                        <a href="#none">멤버십 혜택</a>
                     </li>
                     <li>
-                        <a href="#none">베스트</a>
+                        <a href="#none">공병수거</a>
                     </li>
                     <li>
-                        <a href="#none">쿠폰존</a>
+                        <a href="#none">매장안내</a>
                     </li>
                     <li>
-                        <a href="#none">쇼케이스</a>
-                    </li>
-                    <li>
-                        <a href="#none">라이브</a>
-                    </li>
-                    <li>
-                        <a href="#none">FOR ME</a>
-                    </li>
-                    <li>
-                        <a href="#none">임직원샵</a>
+                        <a href="#none">마이샵</a>
                     </li>
                 </ul>
-            </nav>
-            <ul class="quick">
-                <li>
-                    <a href="#none">신규가입혜택</a>
-                </li>
-                <li>
-                    <a href="#none">멤버십 혜택</a>
-                </li>
-                <li>
-                    <a href="#none">공병수거</a>
-                </li>
-                <li>
-                    <a href="#none">매장안내</a>
-                </li>
-                <li>
-                    <a href="#none">마이샵</a>
-                </li>
-            </ul>
 
-            <div class="navCategory">
-                <nav>
-                    <dl v-for="(item,idx) in global_menu" :key="idx">
-                        <dt>
-                            <a :href="item.link">{{ item.menu }}</a>
-                        </dt>
-                        <dd v-for="(item,idx) in item.sub_menu" :key="idx">
-                            <a :href="item.link">{{ item.menu }}</a>
-                        </dd>
-                    </dl>
-                </nav>            
+                <div class="navCategory">
+                    <nav>
+                        <dl v-for="(item,idx) in global_menu" :key="idx">
+                            <dt>
+                                <a :href="item.link">{{ item.menu }}</a>
+                            </dt>
+                            <dd v-for="(item,idx) in item.sub_menu" :key="idx">
+                                <a :href="item.link">{{ item.menu }}</a>
+                            </dd>
+                        </dl>
+                    </nav>            
+                </div>
             </div>
         </div>
     </header>
@@ -124,31 +128,22 @@
 <script setup>
 onMounted(() => {
     /* category open */
-    var el = document.querySelector('.navCategory');
-    document.querySelector('.btn_category').addEventListener('mouseover', () => {
-        el.classList.add('show');
+    // var el = document.querySelector('.navCategory');
+    // document.querySelector('.btn_category').addEventListener('mouseover', () => {
+    //     event.target.classList.add('active');
+    //     el.classList.add('show');
+    // });
 
-        el.style.height = 'auto'
-        var height = el.clientHeight + 'px';
-        el.style.height = '0px'
-        setTimeout(() => {
-            el.style.height = height
-        });
-    });
-
-    el.addEventListener('mouseleave', () => {
-        el.style.height = '0px'
-
-        el.addEventListener('transitionend', () => {
-            el.classList.remove('show');
-        }, {once: true});
-    });
+    // el.addEventListener('mouseleave', () => {
+    //     el.classList.remove('show');
+    //     document.querySelector('.btn_category').classList.remove('active');
+    // });
     /* //category open */
 
     /* keyword rolling */
     var keyword_pos = document.querySelector('.keyword_wrap ol'),
     roll_size = keyword_pos.querySelectorAll('li'),
-    roll_timer = 1000;
+    roll_timer = 3000;
 
     var i = 1,
     clone_roll = roll_size[0];
@@ -250,7 +245,7 @@ const global_menu = [
 
 <style lang="scss">
     header {
-        border-bottom:1px solid #ddd;
+        border-bottom:1px solid #f5f5f5;
         position:relative;
         .inner {
             max-width:1320px;
@@ -299,9 +294,6 @@ const global_menu = [
                 height:40px;
                 font-weight:600;
                 overflow:hidden;
-                // ol {
-                //     transition:all 0.3s ease-out;
-                // }
                 li > * {
                     padding:11px 0;
                     line-height:18px;
@@ -342,42 +334,172 @@ const global_menu = [
                 display:flex;
                 ul {
                     display:flex;
+                    &.quick {
+                        li {
+                            position:relative;
+                            & + li:before {
+                                height:10px;
+                                border-left:1px solid #eee;
+                                content:'';
+                                position:absolute;
+                                top:50%;
+                                left:0;
+                                display:block;
+                                transform:translateY(-50%);
+                            }
+                        }
+                        a {
+                            padding:4px 16px;
+                            color:#666;
+                            font-size:12px;
+                            display:block;
+                        }
+                    }
+                    &.icon_menu {
+                        font-size:0;
+                        li {
+                            margin-left:12px;
+                        }
+                        li > * {
+                            width:24px;
+                            height:24px;
+                            background-image:url('/_nuxt/assets/images/common/icon_split.png');
+                            background-repeat:no-repeat;
+                            background-size:250px auto;
+                            position:relative;
+                            display:block;
+                            &.wish {
+                                background-position:-110px -30px;
+                            }
+                            &.mypage {
+                                background-position:-140px -30px;
+                            }
+                            &.delivery {
+                                background-position:-170px -30px;
+                            }
+                            &.cart {
+                                background-position:-200px -30px;
+                                em {
+                                    width:17px;
+                                    height:17px;
+                                    color:#fff;
+                                    font-size:10px;
+                                    font-weight:600;
+                                    background-color:#00BC70;
+                                    border-radius:50%;
+                                    position:absolute;
+                                    right:-5px;
+                                    bottom:-5px;
+                                    display:flex;
+                                    align-items:center;
+                                    justify-content:center;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
         .gnb_wrap {
-            max-width:1320px;
-            margin:0 auto;
-            padding:0 20px;
-            display:flex;
-            align-items:center;
-            & > ul, nav > ul {
-                position:relative;
-                z-index:1;
+            border:1px solid #f5f5f5;
+            border-right:0;
+            border-left:0;
+            .inner {
+                max-width:1320px;
+                margin:0 auto;
+                padding:0 20px;
                 display:flex;
-            }
-            .quick {
-                margin-left:auto;
-            }
-            .navCategory {
-                padding-top:40px;
-                overflow:hidden;
-                position:absolute;
-                top:calc(100% - 40px); //button height
-                right:0;
-                left:0;
-                display:none;
-                transition:height 0.28s ease-out;
-                &.show {
-                    display:block;
-                }
-                nav {
-                    max-width:1320px;
-                    margin:0 auto;
-                    padding:0 20px;
+                align-items:center;
+                & > ul, nav > ul {
+                    position:relative;
+                    z-index:1;
                     display:flex;
-                    gap:40px;
-                }               
+                }
+                .btn_category {
+                    width:140px;
+                    height:auto;
+                    padding:18px 0 19px;
+                    background-color:transparent;
+                    em {
+                        padding-right:0;
+                        padding-left:34px;
+                        color:#000;
+                        font-size:16px;
+                        font-weight:600;
+                        position:relative;
+                        &:before, &:after {
+                            border-top:2px solid #000;
+                            content:'';
+                            position:absolute;
+                            top:5px;
+                            left:4px;
+                            display:block;
+                        }
+                        &:before {
+                            width:16px;
+                            height:12px;
+                            border-bottom:2px solid #000;
+                            border-right:0;
+                            border-left:0;
+                        }
+                        &:after {
+                            width:16px;
+                            margin-top:-1px;
+                            border-top:2px solid #000;
+                            top:50%;
+                        }
+                    }
+                    &.active {
+                        padding:18px 31px 18px 20px;
+                        border:1px solid #eee;
+                        border-top:0;
+                        border-bottom:0;
+                        box-shadow:3px 3px 3px rgba(0,0,0,0.4);
+                        em:before, em:after {
+                            border-color:#00BC70;
+                        }
+                    }
+                }
+                .quick {
+                    margin-left:auto;
+                }
+                .navGnb {
+                    padding-left:28px;
+                    li {
+                        height:58px;
+                        padding:0 4px;
+                        display:flex;
+                        align-items:center;
+                    }
+                    a {
+                        padding:0 8px;
+                        font-size:16px;
+                        font-weight:600;
+                        position:relative;
+                        display:block;
+                    }
+                }
+                .navCategory {
+                    padding-top:60px;
+                    overflow:hidden;
+                    position:absolute;
+                    top:100%; //button height
+                    right:0;
+                    left:0;
+                    display:none;
+                    transition:height 0.28s ease-out;
+                    &.show {
+                        display:block;
+                    }
+                    nav {
+                        max-width:1320px;
+                        margin:0 auto;
+                        padding:0 20px;
+                        background-color:#fff;
+                        display:flex;
+                        gap:40px;
+                    }               
+                }
             }
         }
     }
