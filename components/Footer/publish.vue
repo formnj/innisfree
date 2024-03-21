@@ -1,8 +1,9 @@
 <template>
-  <footer class="mo">
+  <footer :class="props.device">
     <div class="inner">
       <a href="#none"><img src="../../assets/images/footer/Wordmark.png" alt=""></a>
-      <div class="mo_cont_footer" v-if="props.device == 'MO'" style="border:1px solid red">
+      <!-- mobile -->
+      <div class="cont_footer" v-if="props.device == 'MO'">
         <span>
           본 사이트와 앱의 모든 정보, 콘텐츠, UI등에 대한 무단 복제, 전송, 배포<br/>
           스크래핑 등의 행위는 관련 법령에 의하여 엄격히 금지됩니다.<br/>
@@ -16,7 +17,9 @@
           <li><a href="#none">고객센터 : 080-380-0114 (수신자요금부담)</a></li>
         </ul>
       </div>
-      <div class="pc_cont_footer">
+      <!-- //mobile -->
+      <!-- pc -->
+      <div class="cont_footer" v-if="props.device == 'PC'">
         <ul>
           <li>
             <span>서울특별시 용산구 한강대로 100(한강로2가) 7층 이니스프리</span>
@@ -59,6 +62,7 @@
           </dd>
         </dl>
       </div>
+      <!-- //pc -->
       <div class="footer_common">
         <ul>
           <li class="mo"><a href="#none">이용약관</a></li>
@@ -116,7 +120,7 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 footer {
-  &.pc {
+  &.PC {
     .inner {
       max-width:1280px;
       margin:0 auto;
@@ -131,10 +135,7 @@ footer {
           width:100%;
         } 
       }
-      > .mo_cont_footer {
-        display:none;
-      }
-      > .pc_cont_footer {
+      > .cont_footer {
         font-size:12px;
         position:relative;
        
@@ -326,7 +327,7 @@ footer {
 
 
   /* 모바일 footer */
-  &.mo {
+  &.MO {
     background-color:#F5F5F5;
     .inner {
       padding:40px 21px;
@@ -338,7 +339,7 @@ footer {
           width:100%;
         }
       }
-      > .mo_cont_footer {
+      > .cont_footer {
         margin-top:20px;
         padding-bottom:30px;
         > span {
@@ -365,9 +366,6 @@ footer {
               border-radius:1px;
           }
         }
-      }
-      > .pc_cont_footer {
-        display:none;
       }
       > .footer_common {
         padding-top:30px;
