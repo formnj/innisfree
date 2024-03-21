@@ -2,7 +2,7 @@
   <footer class="pc">
     <div class="inner">
       <a href="#none"><img src="../../assets/images/footer/Wordmark.png" alt=""></a>
-      <div class="mo_cont_footer">
+      <div class="mo_cont_footer" v-if="props.device == 'MO'" style="border:1px solid red">
         <span>
           본 사이트와 앱의 모든 정보, 콘텐츠, UI등에 대한 무단 복제, 전송, 배포<br/>
           스크래핑 등의 행위는 관련 법령에 의하여 엄격히 금지됩니다.<br/>
@@ -107,7 +107,11 @@
 </template>
 
 <script setup>
-
+const props = defineProps({
+  device: {
+    type: String
+  }
+});
 </script>
 
 <style lang="scss" scoped>

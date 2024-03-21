@@ -161,8 +161,6 @@ onMounted(() => {
             i++;
 
             if(i == (roll_size.length+1)){
-                console.log('asdfasdf')
-
                 keyword_pos.addEventListener('transitionend', () => {
                     keyword_pos.removeAttribute('style');
                 }, {once: true});
