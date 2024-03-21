@@ -1,5 +1,5 @@
 <template>
-  <footer class="pc">
+  <footer class="mo">
     <div class="inner">
       <a href="#none"><img src="../../assets/images/footer/Wordmark.png" alt=""></a>
       <div class="mo_cont_footer">
