@@ -2,6 +2,7 @@
     <HeaderPublish />
     <div id="container">
         <router-view></router-view>
+        <CategorylistPublish />
         <ActionbarPublish />
     </div>
     <FooterPublish />

@@ -16,16 +16,9 @@ onMounted(()=>{
   let preScrollTop = 0;
   window.addEventListener('scroll', () => {
       let nextScrollTop = window.scrollY;
-      console.log('preScrollTop : ', preScrollTop)
-      console.log('nextScrollTop :', nextScrollTop)
       let actionbar = document.querySelector('.action_bar')
-      console.log(actionbar)
       if (preScrollTop < nextScrollTop) {
         actionbar.style.bottom = -((actionbar.offsetHeight)+40) + 'px'
-        console.log(actionbar.offsetHeight)
-          // $('.action_bar').css({
-          //     bottom: -($('.action_bar').height())
-          // });
       }
       else { // (preScrollTop > nextScrollTop)
         actionbar.removeAttribute('style');

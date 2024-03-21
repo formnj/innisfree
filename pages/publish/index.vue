@@ -9,5 +9,5 @@ definePageMeta({
 })
 </script>
 <style lang="scss">
-.main {height:1000px;}
+// .main {height:1000px;}
 </style>
