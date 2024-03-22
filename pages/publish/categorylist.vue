@@ -119,17 +119,4 @@ const sample_goods = [
 </script>
 
 <style lang="scss" scoped>
-.categorylist{  
-    &.pc{
-        .inner {
-            max-width:1280px;
-            margin:0 auto;
-            border:1px solid red;
-        }
-    } //pc
-    &.mo{
-
-    } //mo
-}
-
 </style>
