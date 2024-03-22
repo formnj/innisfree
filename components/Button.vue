@@ -46,6 +46,11 @@
     }
     &[class*='_txt'] {
         height:auto;
+        background-color:transparent;
+        em {
+            padding:0;
+            color:#000;
+        }
     }
 
     /* backgroun-color */
