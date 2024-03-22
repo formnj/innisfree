@@ -39,6 +39,11 @@ const page_arry = ([
         id:'main', status:'',
         type:'', note:'',
         sDate:'', eDate:''
+    }, {
+        depth:['categorylist','','',''],
+        id:'categorylist', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
     }
 ])
 

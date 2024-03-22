@@ -380,6 +380,7 @@ const modal = {
     &.MO{
        .inner {
         padding:20px 21px;
+
             .snb{
                 height:100%;
                 position:relative;
