@@ -470,10 +470,16 @@ const modal = {
                             display:none;
                             }
                         li {
-                            padding:20px 0;
                             margin-right:20px;
+                            padding:20px 0;
                             font-size:15px;
                             color:#999;
+                            letter-spacing: -0.01em;
+                            &.active {
+                                color:#000;
+                                font-weight:700;
+                                border-bottom:2px solid #000;
+                            }
                         }
 
                     }
