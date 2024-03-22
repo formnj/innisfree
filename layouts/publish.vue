@@ -4,7 +4,7 @@
     </p>
     <HeaderPublish />
     <div id="container">
-        <router-view></router-view>
+        <router-view :device="device"></router-view>
     </div>
     <FooterPublish :device="device" />
     <Actionbar :device="device"/>
@@ -24,4 +24,8 @@ const change_device = () => {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+#container {
+    padding-bottom:100px;
+}
+</style>

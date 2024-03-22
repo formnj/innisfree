@@ -2,10 +2,14 @@
   <div class="action_bar" v-if="props.device == 'MO'">
     <div class="inner">
       <a href="#"><img src="/_nuxt/assets/images/actionbar/Logo_Motion.png" alt=""></a>
-      <button><img src="/_nuxt/assets/images/actionbar/Category.png" alt=""></button>
-      <button><img src="/_nuxt/assets/images/actionbar/Best.png" alt=""></button>
-      <button class="mypage"><img src="/_nuxt/assets/images/actionbar/MyPage.png" alt=""></button>
-      <button><img src="/_nuxt/assets/images/actionbar/History.png" alt=""></button>
+      <div class="wrap">
+        <button><img src="/_nuxt/assets/images/actionbar/Category.png" alt=""></button>
+        <button class="best"><img src="/_nuxt/assets/images/actionbar/Best.png" alt=""></button>
+      </div>
+      <div class="wrap">
+        <button class="mypage"><img src="/_nuxt/assets/images/actionbar/MyPage.png" alt=""></button>
+        <button><img src="/_nuxt/assets/images/actionbar/History.png" alt=""></button>
+      </div>
     </div>
   </div>
 </template>
@@ -36,7 +40,7 @@ onMounted(()=>{
 
 <style lang="scss" scoped>
 .action_bar {
-    padding:10px 25px;
+  padding:10px 25px;
   background:#000;
   position:fixed;
   right:0;
@@ -46,12 +50,12 @@ onMounted(()=>{
   transition:bottom 0.25s;
     .inner {
       display:flex;
-      gap:40px;
+      justify-content:center;
+      gap:100px;
       > a {
         width:61px;
         height:61px;
         position:absolute;
-        border: 1px solid #fff;
         left:50%;
         top:-20px;
         display:block;
@@ -60,13 +64,18 @@ onMounted(()=>{
           width:100%;
         }
       }
-      > button {
-        width:32px;
-        height:32px;
-        display:block; 
-        color:#fff;
-        border: 1px solid #fff;
-        
+      .wrap {
+        display:flex;
+        gap:20px;
+        button {
+          width:32px;
+          height:32px;
+          display:block; 
+          color:#fff;
+          img{
+            width:100%;
+          }
+        }
       }
     }
   }
