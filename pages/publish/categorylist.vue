@@ -4,8 +4,8 @@
             <div class="cont_wrap">
                 <div class="title_wrap">
                     {{ props.device }}
-                    <strong v-if="props.device == 'PC'">에센스/세럼/앰플</strong>
-                    <span v-if="props.device == 'MO'">총 <strong>32</strong>건</span>
+                    <!-- <strong v-if="props.device == 'PC'">에센스/세럼/앰플</strong>
+                    <span v-if="props.device == 'MO'">총 <strong>32</strong>건</span> -->
                 </div>
                 <div class="pdtSortTab_wrap">
                     <button class="pdtSortTab" >추천순</button>
@@ -28,7 +28,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="paging" v-if="props.device == 'PC'">
+            <!-- <div class="paging" v-if="props.device == 'PC'"> -->
                 <div>
                     <a href="#none" class="first">처음으로</a>
                     <a href="#none">1</a>
@@ -38,7 +38,7 @@
                     <a href="#none">5</a>
                     <a href="#none" class="last">마지막으로</a>
                 </div>
-            </div>
+            <!-- </div> -->
         </div>
     </div>
     <!-- <div class="modal_wrap" id="sample_modal">

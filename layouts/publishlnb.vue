@@ -1,59 +1,56 @@
 <template>
-    <p style="display:flex;">
+    <p style="display:flex;" class="device_test">
         Device : <Button class="btn_small_outline" txt="PC" @click="change_device()" />
     </p>
-    <HeaderPublish />
-    <div id="container" :class="device">
-        <div class="inner">
-            <!-- lnb 입니다 -->
-            <div class="lnb">
-                <div class="lnb_header">
-                    <div class="headerAside">
-                        <button class="btn_back" v-if="props.device == 'MO'"></button>
-                        <button class="btnNav">스킨케어</button>
+    <div id="wrap" :class="device">
+        <HeaderPublish :device="device" />
+        <div id="container" :class="device">
+            <div class="inner">
+                <!-- lnb 입니다 -->
+                <div class="lnb">
+                    <div class="lnb_header">
+                        <div class="headerAside">
+                            <button class="btn_back" v-if="device == 'MO'"></button>
+                            <button class="btnNav">스킨케어</button>
+                        </div>
+                        <div class="myBox" v-if="device == 'MO'">
+                            <button class="btn_search"></button>
+                            <button class="btn_cart">
+                                <span class="count">0</span>
+                            </button>
+                        </div>
+                        <ul>
+                            <li><a href="#none" class="all">전체보기</a></li>
+                            <li><a href="#none">에센스/세럼/앰플</a></li>
+                            <li class="active"><a href="#none">로션/크림</a></li>
+                            <li><a href="#none">스킨/토너/미스트</a></li>
+                            <li><a href="#none">립/아이케어</a></li>
+                            <li><a href="#none">선케어</a></li>
+                            <li><a href="#none">오일/마사지</a></li>
+                            <li><a href="#none">클렌징</a></li>
+                            <li><a href="#none">팩/마스크</a></li>
+                            <li><a href="#none">기획 세트</a></li>
+                            <li><a href="#none">기타</a></li>
+                        </ul>
                     </div>
-                    <div class="myBox" v-if="props.device == 'MO'">
-                        <button class="btn_search"></button>
-                        <button class="btn_cart">
-                            <span class="count">0</span>
-                        </button>
-                    </div>
-                    <ul>
-                        <li><a href="#none" class="all">전체보기</a></li>
-                        <li><a href="#none">에센스/세럼/앰플</a></li>
-                        <li class="active"><a href="#none">로션/크림</a></li>
-                        <li><a href="#none">스킨/토너/미스트</a></li>
-                        <li><a href="#none">립/아이케어</a></li>
-                        <li><a href="#none">선케어</a></li>
-                        <li><a href="#none">오일/마사지</a></li>
-                        <li><a href="#none">클렌징</a></li>
-                        <li><a href="#none">팩/마스크</a></li>
-                        <li><a href="#none">기획 세트</a></li>
-                        <li><a href="#none">기타</a></li>
-                    </ul>
                 </div>
+                <!-- //lnb 입니다 -->
+                <!-- 컨텐츠 입니다 -->
+                <div class="content">
+                    <router-view :device="device"></router-view>
+                    {{ device }}
+                </div>
+                <!-- //컨텐츠 입니다 -->
             </div>
-            <!-- //lnb 입니다 -->
-            <!-- 컨텐츠 입니다 -->
-            <div class="content">
-                <slot :device="device" />
-            </div>
-            <!-- //컨텐츠 입니다 -->
         </div>
+        <FooterPublish :device="device" />
+        <Actionbar :device="device"/>
     </div>
-    <FooterPublish :device="device" />
-    <Actionbar :device="device"/>
 </template>
 
 <script setup>
+/* device check text : 개발 시 제거해주세요. */
 const device = ref('PC');
-const props = defineProps({
-  device: {
-    type: String
-  }
-});
-
-
 
 const change_device = () => {
     if(event.target.textContent == 'Mobile'){
@@ -64,6 +61,7 @@ const change_device = () => {
         device.value='MO';
     }
 }
+/* //device check text : 개발 시 제거해주세요. */
 </script>
 
 <style lang="scss">

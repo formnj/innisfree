@@ -5,7 +5,7 @@
     <div id="wrap" :class="device">
         <HeaderPublish :device="device" />
         <div id="container">
-            <router-view :device="device"></router-view>
+            <slot :device="device" />
         </div>
         <FooterPublish :device="device" />
         <Actionbar :device="device"/>
