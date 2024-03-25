@@ -1,16 +1,19 @@
 <template>
-    <p style="display:flex;">
+    <p style="display:flex;" class="device_test">
         Device : <Button class="btn_small_outline" txt="PC" @click="change_device()" />
     </p>
-    <HeaderPublish />
-    <div id="container">
-        <router-view :device="device"></router-view>
+    <div id="wrap" :class="device">
+        <HeaderPublish :device="device" />
+        <div id="container">
+            <router-view :device="device"></router-view>
+        </div>
+        <FooterPublish :device="device" />
+        <Actionbar :device="device"/>
     </div>
-    <FooterPublish :device="device" />
-    <Actionbar :device="device"/>
 </template>
 
 <script setup>
+/* device check text : 개발 시 제거해주세요. */
 const device = ref('PC');
 
 const change_device = () => {
@@ -22,9 +25,24 @@ const change_device = () => {
         device.value='MO';
     }
 }
+
+onMounted(()=>{
+    const topBanner = document.querySelector('.docTopBanner');
+    if(topBanner != undefined){
+        
+    }
+})
+/* //device check text : 개발 시 제거해주세요. */
 </script>
 
 <style lang="scss">
+#wrap {
+    &.MO {
+        width:768px;
+        margin:0 auto;
+    }
+}
+
 #container {
     padding-bottom:100px;
 }

@@ -1,3 +1,4 @@
+/* #wrap.mo : 모바일 스타일 */
 
 .lockbody {
     overflow:hidden;
@@ -37,6 +38,13 @@
         &:after {
             transform:rotate(-45deg);
         }
+    }
+}
+
+#wrap.MO {
+    .docTopBanner {
+        padding-right:21px;
+        justify-content:space-between;
     }
 }
 
