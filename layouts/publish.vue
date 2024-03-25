@@ -10,6 +10,7 @@
     <Actionbar :device="device"/>
 </template>
 
+
 <script setup>
 const device = ref('PC');
 
