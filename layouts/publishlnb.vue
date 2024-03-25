@@ -9,10 +9,10 @@
             <div class="lnb">
                 <div class="lnb_header">
                     <div class="headerAside">
-                        <button class="btn_back" v-if="props.device == 'MO'"></button>
+                        <button class="btn_back" v-if="device == 'MO'"></button>
                         <button class="btnNav">스킨케어</button>
                     </div>
-                    <div class="myBox" v-if="props.device == 'MO'">
+                    <div class="myBox" v-if="device == 'MO'">
                         <button class="btn_search"></button>
                         <button class="btn_cart">
                             <span class="count">0</span>
@@ -47,11 +47,6 @@
 
 <script setup>
 const device = ref('PC');
-const props = defineProps({
-  device: {
-    type: String
-  }
-});
 
 
 
@@ -70,12 +65,12 @@ const change_device = () => {
 #container{
     &.PC {
         .inner {
-        max-width:1280px;
-        margin:0 auto;
-        display:flex;
-        position:relative;
+            max-width:1280px;
+            margin:0 auto;
+            display:flex;
+            position:relative;
             .lnb {
-                width:200px;
+                min-width:200px;
                 margin: 60px 60px 0 0;
                 .lnb_header {
                     position:sticky;
@@ -140,7 +135,7 @@ const change_device = () => {
                 }
             }
         }
-    }
+    }//pc
     &.MO{
        .inner {
         padding:20px 21px;
@@ -249,6 +244,6 @@ const change_device = () => {
                 }
             }
         }
-    }
+    }//mo
 }
 </style>
