@@ -39,7 +39,7 @@ onMounted(()=>{
 <style lang="scss">
 #wrap {
     &.MO {
-        width:768px;
+        width:620px;
         margin:0 auto;
     }
 }
