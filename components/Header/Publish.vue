@@ -293,7 +293,6 @@ onMounted(() => {
     }, roll_timer);
     /* //keyword rolling */
     /* device check keyword_rolling clear : 개발 시 제거 */
-    console.log('publishg',document.querySelector('.device_test button'))
     document.querySelector('.device_test button').addEventListener('click',()=>{
         if(props.device == 'MO'){
             clearInterval(key_rolling);
