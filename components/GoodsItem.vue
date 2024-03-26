@@ -1,10 +1,12 @@
 <template>
-    <div class="goods_item" :class="item.status">
+    <div class="goods_item" :class=[item.status,props.device]>
         <div class="img_wrap">
             <a :href="props.link">
                 <span class="thumb">
+                    <em v-if="item.rang" class="rang">{{ item.rang }}</em>
                     <em><img :src="item.img" /></em>
                     <em v-if="item.overflip" class="overflip"><img :src="item.overflip" /></em>
+                    <em v-if="props.device == 'MO'"></em>
                 </span>
             </a>
             <ul class="btnIconBox">
@@ -30,7 +32,7 @@
                 <!-- //Hash -->
                 <p class="review_score">
                     4.8
-                    <em>2,655</em>
+                    <em>(2,655)</em>
                 </p>
             </div>
         </a>
@@ -43,7 +45,10 @@ const props = defineProps({
     link: {
         type: String,
         default: '#none'
-    }
+    },
+    device: {
+    type: String
+  }
 })
 </script>
 
@@ -83,6 +88,21 @@ const props = defineProps({
             height:320px;
             position:relative;
             display:block;
+            .rang {
+                width:32px;
+                height:32px;
+                color:#fff;
+                background: #000;
+                font-size:14px;
+                font-weight:600;
+                text-align:center;
+                line-height:32px;
+                position:absolute;
+                top:0;
+                left:0;
+                z-index:100;
+                display:inline-block;
+            }
             em {
                 position:absolute;
                 top:0;
@@ -158,7 +178,39 @@ const props = defineProps({
             }
         }
     }
-    .review_score {
+    .cont {
+        margin-top:20px;
+        >.cate {
+            margin-right:5px;
+            font-weight:600;
+        }
+        > strong {
+            color:#666;
+            font-size:14px;
+            font-weight:400;
+        }
+        > .price {
+            margin:10px 0 20px 0;
+            strong {
+                margin-right:10px;
+                font-size:20px;
+                font-weight:700; 
+            }
+            span {
+                margin-right:15px;
+                color:#ff0000;
+                font-size:20px;
+                font-weight:300; 
+            }
+            em {
+                color:#999e9c;
+                font-size:14px;
+                font-weight:300;
+                text-decoration:line-through;
+            }
+        }
+        .review_score {
+        margin-top:20px;
         color:#999e9c;
         font-size:12px;
         display:flex;
@@ -173,6 +225,10 @@ const props = defineProps({
             content:'';
             display:block;
         }
+        em {
+            margin-left:5px;
+        }
     }    
+    }
 }
 </style>
