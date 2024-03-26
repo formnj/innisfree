@@ -68,7 +68,7 @@
                 </ol>
             </div>
             <div class="quick_wrap">
-                <ul class="quick">
+                <ul class="quick" v-if="props.device == 'PC'">
                     <li>
                         <a href="#none">로그인</a>
                     </li>
@@ -292,6 +292,7 @@ onMounted(() => {
         }
     }, roll_timer);
     /* //keyword rolling */
+
     /* device check keyword_rolling clear : 개발 시 제거 */
     document.querySelector('.device_test button').addEventListener('click',()=>{
         if(props.device == 'MO'){
