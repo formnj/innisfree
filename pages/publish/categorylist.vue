@@ -99,7 +99,6 @@ const props = defineProps({
 
 const sample_goods = [
     {
-        // img:("/_nuxt/assets/images/sam/sam_goods_list_01.jpg"),
         rang : 1,
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
         overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
@@ -385,10 +384,7 @@ const modal = {
                     }
                 }
                 .list_wrap {
-                    width:100%;
                     .goods_list {
-                        width:100%;
-                        flex-wrap:wrap;
                         li {
                             width:25%
                         }
@@ -573,7 +569,6 @@ const modal = {
                 }
                 .list_wrap {
                     .goods_list {
-                        width:100%;
                         margin-left: -12px;
                         flex-wrap:wrap;
                         li {
