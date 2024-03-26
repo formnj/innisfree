@@ -30,11 +30,11 @@
             </div>
             <div class="sub_content">
                 <div class="cont_wrap">
-                    <div class="wrap">
+                    <div class="title_wrap">
                         <strong v-if="props.device == 'PC'">에센스/세럼/앰플</strong>
                         <span v-if="props.device == 'MO'">총 <strong>32</strong>건</span>
                     </div>
-                    <div class="wrap">
+                    <div class="pdtSortTab_wrap">
                         <button class="pdtSortTab" >추천순</button>
                         <ul>
                             <li><a href="#none" class="active">추천순</a></li>
@@ -275,7 +275,7 @@ const modal = {
                     margin:60px 0;
                     display:flex;
                     justify-content:space-between;
-                    .wrap {
+                    > div {
                         display:flex;
                         strong {
                             font-size:38px;
@@ -297,70 +297,69 @@ const modal = {
                                 
                             }
                         }
-                        &:has(.pdtSortTab) {
-                            position:relative
-                        }
-                        > button {
-                            padding:0 20px;
-                            font-weight:600;
-                            display:flex;
-                            align-items:center;
-                            &::after {
-                                content:'';
-                                width:16px;
-                                height:16px;
-                                margin-left:5px;
-                                display:inline-block;
-                            }
-                            &.pdtSortTab {
+                        &.pdtSortTab_wrap {
+                            position:relative;
+                                > button {
+                                padding:0 20px;
+                                font-weight:600;
+                                display:flex;
+                                align-items:center;
                                 &::after {
-                                    background-image: url('/_nuxt/assets/images/categorylist/arr_drop.png');
-                                    background-repeat: no-repeat;
-                                    background-size:contain;
+                                    content:'';
+                                    width:16px;
+                                    height:16px;
+                                    margin-left:5px;
+                                    display:inline-block;
                                 }
-                                & ~ button {
-                                position:relative;
+                                &.pdtSortTab {
                                     &::after {
-                                        background-image: url('/_nuxt/assets/images/categorylist/icon_fix_filter.png');
+                                        background-image: url('/_nuxt/assets/images/categorylist/arr_drop.png');
                                         background-repeat: no-repeat;
-                                        background-size:cover;
+                                        background-size:contain;
                                     }
-                                    &::before {
-                                        content:'';
-                                        width:1px;
-                                        height:30%;
-                                        background:#EEEEEE;
-                                        position:absolute;
-                                        top:50%;
-                                        left:0;
-                                        display:inline-block;
-                                        transform:translateY(-50%);
-                                    } 
-                                }
-                            }
-                            
-                        }
-                        > ul {
-                            width:170px;
-                            padding:10px 0;
-                            border:1px solid #aaa;
-                            background:#fff;
-                            position:absolute;
-                            left:-70px;
-                            top:45px;
-                            z-index:999;
-                            li {
-                                padding:10px 15px;
-                                a {
-                                    color:#888;
-                                    font-size:14px;
-                                    &.active {
-                                        color:#00BC70;
+                                    & ~ button {
+                                    position:relative;
+                                        &::after {
+                                            background-image: url('/_nuxt/assets/images/categorylist/icon_fix_filter.png');
+                                            background-repeat: no-repeat;
+                                            background-size:cover;
+                                        }
+                                        &::before {
+                                            content:'';
+                                            width:1px;
+                                            height:30%;
+                                            background:#EEEEEE;
+                                            position:absolute;
+                                            top:50%;
+                                            left:0;
+                                            display:inline-block;
+                                            transform:translateY(-50%);
+                                        } 
                                     }
                                 }
+                                
+                            }
+                            > ul {
+                                width:170px;
+                                padding:10px 0;
+                                border:1px solid #aaa;
+                                background:#fff;
+                                position:absolute;
+                                left:-70px;
+                                top:45px;
+                                z-index:999;
+                                li {
+                                    padding:10px 15px;
+                                    a {
+                                        color:#888;
+                                        font-size:14px;
+                                        &.active {
+                                            color:#00BC70;
+                                        }
+                                    }
+                                }
                             }
                         }
-
                     }
                 }
                 .list_wrap {
@@ -373,6 +372,7 @@ const modal = {
                         }
                     }
                 }
+               
             }
 
         }
@@ -493,18 +493,8 @@ const modal = {
                     display:flex; 
                     align-items:center;
                     justify-content:space-between;
-                    .wrap:has(.pdtSortTab){
+                    .pdtSortTab_wrap{
                         display:flex;
-                        > ul {
-                            display:none;
-                        }
-                    }
-                    .wrap {
-                        span {
-                            strong {
-                                color:#00BC70;
-                            }
-                        }
                         > button {
                             // padding:0 20px;
                             font-weight:600;
@@ -546,6 +536,17 @@ const modal = {
                             }
                             
                         }
+                        > ul {
+                            display:none;
+                        }
+                    }
+                    > div {
+                        span {
+                            strong {
+                                color:#00BC70;
+                            }
+                        }
+                        
                     }
                 }
                 .list_wrap {
