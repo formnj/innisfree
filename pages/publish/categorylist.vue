@@ -35,7 +35,7 @@
                         <span v-if="props.device == 'MO'">총 <strong>32</strong>건</span>
                     </div>
                     <div class="pdtSortTab_wrap">
-                        <button class="pdtSortTab" @click="Drop_Down()" >추천순</button>
+                        <button class="pdtSortTab" @click="Drop_Down()">추천순</button>
                         <ul>
                             <li><a href="#none" class="active">추천순</a></li>
                             <li><a href="#none">신제품순</a></li>
@@ -98,44 +98,10 @@ const props = defineProps({
 });
 
 
-/* test */
+onMounted(()=>{
+    /* test */
 
-// console.log(document.querySelector('.pdtSortTab'))
-// let btn = document.querySelector('.pdtSortTab');
-// console.log(btn)
-// let tarGetAll = document.querySelectorAll('.pdtSortTab_wrap ul');
-
-
-//     btn.addEventListener('click',function(){
-//         let tarGet = this.nextElementSibling;
-//         tarGet.style.height = 'auto';
-//         let _He = tarGet.clientHeight;
-//         tarGet.style.height = '0';
-
-//         if(el.classList.contains('active')){
-//             tarGet.style.height = _He +'px';
-//             setTimeout(function() {
-//                 tarGet.style.height = '0';
-//             }, 0);
-//         } else {
-//             setTimeout(function() {
-//                 tarGet.style.height = _He +'px';
-//             }, 0);
-//         }
-
-//         btn.forEach(sEl => {
-//             if(sEl !== el){
-//                 if(sEl.classList.contains('active')){
-//                     sEl.click();
-//                 }
-//             }
-//         });
-
-//         el.classList.toggle("active");
-//     })
-
-
-
+})
 
 
 const sample_goods = [
@@ -259,15 +225,31 @@ const modal = {
 }
 
 
+
+
+
+
+
 const Drop_Down = () => {
     let selet = document.querySelector('.pdtSortTab_wrap ul');
     selet.classList.toggle('active')
     if(selet.classList.contains('active')){
-        console.log(selet.clientHeight)
-        selet.style.height = '270px';
-        // console.log(selet.clientHeight) + 'px'
+        selet.style.display = 'block';
+        console.log('if01',selet.clientHeight)
+        let c_H = selet.clientHeight;
+        selet.style.height = '0px';
+        selet.style.border = "1px solid #aaa";
+        setTimeout(()=>{
+            selet.style.height = c_H + 'px';
+        },0);
     }else {
-        selet.style.height = '0px'
+        console.log('else')
+        selet.style.height = '0px';
+        
+        selet.addEventListener('transitionend',()=>{
+            selet.removeAttribute('style');
+        },{once: true})
+
     }
 }
 </script>
@@ -419,14 +401,14 @@ const Drop_Down = () => {
                             }
                             > ul {
                                 width:170px;
-                                height:0px;
-                                border:1px solid #888;
+                                border:1px solid #AAAAAA;
                                 background:#fff;
                                 position:absolute;
                                 left:-70px;
                                 top:45px;
                                 z-index:999;
                                 overflow:hidden;
+                                display:none;
                                 transition:all 0.2s;
                                 li {
                                     padding:10px 15px;
@@ -618,31 +600,19 @@ const Drop_Down = () => {
                         }
                         > ul {
                             width:170px;
-                            height:0;
-                            padding:0;
                             background:#fff;
                             position:absolute;
                             right:80px;
                             top:25px;
                             z-index:100;
+                            display:none;
+                            overflow:hidden;
                             transition: all 0.2s;
-                            &.active {
-                                height:272px;
-                                padding:10px 0;
-                                border:1px solid #aaa;
-                                li {
-                                    a {
-                                        opacity:1;
-                                    }
-                                }
-                            }
                             li {
                                 padding:10px 15px;
                                 a {
                                     color:#888;
                                     font-size:14px;
-                                    opacity:0;
-                                    transition:all 0.1s;
                                     &.active {
                                         color:#00BC70;
                                     }
