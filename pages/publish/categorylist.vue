@@ -35,7 +35,7 @@
                         <span v-if="props.device == 'MO'">총 <strong>32</strong>건</span>
                     </div>
                     <div class="pdtSortTab_wrap">
-                        <button class="pdtSortTab" >추천순</button>
+                        <button class="pdtSortTab" @click="Drop_Down()" >추천순</button>
                         <ul>
                             <li><a href="#none" class="active">추천순</a></li>
                             <li><a href="#none">신제품순</a></li>
@@ -96,6 +96,47 @@ const props = defineProps({
     type: String
   }
 });
+
+
+/* test */
+
+// console.log(document.querySelector('.pdtSortTab'))
+// let btn = document.querySelector('.pdtSortTab');
+// console.log(btn)
+// let tarGetAll = document.querySelectorAll('.pdtSortTab_wrap ul');
+
+
+//     btn.addEventListener('click',function(){
+//         let tarGet = this.nextElementSibling;
+//         tarGet.style.height = 'auto';
+//         let _He = tarGet.clientHeight;
+//         tarGet.style.height = '0';
+
+//         if(el.classList.contains('active')){
+//             tarGet.style.height = _He +'px';
+//             setTimeout(function() {
+//                 tarGet.style.height = '0';
+//             }, 0);
+//         } else {
+//             setTimeout(function() {
+//                 tarGet.style.height = _He +'px';
+//             }, 0);
+//         }
+
+//         btn.forEach(sEl => {
+//             if(sEl !== el){
+//                 if(sEl.classList.contains('active')){
+//                     sEl.click();
+//                 }
+//             }
+//         });
+
+//         el.classList.toggle("active");
+//     })
+
+
+
+
 
 const sample_goods = [
     {
@@ -215,10 +256,26 @@ const modal = {
         e.preventDefault();
     }
 }
+
+
+const Drop_Down = () => {
+    let selet = document.querySelector('.pdtSortTab_wrap ul');
+    selet.classList.toggle('active')
+    if(selet.classList.contains('active')){
+        console.log(selet.clientHeight)
+        selet.style.height = '270px';
+        // console.log(selet.clientHeight) + 'px'
+    }else {
+        selet.style.height = '0px'
+    }
+}
 </script>
 
 <style lang="scss" scoped>
 .categorylist{  
+    * {
+        box-sizing:border-box;
+    }
     &.PC{
         .inner {
         max-width:1280px;
@@ -357,23 +414,25 @@ const modal = {
                                             transform:translateY(-50%);
                                         } 
                                     }
-                                }
-                                
+                                }    
                             }
                             > ul {
                                 width:170px;
-                                padding:10px 0;
-                                border:1px solid #aaa;
+                                height:0px;
+                                border:1px solid #888;
                                 background:#fff;
                                 position:absolute;
                                 left:-70px;
                                 top:45px;
                                 z-index:999;
+                                overflow:hidden;
+                                transition:all 0.2s;
                                 li {
                                     padding:10px 15px;
                                     a {
                                         color:#888;
                                         font-size:14px;
+                                        transition:all 0.1s;
                                         &.active {
                                             color:#00BC70;
                                         }
@@ -514,7 +573,6 @@ const modal = {
                     .pdtSortTab_wrap{
                         display:flex;
                         > button {
-                            // padding:0 20px;
                             font-weight:600;
                             display:flex;
                             align-items:center;
@@ -555,8 +613,39 @@ const modal = {
                             
                         }
                         > ul {
-                            display:none;
+                            width:170px;
+                            height:0;
+                            padding:0;
+                            background:#fff;
+                            position:absolute;
+                            right:80px;
+                            top:25px;
+                            z-index:100;
+                            transition: all 0.2s;
+                            &.active {
+                                height:272px;
+                                padding:10px 0;
+                                border:1px solid #aaa;
+                                li {
+                                    a {
+                                        opacity:1;
+                                    }
+                                }
+                            }
+                            li {
+                                padding:10px 15px;
+                                a {
+                                    color:#888;
+                                    font-size:14px;
+                                    opacity:0;
+                                    transition:all 0.1s;
+                                    &.active {
+                                        color:#00BC70;
+                                    }
+                                }
+                            }
                         }
+
                     }
                     > div {
                         span {

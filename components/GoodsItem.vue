@@ -95,7 +95,7 @@ const props = defineProps({
                 position:absolute;
                 top:0;
                 left:0;
-                z-index:100;
+                z-index:80;
                 display:inline-block;
             }
             em {

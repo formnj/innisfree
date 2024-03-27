@@ -2,11 +2,11 @@
   <div class="action_bar" v-if="props.device == 'MO'">
     <div class="inner">
       <a href="#"><img src="/_nuxt/assets/images/actionbar/Logo_Motion.png" alt=""></a>
-      <div class="wrap">
+      <div>
         <button><img src="/_nuxt/assets/images/actionbar/Category.png" alt=""></button>
         <button class="best"><img src="/_nuxt/assets/images/actionbar/Best.png" alt=""></button>
       </div>
-      <div class="wrap">
+      <div>
         <button class="mypage"><img src="/_nuxt/assets/images/actionbar/MyPage.png" alt=""></button>
         <button><img src="/_nuxt/assets/images/actionbar/History.png" alt=""></button>
       </div>
@@ -29,7 +29,7 @@ onMounted(()=>{
       if (preScrollTop < nextScrollTop) {
         actionbar.style.bottom = -((actionbar.offsetHeight)+40) + 'px'
       }
-      else { // (preScrollTop > nextScrollTop)
+      else {
         actionbar.removeAttribute('style');
       }
       preScrollTop = nextScrollTop;
@@ -64,7 +64,7 @@ onMounted(()=>{
           width:100%;
         }
       }
-      .wrap {
+      > div {
         display:flex;
         gap:20px;
         button {
