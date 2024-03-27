@@ -40,6 +40,7 @@ onMounted(()=>{
 #wrap {
     &.MO {
         width:620px;
+        max-width:100%;
         margin:0 auto;
     }
 }

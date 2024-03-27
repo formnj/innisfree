@@ -1019,59 +1019,14 @@ const keyword_del_all = (e) => {
             margin:6px -21px 0;
             overflow:hidden;
             .inner {
-                max-width:1320px;
-                margin:0 auto;
+                padding:0 13px;
+                overflow:auto;
                 display:flex;
                 align-items:center;
                 & > ul, nav > ul {
                     position:relative;
                     z-index:1;
                     display:flex;
-                }
-                .btn_category {
-                    width:140px;
-                    height:auto;
-                    padding:18px 0 19px;
-                    background-color:transparent;
-                    em {
-                        padding-right:0;
-                        padding-left:34px;
-                        color:#000;
-                        font-size:16px;
-                        font-weight:600;
-                        position:relative;
-                        &:before, &:after {
-                            border-top:2px solid #000;
-                            content:'';
-                            position:absolute;
-                            top:5px;
-                            left:4px;
-                            display:block;
-                        }
-                        &:before {
-                            width:16px;
-                            height:12px;
-                            border-bottom:2px solid #000;
-                            border-right:0;
-                            border-left:0;
-                        }
-                        &:after {
-                            width:16px;
-                            margin-top:-1px;
-                            border-top:2px solid #000;
-                            top:50%;
-                        }
-                    }
-                    &.active {
-                        padding:18px 31px 18px 20px;
-                        border:1px solid #eee;
-                        border-top:0;
-                        border-bottom:0;
-                        box-shadow:3px 3px 3px rgba(0,0,0,0.4);
-                        em:before, em:after {
-                            border-color:#00BC70;
-                        }
-                    }
                 }
                 .quick {
                     margin-left:auto;

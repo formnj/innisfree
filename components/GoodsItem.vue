@@ -1,12 +1,10 @@
 <template>
-    <div class="goods_item" :class=[item.status,props.device]>
+    <div class="goods_item" :class="item.status">
         <div class="img_wrap">
             <a :href="props.link">
                 <span class="thumb">
-                    <em v-if="item.rang" class="rang">{{ item.rang }}</em>
                     <em><img :src="item.img" /></em>
                     <em v-if="item.overflip" class="overflip"><img :src="item.overflip" /></em>
-                    <em v-if="props.device == 'MO'"></em>
                 </span>
             </a>
             <ul class="btnIconBox">
@@ -45,10 +43,7 @@ const props = defineProps({
     link: {
         type: String,
         default: '#none'
-    },
-    device: {
-    type: String
-  }
+    }
 })
 </script>
 
