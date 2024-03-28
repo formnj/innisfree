@@ -14,7 +14,7 @@
                 <!-- search layer -->
                 <div class="search_layer">
                     <div class="search">
-                        <Button txt="닫기" class="sam_close" />
+                        <Button txt="닫기" class="sam_close" v-if="props.device == 'MO'" />
                         <div>
                             <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
                             <Button class="btn_search" />
