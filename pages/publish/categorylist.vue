@@ -98,51 +98,6 @@ const props = defineProps({
 });
 
 
-<<<<<<< HEAD
-onMounted(()=>{
-    /* test */
-=======
-/* test */
-onMounted(()=>{
-    let btn = document.querySelector('.pdtSortTab');
-    console.log(btn)
-})
-// let tarGetAll = document.querySelectorAll('.pdtSortTab_wrap ul');
-
-
-//     btn.addEventListener('click',function(){
-//         let tarGet = this.nextElementSibling;
-//         tarGet.style.height = 'auto';
-//         let _He = tarGet.clientHeight;
-//         tarGet.style.height = '0';
-
-//         if(el.classList.contains('active')){
-//             tarGet.style.height = _He +'px';
-//             setTimeout(function() {
-//                 tarGet.style.height = '0';
-//             }, 0);
-//         } else {
-//             setTimeout(function() {
-//                 tarGet.style.height = _He +'px';
-//             }, 0);
-//         }
-
-//         btn.forEach(sEl => {
-//             if(sEl !== el){
-//                 if(sEl.classList.contains('active')){
-//                     sEl.click();
-//                 }
-//             }
-//         });
-
-//         el.classList.toggle("active");
-//     })
-
-
->>>>>>> a1fe3bc126ddd7c22aa671850821443f008a4436
-
-})
-
 
 const sample_goods = [
     {
