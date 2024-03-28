@@ -14,7 +14,7 @@
                 <!-- search layer -->
                 <div class="search_layer">
                     <div class="search">
-                        <Button txt="닫기" class="sam_close" v-if="props.device == 'MO'" />
+                        <Button txt="닫기" class="sam_close" @click="search_close" v-if="props.device == 'MO'" />
                         <div>
                             <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
                             <Button class="btn_search" />
@@ -338,13 +338,6 @@ onMounted(() => {
     })
     /* //device check keyword_rolling clear */
 
-    /* mo search 닫기(임시) */
-    document.querySelector('.sam_close').addEventListener('click',(e)=>{
-        e.target.closest('.search_layer').classList.remove('active');
-    });
-    /* //mo search 닫기(임시) */
-    /* //개발 시 제거 */
-
     /* header search layer : PC */
     document.querySelector('.search_wrap > .search input').addEventListener('focus', (e)=>{
         document.querySelector('.search_layer').classList.add('active');
@@ -381,6 +374,10 @@ const keyword_del_all = (e) => {
             key_cnt.value = document.querySelector('.latest').childElementCount;
         }
     }
+}
+
+const search_close = (e) => {
+    e.target.closest('.search_layer').classList.remove('active')
 }
 </script>
 
