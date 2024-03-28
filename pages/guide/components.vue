@@ -124,7 +124,7 @@
     &lt;div class="modal_container"&gt;
         &lt;div class="modal_header"&gt;
             &lt;h2&gt;Modal Title&lt;/h2&gt;
-            &lt;button class="btn_close" @click="modal.close(this);"&gt;닫기&lt;/button&gt;
+            &lt;Button class="btn_close" txt="닫기" @click="modal.close(this);" /&gt;
         &lt;/div&gt;
         &lt;div class="modal_content"&gt;
             &lt;div&gt; Sample Modal &lt;/div&gt;
@@ -143,7 +143,7 @@
         <div class="modal_container">
             <div class="modal_header">
                 <h2>Modal Title</h2>
-                <button class="btn_close" @click="modal.close(this);">닫기</button>
+                <Button class="btn_close" txt="닫기" @click="modal.close(this);" />
             </div>
             <div class="modal_content">
                 <div>Sample Modal</div>
