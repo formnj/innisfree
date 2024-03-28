@@ -121,7 +121,7 @@
         </div>
         <div class="gnb_wrap">
             <div class="inner">
-                <Button class="btn_category" txt="카테고리" v-if="props.device == 'PC'" />
+                <Button class="btn_category" txt="카테고리" @mouseover="cate_layer.open" v-if="props.device == 'PC'" />
                 <nav class="navGnb">
                     <ul>
                         <li>
@@ -167,19 +167,20 @@
                         <a href="#none">마이샵</a>
                     </li>
                 </ul>
+            </div>
 
-                <div class="navCategory">
-                    <nav>
-                        <dl v-for="(item,idx) in global_menu" :key="idx">
-                            <dt>
-                                <a :href="item.link">{{ item.menu }}</a>
-                            </dt>
-                            <dd v-for="(item,idx) in item.sub_menu" :key="idx">
-                                <a :href="item.link">{{ item.menu }}</a>
-                            </dd>
-                        </dl>
-                    </nav>            
-                </div>
+            <div class="navCategory" @mouseout="cate_layer.close">
+                <nav>
+                    <Button class="btn_category" txt="카테고리" />
+                    <dl v-for="(item,idx) in global_menu" :key="idx">
+                        <dt>
+                            <a :href="item.link">{{ item.menu }}</a>
+                        </dt>
+                        <dd v-for="(item,idx) in item.sub_menu" :key="idx">
+                            <a :href="item.link">{{ item.menu }}</a>
+                        </dd>
+                    </dl>
+                </nav>            
             </div>
         </div>
     </header>
@@ -378,6 +379,15 @@ const keyword_del_all = (e) => {
 
 const search_close = (e) => {
     e.target.closest('.search_layer').classList.remove('active')
+}
+
+/* category layer */
+const cate_layer = {
+    open: () => {
+        document.querySelector('.navCategory').classList.add('active');
+    }, close: () => {
+        document.querySelector('.navCategory').classList.remove('active');
+    }
 }
 </script>
 
@@ -773,26 +783,32 @@ const search_close = (e) => {
                         }
                     }
                 }
-                .navCategory {
-                    padding-top:60px;
-                    overflow:hidden;
+            }
+            .navCategory {
+                position:absolute;
+                top:100%; //button height
+                right:0;
+                left:0;
+                z-index:1;
+                display:none;
+                transition:height 0.28s ease-out;
+                &.active {
+                    display:block;
+                }
+                nav {
+                    max-width:1320px;
+                    margin:0 auto;
+                    padding:0 20px;
+                    background-color:#fff;
+                    position:relative;
+                    display:flex;
+                    gap:40px;
+                }
+                .btn_category {
                     position:absolute;
-                    top:100%; //button height
-                    right:0;
+                    top:0;
                     left:0;
-                    display:none;
-                    transition:height 0.28s ease-out;
-                    &.show {
-                        display:block;
-                    }
-                    nav {
-                        max-width:1320px;
-                        margin:0 auto;
-                        padding:0 20px;
-                        background-color:#fff;
-                        display:flex;
-                        gap:40px;
-                    }               
+                    transform:translateY(-100%);
                 }
             }
         }
@@ -1139,27 +1155,26 @@ const search_close = (e) => {
                         display:block;
                     }
                 }
-                .navCategory {
-                    padding-top:60px;
-                    overflow:hidden;
-                    position:absolute;
-                    top:100%; //button height
-                    right:0;
-                    left:0;
-                    display:none;
-                    transition:height 0.28s ease-out;
-                    &.show {
-                        display:block;
-                    }
-                    nav {
-                        max-width:1320px;
-                        margin:0 auto;
-                        padding:0 20px;
-                        background-color:#fff;
-                        display:flex;
-                        gap:40px;
-                    }               
+            }
+            .navCategory {
+                position:absolute;
+                top:100%; //button height
+                right:0;
+                left:0;
+                z-index:1;
+                display:none;
+                transition:height 0.28s ease-out;
+                &.active {
+                    display:block;
                 }
+                nav {
+                    max-width:1320px;
+                    margin:0 auto;
+                    padding:0 20px;
+                    background-color:#fff;
+                    display:flex;
+                    gap:40px;
+                }               
             }
         }
     }
