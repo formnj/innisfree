@@ -1,5 +1,5 @@
 <template>
-  <div class="action_bar" v-if="props.device == 'MO'">
+  <div class="action_bar">
     <div class="inner">
       <a href="#"><img src="/_nuxt/assets/images/actionbar/Logo_Motion.png" alt=""></a>
       <div>

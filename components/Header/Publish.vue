@@ -14,8 +14,27 @@
                 <!-- search layer -->
                 <div class="search_layer">
                     <div class="search">
-                        <Inputs />
-                        <Button class="btn_search" />
+                        <Button txt="닫기" class="sam_close" />
+                        <div>
+                            <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
+                            <Button class="btn_search" />
+                        </div>
+                        <ul class="icon_menu" v-if="props.device == 'MO'">
+                            <li v-if="props.device=='PC'">
+                                <a href="#none" class="wish">관심상품</a>
+                            </li>
+                            <li v-if="props.device=='PC'">
+                                <a href="#none" class="mypage">마이페이지</a>
+                            </li>
+                            <li v-if="props.device=='PC'">
+                                <a href="#none" class="delivery">배송조회</a>
+                            </li>
+                            <li>
+                                <a href="#none" class="cart">장바구니
+                                    <em>5</em>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                     <section>
                         <strong>최근 검색어
@@ -293,7 +312,8 @@ onMounted(() => {
     }, roll_timer);
     /* //keyword rolling */
 
-    /* device check keyword_rolling clear : 개발 시 제거 */
+    /* 개발 시 제거 */
+    /* device check keyword_rolling clear */
     document.querySelector('.device_test button').addEventListener('click',()=>{
         if(props.device == 'MO'){
             clearInterval(key_rolling);
@@ -316,16 +336,32 @@ onMounted(() => {
             }, roll_timer);
         }
     })
-    /* //device check keyword_rolling clear : 개발 시 제거 */
+    /* //device check keyword_rolling clear */
 
-    /* header search layer */
+    /* mo search 닫기(임시) */
+    document.querySelector('.sam_close').addEventListener('click',(e)=>{
+        e.target.closest('.search_layer').classList.remove('active');
+    });
+    /* //mo search 닫기(임시) */
+    /* //개발 시 제거 */
+
+    /* header search layer : PC */
     document.querySelector('.search_wrap > .search input').addEventListener('focus', (e)=>{
         document.querySelector('.search_layer').classList.add('active');
         document.querySelector('.search_layer .input input').focus();
     });
 
     document.querySelector('.search_layer').addEventListener('mouseleave', (e)=>{
-        document.querySelector('.search_layer').classList.remove('active');
+        if(props.device == 'PC') {
+            document.querySelector('.search_layer').classList.remove('active');
+        }
+    });
+
+    /* header search layer : MO */
+    document.querySelector('.btn_search').addEventListener('click',()=>{
+        if(props.device == 'MO') {
+            document.querySelector('.search_layer').classList.add('active');
+        }
     });
 });
 
@@ -435,6 +471,12 @@ const keyword_del_all = (e) => {
                     border:0;
                     border-bottom:1px solid #ddd;
                     border-radius:0;
+                    display:block;
+                    & > div {
+                        display:flex;
+                        align-items:center;
+                        flex:1;
+                    }
                 }
                 section {
                     padding:28px;
@@ -639,11 +681,6 @@ const keyword_del_all = (e) => {
             border-right:0;
             border-left:0;
             .inner {
-                max-width:1320px;
-                margin:0 auto;
-                padding:0 20px;
-                display:flex;
-                align-items:center;
                 & > ul, nav > ul {
                     position:relative;
                     z-index:1;
@@ -767,7 +804,7 @@ const keyword_del_all = (e) => {
 
 #wrap.MO {
     header {
-        padding:10px 21px;
+        padding:10px 21px 0;
         position:relative;
         .inner {
             display:flex;
@@ -778,6 +815,37 @@ const keyword_del_all = (e) => {
                     display:block;
                     img {
                         height:16px;
+                    }
+                }
+            }
+            .icon_menu {
+                font-size:0;
+                li > * {
+                    width:32px;
+                    height:32px;
+                    background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+                    background-repeat:no-repeat;
+                    background-size:250px auto;
+                    position:relative;
+                    display:block;
+                    &.cart {
+                        background-position:-40px 0;
+                        em {
+                            height:17px;
+                            padding:0 5px;
+                            color:#fff;
+                            font-size:10px;
+                            font-weight:600;
+                            line-height:17px;
+                            background-color:#000;
+                            border-radius:100px;
+                            position:absolute;
+                            right:-5px;
+                            bottom:-5px;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                        }
                     }
                 }
             }
@@ -793,8 +861,8 @@ const keyword_del_all = (e) => {
                         height:32px;
                         font-size:0;
                         background-color:transparent;
-                        background-image:url("/_nuxt/assets/images/common/icon_split.png");
-                        background-position:0 -30px;
+                        background-image:url("/_nuxt/assets/mo_images/common/icon_split.png");
+                        background-position:0 0;
                         background-repeat:no-repeat;
                         background-size:250px auto;
                         position:relative;
@@ -802,10 +870,12 @@ const keyword_del_all = (e) => {
                 }
             }
             .search_layer {
+                background-color:#fff;
                 overflow:hidden;
-                position:absolute;
-                top:-1px;
+                position:fixed;
+                top:0;
                 right:0;
+                bottom:0;
                 left:0;
                 z-index:10;
                 display:none;
@@ -827,9 +897,52 @@ const keyword_del_all = (e) => {
                     }
                 }
                 .search {
+                    padding:10px 16px 10px 21px;
                     border:0;
                     border-bottom:1px solid #ddd;
                     border-radius:0;
+                    display:flex;
+                    & > div {
+                        border:1px solid #000;
+                        border-radius:5px;
+                        overflow:hidden;
+                        display:flex;
+                        align-items:center;
+                        flex:1;
+                    }
+                    .input {
+                        input {
+                            padding-right:5px;
+                            font-size:13px;
+                            border:0;
+                        }
+                        i {
+                            font-size:13px;
+                        }
+                    }
+                    .btn_search {
+                        width:24px;
+                        height:24px;
+                        margin-right:10px;
+                        background-color:transparent;
+                        background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+                        background-position:0 -40px;
+                        background-repeat:no-repeat;
+                        background-size:250px auto;
+                        display:block;
+                        em {
+                            padding:0;
+                            font-size:0;
+                        }
+                    }
+                    .icon_menu {
+                        margin-left:10px;
+                        display:flex;
+                        align-items:center;
+                        li + li {
+                            margin-left:10px;
+                        }
+                    }
                 }
                 section {
                     padding:28px;
@@ -982,35 +1095,6 @@ const keyword_del_all = (e) => {
                     }
                     &.icon_menu {
                         margin-right:5px;
-                        font-size:0;
-                        li > * {
-                            width:32px;
-                            height:32px;
-                            background-image:url('/_nuxt/assets/images/common/icon_split.png');
-                            background-repeat:no-repeat;
-                            background-size:250px auto;
-                            position:relative;
-                            display:block;
-                            &.cart {
-                                background-position:-200px -30px;
-                                em {
-                                    height:17px;
-                                    padding:0 5px;
-                                    color:#fff;
-                                    font-size:10px;
-                                    font-weight:600;
-                                    line-height:17px;
-                                    background-color:#000;
-                                    border-radius:100px;
-                                    position:absolute;
-                                    right:-5px;
-                                    bottom:-5px;
-                                    display:flex;
-                                    align-items:center;
-                                    justify-content:center;
-                                }
-                            }
-                        }
                     }
                 }
             }

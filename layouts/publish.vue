@@ -1,5 +1,5 @@
 <template>
-    <p style="display:flex;" class="device_test">
+    <p style="background-color:#fff; position:fixed; top:0; left:0; z-index:9; display:flex;" class="device_test">
         Device : <Button class="btn_small_outline" txt="PC" @click="change_device()" />
     </p>
     <div id="wrap" :class="device">
@@ -8,7 +8,7 @@
             <slot :device="device" />
         </div>
         <FooterPublish :device="device" />
-        <Actionbar :device="device"/>
+        <Actionbar v-if="device == 'MO'"/>
     </div>
 </template>
 
@@ -39,13 +39,16 @@ onMounted(()=>{
 <style lang="scss">
 #wrap {
     &.MO {
-        width:620px;
+        min-height:100vh;
         max-width:100%;
         margin:0 auto;
+        position:relative;
+        display:flex;
+        flex-direction:column;
     }
 }
 
 #container {
-    padding-bottom:100px;
+    flex:1 auto;
 }
 </style>

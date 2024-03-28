@@ -99,10 +99,10 @@ const props = defineProps({
 
 
 /* test */
-
-// console.log(document.querySelector('.pdtSortTab'))
-// let btn = document.querySelector('.pdtSortTab');
-// console.log(btn)
+onMounted(()=>{
+    let btn = document.querySelector('.pdtSortTab');
+    console.log(btn)
+})
 // let tarGetAll = document.querySelectorAll('.pdtSortTab_wrap ul');
 
 
