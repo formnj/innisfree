@@ -1,9 +1,8 @@
 <template>
-    <div class="goods_item" :class=item.status>
+    <div class="goods_item" :class="item.status">
         <div class="img_wrap">
             <a :href="props.link">
                 <span class="thumb">
-                    <em v-if="item.rang" class="rang">{{ item.rang }}</em>
                     <em><img :src="item.img" /></em>
                     <em v-if="item.overflip" class="overflip"><img :src="item.overflip" /></em>
                 </span>
@@ -44,10 +43,7 @@ const props = defineProps({
     link: {
         type: String,
         default: '#none'
-    },
-    device: {
-    type: String
-  }
+    }
 })
 </script>
 
@@ -87,21 +83,6 @@ const props = defineProps({
             height:320px;
             position:relative;
             display:block;
-            .rang {
-                width:32px;
-                height:32px;
-                color:#fff;
-                background: #000;
-                font-size:14px;
-                font-weight:600;
-                text-align:center;
-                line-height:32px;
-                position:absolute;
-                top:0;
-                left:0;
-                z-index:80;
-                display:inline-block;
-            }
             em {
                 position:absolute;
                 top:0;
@@ -209,25 +190,25 @@ const props = defineProps({
             }
         }
         .review_score {
-        margin-top:20px;
-        color:#999e9c;
-        font-size:12px;
-        display:flex;
-        align-items:center;
-        &:before {
-            width:12px;
-            height:12px;
-            margin-right:2px;
-            background-image:url('/_nuxt/assets/images/common/icon_split.png');
-            background-position:-400px 0;
-            background-repeat:no-repeat;
-            content:'';
-            display:block;
-        }
-        em {
-            margin-left:5px;
-        }
-    }    
+            margin-top:20px;
+            color:#999e9c;
+            font-size:12px;
+            display:flex;
+            align-items:center;
+            &:before {
+                width:12px;
+                height:12px;
+                margin-right:2px;
+                background-image:url('/_nuxt/assets/images/common/icon_split.png');
+                background-position:-400px 0;
+                background-repeat:no-repeat;
+                content:'';
+                display:block;
+            }
+            em {
+                margin-left:5px;
+            }
+        }    
     }
 }
 </style>

@@ -14,8 +14,27 @@
                 <!-- search layer -->
                 <div class="search_layer">
                     <div class="search">
-                        <Inputs />
-                        <Button class="btn_search" />
+                        <Button txt="닫기" class="sam_close" v-if="props.device == 'MO'" />
+                        <div>
+                            <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
+                            <Button class="btn_search" />
+                        </div>
+                        <ul class="icon_menu" v-if="props.device == 'MO'">
+                            <li v-if="props.device=='PC'">
+                                <a href="#none" class="wish">관심상품</a>
+                            </li>
+                            <li v-if="props.device=='PC'">
+                                <a href="#none" class="mypage">마이페이지</a>
+                            </li>
+                            <li v-if="props.device=='PC'">
+                                <a href="#none" class="delivery">배송조회</a>
+                            </li>
+                            <li>
+                                <a href="#none" class="cart">장바구니
+                                    <em>5</em>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                     <section>
                         <strong>최근 검색어
@@ -51,7 +70,7 @@
                 </div>
                 <!-- //search layer -->
             </div>
-            <div class="keyword_wrap">
+            <div class="keyword_wrap" v-if="props.device == 'PC'">
                 <ol>
                     <li>
                         <a href="#none" class="up"><em>1.</em>Keyword Up</a>
@@ -68,7 +87,7 @@
                 </ol>
             </div>
             <div class="quick_wrap">
-                <ul class="quick">
+                <ul class="quick" v-if="props.device == 'PC'">
                     <li>
                         <a href="#none">로그인</a>
                     </li>
@@ -83,13 +102,13 @@
                     </li>
                 </ul>
                 <ul class="icon_menu">
-                    <li>
+                    <li v-if="props.device=='PC'">
                         <a href="#none" class="wish">관심상품</a>
                     </li>
-                    <li>
+                    <li v-if="props.device=='PC'">
                         <a href="#none" class="mypage">마이페이지</a>
                     </li>
-                    <li>
+                    <li v-if="props.device=='PC'">
                         <a href="#none" class="delivery">배송조회</a>
                     </li>
                     <li>
@@ -102,7 +121,7 @@
         </div>
         <div class="gnb_wrap">
             <div class="inner">
-                <Button class="btn_category" txt="카테고리" />
+                <Button class="btn_category" txt="카테고리" v-if="props.device == 'PC'" />
                 <nav class="navGnb">
                     <ul>
                         <li>
@@ -131,7 +150,7 @@
                         </li>
                     </ul>
                 </nav>
-                <ul class="quick">
+                <ul class="quick" v-if="props.device == 'PC'">
                     <li>
                         <a href="#none">신규가입혜택</a>
                     </li>
@@ -167,6 +186,13 @@
 </template>
 
 <script setup>
+/* check device 개발적용 시 제거 */
+const props = defineProps({
+  device: {
+    type: String
+  }
+});
+
 /* sample data */
 const global_menu = [
     {
@@ -286,14 +312,56 @@ onMounted(() => {
     }, roll_timer);
     /* //keyword rolling */
 
-    /* header search layer */
+    /* 개발 시 제거 */
+    /* device check keyword_rolling clear */
+    document.querySelector('.device_test button').addEventListener('click',()=>{
+        if(props.device == 'MO'){
+            clearInterval(key_rolling);
+        } else {
+            var keyword_pos = document.querySelector('.keyword_wrap ol');
+
+            key_rolling = setInterval(() => {
+                keyword_pos.style.cssText='transform:translateY(-'+(i*40)+'px); transition:all 0.35s ease-in;'
+
+                if(i < (roll_size.length+1)){
+                    i++;
+
+                    if(i == (roll_size.length+1)){
+                        keyword_pos.addEventListener('transitionend', () => {
+                            keyword_pos.removeAttribute('style');
+                        }, {once: true});
+                        i = 1;
+                    }
+                }
+            }, roll_timer);
+        }
+    })
+    /* //device check keyword_rolling clear */
+
+    /* mo search 닫기(임시) */
+    document.querySelector('.sam_close').addEventListener('click',(e)=>{
+        e.target.closest('.search_layer').classList.remove('active');
+    });
+    /* //mo search 닫기(임시) */
+    /* //개발 시 제거 */
+
+    /* header search layer : PC */
     document.querySelector('.search_wrap > .search input').addEventListener('focus', (e)=>{
         document.querySelector('.search_layer').classList.add('active');
         document.querySelector('.search_layer .input input').focus();
     });
 
     document.querySelector('.search_layer').addEventListener('mouseleave', (e)=>{
-        document.querySelector('.search_layer').classList.remove('active');
+        if(props.device == 'PC') {
+            document.querySelector('.search_layer').classList.remove('active');
+        }
+    });
+
+    /* header search layer : MO */
+    document.querySelector('.btn_search').addEventListener('click',()=>{
+        if(props.device == 'MO') {
+            document.querySelector('.search_layer').classList.add('active');
+        }
     });
 });
 
@@ -317,6 +385,7 @@ const keyword_del_all = (e) => {
 </script>
 
 <style lang="scss">
+#wrap.PC {
     header {
         border-bottom:1px solid #f5f5f5;
         position:relative;
@@ -402,6 +471,12 @@ const keyword_del_all = (e) => {
                     border:0;
                     border-bottom:1px solid #ddd;
                     border-radius:0;
+                    display:block;
+                    & > div {
+                        display:flex;
+                        align-items:center;
+                        flex:1;
+                    }
                 }
                 section {
                     padding:28px;
@@ -585,11 +660,12 @@ const keyword_del_all = (e) => {
                                     color:#fff;
                                     font-size:10px;
                                     font-weight:600;
+                                    line-height:17px;
                                     background-color:#00BC70;
                                     border-radius:50%;
                                     position:absolute;
                                     right:-5px;
-                                    bottom:-5px;
+                                    bottom:-2px;
                                     display:flex;
                                     align-items:center;
                                     justify-content:center;
@@ -605,11 +681,6 @@ const keyword_del_all = (e) => {
             border-right:0;
             border-left:0;
             .inner {
-                max-width:1320px;
-                margin:0 auto;
-                padding:0 20px;
-                display:flex;
-                align-items:center;
                 & > ul, nav > ul {
                     position:relative;
                     z-index:1;
@@ -729,4 +800,371 @@ const keyword_del_all = (e) => {
             }
         }
     }
+}
+
+#wrap.MO {
+    header {
+        padding:10px 21px 0;
+        position:relative;
+        .inner {
+            display:flex;
+            align-items:center;
+            flex-wrap:wrap;
+            h1 {
+                a {
+                    display:block;
+                    img {
+                        height:16px;
+                    }
+                }
+            }
+            .icon_menu {
+                font-size:0;
+                li > * {
+                    width:32px;
+                    height:32px;
+                    background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+                    background-repeat:no-repeat;
+                    background-size:250px auto;
+                    position:relative;
+                    display:block;
+                    &.cart {
+                        background-position:-40px 0;
+                        em {
+                            height:17px;
+                            padding:0 5px;
+                            color:#fff;
+                            font-size:10px;
+                            font-weight:600;
+                            line-height:17px;
+                            background-color:#000;
+                            border-radius:100px;
+                            position:absolute;
+                            right:-5px;
+                            bottom:-5px;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                        }
+                    }
+                }
+            }
+            .search_wrap {
+                margin-left:auto;
+                position:relative;
+                & > .search {
+                    .label_wrap {
+                        display:none;
+                    }
+                    .btn_search {
+                        width:32px;
+                        height:32px;
+                        font-size:0;
+                        background-color:transparent;
+                        background-image:url("/_nuxt/assets/mo_images/common/icon_split.png");
+                        background-position:0 0;
+                        background-repeat:no-repeat;
+                        background-size:250px auto;
+                        position:relative;
+                    }
+                }
+            }
+            .search_layer {
+                background-color:#fff;
+                overflow:hidden;
+                position:fixed;
+                top:0;
+                right:0;
+                bottom:0;
+                left:0;
+                z-index:10;
+                display:none;
+                &.active {
+                    display:block;
+                }
+                strong {
+                    margin-bottom:20px;
+                    font-size:16px;
+                    font-weight:600;
+                    position:relative;
+                    display:flex;
+                    justify-content:space-between;
+                    .btn_txt {
+                        em {
+                            color:#999;
+                            font-size:12px;
+                        }
+                    }
+                }
+                .search {
+                    padding:10px 16px 10px 21px;
+                    border:0;
+                    border-bottom:1px solid #ddd;
+                    border-radius:0;
+                    display:flex;
+                    & > div {
+                        border:1px solid #000;
+                        border-radius:5px;
+                        overflow:hidden;
+                        display:flex;
+                        align-items:center;
+                        flex:1;
+                    }
+                    .input {
+                        input {
+                            padding-right:5px;
+                            font-size:13px;
+                            border:0;
+                        }
+                        i {
+                            font-size:13px;
+                        }
+                    }
+                    .btn_search {
+                        width:24px;
+                        height:24px;
+                        margin-right:10px;
+                        background-color:transparent;
+                        background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+                        background-position:0 -40px;
+                        background-repeat:no-repeat;
+                        background-size:250px auto;
+                        display:block;
+                        em {
+                            padding:0;
+                            font-size:0;
+                        }
+                    }
+                    .icon_menu {
+                        margin-left:10px;
+                        display:flex;
+                        align-items:center;
+                        li + li {
+                            margin-left:10px;
+                        }
+                    }
+                }
+                section {
+                    padding:28px;
+                    & + section:before {
+                        border-top:1px solid #eee;
+                        content:'';
+                        display:block;
+                        transform:translateY(-28px);
+                    }
+                    ul {
+                        display:flex;
+                        flex-wrap:wrap;
+                        &.latest {
+                            margin-top:-10px;
+                            margin-left:-5px;
+                            li:not(.no_data) {
+                                margin-top:10px;
+                                margin-left:5px;
+                                padding:0 15px;
+                                border:1px solid #ddd;
+                                border-radius:100px;
+                                div {
+                                    display:flex;
+                                    align-items:center;
+                                }
+                            }
+                            li.no_data {
+                                width:100%;
+                                padding:50px 10px;
+                                color:#999;
+                                text-align:center;
+                            }
+                            a {
+                                padding:7px 0;
+                                color:#333;
+                                font-size:14px;
+                                font-weight:400;
+                                display:block;
+                            }
+                            .btn_del {
+                                width:12px;
+                                height:12px;
+                                margin-top:1px;
+                                margin-left:10px;
+                                background-color:transparent;
+                                position:relative;
+                                &:before, &:after {
+                                    width:10px;
+                                    margin-top:5px;
+                                    margin-left:1px;
+                                    border-top:1px solid #999;
+                                    content:'';
+                                    position:absolute;
+                                    top:0;
+                                    left:0;
+                                    display:block;
+                                }
+                                &:before {
+                                    transform:rotate(45deg);
+                                }
+                                &:after {
+                                    transform:rotate(135deg);
+                                }
+                                em {
+                                    padding:0;
+                                    font-size:0;
+                                }
+                            }
+                        }
+                        &.category {
+                            margin-top:-14px;
+                            margin-left:-14px;
+                            li {
+                                width:20%;
+                                padding-top:14px;
+                                padding-left:14px;
+                                p {
+                                    margin-top:8px;
+                                    color:#888;
+                                    font-size:12px;
+                                    font-weight:400;
+                                    text-align:center;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .keyword_wrap {
+                height:40px;
+                font-weight:600;
+                overflow:hidden;
+                li > * {
+                    padding:11px 0;
+                    line-height:18px;
+                    display:flex;
+                    align-items:center;
+                        em {
+                            width:22px;
+                            margin-right:5px;
+                            font-size:13px;
+                            text-align:center;
+                        }
+                    &:after {
+                        width:12px;
+                        height:12px;
+                        margin-left:10px;
+                        background-image:url('/_nuxt/assets/images/common/icon_split.png');
+                        background-position:-20px -60px;
+                        background-repeat:no-repeat;
+                        background-size:250px auto;
+                        content:'';
+                        display:block;
+                    }
+                    &.up:after {
+                        background-position:0 -60px;
+                    }
+                    &.down:after {
+                        background-position:-40px -60px;
+                    }
+                    &.new:after {
+                        background-position:-60px -60px;
+                    }
+                }
+            }
+            .quick_wrap {
+                display:flex;
+                ul {
+                    display:flex;
+                    &.quick {
+                        li {
+                            position:relative;
+                            & + li:before {
+                                height:10px;
+                                border-left:1px solid #eee;
+                                content:'';
+                                position:absolute;
+                                top:50%;
+                                left:0;
+                                display:block;
+                                transform:translateY(-50%);
+                            }
+                        }
+                        a {
+                            padding:4px 16px;
+                            color:#666;
+                            font-size:12px;
+                            display:block;
+                        }
+                    }
+                    &.icon_menu {
+                        margin-right:5px;
+                    }
+                }
+            }
+        }
+        .gnb_wrap {
+            margin:6px -21px 0;
+            overflow:hidden;
+            .inner {
+                padding:0 13px;
+                overflow:auto;
+                display:flex;
+                align-items:center;
+                & > ul, nav > ul {
+                    position:relative;
+                    z-index:1;
+                    display:flex;
+                }
+                .quick {
+                    margin-left:auto;
+                    li + li {
+                        margin-left:6px;
+                    }
+                    a {
+                        padding:6px 12px;
+                        color:#666;
+                        font-size:12px;
+                        font-weight:600;
+                        border:1px solid #ddd;
+                        border-radius:100px;
+                        display:block;
+                    }
+                }
+                .navGnb {
+                    li {
+                        padding:0 2px;
+                        display:flex;
+                        align-items:center;
+                    }
+                    a {
+                        padding:15px 8px;
+                        font-size:14px;
+                        font-weight:400;
+                        white-space:nowrap;
+                        position:relative;
+                        display:block;
+                    }
+                }
+                .navCategory {
+                    padding-top:60px;
+                    overflow:hidden;
+                    position:absolute;
+                    top:100%; //button height
+                    right:0;
+                    left:0;
+                    display:none;
+                    transition:height 0.28s ease-out;
+                    &.show {
+                        display:block;
+                    }
+                    nav {
+                        max-width:1320px;
+                        margin:0 auto;
+                        padding:0 20px;
+                        background-color:#fff;
+                        display:flex;
+                        gap:40px;
+                    }               
+                }
+            }
+        }
+    }
+}
 </style>

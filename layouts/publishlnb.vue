@@ -1,5 +1,5 @@
 <template>
-    <p style="display:flex;">
+    <p style="display:flex;" class="device_test">
         Device : <Button class="btn_small_outline" txt="PC" @click="change_device()" />
     </p>
     <HeaderPublish />
@@ -32,23 +32,23 @@
                         <li><a href="#none">기타</a></li>
                     </ul>
                 </div>
+                <!-- //lnb 입니다 -->
+                <!-- 컨텐츠 입니다 -->
+                <div class="content">
+                    <router-view :device="device"></router-view>
+                    {{ device }}
+                </div>
+                <!-- //컨텐츠 입니다 -->
             </div>
-            <!-- //lnb 입니다 -->
-            <!-- 컨텐츠 입니다 -->
-            <div class="content">
-                <slot :device="device" />
-            </div>
-            <!-- //컨텐츠 입니다 -->
         </div>
+        <FooterPublish :device="device" />
+        <Actionbar :device="device"/>
     </div>
-    <FooterPublish :device="device" />
-    <Actionbar :device="device"/>
 </template>
 
 <script setup>
+/* device check text : 개발 시 제거해주세요. */
 const device = ref('PC');
-
-
 
 const change_device = () => {
     if(event.target.textContent == 'Mobile'){
@@ -59,6 +59,7 @@ const change_device = () => {
         device.value='MO';
     }
 }
+/* //device check text : 개발 시 제거해주세요. */
 </script>
 
 <style lang="scss">
