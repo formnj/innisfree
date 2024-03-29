@@ -850,6 +850,7 @@ const cate_layer = {
                 }
             }
             .navCategory {
+                background-color:#fff;
                 position:absolute;
                 top:100%; //button height
                 right:0;
@@ -879,12 +880,41 @@ const cate_layer = {
                 }
                 .btn_category {
                     height:60px;
+                    padding:0 10px 0 30px;
+                    border:1px solid #eee;
+                    border-bottom:0;
+                    background-color:#fff;
                     position:absolute;
-                    top:10px;
+                    top:0;
                     left:0;
                     transform:translateY(-100%);
                     em {
-                        border:1px solid #fff;
+                        padding-left:34px;
+                        color:#000;
+                        font-size:16px;
+                        font-weight:600;
+                        position:relative;
+                        &:before, &:after {
+                            border-top:2px solid #00BC70;
+                            content:'';
+                            position:absolute;
+                            top:5px;
+                            left:4px;
+                            display:block;
+                        }
+                        &:before {
+                            width:16px;
+                            height:12px;
+                            border-bottom:2px solid #00BC70;
+                            border-right:0;
+                            border-left:0;
+                        }
+                        &:after {
+                            width:16px;
+                            margin-top:-1px;
+                            border-top:2px solid #00BC70;
+                            top:50%;
+                        }
                     }
                 }
             }
