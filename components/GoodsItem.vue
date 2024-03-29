@@ -15,9 +15,13 @@
         </div>
         <a :href="props.link">
             <div class="cont">
-                <em v-if="item.cate" class="cate">{{ item.cate }}</em>
-                <strong>{{ item.name }}</strong>
-                <p class="price">
+                <p class="name">
+                    <strong>
+                        <em v-if="item.cate" class="cate">{{ item.cate }}</em>
+                        {{ item.name }}
+                    </strong>
+                </p>
+                <p class="price" v-if="item.price">
                     <strong>{{ item.price }}</strong>
                     <span>{{ item.sale }}</span>
                     <em>{{ item.cost }}</em>
@@ -39,7 +43,7 @@
 
 <script setup>
 const props = defineProps({
-    item: Array,
+    item: {},
     link: {
         type: String,
         default: '#none'
@@ -160,14 +164,16 @@ const props = defineProps({
     }
     .cont {
         margin-top:20px;
-        >.cate {
+        .cate {
             margin-right:5px;
             font-weight:600;
         }
-        > strong {
-            color:#666;
-            font-size:14px;
-            font-weight:400;
+        .name {
+            strong {
+                color:#666;
+                font-size:14px;
+                font-weight:400;
+            }
         }
         > .price {
             margin:10px 0 20px 0;

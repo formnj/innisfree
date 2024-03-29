@@ -140,7 +140,6 @@ onMounted(()=>{
 
 const sample_goods = [
     {
-        rang : 1,
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
         overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
         cate:'BEST',
@@ -155,7 +154,6 @@ const sample_goods = [
         ],
         hash:['#스킨팩','#화장솜','#순면화장솜']
     }, {
-        rang : 2,
         img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
         overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
         cate:'NEW',
@@ -168,7 +166,6 @@ const sample_goods = [
             {txt:'첫구매전용', type:'type01'}
         ]
     }, {
-        rang : 3,
         img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
         overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
         cate:'NEW',
