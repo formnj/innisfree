@@ -169,17 +169,78 @@
                 </ul>
             </div>
 
-            <div class="navCategory" @mouseout="cate_layer.close">
+            <div class="navCategory" @mouseleave="cate_layer.close">
+                <!-- mo search -->
+                <div class="search" v-if="props.device == 'MO'">
+                    <Button txt="닫기" class="sam_close" @click="cate_layer.close" v-if="props.device == 'MO'" />
+                    <div>
+                        <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
+                        <Button class="btn_search" />
+                    </div>
+                    <ul class="icon_menu" v-if="props.device == 'MO'">
+                        <li v-if="props.device=='PC'">
+                            <a href="#none" class="wish">관심상품</a>
+                        </li>
+                        <li v-if="props.device=='PC'">
+                            <a href="#none" class="mypage">마이페이지</a>
+                        </li>
+                        <li v-if="props.device=='PC'">
+                            <a href="#none" class="delivery">배송조회</a>
+                        </li>
+                        <li>
+                            <a href="#none" class="cart">장바구니
+                                <em>5</em>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //mo search -->
+
+                <!-- mo banner -->
+                <div class="banner" v-if="props.device == 'MO'">
+                    <a href="#none">한정 기간 특가할인 / 사은품 증정 제품 모아보기</a>
+                </div>
+                <!-- //mo banner -->
+                
                 <nav>
-                    <Button class="btn_category" txt="카테고리" />
-                    <dl v-for="(item,idx) in global_menu" :key="idx">
-                        <dt>
-                            <a :href="item.link">{{ item.menu }}</a>
-                        </dt>
-                        <dd v-for="(item,idx) in item.sub_menu" :key="idx">
-                            <a :href="item.link">{{ item.menu }}</a>
-                        </dd>
-                    </dl>
+                    <div class="nav_wrap" v-if="props.device == 'PC'">
+                        <Button class="btn_category" txt="카테고리" />
+                        <dl v-for="(item,idx) in global_menu" :key="idx">
+                            <dt>
+                                <a :href="item.link">{{ item.menu }}</a>
+                            </dt>
+                            <dd>
+                                <ul>
+                                    <li v-for="(item,idx) in item.sub_menu" :key="idx">
+                                        <a :href="item.link">{{ item.menu }}</a>
+                                    </li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div class="nav_wrap" v-else>
+                        <ul>
+                            <li v-for="(item,idx) in global_menu" :key="idx">
+                                <a :href="item.link">{{ item.menu }}</a>
+                            </li>
+                        </ul>
+                        <div>
+                            <section v-for="(item,idx) in global_menu" :key="idx">
+                                <a href="#none">{{ item.menu }} 전체</a>
+                                <ul class="list">
+                                    <li v-for="(item,idx) in item.sub_menu" :key="idx">
+                                        <a :href="item.link">{{ item.menu }}</a>
+                                    </li>
+                                </ul>
+                                <ul class="goods" v-if="item.goods">
+                                    <li v-for="item in item.goods" :key="item">
+                                        <GoodsItem :item="item" />
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
                 </nav>            
             </div>
         </div>
@@ -208,6 +269,10 @@ const global_menu = [
             {link:'#none', menu:'오일/마사지'},
             {link:'#none', menu:'기획세트'},
             {link:'#none', menu:'기타'}
+        ],
+        goods: [
+            {img:'https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900', name: '포레스트 포맨 쉐이빙&클렌징 폼', cate:'BEST'},
+            {img:'https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900', name: '(스티븐해링턴)레티놀 시카 흔적 앰플 한정판 세트', cate:'NEW'}
         ]
     }, {
         link:'#none', menu:'메이크업',
@@ -785,6 +850,7 @@ const cate_layer = {
                 }
             }
             .navCategory {
+                background-color:#fff;
                 position:absolute;
                 top:100%; //button height
                 right:0;
@@ -803,12 +869,53 @@ const cate_layer = {
                     position:relative;
                     display:flex;
                     gap:40px;
+                    .nav_wrap {
+                        display:flex;
+                        dl {
+                            & + dl {
+                                margin-left:40px;
+                            }
+                        }
+                    }
                 }
                 .btn_category {
+                    height:60px;
+                    padding:0 10px 0 30px;
+                    border:1px solid #eee;
+                    border-bottom:0;
+                    background-color:#fff;
                     position:absolute;
                     top:0;
                     left:0;
                     transform:translateY(-100%);
+                    em {
+                        padding-left:34px;
+                        color:#000;
+                        font-size:16px;
+                        font-weight:600;
+                        position:relative;
+                        &:before, &:after {
+                            border-top:2px solid #00BC70;
+                            content:'';
+                            position:absolute;
+                            top:5px;
+                            left:4px;
+                            display:block;
+                        }
+                        &:before {
+                            width:16px;
+                            height:12px;
+                            border-bottom:2px solid #00BC70;
+                            border-right:0;
+                            border-left:0;
+                        }
+                        &:after {
+                            width:16px;
+                            margin-top:-1px;
+                            border-top:2px solid #00BC70;
+                            top:50%;
+                        }
+                    }
                 }
             }
         }
@@ -1157,23 +1264,218 @@ const cate_layer = {
                 }
             }
             .navCategory {
-                position:absolute;
-                top:100%; //button height
+                background-color:#fff;
+                overflow:hidden;
+                position:fixed;
+                top:0;
                 right:0;
+                bottom:0;
                 left:0;
-                z-index:1;
+                z-index:10;
                 display:none;
                 transition:height 0.28s ease-out;
                 &.active {
-                    display:block;
+                    display:flex;
+                    flex-direction:column;
+                }
+                .search {
+                    padding: 10px 16px 10px 21px;
+                    border: 0;
+                    border-bottom: 1px solid #ddd;
+                    border-radius: 0;
+                    display: flex;
+                    align-items:center;
+                    & > div {
+                        border: 1px solid #000;
+                        border-radius: 5px;
+                        overflow: hidden;
+                        display: flex;
+                        align-items: center;
+                        flex: 1;
+                    }
+                    .input {
+                        i, input {
+                            font-size:13px;
+                        }
+                        input {
+                            padding-right:5px;
+                            border:0;
+                        }
+                    }
+                    .btn_search {
+                        width: 24px;
+                        height: 24px;
+                        margin-right: 10px;
+                        background-color: transparent;
+                        background-image: url(/_nuxt/assets/mo_images/common/icon_split.png);
+                        background-position: 0 -40px;
+                        background-repeat: no-repeat;
+                        background-size: 250px auto;
+                        display: block;
+                    }
+                }
+                .icon_menu {
+                    font-size:0;
+                    li {
+                        margin-left:12px;
+                    }
+                    li > * {
+                        width: 32px;
+                        height: 32px;
+                        background-image: url('/_nuxt/assets/mo_images/common/icon_split.png');
+                        background-repeat: no-repeat;
+                        background-size: 250px auto;
+                        position: relative;
+                        display: block;
+                        &.wish {
+                            background-position:-110px -30px;
+                        }
+                        &.mypage {
+                            background-position:-140px -30px;
+                        }
+                        &.delivery {
+                            background-position:-170px -30px;
+                        }
+                        &.cart {
+                            background-position:-40px 0;
+                            em {
+                                height:17px;
+                                padding:0 5px;
+                                color:#fff;
+                                font-size:10px;
+                                font-weight:600;
+                                line-height:17px;
+                                background-color:#000;
+                                border-radius:100px;
+                                position:absolute;
+                                right:-5px;
+                                bottom:-5px;
+                                display:flex;
+                                align-items:center;
+                                justify-content:center;
+                            }
+                        }
+                    }
+                }
+                .banner {
+                    color:#fff;
+                    font-size:12px;
+                    font-weight:400;
+                    background-color:#000;
+                    a {
+                        padding:10px 21px;
+                        display:flex;
+                        justify-content:space-between;
+                        &:after {
+                            width:16px;
+                            height:16px;
+                            background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+                            background-position:-80px 0;
+                            background-repeat:no-repeat;
+                            background-size:250px auto;
+                            content:'';
+                            display:block;
+                        }
+                    }
                 }
                 nav {
-                    max-width:1320px;
-                    margin:0 auto;
-                    padding:0 20px;
-                    background-color:#fff;
-                    display:flex;
-                    gap:40px;
+                    overflow:hidden;
+                    flex:1;
+                    .nav_wrap {
+                        height:100%;
+                        display:flex;
+                        > ul {
+                            width:37.333333%;
+                            background-color:#F5F5F5;
+                            a {
+                                padding:16px 10px 16px 21px;
+                                color:#999;
+                                font-size:14px;
+                                font-weight:600;
+                                display:block;
+                            }
+                            .active {
+                                background-color:#fff;
+                                a {
+                                    color:#000;
+                                }
+                            }
+                        }
+                        > div {
+                            overflow:auto;
+                            flex:1;
+                            a {
+                                color:#000;
+                                font-size:14px;
+                                font-weight:400;
+                                padding:16px 21px;
+                                display:block;
+                            }
+                            section {
+                                > a {
+                                    font-weight:600;
+                                    display:flex;
+                                    &:after {
+                                        width:16px;
+                                        height:16px;
+                                        margin-left:10px;
+                                        background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+                                        background-position:-100px 0;
+                                        background-repeat:no-repeat;
+                                        background-size:250px auto;
+                                        content:'';
+                                        display:inline-block;
+                                    }
+                                }
+                                & + section:before {
+                                    margin-left:20px;
+                                    border-top:1px solid #eee;
+                                    content:'';
+                                    display:block;
+                                }
+                                .goods {
+                                    margin:20px 9px 20px -5px;
+                                    padding-left:21px;
+                                    display:flex;
+                                    li {
+                                        width:50%;
+                                        padding-left:5px;
+                                    }
+                                    .goods_item {
+                                        a {
+                                            padding:0;
+                                        }
+                                        .img_wrap {
+                                            .thumb {
+                                                height:auto;
+                                                padding-top:133%;
+                                            }
+                                        }
+                                        .btnIconBox {
+                                            display:none;
+                                        }
+                                        .cont {
+                                            margin-top:10px;
+                                            font-size:12px;
+                                            .name {
+                                                strong {
+                                                    color:#000;
+                                                    font-size:12px;
+                                                    overflow: hidden;
+                                                    display: -webkit-box;
+                                                    -webkit-box-orient: vertical;
+                                                    -webkit-line-clamp: 2;
+                                                }
+                                            }
+                                            .review_score {
+                                                display:none;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }               
             }
         }
