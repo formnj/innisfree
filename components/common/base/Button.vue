@@ -1,6 +1,7 @@
 <template>
-  <button class="btn_">
-    <em><slot /></em>
+  <button :class="[$attrs.class ? $attrs.class : 'btn_']">
+    <em v-if="!!$slots.default"><slot /></em>
+    <slot v-else />
   </button>
 </template>
 
@@ -37,6 +38,11 @@
   }
   &[class*='_txt'] {
     height: auto;
+    background-color: transparent;
+    em {
+      padding: 0;
+      color: #000;
+    }
   }
 
   /* backgroun-color */

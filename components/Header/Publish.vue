@@ -20,15 +20,6 @@
                             <Button class="btn_search" />
                         </div>
                         <ul class="icon_menu" v-if="props.device == 'MO'">
-                            <li v-if="props.device=='PC'">
-                                <a href="#none" class="wish">관심상품</a>
-                            </li>
-                            <li v-if="props.device=='PC'">
-                                <a href="#none" class="mypage">마이페이지</a>
-                            </li>
-                            <li v-if="props.device=='PC'">
-                                <a href="#none" class="delivery">배송조회</a>
-                            </li>
                             <li>
                                 <a href="#none" class="cart">장바구니
                                     <em>5</em>

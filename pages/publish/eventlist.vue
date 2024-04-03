@@ -1,7 +1,7 @@
 <template>
   <div class="eventlist">
     <div class="inner">
-      
+      Event list
     </div>
   </div>
 </template>

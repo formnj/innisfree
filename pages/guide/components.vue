@@ -109,22 +109,31 @@
     </section>
 
     <section>
+        <h2>Breadcrumb</h2>
+        <div class="design_box">
+            <Breadcrumb :item="sam_menu" />
+        </div>
+        <pre class="code_box"><code>&lt;Breadcrumb :item="Data" /&gt;</code></pre>
+    </section>
+
+    <section>
         <h2>Modal</h2>
         <ul class="explain">
-            <li>Open : modal.open(모달아이디, 타입);<br/> 타입 = full / alert</li>
+            <li>Open : modal.open(모달아이디, 타입);<br/> 타입 = full / alert / bottom : mobile 하단에서 올라오는 팝업</li>
             <li>Close : modal.close();</li>
         </ul>
         <div class="design_box">
             <div class="multi_form">
                 <Button txt="Modal full" @click="modal.open('sample_modal', 'full');" />
                 <Button txt="Modal alert" @click="modal.open('sample_modal', 'alert');" />
+                <Button txt="Modal bottom" @click="modal.open('sample_modal', 'bottom');" />
             </div>
         </div>
         <pre class="code_box"><code>&lt;div class="modal_wrap" id="sample_modal"&gt;
     &lt;div class="modal_container"&gt;
         &lt;div class="modal_header"&gt;
             &lt;h2&gt;Modal Title&lt;/h2&gt;
-            &lt;Button class="btn_close" txt="닫기" @click="modal.close(this);" /&gt;
+            &lt;button class="btn_close" @click="modal.close(this);"&gt;닫기&lt;/button&gt;
         &lt;/div&gt;
         &lt;div class="modal_content"&gt;
             &lt;div&gt; Sample Modal &lt;/div&gt;
@@ -143,7 +152,7 @@
         <div class="modal_container">
             <div class="modal_header">
                 <h2>Modal Title</h2>
-                <Button class="btn_close" txt="닫기" @click="modal.close(this);" />
+                <button class="btn_close" @click="modal.close(this);">닫기</button>
             </div>
             <div class="modal_content">
                 <div>Sample Modal</div>
@@ -209,6 +218,25 @@ const sample_goods = [
         img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
     }, {
         img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+    }
+]
+
+const sam_menu = [
+    {
+        depth01:'카테고리',
+        sub_depth:['카테고리','특가','이벤트','베스트','라이브','FOR ME','ABOUT','고객센터','마이페이지','공병수거 캠페인','멤버십']
+    },
+    {
+        depth01:'유형별',
+        sub_depth:['유형별','피부고민']
+    },
+    {
+        depth01:'스킨케어',
+        sub_depth:['스킨케어','메이크업','남성','헤어/바디/펫','기획 세트','미용소품']
+    },
+    {
+        depth01:'전체',
+        sub_depth:['전체','에센스/세럼/앰플','로션/크림','스킨/토너/미스트','립/아이케어','선케어','오일/마사지','클렌징','팩/마스크','기획 세트','기타']
     }
 ]
 /* //component sample data */
@@ -302,4 +330,10 @@ const modal = {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.breadcrumb {
+    .inner {
+        margin:0 !important;
+    }
+}
+</style>
