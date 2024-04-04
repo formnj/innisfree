@@ -21,7 +21,7 @@ interface ISelectProps {
 
 const props = defineProps<ISelectProps>()
 
-const isChange = ref(false)
+const isChange = ref<boolean>(false)
 const model = defineModel<string>()
 </script>
 

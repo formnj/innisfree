@@ -35,13 +35,13 @@ import { onMounted } from 'vue'
 
 const page_arry = ([
     {
-        depth:['main','','',''],
-        id:'main', status:'',
-        type:'', note:'',
+        depth:['홈','','',''],
+        id:'IN_MO_HOM_01_01', status:'',
+        type:'', note:'/pages/publish/index.vue',
         sDate:'', eDate:''
     }, {
-        depth:['categorylist','','',''],
-        id:'categorylist', status:'',
+        depth:['상품','목록','',''],
+        id:'IN_MO_PRD_01_01', status:'',
         type:'', note:'',
         sDate:'', eDate:''
     }
@@ -67,7 +67,7 @@ onMounted(() => {
             path = '/publish/'
         }
 
-        if(page_arry[i].depth[0] == 'main'){
+        if(page_arry[i].id == 'IN_MO_HOM_01_01'){
             link = path
         } else {
             link = path+page_arry[i].id
@@ -87,7 +87,7 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .ac {text-align:center;}
 h2 {margin:20px 20px 40px; font-size:24px; font-weight:700; text-align:center;}
 h2:after {clear:both; content:''; display:block;}
@@ -98,16 +98,16 @@ h2 .badge.modal:before {background-color:#0070ba;}
 h2 .badge.com:before {background-color:#ddeeff;}
 h2 .badge.ing:before {background-color:#fff4f4;}
 table {width:100%; border-spacing:0; border-collapse:collapse;}
-th, td {padding:8px 10px; font-size:12px;}
+::v-deep th, ::v-deep td {padding:8px 10px; font-size:12px;}
 thead {background-color:#fcfcfc; border-bottom:1px solid #222;}
-thead tr > * + *, td {border-left:1px solid #ddd;}
-th {background-color:#f2f3f5;}
-tr.row {border-top:2px solid #222;}
-td.com {background-color:#ddeeff;}
-td.ing {background-color:#fff4f4;}
-td {border-bottom:1px solid #ddd;}
-td a {font-weight:700; text-decoration:underline; display:block;}
-td a.modal {padding:4px 5px; color:#fff; font-weight:400; background-color:#0070ba; border:1px solid #0070ba; text-decoration:none; border-radius:4px;}
+thead tr > * + *, ::v-deep td {border-left:1px solid #ddd;}
+::v-deep th {background-color:#f2f3f5;}
+::v-deep tr.row {border-top:2px solid #222;}
+::v-deep td.com {background-color:#ddeeff;}
+::v-deep td.ing {background-color:#fff4f4;}
+::v-deep td {border-bottom:1px solid #ddd;}
+::v-deep td a {font-weight:700; text-decoration:underline; display:block;}
+::v-deep td a.modal {padding:4px 5px; color:#fff; font-weight:400; background-color:#0070ba; border:1px solid #0070ba; text-decoration:none; border-radius:4px;}
 
 .content section + section:before {margin:30px -20px; border-top:4px solid #F1F1F1; content:''; display:block;}
 </style>

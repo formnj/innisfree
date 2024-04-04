@@ -12,9 +12,7 @@
       <div class="flex flex-col items-center justify-center">
         <h1 class="text-2xl font-bold text-gray-800">Innisfree</h1>
         <div class="flex items-center py-2">
-          <span class="text-lg font-semibold text-gray-500 line-through mr-2"
-            >₩76,000</span
-          >
+          <span class="text-lg font-semibold text-gray-500 line-through mr-2">₩76,000</span>
           <span class="text-xl font-bold text-green-500">₩49,400</span>
         </div>
         <p class="text-sm text-gray-600">Vitamin C Green Tea Enzyme</p>
@@ -32,10 +30,14 @@
 <script setup lang="ts">
 // const { data: {value: { data: productsAndEvents } }} = await useFetch<any>('https://dev-inm-gateway.apddev.com/product/getProductsAndEvent')
 // console.log(productsAndEvents.value)
+const { innerDomain } = useRuntimeConfig()
+
+const url = `${innerDomain}/event/getEvents`
+
 const {
   data: {
     value: { data: eventList }
   }
-} = await useFetch<any>('https://dev-inm-gateway.apddev.com/event/getEvents')
+} = await useFetch<any>(url)
 </script>
 <style></style>

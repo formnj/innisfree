@@ -1,8 +1,8 @@
 <template>
   <div class="flex items-center justify-between p-4 border-b">
     <button class="p-2">☰</button>
-    <div>상품페이지</div>
-    <a href="/event/event-list">이벤트 페이지 SSR 이동</a>
+    <div>메인</div>
+    <nuxt-link to="/product/product-list">상품 페이지 CSR 이동</nuxt-link>
     <div class="space-x-4">
       <button>🔍</button>
       <button>🛍️</button>
@@ -17,18 +17,10 @@
 </template>
 <script setup lang="ts">
 // TODO useFetch wrapper function(CSR vs SSR)
-// const { redisUse } = useRoute().query
+const { redisUse } = useRoute().query
 
-// const { data: productList } = await useFetch<any>('/api/product-list-service', {
-//   query: { redisUse }
-// })
-
-const {
-  data: {
-    value: {
-      data: { products: productList }
-    }
-  }
-} = await useFetch<any>('https://dev-inm-gateway.apddev.com/product/getProducts')
+const { data: productList } = await useFetch<any>('/api/product-list-service', {
+  query: { redisUse }
+})
 </script>
 <style></style>

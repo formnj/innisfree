@@ -2,8 +2,9 @@
   <div class="label_wrap">
     <label class="input" :class="{ err: props.isError }">
       <i v-if="props.placeholder" v-show="showPlaceholder">{{ placeholder }}</i>
-      <input v-model="model" type="text" :readonly="props.isReadonly" @focus="togglePlaceholder" />
+      <input v-model="model" type="text" :readonly="props.isReadonly" @focus="togglePlaceholder" @blur="togglePlaceholder" />
       <em v-if="props.isError" class="err_txt">{{ props.errorText }}</em>
+      <button v-show="!props.isReadonly && model" class="icon_del" @click="clearText">Delete</button>
     </label>
   </div>
 </template>
@@ -18,7 +19,7 @@ interface IInputTextProps {
 
 const props = defineProps<IInputTextProps>()
 const model = defineModel<string>()
-const showPlaceholder = ref(true)
+const showPlaceholder = ref<boolean>(true)
 
 /** placeholder toggle */
 const togglePlaceholder = (event) => {
@@ -26,6 +27,14 @@ const togglePlaceholder = (event) => {
   if (eventType === 'focus') {
     showPlaceholder.value = false
   }
+
+  if (eventType === 'blur' && !model.value) {
+    showPlaceholder.value = true
+  }
+}
+
+const clearText = () => {
+  model.value = ''
 }
 
 watch(
@@ -85,7 +94,6 @@ label.input * {
   top: 9px;
   right: 15px;
   z-index: 1;
-  display: none;
 }
 .label_wrap button[class*='icon_'] + button[class*='icon_'] {
   margin-right: 34px;
@@ -97,11 +105,5 @@ label.input * {
 }
 .label_wrap button.icon_del {
   background-position: 0 0;
-}
-.label_wrap button.icon_pass {
-  background-position: -80px 0;
-}
-.label_wrap button.icon_text {
-  background-position: -40px 0;
 }
 </style>
