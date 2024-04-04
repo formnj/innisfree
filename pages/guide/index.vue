@@ -1,5 +1,5 @@
 <template>
-    <h2>퍼블리싱 리스트 <Button class="btn_small_outline" txt="PC" @click="change_device()" />
+    <h2>퍼블리싱 리스트 <Button class="btn_small_outline" txt="MO" @click="change_device()" />
         <ul class="legend">
             <li><span class="badge modal">modal popup</span></li>
             <li><span class="badge com">완료</span></li>
@@ -32,19 +32,455 @@ definePageMeta({
 })
 
 /* device check text : 개발 시 제거해주세요. */
-const device = ref('PC');
+const device = ref('MO');
 
 import { onMounted } from 'vue'
 
 const PC_arry = ([
     {
         depth:['홈','','',''],
-        id:'IN_PC_HOM_01_01', status:'',
+        id:'IN_PC_HOM_01_01', status:'ing',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','특가(T)','',''],
+        id:'IN_PC_HOM_01_04', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','이벤트(T)','목록',''],
+        id:'IN_PC_HOM_01_05', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','상세',''],
+        id:'IN_PC_HOM_01_06', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','랭킹(T)','',''],
+        id:'IN_PC_HOM_01_07', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','에디터(T)','목록',''],
+        id:'IN_PC_HOM_01_08', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','상세',''],
+        id:'IN_PC_HOM_01_09', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','쇼케이스(T)','',''],
+        id:'IN_PC_HOM_01_12', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','라이브(T)','',''],
+        id:'IN_PC_HOM_01_14', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','FOR ME(T)','',''],
+        id:'IN_PC_HOM_01_15', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','임직원샵','목록',''],
+        id:'IN_PC_HOM_01_16', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','쇼핑로그','',''],
+        id:'IN_PC_HOM_01_18', status:'',
         type:'', note:'',
         sDate:'', eDate:''
     }, {
         depth:['상품','목록','',''],
         id:'IN_PC_PRD_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','상세','',''],
+        id:'IN_PC_PRD_01_09', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['장바구니','상품 없음','',''],
+        id:'IN_PC_CAR_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','상품 있음','',''],
+        id:'IN_PC_CAR_01_02', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','적립예정 뷰티포인트','',''],
+        id:'IN_PC_CAR_01_03', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','구매 시 최대할인 안내','',''],
+        id:'IN_PC_CAR_01_04', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['주문서','','',''],
+        id:'IN_PC_ORD_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','배송지 등록/변경','',''],
+        id:'IN_PC_ORD_01_02', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','배송지 수정',''],
+        id:'IN_PC_ORD_01_03', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','배송지 추가',''],
+        id:'IN_PC_ORD_01_04', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','안심번호 서비스 안내','',''],
+        id:'IN_PC_ORD_01_08', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','배송 포장재 안내','',''],
+        id:'IN_PC_ORD_01_09', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','사용 가능한 쿠폰 안내','',''],
+        id:'IN_PC_ORD_01_10', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','뷰티포인트 적립 혜택 안내','',''],
+        id:'IN_PC_ORD_01_11', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','유의사항 안내','',''],
+        id:'IN_PC_ORD_01_12', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','원클릭 결제(T)','',''],
+        id:'IN_PC_ORD_01_14', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','신용카드(T)','',''],
+        id:'IN_PC_ORD_01_16', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['마이페이지','로그인 전','',''],
+        id:'IN_PC_MYP_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','로그인 후','',''],
+        id:'IN_PC_MYP_01_02', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','바코드','',''],
+        id:'IN_PC_MYP_01_03', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','멤버십','멤버십 혜택안내',''],
+        id:'IN_PC_MYP_01_04', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','뷰티포인트 안내(T)','뷰티포인트'],
+        id:'IN_PC_MYP_01_05', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','','VIP 등급안내(T)'],
+        id:'IN_PC_MYP_01_06', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','모바일 앱 다운로드(T)',''],
+        id:'IN_PC_MYP_01_07', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','주문내역','목록',''],
+        id:'IN_PC_MYP_01_08', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','상세',''],
+        id:'IN_PC_MYP_01_11', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','리뷰','작성 가능한 리뷰 안내',''],
+        id:'IN_PC_MYP_01_19', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','작성 가능 리뷰(T)',''],
+        id:'IN_PC_MYP_01_20', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','작성한 리뷰(T)',''],
+        id:'IN_PC_MYP_01_26', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','임직원 인증/해제','',''],
+        id:'IN_PC_MYP_01_28', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','참여한 이벤트 내역','체험단/키트 신청내역',''],
+        id:'IN_PC_MYP_01_29', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','이벤트 참여내역',''],
+        id:'IN_PC_MYP_01_30', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','개인결제','',''],
+        id:'IN_PC_MYP_01_31', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','보유쿠폰','다운로드 가능한 쿠폰(T)',''],
+        id:'IN_PC_MYP_01_32', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','보유쿠폰(T)',''],
+        id:'IN_PC_MYP_01_35', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','뷰티포인트 내역','',''],
+        id:'IN_PC_MYP_01_38', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','찜한제품','',''],
+        id:'IN_PC_MYP_01_40', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','스마트 영수증','목록',''],
+        id:'IN_PC_MYP_01_43', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','상세',''],
+        id:'IN_PC_MYP_01_44', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','1:1문의','',''],
+        id:'IN_PC_MYP_01_45', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','1:1 문의하기(T)',''],
+        id:'IN_PC_MYP_01_46', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','1:1 답변확인(T)',''],
+        id:'IN_PC_MYP_01_48', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }
+    , {
+        depth:['','입고알림 신청내역','',''],
+        id:'IN_PC_MYP_01_49', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','공병수거 현황','내 공병수거 현황(T)','온라인 공병수거 신청'],
+        id:'IN_PC_MYP_01_51', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','','공병수거 신청'],
+        id:'IN_PC_MYP_01_57', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','공병 프리퀀시(T)',''],
+        id:'IN_PC_MYP_01_67', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','개인정보 수정','비밀번호 확인',''],
+        id:'IN_PC_MYP_01_68', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','','개인정보 수정'],
+        id:'IN_PC_MYP_01_69', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','배송지 관리','',''],
+        id:'IN_PC_MYP_01_76', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','피부정보 관리','',''],
+        id:'IN_PC_MYP_01_81', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','원클릭결제 카드관리','',''],
+        id:'IN_PC_MYP_01_82', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','설정','',''],
+        id:'IN_PC_MYP_01_84', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','마이샵 관리','',''],
+        id:'IN_PC_MYP_01_85', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','FAQ','',''],
+        id:'IN_PC_MYP_01_87', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','공지사항','',''],
+        id:'IN_PC_MYP_01_88', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['고객센터','','',''],
+        id:'IN_PC_MYP_01_90', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','FAQ','',''],
+        id:'IN_PC_MYP_01_91', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','공지사항','',''],
+        id:'IN_PC_MYP_01_92', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','전자공고','',''],
+        id:'IN_PC_MYP_01_93', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['회원','회원가입','',''],
+        id:'IN_PC_MYP_01_94', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','로그인','',''],
+        id:'IN_PC_MYP_01_95', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','임직원 인증','',''],
+        id:'IN_PC_MYP_01_97', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','비회원 주문조회','주문번호/주문비밀번호 입력',''],
+        id:'IN_PC_MYP_01_98', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','','주문번호 찾기'],
+        id:'IN_PC_MYP_01_99', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','','주문 비밀번호 찾기'],
+        id:'IN_PC_MYP_01_100', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','','비회원 주문 내역 조회'],
+        id:'IN_PC_MYP_01_101', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['풋터','ABOUT US(T)','BRAND STORY(T)',''],
+        id:'IN_PC_FOO_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','GREEN TEA HERITAGE(T)',''],
+        id:'IN_PC_FOO_01_02', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','BETTER FOR EARTH(T)',''],
+        id:'IN_PC_FOO_01_03', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','이용약관','',''],
+        id:'IN_PC_FOO_01_04', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','개인정보처리방침','',''],
+        id:'IN_PC_FOO_01_05', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','영상기기관리방침','',''],
+        id:'IN_PC_FOO_01_10', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','위치기반서비스 이용약관','',''],
+        id:'IN_PC_FOO_01_12', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','사업자정보 확인','보안문자 입력',''],
+        id:'IN_PC_FOO_01_13', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','','사업자정보'],
+        id:'IN_PC_FOO_01_14', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','약관 및 법적고지','',''],
+        id:'IN_PC_FOO_01_15', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','토스페이먼츠 구매안전 서비스 가입 확인',''],
+        id:'IN_PC_FOO_01_16', status:'',
         type:'', note:'',
         sDate:'', eDate:''
     }
@@ -53,12 +489,448 @@ const PC_arry = ([
 const MO_arry = ([
     {
         depth:['홈','','',''],
-        id:'IN_MO_HOM_01_01', status:'',
+        id:'IN_MO_HOM_01_01', status:'ing',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','특가(T)','',''],
+        id:'IN_MO_HOM_01_04', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','이벤트(T)','목록',''],
+        id:'IN_MO_HOM_01_05', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','상세',''],
+        id:'IN_MO_HOM_01_06', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','랭킹(T)','',''],
+        id:'IN_MO_HOM_01_07', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','에디터(T)','목록',''],
+        id:'IN_MO_HOM_01_08', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','상세',''],
+        id:'IN_MO_HOM_01_09', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','쇼케이스(T)','',''],
+        id:'IN_MO_HOM_01_12', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','라이브(T)','',''],
+        id:'IN_MO_HOM_01_14', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','FOR ME(T)','',''],
+        id:'IN_MO_HOM_01_15', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','임직원샵','목록',''],
+        id:'IN_MO_HOM_01_16', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','쇼핑로그','',''],
+        id:'IN_MO_HOM_01_18', status:'',
         type:'', note:'',
         sDate:'', eDate:''
     }, {
         depth:['상품','목록','',''],
         id:'IN_MO_PRD_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','상세','',''],
+        id:'IN_MO_PRD_01_09', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['장바구니','상품 없음','',''],
+        id:'IN_MO_CAR_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','상품 있음','',''],
+        id:'IN_MO_CAR_01_02', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','적립예정 뷰티포인트','',''],
+        id:'IN_MO_CAR_01_03', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','구매 시 최대할인 안내','',''],
+        id:'IN_MO_CAR_01_04', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['주문서','','',''],
+        id:'IN_MO_ORD_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','배송지 등록/변경','',''],
+        id:'IN_MO_ORD_01_02', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','배송지 수정',''],
+        id:'IN_MO_ORD_01_03', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','배송지 추가',''],
+        id:'IN_MO_ORD_01_04', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','안심번호 서비스 안내','',''],
+        id:'IN_MO_ORD_01_08', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','배송 포장재 안내','',''],
+        id:'IN_MO_ORD_01_09', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','사용 가능한 쿠폰 안내','',''],
+        id:'IN_MO_ORD_01_10', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','뷰티포인트 적립 혜택 안내','',''],
+        id:'IN_MO_ORD_01_11', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','유의사항 안내','',''],
+        id:'IN_MO_ORD_01_12', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','원클릭 결제(T)','',''],
+        id:'IN_MO_ORD_01_14', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','신용카드(T)','',''],
+        id:'IN_MO_ORD_01_16', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['마이페이지','로그인 전','',''],
+        id:'IN_MO_MYP_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','로그인 후','',''],
+        id:'IN_MO_MYP_01_02', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','바코드','',''],
+        id:'IN_MO_MYP_01_03', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','멤버십','멤버십 혜택안내',''],
+        id:'IN_MO_MYP_01_04', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','뷰티포인트 안내(T)','뷰티포인트'],
+        id:'IN_MO_MYP_01_05', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','','VIP 등급안내(T)'],
+        id:'IN_MO_MYP_01_06', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','모바일 앱 다운로드(T)',''],
+        id:'IN_MO_MYP_01_07', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','주문내역','목록',''],
+        id:'IN_MO_MYP_01_08', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','상세',''],
+        id:'IN_MO_MYP_01_11', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','리뷰','작성 가능한 리뷰 안내',''],
+        id:'IN_MO_MYP_01_19', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','작성 가능 리뷰(T)',''],
+        id:'IN_MO_MYP_01_20', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','작성한 리뷰(T)',''],
+        id:'IN_MO_MYP_01_26', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','임직원 인증/해제','',''],
+        id:'IN_MO_MYP_01_28', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','참여한 이벤트 내역','체험단/키트 신청내역',''],
+        id:'IN_MO_MYP_01_29', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','이벤트 참여내역',''],
+        id:'IN_MO_MYP_01_30', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','개인결제','',''],
+        id:'IN_MO_MYP_01_31', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','보유쿠폰','다운로드 가능한 쿠폰(T)',''],
+        id:'IN_MO_MYP_01_32', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','보유쿠폰(T)',''],
+        id:'IN_MO_MYP_01_35', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','뷰티포인트 내역','',''],
+        id:'IN_MO_MYP_01_38', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','찜한제품','',''],
+        id:'IN_MO_MYP_01_40', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','스마트 영수증','목록',''],
+        id:'IN_MO_MYP_01_43', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','상세',''],
+        id:'IN_MO_MYP_01_44', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','1:1문의','',''],
+        id:'IN_MO_MYP_01_45', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','1:1 문의하기(T)',''],
+        id:'IN_MO_MYP_01_46', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','1:1 답변확인(T)',''],
+        id:'IN_MO_MYP_01_48', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }
+    , {
+        depth:['','입고알림 신청내역','',''],
+        id:'IN_MO_MYP_01_49', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','공병수거 현황','내 공병수거 현황(T)','온라인 공병수거 신청'],
+        id:'IN_MO_MYP_01_51', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','','공병수거 신청'],
+        id:'IN_MO_MYP_01_57', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','공병 프리퀀시(T)',''],
+        id:'IN_MO_MYP_01_67', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','개인정보 수정','비밀번호 확인',''],
+        id:'IN_MO_MYP_01_68', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','','개인정보 수정'],
+        id:'IN_MO_MYP_01_69', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','배송지 관리','',''],
+        id:'IN_MO_MYP_01_76', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','피부정보 관리','',''],
+        id:'IN_MO_MYP_01_81', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','원클릭결제 카드관리','',''],
+        id:'IN_MO_MYP_01_82', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','설정','',''],
+        id:'IN_MO_MYP_01_84', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','마이샵 관리','',''],
+        id:'IN_MO_MYP_01_85', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','FAQ','',''],
+        id:'IN_MO_MYP_01_87', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','공지사항','',''],
+        id:'IN_MO_MYP_01_88', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['고객센터','','',''],
+        id:'IN_MO_MYP_01_90', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','FAQ','',''],
+        id:'IN_MO_MYP_01_91', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','공지사항','',''],
+        id:'IN_MO_MYP_01_92', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','전자공고','',''],
+        id:'IN_MO_MYP_01_93', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['회원','회원가입','',''],
+        id:'IN_MO_MYP_01_94', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','로그인','',''],
+        id:'IN_MO_MYP_01_95', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','임직원 인증','',''],
+        id:'IN_MO_MYP_01_97', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','비회원 주문조회','주문번호/주문비밀번호 입력',''],
+        id:'IN_MO_MYP_01_98', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','','주문번호 찾기'],
+        id:'IN_MO_MYP_01_99', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','','주문 비밀번호 찾기'],
+        id:'IN_MO_MYP_01_100', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','','비회원 주문 내역 조회'],
+        id:'IN_MO_MYP_01_101', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['풋터','ABOUT US(T)','BRAND STORY(T)',''],
+        id:'IN_MO_FOO_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','GREEN TEA HERITAGE(T)',''],
+        id:'IN_MO_FOO_01_02', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','BETTER FOR EARTH(T)',''],
+        id:'IN_MO_FOO_01_03', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','이용약관','',''],
+        id:'IN_MO_FOO_01_04', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','개인정보처리방침','',''],
+        id:'IN_MO_FOO_01_05', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','영상기기관리방침','',''],
+        id:'IN_MO_FOO_01_10', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','위치기반서비스 이용약관','',''],
+        id:'IN_MO_FOO_01_12', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','사업자정보 확인','보안문자 입력',''],
+        id:'IN_MO_FOO_01_13', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','','사업자정보'],
+        id:'IN_MO_FOO_01_14', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','약관 및 법적고지','',''],
+        id:'IN_MO_FOO_01_15', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['','','토스페이먼츠 구매안전 서비스 가입 확인',''],
+        id:'IN_MO_FOO_01_16', status:'',
         type:'', note:'',
         sDate:'', eDate:''
     }
@@ -76,11 +948,11 @@ const change_device = () => {
         // key_cnt.value = document.querySelector('.latest').childElementCount;
     }
 
-    if(event.target.textContent == 'Mobile'){
+    if(event.target.textContent == 'MO'){
         event.target.textContent = 'PC';
         device.value=PC_arry;
     } else {
-        event.target.textContent = 'Mobile'
+        event.target.textContent = 'MO'
         device.value=MO_arry;
     }
 
@@ -103,6 +975,10 @@ const change_device = () => {
             link = path
         } else {
             link = path+device.value[i].id
+        }
+
+        if(device.value[i].status == ''){
+            device.value[i].status = 'not_link';
         }
 
         // device.value
@@ -148,6 +1024,10 @@ onMounted(() => {
             link = path+device.value[i].id
         }
 
+        if(device.value[i].status == ''){
+            device.value[i].status = 'not_link';
+        }
+
         document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'
         +   '<th>'+device.value[i].depth[0]+'</th>'
         +   '<td class="'+device.value[i].status+'">'+device.value[i].depth[1]+'</td>'
@@ -185,4 +1065,6 @@ thead tr > * + *, ::v-deep td {border-left:1px solid #ddd;}
 ::v-deep td a.modal {padding:4px 5px; color:#fff; font-weight:400; background-color:#0070ba; border:1px solid #0070ba; text-decoration:none; border-radius:4px;}
 
 .content section + section:before {margin:30px -20px; border-top:4px solid #F1F1F1; content:''; display:block;}
+
+::v-deep .not_link a {cursor: default; pointer-events: none;}
 </style>
