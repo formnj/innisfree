@@ -1,5 +1,5 @@
 <template>
-    <h2>퍼블리싱 리스트
+    <h2>퍼블리싱 리스트 <Button class="btn_small_outline" txt="PC" @click="change_device()" />
         <ul class="legend">
             <li><span class="badge modal">modal popup</span></li>
             <li><span class="badge com">완료</span></li>
@@ -31,13 +31,30 @@ definePageMeta({
   layout: 'guide'
 })
 
+/* device check text : 개발 시 제거해주세요. */
+const device = ref('PC');
+
 import { onMounted } from 'vue'
 
-const page_arry = ([
+const PC_arry = ([
+    {
+        depth:['홈','','',''],
+        id:'IN_PC_HOM_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }, {
+        depth:['상품','목록','',''],
+        id:'IN_PC_PRD_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:''
+    }
+])
+
+const MO_arry = ([
     {
         depth:['홈','','',''],
         id:'IN_MO_HOM_01_01', status:'',
-        type:'', note:'/pages/publish/index.vue',
+        type:'', note:'',
         sDate:'', eDate:''
     }, {
         depth:['상품','목록','',''],
@@ -47,41 +64,99 @@ const page_arry = ([
     }
 ])
 
-onMounted(() => {
-    var row_chk,
-        path,
-        link;
+var row_chk,
+    path,
+    link;
 
-    for (var i=0; i<page_arry.length;i++) {
+const change_device = () => {
+    const target = document.querySelector('table tbody');
+
+    while (target.firstElementChild) {
+        target.removeChild(target.firstElementChild);
+        // key_cnt.value = document.querySelector('.latest').childElementCount;
+    }
+
+    if(event.target.textContent == 'Mobile'){
+        event.target.textContent = 'PC';
+        device.value=PC_arry;
+    } else {
+        event.target.textContent = 'Mobile'
+        device.value=MO_arry;
+    }
+
+    for (var i=0; i<device.value.length;i++) {
         /* row 시작 체크 */
-        if(page_arry[i].depth[0].length != 0){
+        if(device.value[i].depth[0].length != 0){
             row_chk = 'row';
         } else {
             row_chk = '';
         }
 
         /* path */
-        if(page_arry[i].type == 'modal'){
+        if(device.value[i].type == 'modal'){
             path = '/publish/modal/'
         } else {
             path = '/publish/'
         }
 
-        if(page_arry[i].id == 'IN_MO_HOM_01_01'){
+        if(device.value[i].id == 'IN_MO_HOM_01_01'){
             link = path
         } else {
-            link = path+page_arry[i].id
+            link = path+device.value[i].id
+        }
+
+        // device.value
+
+        document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'
+        +   '<th>'+device.value[i].depth[0]+'</th>'
+        +   '<td class="'+device.value[i].status+'">'+device.value[i].depth[1]+'</td>'
+        +   '<td class="'+device.value[i].status+'">'+device.value[i].depth[2]+'</td>'
+        +   '<td class="'+device.value[i].status+'">'+device.value[i].depth[3]+'</td>'
+        +   '<td class="ac '+device.value[i].status+'"><a href="'+link+'" target="_blank" class="'+device.value[i].type+'">'+device.value[i].id+'</a></td>'
+        +   '<td class="'+device.value[i].status+'">'+device.value[i].note+'</td>'
+        +   '<td class="ac '+device.value[i].status+'">'+device.value[i].sDate+'</td>'
+        +   '<td class="ac '+device.value[i].status+'">'+device.value[i].eDate+'</td>'
+        +'</tr>');
+    }
+}
+
+onMounted(() => {
+    if(device.value == 'PC'){
+        device.value = PC_arry;
+    } else {
+        device.value = MO_arry;
+    }
+
+    for (var i=0; i<device.value.length;i++) {
+        /* row 시작 체크 */
+        if(device.value[i].depth[0].length != 0){
+            row_chk = 'row';
+        } else {
+            row_chk = '';
+        }
+
+        /* path */
+        if(device.value[i].type == 'modal'){
+            path = '/publish/modal/'
+        } else {
+            path = '/publish/'
+        }
+
+        if(device.value[i].id == 'IN_PC_HOM_01_01'){
+            link = path
+        } else {
+            link = path+device.value[i].id
         }
 
         document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'
-        +   '<th>'+page_arry[i].depth[0]+'</th>'
-        +   '<td class="'+page_arry[i].status+'">'+page_arry[i].depth[1]+'</td>'
-        +   '<td class="'+page_arry[i].status+'">'+page_arry[i].depth[2]+'</td>'
-        +   '<td class="'+page_arry[i].status+'">'+page_arry[i].depth[3]+'</td>'
-        +   '<td class="ac '+page_arry[i].status+'"><a href="'+link+'" target="_blank" class="'+page_arry[i].type+'">'+page_arry[i].id+'</a></td>'
-        +   '<td class="'+page_arry[i].status+'">'+page_arry[i].note+'</td>'
-        +   '<td class="ac '+page_arry[i].status+'">'+page_arry[i].sDate+'</td>'
-        +   '<td class="ac '+page_arry[i].status+'">'+page_arry[i].eDate+'</td>'
+        +   '<th>'+device.value[i].depth[0]+'</th>'
+        +   '<td class="'+device.value[i].status+'">'+device.value[i].depth[1]+'</td>'
+        +   '<td class="'+device.value[i].status+'">'+device.value[i].depth[2]+'</td>'
+        +   '<td class="'+device.value[i].status+'">'+device.value[i].depth[3]+'</td>'
+        +   '<td class="ac '+device.value[i].status+'"><a href="'+link+'" target="_blank" class="'+device.value[i].type+'">'+device.value[i].id+'</a></td>'
+        +   '<td class="'+device.value[i].status+'">'+device.value[i].note+'</td>'
+        +   '<td class="ac '+device.value[i].status+'">'+device.value[i].sDate+'</td>'
+        +   '<td class="ac '+device.value[i].status+'">'+device.value[i].eDate+'</td>'
         +'</tr>');
     }
 })

@@ -27,6 +27,17 @@
             </li>
         </ul>
     </div>
+    <div class="paging">
+        <div>
+            <a href="#none" class="first">처음으로</a>
+            <a href="#none">1</a>
+            <a href="#none">2</a>
+            <a href="#none" class="active">3</a>
+            <a href="#none">4</a>
+            <a href="#none">5</a>
+            <a href="#none" class="last">마지막으로</a>
+        </div>
+    </div>
     <div class="modal_wrap" id="sample_modal">
         <div class="modal_container">
             <div class="modal_header">
@@ -47,14 +58,7 @@
 
 <script setup>
 definePageMeta({
-	layout: 'mo-category'
-});
-
-/* check device 개발적용 시 제거 */
-const props = defineProps({
-	device: {
-		type: String
-	}
+	layout: 'pc-category'
 });
 
 onMounted(()=>{
@@ -178,30 +182,28 @@ const modal = {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .title_wrap {
-    padding:3.0rem 0 2.0rem;
+    padding:60px 0;
     position:relative;
     z-index:1;
     display:flex;
     h2 {
-        font-size:0;
+        font-size:38px;
         font-weight:300;
         position:relative;
         .pdt_count {
             margin-left:5px;
             padding:3px 6px;
-            color:#000;
+            color:#fff;
             font-size:13px;
             white-space:nowrap;
+            background-color:#00BC70;
             border-radius:999px;
             position:absolute;
             top:0;
             left:100%;
             display:block;
-            strong {
-                color:#2FAF63;
-            }
         }		
     }
     .pdtSortTab_wrap {
@@ -225,7 +227,7 @@ const modal = {
     margin-top:-40px;
     margin-left:-20px;
     > li {
-        width:50%;
+        width:25%;
         padding-top:40px;
         padding-left:20px;
     }
