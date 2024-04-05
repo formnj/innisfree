@@ -156,7 +156,7 @@
             <ul class="form_group">
                 <li>
                     <p class="form_tit">Default</p>
-                    <Tabs :item="[{txt:'tab01'},{txt:'tab02'}]" :currentId="1" />
+                    <Tabs :item="[{txt:'tab01'},{txt:'tab02'}]" />
                 </li>
             </ul>
         </div>
