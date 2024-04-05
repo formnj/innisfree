@@ -15,11 +15,6 @@
 </template>
 
 <script setup>
-const props = defineProps({
-    device: {
-        type: String
-    }
-});
 
 onMounted(() => {
     let preScrollTop = 0;

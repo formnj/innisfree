@@ -40,7 +40,7 @@ import { onMounted } from 'vue'
 const PC_arry = ([
     {
         depth:['공통','검색','',''],
-        id:'IN_PC_SRC_01_01', status:'ing',
+        id:'IN_PC_SRC_01_01', status:'',
         type:'component', note:'',
         sDate:'', eDate:'2024-04-24/', worker:''
     }, {
@@ -115,7 +115,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-19/', worker:''
     }, {
         depth:['상품','목록','',''],
-        id:'IN_PC_PRD_01_01', status:'',
+        id:'IN_PC_PRD_01_01', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-04-24/', worker:''
     }, {
@@ -594,7 +594,7 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-19/', worker:''
     }, {
         depth:['상품','목록','',''],
-        id:'IN_MO_PRD_01_01', status:'',
+        id:'IN_MO_PRD_01_01', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-04-24/', worker:''
     }, {
