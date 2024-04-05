@@ -1,7 +1,9 @@
 <template>
     <p style="background-color:#fff; position:fixed; top:0; left:0; z-index:9; display:flex;" class="device_test">
         Device : <Button class="btn_small_outline" txt="PC" @click="change_device()" />
+        publish
     </p>
+
     <div id="wrap" :class="device">
         <HeaderPublish :device="device" />
         <div id="container">

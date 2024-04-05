@@ -61,6 +61,7 @@
 .multi_form {
     display:flex;
     gap:10px;
+    flex-wrap:wrap;
 
 }
 
@@ -167,6 +168,27 @@
                 }
             }
         }
+    }
+    &.bottom {
+        .modal_container {
+            max-height:calc(100vh - 20px);
+            top:initial;
+            right:0;
+            bottom:0;
+            left:0;
+            transform:initial;
+            animation-duration: 0.25s;
+            animation-name: show_up;
+        }      
+    }
+}
+
+@keyframes show_up {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
     }
 }
 

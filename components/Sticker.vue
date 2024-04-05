@@ -13,6 +13,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 .sticker {
     display:flex;
+    flex-wrap:wrap;
     gap:1px;
     em {
         padding:2px 5px;

@@ -16,7 +16,7 @@ interface IInputPasswordProps {
 const props = defineProps<IInputPasswordProps>()
 const model = defineModel<string | number>()
 
-const showingInputType = ref('password')
+const showingInputType = ref<string>('password')
 
 const toggleType = () => {
   showingInputType.value = ['password', 'text'][+(showingInputType.value === 'password')]
@@ -25,7 +25,7 @@ const toggleType = () => {
 const toggleButtonClass = computed(() => ['icon_text', 'icon_pass'][+(showingInputType.value === 'password')])
 
 /** placeholder toggle */
-const showPlaceholder = ref(true)
+const showPlaceholder = ref<boolean>(true)
 
 const togglePlaceholder = (event) => {
   const eventType: string = event.type
