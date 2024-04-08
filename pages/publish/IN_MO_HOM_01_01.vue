@@ -18,7 +18,7 @@
 </template>
 <script setup>
 definePageMeta({
-  layout: 'pc-default'
+  layout: 'mo-default'
 })
 
 
