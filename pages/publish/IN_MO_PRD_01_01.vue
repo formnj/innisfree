@@ -50,13 +50,6 @@ definePageMeta({
 	layout: 'mo-category'
 });
 
-/* check device 개발적용 시 제거 */
-const props = defineProps({
-	device: {
-		type: String
-	}
-});
-
 onMounted(()=>{
 })
 
