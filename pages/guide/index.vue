@@ -37,17 +37,46 @@ const device = ref('MO');
 
 import { onMounted } from 'vue'
 
+const comm_arry = ([
+    {
+        depth:['공통','Inputs','',''],
+        id:'', status:'',
+        type:'component', note:'/component/Inputs<br/>- 타입별 분리 예정',
+        sDate:'', eDate:'', worker:'이종환'
+    }, {
+        depth:['','Button','',''],
+        id:'', status:'',
+        type:'component', note:'/component/Button',
+        sDate:'', eDate:'', worker:'이종환'
+    }, {
+        depth:['','GoodsItem','',''],
+        id:'', status:'',
+        type:'component', note:'/component/GoodsItem',
+        sDate:'', eDate:'', worker:'이종환'
+    }
+])
+
 const PC_arry = ([
     {
-        depth:['공통','검색','',''],
+        depth:['pc_공통','헤더','',''],
+        id:'Header', status:'',
+        type:'component', note:'/component/Header/pc',
+        sDate:'', eDate:'', worker:'형민우'
+    }, {
+        depth:['','검색','',''],
         id:'IN_PC_SRC_01_01', status:'',
         type:'component', note:'',
-        sDate:'', eDate:'2024-04-24/', worker:''
+        sDate:'', eDate:'2024-04-24/', worker:'형민우'
     }, {
-        depth:['','팝업','',''],
-        id:'IN_PC_POP_01_01', status:'',
-        type:'component', note:'',
-        sDate:'', eDate:'2024-07-26/', worker:''
+        depth:['','푸터','',''],
+        id:'Header', status:'',
+        type:'component', note:'/component/Footer/pc',
+        sDate:'', eDate:'', worker:'김희경'
+    }, {
+        depth:['','브래드크럼','',''],
+        id:'Breadcrumb', status:'',
+        type:'component', note:'/component/Breadcrumb',
+        sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['홈','','',''],
         id:'IN_PC_HOM_01_01', status:'ing',
@@ -518,15 +547,20 @@ const PC_arry = ([
 
 const MO_arry = ([
     {
-        depth:['공통','검색','',''],
+        depth:['mo_공통','헤더','',''],
+        id:'Header', status:'',
+        type:'component', note:'/component/Header/mo',
+        sDate:'', eDate:'', worker:'형민우'
+    }, {
+        depth:['','검색','',''],
         id:'IN_MO_SRC_01_01', status:'',
         type:'component', note:'',
-        sDate:'', eDate:'2024-04-24/', worker:''
+        sDate:'', eDate:'2024-04-24/', worker:'형민우'
     }, {
-        depth:['','팝업','',''],
-        id:'IN_MO_POP_01_01', status:'',
-        type:'component', note:'',
-        sDate:'', eDate:'2024-07-26/', worker:''
+        depth:['','푸터','',''],
+        id:'Header', status:'',
+        type:'component', note:'/component/Footer/mo',
+        sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['홈','','',''],
         id:'IN_MO_HOM_01_01', status:'ing',
@@ -1016,6 +1050,20 @@ const change_device = () => {
         device.value=MO_arry;
     }
 
+    for (var j=0; j<comm_arry.length; j++){
+        document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'
+        +   '<th>'+comm_arry[j].depth[0]+'</th>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[1]+'</td>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[2]+'</td>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[3]+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'"><a href="'+link+'" target="_blank" class="'+comm_arry[j].type+'">'+comm_arry[j].id+'</a></td>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].note+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'">'+comm_arry[j].sDate+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'">'+comm_arry[j].eDate+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'">'+comm_arry[j].worker+'</td>'
+        +'</tr>');
+    }
+
     for (var i=0; i<device.value.length;i++) {
         /* row 시작 체크 */
         if(device.value[i].depth[0].length != 0){
@@ -1066,6 +1114,20 @@ onMounted(() => {
         device.value = PC_arry;
     } else {
         device.value = MO_arry;
+    }
+
+    for (var j=0; j<comm_arry.length; j++){
+        document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'
+        +   '<th>'+comm_arry[j].depth[0]+'</th>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[1]+'</td>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[2]+'</td>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[3]+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'"><a href="'+link+'" target="_blank" class="'+comm_arry[j].type+'">'+comm_arry[j].id+'</a></td>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].note+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'">'+comm_arry[j].sDate+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'">'+comm_arry[j].eDate+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'">'+comm_arry[j].worker+'</td>'
+        +'</tr>');
     }
 
     for (var i=0; i<device.value.length;i++) {
