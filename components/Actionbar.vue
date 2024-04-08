@@ -1,18 +1,4 @@
 <template>
-<<<<<<< HEAD
-    <div class="action_bar">
-        <div class="inner">
-            <a href="#"><img src="/_nuxt/assets/images/common/Logo_Motion.png" alt=""></a>
-            <div>
-                <button @click="cate_layer.open"><img src="/_nuxt/assets/images/common/Category.png" alt=""></button>
-                <button class="best"><img src="/_nuxt/assets/images/common/Best.png" alt=""></button>
-            </div>
-            <div>
-                <button class="mypage"><img src="/_nuxt/assets/images/common/MyPage.png" alt=""></button>
-                <button><img src="/_nuxt/assets/images/common/History.png" alt=""></button>
-            </div>
-        </div>
-=======
   <div class="action_bar">
     <div class="inner">
       <a href="#"><img src="~/assets/images/actionbar/Logo_Motion.png" alt="" /></a>
@@ -24,7 +10,6 @@
         <button class="mypage"><img src="~/assets/images/actionbar/MyPage.png" alt="" /></button>
         <button><img src="~/assets/images/actionbar/History.png" alt="" /></button>
       </div>
->>>>>>> a9cfd10f595cae1022a5dc23e8d7c0debea0d9e3
     </div>
   </div>
 </template>
