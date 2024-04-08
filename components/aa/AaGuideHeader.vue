@@ -5,7 +5,7 @@
         <a href="/publish"><img src="/assets/images/common/logo_innisfree.png" /></a> Guide
       </h1>
       <ul class="gnb">
-        <li><a href="/component-test">list</a></li>
+        <li><a href="/aaGuide">list</a></li>
         <li><a href="/component-test">Components</a></li>
       </ul>
     </div>
