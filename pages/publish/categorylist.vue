@@ -35,11 +35,7 @@
                         <span v-if="props.device == 'MO'">총 <strong>32</strong>건</span>
                     </div>
                     <div class="pdtSortTab_wrap">
-<<<<<<< HEAD
-                        <button class="pdtSortTab" @click="Drop_Down()">추천순</button>
-=======
                         <button class="pdtSortTab" @click="Drop_Down()" >추천순</button>
->>>>>>> d855a3494661224a6aed2163a5ceee936fa482c1
                         <ul>
                             <li><a href="#none" class="active">추천순</a></li>
                             <li><a href="#none">신제품순</a></li>
@@ -102,8 +98,6 @@ const props = defineProps({
 });
 
 
-<<<<<<< HEAD
-=======
 /* test */
 onMounted(()=>{
     let btn = document.querySelector('.pdtSortTab');
@@ -143,7 +137,6 @@ onMounted(()=>{
 
 
 
->>>>>>> d855a3494661224a6aed2163a5ceee936fa482c1
 
 const sample_goods = [
     {
@@ -262,42 +255,15 @@ const modal = {
 }
 
 
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> d855a3494661224a6aed2163a5ceee936fa482c1
 const Drop_Down = () => {
     let selet = document.querySelector('.pdtSortTab_wrap ul');
     selet.classList.toggle('active')
     if(selet.classList.contains('active')){
-<<<<<<< HEAD
-        selet.style.display = 'block';
-        console.log('if01',selet.clientHeight)
-        let c_H = selet.clientHeight;
-        selet.style.height = '0px';
-        selet.style.border = "1px solid #aaa";
-        setTimeout(()=>{
-            selet.style.height = c_H + 'px';
-        },0);
-    }else {
-        console.log('else')
-        selet.style.height = '0px';
-        
-        selet.addEventListener('transitionend',()=>{
-            selet.removeAttribute('style');
-        },{once: true})
-
-=======
         console.log(selet.clientHeight)
         selet.style.height = '270px';
         // console.log(selet.clientHeight) + 'px'
     }else {
         selet.style.height = '0px'
->>>>>>> d855a3494661224a6aed2163a5ceee936fa482c1
     }
 }
 </script>
@@ -449,22 +415,14 @@ const Drop_Down = () => {
                             }
                             > ul {
                                 width:170px;
-<<<<<<< HEAD
-                                border:1px solid #AAAAAA;
-=======
                                 height:0px;
                                 border:1px solid #888;
->>>>>>> d855a3494661224a6aed2163a5ceee936fa482c1
                                 background:#fff;
                                 position:absolute;
                                 left:-70px;
                                 top:45px;
                                 z-index:999;
                                 overflow:hidden;
-<<<<<<< HEAD
-                                display:none;
-=======
->>>>>>> d855a3494661224a6aed2163a5ceee936fa482c1
                                 transition:all 0.2s;
                                 li {
                                     padding:10px 15px;
@@ -653,21 +611,13 @@ const Drop_Down = () => {
                         }
                         > ul {
                             width:170px;
-<<<<<<< HEAD
-=======
                             height:0;
                             padding:0;
->>>>>>> d855a3494661224a6aed2163a5ceee936fa482c1
                             background:#fff;
                             position:absolute;
                             right:80px;
                             top:25px;
                             z-index:100;
-<<<<<<< HEAD
-                            display:none;
-                            overflow:hidden;
-                            transition: all 0.2s;
-=======
                             transition: all 0.2s;
                             &.active {
                                 height:272px;
@@ -679,17 +629,13 @@ const Drop_Down = () => {
                                     }
                                 }
                             }
->>>>>>> d855a3494661224a6aed2163a5ceee936fa482c1
                             li {
                                 padding:10px 15px;
                                 a {
                                     color:#888;
                                     font-size:14px;
-<<<<<<< HEAD
-=======
                                     opacity:0;
                                     transition:all 0.1s;
->>>>>>> d855a3494661224a6aed2163a5ceee936fa482c1
                                     &.active {
                                         color:#00BC70;
                                     }
