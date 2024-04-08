@@ -147,6 +147,28 @@
 &lt;/div&gt;</code></pre>
     </section>
 
+    <section>
+        <h2>Tabs</h2>
+        <ul class="explain">
+            <li>default : 탭 요소의 넓이가 갯수에 대한 비율로 늘어남.</li>
+        </ul>
+        <div class="design_box">
+            <ul class="form_group">
+                <li>
+                    <p class="form_tit">Default</p>
+                    <Tabs :item="[{txt:'tab01'},{txt:'tab02'}]" />
+                </li>
+            </ul>
+        </div>
+        <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
+    &lt;ul class="goods_list"&gt;
+        &lt;li v-for="(item, idx) in sample_goods" :key="idx"&gt;
+            &lt;GoodsItem :item="item" :link="item.link" /&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
     <!-- modal -->
     <div class="modal_wrap" id="sample_modal">
         <div class="modal_container">
