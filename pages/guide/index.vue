@@ -86,17 +86,17 @@ const PC_arry = ([
         depth:['','특가(T)','',''],
         id:'IN_PC_HOM_01_04', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'형민우'
     }, {
         depth:['','이벤트(T)','목록',''],
         id:'IN_PC_HOM_01_05', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','','상세',''],
         id:'IN_PC_HOM_01_06', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','랭킹(T)','',''],
         id:'IN_PC_HOM_01_07', status:'',
@@ -106,12 +106,12 @@ const PC_arry = ([
         depth:['','에디터(T)','목록',''],
         id:'IN_PC_HOM_01_08', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'김나람'
     }, {
         depth:['','','상세',''],
         id:'IN_PC_HOM_01_09', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','베스트','',''],
         id:'IN_PC_HOM_01_00-1', status:'',
@@ -136,7 +136,7 @@ const PC_arry = ([
         depth:['','임직원샵','목록',''],
         id:'IN_PC_HOM_01_16', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-16/', worker:''
+        sDate:'', eDate:'2024-04-16/', worker:'형민우'
     }, {
         depth:['','쇼핑로그','',''],
         id:'IN_PC_HOM_01_18', status:'',
@@ -146,12 +146,12 @@ const PC_arry = ([
         depth:['상품','목록','',''],
         id:'IN_PC_PRD_01_01', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-24/', worker:''
+        sDate:'', eDate:'2024-04-24/', worker:'김희경'
     }, {
         depth:['','상세','',''],
         id:'IN_PC_PRD_01_09', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-03/', worker:''
+        sDate:'', eDate:'2024-05-03/', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_PC_CAR_01_01', status:'',
@@ -570,17 +570,17 @@ const MO_arry = ([
         depth:['','특가(T)','',''],
         id:'IN_MO_HOM_01_04', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'형민우'
     }, {
         depth:['','이벤트(T)','목록',''],
         id:'IN_MO_HOM_01_05', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','','상세',''],
         id:'IN_MO_HOM_01_06', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','랭킹(T)','',''],
         id:'IN_MO_HOM_01_07', status:'',
@@ -590,17 +590,17 @@ const MO_arry = ([
         depth:['','에디터(T)','목록',''],
         id:'IN_MO_HOM_01_08', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'김나람'
     }, {
         depth:['','','상세',''],
         id:'IN_MO_HOM_01_09', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','베스트','',''],
         id:'IN_MO_HOM_01_00-1', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-12/', worker:''
+        sDate:'', eDate:'2024-04-12/', worker:'형민우'
     }, {
         depth:['','쇼케이스(T)','',''],
         id:'IN_MO_HOM_01_12', status:'',
@@ -620,7 +620,7 @@ const MO_arry = ([
         depth:['','임직원샵','목록',''],
         id:'IN_MO_HOM_01_16', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-16/', worker:''
+        sDate:'', eDate:'2024-04-16/', worker:'형민우'
     }, {
         depth:['','쇼핑로그','',''],
         id:'IN_MO_HOM_01_18', status:'',
@@ -630,12 +630,12 @@ const MO_arry = ([
         depth:['상품','목록','',''],
         id:'IN_MO_PRD_01_01', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-24/', worker:''
+        sDate:'', eDate:'2024-04-24/', worker:'김희경'
     }, {
         depth:['','상세','',''],
         id:'IN_MO_PRD_01_09', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-03/', worker:''
+        sDate:'', eDate:'2024-05-03/', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_MO_CAR_01_01', status:'',
