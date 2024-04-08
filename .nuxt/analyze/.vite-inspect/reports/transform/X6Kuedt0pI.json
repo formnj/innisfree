@@ -3,39 +3,39 @@
   "transforms": [
     {
       "name": "vite:vue",
-      "result": "import { withAsyncContext as _withAsyncContext, defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"flex items-center justify-between p-4 border-b\" }, [\n  /*#__PURE__*/_createElementVNode(\"button\", { class: \"p-2\" }, \"☰\"),\n  /*#__PURE__*/_createElementVNode(\"div\", null, \"서버 리퀘스트 (레디스 적용됨)\"),\n  /*#__PURE__*/_createElementVNode(\"div\", { class: \"space-x-4\" }, [\n    /*#__PURE__*/_createElementVNode(\"button\", null, \"🔍\"),\n    /*#__PURE__*/_createElementVNode(\"button\", null, \"🛍️\")\n  ])\n], -1)\nconst _hoisted_2 = { class: \"p-4\" }\nconst _hoisted_3 = { class: \"grid grid-cols-1 md:grid-cols-2 gap-4\" }\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'product-list',\n  async setup(__props) {\n\nlet __temp: any, __restore: any\n\r\n// TODO useFetch wrapper function(CSR vs SSR)\r\nconst { redisUse } = useRoute().query\r\n\r\nconst { data: productList } = (\n  ([__temp,__restore] = _withAsyncContext(() => useFetch<any>('/api/product-list-service', {\r\n  query: { redisUse }\r\n}))),\n  __temp = await __temp,\n  __restore(),\n  __temp\n)\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_ProductListView = _resolveComponent(\"ProductListView\")!\n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _hoisted_1,\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _createVNode(_component_ProductListView, { \"product-list\": _unref(productList) }, null, 8, [\"product-list\"])\n      ])\n    ])\n  ], 64))\n}\n}\n\n})",
-      "start": 1710749688154,
-      "end": 1710749688154
+      "result": "import { withAsyncContext as _withAsyncContext, defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"flex items-center justify-between p-4 border-b\" }, [\n  /*#__PURE__*/_createElementVNode(\"button\", { class: \"p-2\" }, \"☰\"),\n  /*#__PURE__*/_createElementVNode(\"div\", null, \"상품페이지\"),\n  /*#__PURE__*/_createElementVNode(\"a\", { href: \"/event/event-list\" }, \"이벤트 페이지 SSR 이동\"),\n  /*#__PURE__*/_createElementVNode(\"div\", { class: \"space-x-4\" }, [\n    /*#__PURE__*/_createElementVNode(\"button\", null, \"🔍\"),\n    /*#__PURE__*/_createElementVNode(\"button\", null, \"🛍️\")\n  ])\n], -1)\nconst _hoisted_2 = { class: \"p-4\" }\nconst _hoisted_3 = { class: \"grid grid-cols-1 md:grid-cols-2 gap-4\" }\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'product-list',\n  async setup(__props) {\n\nlet __temp: any, __restore: any\n\r\n// TODO useFetch wrapper function(CSR vs SSR)\r\n// const { redisUse } = useRoute().query\r\n\r\n// const { data: productList } = await useFetch<any>('/api/product-list-service', {\r\n//   query: { redisUse }\r\n// })\r\n\r\nconst {\r\n  data: {\r\n    value: {\r\n      data: { products: productList }\r\n    }\r\n  }\r\n} = (\n  ([__temp,__restore] = _withAsyncContext(() => useFetch<any>('https://dev-inm-gateway.apddev.com/product/getProducts'))),\n  __temp = await __temp,\n  __restore(),\n  __temp\n)\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_ProductListView = _resolveComponent(\"ProductListView\")!\n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _hoisted_1,\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _createVNode(_component_ProductListView, { \"product-list\": _unref(productList) }, null, 8, [\"product-list\"])\n      ])\n    ])\n  ], 64))\n}\n}\n\n})",
+      "start": 1712218472705,
+      "end": 1712218472705
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1710749688154,
-      "end": 1710749688154,
+      "start": 1712218472705,
+      "end": 1712218472705,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1710749688154,
-      "end": 1710749688155,
+      "start": 1712218472705,
+      "end": 1712218472705,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1710749688156,
-      "end": 1710749688156,
+      "start": 1712218472705,
+      "end": 1712218472705,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1710749688156,
-      "end": 1710749688156,
+      "start": 1712218472705,
+      "end": 1712218472705,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "result": "import { withAsyncContext as _withAsyncContext, defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"flex items-center justify-between p-4 border-b\" }, [\n  /* @__PURE__ */ _createElementVNode(\"button\", { class: \"p-2\" }, \"☰\"),\n  /* @__PURE__ */ _createElementVNode(\"div\", null, \"서버 리퀘스트 (레디스 적용됨)\"),\n  /* @__PURE__ */ _createElementVNode(\"div\", { class: \"space-x-4\" }, [\n    /* @__PURE__ */ _createElementVNode(\"button\", null, \"🔍\"),\n    /* @__PURE__ */ _createElementVNode(\"button\", null, \"🛍️\")\n  ])\n], -1);\nconst _hoisted_2 = { class: \"p-4\" };\nconst _hoisted_3 = { class: \"grid grid-cols-1 md:grid-cols-2 gap-4\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"product-list\",\n  async setup(__props) {\n    let __temp, __restore;\n    const { redisUse } = useRoute().query;\n    const { data: productList } = ([__temp, __restore] = _withAsyncContext(() => useFetch(\"/api/product-list-service\", {\n      query: { redisUse }\n    })), __temp = await __temp, __restore(), __temp);\n    return (_ctx, _cache) => {\n      const _component_ProductListView = _resolveComponent(\"ProductListView\");\n      return _openBlock(), _createElementBlock(_Fragment, null, [\n        _hoisted_1,\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createVNode(_component_ProductListView, { \"product-list\": _unref(productList) }, null, 8, [\"product-list\"])\n          ])\n        ])\n      ], 64);\n    };\n  }\n});\n",
-      "start": 1710749688156,
-      "end": 1710749688313,
+      "result": "import { withAsyncContext as _withAsyncContext, defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"flex items-center justify-between p-4 border-b\" }, [\n  /* @__PURE__ */ _createElementVNode(\"button\", { class: \"p-2\" }, \"☰\"),\n  /* @__PURE__ */ _createElementVNode(\"div\", null, \"상품페이지\"),\n  /* @__PURE__ */ _createElementVNode(\"a\", { href: \"/event/event-list\" }, \"이벤트 페이지 SSR 이동\"),\n  /* @__PURE__ */ _createElementVNode(\"div\", { class: \"space-x-4\" }, [\n    /* @__PURE__ */ _createElementVNode(\"button\", null, \"🔍\"),\n    /* @__PURE__ */ _createElementVNode(\"button\", null, \"🛍️\")\n  ])\n], -1);\nconst _hoisted_2 = { class: \"p-4\" };\nconst _hoisted_3 = { class: \"grid grid-cols-1 md:grid-cols-2 gap-4\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"product-list\",\n  async setup(__props) {\n    let __temp, __restore;\n    const {\n      data: {\n        value: {\n          data: { products: productList }\n        }\n      }\n    } = ([__temp, __restore] = _withAsyncContext(() => useFetch(\"https://dev-inm-gateway.apddev.com/product/getProducts\")), __temp = await __temp, __restore(), __temp);\n    return (_ctx, _cache) => {\n      const _component_ProductListView = _resolveComponent(\"ProductListView\");\n      return _openBlock(), _createElementBlock(_Fragment, null, [\n        _hoisted_1,\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createVNode(_component_ProductListView, { \"product-list\": _unref(productList) }, null, 8, [\"product-list\"])\n          ])\n        ])\n      ], 64);\n    };\n  }\n});\n",
+      "start": 1712218472705,
+      "end": 1712218473765,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -43,131 +43,131 @@
           "D:/work/repo/pages/product/product-list.vue?macro=true&vue&type=script&setup=true&lang.ts"
         ],
         "sourcesContent": [
-          "import { withAsyncContext as _withAsyncContext, defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"flex items-center justify-between p-4 border-b\" }, [\n  /*#__PURE__*/_createElementVNode(\"button\", { class: \"p-2\" }, \"☰\"),\n  /*#__PURE__*/_createElementVNode(\"div\", null, \"서버 리퀘스트 (레디스 적용됨)\"),\n  /*#__PURE__*/_createElementVNode(\"div\", { class: \"space-x-4\" }, [\n    /*#__PURE__*/_createElementVNode(\"button\", null, \"🔍\"),\n    /*#__PURE__*/_createElementVNode(\"button\", null, \"🛍️\")\n  ])\n], -1)\nconst _hoisted_2 = { class: \"p-4\" }\nconst _hoisted_3 = { class: \"grid grid-cols-1 md:grid-cols-2 gap-4\" }\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'product-list',\n  async setup(__props) {\n\nlet __temp: any, __restore: any\n\r\n// TODO useFetch wrapper function(CSR vs SSR)\r\nconst { redisUse } = useRoute().query\r\n\r\nconst { data: productList } = (\n  ([__temp,__restore] = _withAsyncContext(() => useFetch<any>('/api/product-list-service', {\r\n  query: { redisUse }\r\n}))),\n  __temp = await __temp,\n  __restore(),\n  __temp\n)\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_ProductListView = _resolveComponent(\"ProductListView\")!\n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _hoisted_1,\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _createVNode(_component_ProductListView, { \"product-list\": _unref(productList) }, null, 8, [\"product-list\"])\n      ])\n    ])\n  ], 64))\n}\n}\n\n})"
+          "import { withAsyncContext as _withAsyncContext, defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"flex items-center justify-between p-4 border-b\" }, [\n  /*#__PURE__*/_createElementVNode(\"button\", { class: \"p-2\" }, \"☰\"),\n  /*#__PURE__*/_createElementVNode(\"div\", null, \"상품페이지\"),\n  /*#__PURE__*/_createElementVNode(\"a\", { href: \"/event/event-list\" }, \"이벤트 페이지 SSR 이동\"),\n  /*#__PURE__*/_createElementVNode(\"div\", { class: \"space-x-4\" }, [\n    /*#__PURE__*/_createElementVNode(\"button\", null, \"🔍\"),\n    /*#__PURE__*/_createElementVNode(\"button\", null, \"🛍️\")\n  ])\n], -1)\nconst _hoisted_2 = { class: \"p-4\" }\nconst _hoisted_3 = { class: \"grid grid-cols-1 md:grid-cols-2 gap-4\" }\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'product-list',\n  async setup(__props) {\n\nlet __temp: any, __restore: any\n\r\n// TODO useFetch wrapper function(CSR vs SSR)\r\n// const { redisUse } = useRoute().query\r\n\r\n// const { data: productList } = await useFetch<any>('/api/product-list-service', {\r\n//   query: { redisUse }\r\n// })\r\n\r\nconst {\r\n  data: {\r\n    value: {\r\n      data: { products: productList }\r\n    }\r\n  }\r\n} = (\n  ([__temp,__restore] = _withAsyncContext(() => useFetch<any>('https://dev-inm-gateway.apddev.com/product/getProducts'))),\n  __temp = await __temp,\n  __restore(),\n  __temp\n)\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_ProductListView = _resolveComponent(\"ProductListView\")!\n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _hoisted_1,\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _createVNode(_component_ProductListView, { \"product-list\": _unref(productList) }, null, 8, [\"product-list\"])\n      ])\n    ])\n  ], 64))\n}\n}\n\n})"
         ],
-        "mappings": "AAAA,SAAS,oBAAoB,mBAAmB,mBAAmB,wBAAwB;AAC3F,SAAS,sBAAsB,qBAAqB,SAAS,QAAQ,oBAAoB,mBAAmB,eAAe,cAAc,YAAY,WAAW,aAAa,YAAY,sBAAsB,2BAA2B;AAE1O,MAAM,aAA0B,oCAAoB,OAAO,EAAE,OAAO,iDAAiD,GAAG;AAAA,EACzG,oCAAoB,UAAU,EAAE,OAAO,MAAM,GAAG,GAAG;AAAA,EACnD,oCAAoB,OAAO,MAAM,mBAAmB;AAAA,EACpD,oCAAoB,OAAO,EAAE,OAAO,YAAY,GAAG;AAAA,IACjD,oCAAoB,UAAU,MAAM,IAAI;AAAA,IACxC,oCAAoB,UAAU,MAAM,KAAK;AAAA,EACxD,CAAC;AACH,GAAG,EAAE;AACL,MAAM,aAAa,EAAE,OAAO,MAAM;AAClC,MAAM,aAAa,EAAE,OAAO,wCAAwC;AAGpE,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,MAAM,SAAS;AAEvB,QAAI,QAAa;AAGjB,UAAM,EAAE,SAAS,IAAI,SAAS,EAAE;AAEhC,UAAM,EAAE,MAAM,YAAY,KACvB,CAAC,QAAO,SAAS,IAAI,kBAAkB,MAAM,SAAc,6BAA6B;AAAA,MACzF,OAAO,EAAE,SAAS;AAAA,IACpB,CAAC,CAAC,GACA,SAAS,MAAM,QACf,UAAU,GACV;AAGF,WAAO,CAAC,MAAU,WAAgB;AAChC,YAAM,6BAA6B,kBAAkB,iBAAiB;AAEtE,aAAQ,WAAW,GAAG,oBAAoB,WAAW,MAAM;AAAA,QACzD;AAAA,QACA,oBAAoB,OAAO,YAAY;AAAA,UACrC,oBAAoB,OAAO,YAAY;AAAA,YACrC,aAAa,4BAA4B,EAAE,gBAAgB,OAAO,WAAW,EAAE,GAAG,MAAM,GAAG,CAAC,cAAc,CAAC;AAAA,UAC7G,CAAC;AAAA,QACH,CAAC;AAAA,MACH,GAAG,EAAE;AAAA,IACP;AAAA,EACA;AAEA,CAAC;",
+        "mappings": "AAAA,SAAS,oBAAoB,mBAAmB,mBAAmB,wBAAwB;AAC3F,SAAS,sBAAsB,qBAAqB,SAAS,QAAQ,oBAAoB,mBAAmB,eAAe,cAAc,YAAY,WAAW,aAAa,YAAY,sBAAsB,2BAA2B;AAE1O,MAAM,aAA0B,oCAAoB,OAAO,EAAE,OAAO,iDAAiD,GAAG;AAAA,EACzG,oCAAoB,UAAU,EAAE,OAAO,MAAM,GAAG,GAAG;AAAA,EACnD,oCAAoB,OAAO,MAAM,OAAO;AAAA,EACxC,oCAAoB,KAAK,EAAE,MAAM,oBAAoB,GAAG,gBAAgB;AAAA,EACxE,oCAAoB,OAAO,EAAE,OAAO,YAAY,GAAG;AAAA,IACjD,oCAAoB,UAAU,MAAM,IAAI;AAAA,IACxC,oCAAoB,UAAU,MAAM,KAAK;AAAA,EACxD,CAAC;AACH,GAAG,EAAE;AACL,MAAM,aAAa,EAAE,OAAO,MAAM;AAClC,MAAM,aAAa,EAAE,OAAO,wCAAwC;AAGpE,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,MAAM,SAAS;AAEvB,QAAI,QAAa;AASjB,UAAM;AAAA,MACJ,MAAM;AAAA,QACJ,OAAO;AAAA,UACL,MAAM,EAAE,UAAU,YAAY;AAAA,QAChC;AAAA,MACF;AAAA,IACF,KACG,CAAC,QAAO,SAAS,IAAI,kBAAkB,MAAM,SAAc,wDAAwD,CAAC,GACrH,SAAS,MAAM,QACf,UAAU,GACV;AAGF,WAAO,CAAC,MAAU,WAAgB;AAChC,YAAM,6BAA6B,kBAAkB,iBAAiB;AAEtE,aAAQ,WAAW,GAAG,oBAAoB,WAAW,MAAM;AAAA,QACzD;AAAA,QACA,oBAAoB,OAAO,YAAY;AAAA,UACrC,oBAAoB,OAAO,YAAY;AAAA,YACrC,aAAa,4BAA4B,EAAE,gBAAgB,OAAO,WAAW,EAAE,GAAG,MAAM,GAAG,CAAC,cAAc,CAAC;AAAA,UAC7G,CAAC;AAAA,QACH,CAAC;AAAA,MACH,GAAG,EAAE;AAAA,IACP;AAAA,EACA;AAEA,CAAC;",
         "names": []
       }
     },
     {
       "name": "vite:json",
-      "start": 1710749688314,
-      "end": 1710749688314,
+      "start": 1712218473765,
+      "end": 1712218473765,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1710749688314,
-      "end": 1710749688314,
+      "start": 1712218473765,
+      "end": 1712218473765,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1710749688314,
-      "end": 1710749688314,
+      "start": 1712218473765,
+      "end": 1712218473766,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1710749688314,
-      "end": 1710749688314,
+      "start": 1712218473766,
+      "end": 1712218473766,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1710749688315,
-      "end": 1710749688315,
+      "start": 1712218473766,
+      "end": 1712218473767,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1710749688315,
-      "end": 1710749688315,
+      "start": 1712218473767,
+      "end": 1712218473767,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1710749688315,
-      "end": 1710749688315,
+      "start": 1712218473767,
+      "end": 1712218473767,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1710749688316,
-      "end": 1710749688316,
+      "start": 1712218473767,
+      "end": 1712218473768,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1710749688317,
-      "end": 1710749688317,
+      "start": 1712218473768,
+      "end": 1712218473769,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1710749688317,
-      "end": 1710749688317,
+      "start": 1712218473769,
+      "end": 1712218473769,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1710749688317,
-      "end": 1710749688317,
+      "start": 1712218473769,
+      "end": 1712218473769,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1710749688317,
-      "end": 1710749688317,
+      "start": 1712218473769,
+      "end": 1712218473769,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1710749688318,
-      "end": 1710749688318,
+      "start": 1712218473770,
+      "end": 1712218473770,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1710749688318,
-      "end": 1710749688318,
+      "start": 1712218473770,
+      "end": 1712218473770,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1710749688318,
-      "end": 1710749688318,
+      "start": 1712218473770,
+      "end": 1712218473770,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1710749688318,
-      "end": 1710749688318,
+      "start": 1712218473770,
+      "end": 1712218473770,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1710749688318,
-      "end": 1710749688318,
+      "start": 1712218473770,
+      "end": 1712218473771,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1710749688318,
-      "end": 1710749688318,
+      "start": 1712218473771,
+      "end": 1712218473771,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1710749688341,
-      "end": 1710749688348,
+      "start": 1712218473771,
+      "end": 1712218473778,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "result": "import { useRoute } from '#app/composables/router';\nimport { useFetch } from '#app/composables/fetch';\nimport { withAsyncContext as _withAsyncContext, defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"flex items-center justify-between p-4 border-b\" }, [\n  /* @__PURE__ */ _createElementVNode(\"button\", { class: \"p-2\" }, \"☰\"),\n  /* @__PURE__ */ _createElementVNode(\"div\", null, \"서버 리퀘스트 (레디스 적용됨)\"),\n  /* @__PURE__ */ _createElementVNode(\"div\", { class: \"space-x-4\" }, [\n    /* @__PURE__ */ _createElementVNode(\"button\", null, \"🔍\"),\n    /* @__PURE__ */ _createElementVNode(\"button\", null, \"🛍️\")\n  ])\n], -1);\nconst _hoisted_2 = { class: \"p-4\" };\nconst _hoisted_3 = { class: \"grid grid-cols-1 md:grid-cols-2 gap-4\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"product-list\",\n  async setup(__props) {\n    let __temp, __restore;\n    const { redisUse } = useRoute().query;\n    const { data: productList } = ([__temp, __restore] = _withAsyncContext(() => useFetch(\"/api/product-list-service\", {\n      query: { redisUse }\n    })), __temp = await __temp, __restore(), __temp);\n    return (_ctx, _cache) => {\n      const _component_ProductListView = _resolveComponent(\"ProductListView\");\n      return _openBlock(), _createElementBlock(_Fragment, null, [\n        _hoisted_1,\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createVNode(_component_ProductListView, { \"product-list\": _unref(productList) }, null, 8, [\"product-list\"])\n          ])\n        ])\n      ], 64);\n    };\n  }\n});\n",
-      "start": 1710749688350,
-      "end": 1710749688398,
+      "result": "import { useFetch } from '#app/composables/fetch';\nimport { withAsyncContext as _withAsyncContext, defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"flex items-center justify-between p-4 border-b\" }, [\n  /* @__PURE__ */ _createElementVNode(\"button\", { class: \"p-2\" }, \"☰\"),\n  /* @__PURE__ */ _createElementVNode(\"div\", null, \"상품페이지\"),\n  /* @__PURE__ */ _createElementVNode(\"a\", { href: \"/event/event-list\" }, \"이벤트 페이지 SSR 이동\"),\n  /* @__PURE__ */ _createElementVNode(\"div\", { class: \"space-x-4\" }, [\n    /* @__PURE__ */ _createElementVNode(\"button\", null, \"🔍\"),\n    /* @__PURE__ */ _createElementVNode(\"button\", null, \"🛍️\")\n  ])\n], -1);\nconst _hoisted_2 = { class: \"p-4\" };\nconst _hoisted_3 = { class: \"grid grid-cols-1 md:grid-cols-2 gap-4\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"product-list\",\n  async setup(__props) {\n    let __temp, __restore;\n    const {\n      data: {\n        value: {\n          data: { products: productList }\n        }\n      }\n    } = ([__temp, __restore] = _withAsyncContext(() => useFetch(\"https://dev-inm-gateway.apddev.com/product/getProducts\")), __temp = await __temp, __restore(), __temp);\n    return (_ctx, _cache) => {\n      const _component_ProductListView = _resolveComponent(\"ProductListView\");\n      return _openBlock(), _createElementBlock(_Fragment, null, [\n        _hoisted_1,\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createVNode(_component_ProductListView, { \"product-list\": _unref(productList) }, null, 8, [\"product-list\"])\n          ])\n        ])\n      ], 64);\n    };\n  }\n});\n",
+      "start": 1712218473778,
+      "end": 1712218473805,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -175,20 +175,20 @@
           ""
         ],
         "names": [],
-        "mappings": ";;AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjG,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5H,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9D,CAAC,CAAC,CAAC,CAAC;AACJ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9E,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACV,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACN,CAAC,CAAC,CAAC;AACH,CAAC,CAAC,CAAC;"
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjG,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5H,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5F,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9D,CAAC,CAAC,CAAC,CAAC;AACJ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACX,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACT,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9E,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACV,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACN,CAAC,CAAC,CAAC;AACH,CAAC,CAAC,CAAC;"
       }
     },
     {
       "name": "unctx:transform",
-      "start": 1710749688401,
-      "end": 1710749688411,
+      "start": 1712218473809,
+      "end": 1712218473817,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
       "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
-      "start": 1710749688413,
-      "end": 1710749688417,
+      "start": 1712218473818,
+      "end": 1712218473828,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -201,38 +201,38 @@
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1710749688418,
-      "end": 1710749688418,
+      "start": 1712218473828,
+      "end": 1712218473829,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1710749688418,
-      "end": 1710749688418,
+      "start": 1712218473829,
+      "end": 1712218473829,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1710749688428,
-      "end": 1710749688429,
+      "start": 1712218473829,
+      "end": 1712218473830,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1710749688429,
-      "end": 1710749688430,
+      "start": 1712218473832,
+      "end": 1712218473832,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1710749688430,
-      "end": 1710749688430,
+      "start": 1712218473832,
+      "end": 1712218473833,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1710749688431,
-      "end": 1710749688431,
+      "start": 1712218473833,
+      "end": 1712218473833,
       "order": "normal"
     }
   ]

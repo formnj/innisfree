@@ -5,9 +5,9 @@
         slides-per-view="auto"
         loop="true"
         loop-additional-slides="1"
-        centered-slides="true"
+        centered-slides="true"                
         grab-cursor="true"
-        slides-offset-before="-310"
+        slides-offset-before="-310"        
       >
         <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx" class="item">
           <img :src="item.img">{{  idx  }}
@@ -18,7 +18,7 @@
 </template>
 <script setup>
 definePageMeta({
-  layout: 'mo-default'
+  layout: 'pc-default'
 })
 
 
@@ -31,7 +31,7 @@ const sampleSlide = [
   },
   {
     img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
-  },
+  },  
   {
     img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
   },

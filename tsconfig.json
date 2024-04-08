@@ -1,0 +1,13 @@
+{
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "paths": {
+      "@assets": ["./assets"],
+      "@consts": ["./constants"],
+      "@utils": ["./utils"]
+    }
+  },
+
+  "exclude": [".nuxt"]
+}

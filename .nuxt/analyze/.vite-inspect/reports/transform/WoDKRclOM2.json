@@ -3,209 +3,209 @@
   "transforms": [
     {
       "name": "virtual",
-      "result": "import { default as eventtHE6uw6JDyMeta } from \"D:/work/repo/pages/demo/event.vue?macro=true\";\nimport { default as mainTQi6BWi2lsMeta } from \"D:/work/repo/pages/demo/main.vue?macro=true\";\nimport { default as productListlXdSeFrZaMMeta } from \"D:/work/repo/pages/demo/productList.vue?macro=true\";\nimport { default as event_45listf6KGiEY5qsMeta } from \"D:/work/repo/pages/event/event-list.vue?macro=true\";\nimport { default as componentsZfmCONSJJnMeta } from \"D:/work/repo/pages/guide/components.vue?macro=true\";\nimport { default as index4RHPH6eMjUMeta } from \"D:/work/repo/pages/guide/index.vue?macro=true\";\nimport { default as indexDPn2WE4hPfMeta } from \"D:/work/repo/pages/index.vue?macro=true\";\nimport { default as innisfreeiZK0tdXJ2BMeta } from \"D:/work/repo/pages/innisfree.vue?macro=true\";\nimport { default as product_45listaRHEDCw7GiMeta } from \"D:/work/repo/pages/product/product-list.vue?macro=true\";\nexport default [\n  {\n    name: eventtHE6uw6JDyMeta?.name ?? \"demo-event\",\n    path: eventtHE6uw6JDyMeta?.path ?? \"/demo/event\",\n    meta: eventtHE6uw6JDyMeta || {},\n    alias: eventtHE6uw6JDyMeta?.alias || [],\n    redirect: eventtHE6uw6JDyMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/demo/event.vue\").then(m => m.default || m)\n  },\n  {\n    name: mainTQi6BWi2lsMeta?.name ?? \"demo-main\",\n    path: mainTQi6BWi2lsMeta?.path ?? \"/demo/main\",\n    meta: mainTQi6BWi2lsMeta || {},\n    alias: mainTQi6BWi2lsMeta?.alias || [],\n    redirect: mainTQi6BWi2lsMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/demo/main.vue\").then(m => m.default || m)\n  },\n  {\n    name: productListlXdSeFrZaMMeta?.name ?? \"demo-productList\",\n    path: productListlXdSeFrZaMMeta?.path ?? \"/demo/productList\",\n    meta: productListlXdSeFrZaMMeta || {},\n    alias: productListlXdSeFrZaMMeta?.alias || [],\n    redirect: productListlXdSeFrZaMMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/demo/productList.vue\").then(m => m.default || m)\n  },\n  {\n    name: event_45listf6KGiEY5qsMeta?.name ?? \"event-event-list\",\n    path: event_45listf6KGiEY5qsMeta?.path ?? \"/event/event-list\",\n    meta: event_45listf6KGiEY5qsMeta || {},\n    alias: event_45listf6KGiEY5qsMeta?.alias || [],\n    redirect: event_45listf6KGiEY5qsMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/event/event-list.vue\").then(m => m.default || m)\n  },\n  {\n    name: componentsZfmCONSJJnMeta?.name ?? \"guide-components\",\n    path: componentsZfmCONSJJnMeta?.path ?? \"/guide/components\",\n    meta: componentsZfmCONSJJnMeta || {},\n    alias: componentsZfmCONSJJnMeta?.alias || [],\n    redirect: componentsZfmCONSJJnMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/guide/components.vue\").then(m => m.default || m)\n  },\n  {\n    name: index4RHPH6eMjUMeta?.name ?? \"guide\",\n    path: index4RHPH6eMjUMeta?.path ?? \"/guide\",\n    meta: index4RHPH6eMjUMeta || {},\n    alias: index4RHPH6eMjUMeta?.alias || [],\n    redirect: index4RHPH6eMjUMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/guide/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: indexDPn2WE4hPfMeta?.name ?? \"index\",\n    path: indexDPn2WE4hPfMeta?.path ?? \"/\",\n    meta: indexDPn2WE4hPfMeta || {},\n    alias: indexDPn2WE4hPfMeta?.alias || [],\n    redirect: indexDPn2WE4hPfMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: innisfreeiZK0tdXJ2BMeta?.name ?? \"innisfree\",\n    path: innisfreeiZK0tdXJ2BMeta?.path ?? \"/innisfree\",\n    meta: innisfreeiZK0tdXJ2BMeta || {},\n    alias: innisfreeiZK0tdXJ2BMeta?.alias || [],\n    redirect: innisfreeiZK0tdXJ2BMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/innisfree.vue\").then(m => m.default || m)\n  },\n  {\n    name: product_45listaRHEDCw7GiMeta?.name ?? \"product-product-list\",\n    path: product_45listaRHEDCw7GiMeta?.path ?? \"/product/product-list\",\n    meta: product_45listaRHEDCw7GiMeta || {},\n    alias: product_45listaRHEDCw7GiMeta?.alias || [],\n    redirect: product_45listaRHEDCw7GiMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/product/product-list.vue\").then(m => m.default || m)\n  }\n]",
-      "start": 1710749671083,
-      "end": 1710749671083,
+      "result": "import { default as indexFz8U7RhJn8Meta } from \"D:/work/repo/pages/aaGuide/index.vue?macro=true\";\nimport { default as mainnoU4dICRqmMeta } from \"D:/work/repo/pages/aaGuide/main.vue?macro=true\";\nimport { default as indexjqYptGz7r3Meta } from \"D:/work/repo/pages/component-test/index.vue?macro=true\";\nimport { default as event_45listf6KGiEY5qsMeta } from \"D:/work/repo/pages/event/event-list.vue?macro=true\";\nimport { default as componentsZfmCONSJJnMeta } from \"D:/work/repo/pages/guide/components.vue?macro=true\";\nimport { default as index4RHPH6eMjUMeta } from \"D:/work/repo/pages/guide/index.vue?macro=true\";\nimport { default as indexDPn2WE4hPfMeta } from \"D:/work/repo/pages/index.vue?macro=true\";\nimport { default as index00ItjGw6FIMeta } from \"D:/work/repo/pages/main/index.vue?macro=true\";\nimport { default as pocHz8l2GP8J1Meta } from \"D:/work/repo/pages/poc.vue?macro=true\";\nimport { default as product_45listaRHEDCw7GiMeta } from \"D:/work/repo/pages/product/product-list.vue?macro=true\";\nimport { default as IN_MO_PRD_01_01rNm31Z5whEMeta } from \"D:/work/repo/pages/publish/IN_MO_PRD_01_01.vue?macro=true\";\nimport { default as IN_PC_PRD_01_01zlaX25swQQMeta } from \"D:/work/repo/pages/publish/IN_PC_PRD_01_01.vue?macro=true\";\nimport { default as indexYLOWBqlK9PMeta } from \"D:/work/repo/pages/publish/index.vue?macro=true\";\nimport { default as csr_45ssr_45combineRCEHmErCqmMeta } from \"D:/work/repo/pages/sample/csr-ssr-combine.vue?macro=true\";\nimport { default as external_45script_45deferAya29UxW85Meta } from \"D:/work/repo/pages/sample/external-script-defer.vue?macro=true\";\nimport { default as external_45script_45no_45deferefCPjj2ZDyMeta } from \"D:/work/repo/pages/sample/external-script-no-defer.vue?macro=true\";\nimport { default as include_45lazy_45componentWKvEEt9GKqMeta } from \"D:/work/repo/pages/sample/include-lazy-component.vue?macro=true\";\nimport { default as include_45lazy_45component2htYnQXa7lzMeta } from \"D:/work/repo/pages/sample/include-lazy-component2.vue?macro=true\";\nimport { default as lazy_45fetchnOlONsxIbcMeta } from \"D:/work/repo/pages/sample/lazy-fetch.vue?macro=true\";\nimport { default as link_45no_45prefetchQmuqEtfR05Meta } from \"D:/work/repo/pages/sample/link-no-prefetch.vue?macro=true\";\nimport { default as no_45lazy_45fetch9ZifXnfH8BMeta } from \"D:/work/repo/pages/sample/no-lazy-fetch.vue?macro=true\";\nimport { default as only_45csrD3pvcUIq79Meta } from \"D:/work/repo/pages/sample/only-csr.vue?macro=true\";\nimport { default as only_45ssrHlxtIr2AjhMeta } from \"D:/work/repo/pages/sample/only-ssr.vue?macro=true\";\nexport default [\n  {\n    name: indexFz8U7RhJn8Meta?.name ?? \"aaGuide\",\n    path: indexFz8U7RhJn8Meta?.path ?? \"/aaGuide\",\n    meta: indexFz8U7RhJn8Meta || {},\n    alias: indexFz8U7RhJn8Meta?.alias || [],\n    redirect: indexFz8U7RhJn8Meta?.redirect,\n    component: () => import(\"D:/work/repo/pages/aaGuide/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: mainnoU4dICRqmMeta?.name ?? \"aaGuide-main\",\n    path: mainnoU4dICRqmMeta?.path ?? \"/aaGuide/main\",\n    meta: mainnoU4dICRqmMeta || {},\n    alias: mainnoU4dICRqmMeta?.alias || [],\n    redirect: mainnoU4dICRqmMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/aaGuide/main.vue\").then(m => m.default || m)\n  },\n  {\n    name: indexjqYptGz7r3Meta?.name ?? \"component-test\",\n    path: indexjqYptGz7r3Meta?.path ?? \"/component-test\",\n    meta: indexjqYptGz7r3Meta || {},\n    alias: indexjqYptGz7r3Meta?.alias || [],\n    redirect: indexjqYptGz7r3Meta?.redirect,\n    component: () => import(\"D:/work/repo/pages/component-test/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: event_45listf6KGiEY5qsMeta?.name ?? \"event-event-list\",\n    path: event_45listf6KGiEY5qsMeta?.path ?? \"/event/event-list\",\n    meta: event_45listf6KGiEY5qsMeta || {},\n    alias: event_45listf6KGiEY5qsMeta?.alias || [],\n    redirect: event_45listf6KGiEY5qsMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/event/event-list.vue\").then(m => m.default || m)\n  },\n  {\n    name: componentsZfmCONSJJnMeta?.name ?? \"guide-components\",\n    path: componentsZfmCONSJJnMeta?.path ?? \"/guide/components\",\n    meta: componentsZfmCONSJJnMeta || {},\n    alias: componentsZfmCONSJJnMeta?.alias || [],\n    redirect: componentsZfmCONSJJnMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/guide/components.vue\").then(m => m.default || m)\n  },\n  {\n    name: index4RHPH6eMjUMeta?.name ?? \"guide\",\n    path: index4RHPH6eMjUMeta?.path ?? \"/guide\",\n    meta: index4RHPH6eMjUMeta || {},\n    alias: index4RHPH6eMjUMeta?.alias || [],\n    redirect: index4RHPH6eMjUMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/guide/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: indexDPn2WE4hPfMeta?.name ?? \"index\",\n    path: indexDPn2WE4hPfMeta?.path ?? \"/\",\n    meta: indexDPn2WE4hPfMeta || {},\n    alias: indexDPn2WE4hPfMeta?.alias || [],\n    redirect: indexDPn2WE4hPfMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: index00ItjGw6FIMeta?.name ?? \"main\",\n    path: index00ItjGw6FIMeta?.path ?? \"/main\",\n    meta: index00ItjGw6FIMeta || {},\n    alias: index00ItjGw6FIMeta?.alias || [],\n    redirect: index00ItjGw6FIMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/main/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: pocHz8l2GP8J1Meta?.name ?? \"poc\",\n    path: pocHz8l2GP8J1Meta?.path ?? \"/poc\",\n    meta: pocHz8l2GP8J1Meta || {},\n    alias: pocHz8l2GP8J1Meta?.alias || [],\n    redirect: pocHz8l2GP8J1Meta?.redirect,\n    component: () => import(\"D:/work/repo/pages/poc.vue\").then(m => m.default || m)\n  },\n  {\n    name: product_45listaRHEDCw7GiMeta?.name ?? \"product-product-list\",\n    path: product_45listaRHEDCw7GiMeta?.path ?? \"/product/product-list\",\n    meta: product_45listaRHEDCw7GiMeta || {},\n    alias: product_45listaRHEDCw7GiMeta?.alias || [],\n    redirect: product_45listaRHEDCw7GiMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/product/product-list.vue\").then(m => m.default || m)\n  },\n  {\n    name: IN_MO_PRD_01_01rNm31Z5whEMeta?.name ?? \"publish-IN_MO_PRD_01_01\",\n    path: IN_MO_PRD_01_01rNm31Z5whEMeta?.path ?? \"/publish/IN_MO_PRD_01_01\",\n    meta: IN_MO_PRD_01_01rNm31Z5whEMeta || {},\n    alias: IN_MO_PRD_01_01rNm31Z5whEMeta?.alias || [],\n    redirect: IN_MO_PRD_01_01rNm31Z5whEMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/publish/IN_MO_PRD_01_01.vue\").then(m => m.default || m)\n  },\n  {\n    name: IN_PC_PRD_01_01zlaX25swQQMeta?.name ?? \"publish-IN_PC_PRD_01_01\",\n    path: IN_PC_PRD_01_01zlaX25swQQMeta?.path ?? \"/publish/IN_PC_PRD_01_01\",\n    meta: IN_PC_PRD_01_01zlaX25swQQMeta || {},\n    alias: IN_PC_PRD_01_01zlaX25swQQMeta?.alias || [],\n    redirect: IN_PC_PRD_01_01zlaX25swQQMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/publish/IN_PC_PRD_01_01.vue\").then(m => m.default || m)\n  },\n  {\n    name: indexYLOWBqlK9PMeta?.name ?? \"publish\",\n    path: indexYLOWBqlK9PMeta?.path ?? \"/publish\",\n    meta: indexYLOWBqlK9PMeta || {},\n    alias: indexYLOWBqlK9PMeta?.alias || [],\n    redirect: indexYLOWBqlK9PMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/publish/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: csr_45ssr_45combineRCEHmErCqmMeta?.name ?? \"sample-csr-ssr-combine\",\n    path: csr_45ssr_45combineRCEHmErCqmMeta?.path ?? \"/sample/csr-ssr-combine\",\n    meta: csr_45ssr_45combineRCEHmErCqmMeta || {},\n    alias: csr_45ssr_45combineRCEHmErCqmMeta?.alias || [],\n    redirect: csr_45ssr_45combineRCEHmErCqmMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/sample/csr-ssr-combine.vue\").then(m => m.default || m)\n  },\n  {\n    name: external_45script_45deferAya29UxW85Meta?.name ?? \"sample-external-script-defer\",\n    path: external_45script_45deferAya29UxW85Meta?.path ?? \"/sample/external-script-defer\",\n    meta: external_45script_45deferAya29UxW85Meta || {},\n    alias: external_45script_45deferAya29UxW85Meta?.alias || [],\n    redirect: external_45script_45deferAya29UxW85Meta?.redirect,\n    component: () => import(\"D:/work/repo/pages/sample/external-script-defer.vue\").then(m => m.default || m)\n  },\n  {\n    name: external_45script_45no_45deferefCPjj2ZDyMeta?.name ?? \"sample-external-script-no-defer\",\n    path: external_45script_45no_45deferefCPjj2ZDyMeta?.path ?? \"/sample/external-script-no-defer\",\n    meta: external_45script_45no_45deferefCPjj2ZDyMeta || {},\n    alias: external_45script_45no_45deferefCPjj2ZDyMeta?.alias || [],\n    redirect: external_45script_45no_45deferefCPjj2ZDyMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/sample/external-script-no-defer.vue\").then(m => m.default || m)\n  },\n  {\n    name: include_45lazy_45componentWKvEEt9GKqMeta?.name ?? \"sample-include-lazy-component\",\n    path: include_45lazy_45componentWKvEEt9GKqMeta?.path ?? \"/sample/include-lazy-component\",\n    meta: include_45lazy_45componentWKvEEt9GKqMeta || {},\n    alias: include_45lazy_45componentWKvEEt9GKqMeta?.alias || [],\n    redirect: include_45lazy_45componentWKvEEt9GKqMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/sample/include-lazy-component.vue\").then(m => m.default || m)\n  },\n  {\n    name: include_45lazy_45component2htYnQXa7lzMeta?.name ?? \"sample-include-lazy-component2\",\n    path: include_45lazy_45component2htYnQXa7lzMeta?.path ?? \"/sample/include-lazy-component2\",\n    meta: include_45lazy_45component2htYnQXa7lzMeta || {},\n    alias: include_45lazy_45component2htYnQXa7lzMeta?.alias || [],\n    redirect: include_45lazy_45component2htYnQXa7lzMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/sample/include-lazy-component2.vue\").then(m => m.default || m)\n  },\n  {\n    name: lazy_45fetchnOlONsxIbcMeta?.name ?? \"sample-lazy-fetch\",\n    path: lazy_45fetchnOlONsxIbcMeta?.path ?? \"/sample/lazy-fetch\",\n    meta: lazy_45fetchnOlONsxIbcMeta || {},\n    alias: lazy_45fetchnOlONsxIbcMeta?.alias || [],\n    redirect: lazy_45fetchnOlONsxIbcMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/sample/lazy-fetch.vue\").then(m => m.default || m)\n  },\n  {\n    name: link_45no_45prefetchQmuqEtfR05Meta?.name ?? \"sample-link-no-prefetch\",\n    path: link_45no_45prefetchQmuqEtfR05Meta?.path ?? \"/sample/link-no-prefetch\",\n    meta: link_45no_45prefetchQmuqEtfR05Meta || {},\n    alias: link_45no_45prefetchQmuqEtfR05Meta?.alias || [],\n    redirect: link_45no_45prefetchQmuqEtfR05Meta?.redirect,\n    component: () => import(\"D:/work/repo/pages/sample/link-no-prefetch.vue\").then(m => m.default || m)\n  },\n  {\n    name: no_45lazy_45fetch9ZifXnfH8BMeta?.name ?? \"sample-no-lazy-fetch\",\n    path: no_45lazy_45fetch9ZifXnfH8BMeta?.path ?? \"/sample/no-lazy-fetch\",\n    meta: no_45lazy_45fetch9ZifXnfH8BMeta || {},\n    alias: no_45lazy_45fetch9ZifXnfH8BMeta?.alias || [],\n    redirect: no_45lazy_45fetch9ZifXnfH8BMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/sample/no-lazy-fetch.vue\").then(m => m.default || m)\n  },\n  {\n    name: only_45csrD3pvcUIq79Meta?.name ?? \"sample-only-csr\",\n    path: only_45csrD3pvcUIq79Meta?.path ?? \"/sample/only-csr\",\n    meta: only_45csrD3pvcUIq79Meta || {},\n    alias: only_45csrD3pvcUIq79Meta?.alias || [],\n    redirect: only_45csrD3pvcUIq79Meta?.redirect,\n    component: () => import(\"D:/work/repo/pages/sample/only-csr.vue\").then(m => m.default || m)\n  },\n  {\n    name: only_45ssrHlxtIr2AjhMeta?.name ?? \"sample-only-ssr\",\n    path: only_45ssrHlxtIr2AjhMeta?.path ?? \"/sample/only-ssr\",\n    meta: only_45ssrHlxtIr2AjhMeta || {},\n    alias: only_45ssrHlxtIr2AjhMeta?.alias || [],\n    redirect: only_45ssrHlxtIr2AjhMeta?.redirect,\n    component: () => import(\"D:/work/repo/pages/sample/only-ssr.vue\").then(m => m.default || m)\n  }\n]",
+      "start": 1712218469881,
+      "end": 1712218469881,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1710749671083,
-      "end": 1710749671083,
+      "start": 1712218469882,
+      "end": 1712218469882,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1710749671083,
-      "end": 1710749671083,
+      "start": 1712218469882,
+      "end": 1712218469882,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1710749671083,
-      "end": 1710749671083,
+      "start": 1712218469882,
+      "end": 1712218469882,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1710749671084,
-      "end": 1710749671084,
+      "start": 1712218469882,
+      "end": 1712218469882,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1710749671084,
-      "end": 1710749671084,
+      "start": 1712218469882,
+      "end": 1712218469882,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1710749671084,
-      "end": 1710749671084,
+      "start": 1712218469883,
+      "end": 1712218469883,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1710749671084,
-      "end": 1710749671084,
+      "start": 1712218469883,
+      "end": 1712218469883,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1710749671084,
-      "end": 1710749671084,
+      "start": 1712218469883,
+      "end": 1712218469883,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1710749671084,
-      "end": 1710749671084,
+      "start": 1712218469883,
+      "end": 1712218469883,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1710749671084,
-      "end": 1710749671084,
+      "start": 1712218469883,
+      "end": 1712218469883,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1710749671085,
-      "end": 1710749671085,
+      "start": 1712218469883,
+      "end": 1712218469883,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1710749671085,
-      "end": 1710749671085,
+      "start": 1712218469883,
+      "end": 1712218469883,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1710749671085,
-      "end": 1710749671085,
+      "start": 1712218469883,
+      "end": 1712218469883,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1710749671085,
-      "end": 1710749671085,
+      "start": 1712218469883,
+      "end": 1712218469883,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1710749671085,
-      "end": 1710749671085,
+      "start": 1712218469884,
+      "end": 1712218469884,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1710749671086,
-      "end": 1710749671086,
+      "start": 1712218469884,
+      "end": 1712218469884,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1710749671086,
-      "end": 1710749671086,
+      "start": 1712218469884,
+      "end": 1712218469884,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1710749671086,
-      "end": 1710749671086,
+      "start": 1712218469884,
+      "end": 1712218469884,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1710749671086,
-      "end": 1710749671086,
+      "start": 1712218469884,
+      "end": 1712218469884,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1710749671086,
-      "end": 1710749671086,
+      "start": 1712218469884,
+      "end": 1712218469884,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1710749671086,
-      "end": 1710749671086,
+      "start": 1712218469884,
+      "end": 1712218469884,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1710749671086,
-      "end": 1710749671087,
+      "start": 1712218469884,
+      "end": 1712218469885,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1710749671088,
-      "end": 1710749671088,
+      "start": 1712218469886,
+      "end": 1712218469886,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1710749671088,
-      "end": 1710749671089,
+      "start": 1712218469886,
+      "end": 1712218469886,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1710749671093,
-      "end": 1710749671109,
+      "start": 1712218469886,
+      "end": 1712218469908,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1710749671109,
-      "end": 1710749671110,
+      "start": 1712218469908,
+      "end": 1712218469908,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1710749671110,
-      "end": 1710749671110,
+      "start": 1712218469908,
+      "end": 1712218469908,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1710749671111,
-      "end": 1710749671111,
+      "start": 1712218469908,
+      "end": 1712218469908,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1710749671111,
-      "end": 1710749671112,
+      "start": 1712218469909,
+      "end": 1712218469909,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1710749671112,
-      "end": 1710749671112,
+      "start": 1712218469909,
+      "end": 1712218469909,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1710749671116,
-      "end": 1710749671116,
+      "start": 1712218469909,
+      "end": 1712218469909,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "result": "import { __vitePreload } from \"\u0000vite/preload-helper.js\";import { default as eventtHE6uw6JDyMeta } from \"D:/work/repo/pages/demo/event.vue?macro=true\";\nimport { default as mainTQi6BWi2lsMeta } from \"D:/work/repo/pages/demo/main.vue?macro=true\";\nimport { default as productListlXdSeFrZaMMeta } from \"D:/work/repo/pages/demo/productList.vue?macro=true\";\nimport { default as event_45listf6KGiEY5qsMeta } from \"D:/work/repo/pages/event/event-list.vue?macro=true\";\nimport { default as componentsZfmCONSJJnMeta } from \"D:/work/repo/pages/guide/components.vue?macro=true\";\nimport { default as index4RHPH6eMjUMeta } from \"D:/work/repo/pages/guide/index.vue?macro=true\";\nimport { default as indexDPn2WE4hPfMeta } from \"D:/work/repo/pages/index.vue?macro=true\";\nimport { default as innisfreeiZK0tdXJ2BMeta } from \"D:/work/repo/pages/innisfree.vue?macro=true\";\nimport { default as product_45listaRHEDCw7GiMeta } from \"D:/work/repo/pages/product/product-list.vue?macro=true\";\nexport default [\n  {\n    name: eventtHE6uw6JDyMeta?.name ?? \"demo-event\",\n    path: eventtHE6uw6JDyMeta?.path ?? \"/demo/event\",\n    meta: eventtHE6uw6JDyMeta || {},\n    alias: eventtHE6uw6JDyMeta?.alias || [],\n    redirect: eventtHE6uw6JDyMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/demo/event.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: mainTQi6BWi2lsMeta?.name ?? \"demo-main\",\n    path: mainTQi6BWi2lsMeta?.path ?? \"/demo/main\",\n    meta: mainTQi6BWi2lsMeta || {},\n    alias: mainTQi6BWi2lsMeta?.alias || [],\n    redirect: mainTQi6BWi2lsMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/demo/main.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: productListlXdSeFrZaMMeta?.name ?? \"demo-productList\",\n    path: productListlXdSeFrZaMMeta?.path ?? \"/demo/productList\",\n    meta: productListlXdSeFrZaMMeta || {},\n    alias: productListlXdSeFrZaMMeta?.alias || [],\n    redirect: productListlXdSeFrZaMMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/demo/productList.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: event_45listf6KGiEY5qsMeta?.name ?? \"event-event-list\",\n    path: event_45listf6KGiEY5qsMeta?.path ?? \"/event/event-list\",\n    meta: event_45listf6KGiEY5qsMeta || {},\n    alias: event_45listf6KGiEY5qsMeta?.alias || [],\n    redirect: event_45listf6KGiEY5qsMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/event/event-list.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: componentsZfmCONSJJnMeta?.name ?? \"guide-components\",\n    path: componentsZfmCONSJJnMeta?.path ?? \"/guide/components\",\n    meta: componentsZfmCONSJJnMeta || {},\n    alias: componentsZfmCONSJJnMeta?.alias || [],\n    redirect: componentsZfmCONSJJnMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/guide/components.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: index4RHPH6eMjUMeta?.name ?? \"guide\",\n    path: index4RHPH6eMjUMeta?.path ?? \"/guide\",\n    meta: index4RHPH6eMjUMeta || {},\n    alias: index4RHPH6eMjUMeta?.alias || [],\n    redirect: index4RHPH6eMjUMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/guide/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexDPn2WE4hPfMeta?.name ?? \"index\",\n    path: indexDPn2WE4hPfMeta?.path ?? \"/\",\n    meta: indexDPn2WE4hPfMeta || {},\n    alias: indexDPn2WE4hPfMeta?.alias || [],\n    redirect: indexDPn2WE4hPfMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: innisfreeiZK0tdXJ2BMeta?.name ?? \"innisfree\",\n    path: innisfreeiZK0tdXJ2BMeta?.path ?? \"/innisfree\",\n    meta: innisfreeiZK0tdXJ2BMeta || {},\n    alias: innisfreeiZK0tdXJ2BMeta?.alias || [],\n    redirect: innisfreeiZK0tdXJ2BMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/innisfree.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: product_45listaRHEDCw7GiMeta?.name ?? \"product-product-list\",\n    path: product_45listaRHEDCw7GiMeta?.path ?? \"/product/product-list\",\n    meta: product_45listaRHEDCw7GiMeta || {},\n    alias: product_45listaRHEDCw7GiMeta?.alias || [],\n    redirect: product_45listaRHEDCw7GiMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/product/product-list.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  }\n]",
-      "start": 1710749671116,
-      "end": 1710749671118,
+      "result": "import { __vitePreload } from \"\u0000vite/preload-helper.js\";import { default as indexFz8U7RhJn8Meta } from \"D:/work/repo/pages/aaGuide/index.vue?macro=true\";\nimport { default as mainnoU4dICRqmMeta } from \"D:/work/repo/pages/aaGuide/main.vue?macro=true\";\nimport { default as indexjqYptGz7r3Meta } from \"D:/work/repo/pages/component-test/index.vue?macro=true\";\nimport { default as event_45listf6KGiEY5qsMeta } from \"D:/work/repo/pages/event/event-list.vue?macro=true\";\nimport { default as componentsZfmCONSJJnMeta } from \"D:/work/repo/pages/guide/components.vue?macro=true\";\nimport { default as index4RHPH6eMjUMeta } from \"D:/work/repo/pages/guide/index.vue?macro=true\";\nimport { default as indexDPn2WE4hPfMeta } from \"D:/work/repo/pages/index.vue?macro=true\";\nimport { default as index00ItjGw6FIMeta } from \"D:/work/repo/pages/main/index.vue?macro=true\";\nimport { default as pocHz8l2GP8J1Meta } from \"D:/work/repo/pages/poc.vue?macro=true\";\nimport { default as product_45listaRHEDCw7GiMeta } from \"D:/work/repo/pages/product/product-list.vue?macro=true\";\nimport { default as IN_MO_PRD_01_01rNm31Z5whEMeta } from \"D:/work/repo/pages/publish/IN_MO_PRD_01_01.vue?macro=true\";\nimport { default as IN_PC_PRD_01_01zlaX25swQQMeta } from \"D:/work/repo/pages/publish/IN_PC_PRD_01_01.vue?macro=true\";\nimport { default as indexYLOWBqlK9PMeta } from \"D:/work/repo/pages/publish/index.vue?macro=true\";\nimport { default as csr_45ssr_45combineRCEHmErCqmMeta } from \"D:/work/repo/pages/sample/csr-ssr-combine.vue?macro=true\";\nimport { default as external_45script_45deferAya29UxW85Meta } from \"D:/work/repo/pages/sample/external-script-defer.vue?macro=true\";\nimport { default as external_45script_45no_45deferefCPjj2ZDyMeta } from \"D:/work/repo/pages/sample/external-script-no-defer.vue?macro=true\";\nimport { default as include_45lazy_45componentWKvEEt9GKqMeta } from \"D:/work/repo/pages/sample/include-lazy-component.vue?macro=true\";\nimport { default as include_45lazy_45component2htYnQXa7lzMeta } from \"D:/work/repo/pages/sample/include-lazy-component2.vue?macro=true\";\nimport { default as lazy_45fetchnOlONsxIbcMeta } from \"D:/work/repo/pages/sample/lazy-fetch.vue?macro=true\";\nimport { default as link_45no_45prefetchQmuqEtfR05Meta } from \"D:/work/repo/pages/sample/link-no-prefetch.vue?macro=true\";\nimport { default as no_45lazy_45fetch9ZifXnfH8BMeta } from \"D:/work/repo/pages/sample/no-lazy-fetch.vue?macro=true\";\nimport { default as only_45csrD3pvcUIq79Meta } from \"D:/work/repo/pages/sample/only-csr.vue?macro=true\";\nimport { default as only_45ssrHlxtIr2AjhMeta } from \"D:/work/repo/pages/sample/only-ssr.vue?macro=true\";\nexport default [\n  {\n    name: indexFz8U7RhJn8Meta?.name ?? \"aaGuide\",\n    path: indexFz8U7RhJn8Meta?.path ?? \"/aaGuide\",\n    meta: indexFz8U7RhJn8Meta || {},\n    alias: indexFz8U7RhJn8Meta?.alias || [],\n    redirect: indexFz8U7RhJn8Meta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/aaGuide/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: mainnoU4dICRqmMeta?.name ?? \"aaGuide-main\",\n    path: mainnoU4dICRqmMeta?.path ?? \"/aaGuide/main\",\n    meta: mainnoU4dICRqmMeta || {},\n    alias: mainnoU4dICRqmMeta?.alias || [],\n    redirect: mainnoU4dICRqmMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/aaGuide/main.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexjqYptGz7r3Meta?.name ?? \"component-test\",\n    path: indexjqYptGz7r3Meta?.path ?? \"/component-test\",\n    meta: indexjqYptGz7r3Meta || {},\n    alias: indexjqYptGz7r3Meta?.alias || [],\n    redirect: indexjqYptGz7r3Meta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/component-test/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: event_45listf6KGiEY5qsMeta?.name ?? \"event-event-list\",\n    path: event_45listf6KGiEY5qsMeta?.path ?? \"/event/event-list\",\n    meta: event_45listf6KGiEY5qsMeta || {},\n    alias: event_45listf6KGiEY5qsMeta?.alias || [],\n    redirect: event_45listf6KGiEY5qsMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/event/event-list.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: componentsZfmCONSJJnMeta?.name ?? \"guide-components\",\n    path: componentsZfmCONSJJnMeta?.path ?? \"/guide/components\",\n    meta: componentsZfmCONSJJnMeta || {},\n    alias: componentsZfmCONSJJnMeta?.alias || [],\n    redirect: componentsZfmCONSJJnMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/guide/components.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: index4RHPH6eMjUMeta?.name ?? \"guide\",\n    path: index4RHPH6eMjUMeta?.path ?? \"/guide\",\n    meta: index4RHPH6eMjUMeta || {},\n    alias: index4RHPH6eMjUMeta?.alias || [],\n    redirect: index4RHPH6eMjUMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/guide/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexDPn2WE4hPfMeta?.name ?? \"index\",\n    path: indexDPn2WE4hPfMeta?.path ?? \"/\",\n    meta: indexDPn2WE4hPfMeta || {},\n    alias: indexDPn2WE4hPfMeta?.alias || [],\n    redirect: indexDPn2WE4hPfMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: index00ItjGw6FIMeta?.name ?? \"main\",\n    path: index00ItjGw6FIMeta?.path ?? \"/main\",\n    meta: index00ItjGw6FIMeta || {},\n    alias: index00ItjGw6FIMeta?.alias || [],\n    redirect: index00ItjGw6FIMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/main/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: pocHz8l2GP8J1Meta?.name ?? \"poc\",\n    path: pocHz8l2GP8J1Meta?.path ?? \"/poc\",\n    meta: pocHz8l2GP8J1Meta || {},\n    alias: pocHz8l2GP8J1Meta?.alias || [],\n    redirect: pocHz8l2GP8J1Meta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/poc.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: product_45listaRHEDCw7GiMeta?.name ?? \"product-product-list\",\n    path: product_45listaRHEDCw7GiMeta?.path ?? \"/product/product-list\",\n    meta: product_45listaRHEDCw7GiMeta || {},\n    alias: product_45listaRHEDCw7GiMeta?.alias || [],\n    redirect: product_45listaRHEDCw7GiMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/product/product-list.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: IN_MO_PRD_01_01rNm31Z5whEMeta?.name ?? \"publish-IN_MO_PRD_01_01\",\n    path: IN_MO_PRD_01_01rNm31Z5whEMeta?.path ?? \"/publish/IN_MO_PRD_01_01\",\n    meta: IN_MO_PRD_01_01rNm31Z5whEMeta || {},\n    alias: IN_MO_PRD_01_01rNm31Z5whEMeta?.alias || [],\n    redirect: IN_MO_PRD_01_01rNm31Z5whEMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/publish/IN_MO_PRD_01_01.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: IN_PC_PRD_01_01zlaX25swQQMeta?.name ?? \"publish-IN_PC_PRD_01_01\",\n    path: IN_PC_PRD_01_01zlaX25swQQMeta?.path ?? \"/publish/IN_PC_PRD_01_01\",\n    meta: IN_PC_PRD_01_01zlaX25swQQMeta || {},\n    alias: IN_PC_PRD_01_01zlaX25swQQMeta?.alias || [],\n    redirect: IN_PC_PRD_01_01zlaX25swQQMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/publish/IN_PC_PRD_01_01.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexYLOWBqlK9PMeta?.name ?? \"publish\",\n    path: indexYLOWBqlK9PMeta?.path ?? \"/publish\",\n    meta: indexYLOWBqlK9PMeta || {},\n    alias: indexYLOWBqlK9PMeta?.alias || [],\n    redirect: indexYLOWBqlK9PMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/publish/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: csr_45ssr_45combineRCEHmErCqmMeta?.name ?? \"sample-csr-ssr-combine\",\n    path: csr_45ssr_45combineRCEHmErCqmMeta?.path ?? \"/sample/csr-ssr-combine\",\n    meta: csr_45ssr_45combineRCEHmErCqmMeta || {},\n    alias: csr_45ssr_45combineRCEHmErCqmMeta?.alias || [],\n    redirect: csr_45ssr_45combineRCEHmErCqmMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/sample/csr-ssr-combine.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: external_45script_45deferAya29UxW85Meta?.name ?? \"sample-external-script-defer\",\n    path: external_45script_45deferAya29UxW85Meta?.path ?? \"/sample/external-script-defer\",\n    meta: external_45script_45deferAya29UxW85Meta || {},\n    alias: external_45script_45deferAya29UxW85Meta?.alias || [],\n    redirect: external_45script_45deferAya29UxW85Meta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/sample/external-script-defer.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: external_45script_45no_45deferefCPjj2ZDyMeta?.name ?? \"sample-external-script-no-defer\",\n    path: external_45script_45no_45deferefCPjj2ZDyMeta?.path ?? \"/sample/external-script-no-defer\",\n    meta: external_45script_45no_45deferefCPjj2ZDyMeta || {},\n    alias: external_45script_45no_45deferefCPjj2ZDyMeta?.alias || [],\n    redirect: external_45script_45no_45deferefCPjj2ZDyMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/sample/external-script-no-defer.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: include_45lazy_45componentWKvEEt9GKqMeta?.name ?? \"sample-include-lazy-component\",\n    path: include_45lazy_45componentWKvEEt9GKqMeta?.path ?? \"/sample/include-lazy-component\",\n    meta: include_45lazy_45componentWKvEEt9GKqMeta || {},\n    alias: include_45lazy_45componentWKvEEt9GKqMeta?.alias || [],\n    redirect: include_45lazy_45componentWKvEEt9GKqMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/sample/include-lazy-component.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: include_45lazy_45component2htYnQXa7lzMeta?.name ?? \"sample-include-lazy-component2\",\n    path: include_45lazy_45component2htYnQXa7lzMeta?.path ?? \"/sample/include-lazy-component2\",\n    meta: include_45lazy_45component2htYnQXa7lzMeta || {},\n    alias: include_45lazy_45component2htYnQXa7lzMeta?.alias || [],\n    redirect: include_45lazy_45component2htYnQXa7lzMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/sample/include-lazy-component2.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: lazy_45fetchnOlONsxIbcMeta?.name ?? \"sample-lazy-fetch\",\n    path: lazy_45fetchnOlONsxIbcMeta?.path ?? \"/sample/lazy-fetch\",\n    meta: lazy_45fetchnOlONsxIbcMeta || {},\n    alias: lazy_45fetchnOlONsxIbcMeta?.alias || [],\n    redirect: lazy_45fetchnOlONsxIbcMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/sample/lazy-fetch.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: link_45no_45prefetchQmuqEtfR05Meta?.name ?? \"sample-link-no-prefetch\",\n    path: link_45no_45prefetchQmuqEtfR05Meta?.path ?? \"/sample/link-no-prefetch\",\n    meta: link_45no_45prefetchQmuqEtfR05Meta || {},\n    alias: link_45no_45prefetchQmuqEtfR05Meta?.alias || [],\n    redirect: link_45no_45prefetchQmuqEtfR05Meta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/sample/link-no-prefetch.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: no_45lazy_45fetch9ZifXnfH8BMeta?.name ?? \"sample-no-lazy-fetch\",\n    path: no_45lazy_45fetch9ZifXnfH8BMeta?.path ?? \"/sample/no-lazy-fetch\",\n    meta: no_45lazy_45fetch9ZifXnfH8BMeta || {},\n    alias: no_45lazy_45fetch9ZifXnfH8BMeta?.alias || [],\n    redirect: no_45lazy_45fetch9ZifXnfH8BMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/sample/no-lazy-fetch.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: only_45csrD3pvcUIq79Meta?.name ?? \"sample-only-csr\",\n    path: only_45csrD3pvcUIq79Meta?.path ?? \"/sample/only-csr\",\n    meta: only_45csrD3pvcUIq79Meta || {},\n    alias: only_45csrD3pvcUIq79Meta?.alias || [],\n    redirect: only_45csrD3pvcUIq79Meta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/sample/only-csr.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: only_45ssrHlxtIr2AjhMeta?.name ?? \"sample-only-ssr\",\n    path: only_45ssrHlxtIr2AjhMeta?.path ?? \"/sample/only-ssr\",\n    meta: only_45ssrHlxtIr2AjhMeta || {},\n    alias: only_45ssrHlxtIr2AjhMeta?.alias || [],\n    redirect: only_45ssrHlxtIr2AjhMeta?.redirect,\n    component: () => __vitePreload(() => import(\"D:/work/repo/pages/sample/only-ssr.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  }\n]",
+      "start": 1712218469909,
+      "end": 1712218469912,
       "order": "normal",
       "sourcemaps": null
     },
     {
       "name": "vite:reporter",
-      "start": 1710749671119,
-      "end": 1710749671119,
+      "start": 1712218469913,
+      "end": 1712218469913,
       "order": "normal"
     }
   ]

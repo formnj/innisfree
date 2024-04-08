@@ -3,58 +3,58 @@
   "transforms": [
     {
       "name": "vite:load-fallback",
-      "result": "<template>\r\n    <GuideHeader />\r\n    <div id=\"container\">\r\n        <div class=\"guide_wrap\">\r\n            <slot />\r\n        </div>\r\n    </div>\r\n</template>\r\n\r\n<script setup>\r\n// import Header from '@/layout/Guide_Header.vue'\r\n\r\n</script>\r\n\r\n<style lang=\"scss\">\r\n.guide_wrap {\r\n    padding:30px 0;\r\n    section {\r\n        margin:0 20px;\r\n        & + section {\r\n            margin-top:30px;\r\n            padding-top:30px;\r\n            border-top:1px dashed #ababab;\r\n        }\r\n        h2 {\r\n            margin-bottom:20px;\r\n            padding:10px 10px 10px 20px;\r\n            font-size: 24px;\r\n            font-weight: 700;\r\n            position:relative;\r\n            display:flex;\r\n            &:before {\r\n                height:15px;\r\n                border-left:5px solid #ff7200;\r\n                content: '';\r\n                position: absolute;\r\n                top: 50%;\r\n                left: 0;\r\n                transform:translateY(-50%);\r\n            }\r\n            ul {\r\n                margin-left:auto;\r\n                display:inline-flex;\r\n                li {\r\n                    display:flex;\r\n                    align-items:center;\r\n                    a {\r\n                        color:#222;\r\n                        padding:0 15px;\r\n                        font-size:14px;\r\n                        text-decoration:none;\r\n                        display:block;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n        .explain {\r\n            margin-bottom:20px;\r\n            li {\r\n                padding-left:12px;\r\n                position:relative;\r\n                & + li {\r\n                    margin-top:15px;\r\n                }\r\n                &:before {\r\n                    position:absolute;\r\n                    top:0;\r\n                    left:0;\r\n                    bottom:0;\r\n                    content:'-';\r\n                    display:block;\r\n                }\r\n                strong {\r\n                    margin-bottom:8px;\r\n                    display:block;\r\n                }\r\n            }\r\n        }\r\n        .toolbar {\r\n            background-color:#eee;\r\n            display:flex;\r\n            flex-wrap:wrap;\r\n            li {\r\n                padding:8px;\r\n                > * {\r\n                    padding:8px;\r\n                    border-radius:4px;\r\n                    display:block;\r\n                    transition:background 0.25s;\r\n                    &:hover {\r\n                        background-color:#ddd;\r\n                    }\r\n                    &.current {\r\n                        background-color:#ccc;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n        h3 {\r\n            margin-top:20px;\r\n            margin-bottom:10px;\r\n        }\r\n    }\r\n}\r\n.design_box {\r\n    padding:15px;\r\n    border:1px solid #eee;\r\n}\r\n\r\n.code_box {\r\n    padding:15px;\r\n    color:#fff;\r\n    line-height:1.8;\r\n    background-color:#000;\r\n    border:10px solid #f2f2f2;\r\n    overflow:auto;\r\n}\r\n</style>",
-      "start": 1710749671410,
-      "end": 1710749673628,
+      "result": "<template>\r\n    <header>\r\n        <div class=\"inner\">\r\n            <h1><a href=\"/publish\"><img src=\"/assets/images/common/logo_innisfree.png\"></a> Guide</h1>\r\n            <ul class=\"gnb\">\r\n                <li><a :href=\"path\">list</a></li>\r\n                <li><a :href=\"path+'components'\">Components</a></li>\r\n            </ul>\r\n        </div>\r\n    </header>\r\n    <div id=\"container\">\r\n        <div class=\"guide_wrap\">\r\n            <router-view :device=\"device\" />\r\n        </div>\r\n    </div>\r\n</template>\r\n\r\n<script setup>\r\nlet path = '/guide/'\r\n</script>\r\n\r\n<style lang=\"scss\" scoped>\r\nheader {\r\n    padding:20px;\r\n    border-bottom:1px solid #ddd;\r\n    .inner {\r\n        display:flex;\r\n        justify-content:space-between;\r\n        flex-wrap:wrap;\r\n        h1 {\r\n            display:flex;\r\n            align-items:center;\r\n            gap:15px;\r\n            a {\r\n                display:block;\r\n                img {\r\n                    height:20px;\r\n                }\r\n            }\r\n        }\r\n    }\r\n    a {\r\n        color:#222;\r\n        text-decoration:none;\r\n    }\r\n    .gnb {\r\n        display:flex;\r\n        li {\r\n            position:relative;\r\n            a {\r\n                padding:8px 15px;\r\n                display:block;\r\n            }\r\n        }\r\n        ul {\r\n            display:inline-flex;\r\n            align-items:center;\r\n            li {\r\n                display:flex;\r\n                align-items:center;\r\n            }\r\n            li + li:before {\r\n                height:10px;\r\n                border-left:1px solid #ccc;\r\n                content:'';\r\n                display:block;\r\n            }\r\n        }\r\n    }\r\n}\r\n</style>",
+      "start": 1712218471337,
+      "end": 1712218471502,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1710749673628,
-      "end": 1710749673628,
+      "start": 1712218471502,
+      "end": 1712218471502,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1710749673629,
-      "end": 1710749673629,
+      "start": 1712218471502,
+      "end": 1712218471502,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1710749673629,
-      "end": 1710749673629,
+      "start": 1712218471502,
+      "end": 1712218471502,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1710749673629,
-      "end": 1710749673629,
+      "start": 1712218471502,
+      "end": 1712218471502,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1710749673629,
-      "end": 1710749673629,
+      "start": 1712218471502,
+      "end": 1712218471502,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1710749673629,
-      "end": 1710749673629,
+      "start": 1712218471502,
+      "end": 1712218471503,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1710749673629,
-      "end": 1710749673629,
+      "start": 1712218471503,
+      "end": 1712218471503,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "result": "import { resolveComponent as _resolveComponent, createVNode as _createVNode, renderSlot as _renderSlot, createElementVNode as _createElementVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { id: \"container\" }\nconst _hoisted_2 = { class: \"guide_wrap\" }\n\n\nconst _sfc_main = {\n  __name: 'guide',\n  setup(__props) {\n\r\n// import Header from '@/layout/Guide_Header.vue'\r\n\r\n\nreturn (_ctx, _cache) => {\n  const _component_GuideHeader = _resolveComponent(\"GuideHeader\")\n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _createVNode(_component_GuideHeader),\n    _createElementVNode(\"div\", _hoisted_1, [\n      _createElementVNode(\"div\", _hoisted_2, [\n        _renderSlot(_ctx.$slots, \"default\")\n      ])\n    ])\n  ], 64))\n}\n}\n\n}\n\n\nimport \"D:/work/repo/layouts/guide.vue?vue&type=style&index=0&lang.scss\"\n\nexport default _sfc_main",
-      "start": 1710749673629,
-      "end": 1710749673685,
+      "result": "import { createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\nimport _imports_0 from '/assets/images/common/logo_innisfree.png'\n\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-ab5c5185\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"inner\" }\nconst _hoisted_2 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"h1\", null, [\n  /*#__PURE__*/_createElementVNode(\"a\", { href: \"/publish\" }, [\n    /*#__PURE__*/_createElementVNode(\"img\", { src: _imports_0 })\n  ]),\n  /*#__PURE__*/_createTextVNode(\" Guide\")\n], -1))\nconst _hoisted_3 = { class: \"gnb\" }\nconst _hoisted_4 = [\"href\"]\nconst _hoisted_5 = [\"href\"]\nconst _hoisted_6 = { id: \"container\" }\nconst _hoisted_7 = { class: \"guide_wrap\" }\n\n\nconst _sfc_main = {\n  __name: 'guide',\n  setup(__props) {\n\r\nlet path = '/guide/'\r\n\nreturn (_ctx, _cache) => {\n  const _component_router_view = _resolveComponent(\"router-view\")\n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _createElementVNode(\"header\", null, [\n      _createElementVNode(\"div\", _hoisted_1, [\n        _hoisted_2,\n        _createElementVNode(\"ul\", _hoisted_3, [\n          _createElementVNode(\"li\", null, [\n            _createElementVNode(\"a\", { href: _unref(path) }, \"list\", 8, _hoisted_4)\n          ]),\n          _createElementVNode(\"li\", null, [\n            _createElementVNode(\"a\", {\n              href: _unref(path)+'components'\n            }, \"Components\", 8, _hoisted_5)\n          ])\n        ])\n      ])\n    ]),\n    _createElementVNode(\"div\", _hoisted_6, [\n      _createElementVNode(\"div\", _hoisted_7, [\n        _createVNode(_component_router_view, { device: _ctx.device }, null, 8, [\"device\"])\n      ])\n    ])\n  ], 64))\n}\n}\n\n}\n\n\nimport \"D:/work/repo/layouts/guide.vue?vue&type=style&index=0&scoped=ab5c5185&lang.scss\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-ab5c5185\"]])",
+      "start": 1712218471503,
+      "end": 1712218471508,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -62,153 +62,152 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1710749673685,
-      "end": 1710749673685,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1710749673685,
-      "end": 1710749673685,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1710749673685,
-      "end": 1710749673685,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1710749673685,
-      "end": 1710749673685,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1710749673686,
-      "end": 1710749673686,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1710749673686,
-      "end": 1710749673686,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1710749673686,
-      "end": 1710749673686,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1710749673686,
-      "end": 1710749673686,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1710749673686,
-      "end": 1710749673686,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1710749673686,
-      "end": 1710749673686,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1710749673686,
-      "end": 1710749673686,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1710749673686,
-      "end": 1710749673686,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1710749673686,
-      "end": 1710749673686,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1710749673686,
-      "end": 1710749673686,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1710749673686,
-      "end": 1710749673686,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1710749673686,
-      "end": 1710749673687,
+      "start": 1712218471508,
+      "end": 1712218471508,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1710749673687,
-      "end": 1710749673691,
+      "start": 1712218471508,
+      "end": 1712218471510,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1710749673691,
-      "end": 1710749673691,
+      "start": 1712218471510,
+      "end": 1712218471510,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1710749673691,
-      "end": 1710749673691,
+      "start": 1712218471510,
+      "end": 1712218471510,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1710749673698,
-      "end": 1710749673698,
+      "start": 1712218471510,
+      "end": 1712218471510,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1710749673698,
-      "end": 1710749673698,
+      "start": 1712218471510,
+      "end": 1712218471510,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "result": "import { default as __nuxt_component_0 } from \"D:/work/repo/components/guide/Header.vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, renderSlot as _renderSlot, createElementVNode as _createElementVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { id: \"container\" }\nconst _hoisted_2 = { class: \"guide_wrap\" }\n\n\nconst _sfc_main = {\n  __name: 'guide',\n  setup(__props) {\n\r\n// import Header from '@/layout/Guide_Header.vue'\r\n\r\n\nreturn (_ctx, _cache) => {\n  const _component_GuideHeader = __nuxt_component_0\n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _createVNode(_component_GuideHeader),\n    _createElementVNode(\"div\", _hoisted_1, [\n      _createElementVNode(\"div\", _hoisted_2, [\n        _renderSlot(_ctx.$slots, \"default\")\n      ])\n    ])\n  ], 64))\n}\n}\n\n}\n\n\nimport \"D:/work/repo/layouts/guide.vue?vue&type=style&index=0&lang.scss\"\n\nexport default _sfc_main",
-      "start": 1710749673698,
-      "end": 1710749673699,
+      "start": 1712218471510,
+      "end": 1712218471511,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1710749673699,
-      "end": 1710749673699,
+      "start": 1712218471511,
+      "end": 1712218471511,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1710749673699,
-      "end": 1710749673701,
+      "start": 1712218471511,
+      "end": 1712218471511,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1710749673701,
-      "end": 1710749673701,
+      "start": 1712218471511,
+      "end": 1712218471511,
       "order": "normal"
     }
   ]

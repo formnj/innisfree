@@ -3,58 +3,58 @@
   "transforms": [
     {
       "name": "vite:load-fallback",
-      "result": "<template>\r\n    <ul class=\"sticker\">\r\n        <li v-for=\"(item,idx) in item\" :key=\"idx\"><em :class=\"item.type\">{{ item.txt }}</em></li>\r\n    </ul>\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n    item: Array,\r\n})\r\n</script>\r\n\r\n<style lang=\"scss\" scoped>\r\n.sticker {\r\n    display:flex;\r\n    gap:1px;\r\n    em {\r\n        padding:2px 5px;\r\n        font-size:12px;\r\n        display:block;\r\n        &.type01 {\r\n            color:#666;\r\n            background-color:#eee;            \r\n        }\r\n        &.type02 {\r\n            color:#00bc70;\r\n            background-color:#e0fbf0;\r\n        }\r\n        &.type03 {\r\n            color:#fff;\r\n            background-color:#00BC70;\r\n        }\r\n        &.type04 {\r\n            color:#fff;\r\n            background-color:#000;\r\n        }\r\n    }\r\n}\r\n</style>",
-      "start": 1710749683406,
-      "end": 1710749686256,
+      "result": "<template>\r\n    <ul class=\"sticker\">\r\n        <li v-for=\"(item,idx) in item\" :key=\"idx\"><em :class=\"item.type\">{{ item.txt }}</em></li>\r\n    </ul>\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n    item: Array,\r\n})\r\n</script>\r\n\r\n<style lang=\"scss\" scoped>\r\n.sticker {\r\n    display:flex;\r\n    flex-wrap:wrap;\r\n    gap:1px;\r\n    em {\r\n        padding:2px 5px;\r\n        font-size:12px;\r\n        display:block;\r\n        &.type01 {\r\n            color:#666;\r\n            background-color:#eee;            \r\n        }\r\n        &.type02 {\r\n            color:#00bc70;\r\n            background-color:#e0fbf0;\r\n        }\r\n        &.type03 {\r\n            color:#fff;\r\n            background-color:#00BC70;\r\n        }\r\n        &.type04 {\r\n            color:#fff;\r\n            background-color:#000;\r\n        }\r\n    }\r\n}\r\n</style>",
+      "start": 1712218472850,
+      "end": 1712218474470,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1710749686257,
-      "end": 1710749686257,
+      "start": 1712218474470,
+      "end": 1712218474470,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1710749686257,
-      "end": 1710749686257,
+      "start": 1712218474470,
+      "end": 1712218474470,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1710749686257,
-      "end": 1710749686257,
+      "start": 1712218474470,
+      "end": 1712218474470,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1710749686257,
-      "end": 1710749686257,
+      "start": 1712218474470,
+      "end": 1712218474470,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1710749686257,
-      "end": 1710749686257,
+      "start": 1712218474470,
+      "end": 1712218474470,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1710749686257,
-      "end": 1710749686257,
+      "start": 1712218474470,
+      "end": 1712218474470,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1710749686257,
-      "end": 1710749686257,
+      "start": 1712218474470,
+      "end": 1712218474470,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "result": "import { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, normalizeClass as _normalizeClass, createElementVNode as _createElementVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-29e2dcfb\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"sticker\" }\n\n\nconst _sfc_main = {\n  __name: 'Sticker',\n  props: {\r\n    item: Array,\r\n},\n  setup(__props) {\n\r\nconst props = __props\r\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"ul\", _hoisted_1, [\n    (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(__props.item, (item, idx) => {\n      return (_openBlock(), _createElementBlock(\"li\", { key: idx }, [\n        _createElementVNode(\"em\", {\n          class: _normalizeClass(item.type)\n        }, _toDisplayString(item.txt), 3)\n      ]))\n    }), 128))\n  ]))\n}\n}\n\n}\n\n\nimport \"D:/work/repo/components/Sticker.vue?vue&type=style&index=0&scoped=29e2dcfb&lang.scss\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-29e2dcfb\"]])",
-      "start": 1710749686257,
-      "end": 1710749686264,
+      "result": "import { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, normalizeClass as _normalizeClass, createElementVNode as _createElementVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-6d787cb3\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"sticker\" }\n\n\nconst _sfc_main = {\n  __name: 'Sticker',\n  props: {\r\n    item: Array,\r\n},\n  setup(__props) {\n\r\nconst props = __props\r\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"ul\", _hoisted_1, [\n    (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(__props.item, (item, idx) => {\n      return (_openBlock(), _createElementBlock(\"li\", { key: idx }, [\n        _createElementVNode(\"em\", {\n          class: _normalizeClass(item.type)\n        }, _toDisplayString(item.txt), 3)\n      ]))\n    }), 128))\n  ]))\n}\n}\n\n}\n\n\nimport \"D:/work/repo/components/Sticker.vue?vue&type=style&index=0&scoped=6d787cb3&lang.scss\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-6d787cb3\"]])",
+      "start": 1712218474470,
+      "end": 1712218474476,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -62,152 +62,152 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1710749686264,
-      "end": 1710749686264,
+      "start": 1712218474476,
+      "end": 1712218474476,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1710749686265,
-      "end": 1710749686265,
+      "start": 1712218474476,
+      "end": 1712218474476,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1710749686265,
-      "end": 1710749686265,
+      "start": 1712218474476,
+      "end": 1712218474476,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1710749686265,
-      "end": 1710749686265,
+      "start": 1712218474476,
+      "end": 1712218474476,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1710749686265,
-      "end": 1710749686265,
+      "start": 1712218474477,
+      "end": 1712218474477,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1710749686265,
-      "end": 1710749686265,
+      "start": 1712218474478,
+      "end": 1712218474478,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1710749686265,
-      "end": 1710749686265,
+      "start": 1712218474478,
+      "end": 1712218474478,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1710749686265,
-      "end": 1710749686265,
+      "start": 1712218474478,
+      "end": 1712218474478,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1710749686265,
-      "end": 1710749686265,
+      "start": 1712218474478,
+      "end": 1712218474478,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1710749686265,
-      "end": 1710749686265,
+      "start": 1712218474478,
+      "end": 1712218474478,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1710749686265,
-      "end": 1710749686265,
+      "start": 1712218474478,
+      "end": 1712218474478,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1710749686265,
-      "end": 1710749686265,
+      "start": 1712218474478,
+      "end": 1712218474478,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1710749686265,
-      "end": 1710749686265,
+      "start": 1712218474478,
+      "end": 1712218474478,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1710749686265,
-      "end": 1710749686265,
+      "start": 1712218474478,
+      "end": 1712218474478,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1710749686265,
-      "end": 1710749686265,
+      "start": 1712218474478,
+      "end": 1712218474478,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1710749686265,
-      "end": 1710749686266,
+      "start": 1712218474478,
+      "end": 1712218474478,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1710749686266,
-      "end": 1710749686268,
+      "start": 1712218474478,
+      "end": 1712218474480,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1710749686268,
-      "end": 1710749686268,
+      "start": 1712218474480,
+      "end": 1712218474480,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1710749686268,
-      "end": 1710749686268,
+      "start": 1712218474480,
+      "end": 1712218474480,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1710749686268,
-      "end": 1710749686268,
+      "start": 1712218474480,
+      "end": 1712218474480,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1710749686268,
-      "end": 1710749686268,
+      "start": 1712218474480,
+      "end": 1712218474480,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1710749686268,
-      "end": 1710749686268,
+      "start": 1712218474480,
+      "end": 1712218474480,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1710749686268,
-      "end": 1710749686268,
+      "start": 1712218474480,
+      "end": 1712218474480,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1710749686268,
-      "end": 1710749686269,
+      "start": 1712218474480,
+      "end": 1712218474480,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1710749686269,
-      "end": 1710749686269,
+      "start": 1712218474481,
+      "end": 1712218474481,
       "order": "normal"
     }
   ]

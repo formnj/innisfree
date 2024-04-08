@@ -3,58 +3,58 @@
   "transforms": [
     {
       "name": "vite:load-fallback",
-      "result": "<template>\r\n    <label v-if=\"_type == 'checkbox' || _type == 'radio'\" :class=\"{'check': !isswitch, 'check_ani': isswitch}\">\r\n        <input :type=\"_type\" :id=\"_id\" :name=\"_name\" />\r\n        <em class=\"label\">{{_text}}</em>\r\n    </label>\r\n    <div v-else class=\"label_wrap\">\r\n        <label class=\"input\" :class=\"{'err':isError}\">\r\n            <i v-if=\"_placeholder && !isDisabled\">{{_placeholder}}</i>\r\n            <input :type=\"_type\" :id=\"_id\" :value=\"_value\" @focus=\"hidePlaceholder\" @blur=\"valueChk\" @keyup=\"input_btn_chk\" :readonly=\"isReadonly\" :disabled=\"isDisabled\" />\r\n            <em class=\"err_txt\">{{err_text}}</em>\r\n            <button class=\"icon_del\" v-if=\"_type != 'password'\" @click=\"input_btn_fn\">Delete</button>\r\n            <button class=\"icon_pass\" v-if=\"_type == 'password'\" @click=\"input_btn_fn\">password</button>\r\n        </label>\r\n    </div>\r\n</template>\r\n\r\n<script setup>\r\n    const props = defineProps({\r\n        _id: String, //input ID\r\n        _name: String, // Input NAME\r\n        _type: String, // Input TYPE\r\n        _text: String, // checkbox, radio 문구\r\n        _placeholder: String, // Input PLACEHOLDER\r\n        _value: null, // Input VALUE\r\n        _err_text: String, // 오류 시 노출 문구\r\n        isError: false, // 오류 여부\r\n        isReadonly: false, // readonly 여부\r\n        isDisabled:false, // disabled 여부\r\n        isswitch: false, // checkbox switch 형태\r\n        isRrequired: false, // 필수값 여부\r\n    });\r\n\r\n    const hidePlaceholder = (e) => { //focus시 placeholder 숨김\r\n        if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n            e.currentTarget.previousSibling.style.display=\"none\"\r\n        }\r\n    }\r\n    \r\n    const valueChk = (e) => { //blur 시 value 유무 확인하여 placeholder 조절\r\n        console.log(e.currentTarget.value.length);\r\n        if(e.currentTarget.value.length > 0){\r\n            if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n                e.currentTarget.previousSibling.style.display='none';\r\n            }\r\n        } else {\r\n            if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n                e.currentTarget.previousSibling.style.removeProperty('display');\r\n            }\r\n        }\r\n    }\r\n\r\n    const input_btn_chk = (e) => { //keypress 시 value 유무 확인하여 버튼 노출 조절\r\n        var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');\r\n        if(e.currentTarget.value.length > 0){\r\n            icon_button.style.cssText=\"display:block;\"\r\n        }else{\r\n            icon_button.style.cssText=\"display:none;\"\r\n        }\r\n    }\r\n\r\n    const input_btn_fn = (e) => { //label_wrap의 버튼 클릭 시 각 기능\r\n        var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');\r\n        if(icon_button.getAttribute('class') == 'icon_del'){ //value 삭제\r\n            e.currentTarget.closest('.label_wrap').querySelector('input').value = null;\r\n            icon_button.style.cssText=\"display:none;\"\r\n            if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n                e.currentTarget.closest('.label_wrap').querySelector('i').style.display='block';\r\n            }\r\n        } else if(icon_button.getAttribute('class') == 'icon_pass') { //비밀번호 보기\r\n            e.currentTarget.closest('.label_wrap').querySelector('input').setAttribute('type','text');\r\n            icon_button.setAttribute('class', 'icon_text');\r\n        } else { //비밀번호 숨기기\r\n            e.currentTarget.closest('.label_wrap').querySelector('input').setAttribute('type','password');\r\n            icon_button.setAttribute('class', 'icon_pass');\r\n        }\r\n    }\r\n</script>\r\n<style scoped>\r\nem {font-style:normal;}\r\n.check {min-height:20px; padding-left:26px; line-height:1; position:relative; display:inline-block;}\r\n.check > * {line-height:1.4; vertical-align:middle; display:inline-block;}\r\n.check input {margin:0 0 0 1px; position:absolute;}\r\n.check .label:before, .check .label:after {content:''; position:absolute; display:inline-block;}\r\n\r\n/* radio */\r\n.check input[type='radio'], .check input[type='checkbox'] {opacity:0;}\r\n.check input[type='radio'], .check input[type='radio'] + .label:before {width:20px; height:20px; background-color:#fff; border:1px solid #ccc; border-radius:50%; box-sizing:border-box; top:0; left:0;}\r\n.check input[type='radio']:checked + .label:after {width:14px; height:14px; background-color:#333; border-radius:50%; box-sizing:border-box; top:3px; left:3px;}\r\n\r\n/* checkbox */\r\n.check input[type='checkbox'], .check input[type='checkbox'] + .label:before {width:20px; height:20px; background-color:#fff; border:1px solid #ccc; box-sizing:border-box; top:0; left:0;}\r\n.check input[type='checkbox']:checked + .label:after {width:8px; height:13px; border:2px solid #333; border-top:0; border-left:0; top:1px; left:6px; -webkit-transform:rotate(45deg); transform:rotate(45deg);}\r\n\r\n.check_ani {position:relative; display:inline-block;}\r\n.check_ani input {margin:0 0 0 1px; position:absolute; opacity:0;}\r\n.check_ani input[type='checkbox'] {opacity:0;}\r\n.check_ani .label {min-height:22px; padding-left:48px; position:relative; display:block;}\r\n.check_ani .label:before {width:42px; height:22px; background-color:#ccc; border:0; border-radius:60px; content:''; position:absolute; top:0; left:0; display:inline-block;}\r\n.check_ani input[type='checkbox'] + .label:after {width:18px; height:18px; background-color:#fff; border-radius:50%; content:''; position:absolute; top:50%; left:2px; z-index:1; display:block; transform:translateY(-50%); transition:all 0.2s;}\r\n.check_ani input[type='checkbox']:checked + .label:before {background-color:#ff7200;}\r\n.check_ani input[type='checkbox']:checked + .label:after {left:22px;}\r\n\r\nlabel.input, label.select > div {position:relative; display:block;}\r\nlabel.input i {color:#aaa; font-size:16px; font-style:normal; line-height:18px; position:absolute; top:50%; left:15px; transform:translateY(-50%);}/* placeholder */\r\nlabel.input input[type='text'], label.input input[type='password'], label.input input[type='number'] {width:100%; font-size:16px;; line-height:18px;}\r\nlabel.input .err_txt {margin-top:5px; color:#ff7200; font-size:12px; line-height:18px; display:none;}\r\nlabel.input.err .err_txt {display:block;}\r\nlabel.input * {flex:1 auto;}\r\n\r\n.label_wrap {position:relative; flex:1;}\r\n.label_wrap button[class*='icon_'] {width:24px; height:24px; font-size:0; background-repeat:no-repeat; border-radius:50%; position:absolute; top:9px; right:15px; z-index:1; display:none;}\r\n.label_wrap button[class*='icon_'] + button[class*='icon_'] {margin-right:34px;}\r\n.label_wrap button[class*='icon_'] {background-image:url('@/assets/images/common/icon_split.png'); background-repeat:no-repeat; background-size:250px auto;}\r\n.label_wrap button.icon_del {background-position:0 0;}\r\n.label_wrap button.icon_pass {background-position:-80px 0;}\r\n.label_wrap button.icon_text {background-position:-40px 0;}\r\n</style>\r\n",
-      "start": 1710749679224,
-      "end": 1710749681267,
+      "result": "<template>\r\n    <label v-if=\"_type == 'checkbox' || _type == 'radio'\" :class=\"{'check': !isswitch, 'check_ani': isswitch}\">\r\n        <input :type=\"_type\" :id=\"_id\" :name=\"_name\" />\r\n        <em class=\"label\">{{_text}}</em>\r\n    </label>\r\n    <div v-else class=\"label_wrap\">\r\n        <label class=\"input\" :class=\"{'err':isError}\">\r\n            <i v-if=\"_placeholder && !isDisabled\">{{_placeholder}}</i>\r\n            <input :type=\"_type\" :id=\"_id\" :value=\"_value\" @focus=\"hidePlaceholder\" @blur=\"valueChk\" @keyup=\"input_btn_chk\" :readonly=\"isReadonly\" :disabled=\"isDisabled\" />\r\n            <em v-if=\"isError\" class=\"err_txt\">{{_err_text}}</em>\r\n            <button class=\"icon_del\" v-if=\"_type != 'password'\" @click=\"input_btn_fn\">Delete</button>\r\n            <button class=\"icon_pass\" v-if=\"_type == 'password'\" @click=\"input_btn_fn\">password</button>\r\n        </label>\r\n    </div>\r\n</template>\r\n\r\n<script setup>\r\n    const props = defineProps({\r\n        _id: String, //input ID\r\n        _name: String, // Input NAME\r\n        // _type: String, // Input TYPE\r\n        _type: {\r\n            type: String,\r\n            default: 'text'\r\n        }, // Input TYPE\r\n        _text: String, // checkbox, radio 문구\r\n        _placeholder: String, // Input PLACEHOLDER\r\n        _value: null, // Input VALUE\r\n        _err_text: String, // 오류 시 노출 문구\r\n        isError: false, // 오류 여부\r\n        isReadonly: false, // readonly 여부\r\n        isDisabled:false, // disabled 여부\r\n        isswitch: false, // checkbox switch 형태\r\n        isRrequired: false, // 필수값 여부\r\n    });\r\n\r\n    const hidePlaceholder = (e) => { //focus시 placeholder 숨김\r\n        if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n            e.currentTarget.previousSibling.style.display=\"none\"\r\n        }\r\n    }\r\n    \r\n    const valueChk = (e) => { //blur 시 value 유무 확인하여 placeholder 조절\r\n        console.log(e.currentTarget.value.length);\r\n        if(e.currentTarget.value.length > 0){\r\n            if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n                e.currentTarget.previousSibling.style.display='none';\r\n            }\r\n        } else {\r\n            if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n                e.currentTarget.previousSibling.style.removeProperty('display');\r\n            }\r\n        }\r\n    }\r\n\r\n    const input_btn_chk = (e) => { //keypress 시 value 유무 확인하여 버튼 노출 조절\r\n        var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');\r\n        if(e.currentTarget.value.length > 0){\r\n            icon_button.style.cssText=\"display:block;\"\r\n        }else{\r\n            icon_button.style.cssText=\"display:none;\"\r\n        }\r\n    }\r\n\r\n    const input_btn_fn = (e) => { //label_wrap의 버튼 클릭 시 각 기능\r\n        var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');\r\n        if(icon_button.getAttribute('class') == 'icon_del'){ //value 삭제\r\n            e.currentTarget.closest('.label_wrap').querySelector('input').value = null;\r\n            icon_button.style.cssText=\"display:none;\"\r\n            if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n                e.currentTarget.closest('.label_wrap').querySelector('i').style.display='block';\r\n            }\r\n        } else if(icon_button.getAttribute('class') == 'icon_pass') { //비밀번호 보기\r\n            e.currentTarget.closest('.label_wrap').querySelector('input').setAttribute('type','text');\r\n            icon_button.setAttribute('class', 'icon_text');\r\n        } else { //비밀번호 숨기기\r\n            e.currentTarget.closest('.label_wrap').querySelector('input').setAttribute('type','password');\r\n            icon_button.setAttribute('class', 'icon_pass');\r\n        }\r\n    }\r\n</script>\r\n<style scoped>\r\nem {font-style:normal;}\r\n.check {min-height:20px; padding-left:26px; line-height:1; position:relative; display:inline-block;}\r\n.check > * {line-height:1.4; vertical-align:middle; display:inline-block;}\r\n.check input {margin:0 0 0 1px; position:absolute;}\r\n.check .label:before, .check .label:after {content:''; position:absolute; display:inline-block;}\r\n\r\n/* radio */\r\n.check input[type='radio'], .check input[type='checkbox'] {opacity:0;}\r\n.check input[type='radio'], .check input[type='radio'] + .label:before {width:20px; height:20px; background-color:#fff; border:1px solid #ccc; border-radius:50%; box-sizing:border-box; top:0; left:0;}\r\n.check input[type='radio']:checked + .label:after {width:14px; height:14px; background-color:#333; border-radius:50%; box-sizing:border-box; top:3px; left:3px;}\r\n\r\n/* checkbox */\r\n.check input[type='checkbox'], .check input[type='checkbox'] + .label:before {width:20px; height:20px; background-color:#fff; border:1px solid #ccc; box-sizing:border-box; top:0; left:0;}\r\n.check input[type='checkbox']:checked + .label:after {width:8px; height:13px; border:2px solid #333; border-top:0; border-left:0; top:1px; left:6px; -webkit-transform:rotate(45deg); transform:rotate(45deg);}\r\n\r\n.check_ani {position:relative; display:inline-block;}\r\n.check_ani input {margin:0 0 0 1px; position:absolute; opacity:0;}\r\n.check_ani input[type='checkbox'] {opacity:0;}\r\n.check_ani .label {min-height:22px; padding-left:48px; position:relative; display:block;}\r\n.check_ani .label:before {width:42px; height:22px; background-color:#ccc; border:0; border-radius:60px; content:''; position:absolute; top:0; left:0; display:inline-block;}\r\n.check_ani input[type='checkbox'] + .label:after {width:18px; height:18px; background-color:#fff; border-radius:50%; content:''; position:absolute; top:50%; left:2px; z-index:1; display:block; transform:translateY(-50%); transition:all 0.2s;}\r\n.check_ani input[type='checkbox']:checked + .label:before {background-color:#ff7200;}\r\n.check_ani input[type='checkbox']:checked + .label:after {left:22px;}\r\n\r\nlabel.input, label.select > div {position:relative; display:block;}\r\nlabel.input i {color:#aaa; font-size:16px; font-style:normal; line-height:18px; position:absolute; top:20px; left:15px; transform:translateY(-50%);}/* placeholder */\r\nlabel.input input[type='text'], label.input input[type='password'], label.input input[type='number'] {width:100%; font-size:16px;; line-height:18px;}\r\nlabel.input .err_txt {margin-top:5px; color:#ff7200; font-size:12px; line-height:18px; display:none;}\r\nlabel.input.err .err_txt {display:block;}\r\nlabel.input * {flex:1 auto;}\r\n\r\n.label_wrap {position:relative; flex:1;}\r\n.label_wrap button[class*='icon_'] {width:24px; height:24px; font-size:0; background-repeat:no-repeat; border-radius:50%; position:absolute; top:9px; right:15px; z-index:1; display:none;}\r\n.label_wrap button[class*='icon_'] + button[class*='icon_'] {margin-right:34px;}\r\n.label_wrap button[class*='icon_'] {background-image:url('@/assets/images/common/icon_split.png'); background-repeat:no-repeat; background-size:250px auto;}\r\n.label_wrap button.icon_del {background-position:0 0;}\r\n.label_wrap button.icon_pass {background-position:-80px 0;}\r\n.label_wrap button.icon_text {background-position:-40px 0;}\r\n</style>\r\n",
+      "start": 1712218471580,
+      "end": 1712218472431,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1710749681267,
-      "end": 1710749681268,
+      "start": 1712218472431,
+      "end": 1712218472431,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1710749681268,
-      "end": 1710749681268,
+      "start": 1712218472431,
+      "end": 1712218472431,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1710749681268,
-      "end": 1710749681268,
+      "start": 1712218472431,
+      "end": 1712218472431,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1710749681268,
-      "end": 1710749681268,
+      "start": 1712218472431,
+      "end": 1712218472431,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1710749681268,
-      "end": 1710749681268,
+      "start": 1712218472431,
+      "end": 1712218472431,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1710749681268,
-      "end": 1710749681268,
+      "start": 1712218472431,
+      "end": 1712218472431,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1710749681268,
-      "end": 1710749681268,
+      "start": 1712218472431,
+      "end": 1712218472431,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "result": "import { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-ac7fd751\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = [\"type\", \"id\", \"name\"]\nconst _hoisted_2 = { class: \"label\" }\nconst _hoisted_3 = {\n  key: 1,\n  class: \"label_wrap\"\n}\nconst _hoisted_4 = { key: 0 }\nconst _hoisted_5 = [\"type\", \"id\", \"value\", \"readonly\", \"disabled\"]\nconst _hoisted_6 = { class: \"err_txt\" }\n\n\nconst _sfc_main = {\n  __name: 'Inputs',\n  props: {\r\n        _id: String, //input ID\r\n        _name: String, // Input NAME\r\n        _type: String, // Input TYPE\r\n        _text: String, // checkbox, radio 문구\r\n        _placeholder: String, // Input PLACEHOLDER\r\n        _value: null, // Input VALUE\r\n        _err_text: String, // 오류 시 노출 문구\r\n        isError: false, // 오류 여부\r\n        isReadonly: false, // readonly 여부\r\n        isDisabled:false, // disabled 여부\r\n        isswitch: false, // checkbox switch 형태\r\n        isRrequired: false, // 필수값 여부\r\n    },\n  setup(__props) {\n\r\n    const props = __props;\r\n\r\n    const hidePlaceholder = (e) => { //focus시 placeholder 숨김\r\n        if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n            e.currentTarget.previousSibling.style.display=\"none\"\r\n        }\r\n    }\r\n    \r\n    const valueChk = (e) => { //blur 시 value 유무 확인하여 placeholder 조절\r\n        console.log(e.currentTarget.value.length);\r\n        if(e.currentTarget.value.length > 0){\r\n            if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n                e.currentTarget.previousSibling.style.display='none';\r\n            }\r\n        } else {\r\n            if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n                e.currentTarget.previousSibling.style.removeProperty('display');\r\n            }\r\n        }\r\n    }\r\n\r\n    const input_btn_chk = (e) => { //keypress 시 value 유무 확인하여 버튼 노출 조절\r\n        var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');\r\n        if(e.currentTarget.value.length > 0){\r\n            icon_button.style.cssText=\"display:block;\"\r\n        }else{\r\n            icon_button.style.cssText=\"display:none;\"\r\n        }\r\n    }\r\n\r\n    const input_btn_fn = (e) => { //label_wrap의 버튼 클릭 시 각 기능\r\n        var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');\r\n        if(icon_button.getAttribute('class') == 'icon_del'){ //value 삭제\r\n            e.currentTarget.closest('.label_wrap').querySelector('input').value = null;\r\n            icon_button.style.cssText=\"display:none;\"\r\n            if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n                e.currentTarget.closest('.label_wrap').querySelector('i').style.display='block';\r\n            }\r\n        } else if(icon_button.getAttribute('class') == 'icon_pass') { //비밀번호 보기\r\n            e.currentTarget.closest('.label_wrap').querySelector('input').setAttribute('type','text');\r\n            icon_button.setAttribute('class', 'icon_text');\r\n        } else { //비밀번호 숨기기\r\n            e.currentTarget.closest('.label_wrap').querySelector('input').setAttribute('type','password');\r\n            icon_button.setAttribute('class', 'icon_pass');\r\n        }\r\n    }\r\n\nreturn (_ctx, _cache) => {\n  return (__props._type == 'checkbox' || __props._type == 'radio')\n    ? (_openBlock(), _createElementBlock(\"label\", {\n        key: 0,\n        class: _normalizeClass({'check': !__props.isswitch, 'check_ani': __props.isswitch})\n      }, [\n        _createElementVNode(\"input\", {\n          type: __props._type,\n          id: __props._id,\n          name: __props._name\n        }, null, 8, _hoisted_1),\n        _createElementVNode(\"em\", _hoisted_2, _toDisplayString(__props._text), 1)\n      ], 2))\n    : (_openBlock(), _createElementBlock(\"div\", _hoisted_3, [\n        _createElementVNode(\"label\", {\n          class: _normalizeClass([\"input\", {'err':__props.isError}])\n        }, [\n          (__props._placeholder && !__props.isDisabled)\n            ? (_openBlock(), _createElementBlock(\"i\", _hoisted_4, _toDisplayString(__props._placeholder), 1))\n            : _createCommentVNode(\"\", true),\n          _createElementVNode(\"input\", {\n            type: __props._type,\n            id: __props._id,\n            value: __props._value,\n            onFocus: hidePlaceholder,\n            onBlur: valueChk,\n            onKeyup: input_btn_chk,\n            readonly: __props.isReadonly,\n            disabled: __props.isDisabled\n          }, null, 40, _hoisted_5),\n          _createElementVNode(\"em\", _hoisted_6, _toDisplayString(_ctx.err_text), 1),\n          (__props._type != 'password')\n            ? (_openBlock(), _createElementBlock(\"button\", {\n                key: 1,\n                class: \"icon_del\",\n                onClick: input_btn_fn\n              }, \"Delete\"))\n            : _createCommentVNode(\"\", true),\n          (__props._type == 'password')\n            ? (_openBlock(), _createElementBlock(\"button\", {\n                key: 2,\n                class: \"icon_pass\",\n                onClick: input_btn_fn\n              }, \"password\"))\n            : _createCommentVNode(\"\", true)\n        ], 2)\n      ]))\n}\n}\n\n}\n\n\nimport \"D:/work/repo/components/Inputs.vue?vue&type=style&index=0&scoped=ac7fd751&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-ac7fd751\"]])",
-      "start": 1710749681268,
-      "end": 1710749681359,
+      "result": "import { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-ed662c56\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = [\"type\", \"id\", \"name\"]\nconst _hoisted_2 = { class: \"label\" }\nconst _hoisted_3 = {\n  key: 1,\n  class: \"label_wrap\"\n}\nconst _hoisted_4 = { key: 0 }\nconst _hoisted_5 = [\"type\", \"id\", \"value\", \"readonly\", \"disabled\"]\nconst _hoisted_6 = {\n  key: 1,\n  class: \"err_txt\"\n}\n\n\nconst _sfc_main = {\n  __name: 'Inputs',\n  props: {\r\n        _id: String, //input ID\r\n        _name: String, // Input NAME\r\n        // _type: String, // Input TYPE\r\n        _type: {\r\n            type: String,\r\n            default: 'text'\r\n        }, // Input TYPE\r\n        _text: String, // checkbox, radio 문구\r\n        _placeholder: String, // Input PLACEHOLDER\r\n        _value: null, // Input VALUE\r\n        _err_text: String, // 오류 시 노출 문구\r\n        isError: false, // 오류 여부\r\n        isReadonly: false, // readonly 여부\r\n        isDisabled:false, // disabled 여부\r\n        isswitch: false, // checkbox switch 형태\r\n        isRrequired: false, // 필수값 여부\r\n    },\n  setup(__props) {\n\r\n    const props = __props;\r\n\r\n    const hidePlaceholder = (e) => { //focus시 placeholder 숨김\r\n        if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n            e.currentTarget.previousSibling.style.display=\"none\"\r\n        }\r\n    }\r\n    \r\n    const valueChk = (e) => { //blur 시 value 유무 확인하여 placeholder 조절\r\n        console.log(e.currentTarget.value.length);\r\n        if(e.currentTarget.value.length > 0){\r\n            if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n                e.currentTarget.previousSibling.style.display='none';\r\n            }\r\n        } else {\r\n            if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n                e.currentTarget.previousSibling.style.removeProperty('display');\r\n            }\r\n        }\r\n    }\r\n\r\n    const input_btn_chk = (e) => { //keypress 시 value 유무 확인하여 버튼 노출 조절\r\n        var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');\r\n        if(e.currentTarget.value.length > 0){\r\n            icon_button.style.cssText=\"display:block;\"\r\n        }else{\r\n            icon_button.style.cssText=\"display:none;\"\r\n        }\r\n    }\r\n\r\n    const input_btn_fn = (e) => { //label_wrap의 버튼 클릭 시 각 기능\r\n        var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');\r\n        if(icon_button.getAttribute('class') == 'icon_del'){ //value 삭제\r\n            e.currentTarget.closest('.label_wrap').querySelector('input').value = null;\r\n            icon_button.style.cssText=\"display:none;\"\r\n            if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){\r\n                e.currentTarget.closest('.label_wrap').querySelector('i').style.display='block';\r\n            }\r\n        } else if(icon_button.getAttribute('class') == 'icon_pass') { //비밀번호 보기\r\n            e.currentTarget.closest('.label_wrap').querySelector('input').setAttribute('type','text');\r\n            icon_button.setAttribute('class', 'icon_text');\r\n        } else { //비밀번호 숨기기\r\n            e.currentTarget.closest('.label_wrap').querySelector('input').setAttribute('type','password');\r\n            icon_button.setAttribute('class', 'icon_pass');\r\n        }\r\n    }\r\n\nreturn (_ctx, _cache) => {\n  return (__props._type == 'checkbox' || __props._type == 'radio')\n    ? (_openBlock(), _createElementBlock(\"label\", {\n        key: 0,\n        class: _normalizeClass({'check': !__props.isswitch, 'check_ani': __props.isswitch})\n      }, [\n        _createElementVNode(\"input\", {\n          type: __props._type,\n          id: __props._id,\n          name: __props._name\n        }, null, 8, _hoisted_1),\n        _createElementVNode(\"em\", _hoisted_2, _toDisplayString(__props._text), 1)\n      ], 2))\n    : (_openBlock(), _createElementBlock(\"div\", _hoisted_3, [\n        _createElementVNode(\"label\", {\n          class: _normalizeClass([\"input\", {'err':__props.isError}])\n        }, [\n          (__props._placeholder && !__props.isDisabled)\n            ? (_openBlock(), _createElementBlock(\"i\", _hoisted_4, _toDisplayString(__props._placeholder), 1))\n            : _createCommentVNode(\"\", true),\n          _createElementVNode(\"input\", {\n            type: __props._type,\n            id: __props._id,\n            value: __props._value,\n            onFocus: hidePlaceholder,\n            onBlur: valueChk,\n            onKeyup: input_btn_chk,\n            readonly: __props.isReadonly,\n            disabled: __props.isDisabled\n          }, null, 40, _hoisted_5),\n          (__props.isError)\n            ? (_openBlock(), _createElementBlock(\"em\", _hoisted_6, _toDisplayString(__props._err_text), 1))\n            : _createCommentVNode(\"\", true),\n          (__props._type != 'password')\n            ? (_openBlock(), _createElementBlock(\"button\", {\n                key: 2,\n                class: \"icon_del\",\n                onClick: input_btn_fn\n              }, \"Delete\"))\n            : _createCommentVNode(\"\", true),\n          (__props._type == 'password')\n            ? (_openBlock(), _createElementBlock(\"button\", {\n                key: 3,\n                class: \"icon_pass\",\n                onClick: input_btn_fn\n              }, \"password\"))\n            : _createCommentVNode(\"\", true)\n        ], 2)\n      ]))\n}\n}\n\n}\n\n\nimport \"D:/work/repo/components/Inputs.vue?vue&type=style&index=0&scoped=ed662c56&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-ed662c56\"]])",
+      "start": 1712218472431,
+      "end": 1712218472439,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -62,152 +62,152 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1710749681359,
-      "end": 1710749681361,
+      "start": 1712218472439,
+      "end": 1712218472439,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1710749681362,
-      "end": 1710749681362,
+      "start": 1712218472439,
+      "end": 1712218472439,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1710749681362,
-      "end": 1710749681362,
+      "start": 1712218472439,
+      "end": 1712218472439,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1710749681362,
-      "end": 1710749681362,
+      "start": 1712218472439,
+      "end": 1712218472439,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1710749681362,
-      "end": 1710749681362,
+      "start": 1712218472439,
+      "end": 1712218472439,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1710749681362,
-      "end": 1710749681362,
+      "start": 1712218472439,
+      "end": 1712218472439,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1710749681362,
-      "end": 1710749681362,
+      "start": 1712218472439,
+      "end": 1712218472439,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1710749681363,
-      "end": 1710749681363,
+      "start": 1712218472440,
+      "end": 1712218472440,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1710749681363,
-      "end": 1710749681363,
+      "start": 1712218472440,
+      "end": 1712218472440,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1710749681363,
-      "end": 1710749681363,
+      "start": 1712218472440,
+      "end": 1712218472440,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1710749681363,
-      "end": 1710749681363,
+      "start": 1712218472440,
+      "end": 1712218472440,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1710749681363,
-      "end": 1710749681363,
+      "start": 1712218472440,
+      "end": 1712218472440,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1710749681363,
-      "end": 1710749681363,
+      "start": 1712218472440,
+      "end": 1712218472440,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1710749681363,
-      "end": 1710749681363,
+      "start": 1712218472440,
+      "end": 1712218472440,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1710749681363,
-      "end": 1710749681363,
+      "start": 1712218472440,
+      "end": 1712218472440,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1710749681363,
-      "end": 1710749681364,
+      "start": 1712218472440,
+      "end": 1712218472440,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1710749681364,
-      "end": 1710749681376,
+      "start": 1712218472440,
+      "end": 1712218472444,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1710749681376,
-      "end": 1710749681376,
+      "start": 1712218472444,
+      "end": 1712218472444,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1710749681376,
-      "end": 1710749681376,
+      "start": 1712218472444,
+      "end": 1712218472444,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1710749681376,
-      "end": 1710749681376,
+      "start": 1712218472444,
+      "end": 1712218472444,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1710749681376,
-      "end": 1710749681376,
+      "start": 1712218472444,
+      "end": 1712218472444,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1710749681376,
-      "end": 1710749681377,
+      "start": 1712218472444,
+      "end": 1712218472444,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1710749681377,
-      "end": 1710749681377,
+      "start": 1712218472444,
+      "end": 1712218472444,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1710749681377,
-      "end": 1710749681377,
+      "start": 1712218472444,
+      "end": 1712218472445,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1710749681378,
-      "end": 1710749681378,
+      "start": 1712218472445,
+      "end": 1712218472445,
       "order": "normal"
     }
   ]
