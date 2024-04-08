@@ -1,0 +1,267 @@
+{
+  "resolvedId": "D:/work/repo/layouts/guide.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n    <GuideHeader />\r\n    <div id=\"container\">\r\n        <div class=\"guide_wrap\">\r\n            <slot />\r\n        </div>\r\n    </div>\r\n</template>\r\n\r\n<script setup>\r\n// import Header from '@/layout/Guide_Header.vue'\r\n\r\n</script>\r\n\r\n<style lang=\"scss\">\r\n.guide_wrap {\r\n    padding:30px 0;\r\n    section {\r\n        margin:0 20px;\r\n        & + section {\r\n            margin-top:30px;\r\n            padding-top:30px;\r\n            border-top:1px dashed #ababab;\r\n        }\r\n        h2 {\r\n            margin-bottom:20px;\r\n            padding:10px 10px 10px 20px;\r\n            font-size: 24px;\r\n            font-weight: 700;\r\n            position:relative;\r\n            display:flex;\r\n            &:before {\r\n                height:15px;\r\n                border-left:5px solid #ff7200;\r\n                content: '';\r\n                position: absolute;\r\n                top: 50%;\r\n                left: 0;\r\n                transform:translateY(-50%);\r\n            }\r\n            ul {\r\n                margin-left:auto;\r\n                display:inline-flex;\r\n                li {\r\n                    display:flex;\r\n                    align-items:center;\r\n                    a {\r\n                        color:#222;\r\n                        padding:0 15px;\r\n                        font-size:14px;\r\n                        text-decoration:none;\r\n                        display:block;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n        .explain {\r\n            margin-bottom:20px;\r\n            li {\r\n                padding-left:12px;\r\n                position:relative;\r\n                & + li {\r\n                    margin-top:15px;\r\n                }\r\n                &:before {\r\n                    position:absolute;\r\n                    top:0;\r\n                    left:0;\r\n                    bottom:0;\r\n                    content:'-';\r\n                    display:block;\r\n                }\r\n                strong {\r\n                    margin-bottom:8px;\r\n                    display:block;\r\n                }\r\n            }\r\n        }\r\n        .toolbar {\r\n            background-color:#eee;\r\n            display:flex;\r\n            flex-wrap:wrap;\r\n            li {\r\n                padding:8px;\r\n                > * {\r\n                    padding:8px;\r\n                    border-radius:4px;\r\n                    display:block;\r\n                    transition:background 0.25s;\r\n                    &:hover {\r\n                        background-color:#ddd;\r\n                    }\r\n                    &.current {\r\n                        background-color:#ccc;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n        h3 {\r\n            margin-top:20px;\r\n            margin-bottom:10px;\r\n        }\r\n    }\r\n}\r\n.design_box {\r\n    padding:15px;\r\n    border:1px solid #eee;\r\n}\r\n\r\n.code_box {\r\n    padding:15px;\r\n    color:#fff;\r\n    line-height:1.8;\r\n    background-color:#000;\r\n    border:10px solid #f2f2f2;\r\n    overflow:auto;\r\n}\r\n</style>",
+      "start": 1710749710529,
+      "end": 1710749711759,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1710749711759,
+      "end": 1710749711759,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1710749711759,
+      "end": 1710749711759,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1710749711759,
+      "end": 1710749711759,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1710749711759,
+      "end": 1710749711759,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1710749711759,
+      "end": 1710749711759,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1710749711759,
+      "end": 1710749711759,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1710749711759,
+      "end": 1710749711759,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1710749711759,
+      "end": 1710749711759,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1710749711759,
+      "end": 1710749711759,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { resolveComponent as _resolveComponent } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderSlot as _ssrRenderSlot } from \"vue/server-renderer\"\n\n\nconst _sfc_main = {\n  __name: 'guide',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\n// import Header from '@/layout/Guide_Header.vue'\r\n\r\n\nreturn (_ctx, _push, _parent, _attrs) => {\n  const _component_GuideHeader = _resolveComponent(\"GuideHeader\")\n\n  _push(`<!--[-->`)\n  _push(_ssrRenderComponent(_component_GuideHeader, null, null, _parent))\n  _push(`<div id=\"container\"><div class=\"guide_wrap\">`)\n  _ssrRenderSlot(_ctx.$slots, \"default\", {}, null, _push, _parent)\n  _push(`</div></div><!--]-->`)\n}\n}\n\n}\n\n\nimport \"D:/work/repo/layouts/guide.vue?vue&type=style&index=0&lang.scss\"\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"layouts/guide.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nexport default _sfc_main",
+      "start": 1710749711759,
+      "end": 1710749711764,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/work/repo/layouts/guide.vue"
+        ],
+        "sourcesContent": [
+          "<template>\r\n    <GuideHeader />\r\n    <div id=\"container\">\r\n        <div class=\"guide_wrap\">\r\n            <slot />\r\n        </div>\r\n    </div>\r\n</template>\r\n\r\n<script setup>\r\n// import Header from '@/layout/Guide_Header.vue'\r\n\r\n</script>\r\n\r\n<style lang=\"scss\">\r\n.guide_wrap {\r\n    padding:30px 0;\r\n    section {\r\n        margin:0 20px;\r\n        & + section {\r\n            margin-top:30px;\r\n            padding-top:30px;\r\n            border-top:1px dashed #ababab;\r\n        }\r\n        h2 {\r\n            margin-bottom:20px;\r\n            padding:10px 10px 10px 20px;\r\n            font-size: 24px;\r\n            font-weight: 700;\r\n            position:relative;\r\n            display:flex;\r\n            &:before {\r\n                height:15px;\r\n                border-left:5px solid #ff7200;\r\n                content: '';\r\n                position: absolute;\r\n                top: 50%;\r\n                left: 0;\r\n                transform:translateY(-50%);\r\n            }\r\n            ul {\r\n                margin-left:auto;\r\n                display:inline-flex;\r\n                li {\r\n                    display:flex;\r\n                    align-items:center;\r\n                    a {\r\n                        color:#222;\r\n                        padding:0 15px;\r\n                        font-size:14px;\r\n                        text-decoration:none;\r\n                        display:block;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n        .explain {\r\n            margin-bottom:20px;\r\n            li {\r\n                padding-left:12px;\r\n                position:relative;\r\n                & + li {\r\n                    margin-top:15px;\r\n                }\r\n                &:before {\r\n                    position:absolute;\r\n                    top:0;\r\n                    left:0;\r\n                    bottom:0;\r\n                    content:'-';\r\n                    display:block;\r\n                }\r\n                strong {\r\n                    margin-bottom:8px;\r\n                    display:block;\r\n                }\r\n            }\r\n        }\r\n        .toolbar {\r\n            background-color:#eee;\r\n            display:flex;\r\n            flex-wrap:wrap;\r\n            li {\r\n                padding:8px;\r\n                > * {\r\n                    padding:8px;\r\n                    border-radius:4px;\r\n                    display:block;\r\n                    transition:background 0.25s;\r\n                    &:hover {\r\n                        background-color:#ddd;\r\n                    }\r\n                    &.current {\r\n                        background-color:#ccc;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n        h3 {\r\n            margin-top:20px;\r\n            margin-bottom:10px;\r\n        }\r\n    }\r\n}\r\n.design_box {\r\n    padding:15px;\r\n    border:1px solid #eee;\r\n}\r\n\r\n.code_box {\r\n    padding:15px;\r\n    color:#fff;\r\n    line-height:1.8;\r\n    background-color:#000;\r\n    border:10px solid #f2f2f2;\r\n    overflow:auto;\r\n}\r\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;AASc,CAAC;AACf,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClD,CAAC;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1710749711764,
+      "end": 1710749711764,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749711764,
+      "end": 1710749711765,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749711764,
+      "end": 1710749711765,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1710749711765,
+      "end": 1710749711765,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1710749711765,
+      "end": 1710749711765,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1710749711765,
+      "end": 1710749711765,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749711765,
+      "end": 1710749711765,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1710749711765,
+      "end": 1710749711773,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1710749711773,
+      "end": 1710749711773,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1710749711773,
+      "end": 1710749711773,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1710749711773,
+      "end": 1710749711773,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1710749711773,
+      "end": 1710749711773,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1710749711773,
+      "end": 1710749711773,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1710749711773,
+      "end": 1710749711776,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1710749711777,
+      "end": 1710749711777,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1710749711777,
+      "end": 1710749711777,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1710749711777,
+      "end": 1710749711777,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1710749711777,
+      "end": 1710749711777,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1710749711777,
+      "end": 1710749711780,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1710749711777,
+      "end": 1710749711780,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1710749711780,
+      "end": 1710749711780,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1710749711780,
+      "end": 1710749711780,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1710749711780,
+      "end": 1710749711780,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1710749711780,
+      "end": 1710749711780,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1710749711780,
+      "end": 1710749711781,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"D:/work/repo/components/guide/Header.vue\";\nimport { resolveComponent as _resolveComponent } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderSlot as _ssrRenderSlot } from \"vue/server-renderer\"\n\n\nconst _sfc_main = {\n  __name: 'guide',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\n// import Header from '@/layout/Guide_Header.vue'\r\n\r\n\nreturn (_ctx, _push, _parent, _attrs) => {\n  const _component_GuideHeader = __nuxt_component_0\n\n  _push(`<!--[-->`)\n  _push(_ssrRenderComponent(_component_GuideHeader, null, null, _parent))\n  _push(`<div id=\"container\"><div class=\"guide_wrap\">`)\n  _ssrRenderSlot(_ctx.$slots, \"default\", {}, null, _push, _parent)\n  _push(`</div></div><!--]-->`)\n}\n}\n\n}\n\n\nimport \"D:/work/repo/layouts/guide.vue?vue&type=style&index=0&lang.scss\"\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"layouts/guide.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nexport default _sfc_main",
+      "start": 1710749711781,
+      "end": 1710749711781,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChH;AACA;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC;AACD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClD,CAAC;AACD;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,kBAAgC;AACjE;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/B,CAAC;AACD,CAAC;AACD;AACA,CAAC;AACD;AACA;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxE;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxD,CAAC;AACD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC"
+      }
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1710749711781,
+      "end": 1710749711782,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1710749711782,
+      "end": 1710749711782,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1710749711782,
+      "end": 1710749711783,
+      "order": "normal"
+    }
+  ]
+}

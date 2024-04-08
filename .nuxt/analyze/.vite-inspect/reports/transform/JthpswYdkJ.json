@@ -1,0 +1,223 @@
+{
+  "resolvedId": "D:/work/repo/pages/innisfree.vue?macro=true",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <!-- Header with logo and cart icon -->\r\n  <header class=\"flex justify-between items-center p-4 bg-white\">\r\n    <h1 class=\"text-xl font-bold\">Innisfree</h1>\r\n    <div>\r\n      <span class=\"p-2\">Search</span>\r\n      <span class=\"p-2\">Cart(0)</span>\r\n    </div>\r\n  </header>\r\n\r\n  <!-- Main product display -->\r\n  <main class=\"my-4 mx-auto max-w-2xl\">\r\n    <!-- Product and offer display -->\r\n    <section class=\"text-center\">\r\n      <img\r\n        src=\"https://via.placeholder.com/150\"\r\n        alt=\"Product Image\"\r\n        class=\"mx-auto\"\r\n      />\r\n      <h2 class=\"text-2xl font-bold my-2\">\r\n        Vitamin C Green Tea Brightening Serum\r\n      </h2>\r\n      <p class=\"text-lg\">2023 Retailer of the Year - Top of Top</p>\r\n      <p class=\"text-xl text-gray-800 my-2\">\r\n        <span class=\"line-through text-gray-500\">76,000</span> 49,400\r\n      </p>\r\n      <button class=\"bg-yellow-400 px-4 py-2 my-2\">+ Add to Cart</button>\r\n    </section>\r\n\r\n    <!-- Navigation for other categories -->\r\n    <nav class=\"flex justify-around bg-white p-4 my-4\">\r\n      <a href=\"#\" class=\"flex-1 text-center\">Skin Care</a>\r\n      <a href=\"#\" class=\"flex-1 text-center\">Makeup</a>\r\n      <a href=\"#\" class=\"flex-1 text-center\">Hair & Body</a>\r\n      <a href=\"#\" class=\"flex-1 text-center\">Men</a>\r\n    </nav>\r\n\r\n    <!-- Promotions and deals -->\r\n    <section class=\"my-4\">\r\n      <div class=\"bg-yellow-400 p-4 text-white\">\r\n        <h3 class=\"text-lg font-bold\">Special Offers</h3>\r\n        <p>Up to 50% off - Limited Time Offer</p>\r\n      </div>\r\n      <div class=\"bg-green-500 p-4 text-white\">\r\n        <h3 class=\"text-lg font-bold\">Free Gifts</h3>\r\n        <p>With purchases over 70,000</p>\r\n      </div>\r\n    </section>\r\n  </main>\r\n\r\n  <!-- Footer with navigation icons -->\r\n  <footer class=\"flex justify-around items-center bg-white p-4\">\r\n    <a href=\"#\" class=\"flex-1 text-center\">Home</a>\r\n    <a href=\"#\" class=\"flex-1 text-center\">Events</a>\r\n    <a href=\"#\" class=\"flex-1 text-center\">Coupons</a>\r\n    <a href=\"#\" class=\"flex-1 text-center\">My Page</a>\r\n  </footer>\r\n</template>\r\n<script setup lang=\"ts\"></script>\r\n<style lang=\"\"></style>\r\n",
+      "start": 1710749672964,
+      "end": 1710749675930,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1710749675930,
+      "end": 1710749675930,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1710749675930,
+      "end": 1710749675930,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1710749675930,
+      "end": 1710749675930,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1710749675930,
+      "end": 1710749675930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1710749675930,
+      "end": 1710749675930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1710749675930,
+      "end": 1710749675930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1710749675930,
+      "end": 1710749675930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, createStaticVNode as _createStaticVNode } from \"vue\"\n\nconst _hoisted_1 = /*#__PURE__*/_createStaticVNode(\"<header class=\\\"flex justify-between items-center p-4 bg-white\\\"><h1 class=\\\"text-xl font-bold\\\">Innisfree</h1><div><span class=\\\"p-2\\\">Search</span><span class=\\\"p-2\\\">Cart(0)</span></div></header><main class=\\\"my-4 mx-auto max-w-2xl\\\"><section class=\\\"text-center\\\"><img src=\\\"https://via.placeholder.com/150\\\" alt=\\\"Product Image\\\" class=\\\"mx-auto\\\"><h2 class=\\\"text-2xl font-bold my-2\\\"> Vitamin C Green Tea Brightening Serum </h2><p class=\\\"text-lg\\\">2023 Retailer of the Year - Top of Top</p><p class=\\\"text-xl text-gray-800 my-2\\\"><span class=\\\"line-through text-gray-500\\\">76,000</span> 49,400 </p><button class=\\\"bg-yellow-400 px-4 py-2 my-2\\\">+ Add to Cart</button></section><nav class=\\\"flex justify-around bg-white p-4 my-4\\\"><a href=\\\"#\\\" class=\\\"flex-1 text-center\\\">Skin Care</a><a href=\\\"#\\\" class=\\\"flex-1 text-center\\\">Makeup</a><a href=\\\"#\\\" class=\\\"flex-1 text-center\\\">Hair &amp; Body</a><a href=\\\"#\\\" class=\\\"flex-1 text-center\\\">Men</a></nav><section class=\\\"my-4\\\"><div class=\\\"bg-yellow-400 p-4 text-white\\\"><h3 class=\\\"text-lg font-bold\\\">Special Offers</h3><p>Up to 50% off - Limited Time Offer</p></div><div class=\\\"bg-green-500 p-4 text-white\\\"><h3 class=\\\"text-lg font-bold\\\">Free Gifts</h3><p>With purchases over 70,000</p></div></section></main><footer class=\\\"flex justify-around items-center bg-white p-4\\\"><a href=\\\"#\\\" class=\\\"flex-1 text-center\\\">Home</a><a href=\\\"#\\\" class=\\\"flex-1 text-center\\\">Events</a><a href=\\\"#\\\" class=\\\"flex-1 text-center\\\">Coupons</a><a href=\\\"#\\\" class=\\\"flex-1 text-center\\\">My Page</a></footer>\", 3)\n\nfunction _sfc_render(_ctx, _cache) {\n  return _hoisted_1\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
+      "start": 1710749675930,
+      "end": 1710749675965,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1710749675966,
+      "end": 1710749675966,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749675966,
+      "end": 1710749675966,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1710749675966,
+      "end": 1710749675966,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1710749675966,
+      "end": 1710749675966,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1710749675966,
+      "end": 1710749675966,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749675966,
+      "end": 1710749675967,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1710749675967,
+      "end": 1710749675967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1710749675967,
+      "end": 1710749675967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1710749675967,
+      "end": 1710749675967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1710749675967,
+      "end": 1710749675967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1710749675967,
+      "end": 1710749675967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1710749675967,
+      "end": 1710749675967,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1710749675967,
+      "end": 1710749675967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1710749675967,
+      "end": 1710749675967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1710749675968,
+      "end": 1710749675968,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1710749675968,
+      "end": 1710749675968,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1710749675968,
+      "end": 1710749675971,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1710749675971,
+      "end": 1710749675971,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
+      "start": 1710749675971,
+      "end": 1710749675980,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;AAAA"
+      }
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1710749675980,
+      "end": 1710749675980,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1710749675980,
+      "end": 1710749675981,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1710749675981,
+      "end": 1710749675981,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1710749675981,
+      "end": 1710749675982,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1710749675982,
+      "end": 1710749675982,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1710749675982,
+      "end": 1710749675982,
+      "order": "normal"
+    }
+  ]
+}

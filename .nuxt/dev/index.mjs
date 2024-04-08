@@ -3,30 +3,26 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, getQuery as getQuery$1, readBody, createError, getResponseStatusText } from 'file://D:/InnisfreeProject/innisfree/node_modules/h3/dist/index.mjs';
-import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file://D:/InnisfreeProject/innisfree/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { stringify, uneval } from 'file://D:/InnisfreeProject/innisfree/node_modules/devalue/index.js';
-import { renderToString } from 'file://D:/InnisfreeProject/innisfree/node_modules/vue/server-renderer/index.mjs';
-import { renderSSRHead } from 'file://D:/InnisfreeProject/innisfree/node_modules/@unhead/ssr/dist/index.mjs';
-import { createFetch as createFetch$1, Headers as Headers$1 } from 'file://D:/InnisfreeProject/innisfree/node_modules/ofetch/dist/node.mjs';
-import destr from 'file://D:/InnisfreeProject/innisfree/node_modules/destr/dist/index.mjs';
-import { createCall, createFetch } from 'file://D:/InnisfreeProject/innisfree/node_modules/unenv/runtime/fetch/index.mjs';
-import { createHooks } from 'file://D:/InnisfreeProject/innisfree/node_modules/hookable/dist/index.mjs';
-import { snakeCase } from 'file://D:/InnisfreeProject/innisfree/node_modules/scule/dist/index.mjs';
-import { klona } from 'file://D:/InnisfreeProject/innisfree/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file://D:/InnisfreeProject/innisfree/node_modules/defu/dist/defu.mjs';
-import { hash } from 'file://D:/InnisfreeProject/innisfree/node_modules/ohash/dist/index.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file://D:/InnisfreeProject/innisfree/node_modules/ufo/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file://D:/InnisfreeProject/innisfree/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file://D:/InnisfreeProject/innisfree/node_modules/unstorage/drivers/fs.mjs';
-import unstorage_47drivers_47redis from 'file://D:/InnisfreeProject/innisfree/node_modules/unstorage/drivers/redis.mjs';
-import { toRouteMatcher, createRouter } from 'file://D:/InnisfreeProject/innisfree/node_modules/radix3/dist/index.mjs';
-import { fileURLToPath } from 'node:url';
-import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file://D:/InnisfreeProject/innisfree/node_modules/ipx/dist/index.mjs';
-import { isAbsolute } from 'file://D:/InnisfreeProject/innisfree/node_modules/pathe/dist/index.mjs';
-import { version, unref } from 'file://D:/InnisfreeProject/innisfree/node_modules/vue/index.mjs';
-import { createServerHead as createServerHead$1 } from 'file://D:/InnisfreeProject/innisfree/node_modules/unhead/dist/index.mjs';
-import { defineHeadPlugin } from 'file://D:/InnisfreeProject/innisfree/node_modules/@unhead/shared/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, lazyEventHandler, getQuery as getQuery$1, createError, getResponseStatusText } from 'file://D:/work/rian/node_modules/h3/dist/index.mjs';
+import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file://D:/work/rian/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { stringify, uneval } from 'file://D:/work/rian/node_modules/devalue/index.js';
+import { renderToString } from 'file://D:/work/rian/node_modules/vue/server-renderer/index.mjs';
+import { renderSSRHead } from 'file://D:/work/rian/node_modules/@unhead/ssr/dist/index.mjs';
+import { createFetch as createFetch$1, Headers as Headers$1 } from 'file://D:/work/rian/node_modules/ofetch/dist/node.mjs';
+import destr from 'file://D:/work/rian/node_modules/destr/dist/index.mjs';
+import { createCall, createFetch } from 'file://D:/work/rian/node_modules/unenv/runtime/fetch/index.mjs';
+import { createHooks } from 'file://D:/work/rian/node_modules/hookable/dist/index.mjs';
+import { snakeCase } from 'file://D:/work/rian/node_modules/scule/dist/index.mjs';
+import { klona } from 'file://D:/work/rian/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file://D:/work/rian/node_modules/defu/dist/defu.mjs';
+import { hash } from 'file://D:/work/rian/node_modules/ohash/dist/index.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file://D:/work/rian/node_modules/ufo/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file://D:/work/rian/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://D:/work/rian/node_modules/unstorage/drivers/fs.mjs';
+import { toRouteMatcher, createRouter } from 'file://D:/work/rian/node_modules/radix3/dist/index.mjs';
+import { version, unref } from 'file://D:/work/rian/node_modules/vue/index.mjs';
+import { createServerHead as createServerHead$1 } from 'file://D:/work/rian/node_modules/unhead/dist/index.mjs';
+import { defineHeadPlugin } from 'file://D:/work/rian/node_modules/@unhead/shared/dist/index.mjs';
 
 const r=Object.create(null),E=e=>globalThis.process?.env||globalThis._importMeta_.env||globalThis.Deno?.env.toObject()||globalThis.__env__||(e?r:globalThis),s=new Proxy(r,{get(e,o){return E()[o]??r[o]},has(e,o){const i=E();return o in i||o in r},set(e,o,i){const g=E(!0);return g[o]=i,!0},deleteProperty(e,o){if(!o)return !1;const i=E(!0);return delete i[o],!0},ownKeys(){const e=E(!0);return Object.keys(e)}}),t=typeof process<"u"&&process.env&&"development"||"",p=[["APPVEYOR"],["AWS_AMPLIFY","AWS_APP_ID",{ci:!0}],["AZURE_PIPELINES","SYSTEM_TEAMFOUNDATIONCOLLECTIONURI"],["AZURE_STATIC","INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN"],["APPCIRCLE","AC_APPCIRCLE"],["BAMBOO","bamboo_planKey"],["BITBUCKET","BITBUCKET_COMMIT"],["BITRISE","BITRISE_IO"],["BUDDY","BUDDY_WORKSPACE_ID"],["BUILDKITE"],["CIRCLE","CIRCLECI"],["CIRRUS","CIRRUS_CI"],["CLOUDFLARE_PAGES","CF_PAGES",{ci:!0}],["CODEBUILD","CODEBUILD_BUILD_ARN"],["CODEFRESH","CF_BUILD_ID"],["DRONE"],["DRONE","DRONE_BUILD_EVENT"],["DSARI"],["GITHUB_ACTIONS"],["GITLAB","GITLAB_CI"],["GITLAB","CI_MERGE_REQUEST_ID"],["GOCD","GO_PIPELINE_LABEL"],["LAYERCI"],["HUDSON","HUDSON_URL"],["JENKINS","JENKINS_URL"],["MAGNUM"],["NETLIFY"],["NETLIFY","NETLIFY_LOCAL",{ci:!1}],["NEVERCODE"],["RENDER"],["SAIL","SAILCI"],["SEMAPHORE"],["SCREWDRIVER"],["SHIPPABLE"],["SOLANO","TDDIUM"],["STRIDER"],["TEAMCITY","TEAMCITY_VERSION"],["TRAVIS"],["VERCEL","NOW_BUILDER"],["VERCEL","VERCEL",{ci:!1}],["VERCEL","VERCEL_ENV",{ci:!1}],["APPCENTER","APPCENTER_BUILD_ID"],["CODESANDBOX","CODESANDBOX_SSE",{ci:!1}],["STACKBLITZ"],["STORMKIT"],["CLEAVR"],["ZEABUR"],["CODESPHERE","CODESPHERE_APP_ID",{ci:!0}],["RAILWAY","RAILWAY_PROJECT_ID"],["RAILWAY","RAILWAY_SERVICE_ID"]];function B(){if(globalThis.process?.env)for(const e of p){const o=e[1]||e[0];if(globalThis.process?.env[o])return {name:e[0].toLowerCase(),...e[2]}}return globalThis.process?.env?.SHELL==="/bin/jsh"&&globalThis.process?.versions?.webcontainer?{name:"stackblitz",ci:!1}:{name:"",ci:!1}}const l=B(),d=l.name;function n(e){return e?e!=="false":!1}const I=globalThis.process?.platform||"",T=n(s.CI)||l.ci!==!1,R=n(globalThis.process?.stdout&&globalThis.process?.stdout.isTTY);n(s.DEBUG);const C=t==="test"||n(s.TEST);n(s.MINIMAL)||T||C||!R;const a=/^win/i.test(I);!n(s.NO_COLOR)&&(n(s.FORCE_COLOR)||(R||a)&&s.TERM!=="dumb"||T);const _=(globalThis.process?.versions?.node||"").replace(/^v/,"")||null;Number(_?.split(".")[0])||null;const W=globalThis.process||Object.create(null),c={versions:{}};new Proxy(W,{get(e,o){if(o==="env")return s;if(o in e)return e[o];if(o in c)return c[o]}});const A=globalThis.process?.release?.name==="node",L=!!globalThis.Bun||!!globalThis.process?.versions?.bun,D=!!globalThis.Deno,O=!!globalThis.fastly,S=!!globalThis.Netlify,N=!!globalThis.EdgeRuntime,u=globalThis.navigator?.userAgent==="Cloudflare-Workers",b=!!globalThis.__lagon__,F=[[S,"netlify"],[N,"edge-light"],[u,"workerd"],[O,"fastly"],[D,"deno"],[L,"bun"],[A,"node"],[b,"lagon"]];function G(){const e=F.find(o=>o[0]);if(e)return {name:e[1]}}const P=G();P?.name||"";
 
@@ -64,23 +60,7 @@ const _inlineRuntimeConfig = {
       }
     }
   },
-  "public": {
-    "HOST_NAME": "localhost",
-    "NODE_VERSION": ""
-  },
-  "innerDomain": "https://dev-inm-gateway.apddev.com",
-  "ipx": {
-    "baseURL": "/_ipx",
-    "alias": {},
-    "fs": {
-      "dir": [
-        "D:/InnisfreeProject/innisfree/public"
-      ]
-    },
-    "http": {
-      "domains": []
-    }
-  }
+  "public": {}
 };
 const ENV_PREFIX = "NITRO_";
 const ENV_PREFIX_ALT = _inlineRuntimeConfig.nitro.envPrefix ?? process.env.NITRO_ENV_PREFIX ?? "_";
@@ -147,7 +127,7 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
   }
 });
 
-const serverAssets = [{"baseName":"server","dir":"D:/InnisfreeProject/innisfree/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"D:/work/rian/server/assets"}];
 
 const assets = createStorage();
 
@@ -159,12 +139,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('redis', unstorage_47drivers_47redis({"driver":"redis","cluster":[{"port":6379,"host":"devops-dev-redis-inm.z29geh.clustercfg.apn2.cache.amazonaws.com"}]}));
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\InnisfreeProject\\innisfree","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\InnisfreeProject\\innisfree\\server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\InnisfreeProject\\innisfree\\.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\InnisfreeProject\\innisfree\\.nuxt\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:\\InnisfreeProject\\innisfree\\.data\\kv","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\work\\rian","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\work\\rian\\server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\work\\rian\\.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\work\\rian\\.nuxt\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:\\work\\rian\\.data\\kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -591,14 +570,14 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _1g5oLUiyr6 = (function(nitro) {
+const _rPBzROtp63 = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
 const plugins = [
-  _1g5oLUiyr6
+  _rPBzROtp63
 ];
 
 function defineRenderHandler(handler) {
@@ -691,48 +670,11 @@ const errorHandler = (async function errorhandler(error, event) {
   return send(event, html);
 });
 
-function buildAssetsDir() {
-  return useRuntimeConfig().app.buildAssetsDir;
-}
-function buildAssetsURL(...path) {
-  return joinURL(publicAssetsURL(), buildAssetsDir(), ...path);
-}
-function publicAssetsURL(...path) {
-  const app = useRuntimeConfig().app;
-  const publicBase = app.cdnURL || app.baseURL;
-  return path.length ? joinURL(publicBase, ...path) : publicBase;
-}
-
-const _IfGy2k = lazyEventHandler(() => {
-  const opts = useRuntimeConfig().ipx || {};
-  const fsDir = opts?.fs?.dir ? (Array.isArray(opts.fs.dir) ? opts.fs.dir : [opts.fs.dir]).map((dir) => isAbsolute(dir) ? dir : fileURLToPath(new URL(dir, globalThis._importMeta_.url))) : void 0;
-  const fsStorage = opts.fs?.dir ? ipxFSStorage({ ...opts.fs, dir: fsDir }) : void 0;
-  const httpStorage = opts.http?.domains ? ipxHttpStorage({ ...opts.http }) : void 0;
-  if (!fsStorage && !httpStorage) {
-    throw new Error("IPX storage is not configured!");
-  }
-  const ipxOptions = {
-    ...opts,
-    storage: fsStorage || httpStorage,
-    httpStorage
-  };
-  const ipx = createIPX(ipxOptions);
-  const ipxHandler = createIPXH3Handler(ipx);
-  return useBase(opts.baseURL, ipxHandler);
-});
-
-const _lazy_OWKxmF = () => Promise.resolve().then(function () { return healthcheck$1; });
-const _lazy_sXso1o = () => Promise.resolve().then(function () { return productListService$1; });
-const _lazy_ZjxQv9 = () => Promise.resolve().then(function () { return profile$1; });
-const _lazy_kEviGH = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_WCNSgs = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/api/healthcheck', handler: _lazy_OWKxmF, lazy: true, middleware: false, method: undefined },
-  { route: '/api/product-list-service', handler: _lazy_sXso1o, lazy: true, middleware: false, method: undefined },
-  { route: '/api/profile', handler: _lazy_ZjxQv9, lazy: true, middleware: false, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_kEviGH, lazy: true, middleware: false, method: undefined },
-  { route: '/_ipx/**', handler: _IfGy2k, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_kEviGH, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_WCNSgs, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_WCNSgs, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -916,77 +858,6 @@ const errorDev = /*#__PURE__*/Object.freeze({
   template: template$1
 });
 
-const healthcheck = defineEventHandler(async (event) => {
-  return {
-    code: 200,
-    msg: "success",
-    body: "OK"
-  };
-});
-
-const healthcheck$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  default: healthcheck
-});
-
-const productListService = defineEventHandler(async (event) => {
-  let { redisUse } = getQuery$1(event);
-  redisUse = redisUse === "Y";
-  const { innerDomain } = useRuntimeConfig();
-  const redis = useStorage("redis");
-  const redisKey = "{pd}:productlist";
-  let products = redisUse ? await redis.getItem(redisKey) : null;
-  if (!products) {
-    try {
-      ;
-      ({
-        data: { products }
-      } = await $fetch(`${innerDomain}/product/getProducts${redisUse ? "" : "?productId=2000"}`, { method: "GET" }));
-      redisUse && await redis.setItem(redisKey, products);
-    } catch (e) {
-      console.error(e);
-    }
-  }
-  return products != null ? products : [];
-});
-
-const productListService$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  default: productListService
-});
-
-const profile = defineEventHandler(async (event) => {
-  const path = event.path;
-  console.log("path", path);
-  if (event.method === "GET") {
-    console.log("GET");
-  } else if (event.method === "POST") {
-    console.log("POST");
-    const body = await readBody(event);
-    console.log(body);
-  }
-  const { name } = getQuery$1(event);
-  console.log("name", name);
-  const [res1, res2] = await Promise.all([
-    $fetch("http://localhost:8080/members/1"),
-    $fetch("http://localhost:8080/members/2")
-  ]);
-  const resp = {
-    res1,
-    res2
-  };
-  return {
-    code: 200,
-    msg: "success",
-    body: resp
-  };
-});
-
-const profile$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  default: profile
-});
-
 const Vue3 = version.startsWith("3");
 
 function resolveUnref(r) {
@@ -1049,10 +920,22 @@ const appRootId = "__nuxt";
 
 const appRootTag = "div";
 
+function buildAssetsDir() {
+  return useRuntimeConfig().app.buildAssetsDir;
+}
+function buildAssetsURL(...path) {
+  return joinURL(publicAssetsURL(), buildAssetsDir(), ...path);
+}
+function publicAssetsURL(...path) {
+  const app = useRuntimeConfig().app;
+  const publicBase = app.cdnURL || app.baseURL;
+  return path.length ? joinURL(publicBase, ...path) : publicBase;
+}
+
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
-const getClientManifest = () => import('file://D:/InnisfreeProject/innisfree/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getServerEntry = () => import('file://D:/InnisfreeProject/innisfree/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file://D:/work/rian/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file://D:/work/rian/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
   if (!manifest) {

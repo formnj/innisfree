@@ -1,0 +1,224 @@
+{
+  "resolvedId": "D:/work/repo/pages/guide/index.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n    <h2>퍼블리싱 리스트\r\n        <ul class=\"legend\">\r\n            <li><span class=\"badge modal\">modal popup</span></li>\r\n            <li><span class=\"badge com\">완료</span></li>\r\n            <li><span class=\"badge ing\">진행중</span></li>\r\n        </ul>\r\n    </h2>\r\n    <table>\r\n        <colgroup>\r\n            <col />\r\n        </colgroup>\r\n        <thead>\r\n            <tr>\r\n                <th>1Depth</th>\r\n                <th>2Depth</th>\r\n                <th>3Depth</th>\r\n                <th>4Depth</th>\r\n                <th>ID</th>\r\n                <th>비고</th>\r\n                <th>시작일</th>\r\n                <th>종료일</th>\r\n            </tr>\r\n        </thead>\r\n        <tbody></tbody>\r\n    </table>\r\n</template>\r\n\r\n<script setup>\r\ndefinePageMeta({\r\n  layout: 'guide'\r\n})\r\n\r\nimport { onMounted } from 'vue'\r\n\r\nconst page_arry = ([\r\n    {\r\n        depth:['','','',''],\r\n        id:'', status:'',\r\n        type:'', note:'',\r\n        sDate:'', eDate:''\r\n    }\r\n])\r\n\r\nonMounted(() => {\r\n    var row_chk,\r\n        path;\r\n\r\n    for (var i=0; i<page_arry.length;i++) {\r\n        /* row 시작 체크 */\r\n        if(page_arry[i].depth[0].length != 0){\r\n            row_chk = 'row';\r\n        } else {\r\n            row_chk = '';\r\n        }\r\n\r\n        /* path */\r\n        if(page_arry[i].type == 'modal'){\r\n            path = '/modal/'\r\n        } else {\r\n            path = '/'\r\n        }\r\n\r\n        document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class=\"'+row_chk+'\">'\r\n        +   '<th>'+page_arry[i].depth[0]+'</th>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].depth[1]+'</td>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].depth[2]+'</td>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].depth[3]+'</td>'\r\n        +   '<td class=\"ac '+page_arry[i].status+'\"><a href=\"'+path+page_arry[i].id+'\" target=\"_blank\" class=\"'+page_arry[i].type+'\">'+page_arry[i].id+'</a></td>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].note+'</td>'\r\n        +   '<td class=\"ac '+page_arry[i].status+'\">'+page_arry[i].sDate+'</td>'\r\n        +   '<td class=\"ac '+page_arry[i].status+'\">'+page_arry[i].eDate+'</td>'\r\n        +'</tr>');\r\n    }\r\n})\r\n</script>\r\n\r\n<style lang=\"scss\">\r\n.ac {text-align:center;}\r\nh2 {margin:20px 20px 40px; font-size:24px; font-weight:700; text-align:center;}\r\nh2:after {clear:both; content:''; display:block;}\r\nh2 .legend {margin-top:15px; display:flex; justify-content:end; gap:15px;}\r\nh2 .badge {font-size:14px; font-weight:500;}\r\nh2 .badge:before {width:18px; height:18px; margin-right:5px; border-radius:4px; vertical-align:middle; content:''; display:inline-block;}\r\nh2 .badge.modal:before {background-color:#0070ba;}\r\nh2 .badge.com:before {background-color:#ddeeff;}\r\nh2 .badge.ing:before {background-color:#fff4f4;}\r\ntable {width:100%; border-spacing:0; border-collapse:collapse;}\r\nth, td {padding:8px 10px; font-size:12px;}\r\nthead {background-color:#fcfcfc; border-bottom:1px solid #222;}\r\nthead tr > * + *, td {border-left:1px solid #ddd;}\r\nth {background-color:#f2f3f5;}\r\ntr.row {border-top:2px solid #222;}\r\ntd.com {background-color:#ddeeff;}\r\ntd.ing {background-color:#fff4f4;}\r\ntd {border-bottom:1px solid #ddd;}\r\ntd a {font-weight:700; text-decoration:underline; display:block;}\r\ntd a.modal {padding:4px 5px; color:#fff; font-weight:400; background-color:#0070ba; border:1px solid #0070ba; text-decoration:none; border-radius:4px;}\r\n\r\n.content section + section:before {margin:30px -20px; border-top:4px solid #F1F1F1; content:''; display:block;}\r\n</style>",
+      "start": 1710749673685,
+      "end": 1710749677549,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1710749677553,
+      "end": 1710749677553,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1710749677553,
+      "end": 1710749677553,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1710749677553,
+      "end": 1710749677554,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1710749677554,
+      "end": 1710749677554,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1710749677554,
+      "end": 1710749677554,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1710749677554,
+      "end": 1710749677554,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1710749677554,
+      "end": 1710749677554,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, createStaticVNode as _createStaticVNode } from \"vue\"\n\nconst _hoisted_1 = /*#__PURE__*/_createStaticVNode(\"<h2>퍼블리싱 리스트 <ul class=\\\"legend\\\"><li><span class=\\\"badge modal\\\">modal popup</span></li><li><span class=\\\"badge com\\\">완료</span></li><li><span class=\\\"badge ing\\\">진행중</span></li></ul></h2><table><colgroup><col></colgroup><thead><tr><th>1Depth</th><th>2Depth</th><th>3Depth</th><th>4Depth</th><th>ID</th><th>비고</th><th>시작일</th><th>종료일</th></tr></thead><tbody></tbody></table>\", 2)\n\nimport { onMounted } from 'vue'\r\n\r\n\nconst _sfc_main = {\n  __name: 'index',\n  setup(__props) {\n\r\ndefinePageMeta({\r\n  layout: 'guide'\r\n})\r\n\r\nconst page_arry = ([\r\n    {\r\n        depth:['','','',''],\r\n        id:'', status:'',\r\n        type:'', note:'',\r\n        sDate:'', eDate:''\r\n    }\r\n])\r\n\r\nonMounted(() => {\r\n    var row_chk,\r\n        path;\r\n\r\n    for (var i=0; i<page_arry.length;i++) {\r\n        /* row 시작 체크 */\r\n        if(page_arry[i].depth[0].length != 0){\r\n            row_chk = 'row';\r\n        } else {\r\n            row_chk = '';\r\n        }\r\n\r\n        /* path */\r\n        if(page_arry[i].type == 'modal'){\r\n            path = '/modal/'\r\n        } else {\r\n            path = '/'\r\n        }\r\n\r\n        document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class=\"'+row_chk+'\">'\r\n        +   '<th>'+page_arry[i].depth[0]+'</th>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].depth[1]+'</td>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].depth[2]+'</td>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].depth[3]+'</td>'\r\n        +   '<td class=\"ac '+page_arry[i].status+'\"><a href=\"'+path+page_arry[i].id+'\" target=\"_blank\" class=\"'+page_arry[i].type+'\">'+page_arry[i].id+'</a></td>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].note+'</td>'\r\n        +   '<td class=\"ac '+page_arry[i].status+'\">'+page_arry[i].sDate+'</td>'\r\n        +   '<td class=\"ac '+page_arry[i].status+'\">'+page_arry[i].eDate+'</td>'\r\n        +'</tr>');\r\n    }\r\n})\r\n\nreturn (_ctx, _cache) => {\n  return _hoisted_1\n}\n}\n\n}\n\n\nimport \"D:/work/repo/pages/guide/index.vue?vue&type=style&index=0&lang.scss\"\n\nexport default _sfc_main",
+      "start": 1710749677554,
+      "end": 1710749677557,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1710749677557,
+      "end": 1710749677557,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749677558,
+      "end": 1710749677558,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1710749677558,
+      "end": 1710749677558,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1710749677558,
+      "end": 1710749677558,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1710749677559,
+      "end": 1710749677559,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749677559,
+      "end": 1710749677562,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1710749677562,
+      "end": 1710749677562,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1710749677562,
+      "end": 1710749677562,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1710749677562,
+      "end": 1710749677562,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1710749677562,
+      "end": 1710749677562,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1710749677562,
+      "end": 1710749677562,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1710749677562,
+      "end": 1710749677562,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1710749677562,
+      "end": 1710749677562,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1710749677562,
+      "end": 1710749677562,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1710749677562,
+      "end": 1710749677562,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1710749677562,
+      "end": 1710749677562,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { definePageMeta } from 'D:/work/repo/node_modules/nuxt/dist/pages/runtime/composables';\nimport { createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, createStaticVNode as _createStaticVNode } from \"vue\"\n\nconst _hoisted_1 = /*#__PURE__*/_createStaticVNode(\"<h2>퍼블리싱 리스트 <ul class=\\\"legend\\\"><li><span class=\\\"badge modal\\\">modal popup</span></li><li><span class=\\\"badge com\\\">완료</span></li><li><span class=\\\"badge ing\\\">진행중</span></li></ul></h2><table><colgroup><col></colgroup><thead><tr><th>1Depth</th><th>2Depth</th><th>3Depth</th><th>4Depth</th><th>ID</th><th>비고</th><th>시작일</th><th>종료일</th></tr></thead><tbody></tbody></table>\", 2)\n\nimport { onMounted } from 'vue'\r\n\r\n\nconst _sfc_main = {\n  __name: 'index',\n  setup(__props) {\n\r\ndefinePageMeta({\r\n  layout: 'guide'\r\n})\r\n\r\nconst page_arry = ([\r\n    {\r\n        depth:['','','',''],\r\n        id:'', status:'',\r\n        type:'', note:'',\r\n        sDate:'', eDate:''\r\n    }\r\n])\r\n\r\nonMounted(() => {\r\n    var row_chk,\r\n        path;\r\n\r\n    for (var i=0; i<page_arry.length;i++) {\r\n        /* row 시작 체크 */\r\n        if(page_arry[i].depth[0].length != 0){\r\n            row_chk = 'row';\r\n        } else {\r\n            row_chk = '';\r\n        }\r\n\r\n        /* path */\r\n        if(page_arry[i].type == 'modal'){\r\n            path = '/modal/'\r\n        } else {\r\n            path = '/'\r\n        }\r\n\r\n        document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class=\"'+row_chk+'\">'\r\n        +   '<th>'+page_arry[i].depth[0]+'</th>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].depth[1]+'</td>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].depth[2]+'</td>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].depth[3]+'</td>'\r\n        +   '<td class=\"ac '+page_arry[i].status+'\"><a href=\"'+path+page_arry[i].id+'\" target=\"_blank\" class=\"'+page_arry[i].type+'\">'+page_arry[i].id+'</a></td>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].note+'</td>'\r\n        +   '<td class=\"ac '+page_arry[i].status+'\">'+page_arry[i].sDate+'</td>'\r\n        +   '<td class=\"ac '+page_arry[i].status+'\">'+page_arry[i].eDate+'</td>'\r\n        +'</tr>');\r\n    }\r\n})\r\n\nreturn (_ctx, _cache) => {\n  return _hoisted_1\n}\n}\n\n}\n\n\nimport \"D:/work/repo/pages/guide/index.vue?vue&type=style&index=0&lang.scss\"\n\nexport default _sfc_main",
+      "start": 1710749677562,
+      "end": 1710749677568,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7I;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/a;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChC,CAAC;AACD;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC;AACD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC;AACH,CAAC;AACD,CAAC,CAAC,C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AAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACV,CAAC;AACD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnG,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7E,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACN,CAAC,CAAC,CAAC;AACH;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnB,CAAC;AACD,CAAC;AACD;AACA,CAAC;AACD;AACA;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5E;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1710749677568,
+      "end": 1710749677575,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1710749677576,
+      "end": 1710749677577,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1710749677577,
+      "end": 1710749677577,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1710749677577,
+      "end": 1710749677578,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1710749677578,
+      "end": 1710749677578,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "result": "import { definePageMeta } from 'D:/work/repo/node_modules/nuxt/dist/pages/runtime/composables';\nimport { createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, createStaticVNode as _createStaticVNode } from \"vue\"\n\nconst _hoisted_1 = /*#__PURE__*/_createStaticVNode(\"<h2>퍼블리싱 리스트 <ul class=\\\"legend\\\"><li><span class=\\\"badge modal\\\">modal popup</span></li><li><span class=\\\"badge com\\\">완료</span></li><li><span class=\\\"badge ing\\\">진행중</span></li></ul></h2><table><colgroup><col></colgroup><thead><tr><th>1Depth</th><th>2Depth</th><th>3Depth</th><th>4Depth</th><th>ID</th><th>비고</th><th>시작일</th><th>종료일</th></tr></thead><tbody></tbody></table>\", 2)\n\nimport { onMounted } from 'vue'\r\n\r\n\nconst _sfc_main = {\n  __name: 'index',\n  setup(__props) {\n\r\n false && /*@__PURE__*/ definePageMeta({\r\n  layout: 'guide'\r\n})\r\n\r\nconst page_arry = ([\r\n    {\r\n        depth:['','','',''],\r\n        id:'', status:'',\r\n        type:'', note:'',\r\n        sDate:'', eDate:''\r\n    }\r\n])\r\n\r\nonMounted(() => {\r\n    var row_chk,\r\n        path;\r\n\r\n    for (var i=0; i<page_arry.length;i++) {\r\n        /* row 시작 체크 */\r\n        if(page_arry[i].depth[0].length != 0){\r\n            row_chk = 'row';\r\n        } else {\r\n            row_chk = '';\r\n        }\r\n\r\n        /* path */\r\n        if(page_arry[i].type == 'modal'){\r\n            path = '/modal/'\r\n        } else {\r\n            path = '/'\r\n        }\r\n\r\n        document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class=\"'+row_chk+'\">'\r\n        +   '<th>'+page_arry[i].depth[0]+'</th>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].depth[1]+'</td>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].depth[2]+'</td>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].depth[3]+'</td>'\r\n        +   '<td class=\"ac '+page_arry[i].status+'\"><a href=\"'+path+page_arry[i].id+'\" target=\"_blank\" class=\"'+page_arry[i].type+'\">'+page_arry[i].id+'</a></td>'\r\n        +   '<td class=\"'+page_arry[i].status+'\">'+page_arry[i].note+'</td>'\r\n        +   '<td class=\"ac '+page_arry[i].status+'\">'+page_arry[i].sDate+'</td>'\r\n        +   '<td class=\"ac '+page_arry[i].status+'\">'+page_arry[i].eDate+'</td>'\r\n        +'</tr>');\r\n    }\r\n})\r\n\nreturn (_ctx, _cache) => {\n  return _hoisted_1\n}\n}\n\n}\n\n\nimport \"D:/work/repo/pages/guide/index.vue?vue&type=style&index=0&lang.scss\"\n\nexport default _sfc_main",
+      "start": 1710749677578,
+      "end": 1710749677582,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1710749677582,
+      "end": 1710749677582,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1710749677583,
+      "end": 1710749677583,
+      "order": "normal"
+    }
+  ]
+}

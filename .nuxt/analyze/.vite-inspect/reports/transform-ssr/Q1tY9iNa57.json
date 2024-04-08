@@ -1,0 +1,288 @@
+{
+  "resolvedId": "D:/work/repo/components/Selectbox.vue?vue&type=style&index=0&scoped=68ebe29c&lang.scss?inline&used",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n/* select_form */\r\nselect {width:100%; height:40px; padding:12px 40px 12px 12px; font-size:14px; line-height:18px; border:1px solid #aaa; -webkit-appearance:none; -moz-appearance:none; appearance:none; outline:none;}\r\n\r\nlabel.select > div {position:relative; display:block;}\r\nlabel.select > div:after {width:12px; height:12px; margin-top:-4px; border:1px solid #222; border-top:0; border-left:0; content:''; position:absolute; top:50%; right:16px; transform:translateY(-50%) rotate(45deg);}\r\nlabel.select select {color:#aaa;}\r\nlabel.select select:disabled {background-color:#eee; border-color:#ddd;}\r\nlabel.select select.changed {color:#222;}\r\nlabel.select > em {margin-top:5px; color:#F24F39; font-size:12px; font-family:'Noto Sans'; line-height:18px; display:none;}\r\nlabel.select.err > em {display:block;}\r\n",
+      "start": 1710749707985,
+      "end": 1710749707985,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/work/repo/components/Selectbox.vue"
+        ],
+        "names": [],
+        "mappings": ";AAoBA,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC;AAChB,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAEpM,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrN,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1H,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC",
+        "file": "D:/work/repo/components/Selectbox.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n    <label class=\"select\">\r\n        <div>\r\n            <select :class=\"{'changed':isChange}\" :v-model=\"model\" @change=\"isChange = true\" :disabled=\"isDisabled\">\r\n                <option :value=\"select.val\" v-for=\"(select, i) in options\" :key=\"i\">{{ select.txt }}</option>\r\n            </select>\r\n        </div>\r\n    </label>\r\n</template>\r\n  \r\n<script setup>\r\n    const props = defineProps({\r\n        options:Array,\r\n        model:String,\r\n        isChange: false,\r\n        isDisabled: false,\r\n    });\r\n</script>\r\n\r\n<style lang=\"scss\" scoped>\r\n/* select_form */\r\nselect {width:100%; height:40px; padding:12px 40px 12px 12px; font-size:14px; line-height:18px; border:1px solid #aaa; -webkit-appearance:none; -moz-appearance:none; appearance:none; outline:none;}\r\n\r\nlabel.select > div {position:relative; display:block;}\r\nlabel.select > div:after {width:12px; height:12px; margin-top:-4px; border:1px solid #222; border-top:0; border-left:0; content:''; position:absolute; top:50%; right:16px; transform:translateY(-50%) rotate(45deg);}\r\nlabel.select select {color:#aaa;}\r\nlabel.select select:disabled {background-color:#eee; border-color:#ddd;}\r\nlabel.select select.changed {color:#222;}\r\nlabel.select > em {margin-top:5px; color:#F24F39; font-size:12px; font-family:'Noto Sans'; line-height:18px; display:none;}\r\nlabel.select.err > em {display:block;}\r\n</style>"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1710749707985,
+      "end": 1710749707985,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1710749707985,
+      "end": 1710749707985,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1710749707985,
+      "end": 1710749707985,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1710749707985,
+      "end": 1710749707985,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1710749707986,
+      "end": 1710749707986,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": "select{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:1px solid #aaa;font-size:14px;height:40px;line-height:18px;outline:none;padding:12px 40px 12px 12px;width:100%}label.select>div{display:block;position:relative}label.select>div:after{border:1px solid #222;border-left:0;border-top:0;content:\"\";height:12px;margin-top:-4px;position:absolute;right:16px;top:50%;transform:translateY(-50%) rotate(45deg);width:12px}label.select select{color:#aaa}label.select select:disabled{background-color:#eee;border-color:#ddd}label.select select.changed{color:#222}label.select>em{color:#f24f39;display:none;font-family:Noto Sans;font-size:12px;line-height:18px;margin-top:5px}label.select.err>em{display:block}",
+      "start": 1710749707986,
+      "end": 1710749708908,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "file": "D:/work/repo/components/Selectbox.vue",
+        "mappings": "AAEA,OAAuH,wBAAyB,qBAAsB,gBAAtE,sBAAlC,eAA1C,YAA0D,iBAAyG,aAAtJ,4BAAzB,WAER,iBAAuC,cAAnB,kBACpB,uBAAoE,sBAAqC,cAAd,aAA6B,WAAlF,YAAa,gBAAiF,kBAA4B,WAAT,QAAqB,yCAAlJ,WAC1B,oBAAqB,WACrB,6BAA8B,sBAAuB,kBACrD,4BAA6B,WAC7B,gBAAmC,cAA0E,aAA3C,sBAAhB,eAAyC,iBAAxE,eACnB,oBAAuB",
+        "names": [],
+        "sources": [
+          "D:/work/repo/components/Selectbox.vue"
+        ],
+        "sourcesContent": [
+          null
+        ]
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1710749708918,
+      "end": 1710749708918,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1710749708925,
+      "end": 1710749708925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1710749708925,
+      "end": 1710749708925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "select[data-v-68ebe29c]{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:1px solid #aaa;font-size:14px;height:40px;line-height:18px;outline:none;padding:12px 40px 12px 12px;width:100%}label.select>div[data-v-68ebe29c]{display:block;position:relative}label.select>div[data-v-68ebe29c]:after{border:1px solid #222;border-left:0;border-top:0;content:\"\";height:12px;margin-top:-4px;position:absolute;right:16px;top:50%;transform:translateY(-50%) rotate(45deg);width:12px}label.select select[data-v-68ebe29c]{color:#aaa}label.select select[data-v-68ebe29c]:disabled{background-color:#eee;border-color:#ddd}label.select select.changed[data-v-68ebe29c]{color:#222}label.select>em[data-v-68ebe29c]{color:#f24f39;display:none;font-family:Noto Sans;font-size:12px;line-height:18px;margin-top:5px}label.select.err>em[data-v-68ebe29c]{display:block}",
+      "start": 1710749708968,
+      "end": 1710749708981,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "D:/work/repo/components/Selectbox.vue",
+        "mappings": "AAAA,wBAAO,uBAAuB,CAAC,oBAAoB,CAAC,eAAe,CAAC,qBAAqB,CAAC,cAAc,CAAC,WAAW,CAAC,gBAAgB,CAAC,YAAY,CAAC,2BAA2B,CAAC,UAAU,CAAC,kCAAiB,aAAa,CAAC,iBAAiB,CAAC,wCAAuB,qBAAqB,CAAC,aAAa,CAAC,YAAY,CAAC,UAAU,CAAC,WAAW,CAAC,eAAe,CAAC,iBAAiB,CAAC,UAAU,CAAC,OAAO,CAAC,wCAAwC,CAAC,UAAU,CAAC,qCAAoB,UAAU,CAAC,8CAA6B,qBAAqB,CAAC,iBAAiB,CAAC,6CAA4B,UAAU,CAAC,iCAAgB,aAAa,CAAC,YAAY,CAAC,qBAAqB,CAAC,cAAc,CAAC,gBAAgB,CAAC,cAAc,CAAC,qCAAoB,aAAa",
+        "names": [],
+        "sources": [
+          "D:/work/repo/components/Selectbox.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1710749708981,
+      "end": 1710749708988,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749708989,
+      "end": 1710749708989,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749708989,
+      "end": 1710749708989,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1710749708989,
+      "end": 1710749708989,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1710749708989,
+      "end": 1710749708989,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1710749708990,
+      "end": 1710749708990,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749708990,
+      "end": 1710749708990,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1710749708990,
+      "end": 1710749708991,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1710749708991,
+      "end": 1710749708991,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \"select[data-v-68ebe29c]{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:1px solid #aaa;font-size:14px;height:40px;line-height:18px;outline:none;padding:12px 40px 12px 12px;width:100%}label.select>div[data-v-68ebe29c]{display:block;position:relative}label.select>div[data-v-68ebe29c]:after{border:1px solid #222;border-left:0;border-top:0;content:\\\"\\\";height:12px;margin-top:-4px;position:absolute;right:16px;top:50%;transform:translateY(-50%) rotate(45deg);width:12px}label.select select[data-v-68ebe29c]{color:#aaa}label.select select[data-v-68ebe29c]:disabled{background-color:#eee;border-color:#ddd}label.select select.changed[data-v-68ebe29c]{color:#222}label.select>em[data-v-68ebe29c]{color:#f24f39;display:none;font-family:Noto Sans;font-size:12px;line-height:18px;margin-top:5px}label.select.err>em[data-v-68ebe29c]{display:block}\"",
+      "start": 1710749708991,
+      "end": 1710749708991,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1710749708991,
+      "end": 1710749708991,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1710749708991,
+      "end": 1710749708991,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1710749708991,
+      "end": 1710749708991,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1710749708991,
+      "end": 1710749708991,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1710749708991,
+      "end": 1710749708991,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1710749708992,
+      "end": 1710749708992,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1710749708992,
+      "end": 1710749708992,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1710749708992,
+      "end": 1710749708992,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1710749708992,
+      "end": 1710749708992,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1710749708992,
+      "end": 1710749708992,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1710749708993,
+      "end": 1710749708993,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1710749708993,
+      "end": 1710749708993,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1710749708993,
+      "end": 1710749708993,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1710749708993,
+      "end": 1710749708993,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1710749708993,
+      "end": 1710749708993,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1710749708994,
+      "end": 1710749708994,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1710749708994,
+      "end": 1710749708994,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1710749708995,
+      "end": 1710749708995,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1710749708995,
+      "end": 1710749708995,
+      "order": "normal"
+    }
+  ]
+}

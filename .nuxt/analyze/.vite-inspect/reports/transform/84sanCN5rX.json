@@ -1,0 +1,221 @@
+{
+  "resolvedId": "D:/work/repo/components/Inputs.vue?vue&type=style&index=0&scoped=ac7fd751&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\nem {font-style:normal;}\r\n.check {min-height:20px; padding-left:26px; line-height:1; position:relative; display:inline-block;}\r\n.check > * {line-height:1.4; vertical-align:middle; display:inline-block;}\r\n.check input {margin:0 0 0 1px; position:absolute;}\r\n.check .label:before, .check .label:after {content:''; position:absolute; display:inline-block;}\r\n\r\n/* radio */\r\n.check input[type='radio'], .check input[type='checkbox'] {opacity:0;}\r\n.check input[type='radio'], .check input[type='radio'] + .label:before {width:20px; height:20px; background-color:#fff; border:1px solid #ccc; border-radius:50%; box-sizing:border-box; top:0; left:0;}\r\n.check input[type='radio']:checked + .label:after {width:14px; height:14px; background-color:#333; border-radius:50%; box-sizing:border-box; top:3px; left:3px;}\r\n\r\n/* checkbox */\r\n.check input[type='checkbox'], .check input[type='checkbox'] + .label:before {width:20px; height:20px; background-color:#fff; border:1px solid #ccc; box-sizing:border-box; top:0; left:0;}\r\n.check input[type='checkbox']:checked + .label:after {width:8px; height:13px; border:2px solid #333; border-top:0; border-left:0; top:1px; left:6px; -webkit-transform:rotate(45deg); transform:rotate(45deg);}\r\n\r\n.check_ani {position:relative; display:inline-block;}\r\n.check_ani input {margin:0 0 0 1px; position:absolute; opacity:0;}\r\n.check_ani input[type='checkbox'] {opacity:0;}\r\n.check_ani .label {min-height:22px; padding-left:48px; position:relative; display:block;}\r\n.check_ani .label:before {width:42px; height:22px; background-color:#ccc; border:0; border-radius:60px; content:''; position:absolute; top:0; left:0; display:inline-block;}\r\n.check_ani input[type='checkbox'] + .label:after {width:18px; height:18px; background-color:#fff; border-radius:50%; content:''; position:absolute; top:50%; left:2px; z-index:1; display:block; transform:translateY(-50%); transition:all 0.2s;}\r\n.check_ani input[type='checkbox']:checked + .label:before {background-color:#ff7200;}\r\n.check_ani input[type='checkbox']:checked + .label:after {left:22px;}\r\n\r\nlabel.input, label.select > div {position:relative; display:block;}\r\nlabel.input i {color:#aaa; font-size:16px; font-style:normal; line-height:18px; position:absolute; top:50%; left:15px; transform:translateY(-50%);}/* placeholder */\r\nlabel.input input[type='text'], label.input input[type='password'], label.input input[type='number'] {width:100%; font-size:16px;; line-height:18px;}\r\nlabel.input .err_txt {margin-top:5px; color:#ff7200; font-size:12px; line-height:18px; display:none;}\r\nlabel.input.err .err_txt {display:block;}\r\nlabel.input * {flex:1 auto;}\r\n\r\n.label_wrap {position:relative; flex:1;}\r\n.label_wrap button[class*='icon_'] {width:24px; height:24px; font-size:0; background-repeat:no-repeat; border-radius:50%; position:absolute; top:9px; right:15px; z-index:1; display:none;}\r\n.label_wrap button[class*='icon_'] + button[class*='icon_'] {margin-right:34px;}\r\n.label_wrap button[class*='icon_'] {background-image:url('@/assets/images/common/icon_split.png'); background-repeat:no-repeat; background-size:250px auto;}\r\n.label_wrap button.icon_del {background-position:0 0;}\r\n.label_wrap button.icon_pass {background-position:-80px 0;}\r\n.label_wrap button.icon_text {background-position:-40px 0;}\r\n",
+      "start": 1710749682231,
+      "end": 1710749682232
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1710749682232,
+      "end": 1710749682232,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1710749682232,
+      "end": 1710749682232,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1710749682232,
+      "end": 1710749682232,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": "em{font-style:normal}.check{line-height:1;min-height:20px;padding-left:26px;position:relative}.check,.check>*{display:inline-block}.check>*{line-height:1.4;vertical-align:middle}.check input{margin:0 0 0 1px;position:absolute}.check .label:after,.check .label:before{content:\"\";display:inline-block;position:absolute}.check input[type=checkbox],.check input[type=radio]{opacity:0}.check input[type=radio],.check input[type=radio]+.label:before{background-color:#fff;border:1px solid #ccc;border-radius:50%;box-sizing:border-box;height:20px;left:0;top:0;width:20px}.check input[type=radio]:checked+.label:after{background-color:#333;border-radius:50%;box-sizing:border-box;height:14px;left:3px;top:3px;width:14px}.check input[type=checkbox],.check input[type=checkbox]+.label:before{background-color:#fff;border:1px solid #ccc;box-sizing:border-box;height:20px;left:0;top:0;width:20px}.check input[type=checkbox]:checked+.label:after{border:2px solid #333;border-left:0;border-top:0;height:13px;left:6px;top:1px;transform:rotate(45deg);width:8px}.check_ani{display:inline-block;position:relative}.check_ani input{margin:0 0 0 1px;opacity:0;position:absolute}.check_ani input[type=checkbox]{opacity:0}.check_ani .label{display:block;min-height:22px;padding-left:48px;position:relative}.check_ani .label:before{background-color:#ccc;border:0;border-radius:60px;content:\"\";display:inline-block;height:22px;left:0;position:absolute;top:0;width:42px}.check_ani input[type=checkbox]+.label:after{background-color:#fff;border-radius:50%;content:\"\";display:block;height:18px;left:2px;position:absolute;top:50%;transform:translateY(-50%);transition:all .2s;width:18px;z-index:1}.check_ani input[type=checkbox]:checked+.label:before{background-color:#ff7200}.check_ani input[type=checkbox]:checked+.label:after{left:22px}label.input,label.select>div{display:block;position:relative}label.input i{color:#aaa;font-size:16px;font-style:normal;left:15px;line-height:18px;position:absolute;top:50%;transform:translateY(-50%)}label.input input[type=number],label.input input[type=password],label.input input[type=text]{font-size:16px;line-height:18px;width:100%}label.input .err_txt{color:#ff7200;display:none;font-size:12px;line-height:18px;margin-top:5px}label.input.err .err_txt{display:block}label.input *{flex:1 auto}.label_wrap{flex:1;position:relative}.label_wrap button[class*=icon_]{border-radius:50%;display:none;font-size:0;height:24px;position:absolute;right:15px;top:9px;width:24px;z-index:1}.label_wrap button[class*=icon_]+button[class*=icon_]{margin-right:34px}.label_wrap button[class*=icon_]{background-image:url(__VITE_ASSET__BaA4KOYi__);background-repeat:no-repeat;background-size:250px auto}.label_wrap button.icon_del{background-position:0 0}.label_wrap button.icon_pass{background-position:-80px 0}.label_wrap button.icon_text{background-position:-40px 0}",
+      "start": 1710749682232,
+      "end": 1710749686063,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1710749686064,
+      "end": 1710749686064,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1710749686064,
+      "end": 1710749686064,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1710749686064,
+      "end": 1710749686064,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "em[data-v-ac7fd751]{font-style:normal}.check[data-v-ac7fd751]{line-height:1;min-height:20px;padding-left:26px;position:relative}.check[data-v-ac7fd751],.check>*[data-v-ac7fd751]{display:inline-block}.check>*[data-v-ac7fd751]{line-height:1.4;vertical-align:middle}.check input[data-v-ac7fd751]{margin:0 0 0 1px;position:absolute}.check .label[data-v-ac7fd751]:after,.check .label[data-v-ac7fd751]:before{content:\"\";display:inline-block;position:absolute}.check input[type=checkbox][data-v-ac7fd751],.check input[type=radio][data-v-ac7fd751]{opacity:0}.check input[type=radio][data-v-ac7fd751],.check input[type=radio]+.label[data-v-ac7fd751]:before{background-color:#fff;border:1px solid #ccc;border-radius:50%;box-sizing:border-box;height:20px;left:0;top:0;width:20px}.check input[type=radio]:checked+.label[data-v-ac7fd751]:after{background-color:#333;border-radius:50%;box-sizing:border-box;height:14px;left:3px;top:3px;width:14px}.check input[type=checkbox][data-v-ac7fd751],.check input[type=checkbox]+.label[data-v-ac7fd751]:before{background-color:#fff;border:1px solid #ccc;box-sizing:border-box;height:20px;left:0;top:0;width:20px}.check input[type=checkbox]:checked+.label[data-v-ac7fd751]:after{border:2px solid #333;border-left:0;border-top:0;height:13px;left:6px;top:1px;transform:rotate(45deg);width:8px}.check_ani[data-v-ac7fd751]{display:inline-block;position:relative}.check_ani input[data-v-ac7fd751]{margin:0 0 0 1px;opacity:0;position:absolute}.check_ani input[type=checkbox][data-v-ac7fd751]{opacity:0}.check_ani .label[data-v-ac7fd751]{display:block;min-height:22px;padding-left:48px;position:relative}.check_ani .label[data-v-ac7fd751]:before{background-color:#ccc;border:0;border-radius:60px;content:\"\";display:inline-block;height:22px;left:0;position:absolute;top:0;width:42px}.check_ani input[type=checkbox]+.label[data-v-ac7fd751]:after{background-color:#fff;border-radius:50%;content:\"\";display:block;height:18px;left:2px;position:absolute;top:50%;transform:translateY(-50%);transition:all .2s;width:18px;z-index:1}.check_ani input[type=checkbox]:checked+.label[data-v-ac7fd751]:before{background-color:#ff7200}.check_ani input[type=checkbox]:checked+.label[data-v-ac7fd751]:after{left:22px}label.input[data-v-ac7fd751],label.select>div[data-v-ac7fd751]{display:block;position:relative}label.input i[data-v-ac7fd751]{color:#aaa;font-size:16px;font-style:normal;left:15px;line-height:18px;position:absolute;top:50%;transform:translateY(-50%)}label.input input[type=number][data-v-ac7fd751],label.input input[type=password][data-v-ac7fd751],label.input input[type=text][data-v-ac7fd751]{font-size:16px;line-height:18px;width:100%}label.input .err_txt[data-v-ac7fd751]{color:#ff7200;display:none;font-size:12px;line-height:18px;margin-top:5px}label.input.err .err_txt[data-v-ac7fd751]{display:block}label.input *[data-v-ac7fd751]{flex:1 auto}.label_wrap[data-v-ac7fd751]{flex:1;position:relative}.label_wrap button[class*=icon_][data-v-ac7fd751]{border-radius:50%;display:none;font-size:0;height:24px;position:absolute;right:15px;top:9px;width:24px;z-index:1}.label_wrap button[class*=icon_]+button[class*=icon_][data-v-ac7fd751]{margin-right:34px}.label_wrap button[class*=icon_][data-v-ac7fd751]{background-image:url(__VITE_ASSET__BaA4KOYi__);background-repeat:no-repeat;background-size:250px auto}.label_wrap button.icon_del[data-v-ac7fd751]{background-position:0 0}.label_wrap button.icon_pass[data-v-ac7fd751]{background-position:-80px 0}.label_wrap button.icon_text[data-v-ac7fd751]{background-position:-40px 0}",
+      "start": 1710749686064,
+      "end": 1710749686127,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1710749686127,
+      "end": 1710749686127,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749686127,
+      "end": 1710749686128,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1710749686128,
+      "end": 1710749686128,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1710749686128,
+      "end": 1710749686128,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1710749686128,
+      "end": 1710749686128,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749686128,
+      "end": 1710749686128,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1710749686128,
+      "end": 1710749686128,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1710749686128,
+      "end": 1710749686128,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1710749686128,
+      "end": 1710749686128,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1710749686128,
+      "end": 1710749686128,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1710749686128,
+      "end": 1710749686128,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1710749686128,
+      "end": 1710749686128,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1710749686128,
+      "end": 1710749686128,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1710749686128,
+      "end": 1710749686128,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1710749686128,
+      "end": 1710749686128,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1710749686129,
+      "end": 1710749686129,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1710749686129,
+      "end": 1710749686129,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1710749686129,
+      "end": 1710749686129,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1710749686129,
+      "end": 1710749686129,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1710749686129,
+      "end": 1710749686129,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1710749686129,
+      "end": 1710749686129,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1710749686129,
+      "end": 1710749686129,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1710749686130,
+      "end": 1710749686130,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1710749686130,
+      "end": 1710749686130,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1710749686130,
+      "end": 1710749686130,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "resolvedId": "D:/work/repo/components/Sticker.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n    <ul class=\"sticker\">\r\n        <li v-for=\"(item,idx) in item\" :key=\"idx\"><em :class=\"item.type\">{{ item.txt }}</em></li>\r\n    </ul>\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n    item: Array,\r\n})\r\n</script>\r\n\r\n<style lang=\"scss\" scoped>\r\n.sticker {\r\n    display:flex;\r\n    gap:1px;\r\n    em {\r\n        padding:2px 5px;\r\n        font-size:12px;\r\n        display:block;\r\n        &.type01 {\r\n            color:#666;\r\n            background-color:#eee;            \r\n        }\r\n        &.type02 {\r\n            color:#00bc70;\r\n            background-color:#e0fbf0;\r\n        }\r\n        &.type03 {\r\n            color:#fff;\r\n            background-color:#00BC70;\r\n        }\r\n        &.type04 {\r\n            color:#fff;\r\n            background-color:#000;\r\n        }\r\n    }\r\n}\r\n</style>",
+      "start": 1710749709584,
+      "end": 1710749711471,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1710749711471,
+      "end": 1710749711471,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1710749711471,
+      "end": 1710749711471,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1710749711471,
+      "end": 1710749711471,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1710749711471,
+      "end": 1710749711471,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1710749711471,
+      "end": 1710749711471,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1710749711471,
+      "end": 1710749711471,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1710749711471,
+      "end": 1710749711471,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1710749711471,
+      "end": 1710749711471,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1710749711472,
+      "end": 1710749711472,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderClass as _ssrRenderClass, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\n\nconst _sfc_main = {\n  __name: 'Sticker',\n  __ssrInlineRender: true,\n  props: {\r\n    item: Array,\r\n},\n  setup(__props) {\n\r\nconst props = __props\r\n\nreturn (_ctx, _push, _parent, _attrs) => {\n  _push(`<ul${_ssrRenderAttrs(_mergeProps({ class: \"sticker\" }, _attrs))} data-v-29e2dcfb><!--[-->`)\n  _ssrRenderList(__props.item, (item, idx) => {\n    _push(`<li data-v-29e2dcfb><em class=\"${\n      _ssrRenderClass(item.type)\n    }\" data-v-29e2dcfb>${\n      _ssrInterpolate(item.txt)\n    }</em></li>`)\n  })\n  _push(`<!--]--></ul>`)\n}\n}\n\n}\n\n\nimport \"D:/work/repo/components/Sticker.vue?vue&type=style&index=0&scoped=29e2dcfb&lang.scss\"\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/Sticker.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-29e2dcfb\"]])",
+      "start": 1710749711472,
+      "end": 1710749711477,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/work/repo/components/Sticker.vue"
+        ],
+        "sourcesContent": [
+          "<template>\r\n    <ul class=\"sticker\">\r\n        <li v-for=\"(item,idx) in item\" :key=\"idx\"><em :class=\"item.type\">{{ item.txt }}</em></li>\r\n    </ul>\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n    item: Array,\r\n})\r\n</script>\r\n\r\n<style lang=\"scss\" scoped>\r\n.sticker {\r\n    display:flex;\r\n    gap:1px;\r\n    em {\r\n        padding:2px 5px;\r\n        font-size:12px;\r\n        display:block;\r\n        &.type01 {\r\n            color:#666;\r\n            background-color:#eee;            \r\n        }\r\n        &.type02 {\r\n            color:#00bc70;\r\n            background-color:#e0fbf0;\r\n        }\r\n        &.type03 {\r\n            color:#fff;\r\n            background-color:#00BC70;\r\n        }\r\n        &.type04 {\r\n            color:#fff;\r\n            background-color:#000;\r\n        }\r\n    }\r\n}\r\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;;;AAMc,CAAC;AACf,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,OAEZ,CAAC;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1710749711477,
+      "end": 1710749711477,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749711477,
+      "end": 1710749711477,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749711477,
+      "end": 1710749711478,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1710749711478,
+      "end": 1710749711478,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1710749711478,
+      "end": 1710749711478,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1710749711478,
+      "end": 1710749711478,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1710749711478,
+      "end": 1710749711478,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1710749711478,
+      "end": 1710749711483,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1710749711483,
+      "end": 1710749711483,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1710749711483,
+      "end": 1710749711483,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1710749711483,
+      "end": 1710749711483,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1710749711483,
+      "end": 1710749711483,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1710749711483,
+      "end": 1710749711483,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1710749711483,
+      "end": 1710749711484,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1710749711485,
+      "end": 1710749711485,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1710749711485,
+      "end": 1710749711485,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1710749711485,
+      "end": 1710749711485,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1710749711485,
+      "end": 1710749711485,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1710749711485,
+      "end": 1710749711488,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1710749711485,
+      "end": 1710749711488,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1710749711489,
+      "end": 1710749711489,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1710749711489,
+      "end": 1710749711489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1710749711489,
+      "end": 1710749711489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1710749711489,
+      "end": 1710749711489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1710749711489,
+      "end": 1710749711489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1710749711489,
+      "end": 1710749711489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1710749711489,
+      "end": 1710749711490,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1710749711490,
+      "end": 1710749711491,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1710749711491,
+      "end": 1710749711491,
+      "order": "normal"
+    }
+  ]
+}
