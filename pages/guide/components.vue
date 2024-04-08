@@ -1,135 +1,134 @@
 <template>
-    <section>
-        <h2>Inputs</h2>
-        <ul class="toolbar">
-            <li><button class="current" @click="tool_select('text');">Text</button></li>
-            <li><button @click="tool_select('error');">Error</button></li>
-            <li><button @click="tool_select('pw');">Password</button></li>
-            <li><button @click="tool_select('check');">Checkbox</button></li>
-            <li><button @click="tool_select('radio');">Radio</button></li>
-            <li><button @click="tool_select('isswitch');">Switch</button></li>
-        </ul>
-        <div class="design_box">
-            <Inputs :_type="input_opt.type" :isswitch="input_opt.isswitch" :_placeholder="input_opt.Placeholder"
-                _text="Label" :isDisabled="_disabled" :isError="input_opt.isError" :_err_text="input_opt.err_text" />
-        </div>
-        <pre class="code_box"><code>&lt;Inputs {{ input_opt.opt }} /&gt;</code></pre>
-    </section>
+  <section>
+    <h2>Inputs</h2>
+    <ul class="toolbar">
+      <li><button class="current" @click="tool_select('text');">Text</button></li>
+      <li><button @click="tool_select('error');">Error</button></li>
+      <li><button @click="tool_select('pw');">Password</button></li>
+      <li><button @click="tool_select('check');">Checkbox</button></li>
+      <li><button @click="tool_select('radio');">Radio</button></li>
+      <li><button @click="tool_select('isswitch');">Switch</button></li>
+    </ul>
+    <div class="design_box">
+      <Inputs :_type="input_opt.type" :isswitch="input_opt.isswitch" :_placeholder="input_opt.Placeholder" _text="Label"
+        :isDisabled="_disabled" :isError="input_opt.isError" :_err_text="input_opt.err_text" />
+    </div>
+    <pre class="code_box"><code>&lt;Inputs {{ input_opt.opt }} /&gt;</code></pre>
+  </section>
 
-    <section>
-        <h2>Select</h2>
-        <div class="design_box">
-            <Selectbox
-                :options="[
+  <section>
+    <h2>Select</h2>
+    <div class="design_box">
+      <Selectbox :options="[
                     { val: 'value', txt: '옵션01' },
                     { val: 'value', txt: '옵션02' }
                 ]" />
-        </div>
-        <pre class="code_box"><code>&lt;Selectbox
+    </div>
+    <pre class="code_box"><code>&lt;Selectbox
     :options="{{ select_opt }}" /&gt;</code></pre>
-    </section>
+  </section>
 
-    <section>
-        <h2>Button</h2>
-        <ul class="explain">
-            <li>클래스 규칙 : btn_크기_타입(보더유무)<br/>
-                ex) &lt;Button class="btn_big_outline" /&gt;]
-            </li>
-            <li>size : default = 40 / [_big] = 60 / [_mid] = 50 / [_min] = 30</li>
-        </ul>
-        <div class="design_box">
-            <div class="multi_form">
-                <Button class="btn_big" txt="btn_big (60px)sss" />
+  <section>
+    <h2>Button</h2>
+    <ul class="explain">
+      <li>클래스 규칙 : btn_크기_타입(보더유무)<br />
+        ex) &lt;Button class="btn_big_outline" /&gt;]
+      </li>
+      <li>size : default = 40 / [_big] = 60 / [_mid] = 50 / [_min] = 30</li>
+    </ul>
+    <div class="design_box">
+      <div class="multi_form">
+        <Button class="btn_big" txt="btn_big (60px)sss" />
 
-                <Button class="btn_mid" txt="btn_mid (50px)" />
+        <Button class="btn_mid" txt="btn_mid (50px)" />
 
-                <Button txt="default (40px)" />
+        <Button txt="default (40px)" />
 
-                <Button class="btn_min" txt="btn_min (30px)" />
+        <Button class="btn_min" txt="btn_min (30px)" />
 
-                <Button class="btn_big_outline" txt="btn_big_outline (60px)" />
+        <Button class="btn_big_outline" txt="btn_big_outline (60px)" />
 
-                <Button class="btn_mid_outline" txt="btn_mid_outline (50px)" />
+        <Button class="btn_mid_outline" txt="btn_mid_outline (50px)" />
 
-                <Button class="btn_outline" txt="btn_outline (40px)" />
+        <Button class="btn_outline" txt="btn_outline (40px)" />
 
-                <Button class="btn_min_outline" txt="btn_min_outline (30px)" />
-            </div>
-        </div>
-        <pre class="code_box"><code>&lt;Button /&gt;</code></pre>
-    </section>
+        <Button class="btn_min_outline" txt="btn_min_outline (30px)" />
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;Button /&gt;</code></pre>
+  </section>
 
-    <section>
-        <h2>Multi form</h2>
-        <div class="design_box">
-            <ul class="form_group">
-                <li>
-                    <p class="form_tit">Input + Button</p>
-                    <div class="multi_form">
-                        <Inputs _type="text" _placeholder="문구를 입력해주세요" />
-                        <Button />
-                    </div>
-                </li>
-                <li>
-                    <p class="form_tit">Input + Input</p>
-                    <div class="multi_form">
-                        <Inputs _type="text" _placeholder="문구를 입력해주세요" />
-                        <Inputs _type="text" _placeholder="문구를 입력해주세요" />
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <pre class="code_box"><code>&lt;div class="multi_form"&gt;
+  <section>
+    <h2>Multi form</h2>
+    <div class="design_box">
+      <ul class="form_group">
+        <li>
+          <p class="form_tit">Input + Button</p>
+          <div class="multi_form">
+            <Inputs _type="text" _placeholder="문구를 입력해주세요" />
+            <Button />
+          </div>
+        </li>
+        <li>
+          <p class="form_tit">Input + Input</p>
+          <div class="multi_form">
+            <Inputs _type="text" _placeholder="문구를 입력해주세요" />
+            <Inputs _type="text" _placeholder="문구를 입력해주세요" />
+          </div>
+        </li>
+      </ul>
+    </div>
+    <pre class="code_box"><code>&lt;div class="multi_form"&gt;
     &lt;Inputs _type="text" _placeholder="문구를 입력해주세요" /&gt;
     &lt;Inputs _type="text" _placeholder="문구를 입력해주세요" /&gt;
 &lt;/div&gt;</code></pre>
-    </section>
+  </section>
 
-    <section>
-        <h2>Goods Item</h2>
-        <ul class="explain">
-            <li>sold out, coming soon = status:'sold_out' or 'coming_soon'</li>
+  <section>
+    <h2>Goods Item</h2>
+    <ul class="explain">
+      <li>sold out, coming soon = status:'sold_out' or 'coming_soon'</li>
+    </ul>
+    <div class="design_box">
+      <div class="list_wrap">
+        <ul class="goods_list">
+          <li v-for="(item, idx) in sample_goods" :key="idx">
+            <GoodsItem :item="item" :link="item.link" />
+          </li>
         </ul>
-        <div class="design_box">
-            <div class="list_wrap">
-                <ul class="goods_list">
-                    <li v-for="(item, idx) in sample_goods" :key="idx">
-                        <GoodsItem :item="item" :link="item.link" />
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
     &lt;ul class="goods_list"&gt;
         &lt;li v-for="(item, idx) in sample_goods" :key="idx"&gt;
             &lt;GoodsItem :item="item" :link="item.link" /&gt;
         &lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
-    </section>
+  </section>
 
-    <section>
-        <h2>Breadcrumb</h2>
-        <div class="design_box">
-            <Breadcrumb :item="sam_menu" />
-        </div>
-        <pre class="code_box"><code>&lt;Breadcrumb :item="Data" /&gt;</code></pre>
-    </section>
+  <section>
+    <h2>Breadcrumb</h2>
+    <div class="design_box">
+      <Breadcrumb :item="sam_menu" />
+    </div>
+    <pre class="code_box"><code>&lt;Breadcrumb :item="Data" /&gt;</code></pre>
+  </section>
 
-    <section>
-        <h2>Modal</h2>
-        <ul class="explain">
-            <li>Open : modal.open(모달아이디, 타입);<br/> 타입 = full / alert / bottom : mobile 하단에서 올라오는 팝업</li>
-            <li>Close : modal.close();</li>
-        </ul>
-        <div class="design_box">
-            <div class="multi_form">
-                <Button txt="Modal full" @click="modal.open('sample_modal', 'full');" />
-                <Button txt="Modal alert" @click="modal.open('sample_modal', 'alert');" />
-                <Button txt="Modal bottom" @click="modal.open('sample_modal', 'bottom');" />
-            </div>
-        </div>
-        <pre class="code_box"><code>&lt;div class="modal_wrap" id="sample_modal"&gt;
+  <section>
+    <h2>Modal</h2>
+    <ul class="explain">
+      <li>Open : modal.open(모달아이디, 타입);<br /> 타입 = full / alert / bottom : mobile 하단에서 올라오는 팝업</li>
+      <li>Close : modal.close();</li>
+    </ul>
+    <div class="design_box">
+      <div class="multi_form">
+        <Button txt="Modal full" @click="modal.open('sample_modal', 'full');" />
+        <Button txt="Modal alert" @click="modal.open('sample_modal', 'alert');" />
+        <Button txt="Modal bottom" @click="modal.open('sample_modal', 'bottom');" />
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="modal_wrap" id="sample_modal"&gt;
     &lt;div class="modal_container"&gt;
         &lt;div class="modal_header"&gt;
             &lt;h2&gt;Modal Title&lt;/h2&gt;
@@ -145,55 +144,79 @@
     &lt;/div&gt;
     &lt;div class="overlay" @click="modal.close(this);"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-    </section>
+  </section>
 
-    <section>
-        <h2>Tabs</h2>
-        <ul class="explain">
-            <li>default : 탭 요소의 넓이가 갯수에 대한 비율로 늘어남.</li>
-        </ul>
-        <div class="design_box">
-            <ul class="form_group">
-                <li>
-                    <p class="form_tit">Default</p>
-                    <Tabs :item="[{txt:'tab01'},{txt:'tab02'}]" />
-                </li>
-            </ul>
-        </div>
-        <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
+  <section>
+    <h2>Tabs</h2>
+    <ul class="explain">
+      <li>default : 탭 요소의 넓이가 갯수에 대한 비율로 늘어남.</li>
+    </ul>
+    <div class="design_box">
+      <ul class="form_group">
+        <li>
+          <p class="form_tit">Default</p>
+          <Tabs :item="[{txt:'tab01'},{txt:'tab02'}]" />
+        </li>
+      </ul>
+    </div>
+    <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
     &lt;ul class="goods_list"&gt;
         &lt;li v-for="(item, idx) in sample_goods" :key="idx"&gt;
             &lt;GoodsItem :item="item" :link="item.link" /&gt;
         &lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
-    </section>
+  </section>
 
-    <!-- modal -->
-    <div class="modal_wrap" id="sample_modal">
-        <div class="modal_container">
-            <div class="modal_header">
-                <h2>Modal Title</h2>
-                <button class="btn_close" @click="modal.close(this);">닫기</button>
-            </div>
-            <div class="modal_content">
-                <div>Sample Modal</div>
-            </div>
-            <div class="modal_footer">
-                <Button class="btn_outline" txt="cancel" />
-                <Button txt="OK" />
-            </div>
-        </div>
-        <div class="overlay" @click="modal.close(this);"></div>
+  <section>
+    <h2>Swiper</h2>
+    <ul class="explain">
+      <li>Swiper Element(WebComponent) 사용</li>
+      <li><a href="https://swiperjs.com/swiper-api" target="_blank">Swiper API(새창)</a>, <a href="https://swiperjs.com/element" target="_blank">Swiper Element Docs(새창)</a></li>
+    </ul>
+    <div class="design_box">
+      <swiper-container slides-per-view="2" autoplay-delay="3000">
+        <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx" class="item">
+          <img :src="item.img">
+        </swiper-slide>
+      </swiper-container>
     </div>
-    <!-- //modal -->
-    
+    <pre class="code_box"><code> &lt;swiper-container slides-per-view="2" autoplay-delay="3000"&gt;
+  &lt;swiper-slide v-for="(item, idx) in sampleSlide" :key="idx" class="item"&gt;
+    &lt;img :src="item.img"&gt;
+  &lt;/swiper-slide&gt;
+&lt;/swiper-container&gt;</code></pre>
+  </section>
+
+  <!-- modal -->
+  <div class="modal_wrap" id="sample_modal">
+    <div class="modal_container">
+      <div class="modal_header">
+        <h2>Modal Title</h2>
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+      </div>
+      <div class="modal_content">
+        <div>Sample Modal</div>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_outline" txt="cancel" />
+        <Button txt="OK" />
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //modal -->
+
 </template>
 
 <script setup>
 definePageMeta({
   layout: 'guide'
 })
+
+// import function to register Swiper custom elements
+import { register } from 'swiper/element/bundle';
+register();
 
 /* component sample data */
 const input_opt = reactive(
@@ -261,6 +284,21 @@ const sam_menu = [
         sub_depth:['전체','에센스/세럼/앰플','로션/크림','스킨/토너/미스트','립/아이케어','선케어','오일/마사지','클렌징','팩/마스크','기획 세트','기타']
     }
 ]
+
+const sampleSlide = [
+  {
+    img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
+  },
+  {
+    img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
+  },
+  {
+    img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
+  },
+  {
+    img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
+  },
+];
 /* //component sample data */
 
 /* inputs type function */

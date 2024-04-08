@@ -35,6 +35,18 @@
 }</code></pre>
     </section>
 
+    <section>
+        <h2>Naming</h2>
+        <ul class="explain">
+            <li>영문 소문자로 시작하며, 대문자의 사용은 지양함 (숫자로 시작할 수 없음)</li>
+            <li>[형태, 의미, 상태] 순서로 조합하되, 3단계를 넘지 않도록 권장함</li>
+            <li>Class는 Underscore 방식으로 사용함</li>
+            <li>ID는 고유 기능을 명시하도록 네이밍하며, 중복하여 사용하지 않음</li>
+        </ul>
+        <pre class="code_box"><code>.board_type_list01(o)
+.01board_type_list(x)</code></pre>
+    </section>
+
 </template>
 
 <script setup>

@@ -37,17 +37,46 @@ const device = ref('MO');
 
 import { onMounted } from 'vue'
 
+const comm_arry = ([
+    {
+        depth:['공통','Inputs','',''],
+        id:'', status:'',
+        type:'component', note:'/component/Inputs<br/>- 타입별 분리 예정',
+        sDate:'', eDate:'', worker:'이종환'
+    }, {
+        depth:['','Button','',''],
+        id:'', status:'',
+        type:'component', note:'/component/Button',
+        sDate:'', eDate:'', worker:'이종환'
+    }, {
+        depth:['','GoodsItem','',''],
+        id:'', status:'',
+        type:'component', note:'/component/GoodsItem',
+        sDate:'', eDate:'', worker:'이종환'
+    }
+])
+
 const PC_arry = ([
     {
-        depth:['공통','검색','',''],
+        depth:['pc_공통','헤더','',''],
+        id:'Header', status:'',
+        type:'component', note:'/component/Header/pc',
+        sDate:'', eDate:'', worker:'형민우'
+    }, {
+        depth:['','검색','',''],
         id:'IN_PC_SRC_01_01', status:'',
         type:'component', note:'',
-        sDate:'', eDate:'2024-04-24/', worker:''
+        sDate:'', eDate:'2024-04-24/', worker:'형민우'
     }, {
-        depth:['','팝업','',''],
-        id:'IN_PC_POP_01_01', status:'',
-        type:'component', note:'',
-        sDate:'', eDate:'2024-07-26/', worker:''
+        depth:['','푸터','',''],
+        id:'Footer', status:'',
+        type:'component', note:'/component/Footer/pc',
+        sDate:'', eDate:'', worker:'김희경'
+    }, {
+        depth:['','브래드크럼','',''],
+        id:'Breadcrumb', status:'',
+        type:'component', note:'/component/Breadcrumb',
+        sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['홈','','',''],
         id:'IN_PC_HOM_01_01', status:'ing',
@@ -57,17 +86,17 @@ const PC_arry = ([
         depth:['','특가(T)','',''],
         id:'IN_PC_HOM_01_04', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'형민우'
     }, {
         depth:['','이벤트(T)','목록',''],
         id:'IN_PC_HOM_01_05', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','','상세',''],
         id:'IN_PC_HOM_01_06', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','랭킹(T)','',''],
         id:'IN_PC_HOM_01_07', status:'',
@@ -77,12 +106,12 @@ const PC_arry = ([
         depth:['','에디터(T)','목록',''],
         id:'IN_PC_HOM_01_08', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'김나람'
     }, {
         depth:['','','상세',''],
         id:'IN_PC_HOM_01_09', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','베스트','',''],
         id:'IN_PC_HOM_01_00-1', status:'',
@@ -107,7 +136,7 @@ const PC_arry = ([
         depth:['','임직원샵','목록',''],
         id:'IN_PC_HOM_01_16', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-16/', worker:''
+        sDate:'', eDate:'2024-04-16/', worker:'형민우'
     }, {
         depth:['','쇼핑로그','',''],
         id:'IN_PC_HOM_01_18', status:'',
@@ -117,12 +146,12 @@ const PC_arry = ([
         depth:['상품','목록','',''],
         id:'IN_PC_PRD_01_01', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-24/', worker:''
+        sDate:'', eDate:'2024-04-24/', worker:'김희경'
     }, {
         depth:['','상세','',''],
         id:'IN_PC_PRD_01_09', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-03/', worker:''
+        sDate:'', eDate:'2024-05-03/', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_PC_CAR_01_01', status:'',
@@ -518,15 +547,20 @@ const PC_arry = ([
 
 const MO_arry = ([
     {
-        depth:['공통','검색','',''],
+        depth:['mo_공통','헤더','',''],
+        id:'Header', status:'',
+        type:'component', note:'/component/Header/mo',
+        sDate:'', eDate:'', worker:'형민우'
+    }, {
+        depth:['','검색','',''],
         id:'IN_MO_SRC_01_01', status:'',
         type:'component', note:'',
-        sDate:'', eDate:'2024-04-24/', worker:''
+        sDate:'', eDate:'2024-04-24/', worker:'형민우'
     }, {
-        depth:['','팝업','',''],
-        id:'IN_MO_POP_01_01', status:'',
-        type:'component', note:'',
-        sDate:'', eDate:'2024-07-26/', worker:''
+        depth:['','푸터','',''],
+        id:'Footer', status:'',
+        type:'component', note:'/component/Footer/mo',
+        sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['홈','','',''],
         id:'IN_MO_HOM_01_01', status:'ing',
@@ -536,17 +570,17 @@ const MO_arry = ([
         depth:['','특가(T)','',''],
         id:'IN_MO_HOM_01_04', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'형민우'
     }, {
         depth:['','이벤트(T)','목록',''],
         id:'IN_MO_HOM_01_05', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','','상세',''],
         id:'IN_MO_HOM_01_06', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','랭킹(T)','',''],
         id:'IN_MO_HOM_01_07', status:'',
@@ -556,17 +590,17 @@ const MO_arry = ([
         depth:['','에디터(T)','목록',''],
         id:'IN_MO_HOM_01_08', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'김나람'
     }, {
         depth:['','','상세',''],
         id:'IN_MO_HOM_01_09', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','베스트','',''],
         id:'IN_MO_HOM_01_00-1', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-12/', worker:''
+        sDate:'', eDate:'2024-04-12/', worker:'형민우'
     }, {
         depth:['','쇼케이스(T)','',''],
         id:'IN_MO_HOM_01_12', status:'',
@@ -586,7 +620,7 @@ const MO_arry = ([
         depth:['','임직원샵','목록',''],
         id:'IN_MO_HOM_01_16', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-16/', worker:''
+        sDate:'', eDate:'2024-04-16/', worker:'형민우'
     }, {
         depth:['','쇼핑로그','',''],
         id:'IN_MO_HOM_01_18', status:'',
@@ -596,12 +630,12 @@ const MO_arry = ([
         depth:['상품','목록','',''],
         id:'IN_MO_PRD_01_01', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-24/', worker:''
+        sDate:'', eDate:'2024-04-24/', worker:'김희경'
     }, {
         depth:['','상세','',''],
         id:'IN_MO_PRD_01_09', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-03/', worker:''
+        sDate:'', eDate:'2024-05-03/', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_MO_CAR_01_01', status:'',
@@ -1016,6 +1050,20 @@ const change_device = () => {
         device.value=MO_arry;
     }
 
+    for (var j=0; j<comm_arry.length; j++){
+        document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'
+        +   '<th>'+comm_arry[j].depth[0]+'</th>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[1]+'</td>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[2]+'</td>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[3]+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'"><a href="'+link+'" target="_blank" class="'+comm_arry[j].type+'">'+comm_arry[j].id+'</a></td>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].note+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'">'+comm_arry[j].sDate+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'">'+comm_arry[j].eDate+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'">'+comm_arry[j].worker+'</td>'
+        +'</tr>');
+    }
+
     for (var i=0; i<device.value.length;i++) {
         /* row 시작 체크 */
         if(device.value[i].depth[0].length != 0){
@@ -1066,6 +1114,20 @@ onMounted(() => {
         device.value = PC_arry;
     } else {
         device.value = MO_arry;
+    }
+
+    for (var j=0; j<comm_arry.length; j++){
+        document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'
+        +   '<th>'+comm_arry[j].depth[0]+'</th>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[1]+'</td>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[2]+'</td>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[3]+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'"><a href="'+link+'" target="_blank" class="'+comm_arry[j].type+'">'+comm_arry[j].id+'</a></td>'
+        +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].note+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'">'+comm_arry[j].sDate+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'">'+comm_arry[j].eDate+'</td>'
+        +   '<td class="ac '+comm_arry[j].status+'">'+comm_arry[j].worker+'</td>'
+        +'</tr>');
     }
 
     for (var i=0; i<device.value.length;i++) {
