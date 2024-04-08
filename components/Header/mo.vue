@@ -131,7 +131,7 @@
                     <div class="nav_wrap">
                         <ul>
                             <li v-for="(item,idx) in global_menu" :key="idx">
-                                <a :href="item.link">{{ item.menu }}</a>
+                                <a :href="item.link" @click="cate_tab">{{ item.menu }}</a>
                             </li>
                         </ul>
                         <div>
@@ -289,6 +289,16 @@ const cate_layer = {
     }, close: () => {
         document.querySelector('.navCategory').classList.remove('active');
     }
+}
+
+const cate_tab = (e) => {
+    const lis = [...e.target.parentElement.parentElement.children];
+    const index = lis.indexOf(e.target.parentElement);
+
+    const nav_cont = document.querySelector('.nav_wrap > div');
+    const target = document.querySelectorAll('.nav_wrap > div section')[index];
+
+    nav_cont.scrollTo({top: target.offsetTop - 99, behavior: 'smooth'});
 }
 </script>
 
