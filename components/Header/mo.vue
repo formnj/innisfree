@@ -131,7 +131,7 @@
                     <div class="nav_wrap">
                         <ul>
                             <li v-for="(item,idx) in global_menu" :key="idx">
-                                <a :href="item.link">{{ item.menu }}</a>
+                                <a :href="item.link" @click="cate_tab"><span>{{ item.menu }}</span></a>
                             </li>
                         </ul>
                         <div>
@@ -150,7 +150,26 @@
                             </section>
                         </div>
                     </div>
-                </nav>            
+                    <div class="quick_wrap">
+                        <ul class="quick">
+                            <li>
+                                <a href="#none">신규가입혜택</a>
+                            </li>
+                            <li>
+                                <a href="#none">멤버십 혜택</a>
+                            </li>
+                            <li>
+                                <a href="#none">공병수거</a>
+                            </li>
+                            <li>
+                                <a href="#none">매장안내</a>
+                            </li>
+                            <li>
+                                <a href="#none">마이샵</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
         </div>
     </header>
@@ -215,15 +234,6 @@ const global_menu = [
             {link:'#none', menu:'화장솜'}
         ]
     }, {
-        link:'#none', menu:'남성',
-        sub_menu: [
-            {link:'#none', menu:'스킨케어'},
-            {link:'#none', menu:'클렌징'},
-            {link:'#none', menu:'선케어'},
-            {link:'#none', menu:'헤어 스타일링'},
-            {link:'#none', menu:'기획세트'}
-        ]
-    }, {
         link:'#none', menu:'고민별제품',
         sub_menu: [
             {link:'#none', menu:'수분/보습/속건조'},
@@ -258,6 +268,20 @@ onMounted(() => {
     document.querySelector('.btn_search').addEventListener('click',()=>{
         document.querySelector('.search_layer').classList.add('active');
     });
+
+    document.querySelector('.nav_wrap > ul li').classList.add('active');
+    document.querySelector('.nav_wrap > div').addEventListener('scroll', (e) => {
+        [...e.target.children].forEach((item,index) => {
+            document.querySelectorAll('.nav_wrap > ul li')[index].classList.remove('active');
+
+            if(
+                e.target.scrollTop >= item.offsetTop &&
+                e.target.scrollTop <= item.offsetTop + (item.offsetHeight-1)
+            ) {
+                document.querySelectorAll('.nav_wrap > ul li')[index].classList.add('active');
+            }
+        });
+    })
 });
 
 /* 최근검색어 삭제 */
@@ -289,6 +313,16 @@ const cate_layer = {
     }, close: () => {
         document.querySelector('.navCategory').classList.remove('active');
     }
+}
+
+const cate_tab = (e) => {
+    const lis = [...e.target.parentElement.parentElement.children];
+    const index = lis.indexOf(e.target.parentElement);
+
+    const nav_cont = document.querySelector('.nav_wrap > div');
+    const target = document.querySelectorAll('.nav_wrap > div section')[index];
+
+    nav_cont.scrollTo({top: target.offsetTop, behavior: 'smooth'});
 }
 </script>
 
@@ -753,6 +787,7 @@ header {
                 flex:1;
                 .nav_wrap {
                     height:100%;
+                    max-height:400px;
                     display:flex;
                     > ul {
                         width:37.333333%;
@@ -763,17 +798,38 @@ header {
                             font-size:14px;
                             font-weight:600;
                             display:block;
+                            position:relative;
+                            span {
+                                position:relative;
+                                z-index:1;
+                            }
+                            &:before {
+                                content:'';
+                                width:0;
+                                height:100%;
+                                background:#fff;
+                                position:absolute;
+                                top:0;
+                                left:0;
+                                transition:all 0.2s;
+                            }
+                            > * {
+                                pointer-events:none;
+                            }
                         }
                         .active {
-                            background-color:#fff;
                             a {
                                 color:#000;
+                                &:before {
+                                    width:100%;
+                                }
                             }
                         }
                     }
                     > div {
                         overflow:auto;
                         flex:1;
+                        position:relative;
                         a {
                             color:#000;
                             font-size:14px;
@@ -782,6 +838,7 @@ header {
                             display:block;
                         }
                         section {
+                            overflow:hidden;
                             > a {
                                 font-weight:600;
                                 display:flex;
@@ -846,7 +903,25 @@ header {
                         }
                     }
                 }
-            }               
+                .quick_wrap {
+                    border-top:5px solid #EEE;
+                    border-bottom:5px solid #EEE;
+                    overflow:hidden;
+                    .quick {
+                        overflow:auto;
+                        display:flex;
+                        li {
+                            a {
+                                padding:16px 24px;
+                                font-size:14px;
+                                font-weight:400;
+                                white-space:nowrap;
+                                display:block;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
