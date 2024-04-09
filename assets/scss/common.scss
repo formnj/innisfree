@@ -227,3 +227,19 @@
         padding-left:15px;
     }
 }
+
+.sort_tab_wrap {
+  margin-bottom:25px;
+  .sub_tab {
+    margin-top:60px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    .tab_wrap {
+      flex:1;
+      ul {
+        flex-wrap:wrap;
+      }
+    }
+  }
+}

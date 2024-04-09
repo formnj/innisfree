@@ -1,31 +1,24 @@
 <template>
-    <div class="title_wrap">
-        <h2>스킨케어
-            <span class="pdt_count">총 <strong>32</strong>건</span>
-        </h2>
-
-        <div class="pdtSortTab_wrap">
-			<div class="sortTab">
-				<button class="btn_dropdown" @click="Drop_Down()" >추천순</button>
-				<ul>
-					<li><a href="#none" class="active">추천순</a></li>
-					<li><a href="#none">신제품순</a></li>
-					<li><a href="#none">판매량순</a></li>
-					<li><a href="#none">낮은 가격순</a></li>
-					<li><a href="#none">높은 가격순</a></li>
-					<li><a href="#none">리뷰순</a></li>
-					<li><a href="#none">판매금액순</a></li>
-				</ul>
-			</div>
-            <button @click="modal.open('sample_modal', 'full');">상세검색</button>
-        </div>
+    <div class="title_wrap" :data-layout="props.layoutType">
+      <h2>베스트</h2>
     </div>
+
+    <div class="sort_tab_wrap">
+      <Tabs :item="[{txt:'실시간 베스트'},{txt:'주간 베스트'},{txt:'월간 베스트'}]" :tabidx="0" />
+
+      <div class="sub_tab">
+        <Tabs tabType="type_02" :item="[{txt:'전체'},{txt:'스킨케어'},{txt:'메이크업'},{txt:'남성'},{txt:'헤어/바디/펫'},{txt:'기획 세트'},{txt:'전체'},{txt:'스킨케어'},{txt:'메이크업'},{txt:'남성'},{txt:'헤어/바디/펫'},{txt:'기획 세트'},{txt:'미용소품'},{txt:'스킨케어'},{txt:'메이크업'},{txt:'남성'},{txt:'헤어/바디/펫'},{txt:'기획 세트'},{txt:'전체'},{txt:'스킨케어'},{txt:'메이크업'},{txt:'남성'},{txt:'헤어/바디/펫'},{txt:'기획 세트'}]" :tabidx="0" />
+        <span>2024.03.29 ~ 2024.04.04 기준</span>
+      </div>
+    </div>
+
     <div class="list_wrap">
-        <ul class="goods_list">
-            <li v-for="(item, idx) in sample_goods" :key="idx">
-                <GoodsItem :item="item" :link="item.link" />
-            </li>
-        </ul>
+      <ul class="goods_list">
+          <li v-for="(item, idx) in sample_goods" :key="idx">
+              <span class="ranking">{{ '0'+(idx+1) }}</span>
+              <GoodsItem :item="item" :link="item.link" />
+          </li>
+      </ul>
     </div>
     <div class="paging">
         <div>
@@ -58,11 +51,15 @@
 
 <script setup>
 definePageMeta({
-	layout: 'pc-default'
+	layout: 'pc-category'
 });
 
-onMounted(()=>{
-})
+const props = defineProps({
+    layoutType: {
+      type:String,
+      default:'default'
+    }
+});
 
 const sample_goods = [
     {
@@ -178,6 +175,21 @@ const modal = {
 
         // event 초기화 속성이 있음 초기화
         e.preventDefault();
+    }
+}
+
+const Drop_Down = () => {
+    let selet = document.querySelector('.pdtSortTab_wrap ul');
+    selet.classList.toggle('active')
+    if(selet.classList.contains('active')){
+        console.log(selet.clientHeight)
+        selet.style.height = '270px';
+        selet.style.border="1px solid #888";
+
+        // console.log(selet.clientHeight) + 'px'
+    }else {
+        selet.style.border = 'none'
+        selet.style.height = '0px'
     }
 }
 </script>

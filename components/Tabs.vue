@@ -3,7 +3,6 @@
         <ul :class="tabType">
             <li v-for="(item, idx) in item" :key="idx" :class="{ current: tabidx == idx }">
                 <Button :txt="item.txt" @click="tabidx = idx" />
-                {{tabidx}}
             </li>
         </ul>
     </div>
@@ -102,7 +101,8 @@ const props = defineProps({
             border-radius:999px;
             em {
               padding:6px 20px;
-              color:#999e9c;;
+              color:#999e9c;
+              white-space:nowrap;
             }
           }
           &.current {

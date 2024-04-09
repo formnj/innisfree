@@ -7,7 +7,7 @@
             <Breadcrumb :item="sam_menu" />
             <div class="content_wrap">
                 <!-- lnb -->
-                <div class="lnb">
+                <div class="lnb" v-if="layoutType">
                     <h2>스킨케어
                         <a href="#none">전체보기</a>
                     </h2>
@@ -27,7 +27,7 @@
 
 
 <script setup>
-
+const layoutType = ref(true);
 const sam_menu = [
     {
         depth01:'카테고리',
@@ -62,6 +62,14 @@ let lnb_click = (event)=>{
   // 전체 li에 active 클래스 제거
   //클릭한 대상에게 active 클래스 추가
 }
+
+/* 개발에 맞게 수정해주세요 : 하위페이지의 data-layout 값이 default이면 lnb 비노출 */
+onMounted(()=>{
+  if(document.querySelector('.title_wrap').getAttribute('data-layout') == 'default'){
+    layoutType.value = false;
+  }
+})
+/* //개발에 맞게 수정해주세요 */
 </script>
 
 <style lang="scss" scoped>
