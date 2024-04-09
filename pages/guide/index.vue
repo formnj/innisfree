@@ -149,9 +149,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-19/', worker:''
     }, {
         depth:['상품','목록','',''],
-        id:'IN_PC_PRD_01_01', status:'ing',
+        id:'IN_PC_PRD_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-24/', worker:'김희경'
+        sDate:'', eDate:'2024-04-24/2024-04-09', worker:'김희경'
     }, {
         depth:['','상세','',''],
         id:'IN_PC_PRD_01_09', status:'',
