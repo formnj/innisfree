@@ -131,7 +131,7 @@
                     <div class="nav_wrap">
                         <ul>
                             <li v-for="(item,idx) in global_menu" :key="idx">
-                                <a :href="item.link">{{ item.menu }}</a>
+                                <a :href="item.link" @click="cate_tab"><span>{{ item.menu }}</span></a>
                             </li>
                         </ul>
                         <div>
@@ -149,6 +149,45 @@
                                 </ul>
                             </section>
                         </div>
+                    </div>
+                    <div class="quick_wrap">
+                        <ul class="quick">
+                            <li>
+                                <a href="#none">신규가입혜택</a>
+                            </li>
+                            <li>
+                                <a href="#none">멤버십 혜택</a>
+                            </li>
+                            <li>
+                                <a href="#none">공병수거</a>
+                            </li>
+                            <li>
+                                <a href="#none">매장안내</a>
+                            </li>
+                            <li>
+                                <a href="#none">마이샵</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="prd_wrap">
+                      <h2>
+                        <a href="#none">한정기간 특가할인 / 사은품 혜택</a>
+                      </h2>
+                      <div class="list_wrap">
+                        <ul class="goods_list">
+                          <swiper-container
+                            slides-per-view="auto"
+                            grab-cursor="true"
+                            space-between="3"
+                          >
+                            <swiper-slide v-for="(item, idx) in sample_goods" :key="idx" class="item">
+                              <li>
+                                <GoodsItem :item="item" :link="item.link" />
+                              </li>
+                            </swiper-slide>
+                          </swiper-container>
+                        </ul>
+                      </div>
                     </div>
                 </nav>
             </div>
@@ -215,15 +254,6 @@ const global_menu = [
             {link:'#none', menu:'화장솜'}
         ]
     }, {
-        link:'#none', menu:'남성',
-        sub_menu: [
-            {link:'#none', menu:'스킨케어'},
-            {link:'#none', menu:'클렌징'},
-            {link:'#none', menu:'선케어'},
-            {link:'#none', menu:'헤어 스타일링'},
-            {link:'#none', menu:'기획세트'}
-        ]
-    }, {
         link:'#none', menu:'고민별제품',
         sub_menu: [
             {link:'#none', menu:'수분/보습/속건조'},
@@ -254,10 +284,77 @@ const category = [
 ]
 /* //sample data */
 
+const sample_goods = [
+    {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'증정', type:'type02'},
+        ],
+    }, {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+        name:'그린티 씨드 히알루론산 세렘 80ml',
+        price:'44,800', sale:'~20%', cost:'56,000',
+        sticker:[
+            {txt:'증정', type:'type02'},
+        ]
+    }, {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+        name:'그린티 씨드 히알루론산 세렘 80ml',
+        price:'44,800', sale:'~20%', cost:'56,000',
+        sticker:[
+            {txt:'증정', type:'type02'},
+        ]
+    }, {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'증정', type:'type02'},
+        ]
+    }, {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'증정', type:'type02'},
+        ]
+    },
+    {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'증정', type:'type02'},
+        ]
+    },
+]
+/* //component sample data */
+
 onMounted(() => {
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 0) document.querySelector('header').classList.add('fixed');
+      if(window.scrollY <= 0) document.querySelector('header').classList.remove('fixed');
+    })
+
     document.querySelector('.btn_search').addEventListener('click',()=>{
         document.querySelector('.search_layer').classList.add('active');
     });
+
+    document.querySelector('.nav_wrap > ul li').classList.add('active');
+    document.querySelector('.nav_wrap > div').addEventListener('scroll', (e) => {
+        [...e.target.children].forEach((item,index) => {
+            document.querySelectorAll('.nav_wrap > ul li')[index].classList.remove('active');
+
+            if(
+                e.target.scrollTop >= item.offsetTop &&
+                e.target.scrollTop <= item.offsetTop + (item.offsetHeight-1)
+            ) {
+                document.querySelectorAll('.nav_wrap > ul li')[index].classList.add('active');
+            }
+        });
+    })
 });
 
 /* 최근검색어 삭제 */
@@ -290,12 +387,34 @@ const cate_layer = {
         document.querySelector('.navCategory').classList.remove('active');
     }
 }
+
+const cate_tab = (e) => {
+    const lis = [...e.target.parentElement.parentElement.children];
+    const index = lis.indexOf(e.target.parentElement);
+
+    const nav_cont = document.querySelector('.nav_wrap > div');
+    const target = document.querySelectorAll('.nav_wrap > div section')[index];
+
+    nav_cont.scrollTo({top: target.offsetTop, behavior: 'smooth'});
+}
 </script>
 
 <style lang="scss" scoped>
+.docTopBanner {
+  height: 36px;
+  padding-right:21px;
+  justify-content:space-between;
+}
 header {
-    padding:10px 21px 0;
-    position:relative;
+  padding:10px 21px 0;
+  position:sticky;
+  top:-50px;
+  left:0;
+  right:0;
+  z-index:2;
+  &.fixed {
+    background:#fff;
+  }
     .inner {
         display:flex;
         align-items:center;
@@ -750,9 +869,11 @@ header {
             }
             nav {
                 overflow:hidden;
+                overflow-y:scroll;
                 flex:1;
                 .nav_wrap {
                     height:100%;
+                    max-height:336px;
                     display:flex;
                     > ul {
                         width:37.333333%;
@@ -763,17 +884,38 @@ header {
                             font-size:14px;
                             font-weight:600;
                             display:block;
+                            position:relative;
+                            span {
+                                position:relative;
+                                z-index:1;
+                            }
+                            &:before {
+                                content:'';
+                                width:0;
+                                height:100%;
+                                background:#fff;
+                                position:absolute;
+                                top:0;
+                                left:0;
+                                transition:all 0.2s;
+                            }
+                            > * {
+                                pointer-events:none;
+                            }
                         }
                         .active {
-                            background-color:#fff;
                             a {
                                 color:#000;
+                                &:before {
+                                    width:100%;
+                                }
                             }
                         }
                     }
                     > div {
                         overflow:auto;
                         flex:1;
+                        position:relative;
                         a {
                             color:#000;
                             font-size:14px;
@@ -782,6 +924,7 @@ header {
                             display:block;
                         }
                         section {
+                            overflow:hidden;
                             > a {
                                 font-weight:600;
                                 display:flex;
@@ -845,6 +988,73 @@ header {
                             }
                         }
                     }
+                }
+                .quick_wrap {
+                    border-top:5px solid #EEE;
+                    border-bottom:5px solid #EEE;
+                    overflow:hidden;
+                    .quick {
+                        overflow:auto;
+                        display:flex;
+                        li {
+                            a {
+                                padding:16px 24px;
+                                font-size:14px;
+                                font-weight:400;
+                                white-space:nowrap;
+                                display:block;
+                            }
+                        }
+                    }
+                }
+                .prd_wrap {
+                  padding:40px 0 40px 21px;
+                  h2 {
+                    margin-right:21px;
+                    margin-bottom:20px;
+                    a {
+                      font-size:16px;
+                      font-weight:600;
+                      display:flex;
+                      align-items:center;
+                      justify-content:space-between;
+                      &:after {
+                        content:'';
+                        width:9px;
+                        height:9px;
+                        border-color:#000;
+                        border-style:solid;
+                        border-width:0 0 1px 1px;
+                        display:inline-block;
+                        transform:rotate(225deg);
+                      }
+                    }
+                  }
+                  .goods_list {
+                    margin:0;
+                    .item {
+                      width:38%;
+                      display:block;
+                      li {
+                        width: 100%;
+                        ::v-deep(.goods_item) {
+                          .img_wrap {
+                            .thumb {
+                              height:190px;
+                            }
+                            &:hover {
+                              .btnIconBox {
+                                transform:translateY(100%);
+                              }
+                            }
+                          }
+                          .review_score {
+                            display:none;
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
             }
         }

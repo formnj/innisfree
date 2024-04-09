@@ -3,73 +3,33 @@
         <a href="#none" class="txt" target="_blank">하나Pay 3만원 결제 시, 하나머니 5천원 적립</a>
         <button type="button" class="btnClose">닫기</button>
     </div>
-    <header>
-        <div class="inner">
-            <h1><a href="/publish"><img src="/assets/images/common/logo_innisfree.png"></a></h1>
-            <div class="search_wrap">
-                <div class="search">
-                    <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
-                    <Button class="btn_search" />
-                </div>
-                <!-- search layer -->
-                <div class="search_layer">
-                    <div class="search">
-                        <Button txt="닫기" class="sam_close" @click="search_close" />
-                        <div>
-                            <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
-                            <Button class="btn_search" />
-                        </div>
-                        <ul class="icon_menu">
-                            <li>
-                                <a href="#none" class="cart">장바구니
-                                    <em>5</em>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <section>
-                        <strong>최근 검색어
-                            <Button class="btn_txt" txt="전체삭제" @click="keyword_del_all" />
-                        </strong>
-                        <ul class="latest">
-                            <template  v-if="key_cnt > 0">
-                                <li v-for="(item, idx) in latest" :key="idx">
-                                    <div v-if="key_cnt > 0">
-                                        <a href="#none">{{ item }}</a>
-                                        <Button class="btn_del" @click="keyword_del" />
-                                    </div>
-                                </li>
-                            </template>
-                            <template v-else>
-                                <li class="no_data">최근 검색어가 없습니다.</li>
-                            </template>
-                        </ul>
-                    </section>
-                    <section>
-                        <strong>카테고리</strong>
-                        <ul class="category">
-                            <li v-for="item in category" :key="item">
-                                <a href="#none">
-                                    <span class="thumb">
-                                        <em><img :src="item.img" /></em>
-                                    </span>
-                                    <p>{{ item.txt }}</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-                <!-- //search layer -->
-            </div>
-            <div class="quick_wrap">
-                <ul class="icon_menu">
-                    <li>
-                        <a href="#none" class="cart">장바구니
-                            <em>5</em>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <header :class="headers">
+        <div class="inner" v-if="headers === 'category'">
+          <div class="menu_wrap">
+            <Icons cls="back" txt="뒤로가기" />
+            <h2><a href="#none">스킨케어</a></h2>
+          </div>
+          <Search :latest="latest" :category="category" />
+          <Icons cls="cart" txt="장바구니" cnt="50" />
+        </div>
+
+        <div class="inner" v-if="headers === 'product'">
+          <div class="menu_wrap">
+            <Icons cls="back" txt="뒤로가기" />
+          </div>
+          <Icons cls="home" txt="홈" />
+          <Search :latest="latest" :category="category" />
+          <Icons cls="cart" txt="장바구니" cnt="50" />
+        </div>
+
+        <div class="inner" v-if="headers === 'events'">
+          <div class="menu_wrap">
+            <Icons cls="back" txt="뒤로가기" />
+            <h2><a href="#none">쇼케이스</a></h2>
+          </div>
+          <Icons cls="share" txt="공유" />
+          <Search :latest="latest" :category="category" />
+          <Icons cls="cart" txt="장바구니" cnt="50" />
         </div>
         <div class="gnb_wrap">
             <div class="inner">
@@ -157,6 +117,9 @@
 </template>
 
 <script setup>
+const props = defineProps({
+  headers: String,
+})
 /* sample data */
 const global_menu = [
     {
@@ -255,32 +218,16 @@ const category = [
 /* //sample data */
 
 onMounted(() => {
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 0) document.querySelector('header').classList.add('fixed');
+      if(window.scrollY <= 0) document.querySelector('header').classList.remove('fixed');
+    })
+
     document.querySelector('.btn_search').addEventListener('click',()=>{
         document.querySelector('.search_layer').classList.add('active');
     });
 });
 
-/* 최근검색어 삭제 */
-let key_cnt = ref(latest.length);
-const keyword_del = (e) => {
-    e.target.closest('li').remove();
-    key_cnt.value = document.querySelector('.latest').childElementCount;
-}
-
-const keyword_del_all = (e) => {
-    const target = e.target.closest('section').querySelector('.latest');
-
-    if(!target.firstElementChild.classList.contains('no_data')){
-        while (target.firstElementChild) {
-            target.removeChild(target.firstElementChild);
-            key_cnt.value = document.querySelector('.latest').childElementCount;
-        }
-    }
-}
-
-const search_close = (e) => {
-    e.target.closest('.search_layer').classList.remove('active')
-}
 
 /* category layer */
 const cate_layer = {
@@ -293,13 +240,41 @@ const cate_layer = {
 </script>
 
 <style lang="scss" scoped>
+.docTopBanner {
+  height: 36px;
+  padding-right:21px;
+  justify-content:space-between;
+}
 header {
     padding:10px 21px 0;
     position:relative;
+    &.fixed {
+      position:sticky;
+      top:0;
+      left:0;
+      z-index:2;
+      &.product {
+        background:#fff;
+      }
+      &.category {
+        background:#fff;
+        top:-48px;
+      }
+      &.events {
+        background:#fff;
+      }
+    }
     .inner {
         display:flex;
         align-items:center;
         flex-wrap:wrap;
+        :nth-child(2) {
+          margin-left:auto;
+        }
+        >:last-child {
+          margin-right:0;
+          margin-left:10px;
+        }
         h1 {
             a {
                 display:block;
@@ -308,7 +283,24 @@ header {
                 }
             }
         }
-        .icon_menu {
+        h2 {
+          font-size:18px;
+          font-weight:500;
+          display:flex;
+          align-items:center;
+          &::after {
+            content:'';
+            width:7px;
+            height:7px;
+            margin-left:15px;
+            border-color:#000;
+            border-style:solid;
+            border-width:0 1px 1px 0;
+            display:block;
+            transform:rotate(45deg);
+          }
+        }
+        ::v-deep(.icon_menu) {
             font-size:0;
             li > * {
                 width:32px;
@@ -339,187 +331,12 @@ header {
                 }
             }
         }
-        .search_wrap {
-            margin-left:auto;
-            position:relative;
-            & > .search {
-                .label_wrap {
-                    display:none;
-                }
-                .btn_search {
-                    width:32px;
-                    height:32px;
-                    font-size:0;
-                    background-color:transparent;
-                    background-image:url("/_nuxt/assets/mo_images/common/icon_split.png");
-                    background-position:0 0;
-                    background-repeat:no-repeat;
-                    background-size:250px auto;
-                    position:relative;
-                }
-            }
-        }
-        .search_layer {
-            background-color:#fff;
-            overflow:hidden;
-            position:fixed;
-            top:0;
-            right:0;
-            bottom:0;
-            left:0;
-            z-index:10;
-            display:none;
-            &.active {
-                display:block;
-            }
-            strong {
-                margin-bottom:20px;
-                font-size:16px;
-                font-weight:600;
-                position:relative;
-                display:flex;
-                justify-content:space-between;
-                ::v-deep .btn_txt {
-                    em {
-                        color:#999;
-                        font-size:12px;
-                    }
-                }
-            }
-            .search {
-                padding:10px 16px 10px 21px;
-                border:0;
-                border-bottom:1px solid #ddd;
-                border-radius:0;
-                display:flex;
-                & > div {
-                    border:1px solid #000;
-                    border-radius:5px;
-                    overflow:hidden;
-                    display:flex;
-                    align-items:center;
-                    flex:1;
-                }
-                ::v-deep .input {
-                    input {
-                        padding-right:5px;
-                        font-size:13px;
-                        border:0;
-                    }
-                    i {
-                        font-size:13px;
-                    }
-                }
-                .btn_search {
-                    width:24px;
-                    height:24px;
-                    margin-right:10px;
-                    background-color:transparent;
-                    background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
-                    background-position:0 -40px;
-                    background-repeat:no-repeat;
-                    background-size:250px auto;
-                    display:block;
-                    ::v-deep em {
-                        padding:0;
-                        font-size:0;
-                    }
-                }
-                .icon_menu {
-                    margin-left:10px;
-                    display:flex;
-                    align-items:center;
-                    li + li {
-                        margin-left:10px;
-                    }
-                }
-            }
-            section {
-                padding:28px;
-                & + section:before {
-                    border-top:1px solid #eee;
-                    content:'';
-                    display:block;
-                    transform:translateY(-28px);
-                }
-                ul {
-                    display:flex;
-                    flex-wrap:wrap;
-                    &.latest {
-                        margin-top:-10px;
-                        margin-left:-5px;
-                        li:not(.no_data) {
-                            margin-top:10px;
-                            margin-left:5px;
-                            padding:0 15px;
-                            border:1px solid #ddd;
-                            border-radius:100px;
-                            div {
-                                display:flex;
-                                align-items:center;
-                            }
-                        }
-                        li.no_data {
-                            width:100%;
-                            padding:50px 10px;
-                            color:#999;
-                            text-align:center;
-                        }
-                        a {
-                            padding:7px 0;
-                            color:#333;
-                            font-size:14px;
-                            font-weight:400;
-                            display:block;
-                        }
-                        ::v-deep .btn_del {
-                            width:12px;
-                            height:12px;
-                            margin-top:1px;
-                            margin-left:10px;
-                            background-color:transparent;
-                            position:relative;
-                            &:before, &:after {
-                                width:10px;
-                                margin-top:5px;
-                                margin-left:1px;
-                                border-top:1px solid #999;
-                                content:'';
-                                position:absolute;
-                                top:0;
-                                left:0;
-                                display:block;
-                            }
-                            &:before {
-                                transform:rotate(45deg);
-                            }
-                            &:after {
-                                transform:rotate(135deg);
-                            }
-                            em {
-                                padding:0;
-                                font-size:0;
-                            }
-                        }
-                    }
-                    &.category {
-                        margin-top:-14px;
-                        margin-left:-14px;
-                        li {
-                            width:20%;
-                            padding-top:14px;
-                            padding-left:14px;
-                            p {
-                                margin-top:8px;
-                                color:#888;
-                                font-size:12px;
-                                font-weight:400;
-                                text-align:center;
-                            }
-                        }
-                    }
-                }
-            }
+        .menu_wrap {
+          display:flex;
+          gap:15px;
+          .icon_menu {
+            margin-right:0;
+          }
         }
         .keyword_wrap {
             height:40px;
