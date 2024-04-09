@@ -69,7 +69,7 @@ const PC_arry = ([
       sDate:'', eDate:'2024-04-24/', worker:'형민우'
   }, {
       depth:['','푸터','',''],
-      id:'Footer', status:'',
+      id:'Footer', status:'com',
       type:'component', note:'/component/Footer/pc',
       sDate:'', eDate:'', worker:'김희경'
   }, {
@@ -558,7 +558,7 @@ const MO_arry = ([
       sDate:'', eDate:'2024-04-24/', worker:'형민우'
   }, {
       depth:['','푸터','',''],
-      id:'Footer', status:'',
+      id:'Footer', status:'com',
       type:'component', note:'/component/Footer/mo',
       sDate:'', eDate:'', worker:'김희경'
   }, {

@@ -1,7 +1,7 @@
 <template>
     <div class="title_wrap">
         <h2>스킨케어
-            <span class="pdt_count">총 <strong>32</strong>건</span>
+            <span class="pdt_count"><strong>32</strong></span>
         </h2>
 
         <div class="pdtSortTab_wrap">
@@ -17,7 +17,7 @@
 					<li><a href="#none">판매금액순</a></li>
 				</ul>
 			</div>
-            <button @click="modal.open('sample_modal', 'full');">상세검색</button>
+            <button @click="modal.open('sample_modal', 'detailSearch');">상세검색</button>
         </div>
     </div>
     <div class="list_wrap">
@@ -41,15 +41,97 @@
     <div class="modal_wrap" id="sample_modal">
         <div class="modal_container">
             <div class="modal_header">
-                <h2>Modal Title</h2>
+                <h2>상세검색</h2>
                 <button class="btn_close" @click="modal.close(this);">닫기</button>
             </div>
             <div class="modal_content">
-                <div> Sample Modal </div>
+                <dl class="sortList">
+                  <dt>혜택별</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">증정</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="sortList">
+                  <dt>고민별</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">트러블/리페어</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">영양/토탈안티에이징</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">잡티/피부톤</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">주름/탄력</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">수분/보습/속건조</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">각질/피부결</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="sortList">
+                  <dt>기능성</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">미백</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">주름개선</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">비건인증</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="sortList">
+                  <dt>공병수거</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">공병수거 가능</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
             </div>
             <div class="modal_footer">
-                <Button class="btn_outline" txt="cancel" />
-                <Button txt="OK" />
+                <Button class="btn_big btn_type_01" txt="초기화" />
+                <Button class="btn_big btn_type_02" txt="검색" />
             </div>
         </div>
         <div class="overlay" @click="modal.close(this);"></div>
@@ -60,9 +142,6 @@
 definePageMeta({
 	layout: 'pc-category'
 });
-
-onMounted(()=>{
-})
 
 const sample_goods = [
     {
@@ -180,13 +259,33 @@ const modal = {
         e.preventDefault();
     }
 }
+
+const Drop_Down = () => {
+    let selet = document.querySelector('.pdtSortTab_wrap ul');
+    selet.classList.toggle('active')
+    if(selet.classList.contains('active')){
+        console.log(selet.clientHeight)
+        selet.style.height = '270px';
+        selet.style.border="1px solid #888";
+
+        // console.log(selet.clientHeight) + 'px'
+    }else {
+        selet.style.border = 'none'
+        selet.style.height = '0px'
+    }
+}
+
+const setFilter = (event) =>{
+  const target = event.currentTarget;
+  target.classList.toggle('active')
+}
 </script>
 
 <style lang="scss">
 .title_wrap {
     padding:60px 0;
     position:relative;
-    z-index:1;
+    z-index:10;
     display:flex;
     h2 {
         font-size:38px;
@@ -204,22 +303,82 @@ const modal = {
             top:0;
             left:100%;
             display:block;
-        }		
+        }
     }
     .pdtSortTab_wrap {
         margin-left:auto;
+        position:relative;
         display:flex;
         align-items:center;
+        button {
+            padding:0 20px;
+            font-size:14px;
+            font-weight:600;
+            line-height: 1.43em;
+            letter-spacing: -0.01em;
+            display:flex;
+            align-items:center;
+            &::after {
+                content:'';
+                width:16px;
+                height:16px;
+                margin-left:10px;
+                display:inline-block;
+            }
+        }
     }
 }
 
 .sortTab {
     position:relative;
+    > button::after {
+        background-image: url('../../assets/images/common/PC-icon_split.png');
+        background-size:250px;
+        background-repeat:no-repeat;
+        background-position:-110px -60px;
+    }
+    & ~ button {
+        position:relative;
+        &::after {
+            background-image: url('../../assets/images/common/PC-icon_split.png');
+            background-size:250px;
+            background-repeat:no-repeat;
+            background-position:-130px -60px;
+        }
+        &::before {
+            content:'';
+            width:1px;
+            height:14px;
+            background:#EEEEEE;
+            position:absolute;
+            top:50%;
+            left:0;
+            display:inline-block;
+            transform:translateY(-50%);
+        }
+    }
     ul {
+        width:170px;
+        height:0px;
+        padding:10px 0;
+        background:#fff;
         position:absolute;
-        top:100%;
-        left:0;
-        display:none;
+        left:-70px;
+        top:45px;
+        z-index:1;
+        overflow:hidden;
+        transition:all 0.2s;
+        li {
+            padding:10px 15px;
+            a {
+                color:#888;
+                font-size:14px;
+                transition:all 0.1s;
+                &.active {
+                    color:#00BC70;
+                }
+            }
+        }
     }
 }
 
@@ -232,4 +391,160 @@ const modal = {
         padding-left:20px;
     }
 }
+
+.paging {
+        margin:90px 0 0;
+        > div {
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            a {
+                width:40px;
+                height:40px;
+                color:#999;
+                font-size:16px;
+                display:inline-block;
+                line-height:40px;
+                &.first {
+                    width:40px;
+                    height:40px;
+                    background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
+                    background-repeat:no-repeat;
+                    background-size:250px;
+                    background-position: -120px -88px;
+                    transform: rotate(180deg);
+                    text-indent:-9999px;
+                }
+                &.last {
+                    width:40px;
+                    height:40px;
+                    background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
+                    background-repeat:no-repeat;
+                    background-size:250px;
+                    background-position: -120px -88px;
+                    text-indent:-9999px;
+                }
+                &.active {
+                    color:#222;
+                    position:relative;
+                    &::after {
+                    content:'';
+                    position:absolute;
+                    left:50%;
+                    bottom:-3px;
+                    width:50%;
+                    height:3px;
+                    background:#00BC70;
+                    display:inline-block;
+                    transform:translateX(-50%);
+                    }
+                }
+            }
+        }
+    }
+    .modal_wrap {
+      .modal_container {
+        .modal_header {
+          padding:50px 40px 0;
+          border-bottom:0;
+          h2 {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.33em;
+            letter-spacing: -0.01em;
+          }
+          .btn_close {
+            top:45px;
+            right:40px;
+          }
+
+        }
+        .modal_content {
+          padding:40px;
+          flex:none;
+        }
+        .modal_footer {
+          gap:0px;
+          button {
+            &.btn_type_01 {
+              width:180px;
+              background-color: #EEEEEE !important;
+              em {
+                color: #666666 !important;
+                display:flex;
+                align-items:center;
+                &::before {
+                  content: '';
+                  width:24px;
+                  height:24px;
+                  background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
+                  background-repeat:no-repeat;
+                  background-size:250px;
+                  background-position:-171px -95px;
+                  display:inline-flex;
+                }
+              }
+            }
+            &.btn_type_02 {
+              background-color: #00BC70;
+              flex:1;
+              em {
+                color: #fff !important;
+              }
+            }
+            em {
+              font-size:16px;
+              font-weight:600;
+            }
+          }
+        }
+      }
+    }
+    .sortList {
+      margin-bottom:30px;
+      dt {
+        margin-bottom: 10px;
+        color: #999999;
+        font-size: 12px;
+        line-height: 1.32em;
+        letter-spacing: -0.01em;
+
+      }
+      dd {
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          li {
+            label {
+              padding-left: 0;
+              input {
+                position: absolute;
+                z-indeX: -1;
+                opacity: 0;
+              }
+              span {
+                height: 30px;
+                padding: 0 20px;
+                color: #AAAAAA;
+                font-weight: 600;
+                font-size: 14px;
+                border-radius: 5px;
+                background-color: #F5F5F5;
+                line-height: 1.29em;
+                letter-spacing: -0.01em;
+                display: flex;
+                align-items: center;
+                &.active {
+                  color: #FFFFFF;
+                  background:#00BC70;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
 </style>

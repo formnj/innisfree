@@ -67,6 +67,7 @@
 
 /* modal */
 .modal_wrap {
+    overflow:hidden;
     position:fixed;
     top:0;
     right:0;
@@ -179,7 +180,18 @@
             transform:initial;
             animation-duration: 0.25s;
             animation-name: show_up;
-        }      
+        }
+    }
+    &.detailSearch {
+      .modal_container {
+        width:480px;
+        min-height: calc(100vh + 20px);
+        left:100%;
+        bottom:0;
+        transform:translate(-100%, -50%);
+        animation-duration: 0.25s;
+        animation-name: show_left;
+      }
     }
 }
 
@@ -190,6 +202,17 @@
     to {
         transform: translateY(0);
     }
+}
+
+@keyframes show_left {
+  from {
+    transform:translate(0%, -50%);
+    opacity:0;
+  }
+  to {
+    transform:translate(-100%, -50%);
+    opacity:1;
+  }
 }
 
 /* goods list */
