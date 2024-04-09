@@ -2,7 +2,7 @@
     <section>
         <h2>공통</h2>
         <ul class="explain">
-            <li>Vue Guide : https://vuejs.org/style-guide/</li>
+            <li>Vue Guide : <a href="https://vuejs.org/style-guide/" target="_blank">https://vuejs.org/style-guide/</a></li>
             <li>ESLint / editorconfig / prettier 익스텐션 설치</li>
             <li>test용 dummy 데이터 : ~/test/data/dummyData.js</li>
             <li>image path : 샘플이미지 = public / 공통이미지 = ~/assets/images</li>
