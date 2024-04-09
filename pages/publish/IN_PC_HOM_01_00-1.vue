@@ -58,7 +58,7 @@
 
 <script setup>
 definePageMeta({
-	layout: 'pc-category'
+	layout: 'pc-default'
 });
 
 onMounted(()=>{

@@ -1,8 +1,9 @@
 <template>
     <div class="tab_wrap">
         <ul :class="tabType">
-            <li v-for="(item, idx) in item" :key="idx"  :class="{ current: tabidx == idx }">
+            <li v-for="(item, idx) in item" :key="idx" :class="{ current: tabidx == idx }">
                 <Button :txt="item.txt" @click="tabidx = idx" />
+                {{tabidx}}
             </li>
         </ul>
     </div>
@@ -23,7 +24,7 @@ const props = defineProps({
       li {
           margin-left:-1px;
           flex:1;
-          ::v-deep > * {
+          &::v-deep > * {
               width:100%;
               height:51px;
               font-size:16px;
@@ -55,7 +56,7 @@ const props = defineProps({
       }
       &.type_01 {
           li {
-          ::v-deep > * {
+          &::v-deep > * {
               height:60px;
               font-size:14px;
               border:0;
@@ -81,6 +82,35 @@ const props = defineProps({
               em {
                 color:#000;
                 font-weight:700;
+              }
+            }
+          }
+        }
+      }
+      &.type_02 {
+        margin-top:-10px;
+        margin-left:-10px;
+        li {
+          padding-top:10px;
+          padding-left:10px;
+          flex:0 auto;
+          &::v-deep > * {
+            height:auto;
+            font-size:14px;
+            background-color:#f5f5f5;
+            border-color:#f5f5f5;
+            border-radius:999px;
+            em {
+              padding:6px 20px;
+              color:#999e9c;;
+            }
+          }
+          &.current {
+            &::v-deep > * {
+              background-color:#fff;
+              border-color:#000;
+              em {
+                color:#000;
               }
             }
           }

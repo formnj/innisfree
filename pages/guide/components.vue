@@ -151,17 +151,25 @@
     <ul class="explain">
       <li>tabType : tab type 클래스 지정</li>
       <li>default : 탭 요소의 넓이가 갯수에 대한 비율로 늘어남.</li>
-      <li>tabType="type_01" = 상품상세 정보 탭</li>
+      <li>tabType="type_01" = 상품상세 정보 탭 / type_02 = 베스트 카테고리 탭</li>
     </ul>
     <div class="design_box">
       <ul class="form_group">
         <li>
-          <p class="form_tit">Default</p>
+          <p class="form_tit">[Default]</p>
+          <Tabs tabType="" :item="[{txt:'tab01'},{txt:'tab02'}]" :tabidx="0" />
+        </li>
+        <li>
+          <p class="form_tit">[type_01]</p>
           <Tabs tabType="type_01" :item="[{txt:'tab01'},{txt:'tab02'}]" :tabidx="0" />
+        </li>
+        <li>
+          <p class="form_tit">[type_02]</p>
+          <Tabs tabType="type_02" :item="[{txt:'tab01'},{txt:'tab02'},{txt:'tab03'},{txt:'tab04'},{txt:'tab05'},{txt:'tab06'},{txt:'tab07'},{txt:'tab08'},{txt:'tab09'},{txt:'tab10'}]" :tabidx="0" />
         </li>
       </ul>
     </div>
-    <pre class="code_box"><code>&lt;Tabs :item="[{txt:'tab01'},{txt:'tab02'}]"  :tabidx="0" /&gt;</code></pre>
+    <pre class="code_box"><code>&lt;Tabs tabType="" :item="[{txt:'tab01'},{txt:'tab02'}]"  :tabidx="0" /&gt;</code></pre>
   </section>
 
   <section>

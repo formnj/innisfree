@@ -57,7 +57,7 @@ const comm_arry = ([
         depth:['','Tabs','',''],
         id:'', status:'ing',
         type:'component', note:'/component/Tabs',
-        sDate:'', eDate:'', worker:'이종환'
+        sDate:'', eDate:'/ 2024-04-09', worker:'이종환'
     }
 ])
 
@@ -119,9 +119,9 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','베스트','',''],
-        id:'IN_PC_HOM_01_00-1', status:'',
+        id:'IN_PC_HOM_01_00-1', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-12/', worker:''
+        sDate:'', eDate:'2024-04-12/', worker:'이종환'
     }, {
         depth:['','쇼케이스(T)','',''],
         id:'IN_PC_HOM_01_12', status:'',
