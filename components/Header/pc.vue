@@ -312,7 +312,6 @@ onMounted(() => {
     window.addEventListener('scroll', () => {
         const target = document.querySelector('.gnb_wrap');
         const rect = target.getBoundingClientRect();
-        const quick = document.querySelector('header > .inner .quick_wrap')
 
         if (rect.top <= 0) {
             document.querySelector('#wrap').classList.add('fixed');
@@ -385,7 +384,8 @@ const cate_layer = {
                 margin-top:28px;
                 position:fixed;
                 top:0;
-                right:16%;
+                right:50%;
+                transform: translateX(640px);
                 .quick {
                     li {
                         &:nth-child(3), &:nth-child(4) {
@@ -400,7 +400,9 @@ const cate_layer = {
         height:80px;
         .inner {
             height:80px;
-            margin-left:377px;
+            .btn_category {
+                margin-left:110px;
+            }
             .quick {
                 display:none;
             }
@@ -409,6 +411,7 @@ const cate_layer = {
     .navCategory {
         .btn_category {
             height:80px;
+            padding:0 41px 0 30px;
             left:100px;
         }
     }
@@ -721,6 +724,8 @@ header {
                 height:auto;
                 padding:18px 0 19px;
                 background-color:transparent;
+                justify-content:flex-start;
+                position:relative;
                 em {
                     padding-right:0;
                     padding-left:34px;
@@ -759,6 +764,16 @@ header {
                         border-color:#00BC70;
                     }
                 }
+                &:after {
+                    content:'';
+                    width:1px;
+                    height:16px;
+                    background-color:#eee;
+                    position:absolute;
+                    top:50%;
+                    right:10px;
+                    transform:translateY(-50%);
+                }
             }
             .quick {
                 margin-left:auto;
@@ -776,7 +791,7 @@ header {
                 }
             }
             .navGnb {
-                padding-left:28px;
+                padding-left:18px;
                 li {
                     height:58px;
                     padding:0 4px;
@@ -865,16 +880,17 @@ header {
             }
             .btn_category::v-deep {
                 height:60px;
-                padding:0 10px 0 30px;
+                padding:0 31px 0 20px;
                 border:1px solid #eee;
                 border-bottom:0;
                 background-color:#fff;
                 position:absolute;
                 top:0;
-                left:0;
+                left:18px;
                 transform:translateY(-100%);
                 em {
                     padding-left:34px;
+                    padding-right:0;
                     color:#000;
                     font-size:16px;
                     font-weight:600;
