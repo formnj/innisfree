@@ -15,7 +15,8 @@
     <div class="list_wrap">
       <ul class="goods_list">
           <li v-for="(item, idx) in sample_goods" :key="idx">
-              <span class="ranking">{{ '0'+(idx+1) }}</span>
+              <span class="ranking" v-if="idx < 9">{{ '0'+(idx+1) }}</span>
+              <span class="ranking" v-else>{{ idx+1 }}</span>
               <GoodsItem :item="item" :link="item.link" />
           </li>
       </ul>

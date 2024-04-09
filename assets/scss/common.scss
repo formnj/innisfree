@@ -215,6 +215,24 @@
   }
 }
 
+.list_wrap {
+  .ranking {
+    width:32px;
+    height:32px;
+    color:#fff;
+    font-size:14px;
+    font-weight:500;
+    line-height:32px;
+    text-align:center;
+    background-color:#000;
+    position:absolute;
+    top:40px;
+    left:20px;
+    z-index:2;
+    display:block;
+  }
+}
+
 /* goods list */
 .goods_list {
     margin-top:-40px;
@@ -225,6 +243,7 @@
         width:20%;
         padding-top:40px;
         padding-left:15px;
+        position:relative;
     }
 }
 
