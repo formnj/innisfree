@@ -126,7 +126,7 @@
                     <a href="#none">한정 기간 특가할인 / 사은품 증정 제품 모아보기</a>
                 </div>
                 <!-- //mo banner -->
-                
+
                 <nav>
                     <div class="nav_wrap">
                         <ul>
@@ -150,7 +150,7 @@
                             </section>
                         </div>
                     </div>
-                </nav>            
+                </nav>
             </div>
         </div>
     </header>
@@ -846,7 +846,7 @@ header {
                         }
                     }
                 }
-            }               
+            }
         }
     }
 }

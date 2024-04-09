@@ -1,6 +1,6 @@
 <template>
     <div class="docTopBanner txtBanner">
-        <a href="#none" class="txt" target="_blank">하나Pay 3만원 결제 시, 하나머니 5천원 적립</a>
+        <a :href="mainTopBannerData.url" class="txt" target="_blank">{{mainTopBannerData.bannerText}}</a>
         <button type="button" class="btnClose">닫기</button>
     </div>
     <header>
@@ -40,12 +40,12 @@
                     <section>
                         <strong>카테고리</strong>
                         <ul class="category">
-                            <li v-for="item in category" :key="item">
+                            <li v-for="item in categoryForSearchLayerData" :key="item">
                                 <a href="#none">
                                     <span class="thumb">
-                                        <em><img :src="item.img" /></em>
+                                        <em><img :src="item.imageUrl" /></em>
                                     </span>
-                                    <p>{{ item.txt }}</p>
+                                    <p>{{ item.text }}</p>
                                 </a>
                             </li>
                         </ul>
@@ -169,13 +169,19 @@
                             </dd>
                         </dl>
                     </div>
-                </nav>            
+                </nav>
             </div>
         </div>
     </header>
 </template>
 
 <script setup>
+import {
+  mainTopBannerData,
+  categoryForSearchLayerData
+} from '~/test/data/dummyData'
+
+
 /* sample data */
 const global_menu = [
     {
