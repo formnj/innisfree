@@ -393,6 +393,7 @@ const setFilter = (event) =>{
 }
 
 .paging {
+        overflow:hidden;
         margin:90px 0 0;
         > div {
             display:flex;
