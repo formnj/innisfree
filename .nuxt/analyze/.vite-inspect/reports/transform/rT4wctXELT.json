@@ -1,0 +1,214 @@
+{
+  "resolvedId": "D:/work/repo/components/product/ListView.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <div v-for=\"(product, index) in props.productList\" :key=\"index\" class=\"bg-gray-100 p-4 flex flex-col items-center\">\r\n    <img :src=\"product.photoUrl\" :alt=\"product.title\" loading=\"lazy\" height=\"auto\" />\r\n    <h3 class=\"text-lg font-semibold\">{{ product.title }}</h3>\r\n    <div class=\"text-sm text-gray-500 mb-2\">{{ product.description }}</div>\r\n    <div class=\"flex items-center\">\r\n      <span class=\"text-xl font-bold text-gray-800 mr-2\">{{ product.salePrice }}</span>\r\n      <span class=\"text-sm font-semibold text-red-500 line-through\">{{ product.price }}</span>\r\n    </div>\r\n    <div class=\"text-green-600 text-xs mt-1\">{{ product.discountPercentage }}% OFF</div>\r\n    <div class=\"flex items-center mt-2\">\r\n      <span class=\"text-yellow-400 text-sm mr-1\">★ {{ product.rating }}</span>\r\n      <span class=\"text-gray-500 text-xs\">({{ product.reviewCount }})</span>\r\n    </div>\r\n  </div>\r\n</template>\r\n<script setup>\r\nconst props = defineProps({\r\n  productList: { type: Array, required: true }\r\n})\r\n</script>\r\n<style></style>\r\n",
+      "start": 1712218474027,
+      "end": 1712218474675,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1712218474675,
+      "end": 1712218474675,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1712218474675,
+      "end": 1712218474675,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1712218474675,
+      "end": 1712218474675,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1712218474676,
+      "end": 1712218474676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1712218474676,
+      "end": 1712218474676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1712218474676,
+      "end": 1712218474676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1712218474676,
+      "end": 1712218474676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString } from \"vue\"\n\nconst _hoisted_1 = [\"src\", \"alt\"]\nconst _hoisted_2 = { class: \"text-lg font-semibold\" }\nconst _hoisted_3 = { class: \"text-sm text-gray-500 mb-2\" }\nconst _hoisted_4 = { class: \"flex items-center\" }\nconst _hoisted_5 = { class: \"text-xl font-bold text-gray-800 mr-2\" }\nconst _hoisted_6 = { class: \"text-sm font-semibold text-red-500 line-through\" }\nconst _hoisted_7 = { class: \"text-green-600 text-xs mt-1\" }\nconst _hoisted_8 = { class: \"flex items-center mt-2\" }\nconst _hoisted_9 = { class: \"text-yellow-400 text-sm mr-1\" }\nconst _hoisted_10 = { class: \"text-gray-500 text-xs\" }\n\n\nconst _sfc_main = {\n  __name: 'ListView',\n  props: {\r\n  productList: { type: Array, required: true }\r\n},\n  setup(__props) {\n\r\nconst props = __props\r\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(props.productList, (product, index) => {\n    return (_openBlock(), _createElementBlock(\"div\", {\n      key: index,\n      class: \"bg-gray-100 p-4 flex flex-col items-center\"\n    }, [\n      _createElementVNode(\"img\", {\n        src: product.photoUrl,\n        alt: product.title,\n        loading: \"lazy\",\n        height: \"auto\"\n      }, null, 8, _hoisted_1),\n      _createElementVNode(\"h3\", _hoisted_2, _toDisplayString(product.title), 1),\n      _createElementVNode(\"div\", _hoisted_3, _toDisplayString(product.description), 1),\n      _createElementVNode(\"div\", _hoisted_4, [\n        _createElementVNode(\"span\", _hoisted_5, _toDisplayString(product.salePrice), 1),\n        _createElementVNode(\"span\", _hoisted_6, _toDisplayString(product.price), 1)\n      ]),\n      _createElementVNode(\"div\", _hoisted_7, _toDisplayString(product.discountPercentage) + \"% OFF\", 1),\n      _createElementVNode(\"div\", _hoisted_8, [\n        _createElementVNode(\"span\", _hoisted_9, \"★ \" + _toDisplayString(product.rating), 1),\n        _createElementVNode(\"span\", _hoisted_10, \"(\" + _toDisplayString(product.reviewCount) + \")\", 1)\n      ])\n    ]))\n  }), 128))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1712218474676,
+      "end": 1712218474682,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1712218474682,
+      "end": 1712218474682,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712218474682,
+      "end": 1712218474682,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1712218474682,
+      "end": 1712218474682,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1712218474682,
+      "end": 1712218474682,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1712218474682,
+      "end": 1712218474683,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712218474683,
+      "end": 1712218474683,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1712218474683,
+      "end": 1712218474683,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1712218474683,
+      "end": 1712218474683,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1712218474683,
+      "end": 1712218474683,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1712218474683,
+      "end": 1712218474683,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1712218474683,
+      "end": 1712218474683,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1712218474683,
+      "end": 1712218474683,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1712218474683,
+      "end": 1712218474683,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1712218474683,
+      "end": 1712218474683,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1712218474683,
+      "end": 1712218474683,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1712218474683,
+      "end": 1712218474683,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1712218474683,
+      "end": 1712218474684,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1712218474685,
+      "end": 1712218474685,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1712218474685,
+      "end": 1712218474685,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1712218474685,
+      "end": 1712218474685,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1712218474685,
+      "end": 1712218474685,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1712218474685,
+      "end": 1712218474685,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1712218474685,
+      "end": 1712218474685,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1712218474685,
+      "end": 1712218474685,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1712218474685,
+      "end": 1712218474685,
+      "order": "normal"
+    }
+  ]
+}

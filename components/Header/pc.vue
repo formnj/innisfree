@@ -1,6 +1,6 @@
 <template>
     <div class="docTopBanner txtBanner">
-        <a href="#none" class="txt" target="_blank">하나Pay 3만원 결제 시, 하나머니 5천원 적립</a>
+        <a :href="mainTopBannerData.url" class="txt" target="_blank">{{mainTopBannerData.bannerText}}</a>
         <button type="button" class="btnClose">닫기</button>
     </div>
     <header>
@@ -40,12 +40,12 @@
                     <section>
                         <strong>카테고리</strong>
                         <ul class="category">
-                            <li v-for="item in category" :key="item">
+                            <li v-for="item in categoryForSearchLayerData" :key="item">
                                 <a href="#none">
                                     <span class="thumb">
-                                        <em><img :src="item.img" /></em>
+                                        <em><img :src="item.imageUrl" /></em>
                                     </span>
-                                    <p>{{ item.txt }}</p>
+                                    <p>{{ item.text }}</p>
                                 </a>
                             </li>
                         </ul>
@@ -169,13 +169,19 @@
                             </dd>
                         </dl>
                     </div>
-                </nav>            
+                </nav>
             </div>
         </div>
     </header>
 </template>
 
 <script setup>
+import {
+  mainTopBannerData,
+  categoryForSearchLayerData
+} from '~/test/data/dummyData'
+
+
 /* sample data */
 const global_menu = [
     {
@@ -308,28 +314,6 @@ onMounted(() => {
     document.querySelector('.search_layer').addEventListener('mouseleave', (e)=>{
         document.querySelector('.search_layer').classList.remove('active');
     });
-
-    window.addEventListener('scroll', () => {
-        const target = document.querySelector('.gnb_wrap');
-        const rect = target.getBoundingClientRect();
-        const quick = document.querySelector('header > .inner .quick_wrap')
-
-        if (rect.top <= 0) {
-            document.querySelector('#wrap').classList.add('fixed');
-            document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree_bk.png';
-        }
-        else {
-            document.querySelector('#wrap').classList.remove('fixed');
-            document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree.png';
-        }
-    })
-
-    const rect = document.querySelector('.gnb_wrap').getBoundingClientRect();
-    if (rect.top <= 0) {
-        document.querySelector('#wrap').classList.add('fixed');
-        document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree_bk.png';
-    }
-    
 });
 
 /* 최근검색어 삭제 */
@@ -365,59 +349,9 @@ const cate_layer = {
 </script>
 
 <style lang="scss" scoped>
-#wrap.fixed {
-    header {
-        .inner {
-            h1 {
-                a {
-                    width:80px;
-                    height:80px;
-                    position:fixed;
-                    top:0;
-                    img {
-                        width:80px;
-                        height:80px;
-                        background:#000;
-                    }
-                }
-            }
-            .quick_wrap {
-                margin-top:28px;
-                position:fixed;
-                top:0;
-                right:16%;
-                .quick {
-                    li {
-                        &:nth-child(3), &:nth-child(4) {
-                            display:none;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .gnb_wrap {
-        height:80px;
-        .inner {
-            height:80px;
-            margin-left:377px;
-            .quick {
-                display:none;
-            }
-        }
-    }
-    .navCategory {
-        .btn_category {
-            height:80px;
-            left:100px;
-        }
-    }
-}
 header {
     border-bottom:1px solid #f5f5f5;
-    position:sticky;
-    top:-100px;
-    z-index:2;
+    position:relative;
     .inner {
         max-width:1320px;
         margin:0 auto;
@@ -709,14 +643,13 @@ header {
         border:1px solid #f5f5f5;
         border-right:0;
         border-left:0;
-        background-color:#fff;
         .inner {
             & > ul, nav > ul {
                 position:relative;
                 z-index:1;
                 display:flex;
             }
-            .btn_category::v-deep {
+            .btn_category {
                 width:140px;
                 height:auto;
                 padding:18px 0 19px;
@@ -745,6 +678,7 @@ header {
                     }
                     &:after {
                         width:16px;
+                        margin-top:-1px;
                         border-top:2px solid #000;
                         top:50%;
                     }
@@ -808,13 +742,11 @@ header {
         }
         .navCategory {
             background-color:#fff;
-            border-bottom:1px solid #eee;
-            box-shadow:0 10px 20px 0 rgba(0,0,0,0.05);
             position:absolute;
             top:100%; //button height
             right:0;
             left:0;
-            z-index:2;
+            z-index:1;
             display:none;
             transition:height 0.28s ease-out;
             &.active {
@@ -823,7 +755,7 @@ header {
             nav {
                 max-width:1320px;
                 margin:0 auto;
-                padding:40px 20px;
+                padding:0 20px;
                 background-color:#fff;
                 position:relative;
                 display:flex;
@@ -831,39 +763,13 @@ header {
                 .nav_wrap {
                     display:flex;
                     dl {
-                        width: 120px;
                         & + dl {
                             margin-left:40px;
-                        }
-                        &:nth-child(8) {
-                            padding-right:40px;
-                            border-right:1px solid #eee;
-                        }
-                        dt {
-                            margin-bottom:20px;
-                            border-bottom:1px solid #eee;
-                            a {
-                                padding-bottom:10px;
-                                font-size: 16px;
-                                font-weight: 600;
-                                display:block;
-                            }
-                        }
-                        dd {
-                            li {
-                                height:31px;
-                                margin-bottom:5px;
-                                display:flex;
-                                align-items:center;
-                                a {
-                                    color:#888;
-                                }
-                            }
                         }
                     }
                 }
             }
-            .btn_category::v-deep {
+            .btn_category {
                 height:60px;
                 padding:0 10px 0 30px;
                 border:1px solid #eee;
@@ -896,6 +802,7 @@ header {
                     }
                     &:after {
                         width:16px;
+                        margin-top:-1px;
                         border-top:2px solid #00BC70;
                         top:50%;
                     }

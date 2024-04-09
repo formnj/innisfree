@@ -1,0 +1,215 @@
+{
+  "resolvedId": "D:/work/repo/components/GoodsItem.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n    <div class=\"goods_item\" :class=\"item.status\">\r\n        <div class=\"img_wrap\">\r\n            <a :href=\"props.link\">\r\n                <span class=\"thumb\">\r\n                    <em><img :src=\"item.img\" /></em>\r\n                    <em v-if=\"item.overflip\" class=\"overflip\"><img :src=\"item.overflip\" /></em>\r\n                </span>\r\n            </a>\r\n            <ul class=\"btnIconBox\">\r\n                <li><Button class=\"btn_heart\" /></li>\r\n                <li><Button class=\"btn_cart\" /></li>\r\n                <li><Button class=\"btn_buy\" /></li>\r\n            </ul>\r\n        </div>\r\n        <a :href=\"props.link\">\r\n            <div class=\"cont\">\r\n                <p class=\"name\">\r\n                    <strong>\r\n                        <em v-if=\"item.cate\" class=\"cate\">{{ item.cate }}</em>\r\n                        {{ item.name }}\r\n                    </strong>\r\n                </p>\r\n                <p class=\"price\" v-if=\"item.price\">\r\n                    <strong>{{ item.price }}</strong>\r\n                    <span>{{ item.sale }}</span>\r\n                    <em>{{ item.cost }}</em>\r\n                </p>\r\n                <!-- sticker -->\r\n                <Sticker :item=\"item.sticker\" />\r\n                <!-- //sticker -->\r\n                <!-- Hash -->\r\n                <Hash :item=\"item.hash\" />\r\n                <!-- //Hash -->\r\n                <p class=\"review_score\">\r\n                    4.8\r\n                    <em>(2,655)</em>\r\n                </p>\r\n            </div>\r\n        </a>\r\n    </div>\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n    item: {},\r\n    link: {\r\n        type: String,\r\n        default: '#none'\r\n    }\r\n})\r\n</script>\r\n\r\n<style lang=\"scss\">\r\n.goods_item {\r\n    &.sold_out, &.coming_soon {\r\n        .img_wrap:before, .img_wrap:after {\r\n            content:'';\r\n            display:block;\r\n        }\r\n        .img_wrap:before {\r\n            background-color:rgba(0,0,0,0.3);\r\n            background-position:50%;\r\n            background-repeat:no-repeat;\r\n            position:absolute;\r\n            top:0;\r\n            right:0;\r\n            bottom:0;\r\n            left:0;\r\n            z-index:1;\r\n        }\r\n        &.sold_out {\r\n            .img_wrap:before {\r\n                background-image:url('/_nuxt/assets/images/ui/overlay_soldout.png');\r\n            }\r\n        }\r\n        &.coming_soon {\r\n            .img_wrap:before {\r\n                background-image:url('/_nuxt/assets/images/ui/overlay_comingsoon.png');\r\n            }\r\n        }\r\n    }\r\n    .img_wrap {\r\n        position:relative;\r\n        overflow:hidden;\r\n        .thumb {\r\n            height:320px;\r\n            position:relative;\r\n            display:block;\r\n            em {\r\n                position:absolute;\r\n                top:0;\r\n                right:0;\r\n                bottom:0;\r\n                left:0;\r\n                display:flex;\r\n                align-items:center;\r\n                img {\r\n                    width:100%;\r\n                    height:100%;\r\n                    display:block;\r\n                    object-fit:cover;\r\n                }\r\n                &.overflip {\r\n                    opacity:0;\r\n                    top:50%;\r\n                    bottom:50%;\r\n                    transition:all 0.3s ease-out;\r\n                }\r\n            }\r\n        }\r\n        .btnIconBox {\r\n            background-color:#00BC70;\r\n            position:absolute;\r\n            right:0;\r\n            bottom:0;\r\n            left:0;\r\n            z-index:1;\r\n            display:flex;\r\n            justify-content:space-around;\r\n            transform:translateY(100%);\r\n            transition:transform 0.3s ease-out;\r\n            button {\r\n                height:auto;\r\n                padding:14px 5px;\r\n                font-size:0;\r\n                background-color:transparent;\r\n                em {\r\n                    width:32px;\r\n                    height:32px;\r\n                    padding:0;\r\n                    background-image:url('/_nuxt/assets/images/common/icon_split.png');\r\n                    background-repeat:no-repeat;\r\n                }\r\n                &.btn_heart {\r\n                    em {\r\n                        background-position:-220px 0;\r\n                    }\r\n                }\r\n                &.btn_cart {\r\n                    em {\r\n                        background-position:-280px 0;\r\n                    }\r\n                }\r\n                &.btn_buy {\r\n                    em {\r\n                        background-position:-340px 0;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n        &:hover {\r\n            .overflip {\r\n                opacity:1 !important;\r\n                top:0 !important;\r\n                right:0 !important;\r\n                bottom:0 !important;\r\n                left:0 !important;\r\n            }\r\n            .btnIconBox {\r\n                transform:translateY(0);\r\n            }\r\n        }\r\n    }\r\n    .cont {\r\n        margin-top:20px;\r\n        .cate {\r\n            margin-right:5px;\r\n            font-weight:600;\r\n        }\r\n        .name {\r\n            strong {\r\n                color:#666;\r\n                font-size:14px;\r\n                font-weight:400;\r\n            }\r\n        }\r\n        > .price {\r\n            margin:10px 0 20px 0;\r\n            strong {\r\n                margin-right:10px;\r\n                font-size:20px;\r\n                font-weight:700; \r\n            }\r\n            span {\r\n                margin-right:15px;\r\n                color:#ff0000;\r\n                font-size:20px;\r\n                font-weight:300; \r\n            }\r\n            em {\r\n                color:#999e9c;\r\n                font-size:14px;\r\n                font-weight:300;\r\n                text-decoration:line-through;\r\n            }\r\n        }\r\n        .review_score {\r\n            margin-top:20px;\r\n            color:#999e9c;\r\n            font-size:12px;\r\n            display:flex;\r\n            align-items:center;\r\n            &:before {\r\n                width:12px;\r\n                height:12px;\r\n                margin-right:2px;\r\n                background-image:url('/_nuxt/assets/images/common/icon_split.png');\r\n                background-position:-400px 0;\r\n                background-repeat:no-repeat;\r\n                content:'';\r\n                display:block;\r\n            }\r\n            em {\r\n                margin-left:5px;\r\n            }\r\n        }    \r\n    }\r\n}\r\n</style>",
+      "start": 1712218471832,
+      "end": 1712218472603,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1712218472603,
+      "end": 1712218472603,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1712218472603,
+      "end": 1712218472604,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1712218472604,
+      "end": 1712218472604,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1712218472604,
+      "end": 1712218472604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1712218472604,
+      "end": 1712218472604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1712218472604,
+      "end": 1712218472604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1712218472604,
+      "end": 1712218472604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, resolveComponent as _resolveComponent, createVNode as _createVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, normalizeClass as _normalizeClass } from \"vue\"\n\nconst _hoisted_1 = { class: \"img_wrap\" }\nconst _hoisted_2 = [\"href\"]\nconst _hoisted_3 = { class: \"thumb\" }\nconst _hoisted_4 = [\"src\"]\nconst _hoisted_5 = {\n  key: 0,\n  class: \"overflip\"\n}\nconst _hoisted_6 = [\"src\"]\nconst _hoisted_7 = { class: \"btnIconBox\" }\nconst _hoisted_8 = [\"href\"]\nconst _hoisted_9 = { class: \"cont\" }\nconst _hoisted_10 = { class: \"name\" }\nconst _hoisted_11 = {\n  key: 0,\n  class: \"cate\"\n}\nconst _hoisted_12 = {\n  key: 0,\n  class: \"price\"\n}\nconst _hoisted_13 = /*#__PURE__*/_createElementVNode(\"p\", { class: \"review_score\" }, [\n  /*#__PURE__*/_createTextVNode(\" 4.8 \"),\n  /*#__PURE__*/_createElementVNode(\"em\", null, \"(2,655)\")\n], -1)\n\n\nconst _sfc_main = {\n  __name: 'GoodsItem',\n  props: {\r\n    item: {},\r\n    link: {\r\n        type: String,\r\n        default: '#none'\r\n    }\r\n},\n  setup(__props) {\n\r\nconst props = __props\r\n\nreturn (_ctx, _cache) => {\n  const _component_Button = _resolveComponent(\"Button\")\n  const _component_Sticker = _resolveComponent(\"Sticker\")\n  const _component_Hash = _resolveComponent(\"Hash\")\n\n  return (_openBlock(), _createElementBlock(\"div\", {\n    class: _normalizeClass([\"goods_item\", __props.item.status])\n  }, [\n    _createElementVNode(\"div\", _hoisted_1, [\n      _createElementVNode(\"a\", {\n        href: props.link\n      }, [\n        _createElementVNode(\"span\", _hoisted_3, [\n          _createElementVNode(\"em\", null, [\n            _createElementVNode(\"img\", {\n              src: __props.item.img\n            }, null, 8, _hoisted_4)\n          ]),\n          (__props.item.overflip)\n            ? (_openBlock(), _createElementBlock(\"em\", _hoisted_5, [\n                _createElementVNode(\"img\", {\n                  src: __props.item.overflip\n                }, null, 8, _hoisted_6)\n              ]))\n            : _createCommentVNode(\"\", true)\n        ])\n      ], 8, _hoisted_2),\n      _createElementVNode(\"ul\", _hoisted_7, [\n        _createElementVNode(\"li\", null, [\n          _createVNode(_component_Button, { class: \"btn_heart\" })\n        ]),\n        _createElementVNode(\"li\", null, [\n          _createVNode(_component_Button, { class: \"btn_cart\" })\n        ]),\n        _createElementVNode(\"li\", null, [\n          _createVNode(_component_Button, { class: \"btn_buy\" })\n        ])\n      ])\n    ]),\n    _createElementVNode(\"a\", {\n      href: props.link\n    }, [\n      _createElementVNode(\"div\", _hoisted_9, [\n        _createElementVNode(\"p\", _hoisted_10, [\n          _createElementVNode(\"strong\", null, [\n            (__props.item.cate)\n              ? (_openBlock(), _createElementBlock(\"em\", _hoisted_11, _toDisplayString(__props.item.cate), 1))\n              : _createCommentVNode(\"\", true),\n            _createTextVNode(\" \" + _toDisplayString(__props.item.name), 1)\n          ])\n        ]),\n        (__props.item.price)\n          ? (_openBlock(), _createElementBlock(\"p\", _hoisted_12, [\n              _createElementVNode(\"strong\", null, _toDisplayString(__props.item.price), 1),\n              _createElementVNode(\"span\", null, _toDisplayString(__props.item.sale), 1),\n              _createElementVNode(\"em\", null, _toDisplayString(__props.item.cost), 1)\n            ]))\n          : _createCommentVNode(\"\", true),\n        _createVNode(_component_Sticker, {\n          item: __props.item.sticker\n        }, null, 8, [\"item\"]),\n        _createVNode(_component_Hash, {\n          item: __props.item.hash\n        }, null, 8, [\"item\"]),\n        _hoisted_13\n      ])\n    ], 8, _hoisted_8)\n  ], 2))\n}\n}\n\n}\n\n\nimport \"D:/work/repo/components/GoodsItem.vue?vue&type=style&index=0&lang.scss\"\n\nexport default _sfc_main",
+      "start": 1712218472604,
+      "end": 1712218472609,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1712218472609,
+      "end": 1712218472609,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712218472609,
+      "end": 1712218472609,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1712218472609,
+      "end": 1712218472609,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1712218472609,
+      "end": 1712218472609,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1712218472609,
+      "end": 1712218472610,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712218472610,
+      "end": 1712218472610,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1712218472610,
+      "end": 1712218472610,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1712218472610,
+      "end": 1712218472610,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1712218472610,
+      "end": 1712218472610,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1712218472610,
+      "end": 1712218472610,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1712218472610,
+      "end": 1712218472610,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1712218472610,
+      "end": 1712218472610,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1712218472610,
+      "end": 1712218472610,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1712218472610,
+      "end": 1712218472610,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1712218472610,
+      "end": 1712218472610,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1712218472610,
+      "end": 1712218472610,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1712218472610,
+      "end": 1712218472612,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1712218472612,
+      "end": 1712218472612,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1712218472612,
+      "end": 1712218472612,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1712218472612,
+      "end": 1712218472612,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1712218472612,
+      "end": 1712218472612,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"D:/work/repo/components/Button.vue\";\nimport { default as __nuxt_component_1 } from \"D:/work/repo/components/Sticker.vue\";\nimport { default as __nuxt_component_2 } from \"D:/work/repo/components/Hash.vue\";\nimport { createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, resolveComponent as _resolveComponent, createVNode as _createVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, normalizeClass as _normalizeClass } from \"vue\"\n\nconst _hoisted_1 = { class: \"img_wrap\" }\nconst _hoisted_2 = [\"href\"]\nconst _hoisted_3 = { class: \"thumb\" }\nconst _hoisted_4 = [\"src\"]\nconst _hoisted_5 = {\n  key: 0,\n  class: \"overflip\"\n}\nconst _hoisted_6 = [\"src\"]\nconst _hoisted_7 = { class: \"btnIconBox\" }\nconst _hoisted_8 = [\"href\"]\nconst _hoisted_9 = { class: \"cont\" }\nconst _hoisted_10 = { class: \"name\" }\nconst _hoisted_11 = {\n  key: 0,\n  class: \"cate\"\n}\nconst _hoisted_12 = {\n  key: 0,\n  class: \"price\"\n}\nconst _hoisted_13 = /*#__PURE__*/_createElementVNode(\"p\", { class: \"review_score\" }, [\n  /*#__PURE__*/_createTextVNode(\" 4.8 \"),\n  /*#__PURE__*/_createElementVNode(\"em\", null, \"(2,655)\")\n], -1)\n\n\nconst _sfc_main = {\n  __name: 'GoodsItem',\n  props: {\r\n    item: {},\r\n    link: {\r\n        type: String,\r\n        default: '#none'\r\n    }\r\n},\n  setup(__props) {\n\r\nconst props = __props\r\n\nreturn (_ctx, _cache) => {\n  const _component_Button = __nuxt_component_0\n  const _component_Sticker = __nuxt_component_1\n  const _component_Hash = __nuxt_component_2\n\n  return (_openBlock(), _createElementBlock(\"div\", {\n    class: _normalizeClass([\"goods_item\", __props.item.status])\n  }, [\n    _createElementVNode(\"div\", _hoisted_1, [\n      _createElementVNode(\"a\", {\n        href: props.link\n      }, [\n        _createElementVNode(\"span\", _hoisted_3, [\n          _createElementVNode(\"em\", null, [\n            _createElementVNode(\"img\", {\n              src: __props.item.img\n            }, null, 8, _hoisted_4)\n          ]),\n          (__props.item.overflip)\n            ? (_openBlock(), _createElementBlock(\"em\", _hoisted_5, [\n                _createElementVNode(\"img\", {\n                  src: __props.item.overflip\n                }, null, 8, _hoisted_6)\n              ]))\n            : _createCommentVNode(\"\", true)\n        ])\n      ], 8, _hoisted_2),\n      _createElementVNode(\"ul\", _hoisted_7, [\n        _createElementVNode(\"li\", null, [\n          _createVNode(_component_Button, { class: \"btn_heart\" })\n        ]),\n        _createElementVNode(\"li\", null, [\n          _createVNode(_component_Button, { class: \"btn_cart\" })\n        ]),\n        _createElementVNode(\"li\", null, [\n          _createVNode(_component_Button, { class: \"btn_buy\" })\n        ])\n      ])\n    ]),\n    _createElementVNode(\"a\", {\n      href: props.link\n    }, [\n      _createElementVNode(\"div\", _hoisted_9, [\n        _createElementVNode(\"p\", _hoisted_10, [\n          _createElementVNode(\"strong\", null, [\n            (__props.item.cate)\n              ? (_openBlock(), _createElementBlock(\"em\", _hoisted_11, _toDisplayString(__props.item.cate), 1))\n              : _createCommentVNode(\"\", true),\n            _createTextVNode(\" \" + _toDisplayString(__props.item.name), 1)\n          ])\n        ]),\n        (__props.item.price)\n          ? (_openBlock(), _createElementBlock(\"p\", _hoisted_12, [\n              _createElementVNode(\"strong\", null, _toDisplayString(__props.item.price), 1),\n              _createElementVNode(\"span\", null, _toDisplayString(__props.item.sale), 1),\n              _createElementVNode(\"em\", null, _toDisplayString(__props.item.cost), 1)\n            ]))\n          : _createCommentVNode(\"\", true),\n        _createVNode(_component_Sticker, {\n          item: __props.item.sticker\n        }, null, 8, [\"item\"]),\n        _createVNode(_component_Hash, {\n          item: __props.item.hash\n        }, null, 8, [\"item\"]),\n        _hoisted_13\n      ])\n    ], 8, _hoisted_8)\n  ], 2))\n}\n}\n\n}\n\n\nimport \"D:/work/repo/components/GoodsItem.vue?vue&type=style&index=0&lang.scss\"\n\nexport default _sfc_main",
+      "start": 1712218472612,
+      "end": 1712218472612,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1712218472612,
+      "end": 1712218472613,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1712218472613,
+      "end": 1712218472613,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1712218472613,
+      "end": 1712218472613,
+      "order": "normal"
+    }
+  ]
+}

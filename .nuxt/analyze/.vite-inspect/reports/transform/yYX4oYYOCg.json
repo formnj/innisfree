@@ -1,0 +1,231 @@
+{
+  "resolvedId": "D:/work/repo/plugins/checkout.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "export default defineNuxtPlugin(nuxtApp => {\r\n    const router = useRouter(); // 라우터 인스턴스 가져오기\r\n\r\n    router.beforeEach((to, from, next) => {\r\n        const isLoggedIn = true; // 여기에 실제 로그인 상태를 체크하는 로직 구현\r\n        const isLoginPage = to.path === '/login';\r\n\r\n        if (!isLoggedIn && !isLoginPage) {\r\n            // 로그인되지 않았고, 로그인 페이지가 아니면 로그인 페이지로 리디렉션\r\n            next('/login');\r\n        } else if (isLoggedIn && isLoginPage) {\r\n            // 이미 로그인된 상태에서 로그인 페이지로 가려고 하면 홈으로 리디렉션\r\n            next('/');\r\n        } else {\r\n            // 그 외의 경우는 페이지 전환을 그대로 진행\r\n            next();\r\n        }\r\n    });\r\n});\r\n",
+      "start": 1712218464078,
+      "end": 1712218464692,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1712218464692,
+      "end": 1712218464692,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1712218464692,
+      "end": 1712218464692,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1712218464692,
+      "end": 1712218464692,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1712218464692,
+      "end": 1712218464692,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "export default defineNuxtPlugin((nuxtApp) => {\n  const router = useRouter();\n  router.beforeEach((to, from, next) => {\n    const isLoggedIn = true;\n    const isLoginPage = to.path === \"/login\";\n    if (!isLoggedIn && !isLoginPage) {\n      next(\"/login\");\n    } else if (isLoggedIn && isLoginPage) {\n      next(\"/\");\n    } else {\n      next();\n    }\n  });\n});\n",
+      "start": 1712218464692,
+      "end": 1712218470201,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/work/repo/plugins/checkout.ts"
+        ],
+        "sourcesContent": [
+          "export default defineNuxtPlugin(nuxtApp => {\r\n    const router = useRouter(); // 라우터 인스턴스 가져오기\r\n\r\n    router.beforeEach((to, from, next) => {\r\n        const isLoggedIn = true; // 여기에 실제 로그인 상태를 체크하는 로직 구현\r\n        const isLoginPage = to.path === '/login';\r\n\r\n        if (!isLoggedIn && !isLoginPage) {\r\n            // 로그인되지 않았고, 로그인 페이지가 아니면 로그인 페이지로 리디렉션\r\n            next('/login');\r\n        } else if (isLoggedIn && isLoginPage) {\r\n            // 이미 로그인된 상태에서 로그인 페이지로 가려고 하면 홈으로 리디렉션\r\n            next('/');\r\n        } else {\r\n            // 그 외의 경우는 페이지 전환을 그대로 진행\r\n            next();\r\n        }\r\n    });\r\n});\r\n"
+        ],
+        "mappings": "AAAA,eAAe,iBAAiB,aAAW;AACvC,QAAM,SAAS,UAAU;AAEzB,SAAO,WAAW,CAAC,IAAI,MAAM,SAAS;AAClC,UAAM,aAAa;AACnB,UAAM,cAAc,GAAG,SAAS;AAEhC,QAAI,CAAC,cAAc,CAAC,aAAa;AAE7B,WAAK,QAAQ;AAAA,IACjB,WAAW,cAAc,aAAa;AAElC,WAAK,GAAG;AAAA,IACZ,OAAO;AAEH,WAAK;AAAA,IACT;AAAA,EACJ,CAAC;AACL,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1712218470201,
+      "end": 1712218470201,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1712218470201,
+      "end": 1712218470201,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1712218470201,
+      "end": 1712218470201,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1712218470201,
+      "end": 1712218470201,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712218470201,
+      "end": 1712218470201,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1712218470201,
+      "end": 1712218470202,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1712218470202,
+      "end": 1712218470202,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1712218470202,
+      "end": 1712218470202,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712218470203,
+      "end": 1712218470203,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1712218470203,
+      "end": 1712218470203,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1712218470203,
+      "end": 1712218470203,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1712218470203,
+      "end": 1712218470203,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1712218470203,
+      "end": 1712218470203,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1712218470203,
+      "end": 1712218470203,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1712218470203,
+      "end": 1712218470203,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1712218470203,
+      "end": 1712218470203,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1712218470203,
+      "end": 1712218470203,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1712218470203,
+      "end": 1712218470203,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1712218470203,
+      "end": 1712218470203,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { defineNuxtPlugin } from '#app/nuxt';\nimport { useRouter } from '#app/composables/router';\nexport default defineNuxtPlugin((nuxtApp) => {\n  const router = useRouter();\n  router.beforeEach((to, from, next) => {\n    const isLoggedIn = true;\n    const isLoginPage = to.path === \"/login\";\n    if (!isLoggedIn && !isLoginPage) {\n      next(\"/login\");\n    } else if (isLoggedIn && isLoginPage) {\n      next(\"/\");\n    } else {\n      next();\n    }\n  });\n});\n",
+      "start": 1712218470203,
+      "end": 1712218470204,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb,CAAC,CAAC,CAAC,CAAC,CAAC;AACL,CAAC,CAAC,CAAC,CAAC,CAAC;AACL,CAAC,CAAC,CAAC;"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1712218470204,
+      "end": 1712218470205,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1712218470205,
+      "end": 1712218470205,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1712218470205,
+      "end": 1712218470205,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1712218470205,
+      "end": 1712218470205,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1712218470205,
+      "end": 1712218470205,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1712218470205,
+      "end": 1712218470205,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1712218470205,
+      "end": 1712218470205,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1712218470205,
+      "end": 1712218470205,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "resolvedId": "D:/work/repo/components/event/ListView.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <div\r\n    v-for=\"(event, index) in eventList\"\r\n    :key=\"index\"\r\n    class=\"bg-white p-4 shadow rounded-lg\"\r\n  >\r\n    <div class=\"flex flex-col items-center\">\r\n      <img :src=\"event.photoUrl\" :alt=\"event.title\" class=\"rounded-lg mb-2\" />\r\n      <h3 class=\"text-lg font-semibold text-gray-800\">{{ event.title }}</h3>\r\n      <p class=\"text-sm text-gray-600 mt-1\">{{ event.description }}</p>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n  eventList: { type: Array, required: true }\r\n})\r\n</script>\r\n<style></style>\r\n",
+      "start": 1712218474038,
+      "end": 1712218474796,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1712218474796,
+      "end": 1712218474796,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1712218474796,
+      "end": 1712218474796,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1712218474796,
+      "end": 1712218474796,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1712218474796,
+      "end": 1712218474796,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1712218474796,
+      "end": 1712218474796,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1712218474796,
+      "end": 1712218474796,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1712218474796,
+      "end": 1712218474796,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex flex-col items-center\" }\nconst _hoisted_2 = [\"src\", \"alt\"]\nconst _hoisted_3 = { class: \"text-lg font-semibold text-gray-800\" }\nconst _hoisted_4 = { class: \"text-sm text-gray-600 mt-1\" }\n\n\nconst _sfc_main = {\n  __name: 'ListView',\n  props: {\r\n  eventList: { type: Array, required: true }\r\n},\n  setup(__props) {\n\r\nconst props = __props\r\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(__props.eventList, (event, index) => {\n    return (_openBlock(), _createElementBlock(\"div\", {\n      key: index,\n      class: \"bg-white p-4 shadow rounded-lg\"\n    }, [\n      _createElementVNode(\"div\", _hoisted_1, [\n        _createElementVNode(\"img\", {\n          src: event.photoUrl,\n          alt: event.title,\n          class: \"rounded-lg mb-2\"\n        }, null, 8, _hoisted_2),\n        _createElementVNode(\"h3\", _hoisted_3, _toDisplayString(event.title), 1),\n        _createElementVNode(\"p\", _hoisted_4, _toDisplayString(event.description), 1)\n      ])\n    ]))\n  }), 128))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1712218474796,
+      "end": 1712218474800,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1712218474800,
+      "end": 1712218474800,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712218474800,
+      "end": 1712218474800,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1712218474800,
+      "end": 1712218474800,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1712218474800,
+      "end": 1712218474800,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1712218474800,
+      "end": 1712218474800,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712218474800,
+      "end": 1712218474800,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1712218474800,
+      "end": 1712218474800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1712218474800,
+      "end": 1712218474800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1712218474800,
+      "end": 1712218474800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1712218474800,
+      "end": 1712218474800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1712218474800,
+      "end": 1712218474800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1712218474800,
+      "end": 1712218474800,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1712218474801,
+      "end": 1712218474801,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1712218474801,
+      "end": 1712218474801,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1712218474801,
+      "end": 1712218474801,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1712218474801,
+      "end": 1712218474801,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1712218474801,
+      "end": 1712218474802,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1712218474802,
+      "end": 1712218474802,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1712218474802,
+      "end": 1712218474802,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1712218474802,
+      "end": 1712218474802,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1712218474802,
+      "end": 1712218474802,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1712218474802,
+      "end": 1712218474802,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1712218474802,
+      "end": 1712218474802,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1712218474802,
+      "end": 1712218474803,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1712218474803,
+      "end": 1712218474803,
+      "order": "normal"
+    }
+  ]
+}
