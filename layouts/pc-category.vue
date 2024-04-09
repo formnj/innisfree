@@ -12,7 +12,7 @@
                         <a href="#none">전체보기</a>
                     </h2>
                     <ul>
-                        <li v-for="(menu, idx) in sam_lnb" :key="idx"><a href="#none">{{ menu }}</a></li>
+                        <li v-for="(menu, idx) in sam_lnb" :key="idx" @click="lnb_click($event)"><a href="#none">{{ menu }}</a></li>
                     </ul>
                 </div>
                 <!-- //lnb -->
@@ -49,6 +49,19 @@ const sam_menu = [
 
 const sam_lnb = ['에센스/세럼/앰플','로션/크림','스킨/토너/미스트','립/아이케어','선케어','오일/마사지','클렌징','팩/마스크','기획 세트','기타']
 /* //device check text : 개발 시 제거해주세요. */
+
+
+let lnb_click = (event)=>{
+  const target = event.currentTarget;
+  let target_parent =target.parentNode;
+  let all_li = target_parent.querySelectorAll('li')
+  all_li.forEach((a)=>{
+    a.classList.remove('active');
+  })
+  target.classList.add('active')
+  // 전체 li에 active 클래스 제거
+  //클릭한 대상에게 active 클래스 추가
+}
 </script>
 
 <style lang="scss" scoped>
@@ -66,6 +79,7 @@ const sam_lnb = ['에센스/세럼/앰플','로션/크림','스킨/토너/미스
 }
 
 #container {
+    padding-bottom:100px;
     .inner {
         max-width:1320px;
         margin:0 auto;
@@ -76,12 +90,18 @@ const sam_lnb = ['에센스/세럼/앰플','로션/크림','스킨/토너/미스
         max-width:1320px;
         margin:0 auto;
         padding:0 20px;
+        position:relative;
         display:flex;
         flex-wrap:wrap;
+        position:relative;
         .lnb {
             width:200px;
+            height:100%;
             margin-right:60px;
             padding-top:60px;
+            position:sticky;
+            top:60px;
+            z-index:1;
             a {
                 display:block;
             }
@@ -94,6 +114,7 @@ const sam_lnb = ['에센스/세럼/앰플','로션/크림','스킨/토너/미스
                 justify-content:space-between;
                 a {
                     padding-right:21px;
+                    color:#888;
                     font-size:14px;
                     position:relative;
                     &:before, &:after {
@@ -112,6 +133,30 @@ const sam_lnb = ['에센스/세럼/앰플','로션/크림','스킨/토너/미스
                 }
             }
             li {
+                &.active {
+                    color:#000 !important;
+                    font-weight:600;
+                    border-bottom:1px solid #000;
+                    position:relative;
+                    a {
+                        color:#000 !important;
+                        &::after{
+                        content:'';
+                        width:12px;
+                        height:12px;
+                        background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+                        background-repeat:no-repeat;
+                        background-size:250px;
+                        background-position:-210px 0px;
+                        display:inline-block;
+                        position:absolute;
+                        top:50%;
+                        right:0px;
+                        transform:translateY(-50%);
+
+                        }
+                    }
+                }
                 & + li {
                     margin-top:5px;
                 }

@@ -126,6 +126,7 @@
         <Button txt="Modal full" @click="modal.open('sample_modal', 'full');" />
         <Button txt="Modal alert" @click="modal.open('sample_modal', 'alert');" />
         <Button txt="Modal bottom" @click="modal.open('sample_modal', 'bottom');" />
+        <Button txt="Modal detailSearch" @click="modal.open('sample_modal', 'detailSearch');" />
       </div>
     </div>
     <pre class="code_box"><code>&lt;div class="modal_wrap" id="sample_modal"&gt;
