@@ -1,0 +1,231 @@
+{
+  "resolvedId": "D:/work/repo/pages/index.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'index',\n  setup(__props) {\n\r\ndefinePageMeta({\r\n  layout: 'default'\r\n})\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, \"main\"))\n}\n}\n\n})",
+      "start": 1712218472695,
+      "end": 1712218472695
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1712218472695,
+      "end": 1712218472695,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1712218472695,
+      "end": 1712218472695,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1712218472695,
+      "end": 1712218472695,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1712218472695,
+      "end": 1712218472695,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    definePageMeta({\n      layout: \"default\"\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, \"main\");\n    };\n  }\n});\n",
+      "start": 1712218472695,
+      "end": 1712218473765,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "D:/work/repo/pages/index.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'index',\n  setup(__props) {\n\r\ndefinePageMeta({\r\n  layout: 'default'\r\n})\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, \"main\"))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,aAAa,YAAY,sBAAsB,2BAA2B;AAGnF,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAEjB,mBAAe;AAAA,MACb,QAAQ;AAAA,IACV,CAAC;AAED,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,OAAO,MAAM,MAAM;AAAA,IAC/D;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1712218473765,
+      "end": 1712218473765,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1712218473765,
+      "end": 1712218473765,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1712218473765,
+      "end": 1712218473766,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1712218473766,
+      "end": 1712218473766,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712218473766,
+      "end": 1712218473766,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1712218473767,
+      "end": 1712218473767,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1712218473767,
+      "end": 1712218473767,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1712218473767,
+      "end": 1712218473768,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712218473768,
+      "end": 1712218473769,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1712218473769,
+      "end": 1712218473769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1712218473769,
+      "end": 1712218473769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1712218473769,
+      "end": 1712218473769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1712218473770,
+      "end": 1712218473770,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1712218473770,
+      "end": 1712218473770,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1712218473770,
+      "end": 1712218473770,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1712218473770,
+      "end": 1712218473770,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1712218473770,
+      "end": 1712218473771,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1712218473771,
+      "end": 1712218473771,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1712218473771,
+      "end": 1712218473778,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { definePageMeta } from 'D:/work/repo/node_modules/nuxt/dist/pages/runtime/composables';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    definePageMeta({\n      layout: \"default\"\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, \"main\");\n    };\n  }\n});\n",
+      "start": 1712218473778,
+      "end": 1712218473805,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACN,CAAC,CAAC,CAAC;AACH,CAAC,CAAC,CAAC;"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1712218473809,
+      "end": 1712218473817,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1712218473818,
+      "end": 1712218473828,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1712218473828,
+      "end": 1712218473829,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1712218473829,
+      "end": 1712218473829,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1712218473829,
+      "end": 1712218473830,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "result": "import { definePageMeta } from 'D:/work/repo/node_modules/nuxt/dist/pages/runtime/composables';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n     false && /*@__PURE__*/ definePageMeta({\n      layout: \"default\"\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", null, \"main\");\n    };\n  }\n});\n",
+      "start": 1712218473831,
+      "end": 1712218473832,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1712218473832,
+      "end": 1712218473833,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1712218473833,
+      "end": 1712218473833,
+      "order": "normal"
+    }
+  ]
+}

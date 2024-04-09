@@ -2,7 +2,7 @@
   <div class="label_wrap">
     <label class="input" :class="{ err: props.isError }">
       <i v-if="props.placeholder" v-show="showPlaceholder">{{ placeholder }}</i>
-      <input v-model="model" type="text" :readonly="props.isReadonly" @focus="togglePlaceholder" @blur="togglePlaceholder" />
+      <input v-model="model" type="text" :readonly="props.isReadonly" @focus="focusEvent" @blur="togglePlaceholder" />
       <em v-if="props.isError" class="err_txt">{{ props.errorText }}</em>
       <button v-show="!props.isReadonly && model" class="icon_del" @click="clearText">Delete</button>
     </label>
@@ -10,6 +10,10 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  inheritAttrs: false
+})
+
 interface IInputTextProps {
   placeholder?: string
   isError?: boolean
@@ -20,6 +24,13 @@ interface IInputTextProps {
 const props = defineProps<IInputTextProps>()
 const model = defineModel<string>()
 const showPlaceholder = ref<boolean>(true)
+
+const attrs = useAttrs()
+
+const focusEvent = (event) => {
+  togglePlaceholder(event)
+  attrs.onFocus && attrs.onFocus(event)
+}
 
 /** placeholder toggle */
 const togglePlaceholder = (event) => {

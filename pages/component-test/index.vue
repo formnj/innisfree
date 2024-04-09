@@ -161,10 +161,21 @@
     <pre
       class="code_box"><code>&lt;InmSingleInputEvent v-model="singleInputEventValue" placeholder="문구를 입력 해주세요." @click="getSingleInputEventValue"/&gt;</code></pre>
   </section>
+
+  <section>
+    <h2>Breadcrumb</h2>
+    <div class="design_box">
+      <InmBreadcrumb :menu-list="breadcrumbData" />
+    </div>
+    <pre class="code_box"><code>&lt;InmBreadcrumb :menu-list="breadcrumbData" /&gt;</code></pre>
+  </section>
+  <!-- <InmBasicModal title="제목" message="메세지" /> -->
 </template>
 <script setup lang="ts">
+import { breadcrumbData } from '~/test/data/dummyData'
+
 definePageMeta({
-  layout: 'guide'
+  layout: 'aa-guide'
 })
 
 const inputTextValue: Ref<string | number> = ref('')

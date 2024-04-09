@@ -22,6 +22,8 @@
         <th>시작일</th>
         <th>종료일</th>
       </tr>
+    </thead>
+    <tbody>
       <tr class="row">
         <th>main</th>
         <td></td>
@@ -32,8 +34,7 @@
         <td></td>
         <td></td>
       </tr>
-    </thead>
-    <tbody></tbody>
+    </tbody>
   </table>
 </template>
 <script setup>

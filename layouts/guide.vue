@@ -1,13 +1,5 @@
 <template>
-    <header>
-        <div class="inner">
-            <h1><a href="/publish"><img src="/assets/images/common/logo_innisfree.png"></a> Guide</h1>
-            <ul class="gnb">
-                <li><a :href="path">list</a></li>
-                <li><a :href="path+'components'">Components</a></li>
-            </ul>
-        </div>
-    </header>
+    <headerGuide />
     <div id="container">
         <div class="guide_wrap">
             <router-view :device="device" />
