@@ -1,6 +1,6 @@
 <template>
     <div class="docTopBanner txtBanner">
-        <a :href="mainTopBannerData.url" class="txt" target="_blank">{{mainTopBannerData.bannerText}}</a>
+        <a href="#none" class="txt" target="_blank">하나Pay 3만원 결제 시, 하나머니 5천원 적립</a>
         <button type="button" class="btnClose">닫기</button>
     </div>
     <header>
@@ -14,10 +14,18 @@
                 <!-- search layer -->
                 <div class="search_layer">
                     <div class="search">
+                        <Button txt="닫기" class="sam_close" @click="search_close" />
                         <div>
                             <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
                             <Button class="btn_search" />
                         </div>
+                        <ul class="icon_menu">
+                            <li>
+                                <a href="#none" class="cart">장바구니
+                                    <em>5</em>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                     <section>
                         <strong>최근 검색어
@@ -40,12 +48,12 @@
                     <section>
                         <strong>카테고리</strong>
                         <ul class="category">
-                            <li v-for="item in categoryForSearchLayerData" :key="item">
+                            <li v-for="item in category" :key="item">
                                 <a href="#none">
                                     <span class="thumb">
-                                        <em><img :src="item.imageUrl" /></em>
+                                        <em><img :src="item.img" /></em>
                                     </span>
-                                    <p>{{ item.text }}</p>
+                                    <p>{{ item.txt }}</p>
                                 </a>
                             </li>
                         </ul>
@@ -53,47 +61,8 @@
                 </div>
                 <!-- //search layer -->
             </div>
-            <div class="keyword_wrap">
-                <ol>
-                    <li>
-                        <a href="#none" class="up"><em>1.</em>Keyword Up</a>
-                    </li>
-                    <li>
-                        <a href="#none"><em>2.</em>Keyword default</a>
-                    </li>
-                    <li>
-                        <a href="#none" class="down"><em>3.</em>Keyword down</a>
-                    </li>
-                    <li>
-                        <a href="#none" class="new"><em>4.</em>Keyword new</a>
-                    </li>
-                </ol>
-            </div>
             <div class="quick_wrap">
-                <ul class="quick">
-                    <li>
-                        <a href="#none">로그인</a>
-                    </li>
-                    <li>
-                        <a href="#none">회원가입</a>
-                    </li>
-                    <li>
-                        <a href="#none">고객센터</a>
-                    </li>
-                    <li>
-                        <a href="#none">ABOUT</a>
-                    </li>
-                </ul>
                 <ul class="icon_menu">
-                    <li>
-                        <a href="#none" class="wish">관심상품</a>
-                    </li>
-                    <li>
-                        <a href="#none" class="mypage">마이페이지</a>
-                    </li>
-                    <li>
-                        <a href="#none" class="delivery">배송조회</a>
-                    </li>
                     <li>
                         <a href="#none" class="cart">장바구니
                             <em>5</em>
@@ -104,7 +73,6 @@
         </div>
         <div class="gnb_wrap">
             <div class="inner">
-                <Button class="btn_category" txt="카테고리" @mouseover="cate_layer.open" />
                 <nav class="navGnb">
                     <ul>
                         <li>
@@ -133,41 +101,54 @@
                         </li>
                     </ul>
                 </nav>
-                <ul class="quick">
-                    <li>
-                        <a href="#none">신규가입혜택</a>
-                    </li>
-                    <li>
-                        <a href="#none">멤버십 혜택</a>
-                    </li>
-                    <li>
-                        <a href="#none">공병수거</a>
-                    </li>
-                    <li>
-                        <a href="#none">매장안내</a>
-                    </li>
-                    <li>
-                        <a href="#none">마이샵</a>
-                    </li>
-                </ul>
             </div>
 
             <div class="navCategory" @mouseleave="cate_layer.close">
+                <!-- mo search -->
+                <div class="search">
+                    <Button txt="닫기" class="sam_close" @click="cate_layer.close" />
+                    <div>
+                        <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
+                        <Button class="btn_search" />
+                    </div>
+                    <ul class="icon_menu">
+                        <li>
+                            <a href="#none" class="cart">장바구니
+                                <em>5</em>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //mo search -->
+
+                <!-- mo banner -->
+                <div class="banner">
+                    <a href="#none">한정 기간 특가할인 / 사은품 증정 제품 모아보기</a>
+                </div>
+                <!-- //mo banner -->
+
                 <nav>
                     <div class="nav_wrap">
-                        <Button class="btn_category" txt="카테고리" />
-                        <dl v-for="(item,idx) in global_menu" :key="idx">
-                            <dt>
+                        <ul>
+                            <li v-for="(item,idx) in global_menu" :key="idx">
                                 <a :href="item.link">{{ item.menu }}</a>
-                            </dt>
-                            <dd>
-                                <ul>
+                            </li>
+                        </ul>
+                        <div>
+                            <section v-for="(item,idx) in global_menu" :key="idx">
+                                <a href="#none">{{ item.menu }} 전체</a>
+                                <ul class="list">
                                     <li v-for="(item,idx) in item.sub_menu" :key="idx">
                                         <a :href="item.link">{{ item.menu }}</a>
                                     </li>
                                 </ul>
-                            </dd>
-                        </dl>
+                                <ul class="goods" v-if="item.goods">
+                                    <li v-for="item in item.goods" :key="item">
+                                        <GoodsItem :item="item" />
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
                     </div>
                 </nav>
             </div>
@@ -176,12 +157,6 @@
 </template>
 
 <script setup>
-import {
-  mainTopBannerData,
-  categoryForSearchLayerData
-} from '~/test/data/dummyData'
-
-
 /* sample data */
 const global_menu = [
     {
@@ -280,61 +255,9 @@ const category = [
 /* //sample data */
 
 onMounted(() => {
-    /* keyword rolling */
-    var keyword_pos = document.querySelector('.keyword_wrap ol'),
-    roll_size = keyword_pos.querySelectorAll('li'),
-    roll_timer = 3000;
-
-    var i = 1,
-    clone_roll = roll_size[0];
-
-    keyword_pos.insertAdjacentHTML('beforeend', '<li>'+clone_roll.innerHTML+'</li>');
-
-    let key_rolling = setInterval(() => {
-        keyword_pos.style.cssText='transform:translateY(-'+(i*40)+'px); transition:all 0.35s ease-in;'
-        if(i < (roll_size.length+1)){
-            i++;
-
-            if(i == (roll_size.length+1)){
-                keyword_pos.addEventListener('transitionend', () => {
-                    keyword_pos.removeAttribute('style');
-                }, {once: true});
-                i = 1;
-            }
-        }
-    }, roll_timer);
-    /* //keyword rolling */
-
-    /* header search layer */
-    document.querySelector('.search_wrap > .search input').addEventListener('focus', (e)=>{
+    document.querySelector('.btn_search').addEventListener('click',()=>{
         document.querySelector('.search_layer').classList.add('active');
-        document.querySelector('.search_layer .input input').focus();
     });
-
-    document.querySelector('.search_layer').addEventListener('mouseleave', (e)=>{
-        document.querySelector('.search_layer').classList.remove('active');
-    });
-
-    window.addEventListener('scroll', () => {
-        const target = document.querySelector('.gnb_wrap');
-        const rect = target.getBoundingClientRect();
-
-        if (rect.top <= 0) {
-            document.querySelector('#wrap').classList.add('fixed');
-            document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree_bk.png';
-        }
-        else {
-            document.querySelector('#wrap').classList.remove('fixed');
-            document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree.png';
-        }
-    })
-
-    const rect = document.querySelector('.gnb_wrap').getBoundingClientRect();
-    if (rect.top <= 0) {
-        document.querySelector('#wrap').classList.add('fixed');
-        document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree_bk.png';
-    }
-
 });
 
 /* 최근검색어 삭제 */
@@ -370,67 +293,10 @@ const cate_layer = {
 </script>
 
 <style lang="scss" scoped>
-#wrap.fixed {
-    header {
-        .inner {
-            h1 {
-                a {
-                    width:80px;
-                    height:80px;
-                    position:fixed;
-                    top:0;
-                    img {
-                        width:80px;
-                        height:80px;
-                        background:#000;
-                    }
-                }
-            }
-            .quick_wrap {
-                margin-top:28px;
-                position:fixed;
-                top:0;
-                right:50%;
-                transform: translateX(640px);
-                .quick {
-                    li {
-                        &:nth-child(3), &:nth-child(4) {
-                            display:none;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .gnb_wrap {
-        height:80px;
-        .inner {
-            height:80px;
-            .btn_category {
-                margin-left:110px;
-            }
-            .quick {
-                display:none;
-            }
-        }
-    }
-    .navCategory {
-        .btn_category {
-            height:80px;
-            padding:0 41px 0 30px;
-            left:100px;
-        }
-    }
-}
 header {
-    border-bottom:1px solid #f5f5f5;
-    position:sticky;
-    top:-100px;
-    z-index:2;
+    padding:10px 21px 0;
+    position:relative;
     .inner {
-        max-width:1320px;
-        margin:0 auto;
-        padding:0 20px;
         display:flex;
         align-items:center;
         flex-wrap:wrap;
@@ -438,38 +304,55 @@ header {
             a {
                 display:block;
                 img {
-                    height:20px;
+                    height:16px;
+                }
+            }
+        }
+        .icon_menu {
+            font-size:0;
+            li > * {
+                width:32px;
+                height:32px;
+                background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+                background-repeat:no-repeat;
+                background-size:250px auto;
+                position:relative;
+                display:block;
+                &.cart {
+                    background-position:-40px 0;
+                    em {
+                        height:17px;
+                        padding:0 5px;
+                        color:#fff;
+                        font-size:10px;
+                        font-weight:600;
+                        line-height:17px;
+                        background-color:#000;
+                        border-radius:100px;
+                        position:absolute;
+                        right:-5px;
+                        bottom:-5px;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                    }
                 }
             }
         }
         .search_wrap {
-            width:400px;
-            margin:30px;
+            margin-left:auto;
             position:relative;
-            ::v-deep .search {
-                padding-right:15px;
-                border:1px solid #00BC70;
-                border-radius:40px;
-                overflow:hidden;
-                display:flex;
-                align-items:center;
-                .input {
-                    input {
-                        height:38px;
-                        padding:0 10px 0 20px;
-                        border:0;
-                    }
-                    i {
-                        font-size:14px;
-                    }
+            & > .search {
+                .label_wrap {
+                    display:none;
                 }
                 .btn_search {
-                    width:24px;
-                    height:24px;
+                    width:32px;
+                    height:32px;
                     font-size:0;
                     background-color:transparent;
-                    background-image:url('/_nuxt/assets/images/common/icon_split.png');
-                    background-position:0 -30px;
+                    background-image:url("/_nuxt/assets/mo_images/common/icon_split.png");
+                    background-position:0 0;
                     background-repeat:no-repeat;
                     background-size:250px auto;
                     position:relative;
@@ -478,13 +361,11 @@ header {
         }
         .search_layer {
             background-color:#fff;
-            border:2px solid #00BC70;
-            border-radius:10px;
-            box-shadow:0 10px 20px 0 rgba(0,0,0,0.2);
             overflow:hidden;
-            position:absolute;
-            top:-1px;
+            position:fixed;
+            top:0;
             right:0;
+            bottom:0;
             left:0;
             z-index:10;
             display:none;
@@ -506,14 +387,51 @@ header {
                 }
             }
             .search {
+                padding:10px 16px 10px 21px;
                 border:0;
                 border-bottom:1px solid #ddd;
                 border-radius:0;
-                display:block;
+                display:flex;
                 & > div {
+                    border:1px solid #000;
+                    border-radius:5px;
+                    overflow:hidden;
                     display:flex;
                     align-items:center;
                     flex:1;
+                }
+                ::v-deep .input {
+                    input {
+                        padding-right:5px;
+                        font-size:13px;
+                        border:0;
+                    }
+                    i {
+                        font-size:13px;
+                    }
+                }
+                .btn_search {
+                    width:24px;
+                    height:24px;
+                    margin-right:10px;
+                    background-color:transparent;
+                    background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+                    background-position:0 -40px;
+                    background-repeat:no-repeat;
+                    background-size:250px auto;
+                    display:block;
+                    ::v-deep em {
+                        padding:0;
+                        font-size:0;
+                    }
+                }
+                .icon_menu {
+                    margin-left:10px;
+                    display:flex;
+                    align-items:center;
+                    li + li {
+                        margin-left:10px;
+                    }
                 }
             }
             section {
@@ -641,9 +559,6 @@ header {
             }
         }
         .quick_wrap {
-            margin-top:20px;
-            margin-bottom:auto;
-            margin-left:auto;
             display:flex;
             ul {
                 display:flex;
@@ -669,118 +584,23 @@ header {
                     }
                 }
                 &.icon_menu {
-                    font-size:0;
-                    li {
-                        margin-left:12px;
-                    }
-                    li > * {
-                        width:24px;
-                        height:24px;
-                        background-image:url('/_nuxt/assets/images/common/icon_split.png');
-                        background-repeat:no-repeat;
-                        background-size:250px auto;
-                        position:relative;
-                        display:block;
-                        &.wish {
-                            background-position:-110px -30px;
-                        }
-                        &.mypage {
-                            background-position:-140px -30px;
-                        }
-                        &.delivery {
-                            background-position:-170px -30px;
-                        }
-                        &.cart {
-                            background-position:-200px -30px;
-                            em {
-                                width:17px;
-                                height:17px;
-                                color:#fff;
-                                font-size:10px;
-                                font-weight:600;
-                                line-height:17px;
-                                background-color:#00BC70;
-                                border-radius:50%;
-                                position:absolute;
-                                right:-5px;
-                                bottom:-2px;
-                                display:flex;
-                                align-items:center;
-                                justify-content:center;
-                            }
-                        }
-                    }
+                    margin-right:5px;
                 }
             }
         }
     }
     .gnb_wrap {
-        border:1px solid #f5f5f5;
-        border-right:0;
-        border-left:0;
-        background-color:#fff;
+        margin:6px -21px 0;
+        overflow:hidden;
         .inner {
+            padding:0 13px;
+            overflow:auto;
+            display:flex;
+            align-items:center;
             & > ul, nav > ul {
                 position:relative;
                 z-index:1;
                 display:flex;
-            }
-            .btn_category::v-deep {
-                width:140px;
-                height:auto;
-                padding:18px 0 19px;
-                background-color:transparent;
-                justify-content:flex-start;
-                position:relative;
-                em {
-                    padding-right:0;
-                    padding-left:34px;
-                    color:#000;
-                    font-size:16px;
-                    font-weight:600;
-                    font-family:'Pretendard';
-                    position:relative;
-                    &:before, &:after {
-                        border-top:2px solid #000;
-                        content:'';
-                        position:absolute;
-                        top:5px;
-                        left:4px;
-                        display:block;
-                    }
-                    &:before {
-                        width:16px;
-                        height:12px;
-                        border-bottom:2px solid #000;
-                        border-right:0;
-                        border-left:0;
-                    }
-                    &:after {
-                        width:16px;
-                        border-top:2px solid #000;
-                        top:50%;
-                    }
-                }
-                &.active {
-                    padding:18px 31px 18px 20px;
-                    border:1px solid #eee;
-                    border-top:0;
-                    border-bottom:0;
-                    box-shadow:3px 3px 3px rgba(0,0,0,0.4);
-                    em:before, em:after {
-                        border-color:#00BC70;
-                    }
-                }
-                &:after {
-                    content:'';
-                    width:1px;
-                    height:16px;
-                    background-color:#eee;
-                    position:absolute;
-                    top:50%;
-                    right:10px;
-                    transform:translateY(-50%);
-                }
             }
             .quick {
                 margin-left:auto;
@@ -798,130 +618,232 @@ header {
                 }
             }
             .navGnb {
-                padding-left:18px;
                 li {
-                    height:58px;
-                    padding:0 4px;
+                    padding:0 2px;
                     display:flex;
                     align-items:center;
                 }
                 a {
-                    padding:0 8px;
-                    font-size:16px;
-                    font-weight:600;
+                    padding:15px 8px;
+                    font-size:14px;
+                    font-weight:400;
+                    white-space:nowrap;
                     position:relative;
                     display:block;
-                    &.point {
-                        padding-right:18px;
-                        &:after {
-                            width:5px;
-                            height:5px;
-                            background-color:#00BC70;
-                            border-radius:50%;
-                            content:'';
-                            position:absolute;
-                            top:0;
-                            right:8px;
-                            display:block;
-                        }
-                    }
                 }
             }
         }
         .navCategory {
             background-color:#fff;
-            border-bottom:1px solid #eee;
-            box-shadow:0 10px 20px 0 rgba(0,0,0,0.05);
-            position:absolute;
-            top:100%; //button height
+            overflow:hidden;
+            position:fixed;
+            top:0;
             right:0;
+            bottom:0;
             left:0;
-            z-index:2;
+            z-index:10;
             display:none;
             transition:height 0.28s ease-out;
             &.active {
-                display:block;
-            }
-            nav {
-                max-width:1320px;
-                margin:0 auto;
-                padding:40px 20px;
-                background-color:#fff;
-                position:relative;
                 display:flex;
-                gap:40px;
-                .nav_wrap {
-                    display:flex;
-                    dl {
-                        width: 120px;
-                        & + dl {
-                            margin-left:40px;
-                        }
-                        &:nth-child(8) {
-                            padding-right:40px;
-                            border-right:1px solid #eee;
-                        }
-                        dt {
-                            margin-bottom:20px;
-                            border-bottom:1px solid #eee;
-                            a {
-                                padding-bottom:10px;
-                                font-size: 16px;
-                                font-weight: 600;
-                                display:block;
-                            }
-                        }
-                        dd {
-                            li {
-                                height:31px;
-                                margin-bottom:5px;
-                                display:flex;
-                                align-items:center;
-                                a {
-                                    color:#888;
-                                }
-                            }
+                flex-direction:column;
+            }
+            .search {
+                padding: 10px 16px 10px 21px;
+                border: 0;
+                border-bottom: 1px solid #ddd;
+                border-radius: 0;
+                display: flex;
+                align-items:center;
+                & > div {
+                    border: 1px solid #000;
+                    border-radius: 5px;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    flex: 1;
+                }
+                .input {
+                    i, input {
+                        font-size:13px;
+                    }
+                    input {
+                        padding-right:5px;
+                        border:0;
+                    }
+                }
+                .btn_search {
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 10px;
+                    background-color: transparent;
+                    background-image: url(/_nuxt/assets/mo_images/common/icon_split.png);
+                    background-position: 0 -40px;
+                    background-repeat: no-repeat;
+                    background-size: 250px auto;
+                    display: block;
+                }
+            }
+            .icon_menu {
+                font-size:0;
+                li {
+                    margin-left:12px;
+                }
+                li > * {
+                    width: 32px;
+                    height: 32px;
+                    background-image: url('/_nuxt/assets/mo_images/common/icon_split.png');
+                    background-repeat: no-repeat;
+                    background-size: 250px auto;
+                    position: relative;
+                    display: block;
+                    &.wish {
+                        background-position:-110px -30px;
+                    }
+                    &.mypage {
+                        background-position:-140px -30px;
+                    }
+                    &.delivery {
+                        background-position:-170px -30px;
+                    }
+                    &.cart {
+                        background-position:-40px 0;
+                        em {
+                            height:17px;
+                            padding:0 5px;
+                            color:#fff;
+                            font-size:10px;
+                            font-weight:600;
+                            line-height:17px;
+                            background-color:#000;
+                            border-radius:100px;
+                            position:absolute;
+                            right:-5px;
+                            bottom:-5px;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
                         }
                     }
                 }
             }
-            .btn_category::v-deep {
-                height:60px;
-                padding:0 31px 0 20px;
-                border:1px solid #eee;
-                border-bottom:0;
-                background-color:#fff;
-                position:absolute;
-                top:0;
-                left:18px;
-                transform:translateY(-100%);
-                em {
-                    padding-left:34px;
-                    padding-right:0;
-                    color:#000;
-                    font-size:16px;
-                    font-weight:600;
-                    font-family:'Pretendard';
-                    position:relative;
-                    &:before, &:after {
-                        border-top:2px solid #00BC70;
-                        content:'';
-                        position:absolute;
-                        top:5px;
-                        left:4px;
-                        display:block;
-                    }
-                    &:before {
-                        width:16px;
-                        height:12px;
-                        border-bottom:2px solid #00BC70;
-                        border-right:0;
-                        border-left:0;
-                    }
+            .banner {
+                color:#fff;
+                font-size:12px;
+                font-weight:400;
+                background-color:#000;
+                a {
+                    padding:10px 21px;
+                    display:flex;
+                    justify-content:space-between;
                     &:after {
                         width:16px;
-                        border-top:2px solid #00BC70;
-                        top:50%;
+                        height:16px;
+                        background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+                        background-position:-80px 0;
+                        background-repeat:no-repeat;
+                        background-size:250px auto;
+                        content:'';
+                        display:block;
+                    }
+                }
+            }
+            nav {
+                overflow:hidden;
+                flex:1;
+                .nav_wrap {
+                    height:100%;
+                    display:flex;
+                    > ul {
+                        width:37.333333%;
+                        background-color:#F5F5F5;
+                        a {
+                            padding:16px 10px 16px 21px;
+                            color:#999;
+                            font-size:14px;
+                            font-weight:600;
+                            display:block;
+                        }
+                        .active {
+                            background-color:#fff;
+                            a {
+                                color:#000;
+                            }
+                        }
+                    }
+                    > div {
+                        overflow:auto;
+                        flex:1;
+                        a {
+                            color:#000;
+                            font-size:14px;
+                            font-weight:400;
+                            padding:16px 21px;
+                            display:block;
+                        }
+                        section {
+                            > a {
+                                font-weight:600;
+                                display:flex;
+                                &:after {
+                                    width:16px;
+                                    height:16px;
+                                    margin-left:10px;
+                                    background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+                                    background-position:-100px 0;
+                                    background-repeat:no-repeat;
+                                    background-size:250px auto;
+                                    content:'';
+                                    display:inline-block;
+                                }
+                            }
+                            & + section:before {
+                                margin-left:20px;
+                                border-top:1px solid #eee;
+                                content:'';
+                                display:block;
+                            }
+                            .goods {
+                                margin:20px 9px 20px -5px;
+                                padding-left:21px;
+                                display:flex;
+                                li {
+                                    width:50%;
+                                    padding-left:5px;
+                                }
+                                .goods_item {
+                                    a {
+                                        padding:0;
+                                    }
+                                    .img_wrap {
+                                        .thumb {
+                                            height:auto;
+                                            padding-top:133%;
+                                        }
+                                    }
+                                    .btnIconBox {
+                                        display:none;
+                                    }
+                                    .cont {
+                                        margin-top:10px;
+                                        font-size:12px;
+                                        .name {
+                                            strong {
+                                                color:#000;
+                                                font-size:12px;
+                                                overflow: hidden;
+                                                display: -webkit-box;
+                                                -webkit-box-orient: vertical;
+                                                -webkit-line-clamp: 2;
+                                            }
+                                        }
+                                        .review_score {
+                                            display:none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

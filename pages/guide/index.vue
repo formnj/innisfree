@@ -40,18 +40,23 @@ import { onMounted } from 'vue'
 const comm_arry = ([
     {
         depth:['공통','Inputs','',''],
-        id:'', status:'',
+        id:'', status:'ing',
         type:'component', note:'/component/Inputs<br/>- 타입별 분리 예정',
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','Button','',''],
-        id:'', status:'',
+        id:'', status:'ing',
         type:'component', note:'/component/Button',
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','GoodsItem','',''],
-        id:'', status:'',
+        id:'', status:'ing',
         type:'component', note:'/component/GoodsItem',
+        sDate:'', eDate:'', worker:'이종환'
+    }, {
+        depth:['','Tabs','',''],
+        id:'', status:'ing',
+        type:'component', note:'/component/Tabs',
         sDate:'', eDate:'', worker:'이종환'
     }
 ])

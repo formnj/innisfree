@@ -149,23 +149,19 @@
   <section>
     <h2>Tabs</h2>
     <ul class="explain">
+      <li>tabType : tab type 클래스 지정</li>
       <li>default : 탭 요소의 넓이가 갯수에 대한 비율로 늘어남.</li>
+      <li>tabType="type_01" = 상품상세 정보 탭</li>
     </ul>
     <div class="design_box">
       <ul class="form_group">
         <li>
           <p class="form_tit">Default</p>
-          <Tabs :item="[{txt:'tab01'},{txt:'tab02'}]" />
+          <Tabs tabType="type_01" :item="[{txt:'tab01'},{txt:'tab02'}]" :tabidx="0" />
         </li>
       </ul>
     </div>
-    <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
-    &lt;ul class="goods_list"&gt;
-        &lt;li v-for="(item, idx) in sample_goods" :key="idx"&gt;
-            &lt;GoodsItem :item="item" :link="item.link" /&gt;
-        &lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;</code></pre>
+    <pre class="code_box"><code>&lt;Tabs :item="[{txt:'tab01'},{txt:'tab02'}]"  :tabidx="0" /&gt;</code></pre>
   </section>
 
   <section>
@@ -299,6 +295,8 @@ const sampleSlide = [
     img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
   },
 ];
+
+const tabidx= 0;
 /* //component sample data */
 
 /* inputs type function */
