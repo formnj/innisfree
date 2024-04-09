@@ -333,6 +333,11 @@ const sample_goods = [
 /* //component sample data */
 
 onMounted(() => {
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 0) document.querySelector('header').classList.add('fixed');
+      if(window.scrollY <= 0) document.querySelector('header').classList.remove('fixed');
+    })
+
     document.querySelector('.btn_search').addEventListener('click',()=>{
         document.querySelector('.search_layer').classList.add('active');
     });
@@ -395,9 +400,21 @@ const cate_tab = (e) => {
 </script>
 
 <style lang="scss" scoped>
+.docTopBanner {
+  height: 36px;
+  padding-right:21px;
+  justify-content:space-between;
+}
 header {
-    padding:10px 21px 0;
-    position:relative;
+  padding:10px 21px 0;
+  position:sticky;
+  top:-50px;
+  left:0;
+  right:0;
+  z-index:2;
+  &.fixed {
+    background:#fff;
+  }
     .inner {
         display:flex;
         align-items:center;
@@ -991,7 +1008,7 @@ header {
                     }
                 }
                 .prd_wrap {
-                  padding:40px 21px;
+                  padding:40px 0 40px 21px;
                   h2 {
                     margin-right:21px;
                     margin-bottom:20px;
@@ -1016,7 +1033,7 @@ header {
                   .goods_list {
                     margin:0;
                     .item {
-                      width:40%;
+                      width:38%;
                       display:block;
                       li {
                         width: 100%;
