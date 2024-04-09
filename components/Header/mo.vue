@@ -126,7 +126,7 @@
                     <a href="#none">한정 기간 특가할인 / 사은품 증정 제품 모아보기</a>
                 </div>
                 <!-- //mo banner -->
-                
+
                 <nav>
                     <div class="nav_wrap">
                         <ul>
@@ -168,6 +168,26 @@
                                 <a href="#none">마이샵</a>
                             </li>
                         </ul>
+                    </div>
+                    <div class="prd_wrap">
+                      <h2>
+                        <a href="#none">한정기간 특가할인 / 사은품 혜택</a>
+                      </h2>
+                      <div class="list_wrap">
+                        <ul class="goods_list">
+                          <swiper-container
+                            slides-per-view="auto"
+                            grab-cursor="true"
+                            space-between="3"
+                          >
+                            <swiper-slide v-for="(item, idx) in sample_goods" :key="idx" class="item">
+                              <li>
+                                <GoodsItem :item="item" :link="item.link" />
+                              </li>
+                            </swiper-slide>
+                          </swiper-container>
+                        </ul>
+                      </div>
                     </div>
                 </nav>
             </div>
@@ -263,6 +283,54 @@ const category = [
     {img:'/_nuxt/assets/images/sam/h_cate_10.png', txt:'미용소품'}
 ]
 /* //sample data */
+
+const sample_goods = [
+    {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'증정', type:'type02'},
+        ],
+    }, {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+        name:'그린티 씨드 히알루론산 세렘 80ml',
+        price:'44,800', sale:'~20%', cost:'56,000',
+        sticker:[
+            {txt:'증정', type:'type02'},
+        ]
+    }, {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+        name:'그린티 씨드 히알루론산 세렘 80ml',
+        price:'44,800', sale:'~20%', cost:'56,000',
+        sticker:[
+            {txt:'증정', type:'type02'},
+        ]
+    }, {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'증정', type:'type02'},
+        ]
+    }, {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'증정', type:'type02'},
+        ]
+    },
+    {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'증정', type:'type02'},
+        ]
+    },
+]
+/* //component sample data */
 
 onMounted(() => {
     document.querySelector('.btn_search').addEventListener('click',()=>{
@@ -784,10 +852,11 @@ header {
             }
             nav {
                 overflow:hidden;
+                overflow-y:scroll;
                 flex:1;
                 .nav_wrap {
                     height:100%;
-                    max-height:400px;
+                    max-height:336px;
                     display:flex;
                     > ul {
                         width:37.333333%;
@@ -920,6 +989,55 @@ header {
                             }
                         }
                     }
+                }
+                .prd_wrap {
+                  padding:40px 21px;
+                  h2 {
+                    margin-right:21px;
+                    margin-bottom:20px;
+                    a {
+                      font-size:16px;
+                      font-weight:600;
+                      display:flex;
+                      align-items:center;
+                      justify-content:space-between;
+                      &:after {
+                        content:'';
+                        width:9px;
+                        height:9px;
+                        border-color:#000;
+                        border-style:solid;
+                        border-width:0 0 1px 1px;
+                        display:inline-block;
+                        transform:rotate(225deg);
+                      }
+                    }
+                  }
+                  .goods_list {
+                    margin:0;
+                    .item {
+                      width:40%;
+                      display:block;
+                      li {
+                        width: 100%;
+                        ::v-deep(.goods_item) {
+                          .img_wrap {
+                            .thumb {
+                              height:190px;
+                            }
+                            &:hover {
+                              .btnIconBox {
+                                transform:translateY(100%);
+                              }
+                            }
+                          }
+                          .review_score {
+                            display:none;
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
             }
         }

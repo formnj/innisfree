@@ -50,6 +50,10 @@ definePageMeta({
 	layout: 'mo-category'
 });
 
+
+import { register } from 'swiper/element/bundle';
+register();
+
 onMounted(()=>{
 })
 
@@ -195,7 +199,7 @@ const modal = {
             strong {
                 color:#2FAF63;
             }
-        }		
+        }
     }
     .pdtSortTab_wrap {
         margin-left:auto;

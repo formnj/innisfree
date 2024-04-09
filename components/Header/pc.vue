@@ -169,7 +169,7 @@
                             </dd>
                         </dl>
                     </div>
-                </nav>            
+                </nav>
             </div>
         </div>
     </header>
@@ -328,7 +328,7 @@ onMounted(() => {
         document.querySelector('#wrap').classList.add('fixed');
         document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree_bk.png';
     }
-    
+
 });
 
 /* 최근검색어 삭제 */
@@ -732,6 +732,7 @@ header {
                     color:#000;
                     font-size:16px;
                     font-weight:600;
+                    font-family:'Pretendard';
                     position:relative;
                     &:before, &:after {
                         border-top:2px solid #000;
@@ -894,6 +895,7 @@ header {
                     color:#000;
                     font-size:16px;
                     font-weight:600;
+                    font-family:'Pretendard';
                     position:relative;
                     &:before, &:after {
                         border-top:2px solid #00BC70;

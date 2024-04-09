@@ -59,7 +59,7 @@ const comm_arry = ([
 const PC_arry = ([
     {
         depth:['pc_공통','헤더','',''],
-        id:'Header', status:'',
+        id:'Header', status:'ing',
         type:'component', note:'/component/Header/pc',
         sDate:'', eDate:'', worker:'형민우'
     }, {
