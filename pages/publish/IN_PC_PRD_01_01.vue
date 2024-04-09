@@ -433,7 +433,7 @@ const setFilter = (event) =>{
                     content:'';
                     position:absolute;
                     left:50%;
-                    bottom:-3px;
+                    bottom:0px;
                     width:50%;
                     height:3px;
                     background:#00BC70;
