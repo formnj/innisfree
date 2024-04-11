@@ -426,7 +426,7 @@ header {
     border-bottom:1px solid #f5f5f5;
     position:sticky;
     top:-100px;
-    z-index:2;
+    z-index:3;
     .inner {
         max-width:1320px;
         margin:0 auto;
