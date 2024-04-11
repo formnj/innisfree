@@ -14,6 +14,7 @@
         <h2>Style</h2>
         <ul class="explain">
             <li>Style의 선언 규칙은 [넓이 / 외부여백 / 내부여백 / 폰트 / 배경 / 테두리 / 정렬 / 위치 / 블럭 / 변형] 순으로 선언함</li>
+
         </ul>
         <pre class="code_box"><code>.test {
     width:10px;
@@ -33,6 +34,16 @@
     display:block;
     transform:rotate(90deg);
 }</code></pre>
+    </section>
+
+    <section>
+      <h2>media query</h2>
+      <pre class="code_box"><code>&lt;style lang="scss" scoped&gt;
+media query : @import "~/assets/scss/_mo_mixin";
+@include mobile {
+  스타일 선언
+}
+&gt;</code></pre>
     </section>
 
     <section>

@@ -501,7 +501,7 @@ const modal = {
     overflow:auto;
 }
 
-.breadcrumb {
+::v-deep .breadcrumb {
     .inner {
         margin:0 !important;
     }
