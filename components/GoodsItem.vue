@@ -180,13 +180,13 @@ const props = defineProps({
             strong {
                 margin-right:10px;
                 font-size:20px;
-                font-weight:700; 
+                font-weight:700;
             }
             span {
                 margin-right:15px;
                 color:#ff0000;
                 font-size:20px;
-                font-weight:300; 
+                font-weight:300;
             }
             em {
                 color:#999e9c;
@@ -214,7 +214,82 @@ const props = defineProps({
             em {
                 margin-left:5px;
             }
-        }    
+        }
     }
+}
+
+@import "~/assets/scss/_mo_mixin";
+
+@include mobile {
+  .goods_item {
+    padding-bottom:calc(24px + 1rem);
+    .img_wrap {
+      position:static;
+      &:before {
+        display:none !important;
+      }
+      .btnIconBox {
+        background-color:transparent;
+        left:15px;
+        gap:1rem;
+        justify-content:start;
+        transform:translateY(0);
+        button {
+          padding:0;
+          background-color:gray;
+          em {
+            width:24px;
+            height:24px;
+          }
+        }
+      }
+    }
+    &.sold_out, &.coming_soon {
+      .img_wrap {
+        a {
+          position:relative;
+          &:before, &:after {
+            content:'';
+            display:block;
+          }
+          &:before {
+            background-color:rgba(0,0,0,0.3);
+            background-position:50%;
+            background-repeat:no-repeat;
+            position:absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            z-index:1;
+          }
+        }
+      }
+    }
+    &.sold_out {
+        .img_wrap a:before {
+            background-image:url('/_nuxt/assets/images/ui/overlay_soldout.png');
+        }
+      }
+      &.coming_soon {
+        .img_wrap a:before {
+            background-image:url('/_nuxt/assets/images/ui/overlay_comingsoon.png');
+        }
+      }
+    .cont {
+      > .price {
+        strong {
+          font-size:1.4rem;
+        }
+        span {
+          font-size:1.2rem;
+        }
+        em {
+          font-size:1rem;
+          display:block;
+        }
+      }
+    }
+  }
 }
 </style>

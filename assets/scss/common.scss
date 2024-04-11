@@ -1,4 +1,4 @@
-/* #wrap.mo : 모바일 스타일 */
+@import "~/assets/scss/_mo_mixin";
 
 .lockbody {
     overflow:hidden;
@@ -389,5 +389,11 @@
         flex-wrap:wrap;
       }
     }
+  }
+}
+
+@include mobile {
+  html {
+    font-size:62.5%;
   }
 }
