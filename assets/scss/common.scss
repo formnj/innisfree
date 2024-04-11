@@ -67,6 +67,7 @@
 
 /* modal */
 .modal_wrap {
+    overflow:hidden;
     position:fixed;
     top:0;
     right:0;
@@ -179,7 +180,18 @@
             transform:initial;
             animation-duration: 0.25s;
             animation-name: show_up;
-        }      
+        }
+    }
+    &.detailSearch {
+      .modal_container {
+        width:480px;
+        min-height: calc(100vh + 20px);
+        left:100%;
+        bottom:0;
+        transform:translate(-100%, -50%);
+        animation-duration: 0.25s;
+        animation-name: show_left;
+      }
     }
 }
 
@@ -192,6 +204,35 @@
     }
 }
 
+@keyframes show_left {
+  from {
+    transform:translate(0%, -50%);
+    opacity:0;
+  }
+  to {
+    transform:translate(-100%, -50%);
+    opacity:1;
+  }
+}
+
+.list_wrap {
+  .ranking {
+    width:32px;
+    height:32px;
+    color:#fff;
+    font-size:14px;
+    font-weight:500;
+    line-height:32px;
+    text-align:center;
+    background-color:#000;
+    position:absolute;
+    top:40px;
+    left:20px;
+    z-index:2;
+    display:block;
+  }
+}
+
 /* goods list */
 .goods_list {
     margin-top:-40px;
@@ -202,5 +243,22 @@
         width:20%;
         padding-top:40px;
         padding-left:15px;
+        position:relative;
     }
+}
+
+.sort_tab_wrap {
+  margin-bottom:25px;
+  .sub_tab {
+    margin-top:60px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    .tab_wrap {
+      flex:1;
+      ul {
+        flex-wrap:wrap;
+      }
+    }
+  }
 }

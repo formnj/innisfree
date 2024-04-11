@@ -1,31 +1,36 @@
 <template>
-    <div class="title_wrap">
-        <h2>스킨케어
-            <span class="pdt_count">총 <strong>32</strong>건</span>
-        </h2>
-
-        <div class="pdtSortTab_wrap">
-			<div class="sortTab">
-				<button class="btn_dropdown" @click="Drop_Down()" >추천순</button>
-				<ul>
-					<li><a href="#none" class="active">추천순</a></li>
-					<li><a href="#none">신제품순</a></li>
-					<li><a href="#none">판매량순</a></li>
-					<li><a href="#none">낮은 가격순</a></li>
-					<li><a href="#none">높은 가격순</a></li>
-					<li><a href="#none">리뷰순</a></li>
-					<li><a href="#none">판매금액순</a></li>
-				</ul>
-			</div>
-            <button @click="modal.open('sample_modal', 'full');">상세검색</button>
-        </div>
+    <div class="title_wrap" :data-layout="props.layoutType">
+      <h2>베스트</h2>
     </div>
+
+    <div class="sort_tab_wrap">
+      <Tabs :item="[{txt:'실시간 베스트'},{txt:'주간 베스트'},{txt:'월간 베스트'}]" :tabidx="0" />
+
+      <div class="sub_tab">
+        <Tabs tabType="type_02" :item="[{txt:'전체'},{txt:'스킨케어'},{txt:'메이크업'},{txt:'남성'},{txt:'헤어/바디/펫'},{txt:'기획 세트'},{txt:'전체'},{txt:'스킨케어'},{txt:'메이크업'},{txt:'남성'},{txt:'헤어/바디/펫'},{txt:'기획 세트'},{txt:'미용소품'},{txt:'스킨케어'},{txt:'메이크업'},{txt:'남성'},{txt:'헤어/바디/펫'},{txt:'기획 세트'},{txt:'전체'},{txt:'스킨케어'},{txt:'메이크업'},{txt:'남성'},{txt:'헤어/바디/펫'},{txt:'기획 세트'}]" :tabidx="0" />
+        <span>2024.03.29 ~ 2024.04.04 기준</span>
+      </div>
+    </div>
+
     <div class="list_wrap">
-        <ul class="goods_list">
-            <li v-for="(item, idx) in sample_goods" :key="idx">
-                <GoodsItem :item="item" :link="item.link" />
-            </li>
-        </ul>
+      <ul class="goods_list">
+          <li v-for="(item, idx) in sample_goods" :key="idx">
+              <span class="ranking" v-if="idx < 9">{{ '0'+(idx+1) }}</span>
+              <span class="ranking" v-else>{{ idx+1 }}</span>
+              <GoodsItem :item="item" :link="item.link" />
+          </li>
+      </ul>
+    </div>
+    <div class="paging">
+        <div>
+            <a href="#none" class="first">처음으로</a>
+            <a href="#none">1</a>
+            <a href="#none">2</a>
+            <a href="#none" class="active">3</a>
+            <a href="#none">4</a>
+            <a href="#none">5</a>
+            <a href="#none" class="last">마지막으로</a>
+        </div>
     </div>
     <div class="modal_wrap" id="sample_modal">
         <div class="modal_container">
@@ -47,15 +52,15 @@
 
 <script setup>
 definePageMeta({
-	layout: 'mo-category'
+	layout: 'pc-category'
 });
 
-
-import { register } from 'swiper/element/bundle';
-register();
-
-onMounted(()=>{
-})
+const props = defineProps({
+    layoutType: {
+      type:String,
+      default:'default'
+    }
+});
 
 const sample_goods = [
     {
@@ -173,32 +178,45 @@ const modal = {
         e.preventDefault();
     }
 }
+
+const Drop_Down = () => {
+    let selet = document.querySelector('.pdtSortTab_wrap ul');
+    selet.classList.toggle('active')
+    if(selet.classList.contains('active')){
+        console.log(selet.clientHeight)
+        selet.style.height = '270px';
+        selet.style.border="1px solid #888";
+
+        // console.log(selet.clientHeight) + 'px'
+    }else {
+        selet.style.border = 'none'
+        selet.style.height = '0px'
+    }
+}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .title_wrap {
-    padding:3.0rem 0 2.0rem;
+    padding:60px 0;
     position:relative;
     z-index:1;
     display:flex;
     h2 {
-        font-size:0;
+        font-size:38px;
         font-weight:300;
         position:relative;
         .pdt_count {
             margin-left:5px;
             padding:3px 6px;
-            color:#000;
+            color:#fff;
             font-size:13px;
             white-space:nowrap;
+            background-color:#00BC70;
             border-radius:999px;
             position:absolute;
             top:0;
             left:100%;
             display:block;
-            strong {
-                color:#2FAF63;
-            }
         }
     }
     .pdtSortTab_wrap {
@@ -222,7 +240,7 @@ const modal = {
     margin-top:-40px;
     margin-left:-20px;
     > li {
-        width:50%;
+        width:25%;
         padding-top:40px;
         padding-left:20px;
     }

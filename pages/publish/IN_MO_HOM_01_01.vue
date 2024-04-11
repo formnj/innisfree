@@ -8,6 +8,7 @@
         centered-slides="true"
         grab-cursor="true"
         slides-offset-before="-310"
+        pagination-type="fraction"
       >
         <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx" class="item">
           <img :src="item.img">{{  idx  }}

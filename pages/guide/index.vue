@@ -40,26 +40,31 @@ import { onMounted } from 'vue'
 const comm_arry = ([
     {
         depth:['공통','Inputs','',''],
-        id:'', status:'',
+        id:'', status:'ing',
         type:'component', note:'/component/Inputs<br/>- 타입별 분리 예정',
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','Button','',''],
-        id:'', status:'',
+        id:'', status:'ing',
         type:'component', note:'/component/Button',
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','GoodsItem','',''],
-        id:'', status:'',
+        id:'', status:'ing',
         type:'component', note:'/component/GoodsItem',
         sDate:'', eDate:'', worker:'이종환'
+    }, {
+        depth:['','Tabs','',''],
+        id:'', status:'ing',
+        type:'component', note:'/component/Tabs',
+        sDate:'', eDate:'/ 2024-04-09', worker:'이종환'
     }
 ])
 
 const PC_arry = ([
     {
         depth:['pc_공통','헤더','',''],
-        id:'Header', status:'',
+        id:'Header', status:'ing',
         type:'component', note:'/component/Header/pc',
         sDate:'', eDate:'', worker:'형민우'
     }, {
@@ -114,9 +119,9 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','베스트','',''],
-        id:'IN_PC_HOM_01_00-1', status:'',
+        id:'IN_PC_HOM_01_00-1', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-12/', worker:''
+        sDate:'', eDate:'2024-04-12/', worker:'이종환'
     }, {
         depth:['','쇼케이스(T)','',''],
         id:'IN_PC_HOM_01_12', status:'',
@@ -144,9 +149,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-19/', worker:''
     }, {
         depth:['상품','목록','',''],
-        id:'IN_PC_PRD_01_01', status:'ing',
+        id:'IN_PC_PRD_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-24/', worker:'김희경'
+        sDate:'', eDate:'2024-04-24/2024-04-09', worker:'김희경'
     }, {
         depth:['','상세','',''],
         id:'IN_PC_PRD_01_09', status:'',
