@@ -26,7 +26,7 @@
             <div class="modal_content">
                 <div>
                     <ul>
-                        <li><a href="#none" class="active">추천순</a></li>
+                        <li class="active"><a href="#none" class="active">추천순</a></li>
                         <li><a href="#none">신제품순</a></li>
                         <li><a href="#none">판매량순</a></li>
                         <li><a href="#none">낮은 가격순</a></li>
@@ -241,7 +241,7 @@ const modal = {
 .sortTab {
     position:relative;
     > button::after {
-        background-image: url('../../assets/images/common/PC-icon_split.png');
+        background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
         background-size:250px;
         background-repeat:no-repeat;
         background-position:-110px -60px;
@@ -249,7 +249,7 @@ const modal = {
     & ~ button {
         position:relative;
         &::after {
-            background-image: url('../../assets/images/common/PC-icon_split.png');
+            background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
             background-size:250px;
             background-repeat:no-repeat;
             background-position:-130px -60px;
@@ -297,17 +297,64 @@ const modal = {
     }
     &#sample_modal_sort{
         .modal_container {
-            top:55vh;
+            border-top-left-radius:20px 20px;
+            border-top-right-radius:20px 20px;
+            .modal_header {
+                width: 100%;
+                height: 29.4px;
+                padding:0;
+                border-bottom:0;
+                position: relative;
+                .btn_close {
+                    top: 50%;
+                    right: 50%;
+                    transform:translate(-50%,-50%);
+                    &::before{
+                        width: 67px;
+                        height: 5px;
+                        border-radius: 100px;
+                        border-top:0;
+                        background-color: #DDDDDD;
+                        position:absolute;
+
+                    }
+                    &::after {display:none;}
+                }
+            }
             .modal_content {
+                padding:0;
+                height:calc(100% - 29.4px);
+                overflow-y:auto;
                 div {
                     ul {
                         li {
+                            padding:16px 28px;
+                            border-bottom:1px solid #F5F5F5;
+                            &:last-of-type {
+                                border-bottom:0;
+                            }
+                            &.active {
+                                color: #00BC70;
+                                font-weight:700;
+                                &::after {
+                                    content: '';
+                                    width:32px;
+                                    height:32px;
+                                    background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+                                    background-repeat:no-repeat;
+                                    background-size:250px;
+                                    background-position:-171px -95px;
+                                    display:inline-block;
+
+
+                                }
+                            }
                             a {
                                 color: #000000;
                                 font-weight: 300;
-                                font-size: 1.2rem;
-                                line-height: 1.25em;
-                                letter-spacing: -0.01em;
+                                font-size: 16px;
+                                line-height: 17.5px;
+                                letter-spacing: -0.14px;
 
                             }
 
