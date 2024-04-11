@@ -26,7 +26,13 @@
 
     <!-- swiper -->
     <div class="best_banner">
-      <div class="inner"></div>
+      <div class="inner">
+        <swiper-container slides-per-view="2" autoplay-delay="3000">
+          <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx" class="item">
+            <img :src="item.img">
+          </swiper-slide>
+        </swiper-container>
+      </div>
     </div>
     <!-- //swiper -->
 
@@ -55,8 +61,12 @@ const props = defineProps({
     }
 });
 
+import { register } from 'swiper/element/bundle';
+register();
+
 import {
-  sample_goods
+  sample_goods,
+  sampleSlide
 } from '~/test/data/dummyData'
 
 </script>
