@@ -64,7 +64,7 @@ const comm_arry = ([
 const PC_arry = ([
     {
         depth:['pc_공통','헤더','',''],
-        id:'Header', status:'ing',
+        id:'Header', status:'com',
         type:'component', note:'/component/Header/pc',
         sDate:'', eDate:'', worker:'형민우'
     }, {
@@ -553,7 +553,7 @@ const PC_arry = ([
 const MO_arry = ([
     {
         depth:['mo_공통','헤더','',''],
-        id:'Header', status:'',
+        id:'Header', status:'ing',
         type:'component', note:'/component/Header/mo',
         sDate:'', eDate:'', worker:'형민우'
     }, {
