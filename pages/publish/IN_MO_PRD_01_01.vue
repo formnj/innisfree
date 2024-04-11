@@ -5,9 +5,9 @@
         </h2>
 
         <div class="pdtSortTab_wrap">
-			<div class="sortTab">
-				<button class="btn_dropdown" @click="modal.open('sample_modal_sort', 'bottom');" >추천순</button>
-			</div>
+            <div class="sortTab">
+                <button class="btn_dropdown" @click="modal.open('sample_modal_sort', 'bottom');" >추천순</button>
+            </div>
             <button @click="modal.open('sample_modal_search', 'bottom');">상세검색</button>
         </div>
     </div>
@@ -47,15 +47,98 @@
                 <button class="btn_close" @click="modal.close(this);">닫기</button>
             </div>
             <div class="modal_content">
-                <div> Sample Modal </div>
+                <dl class="sortList">
+                  <dt>혜택별</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">증정</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="sortList">
+                  <dt>고민별</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">트러블/리페어</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">영양/토탈안티에이징</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">잡티/피부톤</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">주름/탄력</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">수분/보습/속건조</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">각질/피부결</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="sortList">
+                  <dt>기능성</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">미백</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">주름개선</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">비건인증</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="sortList">
+                  <dt>공병수거</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">공병수거 가능</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
             </div>
             <div class="modal_footer">
-                <Button class="btn_big btn_type_01" txt="초기화" />
+                <Button class="btn_big btn_reset" txt="초기화" />
                 <Button class="btn_big btn_type_02" txt="검색" />
             </div>
         </div>
         <div class="overlay" @click="modal.close(this);"></div>
     </div>
+
 </template>
 
 <script setup>
@@ -186,6 +269,10 @@ const modal = {
         e.preventDefault();
     }
 }
+const setFilter = (event) =>{
+  const target = event.currentTarget;
+  target.classList.toggle('active')
+}
 </script>
 
 <style lang="scss" scoped>
@@ -203,8 +290,10 @@ const modal = {
             padding:3px 6px;
             color:#000;
             font-size:13px;
+            font-weight:600;
             white-space:nowrap;
             border-radius:999px;
+            background:transparent;
             position:absolute;
             top:0;
             left:100%;
@@ -255,29 +344,6 @@ const modal = {
             background-position:-130px -60px;
         }
     }
-    ul {
-        width:170px;
-        height:0px;
-        padding:10px 0;
-        background:#fff;
-        position:absolute;
-        left:-70px;
-        top:45px;
-        z-index:1;
-        overflow:hidden;
-        transition:all 0.2s;
-        li {
-            padding:10px 15px;
-            a {
-                color:#888;
-                font-size:14px;
-                transition:all 0.1s;
-                &.active {
-                    color:#00BC70;
-                }
-            }
-        }
-    }
 }
 
 .goods_list {
@@ -295,86 +361,6 @@ const modal = {
     .modal_container {
         z-index:100;
     }
-    &#sample_modal_sort{
-        .modal_container {
-            border-top-left-radius:20px 20px;
-            border-top-right-radius:20px 20px;
-            .modal_header {
-                width: 100%;
-                height: 29.4px;
-                padding:0;
-                border-bottom:0;
-                position: relative;
-                .btn_close {
-                    top: 50%;
-                    right: 50%;
-                    transform:translate(-50%,-50%);
-                    &::before{
-                        width: 67px;
-                        height: 5px;
-                        border-radius: 100px;
-                        border-top:0;
-                        background-color: #DDDDDD;
-                        position:absolute;
-                        transform: rotate(0deg);
-
-                    }
-                    &::after {display:none;}
-                }
-            }
-            .modal_content {
-                padding:0;
-                height:calc(100% - 29.4px);
-                overflow-y:auto;
-                div {
-                    ul {
-                        li {
-                            padding:16px 28px;
-                            border-bottom:1px solid #F5F5F5;
-                            &:last-of-type {
-                                border-bottom:0;
-                            }
-                            &.active {
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                &::after {
-                                    content: '';
-                                    width:22.4px;
-                                    height:22.4px;
-                                    background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
-                                    background-repeat:no-repeat;
-                                    background-size:250px;
-                                    background-position:-203px -88px;
-                                    display:inline-block;
-                                }
-                                a {
-                                    color: #00BC70;
-                                    font-weight:700;
-                                }
-                            }
-                            a {
-                                color: #000000;
-                                font-weight: 300;
-                                font-size: 16px;
-                                line-height: 17.5px;
-                                letter-spacing: -0.14px;
-
-                            }
-
-                        }
-                }
-                }
-            }
-            .modal_footer{}
-        }
-    }
-    &#sample_modal_search {
-        .modal_container {
-            .modal_header {}
-            .modal_contnet {}
-            .modal_footer{}
-        }
-    }
 }
+
 </style>
