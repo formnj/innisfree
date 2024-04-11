@@ -6,18 +6,9 @@
 
         <div class="pdtSortTab_wrap">
 			<div class="sortTab">
-				<button class="btn_dropdown" @click="Drop_Down()" >추천순</button>
-				<ul>
-					<li><a href="#none" class="active">추천순</a></li>
-					<li><a href="#none">신제품순</a></li>
-					<li><a href="#none">판매량순</a></li>
-					<li><a href="#none">낮은 가격순</a></li>
-					<li><a href="#none">높은 가격순</a></li>
-					<li><a href="#none">리뷰순</a></li>
-					<li><a href="#none">판매금액순</a></li>
-				</ul>
+				<button class="btn_dropdown" @click="modal.open('sample_modal_sort', 'bottom');" >추천순</button>
 			</div>
-            <button @click="modal.open('sample_modal', 'full');">상세검색</button>
+            <button @click="modal.open('sample_modal_search', 'bottom');">상세검색</button>
         </div>
     </div>
     <div class="list_wrap">
@@ -27,18 +18,40 @@
             </li>
         </ul>
     </div>
-    <div class="modal_wrap" id="sample_modal">
+    <div class="modal_wrap" id="sample_modal_sort">
         <div class="modal_container">
             <div class="modal_header">
-                <h2>Modal Title</h2>
+                <button class="btn_close" @click="modal.close(this);"></button>
+            </div>
+            <div class="modal_content">
+                <div>
+                    <ul>
+                        <li><a href="#none" class="active">추천순</a></li>
+                        <li><a href="#none">신제품순</a></li>
+                        <li><a href="#none">판매량순</a></li>
+                        <li><a href="#none">낮은 가격순</a></li>
+                        <li><a href="#none">높은 가격순</a></li>
+                        <li><a href="#none">리뷰순</a></li>
+                        <li><a href="#none">판매금액순</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" @click="modal.close(this);"></div>
+    </div>
+
+    <div class="modal_wrap" id="sample_modal_search">
+        <div class="modal_container">
+            <div class="modal_header">
+                <h2>상세검색</h2>
                 <button class="btn_close" @click="modal.close(this);">닫기</button>
             </div>
             <div class="modal_content">
                 <div> Sample Modal </div>
             </div>
             <div class="modal_footer">
-                <Button class="btn_outline" txt="cancel" />
-                <Button txt="OK" />
+                <Button class="btn_big btn_type_01" txt="초기화" />
+                <Button class="btn_big btn_type_02" txt="검색" />
             </div>
         </div>
         <div class="overlay" @click="modal.close(this);"></div>
@@ -177,7 +190,7 @@ const modal = {
 
 <style lang="scss" scoped>
 .title_wrap {
-    padding:3.0rem 0 2.0rem;
+    padding:35px 0 25px;
     position:relative;
     z-index:1;
     display:flex;
@@ -203,18 +216,67 @@ const modal = {
     }
     .pdtSortTab_wrap {
         margin-left:auto;
+        position:relative;
         display:flex;
         align-items:center;
+        button {
+            padding:0 10px;
+            font-size:13px;
+            font-weight:600;
+            line-height: 1.43em;
+            letter-spacing: -0.01em;
+            display:flex;
+            align-items:center;
+            &::after {
+                content:'';
+                width:16px;
+                height:16px;
+                margin-left:5px;
+                display:inline-block;
+            }
+        }
     }
 }
 
 .sortTab {
     position:relative;
+    > button::after {
+        background-image: url('../../assets/images/common/PC-icon_split.png');
+        background-size:250px;
+        background-repeat:no-repeat;
+        background-position:-110px -60px;
+    }
+    & ~ button {
+        position:relative;
+        &::after {
+            background-image: url('../../assets/images/common/PC-icon_split.png');
+            background-size:250px;
+            background-repeat:no-repeat;
+            background-position:-130px -60px;
+        }
+    }
     ul {
+        width:170px;
+        height:0px;
+        padding:10px 0;
+        background:#fff;
         position:absolute;
-        top:100%;
-        left:0;
-        display:none;
+        left:-70px;
+        top:45px;
+        z-index:1;
+        overflow:hidden;
+        transition:all 0.2s;
+        li {
+            padding:10px 15px;
+            a {
+                color:#888;
+                font-size:14px;
+                transition:all 0.1s;
+                &.active {
+                    color:#00BC70;
+                }
+            }
+        }
     }
 }
 
@@ -225,6 +287,43 @@ const modal = {
         width:50%;
         padding-top:40px;
         padding-left:20px;
+    }
+}
+
+
+.modal_wrap {
+    .modal_container {
+        z-index:100;
+    }
+    &#sample_modal_sort{
+        .modal_container {
+            top:55vh;
+            .modal_content {
+                div {
+                    ul {
+                        li {
+                            a {
+                                color: #000000;
+                                font-weight: 300;
+                                font-size: 1.2rem;
+                                line-height: 1.25em;
+                                letter-spacing: -0.01em;
+
+                            }
+
+                        }
+                }
+                }
+            }
+            .modal_footer{}
+        }
+    }
+    &#sample_modal_search {
+        .modal_container {
+            .modal_header {}
+            .modal_contnet {}
+            .modal_footer{}
+        }
     }
 }
 </style>
