@@ -130,7 +130,7 @@
                 </dl>
             </div>
             <div class="modal_footer">
-                <Button class="btn_big btn_type_01" txt="초기화" />
+                <Button class="btn_big btn_reset" txt="초기화" />
                 <Button class="btn_big btn_type_02" txt="검색" />
             </div>
         </div>
@@ -383,125 +383,12 @@ const setFilter = (event) =>{
 }
 
 .goods_list {
-    margin-top:-40px;
-    margin-left:-20px;
-    > li {
-        width:25%;
-        padding-top:40px;
-        padding-left:20px;
-    }
+  margin-left:-20px;
+  > li {
+      width:25%;
+      padding-left:20px;
+  }
 }
-
-.paging {
-        overflow:hidden;
-        margin:90px 0 0;
-        > div {
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            text-align:center;
-            a {
-                width:40px;
-                height:40px;
-                color:#999;
-                font-size:16px;
-                display:inline-block;
-                line-height:40px;
-                &.first {
-                    width:40px;
-                    height:40px;
-                    background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
-                    background-repeat:no-repeat;
-                    background-size:250px;
-                    background-position: -120px -88px;
-                    transform: rotate(180deg);
-                    text-indent:-9999px;
-                }
-                &.last {
-                    width:40px;
-                    height:40px;
-                    background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
-                    background-repeat:no-repeat;
-                    background-size:250px;
-                    background-position: -120px -88px;
-                    text-indent:-9999px;
-                }
-                &.active {
-                    color:#222;
-                    position:relative;
-                    &::after {
-                    content:'';
-                    position:absolute;
-                    left:50%;
-                    bottom:0px;
-                    width:50%;
-                    height:3px;
-                    background:#00BC70;
-                    display:inline-block;
-                    transform:translateX(-50%);
-                    }
-                }
-            }
-        }
-    }
-    .modal_wrap {
-      .modal_container {
-        .modal_header {
-          padding:50px 40px 0;
-          border-bottom:0;
-          h2 {
-            font-size: 24px;
-            font-weight: 600;
-            line-height: 1.33em;
-            letter-spacing: -0.01em;
-          }
-          .btn_close {
-            top:45px;
-            right:40px;
-          }
-
-        }
-        .modal_content {
-          padding:40px;
-          flex:none;
-        }
-        .modal_footer {
-          gap:0px;
-          button {
-            &.btn_type_01 {
-              width:180px;
-              background-color: #EEEEEE !important;
-              em {
-                color: #666666 !important;
-                display:flex;
-                align-items:center;
-                &::before {
-                  content: '';
-                  width:24px;
-                  height:24px;
-                  background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
-                  background-repeat:no-repeat;
-                  background-size:250px;
-                  background-position:-171px -95px;
-                  display:inline-flex;
-                }
-              }
-            }
-            &.btn_type_02 {
-              background-color: #00BC70;
-              flex:1;
-              em {
-                color: #fff !important;
-              }
-            }
-            em {
-              font-size:16px;
-              font-weight:600;
-            }
-          }
-        }
-      }
-    }
     .sortList {
       margin-bottom:30px;
       dt {

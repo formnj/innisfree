@@ -269,7 +269,7 @@ const Drop_Down = () => {
 </script>
 
 <style lang="scss" scoped>
-.categorylist{  
+.categorylist{
     * {
         box-sizing:border-box;
     }
@@ -317,10 +317,10 @@ const Drop_Down = () => {
                                     top:50%;
                                     right:5px;
                                     transform:translateY(-50%);
-                                    
+
                                 }
                                 }
-                               
+
                             }
                            a {
                             &.all {
@@ -336,7 +336,7 @@ const Drop_Down = () => {
                                     margin-left:5px;
                                     background-image: url('/_nuxt/assets/images/categorylist/ico_plus16_gray.png');
                                     display:inline-block;
-                                    
+
                                 }
                             }
                            }
@@ -369,7 +369,7 @@ const Drop_Down = () => {
                                 top:3px;
                                 right:-40px;
                                 display:inline-block;
-                                
+
                             }
                         }
                         &.pdtSortTab_wrap {
@@ -409,9 +409,9 @@ const Drop_Down = () => {
                                             left:0;
                                             display:inline-block;
                                             transform:translateY(-50%);
-                                        } 
+                                        }
                                     }
-                                }    
+                                }
                             }
                             > ul {
                                 width:170px;
@@ -446,7 +446,7 @@ const Drop_Down = () => {
                         }
                     }
                 }
-               
+
             }
 
         }
@@ -564,7 +564,7 @@ const Drop_Down = () => {
                     margin-bottom:20px;
                     position:relative;
                     z-index:99;
-                    display:flex; 
+                    display:flex;
                     align-items:center;
                     justify-content:space-between;
                     .pdtSortTab_wrap{
@@ -604,10 +604,10 @@ const Drop_Down = () => {
                                         left:0;
                                         display:inline-block;
                                         transform:translateY(-50%);
-                                    } 
+                                    }
                                 }
                             }
-                            
+
                         }
                         > ul {
                             width:170px;
@@ -650,7 +650,7 @@ const Drop_Down = () => {
                                 color:#00BC70;
                             }
                         }
-                        
+
                     }
                 }
                 .list_wrap {
@@ -664,7 +664,7 @@ const Drop_Down = () => {
                 }
             }
         }
-       
+
     } //mo
     .paging {
         margin-top:60px;
