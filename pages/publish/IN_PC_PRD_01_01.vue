@@ -130,7 +130,7 @@
                 </dl>
             </div>
             <div class="modal_footer">
-                <Button class="btn_big btn_type_01" txt="초기화" />
+                <Button class="btn_big btn_reset" txt="초기화" />
                 <Button class="btn_big btn_type_02" txt="검색" />
             </div>
         </div>
@@ -389,64 +389,6 @@ const setFilter = (event) =>{
       padding-left:20px;
   }
 }
-    .modal_wrap {
-      .modal_container {
-        .modal_header {
-          padding:50px 40px 0;
-          border-bottom:0;
-          h2 {
-            font-size: 24px;
-            font-weight: 600;
-            line-height: 1.33em;
-            letter-spacing: -0.01em;
-          }
-          .btn_close {
-            top:45px;
-            right:40px;
-          }
-
-        }
-        .modal_content {
-          padding:40px;
-          flex:none;
-        }
-        .modal_footer {
-          gap:0px;
-          button {
-            &.btn_type_01 {
-              width:180px;
-              background-color: #EEEEEE !important;
-              em {
-                color: #666666 !important;
-                display:flex;
-                align-items:center;
-                &::before {
-                  content: '';
-                  width:24px;
-                  height:24px;
-                  background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
-                  background-repeat:no-repeat;
-                  background-size:250px;
-                  background-position:-171px -95px;
-                  display:inline-flex;
-                }
-              }
-            }
-            &.btn_type_02 {
-              background-color: #00BC70;
-              flex:1;
-              em {
-                color: #fff !important;
-              }
-            }
-            em {
-              font-size:16px;
-              font-weight:600;
-            }
-          }
-        }
-      }
-    }
     .sortList {
       margin-bottom:30px;
       dt {
