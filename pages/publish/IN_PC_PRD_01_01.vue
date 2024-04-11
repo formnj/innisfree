@@ -310,7 +310,7 @@ const setFilter = (event) =>{
 .sortTab {
     position:relative;
     > button::after {
-        background-image: url('../../assets/images/common/PC-icon_split.png');
+        background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
         background-size:250px;
         background-repeat:no-repeat;
         background-position:-110px -60px;
@@ -318,7 +318,7 @@ const setFilter = (event) =>{
     & ~ button {
         position:relative;
         &::after {
-            background-image: url('../../assets/images/common/PC-icon_split.png');
+            background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
             background-size:250px;
             background-repeat:no-repeat;
             background-position:-130px -60px;
