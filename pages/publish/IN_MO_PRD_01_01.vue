@@ -316,6 +316,7 @@ const modal = {
                         border-top:0;
                         background-color: #DDDDDD;
                         position:absolute;
+                        transform: rotate(0deg);
 
                     }
                     &::after {display:none;}
@@ -334,19 +335,22 @@ const modal = {
                                 border-bottom:0;
                             }
                             &.active {
-                                color: #00BC70;
-                                font-weight:700;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
                                 &::after {
                                     content: '';
-                                    width:32px;
-                                    height:32px;
+                                    width:22.4px;
+                                    height:22.4px;
                                     background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
                                     background-repeat:no-repeat;
                                     background-size:250px;
-                                    background-position:-171px -95px;
+                                    background-position:-203px -88px;
                                     display:inline-block;
-
-
+                                }
+                                a {
+                                    color: #00BC70;
+                                    font-weight:700;
                                 }
                             }
                             a {
