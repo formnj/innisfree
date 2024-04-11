@@ -283,28 +283,6 @@ const setFilter = (event) =>{
 
 <style lang="scss">
 .title_wrap {
-    padding:60px 0;
-    position:relative;
-    z-index:10;
-    display:flex;
-    h2 {
-        font-size:38px;
-        font-weight:300;
-        position:relative;
-        .pdt_count {
-            margin-left:5px;
-            padding:3px 6px;
-            color:#fff;
-            font-size:13px;
-            white-space:nowrap;
-            background-color:#00BC70;
-            border-radius:999px;
-            position:absolute;
-            top:0;
-            left:100%;
-            display:block;
-        }
-    }
     .pdtSortTab_wrap {
         margin-left:auto;
         position:relative;
