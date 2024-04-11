@@ -64,7 +64,7 @@ const comm_arry = ([
 const PC_arry = ([
     {
         depth:['pc_공통','헤더','',''],
-        id:'Header', status:'ing',
+        id:'Header', status:'com',
         type:'component', note:'/component/Header/pc',
         sDate:'', eDate:'', worker:'형민우'
     }, {
@@ -74,7 +74,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-24/', worker:'형민우'
     }, {
         depth:['','푸터','',''],
-        id:'Footer', status:'',
+        id:'Footer', status:'com',
         type:'component', note:'/component/Footer/pc',
         sDate:'', eDate:'', worker:'김희경'
     }, {
@@ -120,7 +120,7 @@ const PC_arry = ([
     }, {
         depth:['','베스트','',''],
         id:'IN_PC_HOM_01_00-1', status:'ing',
-        type:'', note:'',
+        type:'', note:'swiper 샘플 완료 후 적용',
         sDate:'', eDate:'2024-04-12/', worker:'이종환'
     }, {
         depth:['','쇼케이스(T)','',''],
@@ -553,7 +553,7 @@ const PC_arry = ([
 const MO_arry = ([
     {
         depth:['mo_공통','헤더','',''],
-        id:'Header', status:'',
+        id:'Header', status:'ing',
         type:'component', note:'/component/Header/mo',
         sDate:'', eDate:'', worker:'형민우'
     }, {
@@ -563,7 +563,7 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-24/', worker:'형민우'
     }, {
         depth:['','푸터','',''],
-        id:'Footer', status:'',
+        id:'Footer', status:'com',
         type:'component', note:'/component/Footer/mo',
         sDate:'', eDate:'', worker:'김희경'
     }, {
@@ -603,9 +603,9 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','베스트','',''],
-        id:'IN_MO_HOM_01_00-1', status:'',
+        id:'IN_MO_HOM_01_00-1', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-12/', worker:'형민우'
+        sDate:'', eDate:'2024-04-12/', worker:'이종환'
     }, {
         depth:['','쇼케이스(T)','',''],
         id:'IN_MO_HOM_01_12', status:'',
@@ -633,9 +633,9 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-19/', worker:''
     }, {
         depth:['상품','목록','',''],
-        id:'IN_MO_PRD_01_01', status:'ing',
+        id:'IN_MO_PRD_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-24/', worker:'김희경'
+        sDate:'', eDate:'2024-04-24/2024-04-11', worker:'김희경'
     }, {
         depth:['','상세','',''],
         id:'IN_MO_PRD_01_09', status:'',

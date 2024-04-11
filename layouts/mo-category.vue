@@ -1,6 +1,6 @@
 <template>
     <div id="wrap">
-        <HeaderMoSub headers="events" />
+        <HeaderMoSub />
         <div id="container" :class="device">
             <div class="content_wrap">
                 <div class="content">

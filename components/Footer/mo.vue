@@ -20,7 +20,7 @@
         <ul>
           <li class="mo"><a href="#none">이용약관</a></li>
           <li class="mo"><a href="#none" class="active">개인정보처리방침</a></li>
-          <li class="mo"><a href="#none">영상기기관리방침</a></li>  
+          <li class="mo"><a href="#none">영상기기관리방침</a></li>
           <li class="mo"><a href="#none">위치기반서비스 이용약관</a></li>
           <li class="mo"><a href="#none">사업자정보확인</a></li>
           <li class="mo"><a href="#none">약관및법적고지확인</a></li>
@@ -68,6 +68,7 @@
 
 <style lang="scss" scoped>
 footer {
+  margin-top:90px;
   background-color:#F5F5F5;
   .inner {
     padding:40px 21px;
@@ -99,7 +100,7 @@ footer {
         font-weight:600;
         display:flex;
         gap:10px;
-        flex-wrap:wrap; 
+        flex-wrap:wrap;
         li {
             padding:6px 8px;
             border:0.5px solid #999;
@@ -134,7 +135,7 @@ footer {
               content:'';
               width:1px;
               height:10px;
-              
+
               background:#ddd;
               position:absolute;
               top:50%;

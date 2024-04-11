@@ -6,118 +6,66 @@
     <header>
         <div class="inner">
             <h1><a href="/publish"><img src="/assets/images/common/logo_innisfree.png"></a></h1>
-            <div class="search_wrap">
+            <div class="icon_menu">
+              <Icons class="btn_search" txt="검색" />
+              <Icons class="cart" txt="50" />
+            </div>
+            <!-- search layer -->
+            <div class="search_layer">
                 <div class="search">
-                    <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
-                    <Button class="btn_search" />
-                </div>
-                <!-- search layer -->
-                <div class="search_layer">
-                    <div class="search">
-                        <Button txt="닫기" class="sam_close" @click="search_close" />
-                        <div>
-                            <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
-                            <Button class="btn_search" />
-                        </div>
-                        <ul class="icon_menu">
-                            <li>
-                                <a href="#none" class="cart">장바구니
-                                    <em>5</em>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <section>
-                        <strong>최근 검색어
-                            <Button class="btn_txt" txt="전체삭제" @click="keyword_del_all" />
-                        </strong>
-                        <ul class="latest">
-                            <template  v-if="key_cnt > 0">
-                                <li v-for="(item, idx) in latest" :key="idx">
-                                    <div v-if="key_cnt > 0">
-                                        <a href="#none">{{ item }}</a>
-                                        <Button class="btn_del" @click="keyword_del" />
-                                    </div>
-                                </li>
-                            </template>
-                            <template v-else>
-                                <li class="no_data">최근 검색어가 없습니다.</li>
-                            </template>
-                        </ul>
-                    </section>
-                    <section>
-                        <strong>카테고리</strong>
-                        <ul class="category">
-                            <li v-for="item in category" :key="item">
-                                <a href="#none">
-                                    <span class="thumb">
-                                        <em><img :src="item.img" /></em>
-                                    </span>
-                                    <p>{{ item.txt }}</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-                <!-- //search layer -->
-            </div>
-            <div class="quick_wrap">
-                <ul class="icon_menu">
-                    <li>
-                        <a href="#none" class="cart">장바구니
-                            <em>5</em>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="gnb_wrap">
-            <div class="inner">
-                <nav class="navGnb">
-                    <ul>
-                        <li>
-                            <a href="#none">이벤트</a>
-                        </li>
-                        <li>
-                            <a href="#none" class="point">특가</a>
-                        </li>
-                        <li>
-                            <a href="#none">베스트</a>
-                        </li>
-                        <li>
-                            <a href="#none">쿠폰존</a>
-                        </li>
-                        <li>
-                            <a href="#none">쇼케이스</a>
-                        </li>
-                        <li>
-                            <a href="#none">라이브</a>
-                        </li>
-                        <li>
-                            <a href="#none">FOR ME</a>
-                        </li>
-                        <li>
-                            <a href="#none">임직원샵</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div class="navCategory" @mouseleave="cate_layer.close">
-                <!-- mo search -->
-                <div class="search">
-                    <Button txt="닫기" class="sam_close" @click="cate_layer.close" />
+                    <Icons class="back" txt="닫기" @click="search_close" />
                     <div>
                         <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
-                        <Button class="btn_search" />
+                        <Icons class="btn_search" txt="검색" />
                     </div>
-                    <ul class="icon_menu">
-                        <li>
-                            <a href="#none" class="cart">장바구니
-                                <em>5</em>
+                    <Icons class="cart" txt="50" />
+                </div>
+                <section>
+                    <strong>최근 검색어
+                        <Button class="btn_txt" txt="전체삭제" @click="keyword_del_all" />
+                    </strong>
+                    <ul class="latest">
+                        <template  v-if="key_cnt > 0">
+                            <li v-for="(item, idx) in latest" :key="idx">
+                                <div v-if="key_cnt > 0">
+                                    <a href="#none">{{ item }}</a>
+                                    <Button class="btn_del" @click="keyword_del" />
+                                </div>
+                            </li>
+                        </template>
+                        <template v-else>
+                            <li class="no_data">최근 검색어가 없습니다.</li>
+                        </template>
+                    </ul>
+                </section>
+                <section>
+                    <strong>카테고리</strong>
+                    <ul class="category">
+                        <li v-for="item in category" :key="item">
+                            <a href="#none">
+                                <span class="thumb">
+                                    <em><img :src="item.img" /></em>
+                                </span>
+                                <p>{{ item.txt }}</p>
                             </a>
                         </li>
                     </ul>
+                </section>
+            </div>
+            <!-- //search layer -->
+        </div>
+        <div class="gnb_wrap">
+            <NavGnb :gnb="gnb_list" />
+
+            <div class="navCategory">
+                <!-- mo search -->
+                <div class="search">
+                    <Icons class="back" txt="닫기" @click="cate_layer.close" />
+                    <div>
+                        <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
+                        <Icons class="btn_search" txt="검색" />
+                      </div>
+                    <Icons class="cart" txt="50" />
                 </div>
                 <!-- //mo search -->
 
@@ -268,6 +216,8 @@ const global_menu = [
 
 ]
 
+const gnb_list = ['이벤트', '특가', '베스트', '쿠폰존', '쇼케이스', '라이브', 'FOR ME', '임직원샵']
+
 const latest = ['그린티 스킨','그린티 세럼','스킨','세럼','그린티 히알루론산','콜라겐','팩트','노세범','파우더','팩']
 
 const category = [
@@ -381,9 +331,7 @@ const search_close = (e) => {
 
 /* category layer */
 const cate_layer = {
-    open: () => {
-        document.querySelector('.navCategory').classList.add('active');
-    }, close: () => {
+    close: () => {
         document.querySelector('.navCategory').classList.remove('active');
     }
 }
@@ -428,55 +376,9 @@ header {
             }
         }
         .icon_menu {
-            font-size:0;
-            li > * {
-                width:32px;
-                height:32px;
-                background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
-                background-repeat:no-repeat;
-                background-size:250px auto;
-                position:relative;
-                display:block;
-                &.cart {
-                    background-position:-40px 0;
-                    em {
-                        height:17px;
-                        padding:0 5px;
-                        color:#fff;
-                        font-size:10px;
-                        font-weight:600;
-                        line-height:17px;
-                        background-color:#000;
-                        border-radius:100px;
-                        position:absolute;
-                        right:-5px;
-                        bottom:-5px;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                    }
-                }
-            }
-        }
-        .search_wrap {
             margin-left:auto;
-            position:relative;
-            & > .search {
-                .label_wrap {
-                    display:none;
-                }
-                .btn_search {
-                    width:32px;
-                    height:32px;
-                    font-size:0;
-                    background-color:transparent;
-                    background-image:url("/_nuxt/assets/mo_images/common/icon_split.png");
-                    background-position:0 0;
-                    background-repeat:no-repeat;
-                    background-size:250px auto;
-                    position:relative;
-                }
-            }
+            display:flex;
+            gap:10px;
         }
         .search_layer {
             background-color:#fff;
@@ -511,6 +413,7 @@ header {
                 border-bottom:1px solid #ddd;
                 border-radius:0;
                 display:flex;
+                align-items:center;
                 & > div {
                     border:1px solid #000;
                     border-radius:5px;
@@ -520,13 +423,12 @@ header {
                     flex:1;
                 }
                 ::v-deep .input {
+                    i, input {
+                        font-size:13px;
+                    }
                     input {
                         padding-right:5px;
-                        font-size:13px;
                         border:0;
-                    }
-                    i {
-                        font-size:13px;
                     }
                 }
                 .btn_search {
@@ -534,25 +436,15 @@ header {
                     height:24px;
                     margin-right:10px;
                     background-color:transparent;
-                    background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
                     background-position:0 -40px;
-                    background-repeat:no-repeat;
-                    background-size:250px auto;
-                    display:block;
-                    ::v-deep em {
-                        padding:0;
-                        font-size:0;
-                    }
                 }
-                .icon_menu {
-                    margin-left:10px;
-                    display:flex;
-                    align-items:center;
-                    li + li {
-                        margin-left:10px;
-                    }
+                .back {
+                  margin-right:10px;
                 }
-            }
+                .cart {
+                  margin-left:10px;
+                }
+              }
             section {
                 padding:28px;
                 & + section:before {
@@ -640,73 +532,6 @@ header {
                 }
             }
         }
-        .keyword_wrap {
-            height:40px;
-            font-weight:600;
-            overflow:hidden;
-            li > * {
-                padding:11px 0;
-                line-height:18px;
-                display:flex;
-                align-items:center;
-                    em {
-                        width:22px;
-                        margin-right:5px;
-                        font-size:13px;
-                        text-align:center;
-                    }
-                &:after {
-                    width:12px;
-                    height:12px;
-                    margin-left:10px;
-                    background-image:url('/_nuxt/assets/images/common/icon_split.png');
-                    background-position:-20px -60px;
-                    background-repeat:no-repeat;
-                    background-size:250px auto;
-                    content:'';
-                    display:block;
-                }
-                &.up:after {
-                    background-position:0 -60px;
-                }
-                &.down:after {
-                    background-position:-40px -60px;
-                }
-                &.new:after {
-                    background-position:-60px -60px;
-                }
-            }
-        }
-        .quick_wrap {
-            display:flex;
-            ul {
-                display:flex;
-                &.quick {
-                    li {
-                        position:relative;
-                        & + li:before {
-                            height:10px;
-                            border-left:1px solid #eee;
-                            content:'';
-                            position:absolute;
-                            top:50%;
-                            left:0;
-                            display:block;
-                            transform:translateY(-50%);
-                        }
-                    }
-                    a {
-                        padding:4px 16px;
-                        color:#666;
-                        font-size:12px;
-                        display:block;
-                    }
-                }
-                &.icon_menu {
-                    margin-right:5px;
-                }
-            }
-        }
     }
     .gnb_wrap {
         margin:6px -21px 0;
@@ -782,7 +607,7 @@ header {
                     align-items: center;
                     flex: 1;
                 }
-                .input {
+                ::v-deep .input {
                     i, input {
                         font-size:13px;
                     }
@@ -796,54 +621,13 @@ header {
                     height: 24px;
                     margin-right: 10px;
                     background-color: transparent;
-                    background-image: url(/_nuxt/assets/mo_images/common/icon_split.png);
                     background-position: 0 -40px;
-                    background-repeat: no-repeat;
-                    background-size: 250px auto;
-                    display: block;
                 }
-            }
-            .icon_menu {
-                font-size:0;
-                li {
-                    margin-left:12px;
+                .back {
+                  margin-right:10px;
                 }
-                li > * {
-                    width: 32px;
-                    height: 32px;
-                    background-image: url('/_nuxt/assets/mo_images/common/icon_split.png');
-                    background-repeat: no-repeat;
-                    background-size: 250px auto;
-                    position: relative;
-                    display: block;
-                    &.wish {
-                        background-position:-110px -30px;
-                    }
-                    &.mypage {
-                        background-position:-140px -30px;
-                    }
-                    &.delivery {
-                        background-position:-170px -30px;
-                    }
-                    &.cart {
-                        background-position:-40px 0;
-                        em {
-                            height:17px;
-                            padding:0 5px;
-                            color:#fff;
-                            font-size:10px;
-                            font-weight:600;
-                            line-height:17px;
-                            background-color:#000;
-                            border-radius:100px;
-                            position:absolute;
-                            right:-5px;
-                            bottom:-5px;
-                            display:flex;
-                            align-items:center;
-                            justify-content:center;
-                        }
-                    }
+                .cart {
+                  margin-left:10px;
                 }
             }
             .banner {
@@ -873,7 +657,7 @@ header {
                 flex:1;
                 .nav_wrap {
                     height:100%;
-                    max-height:336px;
+                    max-height:385px;
                     display:flex;
                     > ul {
                         width:37.333333%;

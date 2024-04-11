@@ -4,11 +4,11 @@
             <a href="#none">Home</a>
             <dl v-for="(item, idx) in item" :key="idx" @mouseenter="breadcrumb.open" @mouseleave="breadcrumb.close">
                 <dt>
-                    <Button class="btn_txt" :txt="item.depth01" />
+                    <Button class="btn_txt" :txt="item.menuText" />
                 </dt>
                 <dd>
                     <ul>
-                        <li v-for="item in item.sub_depth" :key="item"><a href="#none">{{item}}</a></li>
+                        <li v-for="item in item.subMenuList" :key="item"><a :href="item.url">{{item.menuText}}</a></li>
                     </ul>
                 </dd>
             </dl>
@@ -35,9 +35,6 @@
 .breadcrumb {
     border-bottom:1px solid #ddd;
     .inner {
-        max-width:1320px;
-        margin:0 auto;
-        padding:0 20px;
         display:flex;
         > a {
             font-size:0;
