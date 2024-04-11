@@ -1,4 +1,4 @@
-/* #wrap.mo : 모바일 스타일 */
+@import "~/assets/scss/_mo_mixin";
 
 .lockbody {
     overflow:hidden;
@@ -41,13 +41,6 @@
     }
 }
 
-#wrap.MO {
-    .docTopBanner {
-        padding-right:21px;
-        justify-content:space-between;
-    }
-}
-
 .form_group {
     > li + li {
         margin-top:20px;
@@ -63,6 +56,33 @@
     gap:10px;
     flex-wrap:wrap;
 
+}
+
+.title_wrap {
+  max-width:1320px;
+  margin:0 auto;
+  padding:60px 0;
+  position:relative;
+  z-index:2;
+  display:flex;
+  h2 {
+    font-size:38px;
+    font-weight:300;
+    position:relative;
+    .pdt_count {
+      margin-left:5px;
+      padding:3px 6px;
+      color:#fff;
+      font-size:13px;
+      white-space:nowrap;
+      background-color:#00BC70;
+      border-radius:999px;
+      position:absolute;
+      top:0;
+      left:100%;
+      display:block;
+    }
+  }
 }
 
 /* modal */
@@ -380,13 +400,13 @@
 /* goods list */
 .goods_list {
     margin-top:-40px;
-    margin-left:-15px;
+    margin-left:-20px;
     display:flex;
     flex-wrap:wrap;
     > li {
         width:20%;
         padding-top:40px;
-        padding-left:15px;
+        padding-left:20px;
         position:relative;
     }
 }
@@ -457,5 +477,11 @@
         flex-wrap:wrap;
       }
     }
+  }
+}
+
+@include mobile {
+  html {
+    font-size:62.5%;
   }
 }

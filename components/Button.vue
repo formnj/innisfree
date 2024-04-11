@@ -53,7 +53,7 @@
         }
     }
 
-    /* backgroun-color */
+    /* background-color */
     &.confirm {
         background-color:#00BC70;
         em {
