@@ -119,7 +119,7 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','베스트','',''],
-        id:'IN_PC_BST_01_01', status:'ing',
+        id:'IN_PC_HOM_01_00-1', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-04-12/', worker:'이종환'
     }, {
@@ -603,7 +603,7 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','베스트','',''],
-        id:'IN_MO_BST_01_01', status:'',
+        id:'IN_MO_HOM_01_00-1', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-04-12/', worker:'형민우'
     }, {
