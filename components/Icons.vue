@@ -45,19 +45,13 @@ button {
     }
   }
   &.home {
-    background-image:url('/_nuxt/assets/mo_images/common/ico_home.png');
-    background-position:0;
-    background-size:100% 100%;
+    background-position:-40px -80px;
   }
   &.share {
-    background-image:url('/_nuxt/assets/mo_images/common/ico_share.png');
-    background-position:0;
-    background-size:100% 100%;
+    background-position:-40px -40px;
   }
   &.back {
-    background-image:url('/_nuxt/assets/mo_images/common/ico_back.png');
-    background-position:0;
-    background-size:100% 100%;
+    background-position:0 -80px;
   }
   &.btn_search {
     background-position:0 0;

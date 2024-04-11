@@ -3,7 +3,7 @@
         <a href="#none" class="txt" target="_blank">하나Pay 3만원 결제 시, 하나머니 5천원 적립</a>
         <button type="button" class="btnClose">닫기</button>
     </div>
-    <header :class="headers">
+    <header>
         <div class="inner">
           <div class="menu_wrap">
             <Icons class="back" txt="뒤로가기" />
@@ -155,7 +155,7 @@
           </div>
           <div class="modal_content">
               <ul>
-                <li class="current"><a href="#none">특가</a></li>
+                <li class="active"><a href="#none">특가</a></li>
                 <li><a href="#none">이벤트</a></li>
                 <li><a href="#none">베스트</a></li>
                 <li><a href="#none">쇼케이스</a></li>
@@ -170,6 +170,8 @@
 </template>
 
 <script setup>
+import { register } from 'swiper/element/bundle';
+register();
 /* sample data */
 const global_menu = [
     {
@@ -420,7 +422,7 @@ header {
       position:sticky;
       top:0;
       left:0;
-      z-index:2;
+      z-index:10;
       &.category {
         background:#fff;
         top:-48px;
@@ -430,7 +432,7 @@ header {
         display:flex;
         align-items:center;
         flex-wrap:wrap;
-        :nth-child(2) {
+        >:nth-child(2) {
           margin-left:auto;
         }
         >:last-child {
@@ -781,7 +783,7 @@ header {
                 flex:1;
                 .nav_wrap {
                     height:100%;
-                    max-height:336px;
+                    max-height:385px;
                     display:flex;
                     > ul {
                         width:37.333333%;
@@ -902,8 +904,13 @@ header {
                     border-bottom:5px solid #EEE;
                     overflow:hidden;
                     .quick {
-                        overflow:auto;
-                        display:flex;
+                      overflow:auto;
+                      display:flex;
+                      -ms-overflow-style:none;
+                      scrollbar-width:none;
+                        &::-webkit-scrollbar {
+                          display:none;
+                        }
                         li {
                             a {
                                 padding:16px 24px;
@@ -1012,7 +1019,7 @@ header {
             border-top:0;
           }
         }
-        &.current {
+        &.active {
           a {
             color:#00bc70;
             font-weight:700;
@@ -1022,10 +1029,10 @@ header {
               height:16px;
               color:transparent;
               font-size:0;
-              background-image:url('/_nuxt/assets/mo_images/common/ico_nav.png');
+              background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
               background-repeat:no-repeat;
-              background-position:50% 50%;
-              background-size:100% 100%;
+              background-position:-80px -40px;
+              background-size:250px auto;
               display:block;
             }
           }

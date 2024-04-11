@@ -657,7 +657,7 @@ header {
                 flex:1;
                 .nav_wrap {
                     height:100%;
-                    max-height:336px;
+                    max-height:385px;
                     display:flex;
                     > ul {
                         width:37.333333%;
