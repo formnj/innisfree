@@ -837,7 +837,7 @@ header {
             right:0;
             left:0;
             z-index:2;
-            display:none;
+            // display:none;
             transition:height 0.28s ease-out;
             &.active {
                 display:block;
@@ -865,20 +865,32 @@ header {
                             margin-bottom:20px;
                             border-bottom:1px solid #eee;
                             a {
+                                width:100%;
                                 padding-bottom:10px;
                                 font-size: 16px;
                                 font-weight: 600;
                                 display:block;
+                            }
+                            &:hover {
+                              border-bottom:1px solid #00BC70;
+                              a {
+                                color:#00bc70;
+                              }
                             }
                         }
                         dd {
                             li {
                                 height:31px;
                                 margin-bottom:5px;
-                                display:flex;
-                                align-items:center;
                                 a {
+                                    width:100%;
                                     color:#888;
+                                    display:block;
+                                    &:hover {
+                                      color:#000;
+                                      font-weight:600;
+                                      border-bottom:1px solid #000;
+                                    }
                                 }
                             }
                         }

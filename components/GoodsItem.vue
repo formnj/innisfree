@@ -288,6 +288,8 @@ const props = defineProps({
       }
     .cont {
       > .price {
+        margin-top:0.6rem;
+        margin-bottom:1rem;
         strong {
           font-size:1.4rem;
         }
@@ -298,6 +300,19 @@ const props = defineProps({
           font-size:1rem;
           display:block;
         }
+      }
+      .name {
+        strong {
+          color:#000;
+        }
+      }
+      .review_score {
+        margin-top:1.0rem;
+        font-size:1.0rem;
+      }
+      .sticker em {
+        padding:3px 5px;
+        font-size:1rem;
       }
     }
   }
