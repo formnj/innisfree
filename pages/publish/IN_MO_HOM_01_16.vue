@@ -7,7 +7,7 @@
         AP임직원 전용 특가샵
         <span>구매 전 안내사항을 확인해주세요</span>
       </div>
-      <Button txt="구매 안내사항" class="btn_notify" />
+      <Button txt="구매 안내사항" class="btn_notify" @click="modal.open('sample_modal_buy', 'full')" />
     </section>
   </div>
 
@@ -73,6 +73,52 @@
       </div>
     </div>
     <div class="overlay" @click="modal.close(this)"></div>
+  </div>
+
+  <div class="modal_wrap" id="sample_modal_buy">
+    <div class="modal_container">
+      <div class="modal_header">
+        <h2>임직원샵 이용안내</h2>
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+      </div>
+      <div class="modal_content">
+        <div class="mdWarning">
+          <h4>유의사항</h4>
+          <strong>타 프로모션과 중복 적용 불가</strong>
+          <ul class="list_num">
+            <li><span>1</span> 온·오프 통합 쿠폰 및 기타 할인 쿠폰 중복 적용불가</li>
+            <li><span>2</span> 구매 사은품 지급 시, 본 결제 금액은 총 금액합산에서 제외됩니다.</li>
+          </ul>
+          <strong>구입 수량 제한</strong>
+          <ul class="list_num">
+            <li><span>1</span> 한정 수량으로 많은 고객님께 혜택을 드리기 위하여 수량 제한하는 점 양해 부탁드립니다.</li>
+            <li><span>2</span> 동일 주소지로 여러 ID 분할 구입하시는 고객에 한하여 사전 연락 없이 취소될 수 있습니다.</li>
+          </ul>
+          <strong>기타</strong>
+          <ul class="list_num">
+            <li><span>1</span> N+N 제품에 대한 부분 반품 불가합니다.</li>
+            <li><span>2</span> 교차 구매 여부는 프로모션에 따라 상이할 수 있습니다.</li>
+            <li><span>3</span> 온라인 쇼핑몰 및 오프라인 매장 재고에 따라 판매되는 종류가 다를 수 있습니다.</li>
+            <li><span>4</span> 준비된 수량 소진 시에는 사전 예고없이 종료될 수 있습니다.</li>
+            <li><span>5</span> 당사 사정에 따라 사전 예고없이 비슷한 혹은 더 나은 수준의 혜택으로 대체 변경 될 수 있습니다.</li>
+            <li><span>6</span> 행사 제외 매장 : 면세점, 제주하우스 등</li>
+          </ul>
+        </div>
+        <div class="mdWarning">
+          <h4>그 외 이용안내</h4>
+          <ul class="list_dot">
+            <li>이니스프리 임직원샵은 사내 임직원 전용 복지몰로서 비정상 유통 행위시(유출시) 사규에 의해 징계를 받을 수 있습니다. </li>
+            <li>비정상 유통이 발생하지 않도록 임직원 여러분의 많은 협조 당부 드립니다.</li>
+            <li>임직원샵 메뉴에서 판매되는 특가 상품은 제조년월이 1년 이상 경과한 구형 제품일 수 있으며, 60~80% 할인된 가격으로 판매합니다.</li>
+            <li>임직원샵 메뉴에 등록되지 않은 이니스프리의 일부 품목에 대해서는 임직원 40% 할인이 적용됩니다.</li>
+            <li>P포인트 추가 할인은 적용할 수 없습니다. 임직원 여러분들의 양해 부탁드립니다.</li>
+            <li>임직원샵 메뉴에 있는 제품은 매월 40만원 한도 내에서 구매할 수 있습니다. </li>
+            <li>주문 건 중 임직원샵과 일반 상품을 함께 추가하시는 경우 임직원샵 상품은 별도 배송됨을 안내드립니다.(합배송은 불가능합니다.)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
   </div>
 </template>
 <script setup>
@@ -472,6 +518,78 @@ const modal = {
       .modal_header {
       }
       .modal_contnet {
+      }
+      .modal_footer {
+      }
+    }
+  }
+  &#sample_modal_buy {
+    z-index: 100;
+    .modal_container {
+      width:100%;
+      height:100%;
+      max-height:100%;
+      .modal_header {
+        h2 {
+          font-size:18px;
+          font-weight:500;
+        }
+      }
+      .modal_content {
+        padding: 30px 20px;
+        .mdWarning {
+          &:last-child {
+            margin-top:30px;
+          }
+          h4 {
+            font-size:16px;
+            font-weight:500;
+          }
+          strong {
+            margin-top:15px;
+            font-size:12px;
+            font-weight:600;
+            color:#666;
+            display:block;
+          }
+          .list_num {
+            margin-top:10px;
+            li {
+              margin-top:5px;
+              color:#888;
+              font-size:12px;
+              line-height:16px;
+              letter-spacing: -0.12px;
+              display:flex;
+              gap:6px;
+              >:first-child {
+                width:8px;
+              }
+            }
+          }
+          .list_dot {
+            margin-top:15px;
+            li {
+              margin-top:10px;
+              padding-left:6px;
+              color:#666;
+              font-size:13px;
+              line-height:20px;
+              letter-spacing: -0.14px;
+              position:relative;
+              &:before {
+                content: '';
+                width: 2px;
+                height: 2px;
+                background: #666;
+                display: inline-block;
+                position:absolute;
+                top:6px;
+                left:0;
+              }
+            }
+          }
+        }
       }
       .modal_footer {
       }

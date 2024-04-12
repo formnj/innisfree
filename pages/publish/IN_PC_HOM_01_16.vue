@@ -7,7 +7,7 @@
             <span class="pdt_count"><strong>32</strong></span>
         </h2>
         <p>이니스프리 및 AP 임직원 전용 이니스프리 제품 특가샵입니다. 구매 전 안내사항을 확인해주세요.</p>
-        <Button txt="구매 안내사항" class="btn_min_outline" @click="modal.open('buy_modal', 'full');" />
+        <Button txt="구매 안내사항" class="btn_min_outline" @click="modal.open('sample_modal_buy', 'full');" />
       </div>
       <div class="pdtSortTab_wrap">
         <div class="sortTab">
@@ -129,7 +129,7 @@
         </div>
         <div class="overlay" @click="modal.close(this);"></div>
     </div>
-    <div class="modal_wrap" id="buy_modal">
+    <div class="modal_wrap" id="sample_modal_buy">
         <div class="modal_container">
             <div class="modal_header">
                 <h2>임직원샵 이용안내</h2>
@@ -500,7 +500,7 @@ const setFilter = (event) =>{
   }
 }
 
-.modal_wrap#buy_modal {
+.modal_wrap#sample_modal_buy {
   .modal_container {
     width:764px;
     max-height:500px;
