@@ -837,7 +837,7 @@ header {
             right:0;
             left:0;
             z-index:2;
-            // display:none;
+            display:none;
             transition:height 0.28s ease-out;
             &.active {
                 display:block;

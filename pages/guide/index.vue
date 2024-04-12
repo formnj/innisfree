@@ -139,7 +139,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-19/', worker:''
     }, {
         depth:['','임직원샵','목록',''],
-        id:'IN_PC_HOM_01_16', status:'',
+        id:'IN_PC_HOM_01_16', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-04-16/', worker:'형민우'
     }, {
@@ -623,7 +623,7 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-19/', worker:''
     }, {
         depth:['','임직원샵','목록',''],
-        id:'IN_MO_HOM_01_16', status:'',
+        id:'IN_MO_HOM_01_16', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-04-16/', worker:'형민우'
     }, {
