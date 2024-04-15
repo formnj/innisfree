@@ -1,5 +1,11 @@
 <template>
-  <div>pc이벤트</div>
+  <div class="title_wrap" :data-layout="props.layoutType">
+    <h2>pc이벤트</h2>
+  </div>
+
+  <div class="inner">
+    <div>Event content</div>
+  </div>
 </template>
 
 <script setup>
@@ -10,7 +16,7 @@ definePageMeta({
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
     layoutType: {
       type:String,
-      default:''
+      default:'default'
     }
 });
 
