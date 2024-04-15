@@ -60,7 +60,7 @@
             dt {
                 button {
                     em {
-                        padding:21px 10px !important;
+                        padding:21px 0px !important;
                         color:#999 !important;
                         display:flex;
                         align-items:center;
@@ -72,7 +72,7 @@
                             background-image: url('/_nuxt/assets/images/common/PC_icon_split.png');
                             background-size:250px;
                             background-repeat:no-repeat;
-                            background-position:-65px -144px;
+                            background-position:-84px -145px;
                             display:inline-block;
                         }
                         &::after {
@@ -87,6 +87,18 @@
                             display:inline-block;
 
                         }
+                        &.active {
+                            color:#000 !important;
+                            &::after {
+                                background-image: url('/_nuxt/assets/images/common/PC_icon_split.png');
+                                background-size:250px;
+                                background-repeat:no-repeat;
+                                background-position:-209px 1px;
+                                display:inline-block;
+                                transform: rotate(90deg);
+
+                            }
+                        }
                     }
                 }
             }
@@ -96,7 +108,7 @@
                 overflow:hidden;
                 position:absolute;
                 top:100%;
-                left:-5px;
+                left:17px;
                 z-index:10;
                 display:none;
                 transition:height 0.25s ease-in;
