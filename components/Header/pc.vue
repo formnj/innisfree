@@ -50,24 +50,64 @@
                             </li>
                         </ul>
                     </section>
+                    <!-- <section>
+                      <ul class="keyword">
+                        <li v-for="item in latestSearchWordData" :key="item">
+                          <a :href="item.url">
+                            {{ item.word }}
+                            <em>12.29</em>
+                          </a>
+                        </li>
+                      </ul>
+                    </section>
+                    <section class="list_wrap">
+                      <ul class="key_item goods_list">
+                        <li v-for="(item,idx) in sample_goods" :key="idx">
+                          <GoodsItem :item="item" :link="item.link" />
+                        </li>
+                      </ul>
+                    </section> -->
                 </div>
                 <!-- //search layer -->
             </div>
             <div class="keyword_wrap">
-                <ol>
-                    <li>
-                        <a href="#none" class="up"><em>1.</em>Keyword Up</a>
-                    </li>
-                    <li>
-                        <a href="#none"><em>2.</em>Keyword default</a>
-                    </li>
-                    <li>
-                        <a href="#none" class="down"><em>3.</em>Keyword down</a>
-                    </li>
-                    <li>
-                        <a href="#none" class="new"><em>4.</em>Keyword new</a>
-                    </li>
-                </ol>
+                <div class="keyword">
+                  <ol>
+                      <li>
+                          <a href="#none" class="up"><em>1.</em>Keyword Up</a>
+                      </li>
+                      <li>
+                          <a href="#none"><em>2.</em>Keyword default</a>
+                      </li>
+                      <li>
+                          <a href="#none" class="down"><em>3.</em>Keyword down</a>
+                      </li>
+                      <li>
+                          <a href="#none" class="new"><em>4.</em>Keyword new</a>
+                      </li>
+                      <li>
+                          <a href="#none" class="up"><em>1.</em>Keyword Up</a>
+                      </li>
+                      <li>
+                          <a href="#none"><em>2.</em>Keyword default</a>
+                      </li>
+                      <li>
+                          <a href="#none" class="down"><em>3.</em>Keyword down</a>
+                      </li>
+                      <li>
+                          <a href="#none" class="new"><em>4.</em>Keyword new</a>
+                      </li>
+                      <li>
+                          <a href="#none" class="up"><em>1.</em>Keyword Up</a>
+                      </li>
+                      <li>
+                          <a href="#none"><em>2.</em>Keyword default</a>
+                      </li>
+                  </ol>
+                  <div>
+                    <p>09:30 기준 인기 검색어</p>
+                  </div>
+                </div>
             </div>
             <div class="quick_wrap">
                 <ul class="quick">
@@ -178,7 +218,8 @@
 <script setup>
 import {
   mainTopBannerData,
-  categoryForSearchLayerData
+  categoryForSearchLayerData,
+  latestSearchWordData
 } from '~/test/data/dummyData'
 
 
@@ -277,6 +318,47 @@ const category = [
     {img:'/_nuxt/assets/images/sam/h_cate_09.png', txt:'기획세트'},
     {img:'/_nuxt/assets/images/sam/h_cate_10.png', txt:'미용소품'}
 ]
+
+const sample_goods = [
+    {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+    }, {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+        cate:'NEW',
+        name:'그린티 씨드 히알루론산 세렘 80ml',
+        price:'44,800', sale:'~20%', cost:'56,000',
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+    }, {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+        cate:'NEW',
+        name:'그린티 씨드 히알루론산 세렘 80ml',
+        price:'44,800', sale:'~20%', cost:'56,000',
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+    }, {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+    }, {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+    },
+    {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        cate:'BEST',
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+    },
+]
 /* //sample data */
 
 onMounted(() => {
@@ -290,7 +372,7 @@ onMounted(() => {
 
     keyword_pos.insertAdjacentHTML('beforeend', '<li>'+clone_roll.innerHTML+'</li>');
 
-    let key_rolling = setInterval(() => {
+    const roll_fn = () => {
         keyword_pos.style.cssText='transform:translateY(-'+(i*40)+'px); transition:all 0.35s ease-in;'
         if(i < (roll_size.length+1)){
             i++;
@@ -302,8 +384,37 @@ onMounted(() => {
                 i = 1;
             }
         }
-    }, roll_timer);
+    };
+
+    let key_rolling = setInterval(roll_fn, roll_timer);
     /* //keyword rolling */
+
+    /* keyword menu */
+    const keyword_wrap = document.querySelector('.keyword_wrap');
+    const roll_last = keyword_wrap.querySelector('ol').lastChild;
+
+    const keyword_menu = {
+      mouseEnter: (e) => {
+        e.target.classList.add('active');
+
+        roll_last.style.display='none';
+
+        clearInterval(key_rolling);
+        i=1;
+        e.target.querySelector('ol').style.cssText='';
+      },
+      mouseLeave: (e) => {
+        e.target.classList.remove('active');
+
+        roll_last.style.display='';
+
+        key_rolling = setInterval(roll_fn, roll_timer)
+      }
+    }
+
+    keyword_wrap.addEventListener('mouseenter', keyword_menu.mouseEnter);
+    keyword_wrap.addEventListener('mouseleave', keyword_menu.mouseLeave);
+    /* keyword menu */
 
     /* header search layer */
     document.querySelector('.search_wrap > .search input').addEventListener('focus', (e)=>{
@@ -353,10 +464,6 @@ const keyword_del_all = (e) => {
             key_cnt.value = document.querySelector('.latest').childElementCount;
         }
     }
-}
-
-const search_close = (e) => {
-    e.target.closest('.search_layer').classList.remove('active')
 }
 
 /* category layer */
@@ -600,6 +707,74 @@ header {
                             }
                         }
                     }
+                    &.keyword {
+                      flex-direction:column;
+                      gap:25px;
+                      li {
+                        a {
+                          color:#333;
+                          font-size:14px;
+                          font-weight:400;
+                          display:flex;
+                          align-items:center;
+                          justify-content:space-between;
+                        }
+                      }
+                    }
+                    &.key_item {
+                      flex-direction:column;
+                      gap:10px;
+                      &.goods_list {
+                        margin:0;
+                        li {
+                          width:100%;
+                          padding:0;
+                          ::v-deep .goods_item {
+                            display:flex;
+                            gap:20px;
+                            .img_wrap {
+                              overflow:visible;
+                              .btnIconBox {
+                                display:none;
+                              }
+                              .thumb {
+                                width:75px;
+                                height:100%;
+                              }
+                            }
+                            .cont {
+                              margin-top:0;
+                              .price {
+                                strong {
+                                  margin-right:5px;
+                                  font-size:14px;
+                                }
+                                span {
+                                  margin-right:10px;
+                                  font-size:14px;
+                                }
+                                em {
+                                  font-size:12px;
+                                }
+                              }
+                              .hash {
+                                flex-wrap:nowrap;
+                                li {
+                                  width:auto;
+                                  button {
+                                    padding:4px 8px;
+                                    font-family:'Pretendard';
+                                  }
+                                }
+                              }
+                              .review_score {
+                                display:none;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                 }
             }
         }
@@ -638,6 +813,55 @@ header {
                 &.new:after {
                     background-position:-60px -60px;
                 }
+            }
+            .keyword {
+              > div {
+                padding-top:20px;
+                margin-bottom:28px;
+                border-top:1px solid #eee;
+                display:none;
+                p {
+                  font-size:13px;
+                  font-weight:400;
+                  text-align:center;
+                }
+              }
+            }
+            &.active {
+              width:154px;
+              .keyword {
+                height:auto;
+                padding:0 28px;
+                border:2px solid #000;
+                border-radius:10px;
+                background:#fff;
+                overflow:hidden;
+                position:absolute;
+                top:19%;
+                right:50%;
+                transform:translate(84%,);
+                z-index: 2;
+                animation: slideDown .5s ease-in forwards;
+                ol {
+                  margin-top:28px;
+                  margin-bottom:20px;
+                  li {
+                    padding-top:16px;
+                    a {
+                      padding:2px 0;
+                      &:after {
+                        margin-left:auto;
+                      }
+                    }
+                    &:first-child {
+                      padding-top:0;
+                    }
+                  }
+                }
+                >div {
+                  display:block;
+                }
+              }
             }
         }
         .quick_wrap {
@@ -939,5 +1163,14 @@ header {
             }
         }
     }
+}
+
+@keyframes slideDown {
+  from {
+    max-height:0;
+  }
+  to {
+    max-height:500px;
+  }
 }
 </style>

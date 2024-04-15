@@ -278,42 +278,37 @@ const modal = {
 .staff_wrap {
   margin: 0 -20px;
   .staffVisual {
-    height: 25em;
-    padding:4em 0 0 2.1em;
+    height: 250px;
+    padding:40px 0 0 21px;
     background-image: url('/_nuxt/assets/mo_images/common/bg_staff_visual.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     >span {
-      padding: 0.2em 0.5em;
+      padding: 2px 5px;
       color:#fff;
       font-weight: 400;
-      font-size: 1em;
-      line-height: 1.4em;
-      letter-spacing: 0;
+      font-size: 10px;
+      line-height: 14px;
       background:#000;
       display: inline-block;
     }
     >div {
-      margin-top: 0.7em;
+      margin-top: 13px;
       font-weight: 600;
-      font-size: 2em;
-      line-height: 1.3em;
+      font-size: 20px;
       color: #000;
       span {
         display: block;
-        margin-top: 0.5em;
+        margin-top: 8px;
         font-weight: 500;
-        font-size: 0.6em;
-        line-height: 1.2em;
+        font-size: 12px;
         color: #888;
       }
     }
     >button {
       height:auto;
-      margin-top:2.3em;
-      line-height: 1.6em;
-      letter-spacing: -0.01em;
+      margin-top:23px;
       background:none;
       display: flex;
       align-items: center;
@@ -321,17 +316,19 @@ const modal = {
         padding:0;
         color: #000;
         font-weight: 500;
-        font-size: 1em;
+        font-size: 13px;
         font-family:'Pretendard';
       }
       &:before {
         display: inline-block;
         content: "";
-        width: 1.6rem;
-        height: 1.6rem;
+        width: 16px;
+        height: 16px;
         margin-right: 0.3rem;
-        background: url('/_nuxt/assets/mo_images/common/ico_notify.png') no-repeat right center;
-        background-size: 1.6rem 1.6rem;
+        background-image: url('/_nuxt/assets/mo_images/common/icon_split.png');
+        background-repeat:no-repeat;
+        background-size: 250px auto;
+        background-position:-210px -20px;
       }
     }
   }
@@ -596,37 +593,6 @@ const modal = {
       .modal_footer {
       }
     }
-  }
-}
-
-@media (max-width: 639px) {
-  .staff_wrap {
-    font-size:13.76px;
-  }
-}
-@media (max-width: 519px) {
-  .staff_wrap {
-    font-size:11.04px;
-  }
-}
-@media (max-width: 413px) {
-  .staff_wrap {
-    font-size:10.96px;
-  }
-}
-@media (max-width: 410px) {
-  .staff_wrap {
-    font-size:10px;
-  }
-}
-@media (max-width: 374px) {
-  .staff_wrap {
-    font-size:10px;
-  }
-}
-@media (max-width: 359px) {
-  .staff_wrap {
-    font-size:8.5px;
   }
 }
 </style>

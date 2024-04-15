@@ -45,13 +45,13 @@ button {
     }
   }
   &.home {
-    background-position:-40px -80px;
+    background-position:-130px 0;
   }
   &.share {
-    background-position:-40px -40px;
+    background-position:-170px 0;
   }
   &.back {
-    background-position:0 -80px;
+    background-position:-40px -70px;
   }
   &.btn_search {
     background-position:0 0;
