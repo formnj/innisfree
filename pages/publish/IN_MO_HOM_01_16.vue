@@ -29,12 +29,14 @@
     </div>
   </div>
 
-  <div class="list_wrap">
-    <ul class="goods_list">
-      <li v-for="(item, idx) in sample_goods" :key="idx">
-        <GoodsItem :item="item" :link="item.link" />
-      </li>
-    </ul>
+  <div class="inner">
+    <div class="list_wrap">
+      <ul class="goods_list">
+        <li v-for="(item, idx) in sample_goods" :key="idx">
+          <GoodsItem :item="item" :link="item.link" />
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="modal_wrap" id="sample_modal_sort">
     <div class="modal_container">

@@ -21,16 +21,16 @@
   &lt;/div&gt;
 &lt;/template&gt;
 
-      &lt;script setup&gt;
+&lt;script setup&gt;
 definePageMeta({
-	layout: 'pc-category'
+  layout: 'pc-category'
 });
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
-    layoutType: {
-      type:String,
-      default:'default'
-    }
+  layoutType: {
+    type:String,
+    default:'default'
+  }
 });
 &lt;/script&gt;</code></pre>
   </section>
