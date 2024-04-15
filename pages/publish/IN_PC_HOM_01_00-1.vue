@@ -61,9 +61,6 @@ const props = defineProps({
     }
 });
 
-import { register } from 'swiper/element/bundle';
-register();
-
 import {
   sample_goods,
   sampleSlide

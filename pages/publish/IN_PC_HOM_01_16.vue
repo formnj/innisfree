@@ -1,30 +1,29 @@
 <template>
-  <Breadcrumb :item="breadcrumbData" />
-  <div class="content_wrap">
-    <div class="title_wrap">
-      <div class="prd_tit">
-        <h2>임직원샵
-            <span class="pdt_count"><strong>32</strong></span>
-        </h2>
-        <p>이니스프리 및 AP 임직원 전용 이니스프리 제품 특가샵입니다. 구매 전 안내사항을 확인해주세요.</p>
-        <Button txt="구매 안내사항" class="btn_min_outline" @click="modal.open('sample_modal_buy', 'full');" />
-      </div>
-      <div class="pdtSortTab_wrap">
-        <div class="sortTab">
-          <button class="btn_dropdown" @click="Drop_Down()" >추천순</button>
-          <ul>
-            <li><a href="#none" class="active">추천순</a></li>
-            <li><a href="#none">신제품순</a></li>
-            <li><a href="#none">판매량순</a></li>
-            <li><a href="#none">낮은 가격순</a></li>
-            <li><a href="#none">높은 가격순</a></li>
-            <li><a href="#none">리뷰순</a></li>
-            <li><a href="#none">판매금액순</a></li>
-          </ul>
-        </div>
-        <button @click="modal.open('sample_modal', 'detailSearch');">상세검색</button>
-      </div>
+  <div class="title_wrap" :data-layout="props.layoutType">
+    <div class="prd_tit">
+      <h2>임직원샵
+          <span class="pdt_count"><strong>32</strong></span>
+      </h2>
+      <p>이니스프리 및 AP 임직원 전용 이니스프리 제품 특가샵입니다. 구매 전 안내사항을 확인해주세요.</p>
+      <Button txt="구매 안내사항" class="btn_min_outline" @click="modal.open('sample_modal_buy', 'full');" />
     </div>
+    <div class="pdtSortTab_wrap">
+      <div class="sortTab">
+        <button class="btn_dropdown" @click="Drop_Down()" >추천순</button>
+        <ul>
+          <li><a href="#none" class="active">추천순</a></li>
+          <li><a href="#none">신제품순</a></li>
+          <li><a href="#none">판매량순</a></li>
+          <li><a href="#none">낮은 가격순</a></li>
+          <li><a href="#none">높은 가격순</a></li>
+          <li><a href="#none">리뷰순</a></li>
+          <li><a href="#none">판매금액순</a></li>
+        </ul>
+      </div>
+      <button @click="modal.open('sample_modal', 'detailSearch');">상세검색</button>
+    </div>
+  </div>
+  <div class="inner">
     <div class="list_wrap">
         <ul class="goods_list">
             <li v-for="(item, idx) in sample_goods" :key="idx">
@@ -43,228 +42,155 @@
             <a href="#none" class="last">마지막으로</a>
         </div>
     </div>
-    <div class="modal_wrap" id="sample_modal">
-        <div class="modal_container">
-            <div class="modal_header">
-                <h2>상세검색</h2>
-                <button class="btn_close" @click="modal.close(this);">닫기</button>
-            </div>
-            <div class="modal_content">
-              <dl class="sortList">
-                <dt>고민별</dt>
-                <dd>
-                  <ul>
-                    <li>
-                      <label for="skin1" class="inputChk">
-                        <input type="checkbox" name="typArr" id="skin1" value="FB" alt="주름/탄력"><span @click="setFilter($event)">주름/탄력</span>
-                      </label>
-                    </li>
-                    <li>
-                      <label for="skin2" class="inputChk">
-                        <input type="checkbox" name="typArr" id="skin2" value="QV" alt="모공/피지/블랙헤드"><span @click="setFilter($event)">모공/피지/블랙헤드</span>
-                      </label>
-                    </li>
-                    <li>
-                      <label for="skin3" class="inputChk">
-                        <input type="checkbox" name="typArr" id="skin3" value="FA" alt="영양/토탈안티에이징"><span @click="setFilter($event)">영양/토탈안티에이징</span>
-                      </label>
-                    </li>
-                    <li>
-                      <label for="skin4" class="inputChk">
-                        <input type="checkbox" name="typArr" id="skin4" value="WW" alt="트러블/리페어"><span @click="setFilter($event)">트러블/리페어</span>
-                      </label>
-                    </li>
-                    <li>
-                      <label for="skin5" class="inputChk">
-                        <input type="checkbox" name="typArr" id="skin5" value="OG" alt="수분/보습/속건조"><span @click="setFilter($event)">수분/보습/속건조</span>
-                      </label>
-                    </li>
-                  </ul>
-                </dd>
-              </dl>
-              <dl class="sortList">
-                <dt>기능성</dt>
-                <dd>
-                  <ul>
-                    <li>
-                      <label for="fnc1" class="inputChk">
-                        <input type="checkbox" name="lineCate1stArr" id="fnc1" value="FN03" alt="미백"><span @click="setFilter($event)">미백</span>
-                      </label>
-                    </li>
-                    <li>
-                      <label for="fnc2" class="inputChk">
-                        <input type="checkbox" name="lineCate1stArr" id="fnc2" value="FN02" alt="주름개선"><span @click="setFilter($event)">주름개선</span>
-                      </label>
-                    </li>
-                    <li>
-                      <label for="fnc3" class="inputChk">
-                        <input type="checkbox" name="lineCate1stArr" id="fnc3" value="FN01" alt="자외선차단"><span @click="setFilter($event)">자외선차단</span>
-                      </label>
-                    </li>
-                    <li>
-                      <label for="fnc4" class="inputChk">
-                        <input type="checkbox" name="lineCate1stArr" id="fnc4" value="FN04" alt="비건인증"><span @click="setFilter($event)">비건인증</span>
-                      </label>
-                    </li>
-                  </ul>
-                </dd>
-              </dl>
-              <dl class="sortList">
-                <dt>공병수거</dt>
-                <dd>
-                  <ul>
-                    <li>
-                      <label for="Benefit3" class="inputChk">
-                        <input type="checkbox" name="lineCate2ndArr" id="Benefit3" value="IA13" alt="공병수거 가능"><span @click="setFilter($event)">공병수거 가능</span>
-                      </label>
-                    </li>
-                  </ul>
-                </dd>
-              </dl>
-            </div>
-            <div class="modal_footer">
-                <Button class="btn_big btn_reset" txt="초기화" />
-                <Button class="btn_big btn_type_02" txt="검색" />
-            </div>
-        </div>
-        <div class="overlay" @click="modal.close(this);"></div>
-    </div>
-    <div class="modal_wrap" id="sample_modal_buy">
-        <div class="modal_container">
-            <div class="modal_header">
-                <h2>임직원샵 이용안내</h2>
-                <button class="btn_close" @click="modal.close(this);">닫기</button>
-            </div>
-            <div class="modal_content">
-              <div class="mdWarning">
-                <h4>유의사항</h4>
-                <strong>타 프로모션과 중복 적용 불가</strong>
-                <ul class="list_num">
-                  <li>1 온•오프 통합 쿠폰 및 기타 할인 쿠폰 중복 적용이 불가합니다.</li>
-                  <li>2 구매 증정품 지급 시 본 결제 금액은 총 금액 합산에서 제외됩니다.</li>
+  </div>
+  <div class="modal_wrap" id="sample_modal">
+      <div class="modal_container">
+          <div class="modal_header">
+              <h2>상세검색</h2>
+              <button class="btn_close" @click="modal.close(this);">닫기</button>
+          </div>
+          <div class="modal_content">
+            <dl class="sortList">
+              <dt>고민별</dt>
+              <dd>
+                <ul>
+                  <li>
+                    <label for="skin1" class="inputChk">
+                      <input type="checkbox" name="typArr" id="skin1" value="FB" alt="주름/탄력"><span @click="setFilter($event)">주름/탄력</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="skin2" class="inputChk">
+                      <input type="checkbox" name="typArr" id="skin2" value="QV" alt="모공/피지/블랙헤드"><span @click="setFilter($event)">모공/피지/블랙헤드</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="skin3" class="inputChk">
+                      <input type="checkbox" name="typArr" id="skin3" value="FA" alt="영양/토탈안티에이징"><span @click="setFilter($event)">영양/토탈안티에이징</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="skin4" class="inputChk">
+                      <input type="checkbox" name="typArr" id="skin4" value="WW" alt="트러블/리페어"><span @click="setFilter($event)">트러블/리페어</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="skin5" class="inputChk">
+                      <input type="checkbox" name="typArr" id="skin5" value="OG" alt="수분/보습/속건조"><span @click="setFilter($event)">수분/보습/속건조</span>
+                    </label>
+                  </li>
                 </ul>
-                <strong>구입 수량 제한</strong>
-                <ul class="list_num">
-                  <li>1 한정 수량으로 많은 고객님께 혜택을 드리기 위하여 수량 제한하는 점 양해 부탁드립니다</li>
-                  <li>2 동일 주소지로 여러 ID 분할 구입하시는 고객에 한하여 사전 연락 없이 취소될 수 있습니다</li>
+              </dd>
+            </dl>
+            <dl class="sortList">
+              <dt>기능성</dt>
+              <dd>
+                <ul>
+                  <li>
+                    <label for="fnc1" class="inputChk">
+                      <input type="checkbox" name="lineCate1stArr" id="fnc1" value="FN03" alt="미백"><span @click="setFilter($event)">미백</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="fnc2" class="inputChk">
+                      <input type="checkbox" name="lineCate1stArr" id="fnc2" value="FN02" alt="주름개선"><span @click="setFilter($event)">주름개선</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="fnc3" class="inputChk">
+                      <input type="checkbox" name="lineCate1stArr" id="fnc3" value="FN01" alt="자외선차단"><span @click="setFilter($event)">자외선차단</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="fnc4" class="inputChk">
+                      <input type="checkbox" name="lineCate1stArr" id="fnc4" value="FN04" alt="비건인증"><span @click="setFilter($event)">비건인증</span>
+                    </label>
+                  </li>
                 </ul>
-                <strong>기타</strong>
-                <ul class="list_num">
-                  <li>1 N+N 제품은 부분 반품이 불가합니다.</li>
-                  <li>2 교차 구매 여부는 프로모션에 따라 상이할 수 있습니다.(온라인 쇼핑몰에서는 해당 제품 페이지 옵션 내 제품 교체 구매 가능하며, 프로모션에 따라 교차 구매 여부는 오프라인과 상이할 수 있습니다.)</li>
-                  <li>3 온라인 쇼핑몰 및 오프라인 매장 재고에 따라 판매되는 종류가 다를 수 있습니다. </li>
-                  <li>4 준비된 수량 소진 시에는 사전 예고 없이 종료될 수 있습니다. </li>
-                  <li>5 당사 사정에 따라 사전 예고 없이 비슷한 혹은 더 나은 수준의 혜택으로 대체 변경 될 수 있습니다. </li>
-                  <li>6 행사 제외 매장 : 면세점, 제주하우스 등</li>
+              </dd>
+            </dl>
+            <dl class="sortList">
+              <dt>공병수거</dt>
+              <dd>
+                <ul>
+                  <li>
+                    <label for="Benefit3" class="inputChk">
+                      <input type="checkbox" name="lineCate2ndArr" id="Benefit3" value="IA13" alt="공병수거 가능"><span @click="setFilter($event)">공병수거 가능</span>
+                    </label>
+                  </li>
                 </ul>
-              </div>
-              <div class="mdWarning">
-                <h4>그 외 이용안내</h4>
-                <ul class="list_dot">
-                  <li>이니스프리 임직원샵은 사내 임직원 전용 복지몰로서 비정상 유통 행위시(유출시) 사규에 의해 징계를 받을 수 있습니다. </li>
-                  <li>비정상 유통이 발생하지 않도록 임직원 여러분의 많은 협조 당부 드립니다.</li>
-                  <li>임직원샵 메뉴에서 판매되는 특가 상품은 제조년월이 1년 이상 경과한 구형 제품일 수 있으며, 60~80% 할인된 가격으로 판매합니다.</li>
-                  <li>임직원샵 메뉴에 등록되지 않은 이니스프리의 일부 품목에 대해서는 임직원 40% 할인이 적용됩니다.</li>
-                  <li>P포인트 추가 할인은 적용할 수 없습니다. 임직원 여러분들의 양해 부탁드립니다.</li>
-                  <li>임직원샵 메뉴에 있는 제품은 매월 40만원 한도 내에서 구매할 수 있습니다. </li>
-                  <li>주문 건 중 임직원샵과 일반 상품을 함께 추가하시는 경우 임직원샵 상품은 별도 배송됨을 안내드립니다.(합배송은 불가능합니다.)</li>
-                </ul>
-              </div>
+              </dd>
+            </dl>
+          </div>
+          <div class="modal_footer">
+              <Button class="btn_big btn_reset" txt="초기화" />
+              <Button class="btn_big btn_type_02" txt="검색" />
+          </div>
+      </div>
+      <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <div class="modal_wrap" id="sample_modal_buy">
+      <div class="modal_container">
+          <div class="modal_header">
+              <h2>임직원샵 이용안내</h2>
+              <button class="btn_close" @click="modal.close(this);">닫기</button>
+          </div>
+          <div class="modal_content">
+            <div class="mdWarning">
+              <h4>유의사항</h4>
+              <strong>타 프로모션과 중복 적용 불가</strong>
+              <ul class="list_num">
+                <li>1 온•오프 통합 쿠폰 및 기타 할인 쿠폰 중복 적용이 불가합니다.</li>
+                <li>2 구매 증정품 지급 시 본 결제 금액은 총 금액 합산에서 제외됩니다.</li>
+              </ul>
+              <strong>구입 수량 제한</strong>
+              <ul class="list_num">
+                <li>1 한정 수량으로 많은 고객님께 혜택을 드리기 위하여 수량 제한하는 점 양해 부탁드립니다</li>
+                <li>2 동일 주소지로 여러 ID 분할 구입하시는 고객에 한하여 사전 연락 없이 취소될 수 있습니다</li>
+              </ul>
+              <strong>기타</strong>
+              <ul class="list_num">
+                <li>1 N+N 제품은 부분 반품이 불가합니다.</li>
+                <li>2 교차 구매 여부는 프로모션에 따라 상이할 수 있습니다.(온라인 쇼핑몰에서는 해당 제품 페이지 옵션 내 제품 교체 구매 가능하며, 프로모션에 따라 교차 구매 여부는 오프라인과 상이할 수 있습니다.)</li>
+                <li>3 온라인 쇼핑몰 및 오프라인 매장 재고에 따라 판매되는 종류가 다를 수 있습니다. </li>
+                <li>4 준비된 수량 소진 시에는 사전 예고 없이 종료될 수 있습니다. </li>
+                <li>5 당사 사정에 따라 사전 예고 없이 비슷한 혹은 더 나은 수준의 혜택으로 대체 변경 될 수 있습니다. </li>
+                <li>6 행사 제외 매장 : 면세점, 제주하우스 등</li>
+              </ul>
             </div>
-        </div>
-        <div class="overlay" @click="modal.close(this);"></div>
-    </div>
+            <div class="mdWarning">
+              <h4>그 외 이용안내</h4>
+              <ul class="list_dot">
+                <li>이니스프리 임직원샵은 사내 임직원 전용 복지몰로서 비정상 유통 행위시(유출시) 사규에 의해 징계를 받을 수 있습니다. </li>
+                <li>비정상 유통이 발생하지 않도록 임직원 여러분의 많은 협조 당부 드립니다.</li>
+                <li>임직원샵 메뉴에서 판매되는 특가 상품은 제조년월이 1년 이상 경과한 구형 제품일 수 있으며, 60~80% 할인된 가격으로 판매합니다.</li>
+                <li>임직원샵 메뉴에 등록되지 않은 이니스프리의 일부 품목에 대해서는 임직원 40% 할인이 적용됩니다.</li>
+                <li>P포인트 추가 할인은 적용할 수 없습니다. 임직원 여러분들의 양해 부탁드립니다.</li>
+                <li>임직원샵 메뉴에 있는 제품은 매월 40만원 한도 내에서 구매할 수 있습니다. </li>
+                <li>주문 건 중 임직원샵과 일반 상품을 함께 추가하시는 경우 임직원샵 상품은 별도 배송됨을 안내드립니다.(합배송은 불가능합니다.)</li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      <div class="overlay" @click="modal.close(this);"></div>
   </div>
 </template>
 <script setup>
-import { breadcrumbData } from '~/test/data/dummyData'
+import {
+  breadcrumbData,
+  sample_goods
+} from '~/test/data/dummyData'
 
 definePageMeta({
-  layout: 'pc-default'
+	layout: 'pc-category'
 });
 
-const sample_goods = [
-    {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'히알루론 수분 선크림 SPF 50+ PA++++',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
-        sticker:[
-            {txt:'type01', type:'type01'},
-            {txt:'type02', type:'type02'},
-            {txt:'type03', type:'type03'},
-            {txt:'type04', type:'type04'}
-        ],
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
-        cate:'NEW',
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'~20%', cost:'56,000',
-        status:'coming_soon',
-        sticker:[
-            {txt:'1+1', type:'type02'},
-            {txt:'뷰티포인트전용', type:'type01'},
-            {txt:'첫구매전용', type:'type01'}
-        ]
-    }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
-        cate:'NEW',
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'~20%', cost:'56,000',
-        status:'coming_soon',
-        sticker:[
-            {txt:'1+1', type:'type02'},
-            {txt:'뷰티포인트전용', type:'type01'},
-            {txt:'첫구매전용', type:'type01'}
-        ]
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    },
-    {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    },
-    {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
-    },
-    {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
-    },
-    {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
-    },
-    {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
-    },{
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-    },
-    {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-    },
-]
+const props = defineProps({
+    layoutType: {
+      type:String,
+      default:'default'
+    }
+});
 /* //component sample data */
 
 const modal = {
@@ -322,22 +248,6 @@ const setFilter = (event) =>{
 </script>
 
 <style lang="scss" scoped>
-::v-deep.breadcrumb {
-  .inner {
-    max-width:1320px;
-    margin:0 auto;
-    padding:0 20px;
-    dd {
-      z-index:3;
-    }
-  }
-}
-
-.content_wrap {
-  max-width:1320px;
-  margin:0 auto;
-  padding:0 20px;
-}
 
 .title_wrap {
   align-items:flex-start;
