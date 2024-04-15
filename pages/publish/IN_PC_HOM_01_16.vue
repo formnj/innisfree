@@ -248,48 +248,26 @@ const setFilter = (event) =>{
 </script>
 
 <style lang="scss" scoped>
-
-.title_wrap {
-  align-items:flex-start;
-  .prd_tit {
-    h2 {
-      display:inline-block;
-    }
-    p {
-      margin-top:10px;
-      word-wrap:break-word;
-      word-break:keep-all;
-      color:#999;
-      font-size:12px;
-    }
-    button {
-      margin-top:10px;
-      font-size:12px;
-      font-weight:600;
-      font-family:'Pretendard';
-    }
-  }
-  .pdtSortTab_wrap {
-    margin-top:16px;
-    margin-left:auto;
-    position:relative;
+.pdtSortTab_wrap {
+  margin-top:16px;
+  margin-left:auto;
+  position:relative;
+  display:flex;
+  align-items:center;
+  button {
+    padding:0 20px;
+    font-size:14px;
+    font-weight:600;
+    line-height: 1.43em;
+    letter-spacing: -0.01em;
     display:flex;
     align-items:center;
-    button {
-      padding:0 20px;
-      font-size:14px;
-      font-weight:600;
-      line-height: 1.43em;
-      letter-spacing: -0.01em;
-      display:flex;
-      align-items:center;
-      &::after {
-          content:'';
-          width:16px;
-          height:16px;
-          margin-left:10px;
-          display:inline-block;
-      }
+    &::after {
+        content:'';
+        width:16px;
+        height:16px;
+        margin-left:10px;
+        display:inline-block;
     }
   }
 }

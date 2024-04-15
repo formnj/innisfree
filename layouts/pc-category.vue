@@ -1,27 +1,27 @@
 <template>
     <div id="wrap">
-        <HeaderPc />
-        <div id="container">
-            <!-- breadcrumb -->
-            <Breadcrumb :item="breadcrumbData" />
-            <div class="content_wrap" :class="{'has_lnb' : layoutType == true}">
-                <!-- lnb -->
-                <div class="lnb">
-                    <h2>스킨케어
-                        <a href="#none">전체보기</a>
-                    </h2>
-                    <ul>
-                        <li v-for="(menu, idx) in sam_lnb" :key="idx" @click="lnb_click($event)"><a href="#none">{{ menu }}</a></li>
-                    </ul>
-                </div>
-                <!-- //lnb -->
-                <div class="content">
-                    <router-view />
-                </div>
-            </div>
-        </div>
-        <FooterPc />
-    </div>
+      <HeaderPc />
+      <div id="container">
+          <!-- breadcrumb -->
+          <Breadcrumb :item="breadcrumbData" />
+          <div class="content_wrap" :class="{'has_lnb' : layoutType == true}">
+              <!-- lnb -->
+              <div class="lnb">
+                  <h2>스킨케어
+                      <a href="#none">전체보기</a>
+                  </h2>
+                  <ul>
+                      <li v-for="(menu, idx) in sam_lnb" :key="idx" @click="lnb_click($event)"><a href="#none">{{ menu }}</a></li>
+                  </ul>
+              </div>
+              <!-- //lnb -->
+              <div class="content">
+                  <router-view />
+              </div>
+          </div>
+      </div>
+      <FooterPc />
+  </div>
 </template>
 
 
