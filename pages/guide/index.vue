@@ -79,9 +79,9 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','브래드크럼','',''],
-        id:'Breadcrumb', status:'',
+        id:'Breadcrumb', status:'com',
         type:'component', note:'/component/Breadcrumb',
-        sDate:'', eDate:'', worker:'김희경'
+        sDate:'2024-04-15', eDate:'2024-04-15', worker:'김희경'
     }, {
         depth:['홈','','',''],
         id:'IN_PC_HOM_01_01', status:'ing',
@@ -94,9 +94,9 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'형민우'
     }, {
         depth:['','이벤트(T)','목록',''],
-        id:'IN_PC_HOM_01_05', status:'',
+        id:'IN_PC_HOM_01_05', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'', worker:'김희경'
+        sDate:'2024-04-15', eDate:'', worker:'김희경'
     }, {
         depth:['','','상세',''],
         id:'IN_PC_HOM_01_06', status:'',
@@ -578,9 +578,9 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:'형민우'
     }, {
         depth:['','이벤트(T)','목록',''],
-        id:'IN_MO_HOM_01_05', status:'',
+        id:'IN_MO_HOM_01_05', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'', worker:'김희경'
+        sDate:'2024-04-15', eDate:'', worker:'김희경'
     }, {
         depth:['','','상세',''],
         id:'IN_MO_HOM_01_06', status:'',
