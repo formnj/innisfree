@@ -297,7 +297,7 @@ const cate_layer = {
     .btn_icon_back {
         width:44px !important;
         height:44px !important;
-        background-image:url('../assets/images/common/MO_icon_split.png');
+        background-image:url('/_nuxt/assets/images/common/MO-icon_split.png');
         background-position:-33px -32px;
         position:absolute;
         bottom:0;
@@ -377,8 +377,8 @@ const cate_layer = {
         .btn_icon_history {
             width:44px !important;
             height:44px !important;
-            background-image:url('../assets/images/common/MO_icon_split.png');
-            background-position:-67px -32px;
+            background-image:url('/_nuxt/assets/images/common/MO-icon_split.png');
+            background-position:-66px -29px;
             transform:translateY(54px);
             transition:all 0.2s;
             &.active {
@@ -388,8 +388,8 @@ const cate_layer = {
         .top_btn {
             width:44px !important;
             height:44px !important;
-            background-image:url('../assets/images/common/MO_icon_split.png');
-            background-position:-102px -32px;
+            background-image:url('/_nuxt/assets/images/common/MO-icon_split.png');
+            background-position:-99px -30px;
             transform:translateX(400px);
             transition:all 0.3s;
             &.active {

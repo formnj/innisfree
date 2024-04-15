@@ -136,7 +136,7 @@ onMounted(()=>{
                 content:'';
                 width:12px;
                 height:12px;
-                background-image: url('/_nuxt/assets/images/common/PC_icon_split.png');
+                background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
                 background-repeat:no-repeat;
                 background-size:250px;
                 background-position:-210px 0px;
