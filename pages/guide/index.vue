@@ -94,9 +94,9 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'형민우'
     }, {
         depth:['','이벤트(T)','목록',''],
-        id:'IN_PC_HOM_01_05', status:'ing',
+        id:'IN_PC_HOM_01_05', status:'com',
         type:'', note:'',
-        sDate:'2024-04-15', eDate:'', worker:'김희경'
+        sDate:'2024-04-15', eDate:'2024-04-15', worker:'김희경'
     }, {
         depth:['','','상세',''],
         id:'IN_PC_HOM_01_06', status:'',

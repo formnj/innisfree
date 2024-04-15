@@ -378,7 +378,7 @@ const cate_layer = {
             width:44px !important;
             height:44px !important;
             background-image:url('/_nuxt/assets/images/common/MO-icon_split.png');
-            background-position:-67px -32px;
+            background-position:-66px -29px;
             transform:translateY(54px);
             transition:all 0.2s;
             &.active {
@@ -389,7 +389,7 @@ const cate_layer = {
             width:44px !important;
             height:44px !important;
             background-image:url('/_nuxt/assets/images/common/MO-icon_split.png');
-            background-position:-102px -32px;
+            background-position:-99px -30px;
             transform:translateX(400px);
             transition:all 0.3s;
             &.active {
