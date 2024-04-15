@@ -236,10 +236,20 @@ const props = defineProps({
         transform:translateY(0);
         button {
           padding:0;
-          background-color:gray;
           em {
             width:24px;
             height:24px;
+            background-image:url('~/assets/mo_images/common/icon_split.png');
+            background-size:250px auto;
+          }
+          &.btn_heart em {
+            background-position:-140px -40px;
+          }
+          &.btn_cart em {
+            background-position:-170px -40px;
+          }
+          &.btn_buy em {
+            background-position:-200px -40px;
           }
         }
       }

@@ -67,7 +67,7 @@
         <ul>
           <li class="mo"><a href="#none">이용약관</a></li>
           <li class="mo"><a href="#none" class="active">개인정보처리방침</a></li>
-          <li class="mo"><a href="#none">영상기기관리방침</a></li>  
+          <li class="mo"><a href="#none">영상기기관리방침</a></li>
           <li class="mo"><a href="#none">위치기반서비스 이용약관</a></li>
           <li class="mo"><a href="#none">사업자정보확인</a></li>
           <li class="mo"><a href="#none">약관및법적고지확인</a></li>
@@ -133,12 +133,12 @@ footer {
         display:inline-block;
         img {
           width:100%;
-        } 
+        }
       }
       > .cont_footer {
         font-size:12px;
         position:relative;
-       
+
         > * {
           margin-top:20px;
         }
@@ -205,7 +205,7 @@ footer {
               content:'(수신자 부담)';
               color:#999;
               font-size:10px;
-              
+
               }
             }
             + * {
@@ -359,7 +359,7 @@ footer {
           font-weight:600;
           display:flex;
           gap:10px;
-          flex-wrap:wrap; 
+          flex-wrap:wrap;
           li {
               padding:6px 8px;
               border:0.5px solid #999;
@@ -394,7 +394,7 @@ footer {
                 content:'';
                 width:1px;
                 height:10px;
-               
+
                 background:#ddd;
                 position:absolute;
                 top:50%;

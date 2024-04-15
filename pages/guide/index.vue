@@ -74,7 +74,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-24/', worker:'형민우'
     }, {
         depth:['','푸터','',''],
-        id:'Footer', status:'',
+        id:'Footer', status:'com',
         type:'component', note:'/component/Footer/pc',
         sDate:'', eDate:'', worker:'김희경'
     }, {
@@ -563,7 +563,7 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-24/', worker:'형민우'
     }, {
         depth:['','푸터','',''],
-        id:'Footer', status:'',
+        id:'Footer', status:'com',
         type:'component', note:'/component/Footer/mo',
         sDate:'', eDate:'', worker:'김희경'
     }, {
@@ -633,9 +633,9 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-19/', worker:''
     }, {
         depth:['상품','목록','',''],
-        id:'IN_MO_PRD_01_01', status:'ing',
+        id:'IN_MO_PRD_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-24/', worker:'김희경'
+        sDate:'', eDate:'2024-04-24/2024-04-11', worker:'김희경'
     }, {
         depth:['','상세','',''],
         id:'IN_MO_PRD_01_09', status:'',

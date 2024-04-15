@@ -93,7 +93,7 @@
     right:0;
     bottom:0;
     left:0;
-    z-index:10;
+    z-index:15;
     display:none;
     &.active {
         display:block;
@@ -150,6 +150,38 @@
             display:flex;
             justify-content:center;
             gap:10px;
+            button {
+              &.btn_reset {
+                width:180px;
+                background-color: #EEEEEE !important;
+                em {
+                  color: #666666 !important;
+                  display:flex;
+                  align-items:center;
+                  &::before {
+                    width:24px;
+                    height:24px;
+                    background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
+                    background-repeat:no-repeat;
+                    background-size:250px auto;
+                    background-position:-171px -95px;
+                    content: '';
+                    display:inline-flex;
+                  }
+                }
+              }
+              &.btn_type_02 {
+                background-color: #00BC70;
+                flex:1;
+                em {
+                  color: #fff !important;
+                }
+              }
+              em {
+                font-size:16px;
+                font-weight:600;
+              }
+            }
         }
         .modal_content {
             max-height:100%;
@@ -234,40 +266,96 @@
         flex:none;
       }
       .modal_footer {
-        gap:0px;
-        button {
-          &.btn_reset {
-            width:180px;
-            background-color: #EEEEEE !important;
-            em {
-              color: #666666 !important;
-              display:flex;
-              align-items:center;
-              &::before {
-                width:24px;
-                height:24px;
-                background-image:url('~/assets/images/common/PC-icon_split.png');
-                background-repeat:no-repeat;
-                background-size:250px auto;
-                background-position:-171px -95px;
-                content: '';
-                display:inline-flex;
-              }
-            }
-          }
-          &.btn_type_02 {
-            background-color: #00BC70;
-            flex:1;
-            em {
-              color: #fff !important;
-            }
-          }
-          em {
-            font-size:16px;
-            font-weight:600;
-          }
-        }
+        gap:0px !important;
       }
+    }
+
+    &#sample_modal_sort{
+      .modal_container {
+          border-top-left-radius:20px 20px;
+          border-top-right-radius:20px 20px;
+          .modal_header {
+              width: 100%;
+              height: 29.4px;
+              border-bottom:0;
+              position: relative;
+              .btn_close {
+                  top: 50%;
+                  right: 50%;
+                  transform:translate(-50%,-50%);
+                  &::before{
+                      width: 67px;
+                      height: 5px;
+                      border-radius: 100px;
+                      border-top:0;
+                      background-color: #DDDDDD;
+                      position:absolute;
+                      transform: rotate(0deg);
+
+                  }
+                  &::after {display:none;}
+              }
+          }
+          .modal_content {
+              padding:0;
+              height:calc(100% - 29.4px);
+              overflow-y:auto;
+              div {
+                  ul {
+                      li {
+                          padding:16px 28px;
+                          border-bottom:1px solid #F5F5F5;
+                          &:last-of-type {
+                              border-bottom:0;
+                          }
+                          &.active {
+                              display: flex;
+                              align-items: center;
+                              justify-content: space-between;
+                              &::after {
+                                  content: '';
+                                  width:22.4px;
+                                  height:22.4px;
+                                  background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+                                  background-repeat:no-repeat;
+                                  background-size:250px;
+                                  background-position:-203px -95px;
+                                  display:inline-block;
+                              }
+                              a {
+                                  color: #00BC70;
+                                  font-weight:700;
+                              }
+                          }
+                          a {
+                              color: #000000;
+                              font-weight: 300;
+                              font-size: 18.2px;
+                              line-height: 17.5px;
+                              letter-spacing: -0.14px;
+
+                          }
+
+                      }
+                  }
+              }
+          }
+      }
+    }
+    &#sample_modal_search {
+        .modal_container {
+            max-height:100%;
+            top:45%;
+            border-top-left-radius:20px 20px;
+            border-top-right-radius:20px 20px;
+            .modal_header {
+                padding:25px !important;
+            }
+            .modal_footer {
+                padding:0 !important;
+                gap:0px !important;
+            }
+        }
     }
 }
 

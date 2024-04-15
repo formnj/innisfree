@@ -186,11 +186,16 @@
         </swiper-slide>
       </swiper-container>
     </div>
-    <pre class="code_box"><code> &lt;swiper-container slides-per-view="2" autoplay-delay="3000"&gt;
+    <pre class="code_box"><code>&lt;swiper-container slides-per-view="2" autoplay-delay="3000"&gt;
   &lt;swiper-slide v-for="(item, idx) in sampleSlide" :key="idx" class="item"&gt;
     &lt;img :src="item.img"&gt;
   &lt;/swiper-slide&gt;
-&lt;/swiper-container&gt;</code></pre>
+&lt;/swiper-container&gt;
+
+&lt;script setup&gt;
+import { register } from 'swiper/element/bundle';
+register();
+&lt;/script&gt;</code></pre>
   </section>
 
   <!-- modal -->
