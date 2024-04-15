@@ -129,7 +129,7 @@
                       </h2>
                       <div class="list_wrap">
                         <ul class="goods_list">
-                          <swiper-container
+                          <!-- <swiper-container
                             slides-per-view="auto"
                             grab-cursor="true"
                             space-between="3"
@@ -139,7 +139,7 @@
                                 <GoodsItem :item="item" :link="item.link" />
                               </li>
                             </swiper-slide>
-                          </swiper-container>
+                          </swiper-container> -->
                         </ul>
                       </div>
                     </div>
@@ -170,8 +170,19 @@
 </template>
 
 <script setup>
-import { register } from 'swiper/element/bundle';
-register();
+// import Swiper core and required components
+import SwiperCore, { Navigation, Pagination, A11y } from "swiper";
+
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
+
+// install Swiper components
+SwiperCore.use([Navigation, Pagination, A11y]);
 /* sample data */
 const global_menu = [
     {

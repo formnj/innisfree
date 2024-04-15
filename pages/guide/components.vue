@@ -173,7 +173,7 @@
     <pre class="code_box"><code>&lt;Tabs tabType="" :item="[{txt:'tab01'},{txt:'tab02'}]"  :tabidx="0" /&gt;</code></pre>
   </section>
 
-  <section>
+  <!-- <section>
     <h2>Swiper</h2>
     <ul class="explain">
       <li>Swiper Element(WebComponent) 사용</li>
@@ -196,7 +196,7 @@
 import { register } from 'swiper/element/bundle';
 register();
 &lt;/script&gt;</code></pre>
-  </section>
+  </section> -->
 
   <!-- modal -->
   <div class="modal_wrap" id="sample_modal">
@@ -225,8 +225,8 @@ definePageMeta({
 })
 
 // import function to register Swiper custom elements
-import { register } from 'swiper/element/bundle';
-register();
+//import { register } from 'swiper/element/bundle';
+//register();
 
 /* component sample data */
 const input_opt = reactive(

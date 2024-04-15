@@ -119,9 +119,9 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','베스트','',''],
-        id:'IN_PC_HOM_01_00-1', status:'ing',
+        id:'IN_PC_HOM_01_00-1', status:'com',
         type:'', note:'swiper 샘플 완료 후 적용',
-        sDate:'', eDate:'2024-04-12/', worker:'이종환'
+        sDate:'', eDate:'2024-04-12/ 2024-04-12', worker:'이종환'
     }, {
         depth:['','쇼케이스(T)','',''],
         id:'IN_PC_HOM_01_12', status:'',
@@ -139,7 +139,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-19/', worker:''
     }, {
         depth:['','임직원샵','목록',''],
-        id:'IN_PC_HOM_01_16', status:'',
+        id:'IN_PC_HOM_01_16', status:'com',
         type:'', note:'',
         sDate:'', eDate:'2024-04-16/', worker:'형민우'
     }, {
@@ -553,7 +553,7 @@ const PC_arry = ([
 const MO_arry = ([
     {
         depth:['mo_공통','헤더','',''],
-        id:'Header', status:'ing',
+        id:'Header', status:'com',
         type:'component', note:'/component/Header/mo',
         sDate:'', eDate:'', worker:'형민우'
     }, {
@@ -603,9 +603,9 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','베스트','',''],
-        id:'IN_MO_HOM_01_00-1', status:'ing',
-        type:'', note:'',
-        sDate:'', eDate:'2024-04-12/', worker:'이종환'
+        id:'IN_MO_HOM_01_00-1', status:'com',
+        type:'', note:'swiper 샘플 완료 후 적용',
+        sDate:'', eDate:'2024-04-12/ 2024-04-12', worker:'이종환'
     }, {
         depth:['','쇼케이스(T)','',''],
         id:'IN_MO_HOM_01_12', status:'',
@@ -623,7 +623,7 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-19/', worker:''
     }, {
         depth:['','임직원샵','목록',''],
-        id:'IN_MO_HOM_01_16', status:'',
+        id:'IN_MO_HOM_01_16', status:'com',
         type:'', note:'',
         sDate:'', eDate:'2024-04-16/', worker:'형민우'
     }, {
@@ -1158,6 +1158,10 @@ onMounted(() => {
 
         if(device.value[i].status == ''){
             device.value[i].status = 'not_link';
+        }
+
+        if(device.value[i].type == 'component'){
+            device.value[i].status = device.value[i].status+' not_link'
         }
 
         document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'

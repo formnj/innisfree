@@ -1,10 +1,11 @@
 <template>
     <div id="wrap">
-        <HeaderPc />
+        <HeaderMoProduct />
         <div id="container">
             <router-view />
         </div>
-        <FooterPc />
+        <FooterMo />
+        <Actionbar />
     </div>
 </template>
 
@@ -23,7 +24,6 @@
 }
 
 #container {
-    padding-bottom:100px;
     flex:1 auto;
 }
 </style>

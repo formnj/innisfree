@@ -260,3 +260,25 @@ export const sample_goods = [
 ]
 
 export const sam_lnb = ['에센스/세럼/앰플','로션/크림','스킨/토너/미스트','립/아이케어','선케어','오일/마사지','클렌징','팩/마스크','기획 세트','기타']
+
+export const prodImgData = [
+  {
+    img: ("https://images.innisfree.co.kr/upload/product/36830_l_S_375.jpg?T202404091127"),
+  },
+  {
+    img: ("https://images.innisfree.co.kr/upload/product/36830_l1_S_375.jpg?T202404091627"),
+  },
+]
+
+//single item
+export const prodInfo = {
+  topText: '2개이상 구매시 50%',
+  name: '라이트 피팅 컨실러 [다크서클 커버] 7g',
+  price: '9,100', sale: '~50%', cost: '13,000',
+  sticker: [
+    { txt: '증정', type: 'type02' },
+  ],
+  rate: 4.6,
+  cntReview: 145,
+  summaryReview: '이 제품을 구매하신 고객 분들은 다크서클과 잡티 커버, 자연스러운 색상, 그리고 사용 편의성이 좋다고 하셨어요!',
+}
