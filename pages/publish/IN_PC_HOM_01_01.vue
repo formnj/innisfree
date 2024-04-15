@@ -2,42 +2,8 @@
   <div class="main">
     <!-- visual -->
     <div class="visual">
-      <!-- <swiper
-    :slides-per-view="3.5"
-    :space-between="50"
-    :loop="true"
-    navigation
-    :pagination="{ clickable: true }"
-    @swiper="onSwiper"
-    @slideChange="onSlideChange"
-    :centered-slides="true"
-    :slides-offset-before="-310"
-  >
-    <swiper-slide>
-      <h2>Slide 1</h2>
-      <p>--------</p>
-      <p>--------</p>
-      <p>--------</p>
-      <p>--------</p>
-    </swiper-slide>
-    <swiper-slide>
-      <h2>Slide 2</h2>
-    </swiper-slide>
-    <swiper-slide>
-      <h2>Slide 3</h2>
-    </swiper-slide>
-    <swiper-slide>
-      <h2>Slide 4</h2>
-    </swiper-slide>
-    <swiper-slide>
-      <h2>Slide 5</h2>
-    </swiper-slide>
-    <swiper-slide>
-      <h2>Slide 6</h2>
-    </swiper-slide>
-  </swiper> -->
       <swiper
-        :slides-per-view="3"
+        :slides-per-view="'auto'"
         :space-between="40"
         :loop="true"
         navigation
@@ -47,25 +13,13 @@
         :centered-slides="true"
         :slides-offset-before="-310"
       >
-        <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx" class="item">
-          <img :src="item.img">
+        <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx">
+          <div class="item">
+            <strong></strong>
+            <img :src="item.img">
+          </div>
         </swiper-slide>
       </swiper>
-
-
-      <!-- <swiper-container
-        slides-per-view="auto"
-        loop="true"
-        loop-additional-slides="1"
-        centered-slides="true"
-        grab-cursor="true"
-        slides-offset-before="-310"
-        pagination="true"
-      >
-        <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx" class="item">
-          <img :src="item.img">
-        </swiper-slide>
-      </swiper-container> -->
     </div>
     <!-- //visual -->
 
@@ -144,12 +98,19 @@ const rankingTabs = [
   {txt:'기획 세트'},
   {txt:'미용소품'}
 ]
+
+const onSwiper = (swiper) => {
+  console.log(swiper);
+};
+const onSlideChange = () => {
+  console.log('slide change');
+};
 </script>
 <style lang="scss" scoped>
     .main {
       .visual {
         ::v-deep .swiper-slide {
-          // width: 620px !important;
+          width:620px !important;
           filter:grayscale(1);
 
           &.swiper-slide-active {
