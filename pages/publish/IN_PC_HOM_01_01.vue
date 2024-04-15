@@ -2,23 +2,42 @@
   <div class="main">
     <!-- visual -->
     <div class="visual">
-      <swiper
+      <swiper class="name"
         :slides-per-view="'auto'"
         :space-between="40"
         :loop="true"
         navigation
-        :pagination="{ clickable: true }"
+        :pagination="{
+          type:'fraction'
+        }"
+        :autoplay="{
+          delay: 3000,
+          disableOnInteraction: false,
+        }"
         @swiper="onSwiper"
         @slideChange="onSlideChange"
         :centered-slides="true"
-        :slides-offset-before="-310"
+        :slides-offset-before="-330"
+
+        ref="mySwiper"
       >
         <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx">
           <div class="item">
-            <strong></strong>
+            <strong>{{idx+1}}</strong>
             <img :src="item.img">
           </div>
         </swiper-slide>
+        <!-- customer pagination -->
+        <div class="custom_pagination">
+          <div class="current">
+            <em class="idx_01"></em> /
+            <em class="idx_02"></em> /
+          </div>
+          <strong class="total"></strong>
+
+          <Button class="swiper_controler" :data="swiper_status" :txt="swiper_status" @click="swiper_control" />
+        </div>
+        <!-- //customer pagination -->
       </swiper>
     </div>
     <!-- //visual -->
@@ -48,7 +67,46 @@
     <!-- //이 제품 어때요 -->
 
     <!-- 혜택 -->
-    <section class="benefit">혜택</section>
+    <section class="benefit">
+
+      <swiper
+        :slides-per-view="'auto'"
+        :space-between="40"
+        :loop="true"
+        navigation
+        :pagination="{
+          type:'fraction'
+        }"
+        :autoplay="{
+          delay: 3000,
+          disableOnInteraction: false,
+        }"
+        @swiper="onSwiper"
+        @slideChange="onSlideChange"
+        :centered-slides="true"
+        :slides-offset-before="-330"
+
+        ref="mySwiper"
+      >
+        <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx">
+          <div class="item">
+            <strong>{{idx+1}}</strong>
+            <img :src="item.img">
+          </div>
+        </swiper-slide>
+        <!-- customer pagination -->
+        <div class="custom_pagination">
+          <div class="current">
+            <em class="idx_01"></em> /
+            <em class="idx_02"></em> /
+          </div>
+          <strong class="total"></strong>
+
+          <Button class="swiper_controler" :data="swiper_status" :txt="swiper_status" @click="swiper_control" />
+        </div>
+        <!-- //customer pagination -->
+      </swiper>
+    </section>
     <!-- //혜택 -->
 
     <!-- 랭킹 -->
@@ -68,7 +126,7 @@
 </template>
 <script setup>
 // import Swiper core and required components
-import SwiperCore, { Navigation, Pagination, A11y } from "swiper";
+import SwiperCore, { Autoplay, Navigation, Pagination, A11y } from "swiper";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -79,7 +137,58 @@ import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y]);
+SwiperCore.use([Autoplay, Navigation, Pagination, A11y]);
+
+const onSwiper = (swiper) => {
+  console.log(swiper.el)
+
+
+  const total = swiper.loopedSlides,
+  current = swiper.realIndex+1;
+
+  if(total < 10) {
+    document.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
+
+    if((current+1) > total) {
+      document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+((total - current)+1);
+    } else {
+      document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+(current+1);
+    }
+
+    console.log(current);
+
+    document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
+  }
+};
+
+const onSlideChange = (swiper) => {
+  const total = swiper.loopedSlides,
+  current = swiper.realIndex+1;
+
+  if(total < 10) {
+    document.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
+
+    if((current+1) > total) {
+      document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+((total - current)+1);
+    } else {
+      document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+(current+1);
+    }
+
+    // console.log(current);
+
+    document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
+  }
+};
+
+const swiper_status = ref('play');
+const swiper_control = (e) => {
+  if(swiper_status.value == 'play'){
+    swiper_status.value='pause'
+  } else {
+    swiper_status.value='play';
+  }
+}
+
 
 import {
   sampleSlide
@@ -98,26 +207,50 @@ const rankingTabs = [
   {txt:'기획 세트'},
   {txt:'미용소품'}
 ]
-
-const onSwiper = (swiper) => {
-  console.log(swiper);
-};
-const onSlideChange = () => {
-  console.log('slide change');
-};
 </script>
 <style lang="scss" scoped>
     .main {
       .visual {
+        .swiper-container {
+          padding-bottom:40px;
+          ::v-deep .swiper-pagination {
+            display:none;
+          }
+          .custom_pagination {
+            position:absolute;
+            right:0;
+            bottom:0;
+            left:0;
+            display:flex;
+            justify-content:center;
+          }
+        }
         ::v-deep .swiper-slide {
           width:620px !important;
+          opacity:0.2;
           filter:grayscale(1);
+          transition:opacity 0.25s;
 
           &.swiper-slide-active {
+            opacity:1;
             filter:grayscale(0);
           }
-          &.swiper-slide-active + .item {
+          &.swiper-slide-active + .swiper-slide {
+            opacity:1;
             filter:grayscale(0);
+          }
+        }
+        ::v-deep [class*="swiper-button-"] {
+          width:60px;
+          height:60px;
+          margin-top:-50px;
+          background:url('~/assets/images/common/icon_split.png') 0 -190px no-repeat;
+          background-size:250px auto;
+          &:after {
+            display:none;
+          }
+          &.swiper-button-next {
+            transform:rotate(180deg);
           }
         }
       }

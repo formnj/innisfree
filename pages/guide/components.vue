@@ -173,30 +173,70 @@
     <pre class="code_box"><code>&lt;Tabs tabType="" :item="[{txt:'tab01'},{txt:'tab02'}]"  :tabidx="0" /&gt;</code></pre>
   </section>
 
-  <!-- <section>
-    <h2>Swiper</h2>
-    <ul class="explain">
-      <li>Swiper Element(WebComponent) 사용</li>
-      <li><a href="https://swiperjs.com/swiper-api" target="_blank">Swiper API(새창)</a>, <a href="https://swiperjs.com/element" target="_blank">Swiper Element Docs(새창)</a></li>
-    </ul>
+  <section>
+    <h2>swiper</h2>
     <div class="design_box">
-      <swiper-container slides-per-view="2" autoplay-delay="3000">
-        <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx" class="item">
-          <img :src="item.img">
+      <swiper
+        :slides-per-view="'auto'"
+        :space-between="40"
+        :loop="true"
+        navigation
+        :pagination="pagination"
+        @swiper="onSwiper"
+        @slideChange="onSlideChange"
+        :centered-slides="true"
+        :slides-offset-before="-310"
+      >
+        <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx">
+          <div class="item">
+            <strong></strong>
+            <img :src="item.img">
+          </div>
         </swiper-slide>
-      </swiper-container>
+      </swiper>
     </div>
-    <pre class="code_box"><code>&lt;swiper-container slides-per-view="2" autoplay-delay="3000"&gt;
-  &lt;swiper-slide v-for="(item, idx) in sampleSlide" :key="idx" class="item"&gt;
-    &lt;img :src="item.img"&gt;
+    <pre class="code_box"><code>&lt;swiper
+  :slides-per-view="'auto'"
+  :space-between="40"
+  :loop="true"
+  navigation
+  :pagination="pagination"
+  @swiper="onSwiper"
+  @slideChange="onSlideChange"
+  :centered-slides="true"
+  :slides-offset-before="-310"
+&gt;
+  &lt;swiper-slide v-for="(item, idx) in sampleSlide" :key="idx"&gt;
+    &lt;div class="item"&gt;
+      &lt;strong&gt;&lt;/strong&gt;
+      &lt;img :src="item.img"&gt;
+    &lt;/div&gt;
   &lt;/swiper-slide&gt;
-&lt;/swiper-container&gt;
+&lt;/swiper&gt;
 
 &lt;script setup&gt;
-import { register } from 'swiper/element/bundle';
-register();
+// import Swiper core and required components
+import SwiperCore, { Navigation, Pagination, A11y } from "swiper";
+
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
+
+// install Swiper components
+SwiperCore.use([Navigation, Pagination, A11y]);
+
+const onSwiper = (swiper) => {
+  document.querySelector('.swiper-pagination-fraction').style.border="2px solid red"
+};
+const onSlideChange = () => {
+  console.log('slide change');
+};
 &lt;/script&gt;</code></pre>
-  </section> -->
+  </section>
 
   <!-- modal -->
   <div class="modal_wrap" id="sample_modal">
@@ -224,9 +264,29 @@ definePageMeta({
   layout: 'guide'
 })
 
-// import function to register Swiper custom elements
-//import { register } from 'swiper/element/bundle';
-//register();
+/* swiper */
+// import Swiper core and required components
+import SwiperCore, { Navigation, Pagination, A11y } from "swiper";
+
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
+
+// install Swiper components
+SwiperCore.use([Navigation, Pagination, A11y]);
+
+const pagination = {
+  type:'fraction',
+  clickable: true,
+  renderBullet: function (index, className) {
+    return '<span class="' + className + '">' + (index + 2) + '</span>';
+  }
+}
+/* //swiper */
 
 /* component sample data */
 const input_opt = reactive(
@@ -510,5 +570,21 @@ const modal = {
     .inner {
         margin:0 !important;
     }
+}
+
+::v-deep .swiper-slide {
+  width:620px !important;
+  opacity:0.2;
+  filter:grayscale(1);
+  transition:opacity 0.25s;
+
+  &.swiper-slide-active {
+    opacity:1;
+    filter:grayscale(0);
+  }
+  &.swiper-slide-active + .swiper-slide {
+    opacity:1;
+    filter:grayscale(0);
+  }
 }
 </style>
