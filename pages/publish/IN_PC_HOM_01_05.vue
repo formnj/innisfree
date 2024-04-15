@@ -1,6 +1,7 @@
 <template>
   <div class="title_wrap" :data-layout="props.layoutType">
-    <h2>pc이벤트</h2>
+    <h2>이벤트</h2>
+    <button>당첨자 발표</button>
   </div>
 
   <div class="inner">
