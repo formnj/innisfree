@@ -21,7 +21,7 @@ const props = defineProps({
         display:block;
         &.type01 {
             color:#666;
-            background-color:#eee;            
+            background-color:#eee;
         }
         &.type02 {
             color:#00bc70;
@@ -35,6 +35,12 @@ const props = defineProps({
             color:#fff;
             background-color:#000;
         }
+    }
+}
+.prod_info {
+  .sticker
+    em {
+      font-size:10px;
     }
 }
 </style>
