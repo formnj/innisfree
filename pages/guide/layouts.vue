@@ -4,6 +4,7 @@
     <ul class="explain">
       <li>콘텐츠 타이틀</li>
     </ul>
+    <div class="design_box"></div>
     <pre class="code_box"><code>&lt;div class="title_wrap/&gt;
   &lt;h2&gt;Title&lt;/h2&gt;
 &lt;/div&gt;</code></pre>
@@ -12,9 +13,15 @@
   <section>
     <h2>pc-category</h2>
     <ul class="explain">
-      <li>상품 리스트 레이아웃</li>
+      <li>상품 리스트 레이아웃 [LNB] 노출 여부 선택</li>
     </ul>
-    <pre class="code_box"><code>&lt;script setup&gt;
+    <pre class="code_box"><code>&lt;template&gt;
+  &lt;div class="title_wrap" :data-layout="props.layoutType"&gt;
+    &lt;h2&gt;Title&lt;/h2&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+      &lt;script setup&gt;
 definePageMeta({
 	layout: 'pc-category'
 });
