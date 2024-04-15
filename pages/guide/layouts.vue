@@ -11,6 +11,22 @@
   </section>
 
   <section>
+    <h2>[공통] content</h2>
+    <ul class="explain">
+      <li>[class="inner"] = max-width:1320px; padding-right:20px; padding-left:20px;</li>
+      <li>상품 리스트, 이벤트 리스트 등 content 내부에 공통으로 사용하며, pc에서는 넓이의 제한을 주기위해 사용하지만, mo에서는 소스의 통일성을 위해 사용함</li>
+    </ul>
+    <pre class="code_box"><code>&lt;template&gt;
+  &lt;div class="inner"&gt;
+    &lt;ul class="list_wrap"&gt;
+      &lt;li&gt;list01&lt;//li&gt;
+      &lt;li&gt;list02&lt;//li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
+  </section>
+
+  <section>
     <h2>pc-category</h2>
     <ul class="explain">
       <li>상품 리스트 레이아웃 [LNB] 노출 여부 선택</li>
