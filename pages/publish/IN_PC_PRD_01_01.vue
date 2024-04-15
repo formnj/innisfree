@@ -143,6 +143,12 @@ definePageMeta({
 	layout: 'pc-category'
 });
 
+const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
+    layoutType: {
+      type:String,
+      default:'default'
+    }
+});
 const sample_goods = [
     {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
