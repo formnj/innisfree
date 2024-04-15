@@ -22,10 +22,6 @@ definePageMeta({
   layout: 'mo-default'
 })
 
-
-import { register } from 'swiper/element/bundle';
-register();
-
 const sampleSlide = [
   {
     img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),

@@ -146,6 +146,14 @@ definePageMeta({
 	layout: 'mo-category'
 });
 
+const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
+    layoutType: {
+      type:String,
+
+    }
+});
+
+
 onMounted(()=>{
 })
 
@@ -326,7 +334,7 @@ const setFilter = (event) =>{
 .sortTab {
     position:relative;
     > button::after {
-        background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+        background-image: url('/_nuxt/assets/images/common/PC_icon_split.png');
         background-size:250px;
         background-repeat:no-repeat;
         background-position:-110px -60px;
@@ -334,7 +342,7 @@ const setFilter = (event) =>{
     & ~ button {
         position:relative;
         &::after {
-            background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+            background-image: url('/_nuxt/assets/images/common/PC_icon_split.png');
             background-size:250px;
             background-repeat:no-repeat;
             background-position:-130px -60px;
@@ -358,5 +366,51 @@ const setFilter = (event) =>{
         z-index:100;
     }
 }
+
+.sortList {
+      margin-bottom:30px;
+      dt {
+        margin-bottom: 10px;
+        color: #999999;
+        font-size: 12px;
+        line-height: 1.32em;
+        letter-spacing: -0.01em;
+
+      }
+      dd {
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          li {
+            label {
+              padding-left: 0;
+              input {
+                position: absolute;
+                z-indeX: -1;
+                opacity: 0;
+              }
+              span {
+                height: 30px;
+                padding: 0 20px;
+                color: #AAAAAA;
+                font-weight: 600;
+                font-size: 14px;
+                border-radius: 5px;
+                background-color: #F5F5F5;
+                line-height: 1.29em;
+                letter-spacing: -0.01em;
+                display: flex;
+                align-items: center;
+                &.active {
+                  color: #FFFFFF;
+                  background:#00BC70;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 
 </style>

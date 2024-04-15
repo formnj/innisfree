@@ -35,17 +35,70 @@
 .breadcrumb {
     border-bottom:1px solid #ddd;
     .inner {
+        position:relative;
         display:flex;
         > a {
+            width:16px;
+            height:16px;
             font-size:0;
+            background-image: url('/_nuxt/assets/images/common/PC_icon_split.png');
+            background-size:250px;
+            background-repeat:no-repeat;
+            background-position:-41px -143px;
+            position:absolute;
+            top:50%;
+            left:20px;
+            display:flex;
+            align-items:center;
+            transform:translateY(-50%);
         }
         dl {
+            &:first-of-type {
+                margin-left:24px;
+            }
             position:relative;
             dt {
                 button {
                     em {
-                        padding:21px 10px !important;
+                        padding:21px 0px !important;
                         color:#999 !important;
+                        display:flex;
+                        align-items:center;
+                        &::before {
+                            content:'';
+                            width:12px;
+                            height:12px;
+                            margin:0 12px;
+                            background-image: url('/_nuxt/assets/images/common/PC_icon_split.png');
+                            background-size:250px;
+                            background-repeat:no-repeat;
+                            background-position:-84px -145px;
+                            display:inline-block;
+                        }
+                        &::after {
+                            content:'';
+                            width:12px;
+                            height:12px;
+                            margin-left:5px;
+                            background-image: url('/_nuxt/assets/images/common/PC_icon_split.png');
+                            background-size:250px;
+                            background-repeat:no-repeat;
+                            background-position:-65px -144px;
+                            display:inline-block;
+
+                        }
+                        &.active {
+                            color:#000 !important;
+                            &::after {
+                                background-image: url('/_nuxt/assets/images/common/PC_icon_split.png');
+                                background-size:250px;
+                                background-repeat:no-repeat;
+                                background-position:-209px 1px;
+                                display:inline-block;
+                                transform: rotate(90deg);
+
+                            }
+                        }
                     }
                 }
             }
@@ -55,8 +108,8 @@
                 overflow:hidden;
                 position:absolute;
                 top:100%;
-                left:-5px;
-                z-index:2;
+                left:17px;
+                z-index:10;
                 display:none;
                 transition:height 0.25s ease-in;
                 ul {

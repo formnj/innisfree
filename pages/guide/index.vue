@@ -79,9 +79,9 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','브래드크럼','',''],
-        id:'Breadcrumb', status:'',
+        id:'Breadcrumb', status:'com',
         type:'component', note:'/component/Breadcrumb',
-        sDate:'', eDate:'', worker:'김희경'
+        sDate:'2024-04-15', eDate:'2024-04-15', worker:'김희경'
     }, {
         depth:['홈','','',''],
         id:'IN_PC_HOM_01_01', status:'ing',
@@ -94,9 +94,9 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'형민우'
     }, {
         depth:['','이벤트(T)','목록',''],
-        id:'IN_PC_HOM_01_05', status:'',
+        id:'IN_PC_HOM_01_05', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'', worker:'김희경'
+        sDate:'2024-04-15', eDate:'', worker:'김희경'
     }, {
         depth:['','','상세',''],
         id:'IN_PC_HOM_01_06', status:'',
@@ -119,9 +119,9 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','베스트','',''],
-        id:'IN_PC_HOM_01_00-1', status:'ing',
+        id:'IN_PC_HOM_01_00-1', status:'com',
         type:'', note:'swiper 샘플 완료 후 적용',
-        sDate:'', eDate:'2024-04-12/', worker:'이종환'
+        sDate:'', eDate:'2024-04-12/ 2024-04-12', worker:'이종환'
     }, {
         depth:['','쇼케이스(T)','',''],
         id:'IN_PC_HOM_01_12', status:'',
@@ -578,9 +578,9 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:'형민우'
     }, {
         depth:['','이벤트(T)','목록',''],
-        id:'IN_MO_HOM_01_05', status:'',
+        id:'IN_MO_HOM_01_05', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'', worker:'김희경'
+        sDate:'2024-04-15', eDate:'', worker:'김희경'
     }, {
         depth:['','','상세',''],
         id:'IN_MO_HOM_01_06', status:'',
@@ -603,9 +603,9 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','베스트','',''],
-        id:'IN_MO_HOM_01_00-1', status:'ing',
-        type:'', note:'',
-        sDate:'', eDate:'2024-04-12/', worker:'이종환'
+        id:'IN_MO_HOM_01_00-1', status:'com',
+        type:'', note:'swiper 샘플 완료 후 적용',
+        sDate:'', eDate:'2024-04-12/ 2024-04-12', worker:'이종환'
     }, {
         depth:['','쇼케이스(T)','',''],
         id:'IN_MO_HOM_01_12', status:'',
@@ -1158,6 +1158,10 @@ onMounted(() => {
 
         if(device.value[i].status == ''){
             device.value[i].status = 'not_link';
+        }
+
+        if(device.value[i].type == 'component'){
+            device.value[i].status = device.value[i].status+' not_link'
         }
 
         document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'
