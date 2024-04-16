@@ -89,7 +89,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-09/' , worker:''
     }, {
         depth:['','특가(T)','',''],
-        id:'IN_PC_HOM_01_04', status:'',
+        id:'IN_PC_HOM_01_04', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'', worker:'형민우'
     }, {
@@ -141,7 +141,7 @@ const PC_arry = ([
         depth:['','임직원샵','목록',''],
         id:'IN_PC_HOM_01_16', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-16/', worker:'형민우'
+        sDate:'', eDate:'2024-04-16/ 2024-14-16', worker:'형민우'
     }, {
         depth:['','쇼핑로그','',''],
         id:'IN_PC_HOM_01_18', status:'',
@@ -573,7 +573,7 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-09/', worker:''
     }, {
         depth:['','특가(T)','',''],
-        id:'IN_MO_HOM_01_04', status:'',
+        id:'IN_MO_HOM_01_04', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'', worker:'형민우'
     }, {
@@ -625,7 +625,7 @@ const MO_arry = ([
         depth:['','임직원샵','목록',''],
         id:'IN_MO_HOM_01_16', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-16/', worker:'형민우'
+        sDate:'', eDate:'2024-04-16/ 2024-04-16', worker:'형민우'
     }, {
         depth:['','쇼핑로그','',''],
         id:'IN_MO_HOM_01_18', status:'',
