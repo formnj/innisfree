@@ -126,7 +126,7 @@
 </template>
 <script setup>
 // import Swiper core and required components
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
+import SwiperCore, { Autoplay, Navigation, Pagination, A11y } from "swiper";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -137,30 +137,31 @@ import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 
 // install Swiper components
-SwiperCore.use([Autoplay, Navigation, Pagination]);
+SwiperCore.use([Autoplay, Navigation, Pagination, A11y]);
 
 const onSwiper = (swiper) => {
   console.log(swiper.el)
 
-  /* pagination reset */
+
   const total = swiper.loopedSlides,
   current = swiper.realIndex+1;
 
   if(total < 10) {
     document.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
+
     if((current+1) > total) {
       document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+((total - current)+1);
     } else {
       document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+(current+1);
     }
+
+    console.log(current);
+
     document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
   }
-  /* //pagination reset */
 };
 
 const onSlideChange = (swiper) => {
-
-  /* pagination reset */
   const total = swiper.loopedSlides,
   current = swiper.realIndex+1;
 
@@ -172,9 +173,11 @@ const onSlideChange = (swiper) => {
     } else {
       document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+(current+1);
     }
+
+    // console.log(current);
+
     document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
   }
-  /* //pagination reset */
 };
 
 const swiper_status = ref('play');
