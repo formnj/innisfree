@@ -215,7 +215,7 @@ const sample_goods = [
                         flex-direction:column;
                         justify-content:space-between;
                         > *+* {
-                            margin-top:5px;;
+                            margin-top:5px;
                         }
 
                         dt {
