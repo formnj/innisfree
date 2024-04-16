@@ -6,7 +6,7 @@
     </div>
     <!-- //상품 상세 영역 -->
     <div class="btn_more_area">
-      <button @click="showCont()">제품정보 더보기</button>
+      <button type="button" @click="showCont()">제품정보 더보기</button>
     </div>
   </div>
 </template>
@@ -45,7 +45,7 @@ const showCont = () => {
         width:16px;
         height:16px;
         margin-left:10px;
-        background:url('./../assets/mo_images/common/icon_split.png') 0 -70px;
+        background:url('/assets/mo_images/common/icon_split.png') 0 -70px;
         background-size:250px auto;
         display:inline-block;
       }

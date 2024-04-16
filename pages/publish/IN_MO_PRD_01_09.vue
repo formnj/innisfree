@@ -1,8 +1,8 @@
 <template>
-  <ProdDetailSwiper />
-  <ProdDetailInfo />
-  <ProdDetailBenefit />
-  <ProdDetailTab />
+  <ProductDetailSwiper />
+  <ProductDetailInfo />
+  <ProductDetailBenefit />
+  <ProductDetailTab />
 </template>
 <script setup>
 definePageMeta({

@@ -89,7 +89,7 @@
             width:12px;
             height:12px;
             margin-left:8px;
-            background:url('../assets/mo_images/common/icon_split.png') -230px 0px;
+            background:url('/assets/mo_images/common/icon_split.png') -230px 0px;
             background-size:250px auto;
             position:absolute;
             right:0;
@@ -153,7 +153,7 @@
       width: 16px;
       height: 16px;
       margin-right:5px;
-      background: url('./../assets/mo_images/common/icon_split.png') -210px 0;
+      background: url('/assets/mo_images/common/icon_split.png') -210px 0;
       background-size: 250px auto;
       display: inline-block;
     }
