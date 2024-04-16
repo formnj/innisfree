@@ -107,12 +107,14 @@ const PC_arry = ([
         id:'IN_PC_HOM_01_07', status:'',
         type:'', note:'',
         sDate:'', eDate:'', worker:''
-    }, {
-        depth:['','에디터(T)','목록',''],
-        id:'IN_PC_HOM_01_08', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:'김나람'
-    }, {
+    },
+    // {
+    //     depth:['','에디터(T)','목록',''],
+    //     id:'IN_PC_HOM_01_08', status:'',
+    //     type:'', note:'',
+    //     sDate:'', eDate:'', worker:'김나람'
+    // },
+     {
         depth:['','','상세',''],
         id:'IN_PC_HOM_01_09', status:'',
         type:'', note:'',
@@ -595,12 +597,12 @@ const MO_arry = ([
         depth:['','에디터(T)','목록',''],
         id:'IN_MO_HOM_01_08', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:'김나람'
+        sDate:'', eDate:'2024-04-19', worker:'김나람'
     }, {
         depth:['','','상세',''],
         id:'IN_MO_HOM_01_09', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:'이종환'
+        sDate:'', eDate:'2024-04-19', worker:'이종환'
     }, {
         depth:['','베스트','',''],
         id:'IN_MO_HOM_01_00-1', status:'com',
