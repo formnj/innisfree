@@ -216,7 +216,7 @@
 
 &lt;script setup&gt;
 // import Swiper core and required components
-import SwiperCore, { Navigation, Pagination, A11y } from "swiper";
+import SwiperCore, { Navigation, Pagination } from "swiper";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -227,7 +227,7 @@ import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y]);
+SwiperCore.use([Navigation, Pagination]);
 
 const onSwiper = (swiper) => {
   document.querySelector('.swiper-pagination-fraction').style.border="2px solid red"
@@ -266,7 +266,7 @@ definePageMeta({
 
 /* swiper */
 // import Swiper core and required components
-import SwiperCore, { Navigation, Pagination, A11y } from "swiper";
+import SwiperCore, { Navigation, Pagination } from "swiper";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -277,7 +277,7 @@ import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y]);
+SwiperCore.use([Navigation, Pagination]);
 
 const pagination = {
   type:'fraction',
