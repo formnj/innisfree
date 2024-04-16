@@ -11,19 +11,19 @@
             <em>{{ item.desc }}</em>
             <div class="timer_wrap">
                 <div class="num">
-                    <span id="prom_180_day">{{item.date.day}}</span>
+                    <span id="prom_day">{{item.date.day}}</span>
                 </div>
                 <span class="unit">일</span>
                 <div class="num">
-                    <span id="prom_180_hh">{{item.date.hour}}</span>
+                    <span id="prom_hh">{{item.date.hour}}</span>
                 </div>
                 <span class="unit">시</span>
                 <div class="num">
-                    <span id="prom_180_mm">{{item.date.min}}</span>
+                    <span id="prom_mm">{{item.date.min}}</span>
                 </div>
                 <span class="unit">분</span>
                 <div class="num">
-                    <span id="prom_180_ss">{{item.date.sec}}</span>
+                    <span id="prom_ss">{{item.date.sec}}</span>
                 </div>
                 <span class="unit">초</span>
             </div>
@@ -151,6 +151,7 @@ const sample_data = [
     },
 ]
 
+
 const sample_goods = [
     {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
@@ -275,6 +276,9 @@ const modal = {
 </script>
 
 <style lang="scss" scoped>
+.title_wrap {
+  padding: 60px 20px;
+}
 .inner {
     > section {
         padding:60px 0;
@@ -288,20 +292,53 @@ const modal = {
             font-weight:600;
         }
         em {
-            padding:10px 0 20px;
+            padding:10px 0 40px;
             color:#999;
             font-size:14px;
             display:inline-block;
         }
         .timer_wrap {
             display:flex;
+            align-items:center;
             .num {
                 width: 42px;
                 height: 48px;
-                span {}
+                background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+                background-repeat:no-repeat;
+                background-size:250px;
+                background-position:-117px -142px;
+                position:relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &::after {
+                    content: '';
+                    width: 40px;
+                    height: 1px;
+                    background: #1D1D1D;
+                    position: absolute;
+                    left: 1px;
+                    top: 24px;
+                    z-index: 2;
+                    display: block;
+                    opacity: 0.5;
+                }
+                span {
+                    color: #FFFFFF;
+                    font-size: 24px;
+                    line-height: 0.83em;
+                    letter-spacing: -0.01em;
+                    position: relative;
+                    z-index: 1;
+                }
             }
             .unit {
-
+                padding: 0 10px;
+                color: #000000;
+                font-size: 18px;
+                line-height: 1.33em;
+                letter-spacing: -0.01em;
+                display: block;
             }
         }
         > button {
@@ -315,6 +352,20 @@ const modal = {
     }
     >.benefits_wrap {
         padding:60px 0;
+    }
+    .modal_wrap.alert {
+        .modal_container  {
+            width:764px;
+            .modal_content {
+                > div {
+                     p {
+                        color:#222;
+                        font-size:16px;
+                        line-height:29px;
+                     }
+                }
+            }
+        }
     }
 }
 
