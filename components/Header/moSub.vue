@@ -464,23 +464,23 @@ header {
           align-items:center;
           button::v-deep {
             background:unset;
+            &:after {
+              content:'';
+              width:16px;
+              height:16px;
+              margin-left:10px;
+              background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
+              background-size:250px;
+              background-repeat:no-repeat;
+              background-position:-110px -60px;
+              display:inline-block;
+            }
             em {
               padding:0;
               color:#000;
               font-size:18px;
               font-weight:500;
               font-family:'Pretendard';
-            }
-            &::after {
-              content:'';
-              width:7px;
-              height:7px;
-              margin-left:15px;
-              border-color:#000;
-              border-style:solid;
-              border-width:0 1px 1px 0;
-              display:block;
-              transform:rotate(45deg);
             }
           }
         }
@@ -1042,7 +1042,7 @@ header {
               font-size:0;
               background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
               background-repeat:no-repeat;
-              background-position:-80px -40px;
+              background-position:-80px -70px;
               background-size:250px auto;
               display:block;
             }
