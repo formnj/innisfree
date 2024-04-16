@@ -91,7 +91,7 @@ const PC_arry = ([
         depth:['','특가(T)','',''],
         id:'IN_PC_HOM_01_04', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:'형민우'
+        sDate:'', eDate:'2024-04-19', worker:'김희경'
     }, {
         depth:['','이벤트(T)','목록',''],
         id:'IN_PC_HOM_01_05', status:'com',
@@ -575,7 +575,7 @@ const MO_arry = ([
         depth:['','특가(T)','',''],
         id:'IN_MO_HOM_01_04', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:'형민우'
+        sDate:'', eDate:'2024-04-19', worker:'김희경'
     }, {
         depth:['','이벤트(T)','목록',''],
         id:'IN_MO_HOM_01_05', status:'ing',
