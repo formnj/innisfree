@@ -4,8 +4,8 @@
         <button>당첨자 발표</button>
     </div>
     <div class="inner">
-        <div>
-            <ul>
+        <div class="list_wrap"><!-- [Tip: hgkim] list는 항상 list_wrap으로 감싸주고 -->
+            <ul class="event_list"><!-- 어떤 타입의 리스트인지 클래스로 선언해줍니다. 그래야 다른 페이지에서도 같은 리스트를 사용할 수 있으니까요. -->
                 <li v-for="(item, idx) in sample_goods" :key="idx">
                     <a :href="props.link">
                         <div>
@@ -172,69 +172,70 @@ const sample_goods = [
     }
 }
 
-.inner {
-    > div {
-        > ul {
-            display:flex;
-            flex-wrap:wrap;
-            gap:10px;
-            li {
-                width:100%;
-                height:100%;
-                position:relative;
-                a {
-                    height:100%;
-                    display:flex;
-                    align-items:center;
-                    div {
-                        width: 170px;
-                        max-width:100%;
 
-                        img {
-                            width:100%;
-                            height:100%;
-                        }
-                        em {
-                            padding:2px 5px;
-                            font-size:14px;
-                            font-weight:400;
-                            position:absolute;
-                            top:0;
-                            left:0;
-                            display:block;
-                            &.type04 {
-                                color:#fff;
-                                background-color:#000;
-                            }
-                        }
-                    }
-                    dl {
-                        height:100%;
-                        padding:0 10px;
-                        display:flex;
-                        flex-direction:column;
-                        justify-content:space-between;
-                        > *+* {
-                            margin-top:5px;
-                        }
 
-                        dt {
-                            margin-top:20px;
-                            color:#666;
-                            font-size:12px;
-                            letter-spacing: -0.01em;
-                        }
-                        dd {
-                            color: #000000;
-                            font-size: 14px;
-                            font-weight: 600;
-                            word-wrap: break-word;
-                        }
-                    }
-                }
-            }
-        }
-    }
+ul.event_list {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  li {
+      width:100%;
+      height:100%;
+      position:relative;
+      a {
+          height:100%;
+          display:flex;
+          flex-wrap:wrap;
+          align-items:center;
+          div {
+                width:4rem;
+                max-width:100%;
+                flex:1 auto;
+
+              img {
+                  width:100%;
+                  height:100%;
+              }
+              em {
+                  padding:2px 5px;
+                  font-size:14px;
+                  font-weight:400;
+                  position:absolute;
+                  top:0;
+                  left:0;
+                  display:block;
+                  &.type04 {
+                      color:#fff;
+                      background-color:#000;
+                  }
+              }
+          }
+          dl {
+              height:100%;
+              padding:0 20px;
+              display:flex;
+              flex:1;
+              flex-direction:column;
+              justify-content:space-between;
+              > *+* {
+                  margin-top:5px;;
+              }
+
+              dt {
+                  margin-top:20px;
+                  color:#666;
+                  font-size:1.2rem;
+                  letter-spacing: -0.01em;
+              }
+              dd {
+                  color: #000000;
+                  font-size:1.4rem;
+                  font-weight: 600;
+                  word-wrap: break-word;
+              }
+          }
+      }
+  }
 }
 
 @import "~/assets/scss/_mo_mixin";
