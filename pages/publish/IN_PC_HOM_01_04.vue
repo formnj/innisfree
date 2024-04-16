@@ -275,9 +275,10 @@ const modal = {
               .num {
                 width:42px;
                 height:48px;
-                background-image:url('/_nuxt/assets/images/ui/bg_count.png');
+                background-image:url('~/assets/images/common/icon_split.png');
                 background-repeat:no-repeat;
-                background-position:50% 50%;
+                background-position:-117px -142px;
+                background-size:250px auto;
                 display:flex;
                 align-items:center;
                 justify-content:center;
