@@ -38,6 +38,7 @@
         </section>
 
         <div class="benefits_wrap">
+            <h3>특가 할인 찬스 / 사은품 증정 혜택</h3>
             <div class="list_wrap">
                 <ul class="goods_list">
                     <li v-for="(item, idx) in sample_goods" :key="idx">
@@ -280,13 +281,13 @@ const modal = {
   padding: 60px 20px;
 }
 .inner {
+    h3 {
+        font-size:24px;
+        font-weight:600;
+    }
     > section {
         padding:60px 0;
         border-bottom:1px solid #eee;
-        h3 {
-            font-size:24px;
-            font-weight:600;
-        }
         p {
             font-size:24px;
             font-weight:600;
@@ -352,6 +353,9 @@ const modal = {
     }
     >.benefits_wrap {
         padding:60px 0;
+        h3 {
+          margin-bottom:40px;
+        }
     }
     .modal_wrap.alert {
         .modal_container  {

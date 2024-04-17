@@ -25,6 +25,7 @@
         open: (e) => {
             e.target.closest('dl').querySelector('dd').style.cssText = 'height:0; border:1px solid #aaa; display:block';
             let client_H = (e.target.closest('dl').querySelector('ul').clientHeight + 2);
+            console.log(e.target.closest('dl').querySelector('ul').clientHeight);
             e.target.closest('dl').querySelector('dd').style.height=client_H+'px';
         }, close: (e) => {
             e.target.closest('dl').querySelector('dd').style.cssText = 'height:0; border:0;';
