@@ -71,15 +71,4 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
       }
   }
 }
-
-ul.event_list {
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-@import "~/assets/scss/_mo_mixin";
-@include mobile {
-
-}
 </style>

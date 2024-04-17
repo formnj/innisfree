@@ -546,6 +546,18 @@ ul.select_list {
   }
 }
 
+.event_list {
+  margin-top:-20px;
+  margin-left:-20px;
+  display:flex;
+  flex-wrap:wrap;
+  > li {
+    width:33.3333%;
+    padding-top:20px;
+    padding-left:20px;
+  }
+}
+
 .paging {
   overflow: hidden;
   margin: 90px 0 0;
@@ -715,6 +727,14 @@ ul.select_list {
         width: 50%;
         padding-top: 40px;
         padding-left: 20px;
+      }
+    }
+
+    .event_list {
+      margin-top:-0.3rem;
+      >li {
+        width:100%;
+        padding-top:0.3rem;
       }
     }
 
