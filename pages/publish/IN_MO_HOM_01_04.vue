@@ -104,7 +104,7 @@
                             <li><a href="#none">클렌징오일/워터/크림 2개 이상 구매시 40%</a></li>
                         </ul>
                     </div>
-            </div>
+                </div>
             </div>
             <div class="overlay" @click="modal.close(this);"></div>
         </div>
@@ -426,12 +426,12 @@ const modal = {
         }
     }
     .goods_list {
-    margin-top:-40px;
-    margin-left:-20px;
+    margin-top:-20px;
+    margin-left:-15px;
         > li {
             width:50%;
-            padding-top:40px;
-            padding-left:20px;
+            padding-top:20px;
+            padding-left:15px;
         }
     }
 

@@ -305,7 +305,7 @@ const cate_layer = {
     }
 
     .pdtSortTab_wrap {
-        padding:10px 25px;
+        padding:10px 15px;
         border:1px solid #000;
         border-radius:20px;
         background:#fff;
