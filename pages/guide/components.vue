@@ -92,7 +92,7 @@
     <div class="design_box">
       <div class="list_wrap">
         <ul class="goods_list">
-          <li v-for="(item, idx) in sample_goods" :key="idx">
+          <li v-for="(item, idx) in sample_goods.slice(0,5)" :key="idx">
             <GoodsItem :item="item" :link="item.link" />
           </li>
         </ul>
@@ -102,6 +102,26 @@
     &lt;ul class="goods_list"&gt;
         &lt;li v-for="(item, idx) in sample_goods" :key="idx"&gt;
             &lt;GoodsItem :item="item" :link="item.link" /&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>Event Item</h2>
+    <div class="design_box">
+      <div class="list_wrap">
+        <ul class="event_list">
+          <li v-for="(item, idx) in sample_event.slice(0,3)" :key="idx">
+            <EventItem :item="item" :link="item.link" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
+    &lt;ul class="event_list"&gt;
+        &lt;li v-for="(item, idx) in sample_event" :key="idx"&gt;
+            &lt;EventItem :item="item" :link="item.link" /&gt;
         &lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
@@ -315,7 +335,7 @@ definePageMeta({
 })
 
 import { modal, Drop_Down, setFilter } from '~/assets/js/common-ui.js'
-import { sample_goods, sam_menu, sampleSlide } from '~/test/data/dummyData.js'
+import { sample_goods, sam_menu, sampleSlide, sample_event } from '~/test/data/dummyData.js'
 
 /* swiper */
 // import Swiper core and required components

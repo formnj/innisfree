@@ -3,7 +3,7 @@
     <!-- visual -->
     <div class="visual">
       <swiper
-        v-bind="swiperOptions"
+        v-bind="swieprOpt.visual"
         @swiper="onSwiper"
         @slideChange="onSlideChange"
       >
@@ -72,7 +72,7 @@
       </ul>
 
       <swiper
-        v-bind="swiperOptions"
+        v-bind="swieprOpt.recommend"
       >
         <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx">
           <a href="#none" class="item">
@@ -135,11 +135,13 @@
 
     <!-- 혜택 -->
     <section class="benefit">
-      <ul class="goods_list">
-          <li v-for="(item, idx) in sample_event" :key="idx">
-              <EventItem :item="item" />
-          </li>
-      </ul>
+      <swiper
+        v-bind="swieprOpt.benefit"
+      >
+        <swiper-slide v-for="(item, idx) in sample_event" :key="idx">
+          <EventItem :item="item" />
+        </swiper-slide>
+      </swiper>
     </section>
     <!-- //혜택 -->
 
@@ -173,24 +175,43 @@ import "swiper/components/pagination/pagination.scss";
 // install Swiper components
 SwiperCore.use([Autoplay, Navigation, Pagination, A11y]);
 
-/* test */
-const swiperOptions = {
-  slidesPerView: "auto",
-  slidesPerGroup: 2,
-  spaceBetween: 40,
-  loop: true,
-  // navigation,
-  pagination: {
-    type:'fraction'
+/* swiper options */
+const swieprOpt = {
+  visual:  {
+    slidesPerView: "auto",
+    slidesPerGroup: 2,
+    spaceBetween: 40,
+    loop: true,
+    // navigation,
+    pagination: {
+      type:'fraction'
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    centeredSlides: true,
+    slidesOffsetBefore: -330
   },
-  autoplay: {
-    delay: 300,
-    disableOnInteraction: false,
+  recommend: {
+    slidesPerView:2,
+    spaceBetween: 40,
+    loop: true
   },
-  centeredSlides: true,
-  slidesOffsetBefore: -330
+  benefit: {
+    slidesPerView: "auto",
+    slidesPerGroup: 1,
+    spaceBetween: 40,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    centeredSlides: true,
+    slidesOffsetBefore: -20
   }
-/* test */
+}
+/* //swiper options */
 
 const onSwiper = (swiper) => {
 
@@ -252,7 +273,6 @@ const swiper_control = (e) => {
     swiper_status.value='play';
   }
 }
-
 
 import {
   sampleSlide,
@@ -316,7 +336,7 @@ const rankingTabs = [
           }
         }
         :deep(.swiper-slide) {
-          width:620px !important;
+          width:620px;
           opacity:0.2;
           filter:grayscale(1);
           transition:opacity 0.25s;
@@ -508,6 +528,33 @@ const rankingTabs = [
                       content:'#';
                     }
                   }
+                }
+              }
+            }
+          }
+          .swiper-container {
+            width:1480px;
+          }
+        }
+        &.benefit {
+          :deep(.swiper-slide) {
+            width:400px;
+            .event_item {
+              .thumb {
+                padding-top:53.25%;
+              }
+              .cont {
+                height:auto;
+                margin-top:0;
+                padding:20px;
+                background-color:#fff;
+                display:flex;
+                flex-direction:column-reverse;
+                strong {
+                  height:48px;
+                  margin-top:0;
+                  margin-bottom:8px;
+                  font-size:20px;
                 }
               }
             }

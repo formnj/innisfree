@@ -71,17 +71,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 
 .list_wrap {
   margin-top:60px;
-  .event_list {
-    margin-top:-20px;
-    margin-left:-20px;
-    display:flex;
-    flex-wrap:wrap;
-    li {
-      width:33.3333%;
-      padding-top:20px;
-      padding-left:20px;
-    }
-  }
 }
 
 </style>
