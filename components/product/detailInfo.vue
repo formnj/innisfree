@@ -12,7 +12,7 @@
     </div>
     <p class="summary_review">
       {{ prodInfo.summaryReview }}
-      <button>더보기</button>
+      <button type="button">더보기</button>
     </p>
     <div class="price">
       <em>{{ prodInfo.price }}</em>
@@ -22,7 +22,7 @@
   </div>
 </template>
 <script setup>
-import { prodInfo } from '../test/data/dummyData'
+import { prodInfo } from '../../test/data/dummyData'
 </script>
 <style lang="scss" scoped>
 .prod_info {

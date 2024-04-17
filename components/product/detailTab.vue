@@ -2,7 +2,7 @@
     <Tabs tabType="type_01" :item="[{txt:'상세정보'},{txt:'리뷰'},{txt:'유의사항'},{txt:'문의'}]" :tabidx="0" @click="tabContShow" />
     <div class="tab_contents">
       <div style="display:block;">
-        <ProdDetailConts />
+        <ProductDetailConts />
       </div>
       <div>리뷰</div>
       <div>유의사항</div>

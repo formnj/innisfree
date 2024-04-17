@@ -1,27 +1,5 @@
 <template>
-    <Tabs tabType="type_01" :item="[{txt:'전체'},{txt:'체험/리뷰'},{txt:'쇼핑혜택'},{txt:'제휴혜택'}]" :tabidx="0" />
-    <div class="title_wrap">
-        <button>당첨자 발표</button>
-    </div>
-    <div class="inner">
-        <div class="list_wrap"><!-- [Tip: hgkim] list는 항상 list_wrap으로 감싸주고 -->
-            <ul class="event_list"><!-- 어떤 타입의 리스트인지 클래스로 선언해줍니다. 그래야 다른 페이지에서도 같은 리스트를 사용할 수 있으니까요. -->
-                <li v-for="(item, idx) in sample_goods" :key="idx">
-                    <a :href="props.link">
-                        <div>
-                            <img :src="item.img">
-                            <em class="type04">{{ item.cate }}</em>
-                        </div>
-                        <dl>
-                            <dd v-if="item.title_01">{{item.title_01}}</dd>
-                            <dd v-if="item.title_02">{{item.title_02}}</dd>
-                            <dt>{{ item.data }}</dt>
-                        </dl>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+  <div>모바일이벤트</div>
 </template>
 
 <script setup>
@@ -29,99 +7,87 @@ definePageMeta({
 layout: 'mo-category'
 });
 
-const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
-    link: {
-        type: String,
-        default: '#none'
-    }
-});
-
 const sample_goods = [
- {
-      img:("/_nuxt/assets/images/sam/event_list_01.jpg"),
-      cate:'제휴혜택',
-      title_01:'트러블?수분?탄력?',
-      title_02:'고민따라 10% 추가할인 쿠폰위크!!',
-      data:'24.4.14(일) ~ 24.4.30(화)',
-  },  {
-      img:("/_nuxt/assets/images/sam/event_list_02.jpg"),
-      cate:'쇼핑혜택',
-      title_01:'남성에게도 딱! 맞는',
-      title_02:'그린티 씨드 세럼 대용량 출시',
-      title:'남성에게도 딱! 맞는 그린티 씨드 세럼 대용량 출시',
-      data:'24.4.14(일) ~ 24.4.22(월)',
+  {
+      img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+      overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+      cate:'BEST',
+      name:'히알루론 수분 선크림 SPF 50+ PA++++',
+      price:'11,000', sale:'~50%', cost:'26,000',
+      status:'sold_out',
+      sticker:[
+          {txt:'type01', type:'type01'},
+          {txt:'type02', type:'type02'},
+          {txt:'type03', type:'type03'},
+          {txt:'type04', type:'type04'}
+      ],
+      hash:['#스킨팩','#화장솜','#순면화장솜']
+  }, {
+      img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+      overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
+      cate:'NEW',
+      name:'그린티 씨드 히알루론산 세렘 80ml',
+      price:'44,800', sale:'~20%', cost:'56,000',
+      status:'coming_soon',
+      sticker:[
+          {txt:'1+1', type:'type02'},
+          {txt:'뷰티포인트전용', type:'type01'},
+          {txt:'첫구매전용', type:'type01'}
+      ]
+  }, {
+      img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+      overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
+      cate:'NEW',
+      name:'그린티 씨드 히알루론산 세렘 80ml',
+      price:'44,800', sale:'~20%', cost:'56,000',
+      status:'coming_soon',
+      sticker:[
+          {txt:'1+1', type:'type02'},
+          {txt:'뷰티포인트전용', type:'type01'},
+          {txt:'첫구매전용', type:'type01'}
+      ]
+  }, {
+      img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+      overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+      cate:'BEST',
+      name:'블랙티 유스 인핸싱 앰플 50ml',
+      price:'11,000', sale:'~50%', cost:'26,000',
+      status:'sold_out',
+      hash:['#스킨팩','#화장솜','#순면화장솜']
+  }, {
+      img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+      overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+      cate:'BEST',
+      name:'블랙티 유스 인핸싱 앰플 50ml',
+      price:'11,000', sale:'~50%', cost:'26,000',
+      status:'sold_out',
+      hash:['#스킨팩','#화장솜','#순면화장솜']
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_03.jpg"),
-      cate:'체험/리뷰',
-      title_01:'잡티와 토닝을 한번에! ',
-      title_02:'NEW 패드 즉시 증정!',
-      data:'24.4.1(월) ~ 24.4.30(화)',
+      img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+      overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+      cate:'BEST',
+      name:'블랙티 유스 인핸싱 앰플 50ml',
+      price:'11,000', sale:'~50%', cost:'26,000',
+      hash:['#스킨팩','#화장솜','#순면화장솜']
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_04.jpg"),
-      cate:'제휴혜택',
-      title_01:'자신감 있는 레티놀 앰플',
-      title_02:'매일 3,656개 판매! ',
-      data:'24.4.14(일) ~ 24.4.22(월)',
+      img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_05.jpg"),
-      cate:'체험/리뷰',
-      title_01:'이니스프리 공식몰이 처음이라면?',
-      title_02:'',
-      data:'24.4.14(일) ~ 24.5.1(수)',
+      img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_06.jpg"),
-      cate:'쇼핑혜택',
-      title_01:'비타C 1+1 럭키박스',
-      title_02:'행운의 주인공은?',
-      data:'24.4.1(월) ~ 24.4.30(화)',
+      img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_01.jpg"),
-      cate:'제휴혜택',
-      title_01:'트러블?수분?탄력?',
-      title_02:'고민따라 10% 추가할인 쿠폰위크!!',
-      data:'24.4.14(일) ~ 24.4.30(화)',
-  },  {
-      img:("/_nuxt/assets/images/sam/event_list_02.jpg"),
-      cate:'쇼핑혜택',
-      title_01:'남성에게도 딱! 맞는',
-      title_02:'그린티 씨드 세럼 대용량 출시',
-      title:'남성에게도 딱! 맞는 그린티 씨드 세럼 대용량 출시',
-      data:'24.4.14(일) ~ 24.4.22(월)',
+      img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+  },{
+      img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_03.jpg"),
-      cate:'체험/리뷰',
-      title_01:'잡티와 토닝을 한번에! ',
-      title_02:'NEW 패드 즉시 증정!',
-      data:'24.4.1(월) ~ 24.4.30(화)',
+      img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
   },
-  {
-      img:("/_nuxt/assets/images/sam/event_list_04.jpg"),
-      cate:'제휴혜택',
-      title_01:'자신감 있는 레티놀 앰플',
-      title_02:'매일 3,656개 판매! ',
-      data:'24.4.14(일) ~ 24.4.22(월)',
-  },
-  {
-      img:("/_nuxt/assets/images/sam/event_list_05.jpg"),
-      cate:'체험/리뷰',
-      title_01:'이니스프리 공식몰이 처음이라면?',
-      title_02:'',
-      data:'24.4.14(일) ~ 24.5.1(수)',
-  },
-  {
-      img:("/_nuxt/assets/images/sam/event_list_06.jpg"),
-      cate:'쇼핑혜택',
-      title_01:'비타C 1+1 럭키박스',
-      title_02:'행운의 주인공은?',
-      data:'24.4.1(월) ~ 24.4.30(화)',
-  },
-
 ]
 /* //component sample data */
 
@@ -131,43 +97,10 @@ const sample_goods = [
 
 </script>
 
-<style lang="scss" scoped>
-.tab_wrap {
-    margin-left:-21px !important;
-    margin-right:-21px !important;
-    .type_01 {
-        li {
-            button {
-                > em {
-                padding:0px !important;
-                }
-            }
-        }
-    }
-}
-.title_wrap {
-    padding: 30px 0px;
-    position:relative;
-    button {
-        font-size:12px;
-        text-align:right;
-        position:absolute;
-        top:50%;
-        right:0px;
-        display:flex;
-        align-items:center;
-        transform:translateY(-50%);
-        &::after {
-            content:'';
-            width:16px;
-            height:16px;
-            background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
-            background-repeat:no-repeat;
-            background-size:250px;
-            background-position:-110px -58px;
-            display:inline-block;
-            transform:rotate(-90deg);
+<style lang="scss">
 
+<<<<<<< HEAD
+=======
         }
     }
 }
@@ -188,8 +121,9 @@ ul.event_list {
           flex-wrap:wrap;
           align-items:center;
           div {
-              width: 170px;
-              max-width:100%;
+                width:4rem;
+                max-width:100%;
+                flex:1 auto;
 
               img {
                   width:100%;
@@ -211,7 +145,7 @@ ul.event_list {
           }
           dl {
               height:100%;
-              padding:0 10px;
+              padding:0 20px;
               display:flex;
               flex:1;
               flex-direction:column;
@@ -223,12 +157,12 @@ ul.event_list {
               dt {
                   margin-top:20px;
                   color:#666;
-                  font-size:12px;
+                  font-size:1.2rem;
                   letter-spacing: -0.01em;
               }
               dd {
                   color: #000000;
-                  font-size: 14px;
+                  font-size:1.4rem;
                   font-weight: 600;
                   word-wrap: break-word;
               }
@@ -241,5 +175,6 @@ ul.event_list {
 @include mobile {
 
 }
+>>>>>>> 4de6a999493458a862ded366ad4f1ce8028aa830
 
 </style>
