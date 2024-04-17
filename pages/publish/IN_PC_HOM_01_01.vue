@@ -126,7 +126,7 @@
 </template>
 <script setup>
 // import Swiper core and required components
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
+import SwiperCore, { Autoplay, Navigation, Pagination, A11y } from "swiper";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -137,7 +137,7 @@ import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 
 // install Swiper components
-SwiperCore.use([Autoplay, Navigation, Pagination]);
+SwiperCore.use([Autoplay, Navigation, Pagination, A11y]);
 
 const onSwiper = (swiper) => {
   console.log(swiper.el)
