@@ -118,6 +118,7 @@
   <section>
     <h2>Modal</h2>
     <ul class="explain">
+      <li>import { modal } from '~/assets/js/common-ui.js' 선언 후 필요한 스타일만 페이지 하단에 적용</li>
       <li>Open : modal.open(모달아이디, 타입);<br /> 타입 = full / alert / bottom : mobile 하단에서 올라오는 팝업</li>
       <li>Close : modal.close();</li>
     </ul>
@@ -129,14 +130,14 @@
         <Button txt="Modal detailSearch" @click="modal.open('sample_modal', 'detailSearch');" />
       </div>
     </div>
-    <pre class="code_box"><code>&lt;div class="modal_wrap" id="sample_modal"&gt;
+    <pre class="code_box"><code>&lt;div class="modal_wrap" id="모달_아이디"&gt;
     &lt;div class="modal_container"&gt;
         &lt;div class="modal_header"&gt;
             &lt;h2&gt;Modal Title&lt;/h2&gt;
             &lt;button class="btn_close" @click="modal.close(this);"&gt;닫기&lt;/button&gt;
         &lt;/div&gt;
         &lt;div class="modal_content"&gt;
-            &lt;div&gt; Sample Modal &lt;/div&gt;
+            &lt;!-- modal contents --&gt;
         &lt;/div&gt;
         &lt;div class="modal_footer"&gt;
             &lt;Button class="btn_outline" txt="cancel" /&gt;
@@ -166,27 +167,21 @@
         </li>
         <li>
           <p class="form_tit">[type_02]</p>
-          <Tabs tabType="type_02" :item="[{txt:'tab01'},{txt:'tab02'},{txt:'tab03'},{txt:'tab04'},{txt:'tab05'},{txt:'tab06'},{txt:'tab07'},{txt:'tab08'},{txt:'tab09'},{txt:'tab10'}]" :tabidx="0" />
+          <Tabs tabType="type_02"
+            :item="[{txt:'tab01'},{txt:'tab02'},{txt:'tab03'},{txt:'tab04'},{txt:'tab05'},{txt:'tab06'},{txt:'tab07'},{txt:'tab08'},{txt:'tab09'},{txt:'tab10'}]"
+            :tabidx="0" />
         </li>
       </ul>
     </div>
-    <pre class="code_box"><code>&lt;Tabs tabType="" :item="[{txt:'tab01'},{txt:'tab02'}]"  :tabidx="0" /&gt;</code></pre>
+    <pre
+      class="code_box"><code>&lt;Tabs tabType="" :item="[{txt:'tab01'},{txt:'tab02'}]"  :tabidx="0" /&gt;</code></pre>
   </section>
 
   <section>
     <h2>swiper</h2>
     <div class="design_box">
-      <swiper
-        :slides-per-view="'auto'"
-        :space-between="40"
-        :loop="true"
-        navigation
-        :pagination="pagination"
-        @swiper="onSwiper"
-        @slideChange="onSlideChange"
-        :centered-slides="true"
-        :slides-offset-before="-310"
-      >
+      <swiper :slides-per-view="'auto'" :space-between="40" :loop="true" navigation :pagination="pagination"
+        @swiper="onSwiper" @slideChange="onSlideChange" :centered-slides="true" :slides-offset-before="-310">
         <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx">
           <div class="item">
             <strong></strong>
@@ -238,8 +233,63 @@ const onSlideChange = () => {
 &lt;/script&gt;</code></pre>
   </section>
 
+  <section>
+    <h2>Drop_Down</h2>
+    <ul class="explain">
+      <li>import { Drop_Down } from '~/assets/js/common-ui.js' 선언 후 필요한 스타일만 페이지 하단에 적용</li>
+    </ul>
+    <div class="design_box">
+      <div class="pdtSortTab_wrap">
+        <div class="sortTab">
+          <button class="btn_dropdown" @click="Drop_Down()">추천순</button>
+          <ul>
+            <li><a href="#none" class="active">추천순</a></li>
+            <li><a href="#none">신제품순</a></li>
+            <li><a href="#none">판매량순</a></li>
+            <li><a href="#none">낮은 가격순</a></li>
+            <li><a href="#none">높은 가격순</a></li>
+            <li><a href="#none">리뷰순</a></li>
+            <li><a href="#none">판매금액순</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="pdtSortTab_wrap"&gt;
+  &lt;div class="sortTab"&gt;
+    &lt;button class="btn_dropdown" @click="Drop_Down()"&gt;추천순&lt;/button&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#none" class="active"&gt;추천순&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#none"&gt;신제품순&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#none"&gt;판매량순&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#none"&gt;낮은 가격순&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#none"&gt;높은 가격순&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#none"&gt;리뷰순&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#none"&gt;판매금액순&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>setFilter</h2>
+    <ul class="explain">
+      <li>클릭 요소에 active 클래스 추가</li>
+      <li>import { setFilter } from '~/assets/js/common-ui.js' 선언</li>
+      <li>@click="setFilter($event)"</li>
+      <li style="color:#ff0000;">.active 스타일 별도 적용 필수</li>
+    </ul>
+    <div class="design_box">
+      <label for="skin1" class="setFilter_sample">
+        <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">주름/탄력</span>
+      </label>
+    </div>
+    <pre class="code_box"><code>&lt;label for="skin1" class="setFilter_sample"&gt;
+  &lt;input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"&gt;&lt;span @click="setFilter($event)"&gt;주름/탄력&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+  </section>
+
   <!-- modal -->
-  <div class="modal_wrap" id="sample_modal">
+  <div id="sample_modal" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
         <h2>Modal Title</h2>
@@ -263,6 +313,9 @@ const onSlideChange = () => {
 definePageMeta({
   layout: 'guide'
 })
+
+import { modal, Drop_Down, setFilter } from '~/assets/js/common-ui.js'
+import { sample_goods, sam_menu, sampleSlide } from '~/test/data/dummyData.js'
 
 /* swiper */
 // import Swiper core and required components
@@ -302,74 +355,6 @@ const select_opt = `[
     { val: 'value', txt: '옵션01' },
     { val: 'value', txt: '옵션02' }
 ]`
-
-const sample_goods = [
-    {
-        // img:("/_nuxt/assets/images/sam/sam_goods_list_01.jpg"),
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'히알루론 수분 선크림 SPF 50+ PA++++',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
-        sticker:[
-            {txt:'type01', type:'type01'},
-            {txt:'type02', type:'type02'},
-            {txt:'type03', type:'type03'},
-            {txt:'type04', type:'type04'}
-        ],
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
-        name:'히알루론 수분 선크림 SPF 50+ PA++++',
-        status:'coming_soon',
-        sticker:[
-            {txt:'증정', type:'type02'}
-        ]
-    }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_03.jpg"),
-    }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
-    }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
-    }
-]
-
-const sam_menu = [
-    {
-        depth01:'카테고리',
-        sub_depth:['카테고리','특가','이벤트','베스트','라이브','FOR ME','ABOUT','고객센터','마이페이지','공병수거 캠페인','멤버십']
-    },
-    {
-        depth01:'유형별',
-        sub_depth:['유형별','피부고민']
-    },
-    {
-        depth01:'스킨케어',
-        sub_depth:['스킨케어','메이크업','남성','헤어/바디/펫','기획 세트','미용소품']
-    },
-    {
-        depth01:'전체',
-        sub_depth:['전체','에센스/세럼/앰플','로션/크림','스킨/토너/미스트','립/아이케어','선케어','오일/마사지','클렌징','팩/마스크','기획 세트','기타']
-    }
-]
-
-const sampleSlide = [
-  {
-    img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
-  },
-  {
-    img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
-  },
-  {
-    img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
-  },
-  {
-    img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
-  },
-];
-
 const tabidx= 0;
 /* //component sample data */
 
@@ -427,39 +412,6 @@ const tool_select = (props) => {
     }
 }
 /* //inputs type function */
-
-const modal = {
-    open: (_target, _type) => {
-        document.getElementById(_target).classList.add('active', _type);
-        const body = document.querySelector("body");
-        const pageY = document.body.scrollTop || document.documentElement.scrollTop;
-
-        if (!body.hasAttribute("scrollY")) {
-            body.setAttribute("scrollY", String(pageY));
-            body.classList.add("lockbody");
-        }
-        body.addEventListener("touchmove", modal.lockScrollHandle, { passive: false });
-    }, close: (_target) => {
-        event.target.closest('.modal_wrap').setAttribute('class','modal_wrap');
-        const body = document.querySelector("body");
-
-        if (body.hasAttribute("scrollY")) {
-            body.classList.remove("lockbody");
-            body.scrollTop = Number(body.getAttribute("scrollY"));
-            body.removeAttribute("scrollY");
-        }
-
-        body.removeEventListener("touchmove", modal.lockScrollHandle, { passive: true });
-    }, lockScrollHandle(event) {
-        const e = event || window.event;
-
-        // 멀티 터치는 터치 되게 한다
-        if (e.touches.length > 1) return;
-
-        // event 초기화 속성이 있음 초기화
-        e.preventDefault();
-    }
-}
 </script>
 
 <style lang="scss" scoped>
@@ -585,6 +537,41 @@ const modal = {
   &.swiper-slide-active + .swiper-slide {
     opacity:1;
     filter:grayscale(0);
+  }
+}
+
+:deep(.pdtSortTab_wrap){
+  justify-content:right;
+}
+
+.setFilter_sample {
+  padding-left: 0;
+  display: inline-block;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    z-indeX: -1;
+    opacity: 0;
+  }
+
+  span {
+    height: 30px;
+    padding: 0 20px;
+    color: #AAAAAA;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #F5F5F5;
+    line-height: 1.29em;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+
+    &.active {
+      color: #FFFFFF;
+      background: #00BC70;
+    }
   }
 }
 </style>
