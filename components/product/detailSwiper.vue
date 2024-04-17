@@ -11,7 +11,7 @@
           <img :src="item.img">
         </swiper-slide>
         <div class="custom-pagination"></div>
-        <div class="swiper-notify"><strong>7명의 고객님</strong> 동시에 확인중 <button class="btn_close">닫기</button></div>
+        <div class="swiper-notify"><strong>7명의 고객님</strong> 동시에 확인중 <button type="button" class="btn_close">닫기</button></div>
       </swiper>
   </div>
 </template>
@@ -21,7 +21,7 @@ import SwiperCore, { Autoplay, Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";
 import "swiper/components/pagination/pagination.scss";
-import { prodImgData } from '../test/data/dummyData';
+import { prodImgData } from '../../test/data/dummyData';
 
 SwiperCore.use([Autoplay, Pagination, A11y]);
 
@@ -86,6 +86,10 @@ const autoplay = {
     color: #fff;
     background-color: #000;
     align-items: center;
+    bottom: 0;
+    right: 70px;
+    position: absolute;
+    z-index: 2;
     display: inline-flex;
 
     strong {
@@ -93,7 +97,11 @@ const autoplay = {
     }
 
     .btn_close {
-
+      width: 16px;
+      height: 16px;
+      margin-left: 10px;
+      font-size: 0;
+      background: url('/assets/mo_images/common/icon_split.png') -105px -70px / 250px auto no-repeat;
     }
   }
 }
