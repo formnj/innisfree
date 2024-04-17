@@ -1,6 +1,6 @@
 <template>
     <div class="title_wrap" :data-layout="props.layoutType">
-        <h2>특가</h2>
+        <h2>특가s</h2>
     </div>
 
     <div class="inner">
