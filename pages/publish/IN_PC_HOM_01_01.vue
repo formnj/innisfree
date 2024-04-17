@@ -3,21 +3,9 @@
     <!-- visual -->
     <div class="visual">
       <swiper
-        :slides-per-view="'auto'"
-        :space-between="40"
-        :loop="true"
-        navigation
-        :pagination="{
-          type:'fraction'
-        }"
-        :autoplay="{
-          delay: 300,
-          disableOnInteraction: false,
-        }"
+        v-bind="swiperOptions"
         @swiper="onSwiper"
         @slideChange="onSlideChange"
-        :centered-slides="true"
-        :slides-offset-before="-330"
       >
         <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx">
           <a href="#none" class="item">
@@ -69,43 +57,63 @@
       </h2>
 
       <ul class="list_wrap">
-        <li>
+        <li v-for="(item, idx) in mainSam.recommend" :key="idx">
           <a href="#none" class="item">
             <span class="thumb">
-              <img src="https://images.innisfree.co.kr/upload/product/37051_l_S_240.png?T" alt="" />
+              <img :src="item.img" alt="" />
             </span>
             <div class="cont">
-              <strong>최강한파?! 오히려 좋아!<br/> 귀여운 귀마개를 드려요♥</strong>
-              <p>디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!</p>
-              <Hash :item="['겨울필수아이템', '그린펫클럽']" />
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="#none" class="item">
-            <span class="thumb">
-              <img src="https://images.innisfree.co.kr/upload/product/37051_l_S_240.png?T" alt="" />
-            </span>
-            <div class="cont">
-              <strong>최강한파?! 오히려 좋아!<br/> 귀여운 귀마개를 드려요♥</strong>
-              <p>디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!</p>
-              <Hash :item="['겨울필수아이템', '그린펫클럽']" />
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="#none" class="item">
-            <span class="thumb">
-              <img src="https://images.innisfree.co.kr/upload/product/37051_l_S_240.png?T" alt="" />
-            </span>
-            <div class="cont">
-              <strong>최강한파?! 오히려 좋아!<br/> 귀여운 귀마개를 드려요♥</strong>
-              <p>디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!</p>
-              <Hash :item="['겨울필수아이템', '그린펫클럽']" />
+              <strong v-html="item.title"></strong>
+              <p v-html="item.txt"></p>
+              <Hash :item="item.hash" />
             </div>
           </a>
         </li>
       </ul>
+
+      <swiper
+        v-bind="swiperOptions"
+      >
+        <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx">
+          <a href="#none" class="item">
+            <!-- visual tag -->
+            <div class="tag-card">
+              <span class="cardSt_1">28%</span>
+              <span class="cardSt_2">특가</span>
+            </div>
+            <!-- //visual tag -->
+
+            <!-- item text content -->
+            <div class="cont">
+              <p class="name">
+                <strong>단숨에 차오르는 수분</strong>
+                <span>그린티 씨드 히알루론산 세럼</span>
+              </p>
+              <p class="price">24,800
+                <em>31,000</em>
+              </p>
+            </div>
+            <!-- //item text content -->
+
+            <!-- visual image -->
+            <span class="thumb">
+              <img :src="item.img">
+            </span>
+            <!-- //visual image -->
+          </a>
+        </swiper-slide>
+        <!-- customer pagination -->
+        <div class="custom_pagination">
+          <div class="current">
+            <em class="idx_01"></em>
+            <em class="idx_02"></em>
+          </div>
+          <strong class="total"></strong>
+
+          <Button class="swiper_controler" :data="swiper_status" :txt="swiper_status" @click="swiper_control" />
+        </div>
+        <!-- //customer pagination -->
+      </swiper>
     </section>
     <!-- //오늘의 추천 제품 -->
 
@@ -127,6 +135,21 @@
 
     <!-- 혜택 -->
     <section class="benefit">
+      <ul class="event_list">
+          <li v-for="(item, idx) in sample_goods" :key="idx">
+              <a href="#none">
+                  <div>
+                      <img :src="item.img">
+                      <em class="type04">{{ item.cate }}</em>
+                  </div>
+                  <dl>
+                      <dt>{{ item.data }}</dt>
+                      <dd v-if="item.title_01">{{item.title_01}}</dd>
+                      <dd v-if="item.title_02">{{item.title_02}}</dd>
+                  </dl>
+              </a>
+          </li>
+      </ul>
     </section>
     <!-- //혜택 -->
 
@@ -159,6 +182,25 @@ import "swiper/components/pagination/pagination.scss";
 
 // install Swiper components
 SwiperCore.use([Autoplay, Navigation, Pagination, A11y]);
+
+/* test */
+const swiperOptions = {
+  slidesPerView: "auto",
+  slidesPerGroup: 2,
+  spaceBetween: 40,
+  loop: true,
+  // navigation,
+  pagination: {
+    type:'fraction'
+  },
+  autoplay: {
+    delay: 300,
+    disableOnInteraction: false,
+  },
+  centeredSlides: true,
+  slidesOffsetBefore: -330
+  }
+/* test */
 
 const onSwiper = (swiper) => {
 
@@ -223,7 +265,9 @@ const swiper_control = (e) => {
 
 
 import {
-  sampleSlide
+  sampleSlide,
+  mainSam,
+  sample_goods
 } from '~/test/data/dummyData'
 
 definePageMeta({
@@ -449,6 +493,7 @@ const rankingTabs = [
                   strong {
                     font-size:24px;
                     font-weight:600;
+                    line-height:32px;
                   }
                   p {
                     height:40px;
@@ -456,7 +501,21 @@ const rankingTabs = [
                     color:#888;
                     font-size:16px;
                     font-weight:300;
+                    line-height:20px;
                     flex:1;
+                  }
+                }
+                :deep(.hash) {
+                  button {
+                    padding:3px 10px;
+                    font-size:12px;
+                    background-color:#fff;
+                    border:1px solid #009D5E;
+                    display:flex;
+                    align-items:center;
+                    &:before {
+                      content:'#';
+                    }
                   }
                 }
               }

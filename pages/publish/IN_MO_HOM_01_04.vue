@@ -280,10 +280,6 @@ const modal = {
 }
 /* //component sample data */
 
-
-
-
-
 </script>
 
 <style lang="scss" scoped>
