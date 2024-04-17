@@ -357,7 +357,6 @@ export const prodInfo = {
   summaryReview: '이 제품을 구매하신 고객 분들은 다크서클과 잡티 커버, 자연스러운 색상, 그리고 사용 편의성이 좋다고 하셨어요!',
 }
 
-<<<<<<< HEAD
 // main item
 export const mainSam = {
   recommend : [
@@ -381,7 +380,6 @@ export const mainSam = {
     }
   ]
 }
-=======
 
 export const sam_menu = [
   {
@@ -401,4 +399,3 @@ export const sam_menu = [
       sub_depth:['전체','에센스/세럼/앰플','로션/크림','스킨/토너/미스트','립/아이케어','선케어','오일/마사지','클렌징','팩/마스크','기획 세트','기타']
   }
 ]
->>>>>>> ad86d3e4023eb12b6e2aaa6a0294f76293b4b1f5
