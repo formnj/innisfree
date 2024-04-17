@@ -274,7 +274,6 @@ const swiper_control = (e) => {
   }
 }
 
-
 import {
   sampleSlide,
   mainSam,
