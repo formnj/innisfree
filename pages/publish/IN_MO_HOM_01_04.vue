@@ -237,6 +237,14 @@ const modal = {
         color:#000;
         font-size:13px;
       }
+      &:after {
+        content: '';
+        width: 16px;
+        height: 16px;
+        background: url('~/assets/images/') no-repeat 0 0;
+        background-size: 250px auto;
+        display: block;
+      }
     }
   }
   .inner {
