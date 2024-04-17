@@ -135,19 +135,9 @@
 
     <!-- 혜택 -->
     <section class="benefit">
-      <ul class="event_list">
-          <li v-for="(item, idx) in sample_goods" :key="idx">
-              <a href="#none">
-                  <div>
-                      <img :src="item.img">
-                      <em class="type04">{{ item.cate }}</em>
-                  </div>
-                  <dl>
-                      <dt>{{ item.data }}</dt>
-                      <dd v-if="item.title_01">{{item.title_01}}</dd>
-                      <dd v-if="item.title_02">{{item.title_02}}</dd>
-                  </dl>
-              </a>
+      <ul class="goods_list">
+          <li v-for="(item, idx) in sample_event" :key="idx">
+              <EventItem :item="item" />
           </li>
       </ul>
     </section>
@@ -267,7 +257,8 @@ const swiper_control = (e) => {
 import {
   sampleSlide,
   mainSam,
-  sample_goods
+  sample_goods,
+  sample_event
 } from '~/test/data/dummyData'
 
 definePageMeta({

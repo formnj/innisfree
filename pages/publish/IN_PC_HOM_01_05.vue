@@ -5,25 +5,14 @@
     </div>
 
     <div class="inner">
-        <div class="list_wrap">
-            <Tabs :item="[{txt:'전체'},{txt:'체험/리뷰'},{txt:'쇼핑혜택'},{txt:'제휴혜택'}]" :tabidx="0" />
-            <ul class="event_list">
-                <li v-for="(item, idx) in sample_event" :key="idx">
-                  <EventItem :item="item" :link="item.link" />
-                    <!-- <a :href="props.link">
-                        <div>
-                            <img :src="item.img">
-                            <em class="type04">{{ item.cate }}</em>
-                        </div>
-                        <dl>
-                            <dt>{{ item.data }}</dt>
-                            <dd v-if="item.title_01">{{item.title_01}}</dd>
-                            <dd v-if="item.title_02">{{item.title_02}}</dd>
-                        </dl>
-                    </a> -->
-                </li>
-            </ul>
-        </div>
+      <Tabs :item="[{txt:'전체'},{txt:'체험/리뷰'},{txt:'쇼핑혜택'},{txt:'제휴혜택'}]" :tabidx="0" />
+      <div class="list_wrap">
+          <ul class="event_list">
+              <li v-for="(item, idx) in sample_event" :key="idx">
+                <EventItem :item="item" :link="item.link" />
+              </li>
+          </ul>
+      </div>
     </div>
     <div class="paging">
         <div>
@@ -80,20 +69,19 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
     }
 }
 
-.inner {
-    > div.list_wrap {
-        > ul.event_list {
-            margin-top:60px;
-            display:flex;
-            flex-wrap:wrap;
-            gap:20px;
-            li {
-                width:413px;
-                height:386px;
-                position:relative;
-            }
-        }
+.list_wrap {
+  margin-top:60px;
+  .event_list {
+    margin-top:-20px;
+    margin-left:-20px;
+    display:flex;
+    flex-wrap:wrap;
+    li {
+      width:33.3333%;
+      padding-top:20px;
+      padding-left:20px;
     }
+  }
 }
 
 </style>
