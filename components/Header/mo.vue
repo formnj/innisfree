@@ -1,6 +1,6 @@
 <template>
     <div class="docTopBanner txtBanner">
-        <a href="#none" class="txt" target="_blank">하나Pay 3만원 결제 시, 하나머니 5천원 적립</a>
+        <a :href="mainTopBannerData.url" class="txt" target="_blank">{{mainTopBannerData.bannerText}}</a>
         <button type="button" class="btnClose">닫기</button>
     </div>
     <header>
@@ -26,9 +26,9 @@
                     </strong>
                     <ul class="latest">
                         <template  v-if="key_cnt > 0">
-                            <li v-for="(item, idx) in latest" :key="idx">
+                            <li v-for="(item, idx) in latestSearchWordData" :key="idx">
                                 <div v-if="key_cnt > 0">
-                                    <a href="#none">{{ item }}</a>
+                                    <a href="#none">{{ item.word }}</a>
                                     <Button class="btn_del" @click="keyword_del" />
                                 </div>
                             </li>
@@ -41,12 +41,12 @@
                 <section>
                     <strong>카테고리</strong>
                     <ul class="category">
-                        <li v-for="item in category" :key="item">
+                        <li v-for="item in categoryForSearchLayerData" :key="item">
                             <a href="#none">
                                 <span class="thumb">
-                                    <em><img :src="item.img" /></em>
+                                    <em><img :src="item.imageUrl" /></em>
                                 </span>
-                                <p>{{ item.txt }}</p>
+                                <p>{{ item.text }}</p>
                             </a>
                         </li>
                     </ul>
@@ -60,7 +60,6 @@
             <div class="navCategory">
                 <!-- mo search -->
                 <div class="search">
-                    <Icons class="back" txt="닫기" @click="cate_layer.close" />
                     <div>
                         <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
                         <Icons class="btn_search" txt="검색" />
@@ -87,7 +86,10 @@
                                 <a href="#none">{{ item.menu }} 전체</a>
                                 <ul class="list">
                                     <li v-for="(item,idx) in item.sub_menu" :key="idx">
-                                        <a :href="item.link">{{ item.menu }}</a>
+                                        <a :href="item.link">
+                                          <img :src="item.img">
+                                          {{ item.menu }}
+                                        </a>
                                     </li>
                                 </ul>
                                 <ul class="goods" v-if="item.goods">
@@ -107,6 +109,9 @@
                                 <a href="#none">멤버십 혜택</a>
                             </li>
                             <li>
+                                <a href="#none">ABOUT</a>
+                            </li>
+                            <li>
                                 <a href="#none">공병수거</a>
                             </li>
                             <li>
@@ -117,25 +122,23 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="prd_wrap">
-                      <h2>
-                        <a href="#none">한정기간 특가할인 / 사은품 혜택</a>
-                      </h2>
-                      <div class="list_wrap">
-                        <ul class="goods_list">
-                          <swiper-container
-                            slides-per-view="auto"
-                            grab-cursor="true"
-                            space-between="3"
-                          >
-                            <swiper-slide v-for="(item, idx) in sample_goods" :key="idx" class="item">
-                              <li>
-                                <GoodsItem :item="item" :link="item.link" />
-                              </li>
-                            </swiper-slide>
-                          </swiper-container>
+                    <div class="list_wrap">
+                        <ul class="event_list">
+                            <li v-for="(item, idx) in sample_goods" :key="idx">
+                                <a href="#none">
+                                    <div>
+                                        <img :src="item.img">
+                                        <em class="type04">{{ item.cate }}</em>
+                                    </div>
+                                    <dl>
+                                        <dt></dt>
+                                        <dd v-if="item.title_01">{{item.title_01}}</dd>
+                                        <dd v-if="item.title_02">{{item.title_02}}</dd>
+                                        <dd v-if="item.title_02">{{item.title_03}}</dd>
+                                    </dl>
+                                </a>
+                            </li>
                         </ul>
-                      </div>
                     </div>
                 </nav>
             </div>
@@ -144,6 +147,12 @@
 </template>
 
 <script setup>
+import {
+  mainTopBannerData,
+  categoryForSearchLayerData,
+  latestSearchWordData
+} from '~/test/data/dummyData'
+
 /* sample data */
 const global_menu = [
     {
@@ -151,6 +160,7 @@ const global_menu = [
         sub_menu: [
             {link:'#none', menu:'에센스/세럼/앰플'},
             {link:'#none', menu:'로션/크림'},
+            {link:'#none', menu:'스킨/토너/미스트'},
             {link:'#none', menu:'선케어'},
             {link:'#none', menu:'클렌징'},
             {link:'#none', menu:'팩/마스크'},
@@ -160,8 +170,8 @@ const global_menu = [
             {link:'#none', menu:'기타'}
         ],
         goods: [
-            {img:'https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900', name: '포레스트 포맨 쉐이빙&클렌징 폼', cate:'BEST'},
-            {img:'https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900', name: '(스티븐해링턴)레티놀 시카 흔적 앰플 한정판 세트', cate:'NEW'}
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-1.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-2.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
         ]
     }, {
         link:'#none', menu:'메이크업',
@@ -170,6 +180,10 @@ const global_menu = [
             {link:'#none', menu:'아이메이크업'},
             {link:'#none', menu:'립메이크업'},
             {link:'#none', menu:'네일'}
+        ],
+        goods: [
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-3.png', name: '노세범 블러 프라이머 25mL', cate:'BEST'},
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-4.png', name: '노세범 AC 파우더 5G'},
         ]
     }, {
         link:'#none', menu:'남성',
@@ -179,6 +193,10 @@ const global_menu = [
             {link:'#none', menu:'선케어'},
             {link:'#none', menu:'헤어 스타일링'},
             {link:'#none', menu:'기획세트'}
+        ],
+        goods: [
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-5.png', name: '포레스트 포맨 쉐이빙&클렌징 폼', cate:'BEST'},
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-6.png', name: '포레스트 프레시 스킨 로션 2종 세트', cate:'BEST'},
         ]
     }, {
         link:'#none', menu:'헤어/바디',
@@ -188,29 +206,44 @@ const global_menu = [
             {link:'#none', menu:'바디 워시/청결제'},
             {link:'#none', menu:'헤어 에센스/미스트'},
             {link:'#none', menu:'샴푸/트리트먼트'}
+        ],
+        goods: [
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-7.png', name: '아일 넘버 바디 앤 핸드 워시 300mL'},
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-8.png', name: '[LTD] 마이퍼퓸드 핸드크림 2종 기획 세트'},
         ]
     }, {
         link:'#none', menu:'기획세트',
         sub_menu: [
             {link:'#none', menu:'기획세트'}
+        ],
+        goods: [
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-9.png', name: '[LTD] 블랙티 유스 인핸싱 앰플 세트', cate:'BEST'},
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-10.png', name: '[LTD] 비타C 잡티 토닝 세럼 대용량 세트', cate:'BEST'},
         ]
     }, {
         link:'#none', menu:'미용소품',
         sub_menu: [
-            {link:'#none', menu:'미용소품'},
-            {link:'#none', menu:'헤어/바디소품'},
-            {link:'#none', menu:'화장솜'}
+            {link:'#none', menu:'네일 소품'},
+            {link:'#none', menu:'헤어/바디 소품'},
+            {link:'#none', menu:'화장솜/면봉/기름종이'},
+            {link:'#none', menu:'클렌징 소품'},
+            {link:'#none', menu:'기타 소품'},
+        ],
+        goods: [
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-11.png', name: '패들 헤어 브러시 1EA'},
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-12.png', name: '리스테이 리-스펜서 350mL'},
         ]
     }, {
         link:'#none', menu:'고민별제품',
         sub_menu: [
-            {link:'#none', menu:'수분/보습/속건조'},
-            {link:'#none', menu:'모공/피지/블랙헤드'},
-            {link:'#none', menu:'주름/탄력'},
-            {link:'#none', menu:'트러블/리페어'},
-            {link:'#none', menu:'각질/피부결'},
-            {link:'#none', menu:'영양/토탈 안티에이징'},
-            {link:'#none', menu:'진정/민감'}
+            {link:'#none', menu:'수분/보습/속건조', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-13.png'},
+            {link:'#none', menu:'모공/피지/블랙헤드', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-14.png'},
+            {link:'#none', menu:'주름/탄력', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-15.png'},
+            {link:'#none', menu:'트러블/리페어', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-16.png'},
+            {link:'#none', menu:'각질/피부결', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-17.png'},
+            {link:'#none', menu:'잡티/피부결', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-18.png'},
+            {link:'#none', menu:'영양/토탈안티에이징', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-19.png'},
+            {link:'#none', menu:'진정/민감', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-20.png'}
         ]
     },
 
@@ -218,69 +251,70 @@ const global_menu = [
 
 const gnb_list = ['이벤트', '특가', '베스트', '쿠폰존', '쇼케이스', '라이브', 'FOR ME', '임직원샵']
 
-const latest = ['그린티 스킨','그린티 세럼','스킨','세럼','그린티 히알루론산','콜라겐','팩트','노세범','파우더','팩']
-
-const category = [
-    {img:'/_nuxt/assets/images/sam/h_cate_01.png', txt:'베스트'},
-    {img:'/_nuxt/assets/images/sam/h_cate_02.png', txt:'Sale 52%'},
-    {img:'/_nuxt/assets/images/sam/h_cate_03.png', txt:'스킨케어'},
-    {img:'/_nuxt/assets/images/sam/h_cate_04.png', txt:'선케어'},
-    {img:'/_nuxt/assets/images/sam/h_cate_05.png', txt:'세럼'},
-    {img:'/_nuxt/assets/images/sam/h_cate_06.png', txt:'팩/마스크'},
-    {img:'/_nuxt/assets/images/sam/h_cate_07.png', txt:'헤어/바디'},
-    {img:'/_nuxt/assets/images/sam/h_cate_08.png', txt:'펫'},
-    {img:'/_nuxt/assets/images/sam/h_cate_09.png', txt:'기획세트'},
-    {img:'/_nuxt/assets/images/sam/h_cate_10.png', txt:'미용소품'}
+const sample_goods = [
+  {
+      img:("/_nuxt/assets/images/sam/category_sam_goods_list_01.png"),
+      cate:'제휴혜택',
+      title_01:'2024 새해',
+      title_02:'콜라겐크림 기획전',
+      title_03:'럭키박스 + 럭키드로우',
+  }, {
+      img:("/_nuxt/assets/images/sam/category_sam_goods_list_02.png"),
+      cate:'체험리뷰',
+      title_01:'N페이 3만원 결제시',
+      title_02:'1만원 적립!',
+      title_03:'N페이 5천+뷰티5천',
+  }, {
+      img:("/_nuxt/assets/images/sam/category_sam_goods_list_03.png"),
+      cate:'쇼핑혜택',
+      title_01:'N페이 3만원 결제시',
+      title_02:'1만원 적립!',
+      title_03:'N페이 5천+뷰티5천',
+  }, {
+      img:("/_nuxt/assets/images/sam/category_sam_goods_list_04.png"),
+      cate:'쇼핑혜택',
+      title_01:'단, 8일',
+      title_02:'선물같은 혜택',
+      title_03:'콜라보 데님 인디고 BAG',
+  }, {
+      img:("/_nuxt/assets/images/sam/category_sam_goods_list_05.png"),
+      cate:'체험리뷰',
+      title_01:'2023 디렉터파이',
+      title_02:'비타민C 앰플',
+      title_03:'TOP of TOP 선정!',
+  }, {
+      img:("/_nuxt/assets/images/sam/category_sam_goods_list_01.png"),
+      cate:'제휴혜택',
+      title_01:'2024 새해',
+      title_02:'콜라겐크림 기획전',
+      title_03:'럭키박스 + 럭키드로우',
+  }, {
+      img:("/_nuxt/assets/images/sam/category_sam_goods_list_02.png"),
+      cate:'체험리뷰',
+      title_01:'N페이 3만원 결제시',
+      title_02:'1만원 적립!',
+      title_03:'N페이 5천+뷰티5천',
+  }, {
+      img:("/_nuxt/assets/images/sam/category_sam_goods_list_03.png"),
+      cate:'쇼핑혜택',
+      title_01:'N페이 3만원 결제시',
+      title_02:'1만원 적립!',
+      title_03:'N페이 5천+뷰티5천',
+  }, {
+      img:("/_nuxt/assets/images/sam/category_sam_goods_list_04.png"),
+      cate:'쇼핑혜택',
+      title_01:'단, 8일',
+      title_02:'선물같은 혜택',
+      title_03:'콜라보 데님 인디고 BAG',
+  }, {
+      img:("/_nuxt/assets/images/sam/category_sam_goods_list_05.png"),
+      cate:'체험리뷰',
+      title_01:'2023 디렉터파이',
+      title_02:'비타민C 앰플',
+      title_03:'TOP of TOP 선정!',
+  },
 ]
 /* //sample data */
-
-const sample_goods = [
-    {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        name:'히알루론 수분 선크림 SPF 50+ PA++++',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        sticker:[
-            {txt:'증정', type:'type02'},
-        ],
-    }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'~20%', cost:'56,000',
-        sticker:[
-            {txt:'증정', type:'type02'},
-        ]
-    }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'~20%', cost:'56,000',
-        sticker:[
-            {txt:'증정', type:'type02'},
-        ]
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        sticker:[
-            {txt:'증정', type:'type02'},
-        ]
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        sticker:[
-            {txt:'증정', type:'type02'},
-        ]
-    },
-    {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        sticker:[
-            {txt:'증정', type:'type02'},
-        ]
-    },
-]
-/* //component sample data */
 
 onMounted(() => {
     window.addEventListener('scroll', () => {
@@ -308,7 +342,7 @@ onMounted(() => {
 });
 
 /* 최근검색어 삭제 */
-let key_cnt = ref(latest.length);
+let key_cnt = ref(latestSearchWordData.length);
 const keyword_del = (e) => {
     e.target.closest('li').remove();
     key_cnt.value = document.querySelector('.latest').childElementCount;
@@ -327,13 +361,6 @@ const keyword_del_all = (e) => {
 
 const search_close = (e) => {
     e.target.closest('.search_layer').classList.remove('active')
-}
-
-/* category layer */
-const cate_layer = {
-    close: () => {
-        document.querySelector('.navCategory').classList.remove('active');
-    }
 }
 
 const cate_tab = (e) => {
@@ -730,42 +757,71 @@ header {
                                 content:'';
                                 display:block;
                             }
-                            .goods {
-                                margin:20px 9px 20px -5px;
-                                padding-left:21px;
+                            &:last-child {
+                              &:before {
+                                border-top:0;
+                              }
+                              > a {
+                                display:none;
+                              }
+                              .list {
+                                margin:0 9px 50px 21px;
                                 display:flex;
+                                flex-wrap:wrap;
+                                gap:5px;
+                                li {
+                                  width:50%;
+                                  a {
+                                    padding:0;
+                                    font-size:12px;
+                                    text-align: center;
+                                    img {
+                                      width:100%;
+                                      padding-bottom:5px;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                            .goods {
+                                margin:20px 9px 20px 21px;
+                                display:flex;
+                                gap:5px;
                                 li {
                                     width:50%;
-                                    padding-left:5px;
-                                }
-                                .goods_item {
-                                    a {
-                                        padding:0;
-                                    }
-                                    .img_wrap {
-                                        .thumb {
-                                            height:auto;
-                                            padding-top:133%;
+                                    ::v-deep .goods_item {
+                                        padding-bottom:50px;
+                                        a {
+                                            padding:0;
                                         }
-                                    }
-                                    .btnIconBox {
-                                        display:none;
-                                    }
-                                    .cont {
-                                        margin-top:10px;
-                                        font-size:12px;
-                                        .name {
-                                            strong {
-                                                color:#000;
-                                                font-size:12px;
-                                                overflow: hidden;
-                                                display: -webkit-box;
-                                                -webkit-box-orient: vertical;
-                                                -webkit-line-clamp: 2;
+                                        .img_wrap {
+                                            .thumb {
+                                                height:auto;
+                                                padding-top:133%;
                                             }
                                         }
-                                        .review_score {
+                                        .btnIconBox {
                                             display:none;
+                                        }
+                                        .cont {
+                                            margin-top:10px;
+                                            font-size:12px;
+                                            .name {
+                                                strong {
+                                                    color:#000;
+                                                    font-size:12px;
+                                                    overflow: hidden;
+                                                    display: -webkit-box;
+                                                    -webkit-box-orient: vertical;
+                                                    -webkit-line-clamp: 2;
+                                                    .cate {
+                                                      margin-right:0;
+                                                    }
+                                                }
+                                            }
+                                            .review_score {
+                                                display:none;
+                                            }
                                         }
                                     }
                                 }
@@ -774,13 +830,20 @@ header {
                     }
                 }
                 .quick_wrap {
-                    border-top:5px solid #EEE;
-                    border-bottom:5px solid #EEE;
+                    border-top:5px solid #eeeeee;
+                    border-bottom:5px solid #f5f5f5;
                     overflow:hidden;
                     .quick {
+                      background-color:#f5f5f5;
                         overflow:auto;
                         display:flex;
+                        gap:1px;
+                        scrollbar-width:none;
+                        &::-webkit-scrollbar {
+                          display:none;
+                        }
                         li {
+                          background-color:#fff;
                             a {
                                 padding:16px 24px;
                                 font-size:14px;
@@ -791,54 +854,57 @@ header {
                         }
                     }
                 }
-                .prd_wrap {
-                  padding:40px 0 40px 21px;
-                  h2 {
-                    margin-right:21px;
-                    margin-bottom:20px;
-                    a {
-                      font-size:16px;
-                      font-weight:600;
+                .list_wrap {
+                    padding:40px 21px 60px;
+                    .event_list {
                       display:flex;
-                      align-items:center;
-                      justify-content:space-between;
-                      &:after {
-                        content:'';
-                        width:9px;
-                        height:9px;
-                        border-color:#000;
-                        border-style:solid;
-                        border-width:0 0 1px 1px;
-                        display:inline-block;
-                        transform:rotate(225deg);
-                      }
-                    }
-                  }
-                  .goods_list {
-                    margin:0;
-                    .item {
-                      width:38%;
-                      display:block;
+                      flex-wrap:wrap;
+                      gap:16px;
                       li {
-                        width: 100%;
-                        ::v-deep(.goods_item) {
-                          .img_wrap {
-                            .thumb {
-                              height:190px;
+                        width:100%;
+                        padding-bottom:16px;
+                        border-bottom:1px solid #eeeeee;
+                        &:last-child {
+                          padding-bottom:0;
+                          border-bottom:0;
+                        }
+                        a {
+                          height:100%;
+                          display:flex;
+                          align-items:center;
+                          justify-content:flex-start;
+                          gap:16px;
+                          > div {
+                            width:56%;
+                            height:100%;
+                            position:relative;
+                            img {
+                              width:100%;
+                              height:100%;
                             }
-                            &:hover {
-                              .btnIconBox {
-                                transform:translateY(100%);
-                              }
+                            em {
+                              padding:2px 5px;
+                              color:#fff;
+                              font-size:10px;
+                              font-weight:300;
+                              background-color:#000;
+                              position:absolute;
+                              top:0;
+                              left:0;
                             }
                           }
-                          .review_score {
-                            display:none;
+                          dl {
+                            dd {
+                              color:#000;
+                              font-size:14px;
+                              font-weight:600;
+                              line-height:18px;
+                              letter-spacing:-0.4px;
+                            }
                           }
                         }
                       }
                     }
-                  }
                 }
             }
         }

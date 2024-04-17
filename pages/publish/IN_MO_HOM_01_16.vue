@@ -7,7 +7,7 @@
         AP임직원 전용 특가샵
         <span>구매 전 안내사항을 확인해주세요</span>
       </div>
-      <Button txt="구매 안내사항" class="btn_notify" @click="modal.open('sample_modal_buy', 'full')" />
+      <Button txt="구매 안내사항" class="btn_notify" @click="modal.open('modal_staff', 'full')" />
     </section>
   </div>
 
@@ -38,7 +38,7 @@
       </ul>
     </div>
   </div>
-  <div class="modal_wrap" id="sample_modal_sort">
+  <div id="sample_modal_sort" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
         <button class="btn_close" @click="modal.close(this)"></button>
@@ -60,7 +60,7 @@
     <div class="overlay" @click="modal.close(this)"></div>
   </div>
 
-  <div class="modal_wrap" id="sample_modal_search">
+  <div id="sample_modal_search" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
         <h2>상세검색</h2>
@@ -77,7 +77,7 @@
     <div class="overlay" @click="modal.close(this)"></div>
   </div>
 
-  <div class="modal_wrap" id="sample_modal_buy">
+  <div id="modal_staff" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
         <h2>임직원샵 이용안내</h2>
@@ -124,116 +124,15 @@
   </div>
 </template>
 <script setup>
+import {
+  sample_goods
+} from '~/test/data/dummyData'
+
 definePageMeta({
   layout: 'mo-category'
 })
 
 onMounted(() => {})
-
-const sample_goods = [
-  {
-    img: 'https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900',
-    overflip:
-      'https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900',
-    cate: 'BEST',
-    name: '히알루론 수분 선크림 SPF 50+ PA++++',
-    price: '11,000',
-    sale: '~50%',
-    cost: '26,000',
-    status: 'sold_out',
-    sticker: [
-      { txt: 'type01', type: 'type01' },
-      { txt: 'type02', type: 'type02' },
-      { txt: 'type03', type: 'type03' },
-      { txt: 'type04', type: 'type04' }
-    ],
-    hash: ['#스킨팩', '#화장솜', '#순면화장솜']
-  },
-  {
-    img: '/_nuxt/assets/images/sam/sam_goods_list_02.jpg',
-    overflip: '/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg',
-    cate: 'NEW',
-    name: '그린티 씨드 히알루론산 세렘 80ml',
-    price: '44,800',
-    sale: '~20%',
-    cost: '56,000',
-    status: 'coming_soon',
-    sticker: [
-      { txt: '1+1', type: 'type02' },
-      { txt: '뷰티포인트전용', type: 'type01' },
-      { txt: '첫구매전용', type: 'type01' }
-    ]
-  },
-  {
-    img: '/_nuxt/assets/images/sam/sam_goods_list_02.jpg',
-    overflip: '/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg',
-    cate: 'NEW',
-    name: '그린티 씨드 히알루론산 세렘 80ml',
-    price: '44,800',
-    sale: '~20%',
-    cost: '56,000',
-    status: 'coming_soon',
-    sticker: [
-      { txt: '1+1', type: 'type02' },
-      { txt: '뷰티포인트전용', type: 'type01' },
-      { txt: '첫구매전용', type: 'type01' }
-    ]
-  },
-  {
-    img: 'https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900',
-    overflip:
-      'https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900',
-    cate: 'BEST',
-    name: '블랙티 유스 인핸싱 앰플 50ml',
-    price: '11,000',
-    sale: '~50%',
-    cost: '26,000',
-    status: 'sold_out',
-    hash: ['#스킨팩', '#화장솜', '#순면화장솜']
-  },
-  {
-    img: 'https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900',
-    overflip:
-      'https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900',
-    cate: 'BEST',
-    name: '블랙티 유스 인핸싱 앰플 50ml',
-    price: '11,000',
-    sale: '~50%',
-    cost: '26,000',
-    status: 'sold_out',
-    hash: ['#스킨팩', '#화장솜', '#순면화장솜']
-  },
-  {
-    img: '/_nuxt/assets/images/sam/sam_goods_list_04.jpg',
-    overflip:
-      'https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900',
-    cate: 'BEST',
-    name: '블랙티 유스 인핸싱 앰플 50ml',
-    price: '11,000',
-    sale: '~50%',
-    cost: '26,000',
-    hash: ['#스킨팩', '#화장솜', '#순면화장솜']
-  },
-  {
-    img: '/_nuxt/assets/images/sam/sam_goods_list_04.jpg'
-  },
-  {
-    img: '/_nuxt/assets/images/sam/sam_goods_list_04.jpg'
-  },
-  {
-    img: '/_nuxt/assets/images/sam/sam_goods_list_04.jpg'
-  },
-  {
-    img: '/_nuxt/assets/images/sam/sam_goods_list_04.jpg'
-  },
-  {
-    img: 'https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900'
-  },
-  {
-    img: 'https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900'
-  }
-]
-/* //component sample data */
 
 const modal = {
   open: (_target, _type) => {
@@ -522,7 +421,7 @@ const modal = {
       }
     }
   }
-  &#sample_modal_buy {
+  &#modal_staff {
     z-index: 100;
     .modal_container {
       width:100%;
