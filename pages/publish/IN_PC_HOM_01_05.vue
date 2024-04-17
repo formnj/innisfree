@@ -5,9 +5,9 @@
     </div>
 
     <div class="inner">
-        <div>
+        <div class="list_wrap">
             <Tabs :item="[{txt:'전체'},{txt:'체험/리뷰'},{txt:'쇼핑혜택'},{txt:'제휴혜택'}]" :tabidx="0" />
-            <ul>
+            <ul class="event_list">
                 <li v-for="(item, idx) in sample_goods" :key="idx">
                     <a :href="props.link">
                         <div>
@@ -174,8 +174,8 @@ const sample_goods = [
 }
 
 .inner {
-    > div {
-        > ul {
+    > div.list_wrap {
+        > ul.event_list {
             margin-top:60px;
             display:flex;
             flex-wrap:wrap;

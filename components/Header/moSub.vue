@@ -427,17 +427,12 @@ const modal = {
 }
 header {
     padding:10px 21px 0;
-    position:relative;
+    position:sticky;
+    top:0;
+    left:0;
+    z-index:10;
     &.fixed {
       background:#fff;
-      position:sticky;
-      top:0;
-      left:0;
-      z-index:10;
-      &.category {
-        background:#fff;
-        top:-48px;
-      }
     }
     .inner {
         display:flex;
