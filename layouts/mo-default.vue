@@ -27,4 +27,6 @@
 #container {
     flex:1 auto;
 }
+
+@import "~/assets/scss/mobile.scss";
 </style>
