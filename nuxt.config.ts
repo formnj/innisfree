@@ -4,7 +4,7 @@ import { fileURLToPath, URL } from 'url'
 console.log(`HOSTNAME : ${process.env.HOSTNAME}`)
 
 export default defineNuxtConfig({
-  css: ['~/assets/css/global.css', '~/assets/scss/global.scss', '~/assets/scss/common.scss'],
+  css: ['~/assets/css/global.css', '~/assets/scss/global.scss', '~/assets/scss/common.scss', '~/assets/scss/_mo_mixin.scss'],
   plugins: ['~/plugins/checkout.ts'],
   image: {
     cloudinary: {

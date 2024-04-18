@@ -14,7 +14,6 @@
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/scss/mobile.scss";
 
 #wrap {
     min-height:100vh;
