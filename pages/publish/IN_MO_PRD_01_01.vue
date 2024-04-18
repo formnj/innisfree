@@ -360,7 +360,6 @@ const setFilter = (event) =>{
     }
 }
 
-
 .modal_wrap {
     .modal_container {
         z-index:100;

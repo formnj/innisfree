@@ -40,6 +40,8 @@ const sam_lnb = ['에센스/세럼/앰플','로션/크림','스킨/토너/미스
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/scss/mobile.scss";
+
 #wrap {
     min-height:100vh;
     max-width:100%;

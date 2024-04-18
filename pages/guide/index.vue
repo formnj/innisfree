@@ -4,6 +4,7 @@
             <li><span class="badge modal">modal popup</span></li>
             <li><span class="badge com">완료</span></li>
             <li><span class="badge ing">진행중</span></li>
+            <li><span class="badge edit">수정요청</span></li>
         </ul>
     </h2>
     <table>
@@ -69,8 +70,8 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'형민우'
     }, {
         depth:['','검색','',''],
-        id:'IN_PC_SRC_01_01', status:'',
-        type:'component', note:'',
+        id:'IN_PC_SRC_01_01', status:'edit',
+        type:'component', note:'디자인 고도화',
         sDate:'', eDate:'2024-04-24/', worker:'형민우'
     }, {
         depth:['','푸터','',''],
@@ -86,12 +87,12 @@ const PC_arry = ([
         depth:['홈','','',''],
         id:'IN_PC_HOM_01_01', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-09/' , worker:''
+        sDate:'', eDate:'2024-04-09/' , worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
-        id:'IN_PC_HOM_01_04', status:'com',
-        type:'', note:'',
-        sDate:'', eDate:'2024-04-19/2024-04-16', worker:'김희경'
+        id:'IN_PC_HOM_01_04', status:'edit',
+        type:'', note:'디자인 고도화',
+        sDate:'', eDate:'<del>2024-04-19/2024-04-16</del><br/> 2024-04-26', worker:'김희경'
     }, {
         depth:['','이벤트(T)','목록',''],
         id:'IN_PC_HOM_01_05', status:'com',
@@ -108,12 +109,6 @@ const PC_arry = ([
         type:'', note:'',
         sDate:'', eDate:'', worker:''
     },
-    // {
-    //     depth:['','에디터(T)','목록',''],
-    //     id:'IN_PC_HOM_01_08', status:'',
-    //     type:'', note:'',
-    //     sDate:'', eDate:'', worker:'김나람'
-    // },
      {
         depth:['','','상세',''],
         id:'IN_PC_HOM_01_09', status:'',
@@ -128,22 +123,22 @@ const PC_arry = ([
         depth:['','쇼케이스(T)','',''],
         id:'IN_PC_HOM_01_12', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-12/', worker:''
+        sDate:'', eDate:'2024-04-26/', worker:'형민우'
     }, {
         depth:['','라이브(T)','',''],
         id:'IN_PC_HOM_01_14', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-12/', worker:''
+        sDate:'', eDate:'2024-05-23/', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
         id:'IN_PC_HOM_01_15', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-19/', worker:''
+        sDate:'', eDate:'2024-05-16/', worker:'김나람'
     }, {
         depth:['','임직원샵','목록',''],
         id:'IN_PC_HOM_01_16', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-16/ 2024-14-16', worker:'형민우'
+        sDate:'', eDate:'2024-04-16/ 2024-04-16', worker:'형민우'
     }, {
         depth:['','쇼핑로그','',''],
         id:'IN_PC_HOM_01_18', status:'',
@@ -572,12 +567,12 @@ const MO_arry = ([
         depth:['홈','','',''],
         id:'IN_MO_HOM_01_01', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-09/', worker:''
+        sDate:'', eDate:'2024-04-09/', worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
-        id:'IN_MO_HOM_01_04', status:'com',
-        type:'', note:'',
-        sDate:'', eDate:'2024-04-19/2024-04-16', worker:'김희경'
+        id:'IN_MO_HOM_01_04', status:'edit',
+        type:'', note:'디자인 고도화',
+        sDate:'', eDate:'<del>2024-04-19/2024-04-16</del><br/>2024-04-26', worker:'김희경'
     }, {
         depth:['','이벤트(T)','목록',''],
         id:'IN_MO_HOM_01_05', status:'com',
@@ -612,17 +607,17 @@ const MO_arry = ([
         depth:['','쇼케이스(T)','',''],
         id:'IN_MO_HOM_01_12', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-12/', worker:''
+        sDate:'', eDate:'2024-04-26/', worker:'형민우'
     }, {
         depth:['','라이브(T)','',''],
         id:'IN_MO_HOM_01_14', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-12/', worker:''
+        sDate:'', eDate:'2024-04-26/', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
         id:'IN_MO_HOM_01_15', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-19/', worker:''
+        sDate:'', eDate:'2024-04-26/', worker:'김나람'
     }, {
         depth:['','임직원샵','목록',''],
         id:'IN_MO_HOM_01_16', status:'com',
@@ -1191,6 +1186,7 @@ h2 .badge:before {width:18px; height:18px; margin-right:5px; border-radius:4px; 
 h2 .badge.modal:before {background-color:#0070ba;}
 h2 .badge.com:before {background-color:#ddeeff;}
 h2 .badge.ing:before {background-color:#fff4f4;}
+h2 .badge.edit:before {background-color:yellow;}
 table {width:100%; border-spacing:0; border-collapse:collapse;}
 ::v-deep th, ::v-deep td {padding:8px 10px; font-size:12px;}
 thead {background-color:#fcfcfc; border-bottom:1px solid #222;}
@@ -1199,6 +1195,7 @@ thead tr > * + *, ::v-deep td {border-left:1px solid #ddd;}
 ::v-deep tr.row {border-top:2px solid #222;}
 ::v-deep td.com {background-color:#ddeeff;}
 ::v-deep td.ing {background-color:#fff4f4;}
+::v-deep td.edit {background-color:yellow;}
 ::v-deep td {border-bottom:1px solid #ddd;}
 ::v-deep td a {font-weight:700; text-decoration:underline; display:block;}
 ::v-deep td a.modal {padding:4px 5px; color:#fff; font-weight:400; background-color:#0070ba; border:1px solid #0070ba; text-decoration:none; border-radius:4px;}

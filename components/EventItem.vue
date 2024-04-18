@@ -90,43 +90,4 @@ const props = defineProps({
     }
   }
 }
-
-@import "~/assets/scss/_mo_mixin";
-
-@include mobile {
-  .event_item {
-    .item {
-      display:flex;
-      align-items:center;
-      flex-wrap:wrap;
-      .thumb {
-        width:160px;
-        padding-top:0;
-        em {
-          position:static;
-        }
-      }
-      .cont {
-        height:auto;
-        margin-top:0;
-        padding:0 2rem;
-        display:flex;
-        flex:1;
-        flex-direction:column-reverse;
-        strong {
-          margin-top:0;
-          font-size:1.4rem;
-        }
-        .date {
-          margin-top:1.6rem;
-          font-size:1.2rem;
-        }
-        .sticker {
-          padding:0.2rem 0.5rem;
-          font-size:1rem;
-        }
-      }
-    }
-  }
-}
 </style>
