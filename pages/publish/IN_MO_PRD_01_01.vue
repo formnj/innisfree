@@ -360,7 +360,6 @@ const setFilter = (event) =>{
     }
 }
 
-
 .modal_wrap {
     .modal_container {
         z-index:100;
@@ -412,5 +411,10 @@ const setFilter = (event) =>{
         }
       }
     }
+
+@import "~/assets/scss/_mo_mixin.scss";
+
+@include mo_749 {
+}
 
 </style>

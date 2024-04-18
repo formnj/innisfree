@@ -1,5 +1,13 @@
 <template>
     <section>
+        <h2>디자인 파일</h2>
+        <ul class="explain">
+          <li><a href="https://www.figma.com/file/rLUIRIJp3v6t9tNs5xTagk/MO---01-%EB%AA%A8%EB%B0%94%EC%9D%BC---SHARE?type=design&node-id=0%3A1&mode=design&t=uacV7h9EqHaxwbI4-1" target="_blank">모바일 디자인(새창)</a></li>
+          <li><a href="https://www.figma.com/file/JpGt7vDMmoZ4XOLR9SWI3o/PC---02-%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%83%91---SHARE?type=design&node-id=1%3A2&mode=design&t=4NFN2JpCWKZxFOsF-1" target="_blank">PC 디자인(새창)</a></li>
+        </ul>
+    </section>
+
+    <section>
         <h2>공통</h2>
         <ul class="explain">
             <li>Vue Guide : <a href="https://vuejs.org/style-guide/" target="_blank">https://vuejs.org/style-guide/</a></li>
@@ -38,9 +46,13 @@
 
     <section>
       <h2>media query</h2>
+      <ul class="explain">
+        <li>break point : mo_749, mo_639, mo_519, mo_413, mo_410, mo_374, mo_359 (뒤의 숫자는 max-width)</li>
+        <li>모바일의 각 레이아웃에 선언된 @import "~/assets/scss/mobile.scss";는 공통콤포넌트에 대한 정의를 담습니다.</li>
+      </ul>
       <pre class="code_box"><code>&lt;style lang="scss" scoped&gt;
 media query : @import "~/assets/scss/_mo_mixin";
-@include mobile {
+@include mo_749 {
   스타일 선언
 }
 &gt;</code></pre>
