@@ -129,17 +129,17 @@
                       </h2>
                       <div class="list_wrap">
                         <ul class="goods_list">
-                          <!-- <swiper-container
-                            slides-per-view="auto"
-                            grab-cursor="true"
-                            space-between="3"
+                          <swiper
+                            :slides-per-view="'auto'"
+                            :space-between="3"
+                            :loop="false"
                           >
                             <swiper-slide v-for="(item, idx) in sample_goods" :key="idx" class="item">
                               <li>
                                 <GoodsItem :item="item" :link="item.link" />
                               </li>
                             </swiper-slide>
-                          </swiper-container> -->
+                          </swiper>
                         </ul>
                       </div>
                     </div>

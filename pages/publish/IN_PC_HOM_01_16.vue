@@ -5,7 +5,7 @@
           <span class="pdt_count"><strong>32</strong></span>
       </h2>
       <span>이니스프리 및 AP 임직원 전용 이니스프리 제품 특가샵입니다. 구매 전 안내사항을 확인해주세요.</span>
-      <Button txt="구매 안내사항" class="btn_min_outline" @click="modal.open('sample_modal_buy', 'full');" />
+      <Button txt="구매 안내사항" class="btn_min_outline" @click="modal.open('modal_staff', 'full');" />
     </div>
     <div class="pdtSortTab_wrap">
       <div class="sortTab">
@@ -56,27 +56,27 @@
                 <ul>
                   <li>
                     <label for="skin1" class="inputChk">
-                      <input type="checkbox" name="typArr" id="skin1" value="FB" alt="주름/탄력"><span @click="setFilter($event)">주름/탄력</span>
+                      <input type="checkbox" alt="주름/탄력"><span @click="setFilter($event)">주름/탄력</span>
                     </label>
                   </li>
                   <li>
                     <label for="skin2" class="inputChk">
-                      <input type="checkbox" name="typArr" id="skin2" value="QV" alt="모공/피지/블랙헤드"><span @click="setFilter($event)">모공/피지/블랙헤드</span>
+                      <input type="checkbox" alt="모공/피지/블랙헤드"><span @click="setFilter($event)">모공/피지/블랙헤드</span>
                     </label>
                   </li>
                   <li>
                     <label for="skin3" class="inputChk">
-                      <input type="checkbox" name="typArr" id="skin3" value="FA" alt="영양/토탈안티에이징"><span @click="setFilter($event)">영양/토탈안티에이징</span>
+                      <input type="checkbox" alt="영양/토탈안티에이징"><span @click="setFilter($event)">영양/토탈안티에이징</span>
                     </label>
                   </li>
                   <li>
                     <label for="skin4" class="inputChk">
-                      <input type="checkbox" name="typArr" id="skin4" value="WW" alt="트러블/리페어"><span @click="setFilter($event)">트러블/리페어</span>
+                      <input type="checkbox" alt="트러블/리페어"><span @click="setFilter($event)">트러블/리페어</span>
                     </label>
                   </li>
                   <li>
                     <label for="skin5" class="inputChk">
-                      <input type="checkbox" name="typArr" id="skin5" value="OG" alt="수분/보습/속건조"><span @click="setFilter($event)">수분/보습/속건조</span>
+                      <input type="checkbox" alt="수분/보습/속건조"><span @click="setFilter($event)">수분/보습/속건조</span>
                     </label>
                   </li>
                 </ul>
@@ -88,22 +88,22 @@
                 <ul>
                   <li>
                     <label for="fnc1" class="inputChk">
-                      <input type="checkbox" name="lineCate1stArr" id="fnc1" value="FN03" alt="미백"><span @click="setFilter($event)">미백</span>
+                      <input type="checkbox" alt="미백"><span @click="setFilter($event)">미백</span>
                     </label>
                   </li>
                   <li>
                     <label for="fnc2" class="inputChk">
-                      <input type="checkbox" name="lineCate1stArr" id="fnc2" value="FN02" alt="주름개선"><span @click="setFilter($event)">주름개선</span>
+                      <input type="checkbox" alt="주름개선"><span @click="setFilter($event)">주름개선</span>
                     </label>
                   </li>
                   <li>
                     <label for="fnc3" class="inputChk">
-                      <input type="checkbox" name="lineCate1stArr" id="fnc3" value="FN01" alt="자외선차단"><span @click="setFilter($event)">자외선차단</span>
+                      <input type="checkbox" alt="자외선차단"><span @click="setFilter($event)">자외선차단</span>
                     </label>
                   </li>
                   <li>
                     <label for="fnc4" class="inputChk">
-                      <input type="checkbox" name="lineCate1stArr" id="fnc4" value="FN04" alt="비건인증"><span @click="setFilter($event)">비건인증</span>
+                      <input type="checkbox" alt="비건인증"><span @click="setFilter($event)">비건인증</span>
                     </label>
                   </li>
                 </ul>
@@ -115,7 +115,7 @@
                 <ul>
                   <li>
                     <label for="Benefit3" class="inputChk">
-                      <input type="checkbox" name="lineCate2ndArr" id="Benefit3" value="IA13" alt="공병수거 가능"><span @click="setFilter($event)">공병수거 가능</span>
+                      <input type="checkbox" alt="공병수거 가능"><span @click="setFilter($event)">공병수거 가능</span>
                     </label>
                   </li>
                 </ul>
@@ -129,7 +129,7 @@
       </div>
       <div class="overlay" @click="modal.close(this);"></div>
   </div>
-  <div class="modal_wrap" id="sample_modal_buy">
+  <div id="modal_staff" class="modal_wrap">
       <div class="modal_container">
           <div class="modal_header">
               <h2>임직원샵 이용안내</h2>
@@ -177,7 +177,6 @@
 </template>
 <script setup>
 import {
-  breadcrumbData,
   sample_goods
 } from '~/test/data/dummyData'
 
@@ -412,7 +411,7 @@ const setFilter = (event) =>{
   }
 }
 
-.modal_wrap#sample_modal_buy {
+.modal_wrap#modal_staff {
   .modal_container {
     width:764px;
     max-height:500px;

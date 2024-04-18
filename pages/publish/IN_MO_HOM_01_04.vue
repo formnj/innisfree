@@ -1,7 +1,7 @@
 <template>
     <div class="prdnav">
         <button @click="modal.open('sample_modal_sort', 'bottom');">
-            <span>전체s</span>
+            <span>전체</span>
         </button>
     </div>
     <div class="inner">
