@@ -8,7 +8,7 @@
             <div class="sortTab">
                 <button class="btn_dropdown" @click="modal.open('sample_modal_sort', 'bottom');" >추천순</button>
             </div>
-            <button @click="modal.open('sample_modal_search', 'bottom');">상세검색</button>
+            <button @click="modal.open('sample_modal_search', 'bottom');">필터</button>
         </div>
     </div>
     <div class="list_wrap">
@@ -162,16 +162,12 @@ const sample_goods = [
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
         overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
         cate:'BEST',
-        name:'히알루론 수분 선크림 SPF 50+ PA++++',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
+        name:'BEST 레티놀 시카 앰플 [대용량] 50mL + 콜라겐 펩타이드 탄력 크림 50mL',
+        price:'72,740', sale:'24%', cost:'96,000',
         sticker:[
-            {txt:'type01', type:'type01'},
-            {txt:'type02', type:'type02'},
-            {txt:'type03', type:'type03'},
-            {txt:'type04', type:'type04'}
-        ],
-        hash:['#스킨팩','#화장솜','#순면화장솜']
+          {txt:'5+5', type:'type02'},
+          {txt:'뷰티포인트 전용', type:'type01'}
+        ]
     }, {
         img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
         overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
@@ -290,55 +286,38 @@ const setFilter = (event) =>{
         font-weight:300;
         position:relative;
         .pdt_count {
-            margin-left:5px;
-            padding:3px 6px;
+            margin-left:0;
+            padding:0;
             color:#000;
-            font-size:13px;
+            font-size:12px;
             font-weight:600;
-            white-space:nowrap;
             border-radius:999px;
             background:transparent;
-            position:absolute;
-            top:0;
-            left:100%;
-            display:block;
+            position:unset;
             strong {
                 color:#2FAF63;
             }
         }
     }
     .pdtSortTab_wrap {
-        margin-left:auto;
-        position:relative;
-        display:flex;
-        align-items:center;
+        margin-top:0;
         button {
-            padding:0 10px;
-            font-size:13px;
-            font-weight:600;
-            line-height: 1.43em;
-            letter-spacing: -0.01em;
-            display:flex;
-            align-items:center;
+            padding:0;
+            font-size:12px;
             &::after {
-                content:'';
-                width:16px;
-                height:16px;
-                margin-left:5px;
-                display:inline-block;
+                margin-left:8px;
             }
+            &::before {
+              content:none;
+            }
+        }
+        >button {
+          padding-left:20px;
         }
     }
 }
 
 .sortTab {
-    position:relative;
-    > button::after {
-        background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
-        background-size:250px;
-        background-repeat:no-repeat;
-        background-position:-110px -60px;
-    }
     & ~ button {
         position:relative;
         &::after {
@@ -351,12 +330,19 @@ const setFilter = (event) =>{
 }
 
 .goods_list {
-    margin-top:-40px;
-    margin-left:-20px;
+    margin:0;
+    gap:4rem 0.3rem;
+    justify-content:space-between;
     > li {
-        width:50%;
-        padding-top:40px;
-        padding-left:20px;
+        width:16.5rem;
+        padding:0;
+        ::v-deep .goods_item {
+          .img_wrap {
+            .btnIconBox {
+              left:0;
+            }
+          }
+        }
     }
 }
 

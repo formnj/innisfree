@@ -33,6 +33,11 @@
     font-size: 8.5px;
   }
 }
+@media screen and (orientation: landscape) {
+  html {
+    font-size:62.5%;
+  }
+}
 
 @mixin mo_749 {
   @media (max-width: 749px) {
@@ -66,6 +71,11 @@
 }
 @mixin mo_359 {
   @media (max-width: 359px) {
+    @content;
+  }
+}
+@mixin mo_landscape {
+  @media screen and (orientation: landscape) {
     @content;
   }
 }

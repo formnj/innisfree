@@ -124,54 +124,14 @@
   </div>
 </template>
 <script setup>
-import {
-  sample_goods
-} from '~/test/data/dummyData'
+import { sample_goods } from '~/test/data/dummyData'
+import { modal } from '~/assets/js/common-ui'
 
 definePageMeta({
   layout: 'mo-category'
 })
 
 onMounted(() => {})
-
-const modal = {
-  open: (_target, _type) => {
-    document.getElementById(_target).classList.add('active', _type)
-    const body = document.querySelector('body')
-    const pageY = document.body.scrollTop || document.documentElement.scrollTop
-
-    if (!body.hasAttribute('scrollY')) {
-      body.setAttribute('scrollY', String(pageY))
-      body.classList.add('lockbody')
-    }
-    body.addEventListener('touchmove', modal.lockScrollHandle, {
-      passive: false
-    })
-  },
-  close: (_target) => {
-    event.target.closest('.modal_wrap').setAttribute('class', 'modal_wrap')
-    const body = document.querySelector('body')
-
-    if (body.hasAttribute('scrollY')) {
-      body.classList.remove('lockbody')
-      body.scrollTop = Number(body.getAttribute('scrollY'))
-      body.removeAttribute('scrollY')
-    }
-
-    body.removeEventListener('touchmove', modal.lockScrollHandle, {
-      passive: true
-    })
-  },
-  lockScrollHandle(event) {
-    const e = event || window.event
-
-    // 멀티 터치는 터치 되게 한다
-    if (e.touches.length > 1) return
-
-    // event 초기화 속성이 있음 초기화
-    e.preventDefault()
-  }
-}
 </script>
 <style lang="scss" scoped>
 .staff_wrap {
@@ -322,8 +282,6 @@ const modal = {
 }
 
 .goods_list {
-  margin-top: -40px;
-  margin-left: -20px;
   > li {
     width: 50%;
     padding-top: 40px;
@@ -332,11 +290,7 @@ const modal = {
 }
 
 .modal_wrap {
-  .modal_container {
-    z-index: 100;
-  }
   &#sample_modal_sort {
-    z-index: 100;
     .modal_container {
       border-top-left-radius: 20px 20px;
       border-top-right-radius: 20px 20px;
@@ -411,7 +365,6 @@ const modal = {
     }
   }
   &#sample_modal_search {
-    z-index: 100;
     .modal_container {
       .modal_header {
       }
@@ -422,7 +375,6 @@ const modal = {
     }
   }
   &#modal_staff {
-    z-index: 100;
     .modal_container {
       width:100%;
       height:100%;
