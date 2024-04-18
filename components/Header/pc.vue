@@ -148,28 +148,28 @@
                 <nav class="navGnb">
                     <ul>
                         <li>
-                            <a href="#none">이벤트</a>
+                            <a href="/publish/IN_PC_HOM_01_05">이벤트</a>
                         </li>
                         <li>
-                            <a href="#none" class="point">특가</a>
+                            <a href="/publish/IN_PC_HOM_01_04" class="point">특가</a>
                         </li>
                         <li>
-                            <a href="#none">베스트</a>
+                            <a href="/publish/IN_PC_HOM_01_00-1">베스트</a>
                         </li>
                         <li>
                             <a href="#none">쿠폰존</a>
                         </li>
                         <li>
-                            <a href="#none">쇼케이스</a>
+                            <a href="/publish/IN_PC_HOM_01_12">쇼케이스</a>
                         </li>
                         <li>
-                            <a href="#none">라이브</a>
+                            <a href="/publish/IN_PC_HOM_01_14">라이브</a>
                         </li>
                         <li>
-                            <a href="#none">FOR ME</a>
+                            <a href="/publish/IN_PC_HOM_01_15">FOR ME</a>
                         </li>
                         <li>
-                            <a href="#none">임직원샵</a>
+                            <a href="/publish/IN_PC_HOM_01_16">임직원샵</a>
                         </li>
                     </ul>
                 </nav>
