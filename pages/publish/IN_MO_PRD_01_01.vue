@@ -412,4 +412,9 @@ const setFilter = (event) =>{
       }
     }
 
+@import "~/assets/scss/_mo_mixin.scss";
+
+@include mo_749 {
+}
+
 </style>
