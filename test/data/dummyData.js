@@ -160,6 +160,80 @@ export const breadcrumbData = [
   }
 ]
 
+export const sample_event = [
+ {
+      img:("/_nuxt/assets/images/sam/event_list_01.jpg"),
+      cate:'제휴혜택',
+      title:'트러블?수분?탄력?<br/> 고민따라 10% 추가할인 쿠폰위크!!',
+      data:'24.4.14(일) ~ 24.4.30(화)',
+  },  {
+      img:("/_nuxt/assets/images/sam/event_list_02.jpg"),
+      cate:'쇼핑혜택',
+      title:'남성에게도 딱! 맞는<br/> 그린티 씨드 세럼 대용량 출시',
+      data:'24.4.14(일) ~ 24.4.22(월)',
+  },
+  {
+      img:("/_nuxt/assets/images/sam/event_list_03.jpg"),
+      cate:'체험/리뷰',
+      title:'잡티와 토닝을 한번에!<br/> NEW 패드 즉시 증정!',
+      data:'24.4.1(월) ~ 24.4.30(화)',
+  },
+  {
+      img:("/_nuxt/assets/images/sam/event_list_04.jpg"),
+      cate:'제휴혜택',
+      title:'자신감 있는 레티놀 앰플<br/> 매일 3,656개 판매! ',
+      data:'24.4.14(일) ~ 24.4.22(월)',
+  },
+  {
+      img:("/_nuxt/assets/images/sam/event_list_05.jpg"),
+      cate:'체험/리뷰',
+      title:'이니스프리 공식몰이 처음이라면?',
+      data:'24.4.14(일) ~ 24.5.1(수)',
+  },
+  {
+      img:("/_nuxt/assets/images/sam/event_list_06.jpg"),
+      cate:'쇼핑혜택',
+      title:'비타C 1+1 럭키박스<br/> 행운의 주인공은?',
+      data:'24.4.1(월) ~ 24.4.30(화)',
+  },
+  {
+      img:("/_nuxt/assets/images/sam/event_list_01.jpg"),
+      cate:'제휴혜택',
+      title:'트러블?수분?탄력?<br/> 고민따라 10% 추가할인 쿠폰위크!!',
+      data:'24.4.14(일) ~ 24.4.30(화)',
+  },  {
+      img:("/_nuxt/assets/images/sam/event_list_02.jpg"),
+      cate:'쇼핑혜택',
+      title:'남성에게도 딱! 맞는<br/> 그린티 씨드 세럼 대용량 출시',
+      data:'24.4.14(일) ~ 24.4.22(월)',
+  },
+  {
+      img:("/_nuxt/assets/images/sam/event_list_03.jpg"),
+      cate:'체험/리뷰',
+      title:'잡티와 토닝을 한번에!<br/> NEW 패드 즉시 증정!',
+      data:'24.4.1(월) ~ 24.4.30(화)',
+  },
+  {
+      img:("/_nuxt/assets/images/sam/event_list_04.jpg"),
+      cate:'제휴혜택',
+      title:'자신감 있는 레티놀 앰플<br/> 매일 3,656개 판매! ',
+      data:'24.4.14(일) ~ 24.4.22(월)',
+  },
+  {
+      img:("/_nuxt/assets/images/sam/event_list_05.jpg"),
+      cate:'체험/리뷰',
+      title:'이니스프리 공식몰이 처음이라면?',
+      data:'24.4.14(일) ~ 24.5.1(수)',
+  },
+  {
+      img:("/_nuxt/assets/images/sam/event_list_06.jpg"),
+      cate:'쇼핑혜택',
+      title:'비타C 1+1 럭키박스<br/> 행운의 주인공은?',
+      data:'24.4.1(월) ~ 24.4.30(화)',
+  }
+
+]
+
 //sample visual
 export const sampleSlide = [
   {
@@ -283,6 +357,29 @@ export const prodInfo = {
   summaryReview: '이 제품을 구매하신 고객 분들은 다크서클과 잡티 커버, 자연스러운 색상, 그리고 사용 편의성이 좋다고 하셨어요!',
 }
 
+// main item
+export const mainSam = {
+  recommend : [
+    {
+      img:("/_nuxt/public/images/sam/recommend_01.png"),
+      title:'최강한파?! 오히려 좋아!<br/> 귀여운 귀마개를 드려요♥',
+      txt:'디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!0',
+      hash:['겨울필수아이템','그린펫클럽']
+    },
+    {
+      img:("/_nuxt/public/images/sam/recommend_02.png"),
+      title:'원영이의 특별한 피부비결!<br/> 비타C 잡티 토닝 세럼이 정답!',
+      txt:'디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!1',
+      hash:['세럼','비타C', '토닝']
+    },
+    {
+      img:("/_nuxt/public/images/sam/recommend_03.png"),
+      title:'라이브 단독 쿠폰 & 사은품<br/> 신세계 상품권 10만원 GET!',
+      txt:'채팅만 해도 경품을 받는다고?<br/> 구매 인증, 채팅 추첨 경품!',
+      hash:['라이브 단독','쿠폰']
+    }
+  ]
+}
 
 export const sam_menu = [
   {

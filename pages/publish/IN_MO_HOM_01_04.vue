@@ -35,9 +35,11 @@
                     </li>
                 </ul>
             </div>
+            <hr>
         </section>
 
         <div class="benefits_wrap">
+            <h3>특가 할인 찬스 / 사은품 증정 혜택</h3>
             <div class="list_wrap">
                 <ul class="goods_list">
                     <li v-for="(item, idx) in sample_goods" :key="idx">
@@ -280,10 +282,6 @@ const modal = {
 }
 /* //component sample data */
 
-
-
-
-
 </script>
 
 <style lang="scss" scoped>
@@ -322,13 +320,12 @@ const modal = {
 }
 .inner {
     height:100%;
-    > section {
-        padding:20px 0;
-        border-bottom:1px solid #eee;
-        h3 {
+    h3 {
             font-size:18px;
             font-weight:600;
         }
+    > section {
+        padding:20px 0;
         p {
             font-size:18px;
             font-weight:600;
@@ -391,9 +388,18 @@ const modal = {
         > .list_wrap {
             margin-top:40px;
         }
+        hr {
+          margin-top: 60px;
+          margin-left: -21px;
+          margin-right: -21px;
+          border: 2px solid #eee;
+        }
     }
     >.benefits_wrap {
-        padding:60px 0;
+        padding:20px 0;
+        h3 {
+          margin-bottom:40px;
+        }
     }
     .modal_wrap.alert {
         .modal_container  {
