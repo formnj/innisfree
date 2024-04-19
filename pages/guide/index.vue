@@ -590,9 +590,9 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','에디터(T)','목록',''],
-        id:'IN_MO_HOM_01_08', status:'',
+        id:'IN_MO_HOM_01_08', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-19', worker:'김나람'
+        sDate:'', eDate:'2024-04-19/2024-04-19', worker:'김나람'
     }, {
         depth:['','','상세',''],
         id:'IN_MO_HOM_01_09', status:'',
@@ -1102,7 +1102,7 @@ const change_device = () => {
         +   '<td class="'+device.value[i].status+'">'+device.value[i].depth[1]+'</td>'
         +   '<td class="'+device.value[i].status+'">'+device.value[i].depth[2]+'</td>'
         +   '<td class="'+device.value[i].status+'">'+device.value[i].depth[3]+'</td>'
-        +   '<td class="ac '+device.value[i].status+'"><a href="'+link+'" target="_blank" class="'+device.value[i].type+'">'+device.value[i].id+'</a></td>'
+        +   '<td class="ac '+device.value[i].status+'"><a href="'+device.value[i].id+'" target="_blank" class="'+device.value[i].type+'">'+device.value[i].id+'</a></td>'
         +   '<td class="'+device.value[i].status+'">'+device.value[i].note+'</td>'
         +   '<td class="ac '+device.value[i].status+'">'+device.value[i].sDate+'</td>'
         +   '<td class="ac '+device.value[i].status+'">'+device.value[i].eDate+'</td>'
@@ -1160,7 +1160,7 @@ onMounted(() => {
         +   '<td class="'+device.value[i].status+'">'+device.value[i].depth[1]+'</td>'
         +   '<td class="'+device.value[i].status+'">'+device.value[i].depth[2]+'</td>'
         +   '<td class="'+device.value[i].status+'">'+device.value[i].depth[3]+'</td>'
-        +   '<td class="ac '+device.value[i].status+'"><a href="'+link+'" target="_blank" class="'+device.value[i].type+'">'+device.value[i].id+'</a></td>'
+        +   '<td class="ac '+device.value[i].status+'"><a href="/publish/'+device.value[i].id+'" target="_blank" class="'+device.value[i].type+'">'+device.value[i].id+'</a></td>'
         +   '<td class="'+device.value[i].status+'">'+device.value[i].note+'</td>'
         +   '<td class="ac '+device.value[i].status+'">'+device.value[i].sDate+'</td>'
         +   '<td class="ac '+device.value[i].status+'">'+device.value[i].eDate+'</td>'
