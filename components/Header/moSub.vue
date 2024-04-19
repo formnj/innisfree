@@ -102,9 +102,9 @@
                         </ul>
                     </div>
                 </section>
-                <section v-if="isValid !== ''">
+                <section v-if="isValid !== '' && !isBool">
                     <ul class="auto">
-                        <li v-for="(item, idx) in sample_auto" :key="idx">
+                        <li v-for="(item, idx) in auto_list" :key="idx">
                             <a :href="item.url">
                                 {{ item.text }}
                                 <span>{{ item.latest }}</span>
@@ -112,12 +112,18 @@
                         </li>
                     </ul>
                 </section>
-                <section v-if="isValid !== ''">
+                <section v-if="isValid !== '' && !isBool">
                     <ul class="key_item goods_list">
-                        <li v-for="(item,idx) in sample_goods" :key="idx">
+                        <li v-for="(item,idx) in prd_list" :key="idx">
                             <GoodsItem :item="item" :link="item.link" />
                         </li>
                     </ul>
+                </section>
+                <section v-if="isBool">
+                    <div class="pdt_no">
+                        <span></span>
+                        일치하는 결과가 없습니다.
+                    </div>
                 </section>
             </div>
             <!-- //search layer -->
@@ -192,7 +198,7 @@
                     </div>
                     <div class="list_wrap">
                         <ul class="event_list">
-                            <li v-for="(item, idx) in sample_goods" :key="idx">
+                            <li v-for="(item, idx) in nav_goods" :key="idx">
                                 <!-- <EventItem :item="item" :link="item.link" /> -->
                                 <a href="#none">
                                     <div>
@@ -341,7 +347,7 @@ const global_menu = [
 
 const gnb_list = ['이벤트', '특가', '베스트', '쿠폰존', '쇼케이스', '라이브', 'FOR ME', '임직원샵']
 
-const sample_goods = [
+const nav_goods = [
     {
         img:("/_nuxt/assets/images/sam/category_sam_goods_list_01.png"),
         cate:'제휴혜택',
@@ -405,15 +411,77 @@ const sample_goods = [
     },
 ]
 
+const sample_goods = [
+    {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        status:'sold_out',
+        sticker:[
+            {txt:'type01', type:'type01'},
+            {txt:'type02', type:'type02'},
+            {txt:'type03', type:'type03'},
+            {txt:'type04', type:'type04'}
+        ],
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+    }, {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+        overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
+        cate:'NEW',
+        name:'그린티 씨드 히알루론산 세렘 80ml',
+        price:'44,800', sale:'~20%', cost:'56,000',
+        status:'coming_soon',
+        sticker:[
+            {txt:'1+1', type:'type02'},
+            {txt:'뷰티포인트전용', type:'type01'},
+            {txt:'첫구매전용', type:'type01'}
+        ]
+    }, {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+        overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
+        cate:'NEW',
+        name:'그린티 씨드 히알루론산 세렘 80ml',
+        price:'44,800', sale:'~20%', cost:'56,000',
+        status:'coming_soon',
+        sticker:[
+            {txt:'1+1', type:'type02'},
+            {txt:'뷰티포인트전용', type:'type01'},
+            {txt:'첫구매전용', type:'type01'}
+        ]
+    }, {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        status:'sold_out',
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+    }, {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        status:'sold_out',
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+    },
+    {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+    },
+]
+
 const sample_auto = [
     {text:'그린히알루론산',url:'#none',latest:'3분전'},
     {text:'그린티 세럼', url:'#none',latest:'3시간전'},
     {text:'New 그린티 씨드 히알루론산 세럼', url:'#none',latest:'5일전'},
     {text:'역대급 그티 클럽 키트', url:'#none',latest:'1주전'}
-];
-
-const sample_prd = [
-    {}
 ];
 /* //sample data */
 
@@ -442,12 +510,26 @@ onMounted(() => {
     });
 
     document.querySelector('.search_layer .input input').addEventListener('input', auto_complete);
+    document.querySelector('.search_layer .input input').addEventListener('focusout', auto_focus);
 });
 
 const isValid = ref('');
+const isBool = ref(false);
+const auto_list = ref([]);
+const prd_list = ref([]);
+
 const auto_complete = (e) => {
     isValid.value = e.target.value;
+    
+    auto_list.value = sample_auto.filter(e => e.text.indexOf(isValid.value) >= 0);
+    prd_list.value = sample_goods.filter(e => e.name.indexOf(isValid.value) >= 0);
+
+    auto_list.value.length <= 0 ? isBool.value = true : isBool.value = false;
 };
+const auto_focus = (e) => {
+    isValid.value = '';
+    isBool.value = false;
+}
 
 /* 최근검색어 삭제 */
 let key_cnt = ref(latestSearchWordData.length);
@@ -556,7 +638,7 @@ header {
             gap:10px;
         }
         .search_layer {
-            background-color:#fff;
+            background:rgba(0,0,0,0.6);
             overflow:auto;
             position:fixed;
             top:0;
@@ -592,6 +674,7 @@ header {
                 padding:10px 16px;
                 border:0;
                 border-radius:0;
+                background:#fff;
                 display:flex;
                 align-items:center;
                 & > div {
@@ -627,6 +710,7 @@ header {
             }
             section {
                 padding:30px 0;
+                background:#fff;
                 & + section:before {
                     border-top:1px solid #eee;
                     content:'';
@@ -705,6 +789,10 @@ header {
                         overflow:auto;
                         flex-wrap:nowrap;
                         gap:12px;
+                        scrollbar-width:none;
+                        &::-webkit-scrollbar {
+                            display:none;
+                        }
                         li {
                             .thumb {
                                 width:57px;
@@ -738,6 +826,65 @@ header {
                                 }
                             }
                         }
+                    }
+                    &.key_item {
+                        margin:0;
+                        gap:3px;
+                        li {
+                            width:100%;
+                            padding:0;
+                            ::v-deep .goods_item {
+                                padding:0;
+                                display:flex;
+                                align-items:center;
+                                gap:20px;
+                                .img_wrap {
+                                    width:9rem;
+                                    .thumb {
+                                        width:9rem;
+                                        height:12rem;
+                                    }
+                                    .btnIconBox {
+                                        display:none;
+                                    }
+                                }
+                                >a {
+                                    .cont {
+                                        width:22rem;
+                                        .review_score {
+                                            display:none;
+                                        }
+                                        .price {
+                                            strong {
+                                                margin-right:5px;
+                                            }
+                                            span {
+                                                margin-right:10px;
+                                            }
+                                            em {
+                                                display:inline-block;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .pdt_no {
+                    font-size:15px;
+                    font-weight:600;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    span {
+                        width:60px;
+                        height:60px;
+                        margin:20px 0;
+                        background:url('/_nuxt/assets/images/common/MO-icon_split.png') no-repeat -65px -100px;
+                        background-size:250px auto;
+                        display:block;
                     }
                 }
                 .cate_wrap {
