@@ -310,7 +310,7 @@ export const sample_goods = [
         img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
         overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
         cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
+        name:'블랙티 유스 인핸싱 앰플 50ml5',
         price:'11,000', sale:'~50%', cost:'26,000',
         hash:['#스킨팩','#화장솜','#순면화장솜']
     },
@@ -359,6 +359,32 @@ export const prodInfo = {
 
 // main item
 export const mainSam = {
+  visual : [
+      {
+        img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
+        tag: ['25%','특가'],
+        name: ['단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        price: ['25,000','30,700']
+      },
+      {
+        img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
+        tag: ['25%','사은품'],
+        name: ['단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        price: ['10,000','18,000']
+      },
+      {
+        img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
+        tag: ['25%','체험단'],
+        name: ['단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        price: ['25,000','50,000']
+      },
+      {
+        img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
+        tag: ['25%','특가'],
+        name: ['단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        price: ['100','1,500']
+      }
+  ],
   recommend : [
     {
       img:("/_nuxt/public/images/sam/recommend_01.png"),

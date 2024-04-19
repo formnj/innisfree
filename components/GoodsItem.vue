@@ -196,7 +196,7 @@ const props = defineProps({
             }
         }
         .review_score {
-            margin-top:20px;
+            margin-top:15px;
             color:#999e9c;
             font-size:12px;
             display:flex;

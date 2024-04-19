@@ -7,23 +7,23 @@
         @swiper="onSwiper"
         @slideChange="onSlideChange"
       >
-        <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx">
+        <swiper-slide v-for="(item, idx) in mainSam.visual" :key="idx">
           <a href="#none" class="item">
             <!-- visual tag -->
             <div class="tag-card">
-              <span class="cardSt_1">28%</span>
-              <span class="cardSt_2">특가</span>
+              <span class="cardSt_1">{{item.tag[0]}}</span>
+              <span class="cardSt_2">{{item.tag[1]}}</span>
             </div>
             <!-- //visual tag -->
 
             <!-- item text content -->
             <div class="cont">
               <p class="name">
-                <strong>단숨에 차오르는 수분</strong>
-                <span>그린티 씨드 히알루론산 세럼</span>
+                <strong>{{item.name[0]}}</strong>
+                <span>{{item.name[1]}}</span>
               </p>
-              <p class="price">24,800
-                <em>31,000</em>
+              <p class="price">{{item.price[0]}}
+                <em>{{item.price[1]}}</em>
               </p>
             </div>
             <!-- //item text content -->
@@ -56,23 +56,44 @@
         <a href="#none">오늘의 추천 제품</a>
       </h2>
 
-      <ul class="list_wrap">
-        <li v-for="(item, idx) in mainSam.recommend" :key="idx">
-          <a href="#none" class="item">
-            <span class="thumb">
-              <img :src="item.img" alt="" />
-            </span>
-            <div class="cont">
-              <strong v-html="item.title"></strong>
-              <p v-html="item.txt"></p>
-              <Hash :item="item.hash" />
-            </div>
-          </a>
-        </li>
-      </ul>
+      <div class="module_01">
+        <ul>
+          <li v-for="(item, idx) in mainSam.recommend" :key="idx">
+            <a href="#none" class="item">
+              <span class="thumb">
+                <img :src="item.img" alt="" />
+              </span>
+              <div class="cont">
+                <strong v-html="item.title"></strong>
+                <p v-html="item.txt"></p>
+                <Hash :item="item.hash" />
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
 
+    <section class="narrow event">
       <swiper
-        v-bind="swieprOpt.recommend"
+        v-bind="swieprOpt.recommend01"
+        :navigation="navigation"
+      >
+        <swiper-slide v-for="(item, idx) in sample_event" :key="idx">
+          <EventItem :item="item" />
+        </swiper-slide>
+        <button class="swiper-button-next">Next</button>
+        <button class="swiper-button-prev">Prev</button>
+      </swiper>
+    </section>
+
+    <section class="recommend">
+      <h2>
+        <a href="#none">오늘의 추천 제품</a>
+      </h2>
+
+      <swiper class="module_02"
+        v-bind="swieprOpt.recommend02"
       >
         <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx">
           <a href="#none" class="item">
@@ -102,18 +123,32 @@
             <!-- //visual image -->
           </a>
         </swiper-slide>
-        <!-- customer pagination -->
-        <div class="custom_pagination">
-          <div class="current">
-            <em class="idx_01"></em>
-            <em class="idx_02"></em>
-          </div>
-          <strong class="total"></strong>
-
-          <Button class="swiper_controler" :data="swiper_status" :txt="swiper_status" @click="swiper_control" />
-        </div>
-        <!-- //customer pagination -->
       </swiper>
+    </section>
+
+    <section class="narrow combi">
+      <div class="inner">
+        <div class="main_thumb">
+          <a href="#none">
+            <span class="thumb">
+              <em><img src="/public/images/sam/3425_0.jpg" alt="" /></em>
+            </span>
+            <div class="cont">
+              <strong>23년 공식몰 어워즈<br/> 이 제품 아직 안샀눈사람~</strong>
+              <p>18:21:01</p>
+            </div>
+          </a>
+        </div>
+        <swiper
+          v-bind="swieprOpt.recommend03"
+        >
+          <swiper-slide v-for="(item, idx) in sample_goods.slice(3,6)" :key="idx">
+            <a href="#none" class="item">
+              <GoodsItem :item="item" :link="item.link" />
+            </a>
+          </swiper-slide>
+        </swiper>
+      </div>
     </section>
     <!-- //오늘의 추천 제품 -->
 
@@ -193,9 +228,19 @@ const swieprOpt = {
     centeredSlides: true,
     slidesOffsetBefore: -330
   },
-  recommend: {
+  recommend01: {
     slidesPerView:2,
     spaceBetween: 40,
+    loop: true,
+  },
+  recommend02: {
+    slidesPerView:3,
+    spaceBetween: 40,
+    loop: true
+  },
+  recommend03: {
+    slidesPerView:3,
+    spaceBetween: 22,
     loop: true
   },
   benefit: {
@@ -210,6 +255,11 @@ const swieprOpt = {
     centeredSlides: true,
     slidesOffsetBefore: -20
   }
+}
+
+const navigation = {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
 }
 /* //swiper options */
 
@@ -383,6 +433,7 @@ const rankingTabs = [
             position:absolute;
             top:20px;
             left:20px;
+            z-index:1;
             &:after {
               clear:both;
               content:'';
@@ -436,6 +487,9 @@ const rankingTabs = [
       }
       section {
         padding:100px 0;
+        &.narrow {
+          padding:80px 0;
+        }
         &.award {
           padding:80px 0;
         }
@@ -475,65 +529,169 @@ const rankingTabs = [
           }
         }
         &.recommend {
-          .list_wrap {
-            margin-left:-30px;
-            display:flex;
-            li {
-              width:33.3333%;
-              margin-left:30px;
-              .item {
-                padding:39px;
-                border:1px solid #eee;
-                box-shadow:0 4px 3px 0 rgba(0,0,0,0.03);
-                display:flex;
-                .thumb {
-                  width:150px;
-                  margin-right:40px;
-                  img {
-                    vertical-align:top;
-                  }
-                }
-                .cont {
-                  padding:12px 0;
+          .module_01 {
+            > ul {
+              display:flex;
+              > li {
+                width:33.3333%;
+                margin-left:30px;
+                .item {
+                  padding:39px;
+                  border:1px solid #eee;
+                  box-shadow:0 4px 3px 0 rgba(0,0,0,0.03);
                   display:flex;
-                  flex:1;
-                  flex-direction:column;
-                  & > * {
-                    letter-spacing:-0.1em;
+                  .thumb {
+                    width:150px;
+                    margin-right:40px;
+                    img {
+                      vertical-align:top;
+                    }
                   }
-                  strong {
-                    font-size:24px;
-                    font-weight:600;
-                    line-height:32px;
-                  }
-                  p {
-                    height:40px;
-                    margin-top:16px;
-                    color:#888;
-                    font-size:16px;
-                    font-weight:300;
-                    line-height:20px;
-                    flex:1;
-                  }
-                }
-                :deep(.hash) {
-                  button {
-                    padding:3px 10px;
-                    font-size:12px;
-                    background-color:#fff;
-                    border:1px solid #009D5E;
+                  .cont {
+                    padding:12px 0;
                     display:flex;
-                    align-items:center;
-                    &:before {
-                      content:'#';
+                    flex:1;
+                    flex-direction:column;
+                    & > * {
+                      letter-spacing:-0.1em;
+                    }
+                    strong {
+                      font-size:24px;
+                      font-weight:600;
+                      line-height:32px;
+                    }
+                    p {
+                      height:40px;
+                      margin-top:16px;
+                      color:#888;
+                      font-size:16px;
+                      font-weight:300;
+                      line-height:20px;
+                      flex:1;
+                    }
+                  }
+                  :deep(.hash) {
+                    button {
+                      padding:3px 10px;
+                      font-size:12px;
+                      background-color:#fff;
+                      border:1px solid #009D5E;
+                      display:flex;
+                      align-items:center;
+                      &:before {
+                        content:'#';
+                      }
                     }
                   }
                 }
               }
             }
           }
+        }
+        &.event {
           .swiper-container {
-            width:1480px;
+            max-width:1480px;
+            padding:0 100px;
+            &:before {
+              width:100px;
+              background-color:#fff;
+              content:'';
+              position:absolute;
+              top:0;
+              bottom:0;
+              left:0;
+              z-index:2;
+              display:block;
+            }
+            &:after {
+              width:100px;
+              background-color:#fff;
+              content:'';
+              position:absolute;
+              top:0;
+              right:0;
+              bottom:0;
+              z-index:2;
+              display:block;
+            }
+            :deep([class*="swiper-button-"]) {
+              width:60px;
+              height:60px;
+              margin-top:-50px;
+              font-size:0;
+              background:url('~/assets/images/common/icon_split.png') 0 -190px no-repeat;
+              background-size:250px auto;
+              &:after {
+                display:none;
+              }
+              &.swiper-button-next {
+                transform:rotate(180deg);
+              }
+            }
+          }
+          :deep(.cont) {
+            height:auto;
+            margin-top:40px;
+            display:flex;
+            flex-direction:column-reverse;
+            strong {
+              margin-top:0;
+              display:flex;
+              align-items:center;
+              justify-content:space-between;
+              &:after {
+                width:32px;
+                height:32px;
+                background:url('~/assets/images/common/icon_split.png') -60px -200px no-repeat;
+                background-size:250px auto;
+                content:'';
+                display:block;
+              }
+            }
+            .date {
+              margin-top:16px;
+            }
+          }
+        }
+        &.combi {
+          .inner {
+            display:flex;
+            flex-wrap:wrap;
+            .main_thumb {
+              width:628px;
+              a, .thumb {
+                display:block;
+              }
+              .cont {
+                margin-top:30px;
+                strong {
+                  font-size:32px;
+                  font-weight:600;
+                  display:flex;
+                  align-items:center;
+                  justify-content:space-between;
+                  &:after {
+                    width:40px;
+                    height:40px;
+                    margin-right:40px;
+                    background:url('~/assets/images/common/icon_split.png') 0 -130px no-repeat;
+                    background-size:250px auto;
+                    content:'';
+                    display:block;
+                  }
+                }
+                p {
+                  margin-top:10px;
+                  color:#ddd;
+                  font-size:32px;
+                  font-weight:700;
+                }
+              }
+            }
+            .swiper-container {
+              padding-left:22px;
+              flex:1;
+            }
           }
         }
         &.benefit {

@@ -70,7 +70,7 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'형민우'
     }, {
         depth:['','검색','',''],
-        id:'IN_PC_SRC_01_01', status:'edit',
+        id:'IN_PC_SRC_01_01', status:'',
         type:'component', note:'디자인 고도화',
         sDate:'', eDate:'2024-04-24/', worker:'형민우'
     }, {
@@ -87,12 +87,12 @@ const PC_arry = ([
         depth:['홈','','',''],
         id:'IN_PC_HOM_01_01', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-09/' , worker:'이종환'
+        sDate:'', eDate:'2024-04-22/' , worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
-        id:'IN_PC_HOM_01_04', status:'edit',
+        id:'IN_PC_HOM_01_04', status:'',
         type:'', note:'디자인 고도화',
-        sDate:'', eDate:'<del>2024-04-19/2024-04-16</del><br/> 2024-04-26', worker:'김희경'
+        sDate:'', eDate:'2024-04-19/2024-04-16', worker:'김희경'
     }, {
         depth:['','이벤트(T)','목록',''],
         id:'IN_PC_HOM_01_05', status:'com',
@@ -108,12 +108,11 @@ const PC_arry = ([
         id:'IN_PC_HOM_01_07', status:'',
         type:'', note:'',
         sDate:'', eDate:'', worker:''
-    },
-     {
+    }, {
         depth:['','','상세',''],
         id:'IN_PC_HOM_01_09', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:'이종환'
+        sDate:'', eDate:'', worker:''
     }, {
         depth:['','베스트','',''],
         id:'IN_PC_HOM_01_00-1', status:'com',
@@ -143,7 +142,7 @@ const PC_arry = ([
         depth:['','쇼핑로그','',''],
         id:'IN_PC_HOM_01_18', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-19/', worker:''
+        sDate:'', eDate:'2024-05-29/', worker:'이종환'
     }, {
         depth:['상품','목록','',''],
         id:'IN_PC_PRD_01_01', status:'com',
@@ -158,42 +157,42 @@ const PC_arry = ([
         depth:['장바구니','상품 없음','',''],
         id:'IN_PC_CAR_01_01', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-10/', worker:''
+        sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['','상품 있음','',''],
         id:'IN_PC_CAR_01_02', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-10/', worker:''
+        sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['','적립예정 뷰티포인트','',''],
         id:'IN_PC_CAR_01_03', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['','구매 시 최대할인 안내','',''],
         id:'IN_PC_CAR_01_04', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['주문서','','',''],
         id:'IN_PC_ORD_01_01', status:'',
-        type:'', note:'',
+        type:'', note:'결제하기페이지',
         sDate:'', eDate:'2024-05-24/', worker:''
     }, {
         depth:['','배송지 등록/변경','',''],
         id:'IN_PC_ORD_01_02', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
+        sDate:'', eDate:'2024-05-03', worker:'김희경'
     }, {
         depth:['','','배송지 수정',''],
         id:'IN_PC_ORD_01_03', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
+        sDate:'', eDate:'2024-05-03', worker:'김희경'
     }, {
         depth:['','','배송지 추가',''],
         id:'IN_PC_ORD_01_04', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
+        sDate:'', eDate:'2024-05-03', worker:'김희경'
     }, {
         depth:['','안심번호 서비스 안내','',''],
         id:'IN_PC_ORD_01_08', status:'',
@@ -233,42 +232,37 @@ const PC_arry = ([
         depth:['마이페이지','로그인 전','',''],
         id:'IN_PC_MYP_01_01', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-21', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','로그인 후','',''],
         id:'IN_PC_MYP_01_02', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-21', worker:''
-    }, {
-        depth:['','바코드','',''],
-        id:'IN_PC_MYP_01_03', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','멤버십','멤버십 혜택안내',''],
         id:'IN_PC_MYP_01_04', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'2024-06-04', worker:''
+        type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
+        sDate:'', eDate:'2024-05-03', worker:'형민우'
     }, {
         depth:['','','뷰티포인트 안내(T)','뷰티포인트'],
         id:'IN_PC_MYP_01_05', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
+        sDate:'', eDate:'2024-05-03', worker:'형민우'
     }, {
         depth:['','','','VIP 등급안내(T)'],
         id:'IN_PC_MYP_01_06', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
+        sDate:'', eDate:'2024-05-03', worker:'형민우'
     }, {
         depth:['','','모바일 앱 다운로드(T)',''],
-        id:'IN_PC_MYP_01_07', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        id:'IN_PC_MYP_01_07', status:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
+        type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
+        sDate:'', eDate:'2024-05-03', worker:'형민우'
     }, {
         depth:['','주문내역','목록',''],
         id:'IN_PC_MYP_01_08', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-24', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','','상세',''],
         id:'IN_PC_MYP_01_11', status:'',
@@ -278,32 +272,32 @@ const PC_arry = ([
         depth:['','배송내역','목록',''],
         id:'IN_PC_MYP_01_00-1', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-24', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','취소/교환/반품','내역',''],
         id:'IN_PC_MYP_01_00-2', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-31', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','','상세',''],
         id:'IN_PC_MYP_01_00-3', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-31', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','리뷰','작성 가능한 리뷰 안내',''],
         id:'IN_PC_MYP_01_19', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-31', worker:''
+        sDate:'', eDate:'2024-05-10', worker:''
     }, {
         depth:['','','작성 가능 리뷰(T)',''],
         id:'IN_PC_MYP_01_20', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-31', worker:''
+        sDate:'', eDate:'2024-05-10', worker:''
     }, {
         depth:['','','작성한 리뷰(T)',''],
         id:'IN_PC_MYP_01_26', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-31', worker:''
+        sDate:'', eDate:'2024-05-10', worker:''
     }, {
         depth:['','임직원 인증/해제','',''],
         id:'IN_PC_MYP_01_28', status:'',
@@ -313,37 +307,37 @@ const PC_arry = ([
         depth:['','참여한 이벤트 내역','체험단/키트 신청내역',''],
         id:'IN_PC_MYP_01_29', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-21', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','','이벤트 참여내역',''],
         id:'IN_PC_MYP_01_30', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-21', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','개인결제','',''],
         id:'IN_PC_MYP_01_31', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','보유쿠폰','다운로드 가능한 쿠폰(T)',''],
         id:'IN_PC_MYP_01_32', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-21', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','','보유쿠폰(T)',''],
         id:'IN_PC_MYP_01_35', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-21', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','뷰티포인트 내역','',''],
         id:'IN_PC_MYP_01_38', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-28', worker:''
+        sDate:'', eDate:'2024-05-10', worker:''
     }, {
         depth:['','찜한제품','',''],
         id:'IN_PC_MYP_01_40', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-04', worker:''
+        sDate:'', eDate:'2024-05-03', worker:'김희경'
     }, {
         depth:['','스마트 영수증','목록',''],
         id:'IN_PC_MYP_01_43', status:'',
@@ -358,22 +352,17 @@ const PC_arry = ([
         depth:['','1:1문의','내역',''],
         id:'IN_PC_MYP_01_45', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-04', worker:''
+        sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 문의하기(T)',''],
         id:'IN_PC_MYP_01_46', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 답변확인(T)',''],
         id:'IN_PC_MYP_01_48', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
-    } , {
-        depth:['','입고알림 신청내역','',''],
-        id:'IN_PC_MYP_01_49', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'2024-06-11', worker:''
+        sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','공병수거 현황','내 공병수거 현황(T)','온라인 공병수거 신청'],
         id:'IN_PC_MYP_01_51', status:'',
@@ -393,17 +382,17 @@ const PC_arry = ([
         depth:['','개인정보 수정','비밀번호 확인',''],
         id:'IN_PC_MYP_01_68', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-11', worker:''
+        sDate:'', eDate:'2024-05-10', worker:'형민우'
     }, {
         depth:['','','','개인정보 수정'],
         id:'IN_PC_MYP_01_69', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-11', worker:''
+        sDate:'', eDate:'2024-05-10', worker:'형민우'
     }, {
         depth:['','배송지 관리','',''],
         id:'IN_PC_MYP_01_76', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-11', worker:''
+        sDate:'', eDate:'', worker:''
     }, {
         depth:['','피부정보 관리','',''],
         id:'IN_PC_MYP_01_81', status:'',
@@ -423,7 +412,7 @@ const PC_arry = ([
         depth:['','마이샵 관리','',''],
         id:'IN_PC_MYP_01_85', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-14', worker:''
+        sDate:'', eDate:'2024-05-10', worker:'김나람'
     }, {
         depth:['','FAQ','',''],
         id:'IN_PC_MYP_01_87', status:'',
@@ -468,12 +457,12 @@ const PC_arry = ([
         depth:['','임직원 인증','',''],
         id:'IN_PC_MYP_01_97', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-24', worker:''
+        sDate:'', eDate:'2024-05-10', worker:''
     }, {
         depth:['','비회원 주문조회','주문번호/주문비밀번호 입력',''],
         id:'IN_PC_MYP_01_98', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','','','주문번호 찾기'],
         id:'IN_PC_MYP_01_99', status:'',
@@ -567,12 +556,12 @@ const MO_arry = ([
         depth:['홈','','',''],
         id:'IN_MO_HOM_01_01', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-09/', worker:'이종환'
+        sDate:'', eDate:'2024-04-22/', worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
-        id:'IN_MO_HOM_01_04', status:'edit',
+        id:'IN_MO_HOM_01_04', status:'',
         type:'', note:'디자인 고도화',
-        sDate:'', eDate:'<del>2024-04-19/2024-04-16</del><br/>2024-04-26', worker:'김희경'
+        sDate:'', eDate:'2024-04-19/2024-04-16', worker:'김희경'
     }, {
         depth:['','이벤트(T)','목록',''],
         id:'IN_MO_HOM_01_05', status:'com',
@@ -597,7 +586,7 @@ const MO_arry = ([
         depth:['','','상세',''],
         id:'IN_MO_HOM_01_09', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-19', worker:'이종환'
+        sDate:'', eDate:'2024-05-03', worker:'김나람'
     }, {
         depth:['','베스트','',''],
         id:'IN_MO_HOM_01_00-1', status:'com',
@@ -627,7 +616,7 @@ const MO_arry = ([
         depth:['','쇼핑로그','',''],
         id:'IN_MO_HOM_01_18', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-19/', worker:''
+        sDate:'', eDate:'2024-04-23/', worker:'이종환'
     }, {
         depth:['상품','목록','',''],
         id:'IN_MO_PRD_01_01', status:'com',
@@ -642,42 +631,42 @@ const MO_arry = ([
         depth:['장바구니','상품 없음','',''],
         id:'IN_MO_CAR_01_01', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-10/', worker:''
+        sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['','상품 있음','',''],
         id:'IN_MO_CAR_01_02', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-10/', worker:''
+        sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['','적립예정 뷰티포인트','',''],
         id:'IN_MO_CAR_01_03', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['','구매 시 최대할인 안내','',''],
         id:'IN_MO_CAR_01_04', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['주문서','','',''],
         id:'IN_MO_ORD_01_01', status:'',
-        type:'', note:'',
+        type:'', note:'결제하기페이지',
         sDate:'', eDate:'2024-05-24/', worker:''
     }, {
         depth:['','배송지 등록/변경','',''],
         id:'IN_MO_ORD_01_02', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
+        sDate:'', eDate:'2024-05-03', worker:'김희경'
     }, {
         depth:['','','배송지 수정',''],
         id:'IN_MO_ORD_01_03', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
+        sDate:'', eDate:'2024-05-03', worker:'김희경'
     }, {
         depth:['','','배송지 추가',''],
         id:'IN_MO_ORD_01_04', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
+        sDate:'', eDate:'2024-05-03', worker:'김희경'
     }, {
         depth:['','안심번호 서비스 안내','',''],
         id:'IN_MO_ORD_01_08', status:'',
@@ -717,42 +706,42 @@ const MO_arry = ([
         depth:['마이페이지','로그인 전','',''],
         id:'IN_MO_MYP_01_01', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-21', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','로그인 후','',''],
         id:'IN_MO_MYP_01_02', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-21', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','바코드','',''],
         id:'IN_MO_MYP_01_03', status:'',
-        type:'', note:'',
+        type:'modal', note:'로그인 > 마이페이지 > 우측 바코드 버튼으로 확인가능',
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','멤버십','멤버십 혜택안내',''],
         id:'IN_MO_MYP_01_04', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'2024-06-04', worker:''
+        type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
+        sDate:'', eDate:'2024-05-03', worker:'형민우'
     }, {
         depth:['','','뷰티포인트 안내(T)','뷰티포인트'],
         id:'IN_MO_MYP_01_05', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
+        sDate:'', eDate:'2024-05-03', worker:'형민우'
     }, {
         depth:['','','','VIP 등급안내(T)'],
         id:'IN_MO_MYP_01_06', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
+        sDate:'', eDate:'2024-05-03', worker:'형민우'
     }, {
         depth:['','','모바일 앱 다운로드(T)',''],
         id:'IN_MO_MYP_01_07', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
+        sDate:'', eDate:'2024-05-03', worker:'형민우'
     }, {
         depth:['','주문내역','목록',''],
         id:'IN_MO_MYP_01_08', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-24', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','','상세',''],
         id:'IN_MO_MYP_01_11', status:'',
@@ -762,32 +751,32 @@ const MO_arry = ([
         depth:['','배송내역','목록',''],
         id:'IN_MO_MYP_01_00-1', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-24', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','취소/교환/반품','내역',''],
         id:'IN_MO_MYP_01_00-2', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-31', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','','상세',''],
         id:'IN_MO_MYP_01_00-2', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-31', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','리뷰','작성 가능한 리뷰 안내',''],
         id:'IN_MO_MYP_01_19', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-31', worker:''
+        sDate:'', eDate:'2024-05-03', worker:''
     }, {
         depth:['','','작성 가능 리뷰(T)',''],
         id:'IN_MO_MYP_01_20', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-31', worker:''
+        sDate:'', eDate:'2024-05-03', worker:''
     }, {
         depth:['','','작성한 리뷰(T)',''],
         id:'IN_MO_MYP_01_26', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-31', worker:''
+        sDate:'', eDate:'2024-05-03', worker:''
     }, {
         depth:['','임직원 인증/해제','',''],
         id:'IN_MO_MYP_01_28', status:'',
@@ -797,37 +786,37 @@ const MO_arry = ([
         depth:['','참여한 이벤트 내역','체험단/키트 신청내역',''],
         id:'IN_MO_MYP_01_29', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-21', worker:''
+        sDate:'', eDate:'2024-06-18', worker:''
     }, {
         depth:['','','이벤트 참여내역',''],
         id:'IN_MO_MYP_01_30', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-21', worker:''
+        sDate:'', eDate:'2024-06-18', worker:''
     }, {
         depth:['','개인결제','',''],
         id:'IN_MO_MYP_01_31', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-05-31', worker:''
     }, {
         depth:['','보유쿠폰','다운로드 가능한 쿠폰(T)',''],
         id:'IN_MO_MYP_01_32', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-21', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','','보유쿠폰(T)',''],
         id:'IN_MO_MYP_01_35', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-21', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','뷰티포인트 내역','',''],
         id:'IN_MO_MYP_01_38', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-28', worker:''
+        sDate:'', eDate:'2024-05-03', worker:''
     }, {
         depth:['','찜한제품','',''],
         id:'IN_MO_MYP_01_40', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-04', worker:''
+        sDate:'', eDate:'2024-05-03', worker:'김희경'
     }, {
         depth:['','스마트 영수증','목록',''],
         id:'IN_MO_MYP_01_43', status:'',
@@ -842,23 +831,23 @@ const MO_arry = ([
         depth:['','1:1문의','내역',''],
         id:'IN_MO_MYP_01_45', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-04', worker:''
+        sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 문의하기(T)',''],
         id:'IN_MO_MYP_01_46', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 답변확인(T)',''],
         id:'IN_MO_MYP_01_48', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-04-26', worker:'김희경'
     }
     , {
         depth:['','입고알림 신청내역','',''],
         id:'IN_MO_MYP_01_49', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'2024-06-11', worker:''
+        type:'', note:'품절상품 상세에서 알림신청가능 - PC에서도 신청 가능',
+        sDate:'', eDate:'2024-05-03', worker:'김희경'
     }, {
         depth:['','공병수거 현황','내 공병수거 현황(T)','온라인 공병수거 신청'],
         id:'IN_MO_MYP_01_51', status:'',
@@ -878,17 +867,17 @@ const MO_arry = ([
         depth:['','개인정보 수정','비밀번호 확인',''],
         id:'IN_MO_MYP_01_68', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-11', worker:''
+        sDate:'', eDate:'2024-05-10', worker:'형민우'
     }, {
         depth:['','','','개인정보 수정'],
         id:'IN_MO_MYP_01_69', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-11', worker:''
+        sDate:'', eDate:'2024-05-10', worker:'형민우'
     }, {
         depth:['','배송지 관리','',''],
         id:'IN_MO_MYP_01_76', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-11', worker:''
+        sDate:'', eDate:'', worker:''
     }, {
         depth:['','피부정보 관리','',''],
         id:'IN_MO_MYP_01_81', status:'',
@@ -908,7 +897,7 @@ const MO_arry = ([
         depth:['','마이샵 관리','',''],
         id:'IN_MO_MYP_01_85', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-14', worker:''
+        sDate:'', eDate:'2024-05-10', worker:'김나람'
     }, {
         depth:['','FAQ','',''],
         id:'IN_MO_MYP_01_87', status:'',
@@ -958,7 +947,7 @@ const MO_arry = ([
         depth:['','비회원 주문조회','주문번호/주문비밀번호 입력',''],
         id:'IN_MO_MYP_01_98', status:'',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','','','주문번호 찾기'],
         id:'IN_MO_MYP_01_99', status:'',
@@ -1145,6 +1134,12 @@ onMounted(() => {
             path = '/publish/modal/'
         } else {
             path = '/publish/'
+        }
+
+        if(device.value[i].id == 'IN_PC_HOM_01_01'){
+            link = path
+        } else {
+            link = path+device.value[i].id
         }
 
         if(device.value[i].status == ''){
