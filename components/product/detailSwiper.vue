@@ -21,7 +21,7 @@ import SwiperCore, { Autoplay, Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";
 import "swiper/components/pagination/pagination.scss";
-import { prodImgData } from '../../test/data/dummyData';
+import { prodImgData } from '/test/data/dummyData';
 
 SwiperCore.use([Autoplay, Pagination, A11y]);
 

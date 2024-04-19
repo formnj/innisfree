@@ -425,3 +425,63 @@ export const sam_menu = [
       sub_depth:['전체','에센스/세럼/앰플','로션/크림','스킨/토너/미스트','립/아이케어','선케어','오일/마사지','클렌징','팩/마스크','기획 세트','기타']
   }
 ]
+
+
+export const sampleTopics = [
+  {
+    img: ("/_nuxt/public/images/sam/img_ed_topic_01.png"),
+    title: '내가 하알루론산 수분 무기자차 선크림에 정착한 찐 이유 Top 10',
+    editor: {
+      photo: ("/_nuxt/public/images/sam/photo_editor_01.png"),
+      name: '이사배',
+      type: '민감성피부 · 주름/탄력/다크써클',
+    },
+    view: {
+      cnt: '999+',
+      like: '123',
+      cmnt: '233'
+    }
+  },
+  {
+    img: ("/_nuxt/public/images/sam/img_ed_topic_02.png"),
+    title: '특별한 이니스프리 경험!',
+    editor: {
+      photo: ("/_nuxt/public/images/sam/photo_editor_02.png"),
+      name: '포니',
+      type: '건성피부 · 트러블/건조함/피부톤',
+    },
+    view: {
+      cnt: '152',
+      like: '11',
+      cmnt: '20'
+    }
+  },
+  {
+    img: ("/_nuxt/public/images/sam/img_ed_topic_03.png"),
+    title: '텍스트는 최대 두 줄까지 작성이 가능합니다.',
+    editor: {
+      photo: ("/_nuxt/public/images/sam/photo_editor_03.png"),
+      name: '회사원A',
+      type: '중성피부 · 색소침착/피지과다/블랙헤드',
+    },
+    view: {
+      cnt: '999+',
+      like: '123',
+      cmnt: '233'
+    }
+  },
+  {
+    img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+    title: '커뮤니티 타이틀 2줄까지 띄워쓰기 포함 최대 몇 자',
+    editor: {
+      photo: ("/_nuxt/public/images/sam/photo_editor_04.png"),
+      name: '레오제이',
+      type: '민감성피부 · 주름/탄력/다크써클',
+    },
+    view: {
+      cnt: '152',
+      like: '11',
+      cmnt: '20'
+    }
+  },
+]
