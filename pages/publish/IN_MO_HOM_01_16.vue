@@ -137,45 +137,48 @@ onMounted(() => {})
 .staff_wrap {
   margin: 0 -20px;
   .staffVisual {
-    height: 250px;
-    padding:40px 0 0 21px;
-    background-image: url('/_nuxt/assets/mo_images/common/bg_staff_visual.png');
-    background-repeat: no-repeat;
+    height: 25rem;
+    padding:4rem 0 0 2.1rem;
+    letter-spacing: -0.01em;
+    background: url('/_nuxt/assets/mo_images/common/bg_staff_visual.png') no-repeat center;
     background-size: cover;
-    background-position: center;
     >span {
-      padding: 2px 5px;
+      padding: 0.2rem 0.5rem;
       color:#fff;
       font-weight: 400;
-      font-size: 10px;
-      line-height: 14px;
+      font-size: 1rem;
+      line-height: 1.4rem;
       background:#000;
       display: inline-block;
     }
     >div {
-      margin-top: 13px;
+      margin-top: 1.3rem;
       font-weight: 600;
-      font-size: 20px;
+      font-size: 2rem;
+      line-height: 2.6rem;
       color: #000;
       span {
         display: block;
-        margin-top: 8px;
+        margin-top: 0.5rem;
         font-weight: 500;
-        font-size: 12px;
+        font-size: 1.2rem;
+        line-height:1.6rem;
         color: #888;
       }
     }
     >button {
       height:auto;
-      margin-top:23px;
+      margin-top:3rem;
       background:none;
       display: flex;
       align-items: center;
       ::v-deep em {
         padding:0;
         color: #000;
+        font-size: 1.3rem;
         font-weight: 500;
-        font-size: 13px;
+        line-height:1.6rem;
+        letter-spacing:-0.01em;
         font-family:'Pretendard';
       }
       &:before {
@@ -282,10 +285,12 @@ onMounted(() => {})
 }
 
 .goods_list {
+  margin:0;
+  gap:4rem 0.3rem;
+  justify-content:space-between;
   > li {
-    width: 50%;
-    padding-top: 40px;
-    padding-left: 20px;
+    width:16.5rem;
+    padding:0;
   }
 }
 
@@ -441,9 +446,12 @@ onMounted(() => {})
           }
         }
       }
-      .modal_footer {
-      }
     }
   }
 }
+
+@import "~/assets/scss/_mo_mixin.scss";
+@import "~/assets/scss/mobile.scss";
+
+@include mo_749 {}
 </style>
