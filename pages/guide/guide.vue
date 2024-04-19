@@ -46,9 +46,13 @@
 
     <section>
       <h2>media query</h2>
+      <ul class="explain">
+        <li>break point : mo_749, mo_639, mo_519, mo_413, mo_410, mo_374, mo_359 (뒤의 숫자는 max-width)</li>
+        <li>모바일의 각 레이아웃에 선언된 @import "~/assets/scss/mobile.scss";는 공통콤포넌트에 대한 정의를 담습니다.</li>
+      </ul>
       <pre class="code_box"><code>&lt;style lang="scss" scoped&gt;
 media query : @import "~/assets/scss/_mo_mixin";
-@include mobile {
+@include mo_749 {
   스타일 선언
 }
 &gt;</code></pre>

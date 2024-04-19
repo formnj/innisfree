@@ -14,6 +14,7 @@
 </script>
 
 <style lang="scss" scoped>
+
 #wrap {
     min-height:100vh;
     max-width:100%;
@@ -26,4 +27,6 @@
 #container {
     flex:1 auto;
 }
+
+@import "~/assets/scss/mobile.scss";
 </style>

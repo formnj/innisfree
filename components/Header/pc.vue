@@ -5,7 +5,7 @@
     </div>
     <header>
         <div class="inner">
-            <h1><a href="/publish"><img src="/assets/images/common/logo_innisfree.png"></a></h1>
+            <h1><a href="/publish/IN_PC_HOM_01_01"><img src="/assets/images/common/logo_innisfree.png"></a></h1>
             <div class="search_wrap">
                 <div class="search">
                     <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
@@ -19,15 +19,16 @@
                             <Button class="btn_search" />
                         </div>
                     </div>
+                    <!-- 최근 검색어 -->
                     <section>
                         <strong>최근 검색어
                             <Button class="btn_txt" txt="전체삭제" @click="keyword_del_all" />
                         </strong>
                         <ul class="latest">
                             <template  v-if="key_cnt > 0">
-                                <li v-for="(item, idx) in latest" :key="idx">
+                                <li v-for="(item, idx) in latestSearchWordData" :key="idx">
                                     <div v-if="key_cnt > 0">
-                                        <a href="#none">{{ item }}</a>
+                                        <a href="#none">{{ item.word }}</a>
                                         <Button class="btn_del" @click="keyword_del" />
                                     </div>
                                 </li>
@@ -37,6 +38,8 @@
                             </template>
                         </ul>
                     </section>
+                    <!-- //최근 검색어 -->
+                    <!-- 카테고리 -->
                     <section>
                         <strong>카테고리</strong>
                         <ul class="category">
@@ -50,8 +53,10 @@
                             </li>
                         </ul>
                     </section>
-                    <!-- <section>
-                      <ul class="keyword">
+                    <!-- //카테고리 -->
+                    <!-- 최근 검색어 : 검색어 입력시 -->
+                    <section>
+                      <ul class="recent">
                         <li v-for="item in latestSearchWordData" :key="item">
                           <a :href="item.url">
                             {{ item.word }}
@@ -60,13 +65,21 @@
                         </li>
                       </ul>
                     </section>
-                    <section class="list_wrap">
+                    <!-- //최근 검색어 : 검색어 입력시 -->
+                    <!-- 관련상품 : 검색어 입력시 -->
+                    <section>
                       <ul class="key_item goods_list">
                         <li v-for="(item,idx) in sample_goods" :key="idx">
                           <GoodsItem :item="item" :link="item.link" />
                         </li>
                       </ul>
-                    </section> -->
+                    </section>
+                    <!-- 관련상품 : 검색어 입력시 -->
+                    <!-- 관련상품X : 검색어 입력시 -->
+                    <section>
+                      <div class="no_result">일치하는 결과가 없습니다.</div>
+                    </section>
+                    <!-- //관련상품X : 검색어 입력시 -->
                 </div>
                 <!-- //search layer -->
             </div>
@@ -148,28 +161,28 @@
                 <nav class="navGnb">
                     <ul>
                         <li>
-                            <a href="#none">이벤트</a>
+                            <a href="/publish/IN_PC_HOM_01_05">이벤트</a>
                         </li>
                         <li>
-                            <a href="#none" class="point">특가</a>
+                            <a href="/publish/IN_PC_HOM_01_04" class="point">특가</a>
                         </li>
                         <li>
-                            <a href="#none">베스트</a>
+                            <a href="/publish/IN_PC_HOM_01_00-1">베스트</a>
                         </li>
                         <li>
                             <a href="#none">쿠폰존</a>
                         </li>
                         <li>
-                            <a href="#none">쇼케이스</a>
+                            <a href="/publish/IN_PC_HOM_01_12">쇼케이스</a>
                         </li>
                         <li>
-                            <a href="#none">라이브</a>
+                            <a href="/publish/IN_PC_HOM_01_14">라이브</a>
                         </li>
                         <li>
-                            <a href="#none">FOR ME</a>
+                            <a href="/publish/IN_PC_HOM_01_15">FOR ME</a>
                         </li>
                         <li>
-                            <a href="#none">임직원샵</a>
+                            <a href="/publish/IN_PC_HOM_01_16">임직원샵</a>
                         </li>
                     </ul>
                 </nav>
@@ -219,11 +232,13 @@
 import {
   mainTopBannerData,
   categoryForSearchLayerData,
+  sample_goods,
   latestSearchWordData
 } from '~/test/data/dummyData'
 
 
 /* sample data */
+
 const global_menu = [
     {
         link:'#none', menu:'스킨케어',
@@ -303,62 +318,6 @@ const global_menu = [
     },
 
 ]
-
-const latest = ['그린티 스킨','그린티 세럼','스킨','세럼','그린티 히알루론산','콜라겐','팩트','노세범','파우더','팩']
-
-const category = [
-    {img:'/_nuxt/assets/images/sam/h_cate_01.png', txt:'베스트'},
-    {img:'/_nuxt/assets/images/sam/h_cate_02.png', txt:'Sale 52%'},
-    {img:'/_nuxt/assets/images/sam/h_cate_03.png', txt:'스킨케어'},
-    {img:'/_nuxt/assets/images/sam/h_cate_04.png', txt:'선케어'},
-    {img:'/_nuxt/assets/images/sam/h_cate_05.png', txt:'세럼'},
-    {img:'/_nuxt/assets/images/sam/h_cate_06.png', txt:'팩/마스크'},
-    {img:'/_nuxt/assets/images/sam/h_cate_07.png', txt:'헤어/바디'},
-    {img:'/_nuxt/assets/images/sam/h_cate_08.png', txt:'펫'},
-    {img:'/_nuxt/assets/images/sam/h_cate_09.png', txt:'기획세트'},
-    {img:'/_nuxt/assets/images/sam/h_cate_10.png', txt:'미용소품'}
-]
-
-const sample_goods = [
-    {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'히알루론 수분 선크림 SPF 50+ PA++++',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        cate:'NEW',
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'~20%', cost:'56,000',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        cate:'NEW',
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'~20%', cost:'56,000',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    },
-    {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    },
-]
 /* //sample data */
 
 onMounted(() => {
@@ -392,26 +351,20 @@ onMounted(() => {
     /* keyword menu */
     const keyword_wrap = document.querySelector('.keyword_wrap');
     const roll_last = keyword_wrap.querySelector('ol').lastChild;
-
     const keyword_menu = {
       mouseEnter: (e) => {
         e.target.classList.add('active');
-
         roll_last.style.display='none';
-
         clearInterval(key_rolling);
         i=1;
         e.target.querySelector('ol').style.cssText='';
       },
       mouseLeave: (e) => {
         e.target.classList.remove('active');
-
         roll_last.style.display='';
-
         key_rolling = setInterval(roll_fn, roll_timer)
       }
     }
-
     keyword_wrap.addEventListener('mouseenter', keyword_menu.mouseEnter);
     keyword_wrap.addEventListener('mouseleave', keyword_menu.mouseLeave);
     /* keyword menu */
@@ -433,6 +386,7 @@ onMounted(() => {
         if (rect.top <= 0) {
             document.querySelector('#wrap').classList.add('fixed');
             document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree_bk.png';
+            document.querySelector('.keyword_wrap').classList.remove('active');
         }
         else {
             document.querySelector('#wrap').classList.remove('fixed');
@@ -449,7 +403,7 @@ onMounted(() => {
 });
 
 /* 최근검색어 삭제 */
-let key_cnt = ref(latest.length);
+let key_cnt = ref(latestSearchWordData.length);
 const keyword_del = (e) => {
     e.target.closest('li').remove();
     key_cnt.value = document.querySelector('.latest').childElementCount;
@@ -707,7 +661,7 @@ header {
                             }
                         }
                     }
-                    &.keyword {
+                    &.recent {
                       flex-direction:column;
                       gap:25px;
                       li {
@@ -776,6 +730,14 @@ header {
                       }
                     }
                 }
+                .no_result {
+                  height:140px;
+                  color:#333;
+                  font-size:16px;
+                  display:flex;
+                  align-items:center;
+                  justify-content:center;
+                }
             }
         }
         .keyword_wrap {
@@ -840,7 +802,7 @@ header {
                 top:19%;
                 right:50%;
                 transform:translate(84%,);
-                z-index: 2;
+                z-index: 3;
                 animation: slideDown .5s ease-in forwards;
                 ol {
                   margin-top:28px;
