@@ -56,28 +56,28 @@
                     <!-- //카테고리 -->
                     <!-- 최근 검색어 : 검색어 입력시 -->
                     <section>
-                      <ul class="recent">
-                        <li v-for="item in latestSearchWordData" :key="item">
-                          <a :href="item.url">
-                            {{ item.word }}
-                            <em>12.29</em>
-                          </a>
-                        </li>
-                      </ul>
+                        <ul class="auto">
+                            <li v-for="item in latestSearchWordData" :key="item">
+                                <a :href="item.url">
+                                    {{ item.word }}
+                                    <em>12.29</em>
+                                </a>
+                            </li>
+                        </ul>
                     </section>
                     <!-- //최근 검색어 : 검색어 입력시 -->
                     <!-- 관련상품 : 검색어 입력시 -->
                     <section>
-                      <ul class="key_item goods_list">
-                        <li v-for="(item,idx) in sample_goods" :key="idx">
-                          <GoodsItem :item="item" :link="item.link" />
-                        </li>
-                      </ul>
+                        <ul class="key_item goods_list">
+                            <li v-for="(item,idx) in sample_goods" :key="idx">
+                                <GoodsItem :item="item" :link="item.link" />
+                            </li>
+                        </ul>
                     </section>
                     <!-- 관련상품 : 검색어 입력시 -->
                     <!-- 관련상품X : 검색어 입력시 -->
                     <section>
-                      <div class="no_result">일치하는 결과가 없습니다.</div>
+                        <div class="no_result">일치하는 결과가 없습니다.</div>
                     </section>
                     <!-- //관련상품X : 검색어 입력시 -->
                 </div>
@@ -85,41 +85,41 @@
             </div>
             <div class="keyword_wrap">
                 <div class="keyword">
-                  <ol>
-                      <li>
-                          <a href="#none" class="up"><em>1.</em>Keyword Up</a>
-                      </li>
-                      <li>
-                          <a href="#none"><em>2.</em>Keyword default</a>
-                      </li>
-                      <li>
-                          <a href="#none" class="down"><em>3.</em>Keyword down</a>
-                      </li>
-                      <li>
-                          <a href="#none" class="new"><em>4.</em>Keyword new</a>
-                      </li>
-                      <li>
-                          <a href="#none" class="up"><em>1.</em>Keyword Up</a>
-                      </li>
-                      <li>
-                          <a href="#none"><em>2.</em>Keyword default</a>
-                      </li>
-                      <li>
-                          <a href="#none" class="down"><em>3.</em>Keyword down</a>
-                      </li>
-                      <li>
-                          <a href="#none" class="new"><em>4.</em>Keyword new</a>
-                      </li>
-                      <li>
-                          <a href="#none" class="up"><em>1.</em>Keyword Up</a>
-                      </li>
-                      <li>
-                          <a href="#none"><em>2.</em>Keyword default</a>
-                      </li>
-                  </ol>
-                  <div>
-                    <p>09:30 기준 인기 검색어</p>
-                  </div>
+                    <ol>
+                        <li>
+                            <a href="#none" class="up"><em>1.</em>Keyword Up</a>
+                        </li>
+                        <li>
+                            <a href="#none"><em>2.</em>Keyword default</a>
+                        </li>
+                        <li>
+                            <a href="#none" class="down"><em>3.</em>Keyword down</a>
+                        </li>
+                        <li>
+                            <a href="#none" class="new"><em>4.</em>Keyword new</a>
+                        </li>
+                        <li>
+                            <a href="#none" class="up"><em>1.</em>Keyword Up</a>
+                        </li>
+                        <li>
+                            <a href="#none"><em>2.</em>Keyword default</a>
+                        </li>
+                        <li>
+                            <a href="#none" class="down"><em>3.</em>Keyword down</a>
+                        </li>
+                        <li>
+                            <a href="#none" class="new"><em>4.</em>Keyword new</a>
+                        </li>
+                        <li>
+                            <a href="#none" class="up"><em>1.</em>Keyword Up</a>
+                        </li>
+                        <li>
+                            <a href="#none"><em>2.</em>Keyword default</a>
+                        </li>
+                    </ol>
+                    <div>
+                        <p>09:30 기준 인기 검색어</p>
+                    </div>
                 </div>
             </div>
             <div class="quick_wrap">
@@ -661,7 +661,7 @@ header {
                             }
                         }
                     }
-                    &.recent {
+                    &.auto {
                       flex-direction:column;
                       gap:25px;
                       li {

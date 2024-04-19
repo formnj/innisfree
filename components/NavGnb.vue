@@ -2,7 +2,7 @@
   <div class="inner">
       <nav class="navGnb">
           <ul>
-              <li v-for="(item,idx) in gnb " :key="idx">
+              <li v-for="(item,idx) in props.gnb " :key="idx">
                   <a href="#none">{{ item }}</a>
               </li>
           </ul>
@@ -11,7 +11,12 @@
 </template>
 <script setup>
 const props = defineProps({
-  gnb: Array,
+  gnb: {
+    type: Array,
+    default() {
+      return []
+    }
+  },
 })
 </script>
 

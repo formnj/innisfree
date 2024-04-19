@@ -63,7 +63,7 @@
                     <div>
                         <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
                         <Icons class="btn_search" txt="검색" />
-                      </div>
+                    </div>
                     <Icons class="cart" txt="50" />
                 </div>
                 <!-- //mo search -->
@@ -125,6 +125,7 @@
                     <div class="list_wrap">
                         <ul class="event_list">
                             <li v-for="(item, idx) in sample_goods" :key="idx">
+                              <!-- <EventItem :item="item" :link="item.link" /> -->
                                 <a href="#none">
                                     <div>
                                         <img :src="item.img">
@@ -385,8 +386,7 @@ header {
   position:sticky;
   top:-50px;
   left:0;
-  right:0;
-  z-index:2;
+  z-index:10;
   &.fixed {
     background:#fff;
   }
@@ -471,7 +471,7 @@ header {
                 .cart {
                   margin-left:10px;
                 }
-              }
+            }
             section {
                 padding:28px;
                 & + section:before {
@@ -758,6 +758,8 @@ header {
                                 display:block;
                             }
                             &:last-child {
+                              padding-top:10px;
+                              margin-top:10px;
                               &:before {
                                 border-top:0;
                               }
@@ -770,7 +772,7 @@ header {
                                 flex-wrap:wrap;
                                 gap:5px;
                                 li {
-                                  width:50%;
+                                  width:48.7%;
                                   a {
                                     padding:0;
                                     font-size:12px;
@@ -830,11 +832,11 @@ header {
                     }
                 }
                 .quick_wrap {
-                    border-top:5px solid #eeeeee;
-                    border-bottom:5px solid #f5f5f5;
+                    border-top:5px solid #EEE;
+                    border-bottom:5px solid #F5F5F5;
                     overflow:hidden;
                     .quick {
-                      background-color:#f5f5f5;
+                      background-color:#F5F5F5;
                         overflow:auto;
                         display:flex;
                         gap:1px;

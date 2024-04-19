@@ -10,6 +10,10 @@
       &:before {
         display:none !important;
       }
+      .thumb {
+        width:16.5rem;
+        height:22.0rem;
+      }
       .btnIconBox {
         background-color:transparent;
         position:absolute;
@@ -86,8 +90,16 @@
         }
       }
       .name {
+        font-size:1.4rem;
         strong {
           color:#000;
+          overflow:hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          .cate {
+            margin:0;
+          }
         }
       }
       .review_score {
@@ -138,4 +150,120 @@
     }
   }
   /* //eventitem */
+}
+
+/* laptop */
+@include mo_landscape {
+  /* component media query */
+  /* goodsItem */
+  :deep(.goods_item) {
+    padding-bottom:calc(24px + 1rem);
+    .img_wrap {
+      position:static;
+      &:before {
+        display:none !important;
+      }
+      .thumb {
+        width:16.5rem;
+        height:22.0rem;
+      }
+      .btnIconBox {
+        background-color:transparent;
+        position:absolute;
+        bottom:0;
+        left:15px;
+        gap:1rem;
+        justify-content:start;
+        transform:translateY(0);
+        button {
+          padding:0;
+          em {
+            width:24px;
+            height:24px;
+            background-image:url('~/assets/mo_images/common/icon_split.png');
+            background-size:250px auto;
+          }
+          &.btn_heart em {
+            background-position:-140px -40px;
+          }
+          &.btn_cart em {
+            background-position:-170px -40px;
+          }
+          &.btn_buy em {
+            background-position:-200px -40px;
+          }
+        }
+      }
+    }
+    &.sold_out, &.coming_soon {
+      .img_wrap {
+        a {
+          position:relative;
+          &:before, &:after {
+            content:'';
+            display:block;
+          }
+          &:before {
+            background-color:rgba(0,0,0,0.3);
+            background-position:50%;
+            background-repeat:no-repeat;
+            position:absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            z-index:1;
+          }
+        }
+      }
+    }
+    &.sold_out {
+        .img_wrap a:before {
+            background-image:url('/_nuxt/assets/images/ui/overlay_soldout.png');
+        }
+      }
+      &.coming_soon {
+        .img_wrap a:before {
+            background-image:url('/_nuxt/assets/images/ui/overlay_comingsoon.png');
+        }
+      }
+    .cont {
+      > .price {
+        margin-top:0.6rem;
+        margin-bottom:1rem;
+        strong {
+          font-size:1.4rem;
+        }
+        span {
+          font-size:1.2rem;
+        }
+        em {
+          font-size:1rem;
+          display:block;
+        }
+      }
+      .name {
+        font-size:1.4rem;
+        strong {
+          color:#000;
+          overflow:hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          .cate {
+            margin:0;
+          }
+        }
+      }
+      .review_score {
+        margin-top:1.0rem;
+        font-size:1.0rem;
+      }
+      .sticker em {
+        padding:3px 5px;
+        font-size:1rem;
+      }
+    }
+  }
+  /* //goodsItem */
 }

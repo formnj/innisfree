@@ -124,98 +124,61 @@
   </div>
 </template>
 <script setup>
-import {
-  sample_goods
-} from '~/test/data/dummyData'
+import { sample_goods } from '~/test/data/dummyData'
+import { modal } from '~/assets/js/common-ui'
 
 definePageMeta({
   layout: 'mo-category'
 })
 
 onMounted(() => {})
-
-const modal = {
-  open: (_target, _type) => {
-    document.getElementById(_target).classList.add('active', _type)
-    const body = document.querySelector('body')
-    const pageY = document.body.scrollTop || document.documentElement.scrollTop
-
-    if (!body.hasAttribute('scrollY')) {
-      body.setAttribute('scrollY', String(pageY))
-      body.classList.add('lockbody')
-    }
-    body.addEventListener('touchmove', modal.lockScrollHandle, {
-      passive: false
-    })
-  },
-  close: (_target) => {
-    event.target.closest('.modal_wrap').setAttribute('class', 'modal_wrap')
-    const body = document.querySelector('body')
-
-    if (body.hasAttribute('scrollY')) {
-      body.classList.remove('lockbody')
-      body.scrollTop = Number(body.getAttribute('scrollY'))
-      body.removeAttribute('scrollY')
-    }
-
-    body.removeEventListener('touchmove', modal.lockScrollHandle, {
-      passive: true
-    })
-  },
-  lockScrollHandle(event) {
-    const e = event || window.event
-
-    // 멀티 터치는 터치 되게 한다
-    if (e.touches.length > 1) return
-
-    // event 초기화 속성이 있음 초기화
-    e.preventDefault()
-  }
-}
 </script>
 <style lang="scss" scoped>
 .staff_wrap {
   margin: 0 -20px;
   .staffVisual {
-    height: 250px;
-    padding:40px 0 0 21px;
-    background-image: url('/_nuxt/assets/mo_images/common/bg_staff_visual.png');
-    background-repeat: no-repeat;
+    height: 25rem;
+    padding:4rem 0 0 2.1rem;
+    letter-spacing: -0.01em;
+    background: url('/_nuxt/assets/mo_images/common/bg_staff_visual.png') no-repeat center;
     background-size: cover;
-    background-position: center;
     >span {
-      padding: 2px 5px;
+      padding: 0.2rem 0.5rem;
       color:#fff;
       font-weight: 400;
-      font-size: 10px;
-      line-height: 14px;
+      font-size: 1rem;
+      line-height: 1.4rem;
       background:#000;
       display: inline-block;
     }
     >div {
-      margin-top: 13px;
+      margin-top: 1.3rem;
       font-weight: 600;
-      font-size: 20px;
+      font-size: 2rem;
+      line-height: 2.6rem;
       color: #000;
       span {
         display: block;
-        margin-top: 8px;
+        margin-top: 0.5rem;
         font-weight: 500;
-        font-size: 12px;
+        font-size: 1.2rem;
+        line-height:1.6rem;
         color: #888;
       }
     }
     >button {
       height:auto;
-      margin-top:23px;
+      margin-top:3rem;
       background:none;
       display: flex;
       align-items: center;
       ::v-deep em {
         padding:0;
         color: #000;
+        font-size: 1.3rem;
         font-weight: 500;
-        font-size: 13px;
+        line-height:1.6rem;
+        letter-spacing:-0.01em;
         font-family:'Pretendard';
       }
       &:before {
@@ -322,21 +285,17 @@ const modal = {
 }
 
 .goods_list {
-  margin-top: -40px;
-  margin-left: -20px;
+  margin:0;
+  gap:4rem 0.3rem;
+  justify-content:space-between;
   > li {
-    width: 50%;
-    padding-top: 40px;
-    padding-left: 20px;
+    width:16.5rem;
+    padding:0;
   }
 }
 
 .modal_wrap {
-  .modal_container {
-    z-index: 100;
-  }
   &#sample_modal_sort {
-    z-index: 100;
     .modal_container {
       border-top-left-radius: 20px 20px;
       border-top-right-radius: 20px 20px;
@@ -411,7 +370,6 @@ const modal = {
     }
   }
   &#sample_modal_search {
-    z-index: 100;
     .modal_container {
       .modal_header {
       }
@@ -422,7 +380,6 @@ const modal = {
     }
   }
   &#modal_staff {
-    z-index: 100;
     .modal_container {
       width:100%;
       height:100%;
@@ -489,9 +446,12 @@ const modal = {
           }
         }
       }
-      .modal_footer {
-      }
     }
   }
 }
+
+@import "~/assets/scss/_mo_mixin.scss";
+@import "~/assets/scss/mobile.scss";
+
+@include mo_749 {}
 </style>
