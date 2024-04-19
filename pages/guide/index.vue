@@ -1147,12 +1147,6 @@ onMounted(() => {
             path = '/publish/'
         }
 
-        if(device.value[i].id == 'IN_PC_HOM_01_01'){
-            link = path
-        } else {
-            link = path+device.value[i].id
-        }
-
         if(device.value[i].status == ''){
             device.value[i].status = 'not_link';
         }

@@ -5,7 +5,7 @@
     </div>
     <header>
         <div class="inner">
-            <h1><a href="/publish"><img src="/assets/images/common/logo_innisfree.png"></a></h1>
+            <h1><a href="/publish/IN_PC_HOM_01_01"><img src="/assets/images/common/logo_innisfree.png"></a></h1>
             <div class="search_wrap">
                 <div class="search">
                     <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
