@@ -4,7 +4,12 @@
     </div>
 
     <div class="inner">
-        <Tabs tabType="type_02" :item="[{txt:'립 ~50%'},{txt:'마스크팩 ~50%'},{txt:'클렌징 ~30%'}]" :tabidx="0" />
+        <div class="tab_btn_wrap">
+            <Tabs tabType="type_02" :item="[{txt:'립 ~50%'},{txt:'마스크팩 ~50%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'}]" :tabidx="0" />
+            <label for="skin1" class="setFilter_sample">
+                <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
+            </label>
+        </div>
         <section v-for="(item, idx) in sample_data" :key="idx">
             <h3>
                 {{ item.sub_title }}
@@ -88,6 +93,7 @@
 </template>
 
 <script setup>
+import { setFilter } from '~/assets/js/common-ui.js'
 
 definePageMeta({
 layout: 'pc-category'
@@ -277,15 +283,61 @@ const modal = {
     h3 {
         font-size:24px;
         font-weight:600;
+        display:flex;
+        align-items:center;
         button {
             width:24px;
             height:24px;
+            margin-left:1.3px;
             background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
             background-repeat:no-repeat;
             background-size:250px;
-            background-position:-117px -142px;;
+            background-position:-94px -206px;
         }
     }
+    .tab_btn_wrap {
+        display:flex;
+        align-items:center;
+        .tab_wrap {
+            max-width:1180px;
+            overflow-x:auto;
+        }
+        ul {
+            overflow-x:auto;
+        }
+    }
+
+    .setFilter_sample {
+        padding-left: 10px;
+        display: inline-block;
+        cursor: pointer;
+
+        input {
+            position: absolute;
+            z-indeX: -1;
+            opacity: 0;
+        }
+
+        span {
+
+            padding: 6px 24px;
+            color: #00BC70;
+            font-weight: 600;
+            font-size: 14px;
+            border:2px solid #00BC70;
+            border-radius: 999px;
+            line-height: 1.29em;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+
+            &.active {
+            color: #FFFFFF;
+            background: #00BC70;
+            }
+        }
+        }
+
     > section {
         padding:60px 0;
         border-bottom:1px solid #eee;
@@ -303,8 +355,8 @@ const modal = {
             display:flex;
             align-items:center;
             .num {
-                width: 42px;
-                height: 48px;
+                width:42px;
+                height:48px;
                 background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
                 background-repeat:no-repeat;
                 background-size:250px;
@@ -315,20 +367,20 @@ const modal = {
                 justify-content: center;
                 &::after {
                     content: '';
-                    width: 40px;
-                    height: 1px;
+                    width:40px;
+                    height:1px;
                     background: #1D1D1D;
-                    position: absolute;
-                    left: 1px;
-                    top: 24px;
+                    position:absolute;
+                    left:1px;
+                    top:24px;
                     z-index: 2;
                     display: block;
                     opacity: 0.5;
                 }
                 span {
                     color: #FFFFFF;
-                    font-size: 24px;
-                    line-height: 0.83em;
+                    font-size: 2.4rem;
+                    line-height: 1px;
                     letter-spacing: -0.01em;
                     position: relative;
                     z-index: 1;
@@ -342,9 +394,6 @@ const modal = {
                 letter-spacing: -0.01em;
                 display: block;
             }
-        }
-        > button {
-
         }
         > .list_wrap {
             margin-top:40px;
