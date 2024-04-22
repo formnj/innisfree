@@ -1,269 +1,153 @@
 @import "~/assets/scss/_mo_mixin";
 
 @include mo_749 {
-  /* component media query */
-  /* goodsItem */
-  :deep(.goods_item) {
-    padding-bottom:calc(24px + 1rem);
-    .img_wrap {
-      position:static;
-      &:before {
-        display:none !important;
-      }
-      .thumb {
-        width:16.5rem;
-        height:22.0rem;
-      }
-      .btnIconBox {
-        background-color:transparent;
-        position:absolute;
-        bottom:0;
-        left:15px;
-        gap:1rem;
-        justify-content:start;
-        transform:translateY(0);
-        button {
-          padding:0;
-          em {
-            width:24px;
-            height:24px;
-            background-image:url('~/assets/mo_images/common/icon_split.png');
-            background-size:250px auto;
-          }
-          &.btn_heart em {
-            background-position:-140px -40px;
-          }
-          &.btn_cart em {
-            background-position:-170px -40px;
-          }
-          &.btn_buy em {
-            background-position:-200px -40px;
-          }
-        }
-      }
+}
+
+/* goodsItem */
+:deep(.goods_item) {
+  padding-bottom:calc(24px + 1rem);
+  .img_wrap {
+    position:static;
+    &:before {
+      display:none !important;
     }
-    &.sold_out, &.coming_soon {
-      .img_wrap {
-        a {
-          position:relative;
-          &:before, &:after {
-            content:'';
-            display:block;
-          }
-          &:before {
-            background-color:rgba(0,0,0,0.3);
-            background-position:50%;
-            background-repeat:no-repeat;
-            position:absolute;
-            top:0;
-            right:0;
-            bottom:0;
-            left:0;
-            z-index:1;
-          }
-        }
-      }
+    .thumb {
+      width:16.5rem;
+      height:22.0rem;
     }
-    &.sold_out {
-        .img_wrap a:before {
-            background-image:url('/_nuxt/assets/images/ui/overlay_soldout.png');
-        }
-      }
-      &.coming_soon {
-        .img_wrap a:before {
-            background-image:url('/_nuxt/assets/images/ui/overlay_comingsoon.png');
-        }
-      }
-    .cont {
-      > .price {
-        margin-top:0.6rem;
-        margin-bottom:1rem;
-        strong {
-          font-size:1.4rem;
-        }
-        span {
-          font-size:1.2rem;
-        }
+    .btnIconBox {
+      background-color:transparent;
+      position:absolute;
+      bottom:0;
+      left:15px;
+      gap:1rem;
+      justify-content:start;
+      transform:translateY(0);
+      button {
+        padding:0;
         em {
-          font-size:1rem;
-          display:block;
+          width:24px;
+          height:24px;
+          background-image:url('~/assets/mo_images/common/icon_split.png');
+          background-size:250px auto;
         }
-      }
-      .name {
-        font-size:1.4rem;
-        strong {
-          color:#000;
-          overflow:hidden;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2;
-          .cate {
-            margin:0;
-          }
+        &.btn_heart em {
+          background-position:-140px -40px;
         }
-      }
-      .review_score {
-        margin-top:1.0rem;
-        font-size:1.0rem;
-      }
-      .sticker em {
-        padding:3px 5px;
-        font-size:1rem;
+        &.btn_cart em {
+          background-position:-170px -40px;
+        }
+        &.btn_buy em {
+          background-position:-200px -40px;
+        }
       }
     }
   }
-  /* //goodsItem */
+  &.sold_out, &.coming_soon {
+    .img_wrap {
+      a {
+        position:relative;
+        &:before, &:after {
+          content:'';
+          display:block;
+        }
+        &:before {
+          background-color:rgba(0,0,0,0.3);
+          background-position:50%;
+          background-repeat:no-repeat;
+          position:absolute;
+          top:0;
+          right:0;
+          bottom:0;
+          left:0;
+          z-index:1;
+        }
+      }
+    }
+  }
+  &.sold_out {
+      .img_wrap a:before {
+          background-image:url('/_nuxt/assets/images/ui/overlay_soldout.png');
+      }
+    }
+    &.coming_soon {
+      .img_wrap a:before {
+          background-image:url('/_nuxt/assets/images/ui/overlay_comingsoon.png');
+      }
+    }
+  .cont {
+    > .price {
+      margin-top:0.6rem;
+      margin-bottom:1rem;
+      strong {
+        font-size:1.4rem;
+      }
+      span {
+        font-size:1.2rem;
+      }
+      em {
+        font-size:1rem;
+        display:block;
+      }
+    }
+    .name {
+      font-size:1.4rem;
+      strong {
+        color:#000;
+        overflow:hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        .cate {
+          margin:0;
+        }
+      }
+    }
+    .review_score {
+      margin-top:1.0rem;
+      font-size:1.0rem;
+    }
+    .sticker em {
+      padding:3px 5px;
+      font-size:1rem;
+    }
+  }
+}
+/* //goodsItem */
 
-  /* eventitem */
-  :deep(.event_item) {
-    .item {
+/* eventitem */
+:deep(.event_item) {
+  .item {
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    .thumb {
+      width:160px;
+      padding-top:0;
+      em {
+        position:static;
+      }
+    }
+    .cont {
+      height:auto;
+      margin-top:0;
+      padding:0 2rem;
       display:flex;
-      align-items:center;
-      flex-wrap:wrap;
-      .thumb {
-        width:160px;
-        padding-top:0;
-        em {
-          position:static;
-        }
-      }
-      .cont {
-        height:auto;
+      flex:1;
+      flex-direction:column-reverse;
+      strong {
         margin-top:0;
-        padding:0 2rem;
-        display:flex;
-        flex:1;
-        flex-direction:column-reverse;
-        strong {
-          margin-top:0;
-          font-size:1.4rem;
-        }
-        .date {
-          margin-top:1.6rem;
-          font-size:1.2rem;
-        }
-        .sticker {
-          padding:0.2rem 0.5rem;
-          font-size:1rem;
-        }
-      }
-    }
-  }
-  /* //eventitem */
-}
-
-/* laptop */
-@include mo_landscape {
-  /* component media query */
-  /* goodsItem */
-  :deep(.goods_item) {
-    padding-bottom:calc(24px + 1rem);
-    .img_wrap {
-      position:static;
-      &:before {
-        display:none !important;
-      }
-      .thumb {
-        width:16.5rem;
-        height:22.0rem;
-      }
-      .btnIconBox {
-        background-color:transparent;
-        position:absolute;
-        bottom:0;
-        left:15px;
-        gap:1rem;
-        justify-content:start;
-        transform:translateY(0);
-        button {
-          padding:0;
-          em {
-            width:24px;
-            height:24px;
-            background-image:url('~/assets/mo_images/common/icon_split.png');
-            background-size:250px auto;
-          }
-          &.btn_heart em {
-            background-position:-140px -40px;
-          }
-          &.btn_cart em {
-            background-position:-170px -40px;
-          }
-          &.btn_buy em {
-            background-position:-200px -40px;
-          }
-        }
-      }
-    }
-    &.sold_out, &.coming_soon {
-      .img_wrap {
-        a {
-          position:relative;
-          &:before, &:after {
-            content:'';
-            display:block;
-          }
-          &:before {
-            background-color:rgba(0,0,0,0.3);
-            background-position:50%;
-            background-repeat:no-repeat;
-            position:absolute;
-            top:0;
-            right:0;
-            bottom:0;
-            left:0;
-            z-index:1;
-          }
-        }
-      }
-    }
-    &.sold_out {
-        .img_wrap a:before {
-            background-image:url('/_nuxt/assets/images/ui/overlay_soldout.png');
-        }
-      }
-      &.coming_soon {
-        .img_wrap a:before {
-            background-image:url('/_nuxt/assets/images/ui/overlay_comingsoon.png');
-        }
-      }
-    .cont {
-      > .price {
-        margin-top:0.6rem;
-        margin-bottom:1rem;
-        strong {
-          font-size:1.4rem;
-        }
-        span {
-          font-size:1.2rem;
-        }
-        em {
-          font-size:1rem;
-          display:block;
-        }
-      }
-      .name {
         font-size:1.4rem;
-        strong {
-          color:#000;
-          overflow:hidden;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2;
-          .cate {
-            margin:0;
-          }
-        }
       }
-      .review_score {
-        margin-top:1.0rem;
-        font-size:1.0rem;
+      .date {
+        margin-top:1.6rem;
+        font-size:1.2rem;
       }
-      .sticker em {
-        padding:3px 5px;
+      .sticker {
+        padding:0.2rem 0.5rem;
         font-size:1rem;
       }
     }
   }
-  /* //goodsItem */
 }
+/* //eventitem */
