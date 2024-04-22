@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <!-- 최근 검색어 -->
-                    <section>
+                    <section v-if="isValid === ''">
                         <strong>최근 검색어
                             <Button class="btn_txt" txt="전체삭제" @click="keyword_del_all" />
                         </strong>
@@ -40,7 +40,7 @@
                     </section>
                     <!-- //최근 검색어 -->
                     <!-- 카테고리 -->
-                    <section>
+                    <section v-if="isValid === ''">
                         <strong>카테고리</strong>
                         <ul class="category">
                             <li v-for="item in categoryForSearchLayerData" :key="item">
@@ -55,9 +55,9 @@
                     </section>
                     <!-- //카테고리 -->
                     <!-- 최근 검색어 : 검색어 입력시 -->
-                    <section>
+                    <section v-if="isValid !== '' && !isBool">
                         <ul class="auto">
-                            <li v-for="item in latestSearchWordData" :key="item">
+                            <li v-for="item in auto_list" :key="item">
                                 <a :href="item.url">
                                     {{ item.word }}
                                     <em>12.29</em>
@@ -67,16 +67,16 @@
                     </section>
                     <!-- //최근 검색어 : 검색어 입력시 -->
                     <!-- 관련상품 : 검색어 입력시 -->
-                    <section>
+                    <section v-if="isValid !== '' && !isBool">
                         <ul class="key_item goods_list">
-                            <li v-for="(item,idx) in sample_goods" :key="idx">
+                            <li v-for="(item,idx) in prd_list" :key="idx">
                                 <GoodsItem :item="item" :link="item.link" />
                             </li>
                         </ul>
                     </section>
                     <!-- 관련상품 : 검색어 입력시 -->
                     <!-- 관련상품X : 검색어 입력시 -->
-                    <section>
+                    <section v-if="isBool">
                         <div class="no_result">일치하는 결과가 없습니다.</div>
                     </section>
                     <!-- //관련상품X : 검색어 입력시 -->
@@ -400,7 +400,22 @@ onMounted(() => {
         document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree_bk.png';
     }
 
+    document.querySelector('.search_layer .input input').addEventListener('input', auto_complete);
 });
+
+const isValid = ref('');
+const isBool = ref(false);
+const auto_list = ref([]);
+const prd_list = ref([]);
+
+const auto_complete = (e) => {
+    isValid.value = e.target.value;
+
+    auto_list.value = latestSearchWordData.filter(e => e.word.indexOf(isValid.value) >= 0);
+    prd_list.value = sample_goods.filter(e => e.name !== undefined && e.name.indexOf(isValid.value) >= 0);
+
+    auto_list.value.length <= 0 ? isBool.value = true : isBool.value = false;
+};
 
 /* 최근검색어 삭제 */
 let key_cnt = ref(latestSearchWordData.length);

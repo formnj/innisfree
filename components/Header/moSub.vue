@@ -246,7 +246,8 @@ import { modal } from '~/assets/js/common-ui'
 import {
     mainTopBannerData,
     categoryForSearchLayerData,
-    latestSearchWordData
+    latestSearchWordData,
+    sample_goods
 } from '~/test/data/dummyData'
 
 /* sample data */
@@ -411,72 +412,6 @@ const nav_goods = [
     },
 ]
 
-const sample_goods = [
-    {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'히알루론 수분 선크림 SPF 50+ PA++++',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
-        sticker:[
-            {txt:'type01', type:'type01'},
-            {txt:'type02', type:'type02'},
-            {txt:'type03', type:'type03'},
-            {txt:'type04', type:'type04'}
-        ],
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
-        cate:'NEW',
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'~20%', cost:'56,000',
-        status:'coming_soon',
-        sticker:[
-            {txt:'1+1', type:'type02'},
-            {txt:'뷰티포인트전용', type:'type01'},
-            {txt:'첫구매전용', type:'type01'}
-        ]
-    }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
-        cate:'NEW',
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'~20%', cost:'56,000',
-        status:'coming_soon',
-        sticker:[
-            {txt:'1+1', type:'type02'},
-            {txt:'뷰티포인트전용', type:'type01'},
-            {txt:'첫구매전용', type:'type01'}
-        ]
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    },
-    {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    },
-]
-
 const sample_auto = [
     {text:'그린히알루론산',url:'#none',latest:'3분전'},
     {text:'그린티 세럼', url:'#none',latest:'3시간전'},
@@ -510,7 +445,6 @@ onMounted(() => {
     });
 
     document.querySelector('.search_layer .input input').addEventListener('input', auto_complete);
-    document.querySelector('.search_layer .input input').addEventListener('focusout', auto_focus);
 });
 
 const isValid = ref('');
@@ -520,16 +454,12 @@ const prd_list = ref([]);
 
 const auto_complete = (e) => {
     isValid.value = e.target.value;
-    
+
     auto_list.value = sample_auto.filter(e => e.text.indexOf(isValid.value) >= 0);
-    prd_list.value = sample_goods.filter(e => e.name.indexOf(isValid.value) >= 0);
+    prd_list.value = sample_goods.filter(e => e.name !== undefined && e.name.indexOf(isValid.value) >= 0);
 
     auto_list.value.length <= 0 ? isBool.value = true : isBool.value = false;
 };
-const auto_focus = (e) => {
-    isValid.value = '';
-    isBool.value = false;
-}
 
 /* 최근검색어 삭제 */
 let key_cnt = ref(latestSearchWordData.length);
@@ -712,7 +642,7 @@ header {
                 padding:30px 0;
                 background:#fff;
                 & + section:before {
-                    border-top:1px solid #eee;
+                    border-top:1px solid #f5f5f5;
                     content:'';
                     display:block;
                     transform:translateY(-30px);
@@ -1201,6 +1131,7 @@ header {
                                         }
                                         .img_wrap {
                                             .thumb {
+                                                width:10rem;
                                                 height:auto;
                                                 padding-top:133%;
                                             }
