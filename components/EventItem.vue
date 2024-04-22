@@ -5,8 +5,8 @@
           <em><img :src="item.img"></em>
         </span>
         <div class="cont">
-            <em class="sticker">{{ item.cate }}</em>
-            <p class="date">{{ item.data }}</p>
+            <em v-if="item.sticker" class="sticker">{{ item.cate }}</em>
+            <p v-if="item.date" class="date">{{ item.date }}</p>
             <strong v-html="item.title"></strong>
         </div>
       </a>

@@ -30,7 +30,7 @@
 
             <!-- visual image -->
             <span class="thumb">
-              <img :src="item.img">
+              <em><img :src="item.img"></em>
             </span>
             <!-- //visual image -->
           </a>
@@ -75,16 +75,18 @@
     </section>
 
     <section class="narrow event">
-      <swiper
-        v-bind="swieprOpt.recommend01"
-        :navigation="navigation"
-      >
-        <swiper-slide v-for="(item, idx) in sample_event" :key="idx">
-          <EventItem :item="item" />
-        </swiper-slide>
-        <button class="swiper-button-next">Next</button>
-        <button class="swiper-button-prev">Prev</button>
-      </swiper>
+      <div class="swiper_wrap">
+        <swiper
+          v-bind="swieprOpt.recommend01"
+          :navigation="navigation"
+        >
+          <swiper-slide v-for="(item, idx) in sample_event" :key="idx">
+            <EventItem :item="item" />
+          </swiper-slide>
+          <button class="swiper-button-next">Next</button>
+          <button class="swiper-button-prev">Prev</button>
+        </swiper>
+      </div>
     </section>
 
     <section class="recommend">
@@ -92,38 +94,19 @@
         <a href="#none">오늘의 추천 제품</a>
       </h2>
 
-      <swiper class="module_02"
-        v-bind="swieprOpt.recommend02"
-      >
-        <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx">
-          <a href="#none" class="item">
-            <!-- visual tag -->
-            <div class="tag-card">
-              <span class="cardSt_1">28%</span>
-              <span class="cardSt_2">특가</span>
-            </div>
-            <!-- //visual tag -->
-
-            <!-- item text content -->
-            <div class="cont">
-              <p class="name">
-                <strong>단숨에 차오르는 수분</strong>
-                <span>그린티 씨드 히알루론산 세럼</span>
-              </p>
-              <p class="price">24,800
-                <em>31,000</em>
-              </p>
-            </div>
-            <!-- //item text content -->
-
-            <!-- visual image -->
-            <span class="thumb">
-              <img :src="item.img">
-            </span>
-            <!-- //visual image -->
-          </a>
-        </swiper-slide>
-      </swiper>
+      <div class="swiper_wrap">
+        <swiper class="module_02"
+          v-bind="swieprOpt.recommend02"
+          :navigation="navigation"
+        >
+          <swiper-slide v-for="(item, idx) in mainSam.recommend02" :key="idx">
+            <EventItem :item="item" />
+            <GoodsItem :item="item.goods" :link="item.link" />
+          </swiper-slide>
+          <button class="swiper-button-next">Next</button>
+          <button class="swiper-button-prev">Prev</button>
+        </swiper>
+      </div>
     </section>
 
     <section class="narrow combi">
@@ -147,24 +130,31 @@
               <GoodsItem :item="item" :link="item.link" />
             </a>
           </swiper-slide>
+          <!-- bar형태로 변경 예정 -->
+          <div class="custom-pagination"></div>
+          <!-- //bar형태로 변경 예정 -->
         </swiper>
       </div>
     </section>
     <!-- //오늘의 추천 제품 -->
-
-    <!-- 공식어워즈 -->
-    <section class="award">
-      <div class="inner">
-        공식어워즈
-      </div>
-    </section>
-    <!-- //공식어워즈 -->
 
     <!-- 이 제품 어때요 -->
     <section>
       <h2>
         <a href="#none"><strong>주소희</strong> 님, 이 제품 어때요?</a>
       </h2>
+      <div class="swiper_wrap">
+        <swiper
+          v-bind="swieprOpt.recommend04"
+          :navigation="navigation"
+        >
+          <swiper-slide v-for="(item, idx) in sample_goods" :key="idx">
+            <GoodsItem :item="item" />
+          </swiper-slide>
+          <button class="swiper-button-next">Next</button>
+          <button class="swiper-button-prev">Prev</button>
+        </swiper>
+      </div>
     </section>
     <!-- //이 제품 어때요 -->
 
@@ -190,6 +180,19 @@
           <Tabs tabType="type_txt" :item="rankingTabs"  :tabidx="0" />
           <span class="date">03:00 기준</span>
         </div>
+      </div>
+
+      <div class="swiper_wrap">
+        <swiper
+          v-bind="swieprOpt.ranking"
+          :navigation="navigation"
+        >
+          <swiper-slide v-for="(item, idx) in sample_goods" :key="idx">
+            <GoodsItem :item="item" />
+          </swiper-slide>
+          <button class="swiper-button-next">Next</button>
+          <button class="swiper-button-prev">Prev</button>
+        </swiper>
       </div>
     </section>
     <!-- //랭킹 -->
@@ -241,7 +244,26 @@ const swieprOpt = {
   recommend03: {
     slidesPerView:3,
     spaceBetween: 22,
-    loop: true
+    loop: true,
+    // pagination: {
+    //   type:'progressbar'
+    // },
+    pagination: {
+      type:'fraction',
+      clickable: true,
+      renderCustom: function (index, className) {
+        return '<span class="' + className + '">' + (index + 2) + '</span>';
+      }
+    }
+  },
+  recommend04: {
+    slidesPerView:6,
+    spaceBetween:22,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
   },
   benefit: {
     slidesPerView: "auto",
@@ -254,6 +276,10 @@ const swieprOpt = {
     },
     centeredSlides: true,
     slidesOffsetBefore: -20
+  },
+  ranking: {
+    slidesPerView:5,
+    spaceBetween:20,
   }
 }
 
@@ -528,6 +554,48 @@ const rankingTabs = [
             }
           }
         }
+        .swiper_wrap {
+          .swiper-container{
+            max-width:1480px;
+            padding:0 100px;
+            &:before {
+              width:100px;
+              background-color:#fff;
+              content:'';
+              position:absolute;
+              top:0;
+              bottom:0;
+              left:0;
+              z-index:2;
+              display:block;
+            }
+            &:after {
+              width:100px;
+              background-color:#fff;
+              content:'';
+              position:absolute;
+              top:0;
+              right:0;
+              bottom:0;
+              z-index:2;
+              display:block;
+            }
+            :deep([class*="swiper-button-"]) {
+              width:60px;
+              height:60px;
+              margin-top:-50px;
+              font-size:0;
+              background:url('~/assets/images/common/icon_split.png') 0 -190px no-repeat;
+              background-size:250px auto;
+              &:after {
+                display:none;
+              }
+              &.swiper-button-next {
+                transform:rotate(180deg);
+              }
+            }
+          }
+        }
         &.recommend {
           .module_01 {
             > ul {
@@ -587,47 +655,91 @@ const rankingTabs = [
               }
             }
           }
+          .module_02 {
+            :deep(.event_item) {
+              .cont {
+                height:auto;
+                margin-bottom:20px;
+                strong {
+                  font-size:20px;
+                  line-height:28px;
+                }
+              }
+            }
+            :deep(.goods_item) {
+              padding-top:20px;
+              border-top:1px solid #eee;
+              position:relative;
+              display:flex;
+              .img_wrap {
+                width:61px;
+                margin-right:20px;
+                position:static;
+                .thumb {
+                  height:auto;
+                  padding-top:132.786885%;
+                }
+                & + a {
+                  flex:1;
+                }
+                .btnIconBox {
+                  background-color:transparent;
+                  top:25px;
+                  bottom:initial;
+                  left:initial;
+                  transform:translateY(0);
+                  button {
+                    display:none;
+                    &.btn_cart {
+                      padding:4px;
+                      border:1px solid #eee;
+                      border-radius:50%;
+                      display:block;
+                      em{
+                        width:24px;
+                        height:24px;
+                        background-position:-170px -140px;
+                        background-size:250px auto;
+                      }
+                    }
+                  }
+                }
+              }
+              .cont {
+                margin-top:0;
+                .name {
+                  margin-top:5px;
+                  padding-right:42px;
+                  strong {
+                    height:36px;
+                    color:#000;
+                    font-weight:300;
+                    display:block;
+                  }
+                }
+                .review_score {
+                  display:none;
+                }
+                .price {
+                  margin-top:12px;
+                  margin-bottom:0;
+                  > * {
+                    font-size:14px;
+                  }
+                  em {
+                    font-size:12px;
+                  }
+                  span {
+                    margin-right:10px;
+                  }
+                }
+              }
+            }
+          }
         }
         &.event {
-          .swiper-container {
-            max-width:1480px;
-            padding:0 100px;
-            &:before {
-              width:100px;
-              background-color:#fff;
-              content:'';
-              position:absolute;
-              top:0;
-              bottom:0;
-              left:0;
-              z-index:2;
-              display:block;
-            }
-            &:after {
-              width:100px;
-              background-color:#fff;
-              content:'';
-              position:absolute;
-              top:0;
-              right:0;
-              bottom:0;
-              z-index:2;
-              display:block;
-            }
-            :deep([class*="swiper-button-"]) {
-              width:60px;
-              height:60px;
-              margin-top:-50px;
-              font-size:0;
-              background:url('~/assets/images/common/icon_split.png') 0 -190px no-repeat;
-              background-size:250px auto;
-              &:after {
-                display:none;
-              }
-              &.swiper-button-next {
-                transform:rotate(180deg);
-              }
-            }
+          :deep(.thumb){
+            padding-top:53.225806%;
           }
           :deep(.cont) {
             height:auto;
@@ -720,6 +832,7 @@ const rankingTabs = [
         }
       }
       .update_wrap {
+        margin-bottom:40px;
         position:relative;
         .date {
           color:#999;

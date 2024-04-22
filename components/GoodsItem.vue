@@ -30,7 +30,7 @@
                 <Sticker :item="item.sticker" />
                 <!-- //sticker -->
                 <!-- Hash -->
-                <Hash :item="item.hash" />
+                <Hash v-if="item.hash" :item="item.hash" />
                 <!-- //Hash -->
                 <p class="review_score">
                     4.8

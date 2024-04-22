@@ -404,6 +404,75 @@ export const mainSam = {
       txt:'채팅만 해도 경품을 받는다고?<br/> 구매 인증, 채팅 추첨 경품!',
       hash:['라이브 단독','쿠폰']
     }
+  ],
+  recommend02 : [
+    {
+      img:(" /_nuxt/public/images/sam/recommend_01.png"),
+      title:'최강한파?! 오히려 좋아!<br/> 귀여운 귀마개를 드려요♥',
+      txt:'디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!0',
+      goods:{
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'이니스프리 패딩담요 WITH GREEN PET CLUB',
+        price:'11,000', sale:'~50%', cost:'26,000',
+      }
+    },
+    {
+      img:("/_nuxt/public/images/sam/recommend_02.png"),
+      title:'원영이의 특별한 피부비결!<br/> 비타C 잡티 토닝 세럼이 정답!',
+      txt:'디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!1',
+      hash:['세럼','비타C', '토닝'],
+      goods:{
+        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+        cate:'NEW',
+        name:'그린티 씨드 히알루론산 세렘 80ml',
+        price:'44,800', sale:'~20%', cost:'56,000',
+      }
+    },
+    {
+      img:("/_nuxt/public/images/sam/recommend_03.png"),
+      title:'라이브 단독 쿠폰 & 사은품<br/> 신세계 상품권 10만원 GET!',
+      txt:'채팅만 해도 경품을 받는다고?<br/> 구매 인증, 채팅 추첨 경품!',
+      hash:['라이브 단독','쿠폰'],
+      goods:{
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+      }
+    }
+  ],
+  event_mo: [
+    {
+      img: ("https://images.innisfree.co.kr/upload/event/3487_0.jpg?T202404030937"),
+      date: '24.3.25(월) ~ 24.4.30(화)',
+      title: '남성에게도 딱! 맞는 그린티 <br>씨드 세럼 대용량 출시',
+    },
+    {
+      img: ("https://images.innisfree.co.kr/upload/event/3502_0.jpg?T202404021757"),
+      date: '24.4.1(월) ~ 24.4.3(수)',
+      title: '신한카드 5천원 캐시백 <br>2만원 이상 결제 시!',
+    },
+    {
+      img: ("https://images.innisfree.co.kr/upload/event/3487_0.jpg?T202404030937"),
+      date: '24.3.25(월) ~ 24.4.30(화)',
+      title: '남성에게도 딱! 맞는 그린티 <br>씨드 세럼 대용량 출시',
+    },
+    {
+      img: ("https://images.innisfree.co.kr/upload/event/3502_0.jpg?T202404021757"),
+      date: '24.4.1(월) ~ 24.4.3(수)',
+      title: '신한카드 5천원 캐시백 <br>2만원 이상 결제 시!',
+    },
+    {
+      img: ("https://images.innisfree.co.kr/upload/event/3487_0.jpg?T202404030937"),
+      date: '24.3.25(월) ~ 24.4.30(화)',
+      title: '남성에게도 딱! 맞는 그린티 <br>씨드 세럼 대용량 출시',
+    },
+    {
+      img: ("https://images.innisfree.co.kr/upload/event/3502_0.jpg?T202404021757"),
+      date: '24.4.1(월) ~ 24.4.3(수)',
+      title: '신한카드 5천원 캐시백 <br>2만원 이상 결제 시!',
+    },
   ]
 }
 
