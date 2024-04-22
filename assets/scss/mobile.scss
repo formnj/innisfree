@@ -80,6 +80,7 @@
       margin-top:0.6rem;
       margin-bottom:1rem;
       strong {
+        margin-right:0.5rem;
         font-size:1.4rem;
       }
       span {
@@ -151,3 +152,10 @@
   }
 }
 /* //eventitem */
+
+/* hash */
+:deep(.hash) {
+  button {
+    font-size:1rem;
+  }
+}

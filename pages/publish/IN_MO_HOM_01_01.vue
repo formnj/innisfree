@@ -76,31 +76,16 @@
     </section>
 
     <section class="narrow combi">
-      <div class="inner">
-        <div class="main_thumb">
-          <a href="#none">
-            <span class="thumb">
-              <em><img src="/public/images/sam/3425_0.jpg" alt="" /></em>
-            </span>
-            <div class="cont">
-              <strong>23년 공식몰 어워즈<br/> 이 제품 아직 안샀눈사람~</strong>
-              <p>18:21:01</p>
-            </div>
-          </a>
-        </div>
-        <swiper
-          v-bind="swieprOpt.recommend03"
-        >
-          <swiper-slide v-for="(item, idx) in sample_goods.slice(3,6)" :key="idx">
-            <a href="#none" class="item">
-              <GoodsItem :item="item" :link="item.link" />
-            </a>
-          </swiper-slide>
-          <!-- bar형태로 변경 예정 -->
-          <div class="custom-pagination"></div>
-          <!-- //bar형태로 변경 예정 -->
-        </swiper>
-      </div>
+      <h2>
+        <a href="#none">23년 공식몰 어워즈<br/> 이 제품 아직 안샀눈사람~
+          <span>18:00:00</span>
+        </a>
+      </h2>
+      <ul class="list_wrap">
+        <li v-for="(item, idx) in sample_goods" :key="idx">
+          <GoodsItem :item="item" :link="item.link" />
+        </li>
+      </ul>
     </section>
     <!-- //오늘의 추천 제품 -->
 
@@ -112,13 +97,10 @@
       <div class="swiper_wrap">
         <swiper
           v-bind="swieprOpt.recommend04"
-          :navigation="navigation"
         >
           <swiper-slide v-for="(item, idx) in sample_goods" :key="idx">
             <GoodsItem :item="item" />
           </swiper-slide>
-          <button class="swiper-button-next">Next</button>
-          <button class="swiper-button-prev">Prev</button>
         </swiper>
       </div>
     </section>
@@ -216,8 +198,8 @@ const swieprOpt = {
     }
   },
   recommend04: {
-    slidesPerView:6,
-    spaceBetween:22,
+    slidesPerView:2.2,
+    spaceBetween:3,
     loop: true,
     autoplay: {
       delay: 3000,
@@ -237,7 +219,7 @@ const swieprOpt = {
     slidesOffsetBefore: -20
   },
   ranking: {
-    slidesPerView:5,
+    slidesPerView:1,
     spaceBetween:20,
   }
 }
@@ -631,8 +613,8 @@ const rankingTabs = [
                       em{
                         width:2.4rem;
                         height:2.4rem;
-                        background-position:-170px -140px;
-                        background-size:250px auto;
+                        background-position:-14rem -10rem;
+                        background-size:25rem auto;
                       }
                     }
                   }
@@ -721,43 +703,29 @@ const rankingTabs = [
           }
         }
         &.combi {
-          .inner {
+          .list_wrap {
             display:flex;
             flex-wrap:wrap;
-            .main_thumb {
-              width:628px;
-              a, .thumb {
-                display:block;
-              }
-              .cont {
-                margin-top:30px;
-                strong {
-                  font-size:32px;
-                  font-weight:600;
-                  display:flex;
-                  align-items:center;
-                  justify-content:space-between;
-                  &:after {
-                    width:40px;
-                    height:40px;
-                    margin-right:40px;
-                    background:url('~/assets/images/common/icon_split.png') 0 -130px no-repeat;
-                    background-size:250px auto;
-                    content:'';
-                    display:block;
+            gap:0.3rem;
+            li {
+              width:calc(33.3333% - 0.3rem);
+              :deep(.goods_item) {
+                .img_wrap {
+                  .thumb {
+                    width:100%;
+                    height:auto;
+                    padding-top:133.027522%;
                   }
                 }
-                p {
-                  margin-top:10px;
-                  color:#ddd;
-                  font-size:32px;
-                  font-weight:700;
+                .cont {
+                  margin-top:1rem;
+                  .name {
+                    strong {
+                      font-size:1.2rem;
+                    }
+                  }
                 }
               }
-            }
-            .swiper-container {
-              padding-left:22px;
-              flex:1;
             }
           }
         }
@@ -787,8 +755,25 @@ const rankingTabs = [
         }
       }
       .update_wrap {
-        margin-bottom:40px;
-        position:relative;
+        margin-right:-2.1rem;
+        margin-bottom:3rem;
+        margin-left:-2.1rem;
+        overflow:hidden;
+        :deep(.tab_wrap) {
+          overflow-x:auto;
+          .type_txt {
+            margin-left:0;
+            li > * {
+              padding:0 1rem;
+              font-size:1.4rem;
+              white-space:nowrap;
+              em {
+                padding-bottom:1.5rem;
+                font-size:1.4rem;
+              }
+            }
+          }
+        }
         .date {
           color:#999;
           font-size:16px;
