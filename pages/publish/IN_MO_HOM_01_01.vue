@@ -160,13 +160,8 @@ const swieprOpt = {
       disableOnInteraction: false,
     }
   },
-  recommend01: {
-    slidesPerView:2,
-    spaceBetween: 40,
-    loop: true,
-  },
   recommend02: {
-    slidesPerView:1.2,
+    slidesPerView:'auto',
     spaceBetween: 20,
     loop: false
   },
@@ -541,6 +536,9 @@ const rankingTabs = [
             }
           }
           .module_02 {
+            .swiper-slide {
+              width:26.5rem;
+            }
             :deep(.event_item) {
               .item {
                 display:block;
