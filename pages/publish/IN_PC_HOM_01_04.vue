@@ -4,12 +4,19 @@
     </div>
 
     <div class="inner">
-        <Tabs :item="[{txt:'진행중인 프로모션 전체'},{txt:'납작아이브로우/컨실러'},{txt:'클렌징오일/워터/크림'}]" :tabidx="0" />
+        <div class="tab_btn_wrap">
+            <Tabs tabType="type_02" :item="[{txt:'립 ~50%'},{txt:'마스크팩 ~50%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'}]" :tabidx="0" />
+            <label for="skin1" class="setFilter_sample">
+                <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
+            </label>
+        </div>
         <section v-for="(item, idx) in sample_data" :key="idx">
-            <h3>{{ item.sub_title_01 }}</h3>
-            <p>{{ item.sub_title_02 }}</p>
+            <h3>
+                {{ item.sub_title }}
+                <button @click="modal.open(item.notice.modal_id, 'alert');"></button>
+            </h3>
             <em>{{ item.desc }}</em>
-            <div class="timer_wrap">
+            <div class="timer_wrap" v-if="item.date">
                 <div class="num">
                     <span id="prom_day">{{item.date.day}}</span>
                 </div>
@@ -27,7 +34,7 @@
                 </div>
                 <span class="unit">초</span>
             </div>
-            <button @click="modal.open(item.notice.modal_id, 'alert');">유의사항</button>
+
             <div class="list_wrap">
                 <ul class="goods_list">
                     <li v-for="(item, idx) in sample_goods" :key="idx">
@@ -38,24 +45,13 @@
         </section>
 
         <div class="benefits_wrap">
-            <h3>특가 할인 찬스 / 사은품 증정 혜택</h3>
+            <h3>이니스프리 혜택 모음</h3>
             <div class="list_wrap">
                 <ul class="goods_list">
                     <li v-for="(item, idx) in sample_goods" :key="idx">
                     <GoodsItem :item="item" :link="item.link" />
                     </li>
                 </ul>
-            </div>
-            <div class="paging">
-                <div>
-                    <a href="#none" class="first">처음으로</a>
-                    <a href="#none">1</a>
-                    <a href="#none">2</a>
-                    <a href="#none" class="active">3</a>
-                    <a href="#none">4</a>
-                    <a href="#none">5</a>
-                    <a href="#none" class="last">마지막으로</a>
-                </div>
             </div>
         </div>
 
@@ -97,6 +93,7 @@
 </template>
 
 <script setup>
+import { setFilter } from '~/assets/js/common-ui.js'
 
 definePageMeta({
 layout: 'pc-category'
@@ -115,9 +112,20 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 
 const sample_data = [
     {
-        sub_title_01 :'납작브로우 컨실러',
-        sub_title_02 :'2개이상 구매시 40%',
-        desc:'납작 아이 브로우 펜슬/라이트 피팅 컨실러 1개 30%, 2개 이상 구매시 40%',
+        sub_title :'립 2개 이상 50%',
+        desc:'립 카테고리 전 제품 1개 구매시 30% 2개 이상 구매시 50% 반값!!',
+        notice:{
+            modal_id:'sample_01',
+            title:'“납작아이브로우/컨실러” 기획전 제품 구매 시 유의사항',
+            exp:'동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능',
+            period:'기간 : 4/14(일) - 5/1(수) 23:59:00까지',
+            exception:''
+        },
+    },
+
+    {
+        sub_title :'마스크팩 10개 구매시 50%',
+        desc:'에너지마스크팩 10개 담으면 50% 반값!!',
         date:{
             day:15,
             hour:10,
@@ -133,9 +141,8 @@ const sample_data = [
         },
     },
     {
-        sub_title_01 :'클렌징오일/워터/크림',
-        sub_title_02 :'2개이상 구매시 40%',
-        desc:'클렌징오일/워터/크림 1개 구매 시 30%, 2개 이상 구매 시 40%',
+        sub_title :'클렌징폼 3개 이상 구매시 30% 할인',
+        desc:'클렌징폼 저렴하게 구할 수 있는 절호의 찬스!',
         date:{
             day:14,
             hour:15,
@@ -161,13 +168,6 @@ const sample_goods = [
         name:'히알루론 수분 선크림 SPF 50+ PA++++',
         price:'11,000', sale:'~50%', cost:'26,000',
         status:'sold_out',
-        sticker:[
-            {txt:'type01', type:'type01'},
-            {txt:'type02', type:'type02'},
-            {txt:'type03', type:'type03'},
-            {txt:'type04', type:'type04'}
-        ],
-        hash:['#스킨팩','#화장솜','#순면화장솜']
     }, {
         img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
         overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
@@ -199,7 +199,6 @@ const sample_goods = [
         name:'블랙티 유스 인핸싱 앰플 50ml',
         price:'11,000', sale:'~50%', cost:'26,000',
         status:'sold_out',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
     }, {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
         overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
@@ -284,7 +283,61 @@ const modal = {
     h3 {
         font-size:24px;
         font-weight:600;
+        display:flex;
+        align-items:center;
+        button {
+            width:24px;
+            height:24px;
+            margin-left:1.3px;
+            background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
+            background-repeat:no-repeat;
+            background-size:250px;
+            background-position:-94px -206px;
+        }
     }
+    .tab_btn_wrap {
+        display:flex;
+        align-items:center;
+        .tab_wrap {
+            max-width:1180px;
+            overflow-x:auto;
+        }
+        ul {
+            overflow-x:auto;
+        }
+    }
+
+    .setFilter_sample {
+        padding-left: 10px;
+        display: inline-block;
+        cursor: pointer;
+
+        input {
+            position: absolute;
+            z-indeX: -1;
+            opacity: 0;
+        }
+
+        span {
+
+            padding: 6px 24px;
+            color: #00BC70;
+            font-weight: 600;
+            font-size: 14px;
+            border:2px solid #00BC70;
+            border-radius: 999px;
+            line-height: 1.29em;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+
+            &.active {
+            color: #FFFFFF;
+            background: #00BC70;
+            }
+        }
+        }
+
     > section {
         padding:60px 0;
         border-bottom:1px solid #eee;
@@ -302,8 +355,8 @@ const modal = {
             display:flex;
             align-items:center;
             .num {
-                width: 42px;
-                height: 48px;
+                width:42px;
+                height:48px;
                 background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
                 background-repeat:no-repeat;
                 background-size:250px;
@@ -314,20 +367,20 @@ const modal = {
                 justify-content: center;
                 &::after {
                     content: '';
-                    width: 40px;
-                    height: 1px;
+                    width:40px;
+                    height:1px;
                     background: #1D1D1D;
-                    position: absolute;
-                    left: 1px;
-                    top: 24px;
+                    position:absolute;
+                    left:1px;
+                    top:24px;
                     z-index: 2;
                     display: block;
                     opacity: 0.5;
                 }
                 span {
                     color: #FFFFFF;
-                    font-size: 24px;
-                    line-height: 0.83em;
+                    font-size: 2.4rem;
+                    line-height: 1px;
                     letter-spacing: -0.01em;
                     position: relative;
                     z-index: 1;
@@ -341,11 +394,6 @@ const modal = {
                 letter-spacing: -0.01em;
                 display: block;
             }
-        }
-        > button {
-            margin-top:20px;
-            font-size:16px;
-            text-decoration:underline;
         }
         > .list_wrap {
             margin-top:40px;
