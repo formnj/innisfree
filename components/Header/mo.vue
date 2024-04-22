@@ -18,10 +18,54 @@
                         <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
                         <Icons class="btn_search" txt="검색" />
                     </div>
-                    <Icons class="cart" txt="50" />
+                    <Icons class="barcode" txt="바코드" />
                 </div>
-                <section>
-                    <strong>최근 검색어
+                <section v-if="isValid === ''" class="keyword_sec">
+                    <strong>
+                        인기검색
+                        <span>3분전 갱신</span>
+                    </strong>
+                    <div class="keyword_wrap">
+                        <div class="keyword">
+                            <ol>
+                                <li>
+                                    <a href="#none" class="up"><em>1</em><span>장원영 네컷</span></a>
+                                </li>
+                                <li>
+                                    <a href="#none" class="up"><em>2</em><span>노세범</span></a>
+                                </li>
+                                <li>
+                                    <a href="#none" class="down"><em>3</em><span>메이크업도구</span></a>
+                                </li>
+                                <li>
+                                    <a href="#none"><em>4</em><span>그린티 신상</span></a>
+                                </li>
+                                <li>
+                                    <a href="#none"><em>5</em><span>아이라이너</span></a>
+                                </li>
+                            </ol>
+                            <ol>
+                                <li>
+                                    <a href="#none"><em>6</em><span>검색어 최대 9자까지 가능</span></a>
+                                </li>
+                                <li>
+                                    <a href="#none" class="down"><em>7</em><span>바디로션</span></a>
+                                </li>
+                                <li>
+                                    <a href="#none" class="new"><em>8</em><span>선크림</span></a>
+                                </li>
+                                <li>
+                                    <a href="#none"><em>9</em><span>신규 구매 혜택</span></a>
+                                </li>
+                                <li>
+                                    <a href="#none" class="up"><em>10</em>이벤트</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+                <section v-if="isValid === ''">
+                    <strong>최근검색어
                         <Button class="btn_txt" txt="전체삭제" @click="keyword_del_all" />
                     </strong>
                     <ul class="latest">
@@ -38,18 +82,42 @@
                         </template>
                     </ul>
                 </section>
-                <section>
-                    <strong>카테고리</strong>
-                    <ul class="category">
-                        <li v-for="item in categoryForSearchLayerData" :key="item">
-                            <a href="#none">
-                                <span class="thumb">
-                                    <em><img :src="item.imageUrl" /></em>
-                                </span>
-                                <p>{{ item.text }}</p>
+                <section v-if="isValid === ''">
+                    <div class="cate_wrap">
+                        <ul class="category">
+                            <li v-for="item in categoryForSearchLayerData" :key="item">
+                                <a href="#none">
+                                    <span class="thumb">
+                                        <em><img :src="item.imageUrl" /></em>
+                                    </span>
+                                    <p>{{ item.text }}</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section v-if="isValid !== '' && !isBool">
+                    <ul class="auto">
+                        <li v-for="(item, idx) in auto_list" :key="idx">
+                            <a :href="item.url">
+                                {{ item.text }}
+                                <span>{{ item.latest }}</span>
                             </a>
                         </li>
                     </ul>
+                </section>
+                <section v-if="isValid !== '' && !isBool">
+                    <ul class="key_item goods_list">
+                        <li v-for="(item,idx) in prd_list" :key="idx">
+                            <GoodsItem :item="item" :link="item.link" />
+                        </li>
+                    </ul>
+                </section>
+                <section v-if="isBool">
+                    <div class="pdt_no">
+                        <span></span>
+                        일치하는 결과가 없습니다.
+                    </div>
                 </section>
             </div>
             <!-- //search layer -->
@@ -87,8 +155,8 @@
                                 <ul class="list">
                                     <li v-for="(item,idx) in item.sub_menu" :key="idx">
                                         <a :href="item.link">
-                                          <img :src="item.img">
-                                          {{ item.menu }}
+                                            <img :src="item.img">
+                                            {{ item.menu }}
                                         </a>
                                     </li>
                                 </ul>
@@ -124,8 +192,8 @@
                     </div>
                     <div class="list_wrap">
                         <ul class="event_list">
-                            <li v-for="(item, idx) in sample_goods" :key="idx">
-                              <!-- <EventItem :item="item" :link="item.link" /> -->
+                            <li v-for="(item, idx) in nav_goods" :key="idx">
+                                <!-- <EventItem :item="item" :link="item.link" /> -->
                                 <a href="#none">
                                     <div>
                                         <img :src="item.img">
@@ -148,10 +216,12 @@
 </template>
 
 <script setup>
+import { modal } from '~/assets/js/common-ui'
 import {
-  mainTopBannerData,
-  categoryForSearchLayerData,
-  latestSearchWordData
+    mainTopBannerData,
+    categoryForSearchLayerData,
+    latestSearchWordData,
+    sample_goods
 } from '~/test/data/dummyData'
 
 /* sample data */
@@ -252,75 +322,82 @@ const global_menu = [
 
 const gnb_list = ['이벤트', '특가', '베스트', '쿠폰존', '쇼케이스', '라이브', 'FOR ME', '임직원샵']
 
-const sample_goods = [
-  {
-      img:("/_nuxt/assets/images/sam/category_sam_goods_list_01.png"),
-      cate:'제휴혜택',
-      title_01:'2024 새해',
-      title_02:'콜라겐크림 기획전',
-      title_03:'럭키박스 + 럭키드로우',
-  }, {
-      img:("/_nuxt/assets/images/sam/category_sam_goods_list_02.png"),
-      cate:'체험리뷰',
-      title_01:'N페이 3만원 결제시',
-      title_02:'1만원 적립!',
-      title_03:'N페이 5천+뷰티5천',
-  }, {
-      img:("/_nuxt/assets/images/sam/category_sam_goods_list_03.png"),
-      cate:'쇼핑혜택',
-      title_01:'N페이 3만원 결제시',
-      title_02:'1만원 적립!',
-      title_03:'N페이 5천+뷰티5천',
-  }, {
-      img:("/_nuxt/assets/images/sam/category_sam_goods_list_04.png"),
-      cate:'쇼핑혜택',
-      title_01:'단, 8일',
-      title_02:'선물같은 혜택',
-      title_03:'콜라보 데님 인디고 BAG',
-  }, {
-      img:("/_nuxt/assets/images/sam/category_sam_goods_list_05.png"),
-      cate:'체험리뷰',
-      title_01:'2023 디렉터파이',
-      title_02:'비타민C 앰플',
-      title_03:'TOP of TOP 선정!',
-  }, {
-      img:("/_nuxt/assets/images/sam/category_sam_goods_list_01.png"),
-      cate:'제휴혜택',
-      title_01:'2024 새해',
-      title_02:'콜라겐크림 기획전',
-      title_03:'럭키박스 + 럭키드로우',
-  }, {
-      img:("/_nuxt/assets/images/sam/category_sam_goods_list_02.png"),
-      cate:'체험리뷰',
-      title_01:'N페이 3만원 결제시',
-      title_02:'1만원 적립!',
-      title_03:'N페이 5천+뷰티5천',
-  }, {
-      img:("/_nuxt/assets/images/sam/category_sam_goods_list_03.png"),
-      cate:'쇼핑혜택',
-      title_01:'N페이 3만원 결제시',
-      title_02:'1만원 적립!',
-      title_03:'N페이 5천+뷰티5천',
-  }, {
-      img:("/_nuxt/assets/images/sam/category_sam_goods_list_04.png"),
-      cate:'쇼핑혜택',
-      title_01:'단, 8일',
-      title_02:'선물같은 혜택',
-      title_03:'콜라보 데님 인디고 BAG',
-  }, {
-      img:("/_nuxt/assets/images/sam/category_sam_goods_list_05.png"),
-      cate:'체험리뷰',
-      title_01:'2023 디렉터파이',
-      title_02:'비타민C 앰플',
-      title_03:'TOP of TOP 선정!',
-  },
+const nav_goods = [
+    {
+        img:("/_nuxt/assets/images/sam/category_sam_goods_list_01.png"),
+        cate:'제휴혜택',
+        title_01:'2024 새해',
+        title_02:'콜라겐크림 기획전',
+        title_03:'럭키박스 + 럭키드로우',
+    }, {
+        img:("/_nuxt/assets/images/sam/category_sam_goods_list_02.png"),
+        cate:'체험리뷰',
+        title_01:'N페이 3만원 결제시',
+        title_02:'1만원 적립!',
+        title_03:'N페이 5천+뷰티5천',
+    }, {
+        img:("/_nuxt/assets/images/sam/category_sam_goods_list_03.png"),
+        cate:'쇼핑혜택',
+        title_01:'N페이 3만원 결제시',
+        title_02:'1만원 적립!',
+        title_03:'N페이 5천+뷰티5천',
+    }, {
+        img:("/_nuxt/assets/images/sam/category_sam_goods_list_04.png"),
+        cate:'쇼핑혜택',
+        title_01:'단, 8일',
+        title_02:'선물같은 혜택',
+        title_03:'콜라보 데님 인디고 BAG',
+    }, {
+        img:("/_nuxt/assets/images/sam/category_sam_goods_list_05.png"),
+        cate:'체험리뷰',
+        title_01:'2023 디렉터파이',
+        title_02:'비타민C 앰플',
+        title_03:'TOP of TOP 선정!',
+    }, {
+        img:("/_nuxt/assets/images/sam/category_sam_goods_list_01.png"),
+        cate:'제휴혜택',
+        title_01:'2024 새해',
+        title_02:'콜라겐크림 기획전',
+        title_03:'럭키박스 + 럭키드로우',
+    }, {
+        img:("/_nuxt/assets/images/sam/category_sam_goods_list_02.png"),
+        cate:'체험리뷰',
+        title_01:'N페이 3만원 결제시',
+        title_02:'1만원 적립!',
+        title_03:'N페이 5천+뷰티5천',
+    }, {
+        img:("/_nuxt/assets/images/sam/category_sam_goods_list_03.png"),
+        cate:'쇼핑혜택',
+        title_01:'N페이 3만원 결제시',
+        title_02:'1만원 적립!',
+        title_03:'N페이 5천+뷰티5천',
+    }, {
+        img:("/_nuxt/assets/images/sam/category_sam_goods_list_04.png"),
+        cate:'쇼핑혜택',
+        title_01:'단, 8일',
+        title_02:'선물같은 혜택',
+        title_03:'콜라보 데님 인디고 BAG',
+    }, {
+        img:("/_nuxt/assets/images/sam/category_sam_goods_list_05.png"),
+        cate:'체험리뷰',
+        title_01:'2023 디렉터파이',
+        title_02:'비타민C 앰플',
+        title_03:'TOP of TOP 선정!',
+    },
 ]
+
+const sample_auto = [
+    {text:'그린히알루론산',url:'#none',latest:'3분전'},
+    {text:'그린티 세럼', url:'#none',latest:'3시간전'},
+    {text:'New 그린티 씨드 히알루론산 세럼', url:'#none',latest:'5일전'},
+    {text:'역대급 그티 클럽 키트', url:'#none',latest:'1주전'}
+];
 /* //sample data */
 
 onMounted(() => {
     window.addEventListener('scroll', () => {
-      if(window.scrollY > 0) document.querySelector('header').classList.add('fixed');
-      if(window.scrollY <= 0) document.querySelector('header').classList.remove('fixed');
+        if(window.scrollY > 0) document.querySelector('header').classList.add('fixed');
+        if(window.scrollY <= 0) document.querySelector('header').classList.remove('fixed');
     })
 
     document.querySelector('.btn_search').addEventListener('click',()=>{
@@ -339,8 +416,24 @@ onMounted(() => {
                 document.querySelectorAll('.nav_wrap > ul li')[index].classList.add('active');
             }
         });
-    })
+    });
+
+    document.querySelector('.search_layer .input input').addEventListener('input', auto_complete);
 });
+
+const isValid = ref('');
+const isBool = ref(false);
+const auto_list = ref([]);
+const prd_list = ref([]);
+
+const auto_complete = (e) => {
+    isValid.value = e.target.value;
+
+    auto_list.value = sample_auto.filter(e => e.text.indexOf(isValid.value) >= 0);
+    prd_list.value = sample_goods.filter(e => e.name !== undefined && e.name.indexOf(isValid.value) >= 0);
+
+    auto_list.value.length <= 0 ? isBool.value = true : isBool.value = false;
+};
 
 /* 최근검색어 삭제 */
 let key_cnt = ref(latestSearchWordData.length);
@@ -377,9 +470,9 @@ const cate_tab = (e) => {
 
 <style lang="scss" scoped>
 .docTopBanner {
-  height: 36px;
-  padding-right:21px;
-  justify-content:space-between;
+    height: 36px;
+    padding-right:21px;
+    justify-content:space-between;
 }
 header {
   padding:10px 21px 0;
@@ -408,8 +501,8 @@ header {
             gap:10px;
         }
         .search_layer {
-            background-color:#fff;
-            overflow:hidden;
+            background:rgba(0,0,0,0.6);
+            overflow:auto;
             position:fixed;
             top:0;
             right:0;
@@ -433,12 +526,18 @@ header {
                         font-size:12px;
                     }
                 }
+                span {
+                    color:#999999;
+                    font-size:12px;
+                    font-weight:300;
+                    line-height:16px;
+                }
             }
             .search {
-                padding:10px 16px 10px 21px;
+                padding:10px 16px;
                 border:0;
-                border-bottom:1px solid #ddd;
                 border-radius:0;
+                background:#fff;
                 display:flex;
                 align-items:center;
                 & > div {
@@ -466,29 +565,36 @@ header {
                     background-position:0 -40px;
                 }
                 .back {
-                  margin-right:10px;
+                    margin-right:10px;
                 }
-                .cart {
-                  margin-left:10px;
+                .barcode {
+                    margin-left:10px;
                 }
             }
             section {
-                padding:28px;
+                padding:30px 0;
+                background:#fff;
                 & + section:before {
-                    border-top:1px solid #eee;
+                    border-top:1px solid #f5f5f5;
                     content:'';
                     display:block;
-                    transform:translateY(-28px);
+                    transform:translateY(-30px);
+                }
+                strong {
+                    padding:0 22px;
+                    margin-bottom:30px;
                 }
                 ul {
+                    padding:0 22px;
+                    margin-bottom:31px;
                     display:flex;
                     flex-wrap:wrap;
+                    gap:5px;
                     &.latest {
-                        margin-top:-10px;
-                        margin-left:-5px;
+                        & + strong {
+                            margin-bottom:20px;
+                        }
                         li:not(.no_data) {
-                            margin-top:10px;
-                            margin-left:5px;
                             padding:0 15px;
                             border:1px solid #ddd;
                             border-radius:100px;
@@ -541,18 +647,178 @@ header {
                         }
                     }
                     &.category {
-                        margin-top:-14px;
-                        margin-left:-14px;
+                        padding:0 22px;
+                        margin:0;
+                        overflow:auto;
+                        flex-wrap:nowrap;
+                        gap:12px;
+                        scrollbar-width:none;
+                        &::-webkit-scrollbar {
+                            display:none;
+                        }
                         li {
-                            width:20%;
-                            padding-top:14px;
-                            padding-left:14px;
+                            .thumb {
+                                width:57px;
+                                height:57px;
+                                display:block;
+                            }
                             p {
                                 margin-top:8px;
                                 color:#888;
                                 font-size:12px;
                                 font-weight:400;
                                 text-align:center;
+                                white-space:nowrap;
+                            }
+                        }
+                    }
+                    &.auto {
+                        gap:25px;
+                        li {
+                            width:100%;
+                            a {
+                                font-size:14px;
+                                font-weight:400;
+                                display:flex;
+                                align-items:center;
+                                justify-content:space-between;
+                                span {
+                                    color:#aaa;
+                                    font-size:12px;
+                                    font-weight:400;
+                                }
+                            }
+                        }
+                    }
+                    &.key_item {
+                        margin:0;
+                        gap:3px;
+                        li {
+                            width:100%;
+                            padding:0;
+                            ::v-deep .goods_item {
+                                padding:0;
+                                display:flex;
+                                align-items:center;
+                                gap:20px;
+                                .img_wrap {
+                                    width:9rem;
+                                    .thumb {
+                                        width:9rem;
+                                        height:12rem;
+                                    }
+                                    .btnIconBox {
+                                        display:none;
+                                    }
+                                }
+                                >a {
+                                    .cont {
+                                        width:22rem;
+                                        .review_score {
+                                            display:none;
+                                        }
+                                        .price {
+                                            strong {
+                                                margin-right:5px;
+                                            }
+                                            span {
+                                                margin-right:10px;
+                                            }
+                                            em {
+                                                display:inline-block;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .pdt_no {
+                    font-size:15px;
+                    font-weight:600;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    span {
+                        width:60px;
+                        height:60px;
+                        margin:20px 0;
+                        background:url('/_nuxt/assets/images/common/MO-icon_split.png') no-repeat -65px -100px;
+                        background-size:250px auto;
+                        display:block;
+                    }
+                }
+                .cate_wrap {
+                    padding:0;
+                    margin-bottom:58px;
+                    overflow:hidden;
+                }
+                .keyword_wrap {
+                    padding:0 22px 31px;
+                    .keyword {
+                        display:flex;
+                    }
+                    ol {
+                        width:50%;
+                        display:flex;
+                        flex-wrap:wrap;
+                        gap:25px 0;
+                        li {
+                            width:100%;
+                            a {
+                                font-size:14px;
+                                font-weight:400;
+                                display:flex;
+                                align-items:center;
+                                gap:27px;
+                                em {
+                                    min-width:16px;
+                                    font-size:13px;
+                                    font-weight:600;
+                                    line-height:16px;
+                                    text-align:center;
+                                    position:relative;
+                                    &:after {
+                                        content:'';
+                                        width:8px;
+                                        height:8px;
+                                        background: url('/_nuxt/assets/images/common/MO-icon_split.png') no-repeat -10px -130px;
+                                        background-size:250px auto;
+                                        position:absolute;
+                                        top:50%;
+                                        right:-15px;
+                                        transform:translateY(-50%);
+                                    }
+                                }
+                                span {
+                                    overflow: hidden;
+                                    display: -webkit-box;
+                                    -webkit-box-orient: vertical;
+                                    -webkit-line-clamp: 1;
+                                }
+                                &.up {
+                                    em{
+                                        &:after {
+                                            background-position:0 -130px;
+                                        }
+                                    }
+                                }
+                                &.down {
+                                    em{
+                                        &:after {
+                                            background-position:-20px -130px;
+                                        }
+                                    }
+                                }
+                                &.new {
+                                    em{
+                                        &:after {
+                                            background-position:-30px -130px;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

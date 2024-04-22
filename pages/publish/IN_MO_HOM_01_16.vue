@@ -38,6 +38,7 @@
       </ul>
     </div>
   </div>
+
   <div id="sample_modal_sort" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
