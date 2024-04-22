@@ -92,7 +92,7 @@
     <!-- 이 제품 어때요 -->
     <section>
       <h2>
-        <a href="#none"><strong>주소희</strong> 님, 이 제품 어때요?</a>
+        <a href="#none"><strong>주소희</strong> 님,<br/> 이 제품 어때요?</a>
       </h2>
       <div class="swiper_wrap">
         <swiper
@@ -105,18 +105,6 @@
       </div>
     </section>
     <!-- //이 제품 어때요 -->
-
-    <!-- 혜택 -->
-    <section class="benefit">
-      <swiper
-        v-bind="swieprOpt.benefit"
-      >
-        <swiper-slide v-for="(item, idx) in sample_event" :key="idx">
-          <EventItem :item="item" />
-        </swiper-slide>
-      </swiper>
-    </section>
-    <!-- //혜택 -->
 
     <!-- 랭킹 -->
     <section>
@@ -200,7 +188,7 @@ const swieprOpt = {
   recommend04: {
     slidesPerView:2.2,
     spaceBetween:3,
-    loop: true,
+    loop: false,
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
