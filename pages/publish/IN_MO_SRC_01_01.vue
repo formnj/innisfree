@@ -100,6 +100,16 @@
         </li>
       </ul>
     </div>
+    <div class="pdt_wrap">
+      <h3>
+        <button><strong>주소희</strong>님 이 제품은 어때요?</button>
+      </h3>
+      <ul class="pdt_list">
+        <li v-for="(item, idx) in sample_goods" :key="idx">
+          <GoodsItem :item="item" :link="item.link" />
+        </li>
+      </ul>
+    </div>
   </div>
 
   <div id="sample_modal_sort" class="modal_wrap">
@@ -126,26 +136,132 @@
     <div class="overlay" @click="modal.close(this)"></div>
   </div>
 
-  <div id="sample_modal_search" class="modal_wrap">
-    <div class="modal_container">
-      <div class="modal_header">
-        <h2>상세검색</h2>
-        <button class="btn_close" @click="modal.close(this)">닫기</button>
-      </div>
-      <div class="modal_content">
-        <div>Sample Modal</div>
-      </div>
-      <div class="modal_footer">
-        <Button class="btn_big btn_type_01" txt="초기화" />
-        <Button class="btn_big btn_type_02" txt="검색" />
-      </div>
+  <div class="modal_wrap" id="sample_modal_search">
+        <div class="modal_container">
+            <div class="modal_header">
+                <h2>필터</h2>
+                <button class="btn_close" @click="modal.close(this);">닫기</button>
+            </div>
+            <div class="modal_content">
+                <dl class="sortList">
+                  <dt>혜택별</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox"><span @click="setFilter($event)">증정</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="sortList">
+                  <dt>유형별</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox"><span @click="setFilter($event)">스킨케어</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox"><span @click="setFilter($event)">메이크업</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox"><span @click="setFilter($event)">남성</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="sortList">
+                  <dt>고민별</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox"><span @click="setFilter($event)">수분/보습/속건조</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox"><span @click="setFilter($event)">잡티/피부톤</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox"><span @click="setFilter($event)">각질/피부결</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="sortList">
+                  <dt>라인별</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox"><span @click="setFilter($event)">비타C</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox"><span @click="setFilter($event)">레티놀 시카</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="sortList">
+                  <dt>기능성</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox"><span @click="setFilter($event)">자외선차단</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox"><span @click="setFilter($event)">주름개선</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox"><span @click="setFilter($event)">미백</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="sortList">
+                  <dt>공병수거</dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <label for="benefit1" class="inputChk">
+                          <input type="checkbox"><span @click="setFilter($event)">공병수거</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+            </div>
+            <div class="modal_footer">
+                <Button class="btn_big btn_reset" txt="초기화" />
+                <Button class="btn_big btn_type_02" txt="검색" />
+            </div>
+        </div>
+        <div class="overlay" @click="modal.close(this);"></div>
     </div>
-    <div class="overlay" @click="modal.close(this)"></div>
-  </div>
 </template>
 <script setup>
 import { sample_goods, sampleSlide } from '~/test/data/dummyData'
-import { modal } from '~/assets/js/common-ui'
+import { modal, setFilter } from '~/assets/js/common-ui'
 
 import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -205,9 +321,7 @@ onMounted(() => {
   };
 
   keyword_wrap.addEventListener('click', keyword_act);
-})
-
-
+});
 </script>
 <style lang="scss" scoped>
 .keyword_wrap {
@@ -240,13 +354,13 @@ onMounted(() => {
     }
   }
   .keyword {
-    width:calc(100% - 92px);
+    width:50%;
     height:16px;
     overflow:hidden;
     position:absolute;
     top:19px;
     left:50%;
-    transform:translateX(-31%);
+    transform:translateX(-45%);
     ol {
       li {
         a {
@@ -319,9 +433,11 @@ onMounted(() => {
       }
     }
     .keyword {
-      width:100%;
-      height:240px;
-      padding:30px 0;
+      width:auto;
+      height:241px;
+      padding:30px 20px;
+      margin:0 -20px;
+      border-bottom:1px solid #eee;
       overflow:auto;
       position:unset;
       transform:translateX(0);
@@ -383,22 +499,50 @@ onMounted(() => {
   }
 }
 
-.goods_list {
-  padding-bottom:30px;
-  margin:0;
-  gap:4rem 0.3rem;
-  justify-content:space-between;
-  > li {
-    width:16.5rem;
-    padding:0;
+
+.list_wrap {
+  position:relative;
+  &:after {
+    content:'';
+    width:calc(100% + 39px);
+    height:5px;
+    background:#F5F5F5;
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+  }
+  & ~ .list_wrap {
+    &:after {
+      opacity:0.5;
+    }
+  }
+  .goods_list {
+    padding-bottom:30px;
+    margin:0;
+    gap:4rem 0.3rem;
+    justify-content:space-between;
+    > li {
+      width:16.5rem;
+      padding:0;
+    }
   }
 }
 
 .event_wrap {
-  padding:30px 20px;
-  margin:0 -20px 30px;
-  border-top:5px solid #F5F5F5;
-  border-bottom:5px solid #F5F5F5;
+  padding:30px 0;
+  margin:0 0px 30px;
+  position:relative;
+  &:after {
+    content:'';
+    width:calc(100% + 39px);
+    height:5px;
+    background:#F5F5F5;
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+  }
   h3 {
     margin-bottom:20px;
     span {
@@ -460,6 +604,89 @@ onMounted(() => {
         font-size:12px;
         font-weight:300;
         line-height:16px;
+      }
+    }
+  }
+}
+
+.pdt_wrap {
+  padding-top:30px;
+  h3 {
+    margin-bottom:20px;
+    button {
+      width:100%;
+      font-size:16px;
+      font-weight:600;
+      font-family:inherit;
+      display:flex;
+      align-items:center;
+      strong {
+        color: #00BC70;
+      }
+      &:after {
+        content: "";
+        width:14px;
+        height:7px;
+        margin-left:auto;
+        background:url(/_nuxt/assets/images/common/PC-icon_split.png) no-repeat -111px -65px;
+        background-size:250px auto;
+        display:inline-block;
+        transform:rotate(-90deg);
+      }
+    }
+  }
+  .pdt_list {
+    margin-right:-20px;
+    overflow-x:scroll;
+    display:flex;
+    gap:3px;
+    li {
+      width:14rem;
+    }
+  }
+}
+
+.sortList {
+  margin-bottom:30px;
+  dt {
+    margin-bottom: 10px;
+    color: #999999;
+    font-size: 12px;
+    line-height: 1.32em;
+    letter-spacing: -0.01em;
+
+  }
+  dd {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      li {
+        label {
+          padding-left: 0;
+          input {
+            position: absolute;
+            z-indeX: -1;
+            opacity: 0;
+          }
+          span {
+            height: 30px;
+            padding: 0 20px;
+            color: #AAAAAA;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 5px;
+            background-color: #F5F5F5;
+            line-height: 1.29em;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            &.active {
+              color: #FFFFFF;
+              background:#00BC70;
+            }
+          }
+        }
       }
     }
   }
@@ -541,11 +768,34 @@ onMounted(() => {
   &#sample_modal_search {
     .modal_container {
       .modal_header {
+        button {
+          width:24px;
+          height:24px;
+          top:20px;
+          left:unset;
+          right:20px;
+          transform:unset;
+          &:before,&:after {
+            width: 100%;
+            height:1px;
+            border-top: 1px solid #222;
+            border-radius:0;
+            background:none;
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: block;
+          }
+          &:before {
+            transform:rotate(45deg);
+          }
+        }
       }
-      .modal_contnet {
+      .modal_content {
+        padding:0 26px;
       }
-      .modal_footer {
-      }
+      .modal_footer {}
     }
   }
 }

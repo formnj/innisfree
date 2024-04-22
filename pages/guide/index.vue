@@ -544,7 +544,7 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:'형민우'
     }, {
         depth:['','검색','',''],
-        id:'IN_MO_SRC_01_01', status:'',
+        id:'IN_MO_SRC_01_01', status:'ing',
         type:'component', note:'',
         sDate:'', eDate:'2024-04-24/', worker:'형민우'
     }, {

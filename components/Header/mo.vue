@@ -1064,6 +1064,7 @@ header {
                                         }
                                         .img_wrap {
                                             .thumb {
+                                                width:10rem;
                                                 height:auto;
                                                 padding-top:133%;
                                             }
