@@ -90,7 +90,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-22/' , worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
-        id:'IN_PC_HOM_01_04', status:'',
+        id:'IN_PC_HOM_01_04', status:'ing',
         type:'', note:'디자인 고도화',
         sDate:'', eDate:'2024-04-19/2024-04-16', worker:'김희경'
     }, {

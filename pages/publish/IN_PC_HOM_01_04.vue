@@ -4,12 +4,14 @@
     </div>
 
     <div class="inner">
-        <Tabs :item="[{txt:'진행중인 프로모션 전체'},{txt:'납작아이브로우/컨실러'},{txt:'클렌징오일/워터/크림'}]" :tabidx="0" />
+        <Tabs tabType="type_02" :item="[{txt:'립 ~50%'},{txt:'마스크팩 ~50%'},{txt:'클렌징 ~30%'}]" :tabidx="0" />
         <section v-for="(item, idx) in sample_data" :key="idx">
-            <h3>{{ item.sub_title_01 }}</h3>
-            <p>{{ item.sub_title_02 }}</p>
+            <h3>
+                {{ item.sub_title }}
+                <button @click="modal.open(item.notice.modal_id, 'alert');"></button>
+            </h3>
             <em>{{ item.desc }}</em>
-            <div class="timer_wrap">
+            <div class="timer_wrap" v-if="item.date">
                 <div class="num">
                     <span id="prom_day">{{item.date.day}}</span>
                 </div>
@@ -27,7 +29,7 @@
                 </div>
                 <span class="unit">초</span>
             </div>
-            <button @click="modal.open(item.notice.modal_id, 'alert');">유의사항</button>
+
             <div class="list_wrap">
                 <ul class="goods_list">
                     <li v-for="(item, idx) in sample_goods" :key="idx">
@@ -38,24 +40,13 @@
         </section>
 
         <div class="benefits_wrap">
-            <h3>특가 할인 찬스 / 사은품 증정 혜택</h3>
+            <h3>이니스프리 혜택 모음</h3>
             <div class="list_wrap">
                 <ul class="goods_list">
                     <li v-for="(item, idx) in sample_goods" :key="idx">
                     <GoodsItem :item="item" :link="item.link" />
                     </li>
                 </ul>
-            </div>
-            <div class="paging">
-                <div>
-                    <a href="#none" class="first">처음으로</a>
-                    <a href="#none">1</a>
-                    <a href="#none">2</a>
-                    <a href="#none" class="active">3</a>
-                    <a href="#none">4</a>
-                    <a href="#none">5</a>
-                    <a href="#none" class="last">마지막으로</a>
-                </div>
             </div>
         </div>
 
@@ -115,9 +106,20 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 
 const sample_data = [
     {
-        sub_title_01 :'납작브로우 컨실러',
-        sub_title_02 :'2개이상 구매시 40%',
-        desc:'납작 아이 브로우 펜슬/라이트 피팅 컨실러 1개 30%, 2개 이상 구매시 40%',
+        sub_title :'립 2개 이상 50%',
+        desc:'립 카테고리 전 제품 1개 구매시 30% 2개 이상 구매시 50% 반값!!',
+        notice:{
+            modal_id:'sample_01',
+            title:'“납작아이브로우/컨실러” 기획전 제품 구매 시 유의사항',
+            exp:'동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능',
+            period:'기간 : 4/14(일) - 5/1(수) 23:59:00까지',
+            exception:''
+        },
+    },
+
+    {
+        sub_title :'마스크팩 10개 구매시 50%',
+        desc:'에너지마스크팩 10개 담으면 50% 반값!!',
         date:{
             day:15,
             hour:10,
@@ -133,9 +135,8 @@ const sample_data = [
         },
     },
     {
-        sub_title_01 :'클렌징오일/워터/크림',
-        sub_title_02 :'2개이상 구매시 40%',
-        desc:'클렌징오일/워터/크림 1개 구매 시 30%, 2개 이상 구매 시 40%',
+        sub_title :'클렌징폼 3개 이상 구매시 30% 할인',
+        desc:'클렌징폼 저렴하게 구할 수 있는 절호의 찬스!',
         date:{
             day:14,
             hour:15,
@@ -161,13 +162,6 @@ const sample_goods = [
         name:'히알루론 수분 선크림 SPF 50+ PA++++',
         price:'11,000', sale:'~50%', cost:'26,000',
         status:'sold_out',
-        sticker:[
-            {txt:'type01', type:'type01'},
-            {txt:'type02', type:'type02'},
-            {txt:'type03', type:'type03'},
-            {txt:'type04', type:'type04'}
-        ],
-        hash:['#스킨팩','#화장솜','#순면화장솜']
     }, {
         img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
         overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
@@ -199,7 +193,6 @@ const sample_goods = [
         name:'블랙티 유스 인핸싱 앰플 50ml',
         price:'11,000', sale:'~50%', cost:'26,000',
         status:'sold_out',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
     }, {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
         overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
@@ -284,6 +277,14 @@ const modal = {
     h3 {
         font-size:24px;
         font-weight:600;
+        button {
+            width:24px;
+            height:24px;
+            background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
+            background-repeat:no-repeat;
+            background-size:250px;
+            background-position:-117px -142px;;
+        }
     }
     > section {
         padding:60px 0;
@@ -343,9 +344,7 @@ const modal = {
             }
         }
         > button {
-            margin-top:20px;
-            font-size:16px;
-            text-decoration:underline;
+
         }
         > .list_wrap {
             margin-top:40px;
