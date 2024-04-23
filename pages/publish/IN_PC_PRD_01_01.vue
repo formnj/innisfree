@@ -17,7 +17,7 @@
 					<li><a href="#none">판매금액순</a></li>
 				</ul>
 			</div>
-            <button @click="modal.open('sample_modal', 'detailSearch');">상세검색</button>
+            <button @click="modal.open('detailSearch', 'detailSearch');">상세검색</button>
         </div>
     </div>
     <div class="list_wrap">
@@ -38,7 +38,7 @@
             <a href="#none" class="last">마지막으로</a>
         </div>
     </div>
-    <div class="modal_wrap" id="sample_modal">
+    <div class="modal_wrap" id="detailSearch">
         <div class="modal_container">
             <div class="modal_header">
                 <h2>상세검색</h2>

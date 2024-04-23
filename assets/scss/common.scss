@@ -223,6 +223,10 @@ html {
       padding: 20px;
       border-bottom: 1px solid #eee;
 
+      .tooltip {
+        vertical-align:middle;
+      }
+
       .btn_close {
         width: 24px;
         height: 24px;
@@ -392,6 +396,21 @@ html {
     }
   }
 
+  &[class*="layer"] {
+    overflow:initial;
+    position:absolute;
+    .modal_container {
+      max-height:initial;
+      box-shadow:5px 5px 20px rgba(0, 0, 0, 0.15);
+      top:0;
+      left:0;
+      transform:translate(0,0);
+    }
+    .overlay {
+      display:none;
+    }
+  }
+
   //쇼핑로그 공통 스타일
   &.detailSearch {
     .modal_container {
@@ -423,7 +442,7 @@ html {
 
       .modal_content {
         padding: 40px;
-        flex: none;
+        flex: 0 auto;
       }
 
       .modal_footer {
@@ -635,5 +654,41 @@ ul.select_list {
         flex-wrap: wrap;
       }
     }
+  }
+}
+
+/* bullet list */
+ul.bullet_list {
+  > li {
+    padding-left:11px;
+    position:relative;
+    & + li {
+      margin-top:5px;
+    }
+    &:before {
+      width:3px;
+      height:3px;
+      background-color:#999e9c;
+      border-radius:50%;
+      content:'';
+      position:absolute;
+      top:12px;
+      left:0;
+      display:block;
+    }
+  }
+}
+
+/* icon button */
+.tootip {
+  em {
+    width:24px;
+    height:24px;
+    padding:0;
+    font-size:0;
+    background-image:url('~/assets/images/common/icon_split.png');
+    background-position:-94px -206px;
+    background-size:250px auto;
+    display:block;
   }
 }
