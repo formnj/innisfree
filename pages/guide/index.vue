@@ -85,9 +85,9 @@ const PC_arry = ([
         sDate:'2024-04-15', eDate:'2024-04-15', worker:'김희경'
     }, {
         depth:['홈','','',''],
-        id:'IN_PC_HOM_01_01', status:'ing',
+        id:'IN_PC_HOM_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-22/' , worker:'이종환'
+        sDate:'', eDate:'2024-04-22/2024-04-22' , worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
         id:'IN_PC_HOM_01_04', status:'ing',
@@ -554,9 +554,9 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['홈','','',''],
-        id:'IN_MO_HOM_01_01', status:'ing',
+        id:'IN_MO_HOM_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-22/', worker:'이종환'
+        sDate:'', eDate:'2024-04-22/2024-04-22', worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
         id:'IN_MO_HOM_01_04', status:'ing',

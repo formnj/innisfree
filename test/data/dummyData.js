@@ -271,7 +271,6 @@ export const sample_goods = [
         cate:'NEW',
         name:'그린티 씨드 히알루론산 세렘 80ml',
         price:'44,800', sale:'~20%', cost:'56,000',
-        status:'coming_soon',
         sticker:[
             {txt:'1+1', type:'type02'},
             {txt:'뷰티포인트전용', type:'type01'},
@@ -295,7 +294,6 @@ export const sample_goods = [
         cate:'BEST',
         name:'블랙티 유스 인핸싱 앰플 50ml',
         price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
         hash:['#스킨팩','#화장솜','#순면화장솜']
     }, {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
