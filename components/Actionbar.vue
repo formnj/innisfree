@@ -165,7 +165,7 @@ onMounted(() => {
       btn_icon_history.classList.add('active')
       top_btn.classList.add('active');
     } else if(nextScrollTop<20){
-        console.log(nextScrollTop)
+        // console.log(nextScrollTop)
         top_btn.classList.remove('active');
         btn_icon_history.classList.remove('active')
         pdtSortTab_wrap.classList.add('active')
