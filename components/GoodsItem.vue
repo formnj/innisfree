@@ -32,7 +32,7 @@
                 <!-- Hash -->
                 <Hash v-if="item.hash" :item="item.hash" />
                 <!-- //Hash -->
-                <button v-if="item.giveaway">
+                <button v-if="item.giveaway" class="giveaway" @click="modal.open(item.giveaway.modal_id, 'alert');">
                   <img :src="item.giveaway.img_01">
                   <img :src="item.giveaway.img_02">
                   <img :src="item.giveaway.img_03">
@@ -44,6 +44,12 @@
             </div>
         </a>
     </div>
+
+
+
+
+
+
 </template>
 
 <script setup>
@@ -54,6 +60,43 @@ const props = defineProps({
         default: '#none'
     }
 })
+
+const modal = {
+    open: (_target, _type) => {
+        document.getElementById(_target).classList.add('active', _type);
+        const body = document.querySelector("body");
+        const pageY = document.body.scrollTop || document.documentElement.scrollTop;
+
+        if (!body.hasAttribute("scrollY")) {
+            body.setAttribute("scrollY", String(pageY));
+            body.classList.add("lockbody");
+        }
+        body.addEventListener("touchmove", modal.lockScrollHandle, { passive: false });
+    }, close: (_target) => {
+        event.target.closest('.modal_wrap').setAttribute('class','modal_wrap');
+        const body = document.querySelector("body");
+
+        if (body.hasAttribute("scrollY")) {
+            body.classList.remove("lockbody");
+            body.scrollTop = Number(body.getAttribute("scrollY"));
+            body.removeAttribute("scrollY");
+        }
+
+        body.removeEventListener("touchmove", modal.lockScrollHandle, { passive: true });
+    }, lockScrollHandle(event) {
+        const e = event || window.event;
+
+        // 멀티 터치는 터치 되게 한다
+        if (e.touches.length > 1) return;
+
+        // event 초기화 속성이 있음 초기화
+        e.preventDefault();
+    }
+}
+
+
+
+
 </script>
 
 <style lang="scss">
@@ -200,14 +243,16 @@ const props = defineProps({
                 text-decoration:line-through;
             }
         }
-        > button {
+        > button.giveaway {
           width:121px;
           height:60px;
-          padding:9px;
+          padding:8px;
           margin-top:15px;
           border: 1px solid #eee;
+          position:relative;
+          z-index:2;
           display:flex;
-          gap:10px;
+          gap:3px;
           img {
             width:32.3px;
             display:block;

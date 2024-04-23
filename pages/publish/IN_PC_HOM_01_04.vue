@@ -32,6 +32,21 @@
             <h3>
                 {{ item.sub_title }}
                 <button @click="modal.open(item.notice.modal_id, 'alert');"></button>
+                <div class="modal_wrap" id="sample_01">
+                    <div class="modal_container">
+                        <div class="modal_header">
+                            <h2>프로모션 제품 구매시 유의사항</h2>
+                            <button class="btn_close" @click="modal.close(this);">닫기</button>
+                        </div>
+                        <div class="modal_content">
+                            <div>
+                                <p>{{sample_data[0].notice.exp}}</p>
+                                <p>{{sample_data[0].notice.period}}</p>
+                                <p v-if="sample_data[0].notice.exception">{{sample_data[0].notice.exception}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </h3>
             <em>{{ item.desc }}</em>
             <div class="timer_wrap" v-if="item.date">
@@ -56,7 +71,7 @@
             <div class="list_wrap">
                 <ul class="goods_list">
                     <li v-for="(item, idx) in sample_goods" :key="idx">
-                    <GoodsItem :item="item" :link="item.link" />
+                        <GoodsItem :item="item" :link="item.link" />
                     </li>
                 </ul>
             </div>
@@ -74,39 +89,54 @@
         </div>
 
 
-        <div class="modal_wrap" id="sample_01">
+
+        <div class="modal_wrap" id="giveaway_01">
             <div class="modal_container">
                 <div class="modal_header">
-                    <h2>{{sample_data[0].notice.title}}</h2>
+                    <h2>증정품 안내</h2>
                     <button class="btn_close" @click="modal.close(this);">닫기</button>
                 </div>
                 <div class="modal_content">
-                    <div>
-                        <p>{{sample_data[0].notice.exp}}</p>
-                        <p>{{sample_data[0].notice.period}}</p>
-                        <p v-if="sample_data[0].notice.exception">{{sample_data[0].notice.exception}}</p>
-                    </div>
+                    <dl>
+                        <dt><img src="../../assets/images/sam/giveaway_alert_01.png"></dt>
+                        <dd>
+                            <div>
+                                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+                                <em>24.3.25 ~ 24.3.31</em>
+                            </div>
+                            <span>1개 구매시 1개 증정</span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="../../assets/images/sam/giveaway_alert_02.png"></dt>
+                        <dd>
+                            <div>
+                                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+                                <em>24.3.25 ~ 24.3.31</em>
+                            </div>
+                            <span>1개 구매시 1개 증정</span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="../../assets/images/sam/giveaway_alert_03.png"></dt>
+                        <dd>
+                            <div>
+                                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+                                <em>24.3.25 ~ 24.3.31</em>
+                            </div>
+                            <span>1개 구매시 1개 증정</span>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="modal_footer">
+                    <Button txt="확인" class="btn_type_02" />
                 </div>
             </div>
             <div class="overlay" @click="modal.close(this);"></div>
         </div>
 
-        <div class="modal_wrap" id="sample_02">
-            <div class="modal_container">
-                <div class="modal_header">
-                    <h2>{{sample_data[1].notice.title}}</h2>
-                    <button class="btn_close" @click="modal.close(this);">닫기</button>
-                </div>
-                <div class="modal_content">
-                    <div>
-                        <p>{{sample_data[1].notice.exp}}</p>
-                        <p>{{sample_data[1].notice.period}}</p>
-                        <p v-if="sample_data[1].notice.exception">{{sample_data[1].notice.exception}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="overlay" @click="modal.close(this);"></div>
-        </div>
+
+
     </div>
 </template>
 
@@ -219,9 +249,10 @@ const sample_goods = [
         price:'11,000', sale:'~50%', cost:'26,000',
         status:'sold_out',
         giveaway: {
+            modal_id:'giveaway_01',
             img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
             img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
-            img_03:("/_nuxt/assets/images/sam/sam_pre_03.png"),
+            img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
         }
     }, {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
@@ -240,9 +271,10 @@ const sample_goods = [
         price:'11,000', sale:'~50%', cost:'26,000',
         hash:['#스킨팩','#화장솜','#순면화장솜'],
         giveaway: {
+            modal_id:'giveaway_02',
             img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
             img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
-            img_03:("/_nuxt/assets/images/sam/sam_pre_03.png"),
+            img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
         }
     },
     {
@@ -264,7 +296,7 @@ const sample_goods = [
         giveaway: {
             img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
             img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
-            img_03:("/_nuxt/assets/images/sam/sam_pre_03.png"),
+            img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
         },
     },
 ]
@@ -273,7 +305,6 @@ const sale_menu = [
     "립 ~50%","마스크팩 ~50%","클렌징 ~30%","립 ~50%","마스크팩 ~50%","클렌징 ~30%","마스크팩 ~50%","클렌징 ~30%","립 ~50%","마스크팩 ~50%","클렌징 ~30%",
 ]
 
-console.log(sale_menu)
 const modal = {
     open: (_target, _type) => {
         document.getElementById(_target).classList.add('active', _type);
@@ -351,7 +382,7 @@ onMounted(() => {
         font-weight:600;
         display:flex;
         align-items:center;
-        button {
+        > button {
             width:24px;
             height:24px;
             margin-left:1.3px;
@@ -509,7 +540,7 @@ onMounted(() => {
                 }
                 span {
                     color: #FFFFFF;
-                    font-size: 2.4rem;
+                    font-size: 24px;
                     line-height: 1px;
                     letter-spacing: -0.01em;
                     position: relative;
@@ -538,14 +569,68 @@ onMounted(() => {
     }
     .modal_wrap.alert {
         .modal_container  {
-            width:764px;
+            min-width:600px;
+            box-shadow:5px 5px 8px 0 rgba(0, 0, 0, 0.5);
+            .modal_header {
+                border-bottom:0px;
+                h2 {
+                    font-size:16px;
+                    font-weight:600;
+                }
+            }
             .modal_content {
                 > div {
                      p {
-                        color:#222;
-                        font-size:16px;
-                        line-height:29px;
+                        color:#666;
+                        font-size:13px;
+                        line-height:20px;
                      }
+                }
+            }
+        }
+        &[id^="giveaway_"]{
+            .modal_container {
+                width:500px;
+                .modal_content {
+                    display:flex;
+                    flex-direction:column;
+                    gap:15px;
+                    dl {
+                        border:1px solid #F5F5F5;
+                        display:flex;
+                        gap:16px;
+                        dt {
+                                width:100px;
+                                height:133px;
+                                background:#eee;
+                            img {
+
+                            }
+                        }
+                        dd {
+                            padding:18px 0;
+                            display:flex;
+                            flex-direction:column;
+                            justify-content:space-between;
+                            div {
+                                p {
+                                    margin-bottom:5px;
+                                    font-size:14px;
+                                    font-weight:400;
+                                }
+                                em {
+                                    color:#666;
+                                    font-size:12px;
+                                    font-weight:300;
+                                }
+                            }
+                            span {
+                                font-size:14px;
+                                font-weight:400;
+                            }
+
+                        }
+                    }
                 }
             }
         }
