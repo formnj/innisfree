@@ -42,15 +42,20 @@
       </div>
   </div>
 
+  <div class="no_pdt">
+      <span></span>
+      일치하는 결과가 없습니다.
+  </div>
+
   <div class="title_wrap">
     <h2>
       <span class="pdt_count">제품 <strong>23</strong></span>
     </h2>
     <div class="pdtSortTab_wrap">
       <div class="sortTab">
-        <button class="btn_dropdown" @click="modal.open('sample_modal_sort', 'bottom')">랭킹순</button>
+        <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom')">랭킹순</button>
       </div>
-      <button @click="modal.open('sample_modal_search', 'bottom')">필터</button>
+      <button @click="modal.open('modal_search', 'bottom')">필터</button>
     </div>
   </div>
 
@@ -62,6 +67,7 @@
         </li>
       </ul>
     </div>
+
     <div class="event_wrap">
       <h3>
         <span>연관이벤트 <strong>5</strong></span>
@@ -93,6 +99,7 @@
         </swiper-slide>
       </swiper>
     </div>
+
     <div class="list_wrap">
       <ul class="goods_list">
         <li v-for="(item, idx) in sample_goods" :key="idx">
@@ -100,19 +107,20 @@
         </li>
       </ul>
     </div>
+
     <div class="pdt_wrap">
       <h3>
         <button><strong>주소희</strong>님 이 제품은 어때요?</button>
       </h3>
       <ul class="pdt_list">
-        <li v-for="(item, idx) in sample_goods" :key="idx">
+        <li v-for="(item, idx) in sample_pdt" :key="idx">
           <GoodsItem :item="item" :link="item.link" />
         </li>
       </ul>
     </div>
   </div>
 
-  <div id="sample_modal_sort" class="modal_wrap">
+  <div id="modal_sort" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
         <button class="btn_close" @click="modal.close(this)"></button>
@@ -136,7 +144,7 @@
     <div class="overlay" @click="modal.close(this)"></div>
   </div>
 
-  <div class="modal_wrap" id="sample_modal_search">
+  <div id="modal_search" class="modal_wrap">
         <div class="modal_container">
             <div class="modal_header">
                 <h2>필터</h2>
@@ -276,6 +284,45 @@ definePageMeta({
   layout: 'mo-category'
 });
 
+const sample_pdt = [
+    {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'50%', cost:'26,000',
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+    }, {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+        cate:'NEW',
+        name:'그린티 씨드 히알루론산 세렘 80ml',
+        price:'44,800', sale:'20%', cost:'56,000',
+        hash:['#주름개선기능','#콜라겐크림']
+    }, {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+        name:'BEST 블랙티 유스 앰플 30mL + 블랙티 크림 50mL',
+        price:'44,800', sale:'20%', cost:'56,000',
+        hash:['#주름개선기능','#콜라겐크림']
+    }, {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'50%', cost:'26,000',
+        hash:['#주름개선기능','#콜라겐크림']
+    }, {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'50%', cost:'26,000',
+        hash:['#주름개선기능','#콜라겐크림']
+    },
+    {
+        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        cate:'BEST',
+        name:'블랙티 유스 인핸싱 앰플 50ml5',
+        price:'11,000', sale:'50%', cost:'26,000',
+        hash:['#주름개선기능','#콜라겐크림']
+    }
+];
+
 onMounted(() => {
   /* keyword rolling */
   const keyword_pos = document.querySelector('.search_area ol'),
@@ -327,8 +374,8 @@ onMounted(() => {
 .keyword_wrap {
   position:relative;
   h2 {
-    padding:17px 21px;
-    margin:0 -21px;
+    padding:17px 20px;
+    margin:0 -20px;
     border-top:1px solid #eee;
     border-bottom:1px solid #eee;
     button {
@@ -378,7 +425,7 @@ onMounted(() => {
                 content:'';
                 width:8px;
                 height:8px;
-                background: url('/_nuxt/assets/images/common/MO-icon_split.png') no-repeat -10px -130px;
+                background: url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -10px -130px;
                 background-size:250px auto;
                 position:absolute;
                 top:50%;
@@ -500,6 +547,36 @@ onMounted(() => {
 }
 
 
+.no_pdt {
+  padding:20px 0 50px;
+  margin-top:30px;
+  font-size:15px;
+  font-weight:600;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  &:after {
+    content:'';
+    width:calc(100% + 39px);
+    height:5px;
+    background:#F5F5F5;
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+  }
+  span {
+      width:60px;
+      height:60px;
+      margin:20px 0;
+      background:url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -65px -100px;
+      background-size:250px auto;
+      display:block;
+  }
+}
+
 .list_wrap {
   position:relative;
   &:after {
@@ -525,6 +602,11 @@ onMounted(() => {
     > li {
       width:16.5rem;
       padding:0;
+      ::v-deep .goods_item {
+        .btnIconBox {
+          left:0;
+        }
+      }
     }
   }
 }
@@ -640,8 +722,42 @@ onMounted(() => {
     overflow-x:scroll;
     display:flex;
     gap:3px;
+    scrollbar-width:none;
+    &::-webkit-scrollbar {
+        display:none;
+    }
     li {
       width:14rem;
+      position:relative;
+      ::v-deep .goods_item {
+        .img_wrap {
+          position:relative;
+          .thumb {
+            width:14rem;
+          }
+          .btnIconBox {
+            left:unset;
+            bottom:8px;
+            right:8px;
+            justify-content:end;
+            li {
+              &:first-child {
+                display:none;
+              }
+              &:last-child {
+                display:none;
+              }
+            }
+          }
+        }
+        .cont {
+          margin-top:15px;
+          margin-right:10px;
+          .review_score {
+            display:none;
+          }
+        }
+      }
     }
   }
 }
@@ -693,7 +809,7 @@ onMounted(() => {
 }
 
 .modal_wrap {
-  &#sample_modal_sort {
+  &#modal_sort {
     .modal_container {
       border-top-left-radius: 20px 20px;
       border-top-right-radius: 20px 20px;
@@ -765,7 +881,7 @@ onMounted(() => {
       }
     }
   }
-  &#sample_modal_search {
+  &#modal_search {
     .modal_container {
       .modal_header {
         button {
