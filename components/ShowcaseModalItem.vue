@@ -4,7 +4,6 @@
       <img :src="item.img" alt="">
       <pre class="title">{{ item.title }}</pre>
     </a>
-    <Button class="btn_min_outline" txt="전체보기" />
   </div>
 </template>
 <script setup>
@@ -59,32 +58,6 @@ const props = defineProps({
         height: 1.6rem;
         background: url('~/assets/mo_images/common/icon_split.png') -17rem -10rem / 25rem auto no-repeat;
         display: block;
-      }
-    }
-  }
-
-  :deep(.btn_min_outline) {
-    background-color: #fff !important;
-    border-radius: .1rem;
-    border: 0;
-    position: absolute;
-    bottom: 3rem;
-    right: 2.1rem;
-    z-index: 2;
-
-    em {
-      font-weight: 600;
-      color: #666;
-      display: inline-flex;
-      align-items: center;
-
-      &:after {
-        content: '';
-        margin-left: .5rem;
-        width: 1.6rem;
-        height: 1.6rem;
-        background: url('~/assets/mo_images/common/icon_split.png') -12.5rem -7rem / 25rem auto no-repeat;
-        display: inline-block;
       }
     }
   }

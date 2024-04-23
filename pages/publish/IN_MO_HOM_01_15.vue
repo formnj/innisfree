@@ -121,6 +121,7 @@
 
   <div class="showcase">
     <ShowcaseModalItem v-for="(item, idx) in sampleShowcase.slice(0,1)" :key="idx" :item="item" :link="item.link"/>
+    <Button class="btn_min_outline" txt="전체보기" />
   </div>
 
 </template>
@@ -357,5 +358,32 @@ section {
 
 .showcase {
   margin-bottom: -9rem;
+  position: relative;
+
+  :deep(.btn_min_outline) {
+    background-color: #fff !important;
+    border-radius: .1rem;
+    border: 0;
+    position: absolute;
+    bottom: 3rem;
+    right: 2.1rem;
+    z-index: 2;
+
+    em {
+      font-weight: 600;
+      color: #666;
+      display: inline-flex;
+      align-items: center;
+
+      &:after {
+        content: '';
+        margin-left: .5rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: url('~/assets/mo_images/common/icon_split.png') -12.5rem -7rem / 25rem auto no-repeat;
+        display: inline-block;
+      }
+    }
+  }
 }
 </style>
