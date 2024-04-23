@@ -1,74 +1,136 @@
 <template>
   <div class="post_item">
-    <a :href="props.link">
+    <a href="#none">
+      <span class="thumb">
+        <img :src="item.img" alt="">
+      </span>
       <span class="info">
-        <Sticker :item="item.sticker" />
-        <span class="title">{{ item.title }}</span>
+        <span class="desc">
+          <span class="title">{{  item. title  }}</span>
+          <span class="editor">
+              <img :src="item.editor.photo">
+              <span class="info">
+                <em>{{ item.editor.name }}</em>
+                <span>{{ item.editor.type }}</span>
+              </span>
+          </span>
+        </span>
         <span class="post_icons">
           <span class="i view">{{ item.view.cnt }}</span>
           <span class="i like">{{ item.view.like }}</span>
           <span class="i cmnt">{{ item.view.cmnt }}</span>
         </span>
       </span>
-      <span class="thumb">
-        <img :src="item.img" alt="">
-      </span>
     </a>
+    <button class="btn_like" @click="setFilter">좋아요</button>
   </div>
 </template>
 <script setup>
+import { setFilter } from '/assets/js/common-ui'
 const props = defineProps({
     item: {},
-    link: {
-        type: String,
-        default: '#none'
-    },
 })
 </script>
 <style lang="scss" scoped>
 .post_item {
-  padding: 0 2.1rem 2.5rem;
-  border-bottom: 1px solid #f5f5f5;
-  a {
-    display: flex;
-    justify-content: space-between;
+  position: relative;
 
-    & > span {
-      display: block;
+  & > span {
+    display: block;
+  }
 
-      &.info {
-        width: calc(100% - 9.2rem);
-        padding-right: 1.6rem;
+  .thumb {
+    position: relative;
 
-        .title {
-          height: 4.4rem;
-          margin-top: .6rem;
-          font-size: 1.6rem;
-          line-height: 2.2rem;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2;
-          overflow: hidden;
-        }
-      }
-
-      &.thumb {
-        width: 9.2rem;
-        height: 9.2rem;
-      }
+    img {
+      vertical-align: top;
     }
   }
 
-  :deep(.post_icons) {
-    margin-top: 1.2rem;
-    gap: 0 .8rem;
-    padding-top: 0;
-    border-top: 0;
+  & a>.info {
+    padding: 1.5rem 1.5rem 0 0;
+    display: block;
+    box-sizing: border-box;
 
-    .i {
-      gap: 0 .2rem;
-      justify-content: flex-start;
+    .desc {
+      height: 8rem;
+      display: block;
+
+      .title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: 1.8rem;
+        color: #000;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+
+      .editor {
+        margin-top: .8rem;
+        gap: 0 .8rem;
+        display: flex;
+
+        img {
+          width: 3.5rem;
+          height: 3.5rem;
+        }
+
+        .info {
+          gap: .5rem 0;
+          display: flex;
+          flex-direction: column;
+          font-size: 1.2rem;
+          color: #999;
+
+          em {
+            font-size: 1.3rem;
+            color: #666;
+          }
+
+          span {
+            height: 1.6rem;
+            line-height: 1.6rem;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+          }
+        }
+      }
     }
+  }
+}
+
+.btn_like {
+  width: 3.4rem;
+  height: 3.4rem;
+  font-size: 0;
+  position: absolute;
+  top: 13.3rem;
+  right: .2rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background-image: url('/assets/mo_images/common/icon_split.png');
+    background-position: -15rem -7rem;
+    background-size: 25rem auto;
+    background-repeat: no-repeat;
+  }
+
+  &.active:before {
+    background-position: -18rem -7rem;
   }
 }
 </style>
