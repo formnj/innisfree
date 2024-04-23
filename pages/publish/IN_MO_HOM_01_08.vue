@@ -12,9 +12,9 @@
     </div>
 
     <div class="list_wrap">
-      <ul class="topics_list">
-        <li v-for="(item, idx) in sampleTopics" :key="idx" class="topic">
-          <TopicItem  :item="item" :link="link" />
+      <ul class="post_list">
+        <li v-for="(item, idx) in samplePost" :key="idx" class="topic">
+          <PostItem  :item="item" :link="link" />
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
 
 <script setup>
 import { modal } from '~/assets/js/common-ui.js'
-import { sampleTopics } from '/test/data/dummyData'
+import { samplePost } from '/test/data/dummyData'
 definePageMeta({
   layout: 'mo-default'
 })
@@ -174,7 +174,7 @@ definePageMeta({
   }
 }
 
-.topics_list {
+.post_list {
   gap: 3rem .3rem;
   display: flex;
   flex-wrap: wrap;
