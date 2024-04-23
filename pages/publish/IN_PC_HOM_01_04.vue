@@ -4,12 +4,30 @@
     </div>
 
     <div class="inner">
-        <div class="tab_btn_wrap">
-            <Tabs tabType="type_02" :item="[{txt:'립 ~50%'},{txt:'마스크팩 ~50%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'}]" :tabidx="0" />
-            <label for="skin1" class="setFilter_sample">
-                <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
-            </label>
+        <div class="tab_wrap">
+            <ul class="type_02">
+                <li v-for="(name, idx) in sale_menu" :key="idx" class="tab_title">
+                    <Button :txt="name" @click="tab_click($event)"/>
+                </li>
+                <li class="benefit">
+                    <label for="skin1" class="setFilter_sample">
+                        <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
+                    </label>
+                </li>
+            </ul>
+            <div class="sticky_menu_wrap">
+                <ul class="type_02">
+                    <li v-for="(name, idx) in sale_menu" :key="idx" class="tab_title">
+                        <Button :txt="name" @click="tab_click($event)" />
+                    </li>
+                </ul>
+                <label for="skin1" class="setFilter_sample">
+                        <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
+                </label>
+            </div>
         </div>
+
+
         <section v-for="(item, idx) in sample_data" :key="idx">
             <h3>
                 {{ item.sub_title }}
@@ -160,6 +178,7 @@ const sample_data = [
 ]
 
 
+
 const sample_goods = [
     {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
@@ -235,6 +254,11 @@ const sample_goods = [
     },
 ]
 
+const sale_menu = [
+    "립 ~50%","마스크팩 ~50%","클렌징 ~30%","립 ~50%","마스크팩 ~50%","클렌징 ~30%","마스크팩 ~50%","클렌징 ~30%","립 ~50%","마스크팩 ~50%","클렌징 ~30%",
+]
+
+console.log(sale_menu)
 const modal = {
     open: (_target, _type) => {
         document.getElementById(_target).classList.add('active', _type);
@@ -269,6 +293,33 @@ const modal = {
 }
 /* //component sample data */
 
+const tab_click = (event)=>{
+    let tab_title = document.querySelectorAll('.tab_title')
+    tab_title.forEach((a)=>{
+        a.classList.remove('current')
+    })
+    const target = event.currentTarget;
+    target.parentNode.classList.add('current');
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', () => {
+        const target = document.querySelector('.tab_wrap > .type_02');
+        const y = window.scrollY
+
+        if (y >=200) {
+            target.style.display="none";
+            document.querySelector('.title_wrap').style.display="none";
+            document.querySelector('.sticky_menu_wrap').style.display="flex";
+
+        }
+        else {
+            document.querySelector('.title_wrap').style.display="block";
+            target.style.display="flex";
+            document.querySelector('.sticky_menu_wrap').style.display="none";
+        }
+    })
+})
 
 
 
@@ -277,7 +328,7 @@ const modal = {
 
 <style lang="scss" scoped>
 .title_wrap {
-  padding: 60px 20px;
+  padding: 60px 20px 10px 20px;
 }
 .inner {
     h3 {
@@ -295,20 +346,84 @@ const modal = {
             background-position:-94px -206px;
         }
     }
-    .tab_btn_wrap {
-        display:flex;
-        align-items:center;
-        .tab_wrap {
-            max-width:1180px;
-            overflow-x:auto;
-        }
+
+    .tab_wrap {
+        height:100%;
+        margin-bottom:40px;
+        padding:20px 0;
+        background:#fff;
+        position:sticky;
+        top:81px;
+        z-index:10;
         ul {
-            overflow-x:auto;
+            display:flex;
+            &.type_02 {
+                margin-top:-10px;
+                margin-left:-10px;
+                flex-wrap:wrap;
+                li {
+                    padding-top:10px;
+                    padding-left:10px;
+                    flex:0 auto;
+                        &::v-deep > * {
+                        height:auto;
+                        font-size:14px;
+                        background-color:#f5f5f5;
+                        border-color:#f5f5f5;
+                        border-radius:999px;
+                        em {
+                            padding:6px 20px;
+                            color:#999e9c;
+                            white-space:nowrap;
+                        }
+                        }
+                        &.current {
+                        &::v-deep > * {
+                            background-color:#fff;
+                            border-color:#000;
+                            em {
+                            color:#000;
+                            font-weight:600;
+                            }
+                        }
+                    }
+                }
+            }
+            li {
+                > * {
+                    border:1px solid #eee;
+                }
+                &.benefit {
+                    > * {
+                        border-color:transparent !important;
+                        background-color:#fff !important;
+                    }
+                }
+            }
+        }
+        .sticky_menu_wrap {
+            width:100%;
+            height:100%;
+            margin-left:-10px;
+            display:none;
+            align-items:center;
+            justify-content:space-between;
+            overflow:hidden;
+            ul {
+                max-width:94%;
+                overflow-x:auto;
+                white-space: nowrap;
+                flex-wrap:nowrap;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
         }
     }
 
+
+
     .setFilter_sample {
-        padding-left: 10px;
         display: inline-block;
         cursor: pointer;
 
@@ -336,11 +451,11 @@ const modal = {
             background: #00BC70;
             }
         }
-        }
+    }
 
     > section {
         padding:60px 0;
-        border-bottom:1px solid #eee;
+        border-top:1px solid #eee;
         p {
             font-size:24px;
             font-weight:600;
@@ -400,6 +515,7 @@ const modal = {
         }
     }
     >.benefits_wrap {
+        border-top:1px solid #eee;
         padding:60px 0;
         h3 {
           margin-bottom:40px;
