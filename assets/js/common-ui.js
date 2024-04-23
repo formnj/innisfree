@@ -5,13 +5,16 @@ export const modal = {
     const body = document.querySelector("body");
     const pageY = document.body.scrollTop || document.documentElement.scrollTop;
 
-    if (!body.hasAttribute("scrollY")) {
-      body.setAttribute("scrollY", String(pageY));
-      body.classList.add("lockbody");
+    if(_type.indexOf('layer') < 0){
+      if (!body.hasAttribute("scrollY")) {
+        body.setAttribute("scrollY", String(pageY));
+        body.classList.add("lockbody");
+      }
+      body.addEventListener("touchmove", modal.lockScrollHandle, { passive: false });
     }
-    body.addEventListener("touchmove", modal.lockScrollHandle, { passive: false });
   }, close: (_target) => {
     event.target.closest('.modal_wrap').setAttribute('class', 'modal_wrap');
+    event.target.closest('.modal_wrap').removeAttribute('style');
     const body = document.querySelector("body");
 
     if (body.hasAttribute("scrollY")) {

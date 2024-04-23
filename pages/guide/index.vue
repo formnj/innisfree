@@ -141,7 +141,7 @@ const PC_arry = ([
     }, {
         depth:['','쇼핑로그','',''],
         id:'IN_PC_HOM_01_18', status:'',
-        type:'', note:'',
+        type:'', note:'footer에 모달, float_menu 삽입',
         sDate:'', eDate:'2024-05-29/', worker:'이종환'
     }, {
         depth:['상품','목록','',''],

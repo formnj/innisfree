@@ -148,6 +148,7 @@
         <Button txt="Modal alert" @click="modal.open('sample_modal', 'alert');" />
         <Button txt="Modal bottom" @click="modal.open('sample_modal', 'bottom');" />
         <Button txt="Modal detailSearch" @click="modal.open('sample_modal', 'detailSearch');" />
+        <Button txt="Modal layer" id="layer" @click="modal.open('sample_modal', 'layer');" />
       </div>
     </div>
     <pre class="code_box"><code>&lt;div class="modal_wrap" id="모달_아이디"&gt;
@@ -431,6 +432,13 @@ const tool_select = (props) => {
             break;
     }
 }
+
+/* modal layer type sample position */
+onMounted(()=>{
+  document.getElementById('layer').addEventListener('click', (event)=>{
+    document.getElementById('sample_modal').style.cssText="top:"+event.currentTarget.offsetTop+"px; left:"+event.currentTarget.offsetLeft+"px;"
+  });
+});
 /* //inputs type function */
 </script>
 
