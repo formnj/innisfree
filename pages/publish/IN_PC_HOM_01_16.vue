@@ -20,7 +20,7 @@
           <li><a href="#none">판매금액순</a></li>
         </ul>
       </div>
-      <button @click="modal.open('detailSearch', 'detailSearch');">상세검색</button>
+      <button @click="modal.open('modal_search', 'detailSearch');">상세검색</button>
     </div>
   </div>
   <div class="inner">
@@ -43,7 +43,7 @@
         </div>
     </div>
   </div>
-  <div class="modal_wrap" id="detailSearch">
+  <div id="modal_search" class="modal_wrap">
       <div class="modal_container">
           <div class="modal_header">
               <h2>상세검색</h2>
@@ -354,7 +354,7 @@ const props = defineProps({
   }
 }
 
-.modal_wrap#sample_modal {
+.modal_wrap#modal_search {
   .modal_content {
     padding-bottom:0;
   }

@@ -114,7 +114,7 @@
                     </ul>
                 </section>
                 <section v-if="isBool">
-                    <div class="pdt_no">
+                    <div class="no_pdt">
                         <span></span>
                         일치하는 결과가 없습니다.
                     </div>
@@ -395,9 +395,11 @@ const sample_auto = [
 /* //sample data */
 
 onMounted(() => {
+    const header = document.querySelector('header');
+    window.scrollY > 0 ? header.classList.add('fixed') : header.classList.remove('fixed');
     window.addEventListener('scroll', () => {
-        if(window.scrollY > 0) document.querySelector('header').classList.add('fixed');
-        if(window.scrollY <= 0) document.querySelector('header').classList.remove('fixed');
+        if(window.scrollY > 0) header.classList.add('fixed');
+        if(window.scrollY <= 0) header.classList.remove('fixed');
     })
 
     document.querySelector('.btn_search').addEventListener('click',()=>{
@@ -734,7 +736,7 @@ header {
                         }
                     }
                 }
-                .pdt_no {
+                .no_pdt {
                     font-size:15px;
                     font-weight:600;
                     display:flex;
@@ -745,7 +747,7 @@ header {
                         width:60px;
                         height:60px;
                         margin:20px 0;
-                        background:url('/_nuxt/assets/images/common/MO-icon_split.png') no-repeat -65px -100px;
+                        background:url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -65px -100px;
                         background-size:250px auto;
                         display:block;
                     }
@@ -784,7 +786,7 @@ header {
                                         content:'';
                                         width:8px;
                                         height:8px;
-                                        background: url('/_nuxt/assets/images/common/MO-icon_split.png') no-repeat -10px -130px;
+                                        background: url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -10px -130px;
                                         background-size:250px auto;
                                         position:absolute;
                                         top:50%;

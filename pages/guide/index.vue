@@ -120,7 +120,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-12/ 2024-04-12', worker:'이종환'
     }, {
         depth:['','쇼케이스(T)','',''],
-        id:'IN_PC_HOM_01_12', status:'',
+        id:'IN_PC_HOM_01_12', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-04-26/', worker:'형민우'
     }, {
@@ -544,9 +544,9 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:'형민우'
     }, {
         depth:['','검색','',''],
-        id:'IN_MO_SRC_01_01', status:'ing',
+        id:'IN_MO_SRC_01_01', status:'com',
         type:'component', note:'',
-        sDate:'', eDate:'2024-04-24/', worker:'형민우'
+        sDate:'', eDate:'2024-04-24/2024-04-23', worker:'형민우'
     }, {
         depth:['','푸터','',''],
         id:'Footer', status:'com',
@@ -594,7 +594,7 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-12/ 2024-04-12', worker:'이종환'
     }, {
         depth:['','쇼케이스(T)','',''],
-        id:'IN_MO_HOM_01_12', status:'',
+        id:'IN_MO_HOM_01_12', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-04-26/', worker:'형민우'
     }, {

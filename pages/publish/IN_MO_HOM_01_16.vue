@@ -19,11 +19,11 @@
       <div class="sortTab">
         <button
           class="btn_dropdown"
-          @click="modal.open('sample_modal_sort', 'bottom')">
+          @click="modal.open('modal_sort', 'bottom')">
           추천순
         </button>
       </div>
-      <button @click="modal.open('sample_modal_search', 'bottom')">
+      <button @click="modal.open('modal_search', 'bottom')">
         상세검색
       </button>
     </div>
@@ -39,7 +39,7 @@
     </div>
   </div>
 
-  <div id="sample_modal_sort" class="modal_wrap">
+  <div id="modal_sort" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
         <button class="btn_close" @click="modal.close(this)"></button>
@@ -61,7 +61,7 @@
     <div class="overlay" @click="modal.close(this)"></div>
   </div>
 
-  <div id="sample_modal_search" class="modal_wrap">
+  <div id="modal_search" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
         <h2>상세검색</h2>
@@ -141,7 +141,7 @@ onMounted(() => {})
     height: 25rem;
     padding:4rem 0 0 2.1rem;
     letter-spacing: -0.01em;
-    background: url('/_nuxt/assets/mo_images/common/bg_staff_visual.png') no-repeat center;
+    background: url('/_nuxt/assets/images/sam/bg_staff_visual.png') no-repeat center;
     background-size: cover;
     >span {
       padding: 0.2rem 0.5rem;
@@ -296,7 +296,7 @@ onMounted(() => {})
 }
 
 .modal_wrap {
-  &#sample_modal_sort {
+  &#modal_sort {
     .modal_container {
       border-top-left-radius: 20px 20px;
       border-top-right-radius: 20px 20px;
@@ -370,7 +370,7 @@ onMounted(() => {})
       }
     }
   }
-  &#sample_modal_search {
+  &#modal_search {
     .modal_container {
       .modal_header {
       }
