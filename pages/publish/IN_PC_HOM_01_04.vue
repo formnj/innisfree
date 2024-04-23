@@ -218,6 +218,11 @@ const sample_goods = [
         name:'블랙티 유스 인핸싱 앰플 50ml',
         price:'11,000', sale:'~50%', cost:'26,000',
         status:'sold_out',
+        giveaway: {
+            img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
+            img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
+            img_03:("/_nuxt/assets/images/sam/sam_pre_03.png"),
+        }
     }, {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
         overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
@@ -233,7 +238,12 @@ const sample_goods = [
         cate:'BEST',
         name:'블랙티 유스 인핸싱 앰플 50ml',
         price:'11,000', sale:'~50%', cost:'26,000',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
+        hash:['#스킨팩','#화장솜','#순면화장솜'],
+        giveaway: {
+            img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
+            img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
+            img_03:("/_nuxt/assets/images/sam/sam_pre_03.png"),
+        }
     },
     {
         img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
@@ -251,6 +261,11 @@ const sample_goods = [
     },
     {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        giveaway: {
+            img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
+            img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
+            img_03:("/_nuxt/assets/images/sam/sam_pre_03.png"),
+        },
     },
 ]
 

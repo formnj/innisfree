@@ -32,6 +32,11 @@
                 <!-- Hash -->
                 <Hash v-if="item.hash" :item="item.hash" />
                 <!-- //Hash -->
+                <button v-if="item.giveaway">
+                  <img :src="item.giveaway.img_01">
+                  <img :src="item.giveaway.img_02">
+                  <img :src="item.giveaway.img_03">
+                </button>
                 <p class="review_score">
                     4.8
                     <em>(2,655)</em>
@@ -194,6 +199,19 @@ const props = defineProps({
                 font-weight:300;
                 text-decoration:line-through;
             }
+        }
+        > button {
+          width:121px;
+          height:60px;
+          padding:9px;
+          margin-top:15px;
+          border: 1px solid #eee;
+          display:flex;
+          gap:10px;
+          img {
+            width:32.3px;
+            display:block;
+          }
         }
         .review_score {
             margin-top:15px;
