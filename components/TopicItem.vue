@@ -15,7 +15,7 @@
               </span>
           </span>
         </span>
-        <span class="icons">
+        <span class="post_icons">
           <span class="i view">{{ item.view.cnt }}</span>
           <span class="i like">{{ item.view.like }}</span>
           <span class="i cmnt">{{ item.view.cmnt }}</span>
@@ -35,7 +35,7 @@ const props = defineProps({
 .topic_item {
   position: relative;
 
-  & span {
+  & > span {
     display: block;
   }
 
@@ -54,6 +54,7 @@ const props = defineProps({
 
     .desc {
       height: 8rem;
+      display: block;
 
       .title {
         font-size: 1.4rem;
@@ -98,45 +99,6 @@ const props = defineProps({
             -webkit-line-clamp: 1;
             overflow: hidden;
           }
-        }
-      }
-    }
-
-    .icons {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      gap: .4rem;
-      border-top: 1px solid #f5f5f5;
-      align-items: center;
-      display: flex;
-
-      .i {
-        font-size: 1.2rem;
-        color: #888;
-        align-items: center;
-        justify-content: space-evenly;
-        display: flex;
-        flex: 1;
-
-        &:before {
-          content: '';
-          width: 1.6rem;
-          height: 1.6rem;
-          background-image: url('/assets/mo_images/common/icon_split.png');
-          background-repeat: no-repeat;
-          background-size: 25rem auto;
-        }
-
-        &.view:before {
-          background-position: 0 -10.5rem;
-        }
-
-        &.like:before {
-          background-position: -2rem -10.5rem;
-        }
-
-        &.cmnt:before {
-          background-position: -4rem -10.5rem;
         }
       }
     }

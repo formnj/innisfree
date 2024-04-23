@@ -552,3 +552,57 @@ export const sampleTopics = [
     }
   },
 ]
+
+export const samplePost = [
+  {
+    sticker:[
+        {txt:'에디터 찐템 추천', type:'type02'}
+    ],
+    img: ("/_nuxt/public/images/sam/img_ed_topic_01.png"),
+    title: '색다른 이니스프리를 경험하다',
+    view: {
+      cnt: '152',
+      like: '11',
+      cmnt: '20'
+    }
+  },
+  {
+    sticker:[
+        {txt:'에디터 찐템 추천', type:'type02'}
+    ],
+    img: ("/_nuxt/public/images/sam/img_ed_topic_02.png"),
+    title: '내가 히알루론산 수분 무기자차 선크림에 정착한 찐 이유 top10',
+    view: {
+      cnt: '999+',
+      like: '11',
+      cmnt: '20'
+    }
+  },
+  {
+    sticker:[
+        {txt:'에디터 찐템 추천', type:'type02'}
+    ],
+    img: ("/_nuxt/public/images/sam/img_ed_topic_03.png"),
+    title: '포스트 타이틀 2줄까지 띄어쓰기 포함 최대 32자까지 가능합니다.',
+    view: {
+      cnt: '152',
+      like: '11',
+      cmnt: '20'
+    }
+  },
+]
+
+export const sampleShowcase = [
+  {
+    img: ("/_nuxt/public/images/sam/img_show_01.png"),
+    title: '블랙티 유스 인핸싱\n트리트먼트 에센스',
+  },
+  {
+    img: ("/_nuxt/public/images/sam/img_show_02.png"),
+    title: '봄맞이 핑크템으로\n생기를 더하세요!',
+  },
+  {
+    img: ("/_nuxt/public/images/sam/img_show_03.png"),
+    title: '4월은 지구의 달\n공병수거하며 지구를 지켜요!',
+  },
+]

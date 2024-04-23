@@ -692,3 +692,17 @@ ul.bullet_list {
     display:block;
   }
 }
+
+/* 텍스트 링크 with 오른쪽 화살표 */
+a.btn_link_arrw {
+  &:after {
+    content: '';
+    margin-left: 5px;
+    width: 9px;
+    height: 9px;
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    display: inline-block;
+    transform: rotate(135deg);
+  }
+}

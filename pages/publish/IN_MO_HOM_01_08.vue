@@ -14,7 +14,7 @@
     <div class="list_wrap">
       <ul class="topics_list">
         <li v-for="(item, idx) in sampleTopics" :key="idx" class="topic">
-          <TopicItem  :item="item" />
+          <TopicItem  :item="item" :link="link" />
         </li>
       </ul>
     </div>
