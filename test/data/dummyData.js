@@ -271,7 +271,6 @@ export const sample_goods = [
         cate:'NEW',
         name:'그린티 씨드 히알루론산 세렘 80ml',
         price:'44,800', sale:'~20%', cost:'56,000',
-        status:'coming_soon',
         sticker:[
             {txt:'1+1', type:'type02'},
             {txt:'뷰티포인트전용', type:'type01'},
@@ -295,7 +294,6 @@ export const sample_goods = [
         cate:'BEST',
         name:'블랙티 유스 인핸싱 앰플 50ml',
         price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
         hash:['#스킨팩','#화장솜','#순면화장솜']
     }, {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
@@ -552,5 +550,59 @@ export const sampleTopics = [
       like: '11',
       cmnt: '20'
     }
+  },
+]
+
+export const samplePost = [
+  {
+    sticker:[
+        {txt:'에디터 찐템 추천', type:'type02'}
+    ],
+    img: ("/_nuxt/public/images/sam/img_ed_topic_01.png"),
+    title: '색다른 이니스프리를 경험하다',
+    view: {
+      cnt: '152',
+      like: '11',
+      cmnt: '20'
+    }
+  },
+  {
+    sticker:[
+        {txt:'에디터 찐템 추천', type:'type02'}
+    ],
+    img: ("/_nuxt/public/images/sam/img_ed_topic_02.png"),
+    title: '내가 히알루론산 수분 무기자차 선크림에 정착한 찐 이유 top10',
+    view: {
+      cnt: '999+',
+      like: '11',
+      cmnt: '20'
+    }
+  },
+  {
+    sticker:[
+        {txt:'에디터 찐템 추천', type:'type02'}
+    ],
+    img: ("/_nuxt/public/images/sam/img_ed_topic_03.png"),
+    title: '포스트 타이틀 2줄까지 띄어쓰기 포함 최대 32자까지 가능합니다.',
+    view: {
+      cnt: '152',
+      like: '11',
+      cmnt: '20'
+    }
+  },
+]
+
+export const sampleShowcase = [
+  {
+    img: ("/_nuxt/public/images/sam/img_show_01.png"),
+    title: '블랙티 유스 인핸싱\n트리트먼트 에센스',
+  },
+  {
+    img: ("/_nuxt/public/images/sam/img_show_02.png"),
+    title: '봄맞이 핑크템으로\n생기를 더하세요!',
+  },
+  {
+    img: ("/_nuxt/public/images/sam/img_show_03.png"),
+    title: '4월은 지구의 달\n공병수거하며 지구를 지켜요!',
   },
 ]

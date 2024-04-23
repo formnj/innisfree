@@ -59,5 +59,12 @@ button {
   &.barcode {
     background-position:-209px -64px;
   }
+  &.tooltip {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    background-position:-230px -20px;
+    display: inline-block;
+  }
 }
 </style>

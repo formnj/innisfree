@@ -19,7 +19,6 @@
       background-color:transparent;
       position:absolute;
       bottom:0;
-      left:15px;
       gap:1rem;
       justify-content:start;
       transform:translateY(0);
@@ -157,5 +156,57 @@
 :deep(.hash) {
   button {
     font-size:1rem;
+  }
+}
+
+
+/* 토픽 아이콘 스타일(조회수, 좋아요수, 댓글수) */
+:deep(.post_icons) {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  gap: .4rem;
+  border-top: 1px solid #f5f5f5;
+  align-items: center;
+  display: flex;
+
+  .i {
+    font-size: 1.2rem;
+    color: #888;
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    flex: 1;
+
+    &:before {
+      content: '';
+      width: 1.6rem;
+      height: 1.6rem;
+      background-image: url('/assets/mo_images/common/icon_split.png');
+      background-repeat: no-repeat;
+      background-size: 25rem auto;
+    }
+
+    &.view:before {
+      background-position: 0 -10.5rem;
+    }
+
+    &.like:before {
+      background-position: -2rem -10.5rem;
+    }
+
+    &.cmnt:before {
+      background-position: -4rem -10.5rem;
+    }
+  }
+}
+/* //토픽 아이콘 스타일 */
+
+
+/* 텍스트 링크 with 오른쪽 화살표 */
+:deep(a.btn_link_arrw) {
+  font-size: 1.2rem;
+  &:after {
+    width: .8rem;
+    height: .8rem;
   }
 }
