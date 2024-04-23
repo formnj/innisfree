@@ -120,7 +120,7 @@
   </section>
 
   <div class="showcase">
-    <ShowcaseItem v-for="(item, idx) in sampleShowcase.slice(0,1)" :key="idx" :item="item" :link="item.link"/>
+    <ShowcaseModalItem v-for="(item, idx) in sampleShowcase.slice(0,1)" :key="idx" :item="item" :link="item.link"/>
   </div>
 
 </template>
