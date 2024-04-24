@@ -76,6 +76,50 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 
 onMounted(() => {
 
+  /* accordion */
+function accordion(_target, evt){ // 23.08.18 nextElementSibling 테그가 없는 경우를 위한 수정
+    var evt,
+    accordion = document.querySelectorAll(_target, evt);
+    console.log('accordion :', accordion)
+    accordion.forEach(el => {
+        console.log('el :', el)
+        el.querySelectorAll('.board_type_toggle > dt > a').forEach((el, i) => {
+            el.addEventListener(evt, function(){
+                if(el.closest('dl').classList.contains('single')){
+                    console.log('closet :', el.closest('dl'))
+                    const parent_index = Array.from(el.closest('dl').getElementsByTagName('dt')).indexOf(el.parentNode);
+                    console.log('parent_index :', parent_index)
+                    for(j=0; j<el.closest('dl').getElementsByTagName('dt').length; j++){
+                        if(i != j && el.closest('dl').getElementsByTagName('dt')[j].nextElementSibling != null){
+                            el.closest('dl').getElementsByTagName('dt')[j].nextElementSibling.classList.remove('show');
+                        }
+                    }
+                }
+
+                if(el.parentNode.nextElementSibling != null){
+                    if(el.parentNode.nextElementSibling.classList.contains('show')){
+                        el.parentNode.nextElementSibling.style.height = '0px'
+
+                        el.parentNode.nextElementSibling.addEventListener('transitionend', () => {
+                            el.parentNode.nextElementSibling.classList.remove('show');
+                        }, {once: true});
+                    } else {
+                        el.parentNode.nextElementSibling.classList.add('show');
+
+                        el.parentNode.nextElementSibling.style.height = 'auto'
+                        var height = el.parentNode.nextElementSibling.clientHeight + 'px'
+                        el.parentNode.nextElementSibling.style.height = '0px'
+                        setTimeout(() => {
+                            el.parentNode.nextElementSibling.style.height = height
+                        });
+                    }
+                }
+            });
+        });
+    });
+}
+
+accordion('.board_type_toggle', 'click')
 
 })
 
@@ -110,7 +154,7 @@ onMounted(() => {
       background-image: url('../../assets/mo_images/common/icon_split.png');
       background-repeat:no-repeat;
       background-size:250px;
-      background-position:0px 0px;
+      background-position:-5px -215px;
       position:absolute;
       top:50%;
       right:2rem;
@@ -160,6 +204,7 @@ onMounted(() => {
     font-size:13px;
     line-height:20px;
     background:#F5F5F5;
+    display:none;
     div {
       margin-top:2rem;
       padding-top:2rem;
@@ -189,5 +234,6 @@ onMounted(() => {
     }
   }
 }
+.show {display:block !important;}
 
 </style>

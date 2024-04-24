@@ -77,6 +77,7 @@
                     회원정보 수정을 통해 변경해주시기 바랍니다.
                 </em>
                 <Button txt="문의하기" />
+                <Button txt="문의하기" class="btn_ active"/>
             </section>
         </div>
 
@@ -273,9 +274,10 @@ section {
             background-repeat:no-repeat;
             background-size:250px;
             background-position:-138px -130px;
-
-
         }
+      &.active {
+        background-color: #000;
+      }
     }
 }
 
