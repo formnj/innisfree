@@ -351,7 +351,7 @@ const PC_arry = ([
     }, {
         depth:['','1:1문의','내역',''],
         id:'IN_PC_MYP_01_45', status:'',
-        type:'', note:'',
+        type:'', note:'답변확인에서 확인가능',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 문의하기(T)',''],
@@ -830,11 +830,11 @@ const MO_arry = ([
     }, {
         depth:['','1:1문의','내역',''],
         id:'IN_MO_MYP_01_45', status:'',
-        type:'', note:'',
+        type:'', note:'답변확인에서 확인가능',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 문의하기(T)',''],
-        id:'IN_MO_MYP_01_46', status:'',
+        id:'IN_MO_MYP_01_46', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
