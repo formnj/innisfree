@@ -105,6 +105,17 @@ onMounted(() => {
     position:relative;
     &::after {
       content:'';
+      width:24px;
+      height:24px;
+      background-image: url('../../assets/mo_images/common/icon_split.png');
+      background-repeat:no-repeat;
+      background-size:250px;
+      background-position:0px 0px;
+      position:absolute;
+      top:50%;
+      right:2rem;
+      display:inline-block;
+      transform:translateY(-50%);
 
     }
     a {
@@ -149,8 +160,6 @@ onMounted(() => {
     font-size:13px;
     line-height:20px;
     background:#F5F5F5;
-    p {
-    }
     div {
       margin-top:2rem;
       padding-top:2rem;
