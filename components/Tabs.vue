@@ -1,7 +1,7 @@
 <template>
     <div class="tab_wrap">
         <ul :class="tabType">
-            <li v-for="(item, idx) in item" :key="idx" :class="{ current: tabidx == idx }">
+            <li v-for="(item, idx) in item" :key="idx" :class="{ current: tabidx == idx }" >
                 <Button :txt="item.txt" @click="tabidx = idx" />
             </li>
         </ul>
@@ -9,6 +9,7 @@
 </template>
 
 <script setup>
+
 const props = defineProps({
     item: {},
     tabidx: Number,
@@ -17,6 +18,8 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
+
+
 .tab_wrap {
   ul {
     display:flex;

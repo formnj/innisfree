@@ -112,14 +112,14 @@
 
     <div class="list_wrap">
       <ul class="post_list">
-        <li v-for="(item, idx) in samplePost" :key="idx">
-          <PostItem :item="item" :link="item.link" />
+        <li v-for="(item, idx) in samplePost.slice(0,3)" :key="idx">
+          <PostItemVertical :item="item" :link="item.link" class="type_vertical"/>
         </li>
       </ul>
     </div>
   </section>
 
-  <div class="showcase">
+<div class="showcase">
     <ShowcaseModalItem v-for="(item, idx) in sampleShowcase.slice(0,1)" :key="idx" :item="item" :link="item.link"/>
     <Button class="btn_min_outline" txt="전체보기" />
   </div>

@@ -4,16 +4,49 @@
     </div>
 
     <div class="inner">
-        <div class="tab_btn_wrap">
-            <Tabs tabType="type_02" :item="[{txt:'립 ~50%'},{txt:'마스크팩 ~50%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'},{txt:'클렌징 ~30%'}]" :tabidx="0" />
-            <label for="skin1" class="setFilter_sample">
-                <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
-            </label>
+        <div class="tab_wrap">
+            <ul class="type_02">
+                <li v-for="(name, idx) in sale_menu" :key="idx" class="tab_title">
+                    <Button :txt="name" @click="tab_click($event)"/>
+                </li>
+                <li class="benefit">
+                    <label for="skin1" class="setFilter_sample">
+                        <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
+                    </label>
+                </li>
+            </ul>
+            <div class="sticky_menu_wrap">
+                <ul class="type_02">
+                    <li v-for="(name, idx) in sale_menu" :key="idx" class="tab_title">
+                        <Button :txt="name" @click="tab_click($event)" />
+                    </li>
+                </ul>
+                <label for="skin1" class="setFilter_sample">
+                        <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
+                </label>
+            </div>
         </div>
+
+
         <section v-for="(item, idx) in sample_data" :key="idx">
             <h3>
                 {{ item.sub_title }}
                 <button @click="modal.open(item.notice.modal_id, 'alert');"></button>
+                <div class="modal_wrap" id="sample_01">
+                    <div class="modal_container">
+                        <div class="modal_header">
+                            <h2>프로모션 제품 구매시 유의사항</h2>
+                            <button class="btn_close" @click="modal.close(this);">닫기</button>
+                        </div>
+                        <div class="modal_content">
+                            <div>
+                                <p>{{sample_data[0].notice.exp}}</p>
+                                <p>{{sample_data[0].notice.period}}</p>
+                                <p v-if="sample_data[0].notice.exception">{{sample_data[0].notice.exception}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </h3>
             <em>{{ item.desc }}</em>
             <div class="timer_wrap" v-if="item.date">
@@ -38,7 +71,7 @@
             <div class="list_wrap">
                 <ul class="goods_list">
                     <li v-for="(item, idx) in sample_goods" :key="idx">
-                    <GoodsItem :item="item" :link="item.link" />
+                        <GoodsItem :item="item" :link="item.link" />
                     </li>
                 </ul>
             </div>
@@ -56,39 +89,54 @@
         </div>
 
 
-        <div class="modal_wrap" id="sample_01">
+
+        <div class="modal_wrap" id="giveaway_01">
             <div class="modal_container">
                 <div class="modal_header">
-                    <h2>{{sample_data[0].notice.title}}</h2>
+                    <h2>증정품 안내</h2>
                     <button class="btn_close" @click="modal.close(this);">닫기</button>
                 </div>
                 <div class="modal_content">
-                    <div>
-                        <p>{{sample_data[0].notice.exp}}</p>
-                        <p>{{sample_data[0].notice.period}}</p>
-                        <p v-if="sample_data[0].notice.exception">{{sample_data[0].notice.exception}}</p>
-                    </div>
+                    <dl>
+                        <dt><img src="../../assets/images/sam/giveaway_alert_01.png"></dt>
+                        <dd>
+                            <div>
+                                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+                                <em>24.3.25 ~ 24.3.31</em>
+                            </div>
+                            <span>1개 구매시 1개 증정</span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="../../assets/images/sam/giveaway_alert_02.png"></dt>
+                        <dd>
+                            <div>
+                                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+                                <em>24.3.25 ~ 24.3.31</em>
+                            </div>
+                            <span>1개 구매시 1개 증정</span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="../../assets/images/sam/giveaway_alert_03.png"></dt>
+                        <dd>
+                            <div>
+                                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+                                <em>24.3.25 ~ 24.3.31</em>
+                            </div>
+                            <span>1개 구매시 1개 증정</span>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="modal_footer">
+                    <Button txt="확인" class="btn_type_02" />
                 </div>
             </div>
             <div class="overlay" @click="modal.close(this);"></div>
         </div>
 
-        <div class="modal_wrap" id="sample_02">
-            <div class="modal_container">
-                <div class="modal_header">
-                    <h2>{{sample_data[1].notice.title}}</h2>
-                    <button class="btn_close" @click="modal.close(this);">닫기</button>
-                </div>
-                <div class="modal_content">
-                    <div>
-                        <p>{{sample_data[1].notice.exp}}</p>
-                        <p>{{sample_data[1].notice.period}}</p>
-                        <p v-if="sample_data[1].notice.exception">{{sample_data[1].notice.exception}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="overlay" @click="modal.close(this);"></div>
-        </div>
+
+
     </div>
 </template>
 
@@ -160,6 +208,7 @@ const sample_data = [
 ]
 
 
+
 const sample_goods = [
     {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
@@ -199,6 +248,12 @@ const sample_goods = [
         name:'블랙티 유스 인핸싱 앰플 50ml',
         price:'11,000', sale:'~50%', cost:'26,000',
         status:'sold_out',
+        giveaway: {
+            modal_id:'giveaway_01',
+            img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
+            img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
+            img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
+        }
     }, {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
         overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
@@ -214,7 +269,13 @@ const sample_goods = [
         cate:'BEST',
         name:'블랙티 유스 인핸싱 앰플 50ml',
         price:'11,000', sale:'~50%', cost:'26,000',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
+        hash:['#스킨팩','#화장솜','#순면화장솜'],
+        giveaway: {
+            modal_id:'giveaway_02',
+            img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
+            img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
+            img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
+        }
     },
     {
         img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
@@ -232,7 +293,16 @@ const sample_goods = [
     },
     {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        giveaway: {
+            img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
+            img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
+            img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
+        },
     },
+]
+
+const sale_menu = [
+    "립 ~50%","마스크팩 ~50%","클렌징 ~30%","립 ~50%","마스크팩 ~50%","클렌징 ~30%","마스크팩 ~50%","클렌징 ~30%","립 ~50%","마스크팩 ~50%","클렌징 ~30%",
 ]
 
 const modal = {
@@ -269,6 +339,33 @@ const modal = {
 }
 /* //component sample data */
 
+const tab_click = (event)=>{
+    let tab_title = document.querySelectorAll('.tab_title')
+    tab_title.forEach((a)=>{
+        a.classList.remove('current')
+    })
+    const target = event.currentTarget;
+    target.parentNode.classList.add('current');
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', () => {
+        const target = document.querySelector('.tab_wrap > .type_02');
+        const y = window.scrollY
+
+        if (y >=200) {
+            target.style.display="none";
+            document.querySelector('.title_wrap').style.display="none";
+            document.querySelector('.sticky_menu_wrap').style.display="flex";
+
+        }
+        else {
+            document.querySelector('.title_wrap').style.display="block";
+            target.style.display="flex";
+            document.querySelector('.sticky_menu_wrap').style.display="none";
+        }
+    })
+})
 
 
 
@@ -277,7 +374,7 @@ const modal = {
 
 <style lang="scss" scoped>
 .title_wrap {
-  padding: 60px 20px;
+  padding: 60px 20px 10px 20px;
 }
 .inner {
     h3 {
@@ -285,7 +382,7 @@ const modal = {
         font-weight:600;
         display:flex;
         align-items:center;
-        button {
+        > button {
             width:24px;
             height:24px;
             margin-left:1.3px;
@@ -295,20 +392,84 @@ const modal = {
             background-position:-94px -206px;
         }
     }
-    .tab_btn_wrap {
-        display:flex;
-        align-items:center;
-        .tab_wrap {
-            max-width:1180px;
-            overflow-x:auto;
-        }
+
+    .tab_wrap {
+        height:100%;
+        margin-bottom:40px;
+        padding:20px 0;
+        background:#fff;
+        position:sticky;
+        top:81px;
+        z-index:10;
         ul {
-            overflow-x:auto;
+            display:flex;
+            &.type_02 {
+                margin-top:-10px;
+                margin-left:-10px;
+                flex-wrap:wrap;
+                li {
+                    padding-top:10px;
+                    padding-left:10px;
+                    flex:0 auto;
+                        &::v-deep > * {
+                        height:auto;
+                        font-size:14px;
+                        background-color:#f5f5f5;
+                        border-color:#f5f5f5;
+                        border-radius:999px;
+                        em {
+                            padding:6px 20px;
+                            color:#999e9c;
+                            white-space:nowrap;
+                        }
+                        }
+                        &.current {
+                        &::v-deep > * {
+                            background-color:#fff;
+                            border-color:#000;
+                            em {
+                            color:#000;
+                            font-weight:600;
+                            }
+                        }
+                    }
+                }
+            }
+            li {
+                > * {
+                    border:1px solid #eee;
+                }
+                &.benefit {
+                    > * {
+                        border-color:transparent !important;
+                        background-color:#fff !important;
+                    }
+                }
+            }
+        }
+        .sticky_menu_wrap {
+            width:100%;
+            height:100%;
+            margin-left:-10px;
+            display:none;
+            align-items:center;
+            justify-content:space-between;
+            overflow:hidden;
+            ul {
+                max-width:94%;
+                overflow-x:auto;
+                white-space: nowrap;
+                flex-wrap:nowrap;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
         }
     }
 
+
+
     .setFilter_sample {
-        padding-left: 10px;
         display: inline-block;
         cursor: pointer;
 
@@ -336,11 +497,11 @@ const modal = {
             background: #00BC70;
             }
         }
-        }
+    }
 
     > section {
         padding:60px 0;
-        border-bottom:1px solid #eee;
+        border-top:1px solid #eee;
         p {
             font-size:24px;
             font-weight:600;
@@ -379,7 +540,7 @@ const modal = {
                 }
                 span {
                     color: #FFFFFF;
-                    font-size: 2.4rem;
+                    font-size: 24px;
                     line-height: 1px;
                     letter-spacing: -0.01em;
                     position: relative;
@@ -400,6 +561,7 @@ const modal = {
         }
     }
     >.benefits_wrap {
+        border-top:1px solid #eee;
         padding:60px 0;
         h3 {
           margin-bottom:40px;
@@ -407,14 +569,68 @@ const modal = {
     }
     .modal_wrap.alert {
         .modal_container  {
-            width:764px;
+            min-width:600px;
+            box-shadow:5px 5px 8px 0 rgba(0, 0, 0, 0.5);
+            .modal_header {
+                border-bottom:0px;
+                h2 {
+                    font-size:16px;
+                    font-weight:600;
+                }
+            }
             .modal_content {
                 > div {
                      p {
-                        color:#222;
-                        font-size:16px;
-                        line-height:29px;
+                        color:#666;
+                        font-size:13px;
+                        line-height:20px;
                      }
+                }
+            }
+        }
+        &[id^="giveaway_"]{
+            .modal_container {
+                width:500px;
+                .modal_content {
+                    display:flex;
+                    flex-direction:column;
+                    gap:15px;
+                    dl {
+                        border:1px solid #F5F5F5;
+                        display:flex;
+                        gap:16px;
+                        dt {
+                                width:100px;
+                                height:133px;
+                                background:#eee;
+                            img {
+
+                            }
+                        }
+                        dd {
+                            padding:18px 0;
+                            display:flex;
+                            flex-direction:column;
+                            justify-content:space-between;
+                            div {
+                                p {
+                                    margin-bottom:5px;
+                                    font-size:14px;
+                                    font-weight:400;
+                                }
+                                em {
+                                    color:#666;
+                                    font-size:12px;
+                                    font-weight:300;
+                                }
+                            }
+                            span {
+                                font-size:14px;
+                                font-weight:400;
+                            }
+
+                        }
+                    }
                 }
             }
         }

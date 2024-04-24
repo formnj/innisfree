@@ -219,4 +219,19 @@ const banner_list = [
     }
   }
 }
+
+.modal_wrap {
+  .modal_container {
+    .modal_content {
+      ::v-deep .showcase_item {
+        height:21rem;
+        img {
+          width:100%;
+          height:100%;
+          object-fit:cover;
+        }
+      }
+    }
+  }
+}
 </style>
