@@ -606,3 +606,99 @@ export const sampleShowcase = [
     title: '4월은 지구의 달\n공병수거하며 지구를 지켜요!',
   },
 ]
+
+export const sample_log = [
+  {
+    type:'goods',
+    item: [
+      {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'type01', type:'type01'},
+            {txt:'type02', type:'type02'},
+            {txt:'type03', type:'type03'},
+            {txt:'type04', type:'type04'}
+        ],
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+      }
+    ]
+  }, {
+    type: 'event',
+    item: [
+      {
+        img:("/_nuxt/assets/images/sam/event_list_01.jpg"),
+        cate:'제휴혜택',
+        title:'트러블?수분?탄력?<br/> 고민따라 10% 추가할인 쿠폰위크!!',
+        data:'24.4.14(일) ~ 24.4.30(화)',
+      }
+    ]
+  }, {
+    type: 'event',
+    item: [
+      {
+        img:("/_nuxt/assets/images/sam/event_list_01.jpg"),
+        cate:'제휴혜택',
+        title:'트러블?수분?탄력?<br/> 고민따라 10% 추가할인 쿠폰위크!!',
+        data:'24.4.14(일) ~ 24.4.30(화)',
+      }
+    ]
+  }, {
+    type:'goods',
+    item: [
+      {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'type01', type:'type01'},
+            {txt:'type02', type:'type02'},
+            {txt:'type03', type:'type03'},
+            {txt:'type04', type:'type04'}
+        ],
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+      }
+    ]
+  }, {
+    type:'goods',
+    item: [
+      {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'type01', type:'type01'},
+            {txt:'type02', type:'type02'},
+            {txt:'type03', type:'type03'},
+            {txt:'type04', type:'type04'}
+        ],
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+      }
+    ]
+  }, {
+    type:'goods',
+    item: [
+      {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'type01', type:'type01'},
+            {txt:'type02', type:'type02'},
+            {txt:'type03', type:'type03'},
+            {txt:'type04', type:'type04'}
+        ],
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+      }
+    ]
+  },
+]

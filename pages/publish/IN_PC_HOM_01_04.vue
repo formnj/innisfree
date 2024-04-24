@@ -31,7 +31,8 @@
         <section v-for="(item, idx) in sample_data" :key="idx">
             <h3>
                 {{ item.sub_title }}
-                <button @click="modal.open(item.notice.modal_id, 'alert');"></button>
+                <!-- Edit: 2024-04-23 버튼 클래스 -->
+                <Icons class="tooltip" txt="툴팁" @click="modal.open(item.notice.modal_id, 'alert');" />
                 <div class="modal_wrap" id="sample_01">
                     <div class="modal_container">
                         <div class="modal_header">

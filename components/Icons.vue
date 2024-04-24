@@ -60,10 +60,13 @@ button {
     background-position:-209px -64px;
   }
   &.tooltip {
-    width: 16px;
-    height: 16px;
-    margin-left: 5px;
-    background-position:-230px -20px;
+    width:24px;
+    height:24px;
+    padding:0;
+    font-size:0;
+    background-image:url('~/assets/images/common/icon_split.png');
+    background-position:-94px -206px;
+    background-size:250px auto;
     display: inline-block;
   }
 }

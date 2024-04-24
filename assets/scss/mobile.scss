@@ -210,3 +210,15 @@
     height: .8rem;
   }
 }
+
+/* icon button */
+:deep(button) {
+  &.tooltip {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-left: 0.5rem;
+    background-image:url('~/assets/mo_images/common/icon_split.png');
+    background-size:25rem auto;
+    background-position:-23rem -2rem;
+  }
+}

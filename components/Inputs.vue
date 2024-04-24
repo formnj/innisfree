@@ -39,7 +39,7 @@
             e.currentTarget.previousSibling.style.display="none"
         }
     }
-    
+
     const valueChk = (e) => { //blur 시 value 유무 확인하여 placeholder 조절
         console.log(e.currentTarget.value.length);
         if(e.currentTarget.value.length > 0){

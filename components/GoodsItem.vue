@@ -279,5 +279,6 @@ const modal = {
             }
         }
     }
+
 }
 </style>

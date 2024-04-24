@@ -9,7 +9,7 @@
                 <button @click="modal.open('sample_modal_search', 'bottom');">상세검색</button>
             </div>
             <div class="right_box">
-                <Button class="btn_icon_history" txt=""/>
+                <Button class="btn_icon_history" txt="" @click="$router.push('/publish/IN_MO_HOM_01_18')" />
                 <Button class="top_btn" txt="" @click="scroll_top()" />
             </div>
         </div>

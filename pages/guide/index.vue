@@ -76,7 +76,7 @@ const PC_arry = ([
     }, {
         depth:['','푸터','',''],
         id:'Footer', status:'com',
-        type:'component', note:'/component/Footer/pc',
+        type:'component', note:'/component/Footer/pc<br/> 쇼핑로그 모달팝업 포함',
         sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','브래드크럼','',''],
@@ -91,7 +91,7 @@ const PC_arry = ([
     }, {
         depth:['','특가(T)','',''],
         id:'IN_PC_HOM_01_04', status:'ing',
-        type:'', note:'디자인 고도화 / sticky 시 해당영역 스크롤 바 없이는 좌우 스크롤 불가함',
+        type:'', note:'디자인 고도화 / sticky 시 해당영역 스크롤 바 없이는 좌우 스크롤 불가함<br/> [tooltip 버튼], [layout 모달]',
         sDate:'', eDate:'2024-04-19/2024-04-16', worker:'김희경'
     }, {
         depth:['','이벤트(T)','목록',''],
@@ -140,9 +140,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-16/ 2024-04-16', worker:'형민우'
     }, {
         depth:['','쇼핑로그','',''],
-        id:'IN_PC_HOM_01_18', status:'',
-        type:'', note:'footer에 모달, float_menu 삽입',
-        sDate:'', eDate:'2024-05-29/', worker:'이종환'
+        id:'IN_PC_HOM_01_18', status:'com',
+        type:'component', note:'footer에 모달, float_menu 삽입 [tooltip 버튼]',
+        sDate:'', eDate:'2024-05-29/2024-04-23', worker:'이종환'
     }, {
         depth:['상품','목록','',''],
         id:'IN_PC_PRD_01_01', status:'com',
@@ -553,6 +553,11 @@ const MO_arry = ([
         type:'component', note:'/component/Footer/mo',
         sDate:'', eDate:'', worker:'김희경'
     }, {
+        depth:['','액션바','',''],
+        id:'Actionbar', status:'com',
+        type:'component', note:'/component/Actionbar<br/> 쇼핑로그 링크',
+        sDate:'', eDate:'', worker:'김희경'
+    }, {
         depth:['홈','','',''],
         id:'IN_MO_HOM_01_01', status:'com',
         type:'', note:'',
@@ -614,9 +619,9 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-16/ 2024-04-16', worker:'형민우'
     }, {
         depth:['','쇼핑로그','',''],
-        id:'IN_MO_HOM_01_18', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'2024-04-23/', worker:'이종환'
+        id:'IN_MO_HOM_01_18', status:'com',
+        type:'', note:'goods_item > btnIconBox > btn_heart 노출',
+        sDate:'', eDate:'2024-04-23/2024-04-23', worker:'이종환'
     }, {
         depth:['상품','목록','',''],
         id:'IN_MO_PRD_01_01', status:'com',
