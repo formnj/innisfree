@@ -280,5 +280,9 @@ const modal = {
         }
     }
 
+    &.type_row {
+      display:flex;
+    }
+
 }
 </style>

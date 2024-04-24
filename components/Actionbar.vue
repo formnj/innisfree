@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="inner">
-            <a href="#"><img src="~/assets/images/actionbar/Logo_Motion.png" alt="" /></a>
+            <a href="/publish/IN_MO_HOM_01_01"><img src="~/assets/images/actionbar/Logo_Motion.png" alt="" /></a>
             <div>
                 <button @click="cate_layer.open"><img src="~/assets/images/actionbar/Category.png" alt="" /></button>
                 <button class="best"><img src="~/assets/images/actionbar/Best.png" alt="" /></button>

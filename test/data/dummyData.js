@@ -702,3 +702,25 @@ export const sample_log = [
     ]
   },
 ]
+
+export const sample_live = [
+  {
+    img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방',
+    relation: {
+      img: ("https://images.innisfree.co.kr/upload/product/34506_l_S_240.png?T202404241707"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }
+]
