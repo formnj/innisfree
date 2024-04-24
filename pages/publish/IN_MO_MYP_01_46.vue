@@ -7,7 +7,7 @@
                     <dd>
                     <div class="multi_form">
                     <Inputs _type="text" _placeholder="주문 제품을 선택해주세요" />
-                    <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'layer');" />
+                    <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'full');" />
                     </div>
                     </dd>
                 </dl>
@@ -40,7 +40,7 @@
                     <dd>
                         <Inputs _type="text" _placeholder="제목을 입력해주세요. (최대 30자 이내)" />
                         <div class="textarea">
-                            <textarea name="cnt" id="cnt" cols="3" rows="3"
+                            <textarea name="cnt" id="cnt"
                             placeholder="내용을 입력해 주세요. 문의 내용 본문에는 개인정보를 입력하지 말아주세요. 고객정보보호를 위해 마스킹 처리될 수 있습니다.(예 : 성명, 연락처, 이메일주소, 계좌번호 등)">
                         </textarea>
                         </div>
@@ -88,10 +88,16 @@
                 </div>
                 <div class="modal_content">
                     <div class="inner">
-                        <Tabs :item="[{txt:'1개월'},{txt:'2개월'},{txt:'3개월'},{txt:'6개월'}]" :tabidx="0" />
+                        <ul class="modal_tab_wrap">
+                            <li><button class="active" @click="tab_click($event)">1개월</button></li>
+                            <li><button @click="tab_click($event)">2개월</button></li>
+                            <li><button @click="tab_click($event)">3개월</button></li>
+                            <li><button @click="tab_click($event)">6개월</button></li>
+
+                        </ul>
                         <div class="date_wrap">
                             <div class="date">
-                                <input type="date" id="dpSttlDt1" required="required" value="2024-03-24" onchange="changeDate(this,1);">
+                                <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
                                 <div class="dataValue">
                                     2024-03-24
                                 </div>
@@ -99,7 +105,7 @@
 	                          </div>
                             <div>~</div>
                             <div class="date">
-                                <input type="date" id="dpSttlDt1" required="required" value="2024-03-24" onchange="changeDate(this,1);">
+                                <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
                                 <div class="dataValue">
                                     2024-03-24
                                 </div>
@@ -121,7 +127,6 @@
                 <div class="modal_footer">
                 </div>
             </div>
-            <div class="overlay" @click="modal.close(this);"></div>
         </div>
 </template>
 
@@ -137,6 +142,22 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
       default: '#none'
   }
 });
+
+const tab_click = (event)=>{
+    let tab_title = document.querySelectorAll('.inner .modal_tab_wrap li button')
+    console.log(tab_title)
+    tab_title.forEach((a)=>{
+        a.classList.remove('active')
+    })
+    const target = event.currentTarget;
+    target.classList.add('active');
+}
+
+onMounted(() => {
+
+
+})
+
 </script>
 
 <style lang="scss" scoped>
@@ -179,6 +200,7 @@ section {
                     height: 14.1rem;
                     margin-bottom:2rem;
                     padding:1.5rem;
+                    resize: none;
                     &::placeholder {
                         color: #aaa;
                         font-size: 12px;
@@ -259,8 +281,13 @@ section {
 
 #choice_modal {
     .modal_container {
+        width:100% !important;
+        max-height:100% !important;
+        top:0;
+        left:0;
         right:0;
         bottom:0;
+        transform:translate(0px, 0px);
         .modal_header {
             h2 {
                 font-size: 1.8rem;
@@ -270,21 +297,53 @@ section {
         }
         .modal_content {
             .inner {
-                padding: 0rem 2rem 2.4rem 2rem;
+                padding: 0rem 1rem 2.4rem 1rem;
                 border-bottom: 0.5rem solid #F5F5F5;
+                ul {
+                    display:flex;
+                    align-items:center;
+                    justify-content: space-between;
+                    li {
+                        width:25%;
+                        &:first-of-type {
+                            border-left: 0.1rem solid #ddd;
+                        }
+                        button {
+                            width: 100%;
+                            height: 4rem;
+                            color: #999;
+                            font-size: 1.2rem;
+                            border: 0.1rem solid #ddd;
+                            border-width: 0.1rem 0.1rem 0.1rem 0rem;
+                            background: #f4f4f4;
+                            text-align: center;
+                            position: relative;
+                            &.active {
+                                color: #000;
+                                border:0;
+                                background:#fff;
+                                &::before {
+                                    content: "";
+                                    width: 100%;
+                                    height: 100%;
+                                    border: 0.1rem solid #000;
+                                    position: absolute;
+                                    left:0;
+                                    top:0;
+                                }
+                            }
+                        }
+
+                    }
+                }
                 .tab_wrap {
                     margin-left:0 !important;
                     margin-right:0 !important;
                      ul {
-                        border: 1px solid red;
                          li {
-                            > button {
+                            &::v-deep > * {
                                 height:40px !important;
-                                font-size:1.4rem !important;
-                                > em {
-                                    height:40px !important;
-                                    font-size:1.4rem !important;
-                                }
+                                font-size:1.3rem !important;
                             }
                         }
                     }
@@ -303,6 +362,7 @@ section {
                         align-items: center;
                         position: relative;
                         display: flex;
+                        justify-content:space-between;
                         input {
                             position: absolute;
                             top: 0;
@@ -321,7 +381,7 @@ section {
                             background-image: url('../../assets/mo_images/common/icon_split.png');
                             background-repeat:no-repeat;
                             background-size:250px;
-                            background-position:-138px -130px;
+                            background-position:-195px -135px;
                         }
                     }
                 }
