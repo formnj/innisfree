@@ -7,7 +7,7 @@
                     <dd>
                     <div class="multi_form">
                     <Inputs _type="text" _placeholder="주문 제품을 선택해주세요" />
-                    <Button txt="제품선택" class="btn_outline" />
+                    <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'layer');" />
                     </div>
                     </dd>
                 </dl>
@@ -79,16 +79,57 @@
                 <Button txt="문의하기" />
             </section>
         </div>
+
+        <div class="modal_wrap" id="choice_modal">
+            <div class="modal_container">
+                <div class="modal_header">
+                    <h2>주문제품 선택</h2>
+                    <button class="btn_close" @click="modal.close(this);">닫기</button>
+                </div>
+                <div class="modal_content">
+                    <div class="inner">
+                        <Tabs :item="[{txt:'1개월'},{txt:'2개월'},{txt:'3개월'},{txt:'6개월'}]" :tabidx="0" />
+                        <div class="date_wrap">
+                            <div class="date">
+                                <input type="date" id="dpSttlDt1" required="required" value="2024-03-24" onchange="changeDate(this,1);">
+                                <div class="dataValue">
+                                    2024-03-24
+                                </div>
+                                <em></em>
+	                          </div>
+                            <div>~</div>
+                            <div class="date">
+                                <input type="date" id="dpSttlDt1" required="required" value="2024-03-24" onchange="changeDate(this,1);">
+                                <div class="dataValue">
+                                    2024-03-24
+                                </div>
+                                <em></em>
+	                          </div>
+
+                        </div>
+                        <p class="alt">
+                            최근 1년 구매내역만 검색 가능합니다
+                        </p>
+                        <Button class="btn_outline" txt="검색"/>
+                    </div>
+                    <section>
+                        <div>
+                            검색 내역이 없습니다.
+                        </div>
+                    </section>
+                </div>
+                <div class="modal_footer">
+                </div>
+            </div>
+            <div class="overlay" @click="modal.close(this);"></div>
+        </div>
 </template>
 
 <script setup>
 definePageMeta({
 layout: 'mo-category'
 });
-
-import {
-  sample_event
-} from '~/test/data/dummyData'
+import { modal } from '~/assets/js/common-ui.js'
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   link: {
@@ -152,6 +193,19 @@ section {
     > button {
         width:100%;
         margin-top:2rem;
+        &.btn_outline {
+
+            &::before {
+                content:'';
+                width:16px;
+                height:16px;
+                margin-right:-10px;
+                background-image: url('../../assets/mo_images/common/icon_split.png');
+                background-repeat:no-repeat;
+                background-size:250px;
+                background-position:-170px -135px;
+            }
+        }
     }
     hr {
         margin-top: 60px;
@@ -183,7 +237,7 @@ section {
         font-size: 1.2rem;
         text-indent: -0.5rem;
         line-height: 1.6rem;
-        display: block;
+        display: inline-block;
     }
     > button.btn_ {
         color:#fff;
@@ -192,13 +246,106 @@ section {
             content:'';
             width:24px;
             height:24px;
-            border:1px solid red;
+            margin-right:-10px;
             background-image: url('../../assets/mo_images/common/icon_split.png');
             background-repeat:no-repeat;
             background-size:250px;
-            background-position:0px 0px;
+            background-position:-138px -130px;
 
 
+        }
+    }
+}
+
+#choice_modal {
+    .modal_container {
+        right:0;
+        bottom:0;
+        .modal_header {
+            h2 {
+                font-size: 1.8rem;
+                font-weight: 500;
+                line-height: 2.4rem;
+            }
+        }
+        .modal_content {
+            .inner {
+                padding: 0rem 2rem 2.4rem 2rem;
+                border-bottom: 0.5rem solid #F5F5F5;
+                .tab_wrap {
+                    margin-left:0 !important;
+                    margin-right:0 !important;
+                     ul {
+                        border: 1px solid red;
+                         li {
+                            > button {
+                                height:40px !important;
+                                font-size:1.4rem !important;
+                                > em {
+                                    height:40px !important;
+                                    font-size:1.4rem !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                .date_wrap {
+                    margin-top: 1.6rem;
+                    overflow: hidden;
+                    display:flex;
+                    align-items: center;
+                    justify-content:space-between;
+                    .date {
+                        width: calc(50% - 1.35rem);
+                        height: 4rem;
+                        padding: 0 1.5rem;
+                        border: 0.1rem solid #eee;
+                        align-items: center;
+                        position: relative;
+                        display: flex;
+                        input {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            z-index: 10;
+                            width: 100%;
+                            height: 100%;
+                            opacity: 0;
+                            color: #000;
+                        }
+                        > em {
+                            width:16px;
+                            height:16px;
+                            background-image: url('../../assets/mo_images/common/icon_split.png');
+                            background-repeat:no-repeat;
+                            background-size:250px;
+                            background-position:-138px -130px;
+                        }
+                    }
+                }
+                .alt {
+                    margin: 1rem 0 0;
+                    color: #888;
+                    font-size: 1.2rem;
+                    &::before {
+                        content: "*";
+                        margin-right: 0.2rem;
+                        display: inline-block;
+                    }
+                }
+                > .btn_outline {
+                    width:100%;
+                    margin: 1.6rem auto 0 auto;
+                }
+            }
+            section {
+                div {
+                    padding: 10rem 0;
+                    text-align:center;
+                }
+            }
         }
     }
 }
