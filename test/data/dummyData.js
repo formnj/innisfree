@@ -494,14 +494,17 @@ export const sam_menu = [
 ]
 
 
-export const sampleTopics = [
+export const samplePost = [
   {
+    sticker:[
+      {txt:'에디터 찐템 추천', type:'type02'}
+    ],
     img: ("/_nuxt/public/images/sam/img_ed_topic_01.png"),
     title: '내가 하알루론산 수분 무기자차 선크림에 정착한 찐 이유 Top 10',
     editor: {
       photo: ("/_nuxt/public/images/sam/photo_editor_01.png"),
       name: '이사배',
-      type: '민감성피부 · 주름/탄력/다크써클',
+      type: '민감성피부 · 주름/탄력/다크써클 고민 · 봄브라이트 · INFJ',
     },
     view: {
       cnt: '999+',
@@ -510,6 +513,9 @@ export const sampleTopics = [
     }
   },
   {
+    sticker:[
+      {txt:'에디터 찐템 추천', type:'type02'}
+    ],
     img: ("/_nuxt/public/images/sam/img_ed_topic_02.png"),
     title: '특별한 이니스프리 경험!',
     editor: {
@@ -524,6 +530,9 @@ export const sampleTopics = [
     }
   },
   {
+    sticker:[
+      {txt:'에디터 찐템 추천', type:'type02'}
+    ],
     img: ("/_nuxt/public/images/sam/img_ed_topic_03.png"),
     title: '텍스트는 최대 두 줄까지 작성이 가능합니다.',
     editor: {
@@ -538,6 +547,9 @@ export const sampleTopics = [
     }
   },
   {
+    sticker:[
+      {txt:'에디터 찐템 추천', type:'type02'}
+    ],
     img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
     title: '커뮤니티 타이틀 2줄까지 띄워쓰기 포함 최대 몇 자',
     editor: {
@@ -552,46 +564,6 @@ export const sampleTopics = [
     }
   },
 ]
-
-export const samplePost = [
-  {
-    sticker:[
-        {txt:'에디터 찐템 추천', type:'type02'}
-    ],
-    img: ("/_nuxt/public/images/sam/img_ed_topic_01.png"),
-    title: '색다른 이니스프리를 경험하다',
-    view: {
-      cnt: '152',
-      like: '11',
-      cmnt: '20'
-    }
-  },
-  {
-    sticker:[
-        {txt:'에디터 찐템 추천', type:'type02'}
-    ],
-    img: ("/_nuxt/public/images/sam/img_ed_topic_02.png"),
-    title: '내가 히알루론산 수분 무기자차 선크림에 정착한 찐 이유 top10',
-    view: {
-      cnt: '999+',
-      like: '11',
-      cmnt: '20'
-    }
-  },
-  {
-    sticker:[
-        {txt:'에디터 찐템 추천', type:'type02'}
-    ],
-    img: ("/_nuxt/public/images/sam/img_ed_topic_03.png"),
-    title: '포스트 타이틀 2줄까지 띄어쓰기 포함 최대 32자까지 가능합니다.',
-    view: {
-      cnt: '152',
-      like: '11',
-      cmnt: '20'
-    }
-  },
-]
-
 export const sampleShowcase = [
   {
     img: ("/_nuxt/public/images/sam/img_show_01.png"),

@@ -45,6 +45,9 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
       }
   }
 }
+.event_list > li {
+  width:100% !important;
+}
 .title_wrap {
   padding: 30px 0px;
   position:relative;
