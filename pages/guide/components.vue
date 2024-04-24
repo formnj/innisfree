@@ -149,6 +149,7 @@
         <Button txt="Modal bottom" @click="modal.open('sample_modal', 'bottom');" />
         <Button txt="Modal detailSearch" @click="modal.open('sample_modal', 'detailSearch');" />
         <Button txt="Modal layer" id="layer" @click="modal.open('sample_modal', 'layer');" />
+        <Button txt="Modal fullMo" @click="modal.open('sample_modal', 'fullMo');" />
       </div>
     </div>
     <pre class="code_box"><code>&lt;div class="modal_wrap" id="모달_아이디"&gt;

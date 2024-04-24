@@ -222,3 +222,22 @@
     background-position:-23rem -2rem;
   }
 }
+
+/* 일치하는 상품 X */
+.no_content {
+  font-size:1.5rem;
+  font-weight:600;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  &:before {
+  content:'';
+  width:6rem;
+  height:6rem;
+  margin:2rem 0;
+  background:url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -6.5rem -10rem;
+  background-size:25rem auto;
+  display:block;
+  }
+}

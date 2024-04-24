@@ -6,19 +6,25 @@
 
 <script setup>
 const props = defineProps({
-  class: String,
-  txt: String,
+  class: {
+    type: String,
+    default: '',
+  },
+  txt: {
+    type: String,
+    default: '',
+  },
 })
 
 </script>
 
 <style lang="scss" scoped>
 button {
-  width:32px;
-  height:32px;
+  width:3.2rem;
+  height:3.2rem;
   background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
   background-repeat:no-repeat;
-  background-size:250px auto;
+  background-size:25rem auto;
   background-color:unset;
   position:relative;
   display:block;
@@ -26,14 +32,14 @@ button {
     font-size:0;
   }
   &.cart {
-    background-position:-40px 0;
+    background-position:-4rem 0;
     em {
-      height:17px;
-      padding:0 5px;
+      height:1.7rem;
+      padding:0 0.5rem;
       color:#fff;
-      font-size:10px;
+      font-size:1rem;
       font-weight:600;
-      line-height:17px;
+      line-height:1.7rem;
       background-color:#000;
       border-radius:100px;
       position:absolute;
@@ -45,21 +51,21 @@ button {
     }
   }
   &.home {
-    background-position:-130px 0;
+    background-position:-13rem 0;
   }
   &.share {
-    background-position:-170px 0;
+    background-position:-17rem 0;
   }
   &.back {
-    background-position:-40px -70px;
+    background-position:-4rem -7rem;
   }
   &.btn_search {
     background-position:0 0;
   }
   &.barcode {
-    background-position:-209px -64px;
+    background-position:0 -18rem;
   }
-  &.tooltip {
+  &.tooltip { //모바일 사이즈는 mobile.scss로 옮김
     width:24px;
     height:24px;
     padding:0;
