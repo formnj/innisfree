@@ -98,7 +98,7 @@
         <Button class="btn_history" txt="쇼핑로그" @click="modal.open('shopping_log', 'detailSearch')" />
       </li>
       <li>
-        <Button class="btn_goTop" txt="go top" @click="goTop" />
+        <Button class="btn_goTop" txt="go top" @click="scroll_top" />
       </li>
     </ul>
   </div>
