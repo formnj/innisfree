@@ -49,7 +49,7 @@
         <ul>
           <li class="mo"><a href="#none">이용약관</a></li>
           <li class="mo"><a href="#none" class="active">개인정보처리방침</a></li>
-          <li class="mo"><a href="#none">영상기기관리방침</a></li>  
+          <li class="mo"><a href="#none">영상기기관리방침</a></li>
           <li class="mo"><a href="#none">위치기반서비스 이용약관</a></li>
           <li class="mo"><a href="#none">사업자정보확인</a></li>
           <li class="mo"><a href="#none">약관및법적고지확인</a></li>
@@ -90,9 +90,65 @@
       </div>
     </div><!--// inner-->
   </footer>
+
+  <!-- float menu -->
+  <div class="flaot_menu">
+    <ul>
+      <li>
+        <Button class="btn_history" txt="쇼핑로그" @click="modal.open('shopping_log', 'detailSearch')" />
+      </li>
+      <li>
+        <Button class="btn_goTop" txt="go top" @click="goTop" />
+      </li>
+    </ul>
+  </div>
+  <!-- //float menu -->
+
+  <!-- 쇼핑로그 모달 -->
+  <div class="modal_wrap" id="shopping_log">
+     <div class="modal_container">
+        <div class="modal_header">
+            <h2>쇼핑로그
+              <Button class="tootip" txt="tooltip" @click="modal.open('log_info', 'alert')" />
+            </h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <div style="height:3500px; border:1px solid red;"></div>
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //쇼핑로그 모달 -->
+
+  <!-- 쇼핑로그 안내 모달 -->
+  <div class="modal_wrap" id="log_info">
+     <div class="modal_container">
+        <div class="modal_header">
+            <h2>쇼핑로그 안내</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <ul class="bullet_list">
+            <li>로그인을 하신 고객님들은 30일동안 조회한 최대 100개까지의 쇼핑로그를 확인하실 수 있습니다.</li>
+            <li>판매 종료된 제품이나 종료된 이벤트는 쇼핑로그에서 자동으로 삭제됩니다.</li>
+          </ul>
+        </div>
+        <div class="modal_footer">
+            <Button class="btn_ confirm" txt="확인" />
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //쇼핑로그 안내 모달 -->
 </template>
 
 <script setup>
+import { modal } from '~/assets/js/common-ui'
+
+const goTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 </script>
 
 <style lang="scss" scoped>
@@ -110,12 +166,12 @@ footer {
       display:inline-block;
       img {
         width:100%;
-      } 
+      }
     }
     > .cont_footer {
       font-size:12px;
       position:relative;
-      
+
       > * {
         margin-top:20px;
       }
@@ -182,7 +238,7 @@ footer {
             content:'(수신자 부담)';
             color:#999;
             font-size:10px;
-            
+
             }
           }
           + * {
@@ -302,4 +358,46 @@ footer {
   }
 }
 
+.flaot_menu {
+  position:fixed;
+  right:40px;
+  bottom:40px;
+  z-index:10;
+  li + li {
+    margin-top:10px;
+  }
+  :deep(button) {
+    height:auto;
+    background-color:transparent;
+    em {
+      width:40px;
+      height:40px;
+      padding:0;
+      font-size:0;
+      border:1px solid #eee;
+      border-radius:50%;
+      box-shadow:0 5px 10px 0 rgba(0,0,0,0.05);
+      position:relative;
+      &:after {
+        width:24px;
+        height:24px;
+        background-image:url('~/assets/images/common/icon_split.png');
+        background-repeat:no-repeat;
+        background-size:250px auto;
+        content:'';
+        position:absolute;
+        top:50%;
+        left:50%;
+        display:block;
+        transform:translate(-50%, -50%);
+      }
+    }
+    &.btn_history em:after {
+      background-position:-200px -130px;
+    }
+    &.btn_goTop em:after {
+      background-position:-180px -60px;
+    }
+  }
+}
 </style>

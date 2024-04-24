@@ -915,7 +915,4 @@ onMounted(() => {
     }
   }
 }
-
-@import "~/assets/scss/_mo_mixin.scss";
-@import "~/assets/scss/mobile.scss";
 </style>

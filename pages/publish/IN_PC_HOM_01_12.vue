@@ -16,7 +16,29 @@
       <h2>쇼케이스</h2>
       <p>봄맞이 핑크템으로<br>생기를 더하세요!</p>
     </div>
-    <button class="share" @click="modal.open('modal_share', 'alert')"></button>
+
+    <!-- 공유 레이어 -->
+    <div class="share_wrap">
+      <button class="btn_share" @click="modal.open('modal_share', 'layer')"></button>
+      <!-- 공유 모달 -->
+      <div id="modal_share" class="modal_wrap">
+        <div class="modal_container">
+            <div class="modal_header">
+                <h2>공유하기</h2>
+                <button class="btn_close" @click="modal.close(this);">닫기</button>
+            </div>
+            <div class="modal_content">
+              <div class="img">
+                <a href="#none"><img src="/assets/images/sam/icon_sns_facebook.png"></a>
+                <a href="#none"><img src="/assets/images/sam/icon_share_url.png"></a>
+              </div>
+            </div>
+        </div>
+        <div class="overlay" @click="modal.close(this);"></div>
+      </div>
+      <!-- 공유 모달 -->
+    </div>
+    <!-- //공유 레이어 -->
   </div>
 
   <div class="inner">
@@ -74,22 +96,6 @@
           <a href="#none" class="last">마지막으로</a>
       </div>
   </div>
-
-  <!-- 공유 모달 -->
-  <div id="modal_share" class="modal_wrap">
-    <div class="modal_container">
-        <div class="modal_header">
-            <h2>공유하기</h2>
-            <button class="btn_close" @click="modal.close(this);">닫기</button>
-        </div>
-        <div class="modal_content">
-          <img src="/assets/images/sam/icon_sns_facebook.png">
-          <img src="/assets/images/sam/icon_share_url.png">
-        </div>
-    </div>
-    <div class="overlay" @click="modal.close(this);"></div>
-  </div>
-  <!-- 공유 모달 -->
 </template>
 <script setup>
 import { sample_goods } from '~/test/data/dummyData'
@@ -166,7 +172,7 @@ const qr_menu = (e) => {
   position: fixed;
   right: 40px;
   top: 417px;
-  z-index: 10;
+  z-index: 2;
   transition: 0.4s ease-in-out;
   * {
     transition: 0.4s ease-in-out;
@@ -226,8 +232,8 @@ const qr_menu = (e) => {
 
 .title_wrap {
   padding: 60px 20px 30px;
-  border-bottom:1px solid #EEEEEE;
   justify-content:space-between;
+  z-index:unset;
   .prd_tit {
     h2 {
       margin-bottom:30px;
@@ -241,16 +247,15 @@ const qr_menu = (e) => {
       line-height:31px;
     }
   }
-  .share {
-    width:32px;
-    height:32px;
-    background:url('/assets/images/common/icon_split.png') no-repeat -170px -170px;
-    background-size:250px auto;
-    align-self:flex-end;
-  }
+}
+
+.share_wrap {
+  right:20px;
+  bottom:30px;
 }
 
 .prd_wrap {
+  border-top:1px solid #EEEEEE;
   padding-top:60px;
   >div {
     max-width:780px;
@@ -380,8 +385,5 @@ const qr_menu = (e) => {
       }
     }
   }
-}
-
-#modal_share {
 }
 </style>

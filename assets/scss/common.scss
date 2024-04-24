@@ -223,6 +223,10 @@ html {
       padding: 20px;
       border-bottom: 1px solid #eee;
 
+      .tooltip {
+        vertical-align:middle;
+      }
+
       .btn_close {
         width: 24px;
         height: 24px;
@@ -392,6 +396,58 @@ html {
     }
   }
 
+  &[class*="layer"] {
+    overflow:initial;
+    position:absolute;
+    .modal_container {
+      max-height:initial;
+      box-shadow:5px 5px 20px rgba(0, 0, 0, 0.15);
+      top:0;
+      left:0;
+      transform:translate(0,0);
+    }
+    .overlay {
+      display:none;
+    }
+  }
+
+  &.fullMo {
+    .modal_container {
+      width:100%;
+      height:100%;
+      max-height:100%;
+      .modal_header {
+        padding:1.7rem 2.1rem;
+        border:0;
+        h2 {
+          font-size:1.8rem;
+          font-weight:500;
+          line-height:2.4rem;
+        }
+        .btn_close {
+          width:2.5rem;
+          height:2.5rem;
+          right:1.6rem;
+          top:1.6rem;
+        }
+      }
+      .modal_content {
+        padding:0;
+        .showcase_item {
+          height:21rem;
+          img {
+            width:100%;
+            height:100%;
+            object-fit:cover;
+          }
+        }
+      }
+    }
+    .overlay {
+      display:none;
+    }
+  }
+
   //쇼핑로그 공통 스타일
   &.detailSearch {
     .modal_container {
@@ -423,7 +479,7 @@ html {
 
       .modal_content {
         padding: 40px;
-        flex: none;
+        flex: 0 auto;
       }
 
       .modal_footer {
@@ -638,6 +694,41 @@ ul.select_list {
   }
 }
 
+/* bullet list */
+ul.bullet_list {
+  > li {
+    padding-left:11px;
+    position:relative;
+    & + li {
+      margin-top:5px;
+    }
+    &:before {
+      width:3px;
+      height:3px;
+      background-color:#999e9c;
+      border-radius:50%;
+      content:'';
+      position:absolute;
+      top:12px;
+      left:0;
+      display:block;
+    }
+  }
+}
+
+/* icon button */
+.tootip {
+  em {
+    width:24px;
+    height:24px;
+    padding:0;
+    font-size:0;
+    background-image:url('~/assets/images/common/icon_split.png');
+    background-position:-94px -206px;
+    background-size:250px auto;
+    display:block;
+  }
+}
 
 /* 텍스트 링크 with 오른쪽 화살표 */
 a.btn_link_arrw {
@@ -650,5 +741,46 @@ a.btn_link_arrw {
     border-left: 1px solid #000;
     display: inline-block;
     transform: rotate(135deg);
+  }
+}
+
+/* share modal layer */
+.share_wrap {
+  position:absolute;
+  bottom:0;
+  right:0;
+  .btn_share {
+    width:32px;
+    height:32px;
+    background:url('/assets/images/common/icon_split.png') no-repeat -170px -170px;
+    background-size:250px auto;
+  }
+  #modal_share {
+    .modal_container {
+      top:-20px;
+      right:0;
+      left:unset;
+      .modal_header {
+        h2 {
+          font-size:20px;
+          font-weight:600;
+          line-height:1.33em;
+          letter-spacing:-0.01em;
+        }
+      }
+      .modal_content {
+        padding:30px 50px;
+        .img {
+          padding:0 30px;
+          display:flex;
+          gap:0 20px;
+          img {
+            max-width:unset;
+            width:60px;
+            height:60px;
+          }
+        }
+      }
+    }
   }
 }

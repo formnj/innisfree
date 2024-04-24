@@ -114,8 +114,7 @@
                     </ul>
                 </section>
                 <section v-if="isBool">
-                    <div class="no_pdt">
-                        <span></span>
+                    <div class="no_content">
                         일치하는 결과가 없습니다.
                     </div>
                 </section>
@@ -477,7 +476,7 @@ const cate_tab = (e) => {
     justify-content:space-between;
 }
 header {
-  padding:10px 21px 0;
+  padding:1rem 2.1rem 0;
   position:sticky;
   top:-50px;
   left:0;
@@ -516,8 +515,8 @@ header {
                 display:block;
             }
             strong {
-                margin-bottom:20px;
-                font-size:16px;
+                margin-bottom:2rem;
+                font-size:1.6rem;
                 font-weight:600;
                 position:relative;
                 display:flex;
@@ -525,24 +524,25 @@ header {
                 ::v-deep .btn_txt {
                     em {
                         color:#999;
-                        font-size:12px;
+                        font-size:1.2rem;
                     }
                 }
                 span {
                     color:#999999;
-                    font-size:12px;
+                    font-size:1.2rem;
                     font-weight:300;
-                    line-height:16px;
+                    line-height:1.6rem;
                 }
             }
             .search {
-                padding:10px 16px;
+                padding:1rem 1.6rem;
                 border:0;
                 border-radius:0;
                 background:#fff;
                 display:flex;
                 align-items:center;
                 & > div {
+                    height:4rem;
                     border:1px solid #000;
                     border-radius:5px;
                     overflow:hidden;
@@ -552,29 +552,29 @@ header {
                 }
                 ::v-deep .input {
                     i, input {
-                        font-size:13px;
+                        font-size:1.3rem;
                     }
                     input {
-                        padding-right:5px;
+                        padding-right:0.5rem;
                         border:0;
                     }
                 }
                 .btn_search {
-                    width:24px;
-                    height:24px;
-                    margin-right:10px;
+                    width:2.4rem;
+                    height:2.4rem;
+                    margin-right:1rem;
                     background-color:transparent;
-                    background-position:0 -40px;
+                    background-position:0 -4rem;
                 }
                 .back {
-                    margin-right:10px;
+                    margin-right:1rem;
                 }
                 .barcode {
-                    margin-left:10px;
+                    margin-left:1rem;
                 }
             }
             section {
-                padding:30px 0;
+                padding:3rem 0;
                 background:#fff;
                 & + section:before {
                     border-top:1px solid #f5f5f5;
@@ -583,21 +583,21 @@ header {
                     transform:translateY(-30px);
                 }
                 strong {
-                    padding:0 22px;
-                    margin-bottom:30px;
+                    padding:0 2.2rem;
+                    margin-bottom:3rem;
                 }
                 ul {
-                    padding:0 22px;
-                    margin-bottom:31px;
+                    padding:0 2.2rem;
+                    margin-bottom:3.1rem;
                     display:flex;
                     flex-wrap:wrap;
-                    gap:5px;
+                    gap:0.5rem;
                     &.latest {
                         & + strong {
-                            margin-bottom:20px;
+                            margin-bottom:2rem;
                         }
                         li:not(.no_data) {
-                            padding:0 15px;
+                            padding:0 1.5rem;
                             border:1px solid #ddd;
                             border-radius:100px;
                             div {
@@ -607,14 +607,14 @@ header {
                         }
                         li.no_data {
                             width:100%;
-                            padding:50px 10px;
+                            padding:5rem 1rem;
                             color:#999;
                             text-align:center;
                         }
                         a {
-                            padding:7px 0;
+                            padding:0.7rem 0;
                             color:#333;
-                            font-size:14px;
+                            font-size:1.4rem;
                             font-weight:400;
                             display:block;
                         }
@@ -649,25 +649,25 @@ header {
                         }
                     }
                     &.category {
-                        padding:0 22px;
+                        padding:0 2.2rem;
                         margin:0;
                         overflow:auto;
                         flex-wrap:nowrap;
-                        gap:12px;
+                        gap:1.2rem;
                         scrollbar-width:none;
                         &::-webkit-scrollbar {
                             display:none;
                         }
                         li {
                             .thumb {
-                                width:57px;
-                                height:57px;
+                                width:5.7rem;
+                                height:5.7rem;
                                 display:block;
                             }
                             p {
-                                margin-top:8px;
+                                margin-top:0.8rem;
                                 color:#888;
-                                font-size:12px;
+                                font-size:1.2rem;
                                 font-weight:400;
                                 text-align:center;
                                 white-space:nowrap;
@@ -675,18 +675,18 @@ header {
                         }
                     }
                     &.auto {
-                        gap:25px;
+                        gap:2.5rem;
                         li {
                             width:100%;
                             a {
-                                font-size:14px;
+                                font-size:1.4rem;
                                 font-weight:400;
                                 display:flex;
                                 align-items:center;
                                 justify-content:space-between;
                                 span {
                                     color:#aaa;
-                                    font-size:12px;
+                                    font-size:1.2rem;
                                     font-weight:400;
                                 }
                             }
@@ -694,7 +694,7 @@ header {
                     }
                     &.key_item {
                         margin:0;
-                        gap:3px;
+                        gap:0.3rem;
                         li {
                             width:100%;
                             padding:0;
@@ -702,7 +702,7 @@ header {
                                 padding:0;
                                 display:flex;
                                 align-items:center;
-                                gap:20px;
+                                gap:2rem;
                                 .img_wrap {
                                     width:9rem;
                                     .thumb {
@@ -721,10 +721,10 @@ header {
                                         }
                                         .price {
                                             strong {
-                                                margin-right:5px;
+                                                margin-right:0.5rem;
                                             }
                                             span {
-                                                margin-right:10px;
+                                                margin-right:1rem;
                                             }
                                             em {
                                                 display:inline-block;
@@ -736,29 +736,13 @@ header {
                         }
                     }
                 }
-                .no_pdt {
-                    font-size:15px;
-                    font-weight:600;
-                    display:flex;
-                    flex-direction:column;
-                    align-items:center;
-                    justify-content:center;
-                    span {
-                        width:60px;
-                        height:60px;
-                        margin:20px 0;
-                        background:url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -65px -100px;
-                        background-size:250px auto;
-                        display:block;
-                    }
-                }
                 .cate_wrap {
                     padding:0;
-                    margin-bottom:58px;
+                    margin-bottom:5.8rem;
                     overflow:hidden;
                 }
                 .keyword_wrap {
-                    padding:0 22px 31px;
+                    padding:0 2.2rem 3.1rem;
                     .keyword {
                         display:flex;
                     }
@@ -766,31 +750,31 @@ header {
                         width:50%;
                         display:flex;
                         flex-wrap:wrap;
-                        gap:25px 0;
+                        gap:2.5rem 0;
                         li {
                             width:100%;
                             a {
-                                font-size:14px;
+                                font-size:1.4rem;
                                 font-weight:400;
                                 display:flex;
                                 align-items:center;
-                                gap:27px;
+                                gap:2.7rem;
                                 em {
-                                    min-width:16px;
-                                    font-size:13px;
+                                    min-width:1.6rem;
+                                    font-size:1.3rem;
                                     font-weight:600;
-                                    line-height:16px;
+                                    line-height:1.6rem;
                                     text-align:center;
                                     position:relative;
                                     &:after {
                                         content:'';
-                                        width:8px;
-                                        height:8px;
-                                        background: url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -10px -130px;
-                                        background-size:250px auto;
+                                        width:1.2rem;
+                                        height:1.2rem;
+                                        background: url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -1.5rem -13rem;
+                                        background-size:25rem auto;
                                         position:absolute;
                                         top:50%;
-                                        right:-15px;
+                                        right:-1.8rem;
                                         transform:translateY(-50%);
                                     }
                                 }
@@ -803,21 +787,21 @@ header {
                                 &.up {
                                     em{
                                         &:after {
-                                            background-position:0 -130px;
+                                            background-position:0 -13rem;
                                         }
                                     }
                                 }
                                 &.down {
                                     em{
                                         &:after {
-                                            background-position:-20px -130px;
+                                            background-position:-3rem -13rem;
                                         }
                                     }
                                 }
                                 &.new {
                                     em{
                                         &:after {
-                                            background-position:-30px -130px;
+                                            background-position:-4.5rem -13rem;
                                         }
                                     }
                                 }
