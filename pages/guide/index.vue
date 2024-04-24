@@ -584,7 +584,12 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-19/2024-04-19', worker:'김나람'
     }, {
         depth:['','','상세',''],
-        id:'IN_MO_HOM_01_09', status:'',
+        id:'IN_MO_HOM_01_09', status:'ing',
+        type:'', note:'',
+        sDate:'', eDate:'2024-05-03', worker:'김나람'
+    }, {
+        depth:['','','에디터별 보기',''],
+        id:'IN_MO_HOM_01_10', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-05-03', worker:'김나람'
     }, {
@@ -598,14 +603,19 @@ const MO_arry = ([
         type:'', note:'',
         sDate:'', eDate:'2024-04-26/', worker:'형민우'
     }, {
+        depth:['','','전체보기 팝업',''],
+        id:'IN_MO_HOM_01_13', status:'ing',
+        type:'', note:'',
+        sDate:'', eDate:'2024-04-26/', worker:'형민우'
+    }, {
         depth:['','라이브(T)','',''],
         id:'IN_MO_HOM_01_14', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-04-26/', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
-        id:'IN_MO_HOM_01_15', status:'',
-        type:'', note:'',
+        id:'IN_MO_HOM_01_15', status:'ing',
+        type:'', note:'쇼핑로그 영역, 쇼케이스 전체보기 모달 필요',
         sDate:'', eDate:'2024-04-26/', worker:'김나람'
     }, {
         depth:['','임직원샵','목록',''],
