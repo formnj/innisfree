@@ -98,7 +98,7 @@
         <Button class="btn_history" txt="쇼핑로그" @click="modal.open('shopping_log', 'detailSearch')" />
       </li>
       <li>
-        <Button class="btn_goTop" txt="go top" @click="goTop" />
+        <Button class="btn_goTop" txt="go top" @click="scroll_top" />
       </li>
     </ul>
   </div>
@@ -108,13 +108,70 @@
   <div class="modal_wrap" id="shopping_log">
      <div class="modal_container">
         <div class="modal_header">
-            <h2>쇼핑로그
-              <Button class="tootip" txt="tooltip" @click="modal.open('log_info', 'alert')" />
+            <h2><strong>김이니</strong>님의 쇼핑로그
+              <Icons class="tooltip" txt="툴팁" @click="modal.open('log_info', 'alert')" />
             </h2>
             <button class="btn_close" @click="modal.close(this);">닫기</button>
         </div>
-        <div class="modal_content">
-          <div style="height:3500px; border:1px solid red;"></div>
+        <div class="modal_content shopping_log">
+
+          <section class="list_wrap">
+            <p v-if="sample_log.length < 1" class="no_data">
+              <strong>쇼핑로그가 없습니다.</strong>
+              <span>쇼핑로그는 7일 최대 50개까지 보관됩니다.</span>
+            </p>
+            <!-- list -->
+            <ul class="goods_list type_column">
+              <li v-for="(item, idx) in sample_log" :key="idx">
+                <GoodsItem v-if="item.type == 'goods'" :item="item.item[0]" :link="item.item.link" />
+                <EventItem v-if="item.type == 'event'" :item="item.item[0]" :link="item.link"/>
+              </li>
+            </ul>
+            <!-- //list -->
+          </section>
+
+          <section>
+            <h4>추천 키워드</h4>
+            <ul class="keyword_list">
+              <li>
+                <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;비타C&quot;);">#비타C</a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;노세범&quot;);">#노세범</a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;모공&quot;);">#모공</a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;화산송이&quot;);">#화산송이</a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;로션&quot;);">#로션</a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;스킨&quot;);">#스킨</a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;브라이트닝&quot;);">#브라이트닝</a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;히알루론산&quot;);">#히알루론산</a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;블랙티&quot;);">#블랙티</a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;콜라겐&quot;);">#콜라겐</a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;레티놀&quot;);">#레티놀</a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;씨드세럼&quot;);">#씨드세럼</a>
+              </li>
+            </ul>
+          </section>
+
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -125,7 +182,9 @@
   <div class="modal_wrap" id="log_info">
      <div class="modal_container">
         <div class="modal_header">
-            <h2>쇼핑로그 안내</h2>
+            <h2>쇼핑로그 안내
+              <p class="explain">최근 본 제품, 이벤트, 검색어예요</p>
+            </h2>
             <button class="btn_close" @click="modal.close(this);">닫기</button>
         </div>
         <div class="modal_content">
@@ -135,7 +194,7 @@
           </ul>
         </div>
         <div class="modal_footer">
-            <Button class="btn_ confirm" txt="확인" />
+            <Button @click="modal.close(this);" class="btn_ confirm" txt="확인" />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -145,8 +204,9 @@
 
 <script setup>
 import { modal } from '~/assets/js/common-ui'
+import { sample_log } from '~/test/data/dummyData'
 
-const goTop = () => {
+const scroll_top = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 </script>
@@ -374,6 +434,7 @@ footer {
       height:40px;
       padding:0;
       font-size:0;
+      background-color:#fff;
       border:1px solid #eee;
       border-radius:50%;
       box-shadow:0 5px 10px 0 rgba(0,0,0,0.05);
@@ -397,6 +458,123 @@ footer {
     }
     &.btn_goTop em:after {
       background-position:-180px -60px;
+    }
+  }
+}
+
+/* 쇼핑로그 리스트 */
+#shopping_log {
+  h2 strong {
+    color:#00BC70;
+  }
+}
+
+.shopping_log {
+  section {
+    padding-top:40px;
+    h4 {
+      margin-bottom:20px;
+      font-size:16px;
+      font-weight:600;
+    }
+    & + section {
+      margin-top:90px;
+      border-top:1px solid #eee;
+    }
+  }
+  .no_data {
+    padding:50px 0 90px;
+  }
+  .goods_list {
+    margin:0;
+    position:relative;
+    &:after {
+      border-left:1px solid #eee;
+      content:'';
+      position:absolute;
+      top:0;
+      bottom:0;
+      left:44px;
+    }
+    > li {
+      padding:0;
+      position:relative;
+      z-index:1;
+      & + li {
+        margin-top:50px;
+      }
+      :deep(.goods_item), :deep(.event_item .item) {
+        display:flex;
+        .img_wrap, .thumb {
+          width:90px;
+        }
+        .cont {
+          flex:1;
+        }
+      }
+      :deep(.goods_item) {
+        .img_wrap {
+           height:120px;
+           margin-right:20px;
+           .thumb {
+            height:100%;
+           }
+           .btnIconBox {
+            display:none;
+           }
+        }
+        .cont {
+          margin-top:0;
+          .price {
+            > * {
+              font-size:14px;
+            }
+            em {
+              font-size:13px;
+            }
+          }
+        }
+      }
+      :deep(.event_item) {
+        .item {
+          align-items:center;
+        }
+        .thumb {
+          height:60px;
+          margin-right:20px;
+          padding-top:0;
+        }
+        .cont {
+          height:auto;
+          margin-top:0;
+          strong {
+            margin-top:0;
+            font-size:14px;
+            font-weight:400;
+            white-space: normal;
+            word-break: break-all;
+            word-wrap: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+        }
+      }
+    }
+  }
+  .keyword_list {
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 5px;
+    a {
+      padding:4px 10px;
+      color:#009d5e;
+      font-size:12px;
+      border:1px solid #009d5e;
+      border-radius:100px;
+      display:block;
     }
   }
 }

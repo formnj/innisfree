@@ -65,11 +65,14 @@ button {
   &.barcode {
     background-position:0 -18rem;
   }
-  &.tooltip {
-    width: 1.6rem;
-    height: 1.6rem;
-    margin-left: 0.5rem;
-    background-position:-23rem -2rem;
+  &.tooltip { //모바일 사이즈는 mobile.scss로 옮김
+    width:24px;
+    height:24px;
+    padding:0;
+    font-size:0;
+    background-image:url('~/assets/images/common/icon_split.png');
+    background-position:-94px -206px;
+    background-size:250px auto;
     display: inline-block;
   }
 }

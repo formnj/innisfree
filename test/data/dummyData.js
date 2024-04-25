@@ -579,6 +579,313 @@ export const sampleShowcase = [
   },
 ]
 
+export const sample_log = [
+  {
+    type:'goods',
+    item: [
+      {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'type01', type:'type01'},
+            {txt:'type02', type:'type02'},
+            {txt:'type03', type:'type03'},
+            {txt:'type04', type:'type04'}
+        ],
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+      }
+    ]
+  }, {
+    type: 'event',
+    item: [
+      {
+        img:("/_nuxt/assets/images/sam/event_list_01.jpg"),
+        cate:'제휴혜택',
+        title:'트러블?수분?탄력?<br/> 고민따라 10% 추가할인 쿠폰위크!!',
+        data:'24.4.14(일) ~ 24.4.30(화)',
+      }
+    ]
+  }, {
+    type: 'event',
+    item: [
+      {
+        img:("/_nuxt/assets/images/sam/event_list_01.jpg"),
+        cate:'제휴혜택',
+        title:'트러블?수분?탄력?<br/> 고민따라 10% 추가할인 쿠폰위크!!',
+        data:'24.4.14(일) ~ 24.4.30(화)',
+      }
+    ]
+  }, {
+    type:'goods',
+    item: [
+      {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'type01', type:'type01'},
+            {txt:'type02', type:'type02'},
+            {txt:'type03', type:'type03'},
+            {txt:'type04', type:'type04'}
+        ],
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+      }
+    ]
+  }, {
+    type:'goods',
+    item: [
+      {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'type01', type:'type01'},
+            {txt:'type02', type:'type02'},
+            {txt:'type03', type:'type03'},
+            {txt:'type04', type:'type04'}
+        ],
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+      }
+    ]
+  }, {
+    type:'goods',
+    item: [
+      {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        sticker:[
+            {txt:'type01', type:'type01'},
+            {txt:'type02', type:'type02'},
+            {txt:'type03', type:'type03'},
+            {txt:'type04', type:'type04'}
+        ],
+        hash:['#스킨팩','#화장솜','#순면화장솜']
+      }
+    ]
+  },
+]
+
+export const sample_live = [
+  {
+    img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[0]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[1]',
+    relation: {
+      img: ("https://images.innisfree.co.kr/upload/product/34506_l_S_240.png?T202404241707"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[2]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[3]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[4]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[5]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[6]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[7]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[8]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[9]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[10]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[11]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[12]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[13]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[14]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[15]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[16]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[17]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[18]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[19]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[20]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[21]',
+    relation: {
+      img: ("/_nuxt/public/images/sam/img_ed_topic_04.png"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }, {
+    img: ("https://images.innisfree.co.kr/upload/live/30_rt.png?T202404241707"),
+    date: '24.00.00',
+    view: '4,443',
+    title: '1분에 1개씩 경품이<br>쏟아지는 콜라겐 라방[22]',
+    relation: {
+      img: ("https://images.innisfree.co.kr/upload/product/34506_l_S_240.png?T202404241707"),
+      title: '콜라겐 그린티 세라마이드 탄력장벽 크림'
+    }
+  }
+]
+
 export const banner_list = [
   {img: '/_nuxt/assets/images/sam/banner01.jpg', title: '4월은 지구의 달\n공병수거하며 지구를 지켜요!'},
   {img: '/_nuxt/assets/images/sam/banner02.jpg', title: '꾸준히 사랑받는 한란 라인\n활용TIP!'},

@@ -17,6 +17,14 @@
   </section>
 
   <section>
+    <h2>Textarea</h2>
+    <div class="design_box">
+      <Textarea _placeholder="문구를 입력해주세요." />
+    </div>
+    <pre class="code_box"><code>&lt;Textarea _placeholder="문구를 입력해주세요." /&gt;</code></pre>
+  </section>
+
+  <section>
     <h2>Select</h2>
     <div class="design_box">
       <Selectbox :options="[
@@ -56,6 +64,17 @@
       </div>
     </div>
     <pre class="code_box"><code>&lt;Button /&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>Icons</h2>
+    <ul class="explain">
+      <li>아이콘 버튼으로 style은 pc베이스로 잡고, 모바일 스타일은 mobile.scss에 선언.</li>
+    </ul>
+    <div class="design_box">
+      <Icons class="tooltip" />
+    </div>
+    <pre class="code_box"><code>&lt;Icons class="tooltip" /&gt;</code></pre>
   </section>
 
   <section>
@@ -140,7 +159,7 @@
     <ul class="explain">
       <li>import { modal } from '~/assets/js/common-ui.js' 선언 후 필요한 스타일만 페이지 하단에 적용</li>
       <li>Open : modal.open(오픈할 모달아이디, 타입);<br /> 타입 = full / alert / bottom : mobile 하단에서 올라오는 팝업 / layer : [tooltip, 공유하기] 등 position absolute 모달</li>
-      <li>Close : modal.close();</li>
+      <li>Close : modal.close(); /* 다중팝업 노출 시 바디스크롤 풀림 처리 예정 */</li>
     </ul>
     <div class="design_box">
       <div class="multi_form">

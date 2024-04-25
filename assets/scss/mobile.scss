@@ -211,6 +211,18 @@
   }
 }
 
+/* icon button */
+:deep(button) {
+  &.tooltip {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-left: 0.5rem;
+    background-image:url('~/assets/mo_images/common/icon_split.png');
+    background-size:25rem auto;
+    background-position:-23rem -2rem;
+  }
+}
+
 /* 일치하는 상품 X */
 :deep(.no_content) {
   font-size:1.5rem;
@@ -220,12 +232,12 @@
   align-items:center;
   justify-content:center;
   &:before {
-      content:'';
-      width:6rem;
-      height:6rem;
-      margin:2rem 0;
-      background:url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -6.5rem -10rem;
-      background-size:25rem auto;
-      display:block;
+  content:'';
+  width:6rem;
+  height:6rem;
+  margin:2rem 0;
+  background:url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -6.5rem -10rem;
+  background-size:25rem auto;
+  display:block;
   }
 }

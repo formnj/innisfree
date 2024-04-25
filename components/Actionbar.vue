@@ -9,12 +9,12 @@
                 <button @click="modal.open('sample_modal_search', 'bottom');">상세검색</button>
             </div>
             <div class="right_box">
-                <Button class="btn_icon_history" txt=""/>
+                <Button class="btn_icon_history" txt="" @click="$router.push('/publish/IN_MO_HOM_01_18')" />
                 <Button class="top_btn" txt="" @click="scroll_top()" />
             </div>
         </div>
         <div class="inner">
-            <a href="#"><img src="~/assets/images/actionbar/Logo_Motion.png" alt="" /></a>
+            <a href="/publish/IN_MO_HOM_01_01"><img src="~/assets/images/actionbar/Logo_Motion.png" alt="" /></a>
             <div>
                 <button @click="cate_layer.open"><img src="~/assets/images/actionbar/Category.png" alt="" /></button>
                 <button class="best"><img src="~/assets/images/actionbar/Best.png" alt="" /></button>
