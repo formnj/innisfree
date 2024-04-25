@@ -360,9 +360,9 @@ const PC_arry = ([
         sDate:'2024-04-25', eDate:'2024-04-26/2024-04-25', worker:'김희경'
     }, {
         depth:['','','1:1 답변확인(T)',''],
-        id:'IN_PC_MYP_01_48', status:'ing',
+        id:'IN_PC_MYP_01_48', status:'com',
         type:'', note:'',
-        sDate:'2024-04-25', eDate:'2024-04-26', worker:'김희경'
+        sDate:'2024-04-25', eDate:'2024-04-26/2024-04-26', worker:'김희경'
     }, {
         depth:['','공병수거 현황','내 공병수거 현황(T)','온라인 공병수거 신청'],
         id:'IN_PC_MYP_01_51', status:'',

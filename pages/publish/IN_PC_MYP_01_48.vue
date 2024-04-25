@@ -186,6 +186,10 @@ onMounted(() => {
        taget.forEach((el,i)=>{
         el.addEventListener('click', ()=>{
             el.parentElement.nextElementSibling.classList.toggle('active')
+            // console.log(el.parentElement.nextElementSibling.childNodes)
+            // el.parentElement.nextElementSibling.childNodes.forEach((a)=>{
+            //   a.classList.toggle('active')
+            // })
         })
        })
     }
@@ -431,7 +435,7 @@ h2 {
 
               }
             &.questionCont{
-                display:none;
+              display:none;
                 td {
                     color: #777;
                     font-size: 16px;
@@ -465,9 +469,10 @@ h2 {
                             }
                         }
                     }
+
                 }
                 &.active {
-                    display:block;
+                    display:table-row;
                 }
             }
           }
