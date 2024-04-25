@@ -220,8 +220,18 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
     section {
         .info {
             margin:70px 20px 50px;
+            padding:100px 0 0;
             color: #666;
             text-align:center;
+            &::before {
+                content:'';
+                width:80px;
+                height:80px;
+                background-image: url('/_nuxt/assets/images/common/icon_split.png');
+                background-repeat:no-repeat;
+                background-size:500px;
+                background-position:0px 0px;
+            }
             strong {
             font-size:24px;
             margin-bottom: 15px;
@@ -239,8 +249,18 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
             justify-content:center;
             align-items:center;
             gap:0 10px;
-            button {
-
+            ::v-deep button {
+                &.btn_mid {
+                    padding:0 30px;
+                    font-size:16px;
+                    font-weight:600;
+                    background:#00BC70;
+                }
+                &.btn_mid_outline {
+                    padding:0 30px;
+                    font-size:16px;
+                    font-weight:600;
+                }
             }
         }
     }
@@ -369,16 +389,23 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
             }
         }
         .modal_content {
-            padding: 20px 30px 30px 30px;
+            padding: 0px 30px 30px 30px;
             .inner {
                 padding:0;
+
                 ::v-deep .tab_wrap {
                     ul {
+                        border-bottom:1px solid #eee;
+                        gap:50px;
                         li {
-                            flex:1;
+                            width:100%;
+                            flex:0 !important;
                             > * {
                                 em {
+                                    width:50px;
+                                    padding: 0 !important;;
                                     color:#666;
+
                                     font-size:16px;
                                     font-weight:600;
                                 }
