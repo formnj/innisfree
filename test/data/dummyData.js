@@ -766,3 +766,18 @@ export const sampleCmnt = [
     },
   },
 ]
+
+
+export const banner_list = [
+  {img: '/_nuxt/assets/images/sam/banner01.jpg', title: '4월은 지구의 달\n공병수거하며 지구를 지켜요!'},
+  {img: '/_nuxt/assets/images/sam/banner02.jpg', title: '꾸준히 사랑받는 한란 라인\n활용TIP!'},
+  {img: '/_nuxt/assets/images/sam/banner03.jpg', title: '지구 환경도 챙기고\n뷰티포인트도 챙기자!'},
+  {img: '/_nuxt/assets/images/sam/banner04.jpg', title: '추운 겨울 내 파우치 속 필수템\n취향따라 골라쓰는 퍼퓸드 핸드크림!'},
+  {img: '/_nuxt/assets/images/sam/banner05.jpg', title: '겨울철 가려움, 각질 고민\n완벽 케어 솔루션!'},
+  {img: '/_nuxt/assets/images/sam/banner06.jpg', title: '새해맞이!\n안티에이징 홈 케어 제품 추천!'},
+  {img: '/_nuxt/assets/images/sam/banner07.jpg', title: '돌아온 보습 레전드\n올리브 라인'},
+  {img: '/_nuxt/assets/images/sam/banner08.jpg', title: '이니스프리 직원 추천템\n#이니찐템'},
+  {img: '/_nuxt/assets/images/sam/banner09.jpg', title: '반려견들을 위한 산책 뷰티템\n이니스프리 그린펫클럽'},
+  {img: '/_nuxt/assets/images/sam/banner10.jpg', title: '이니스프리 FOAM 미쳤다!\n이니스프리 클렌징폼'},
+  {img: '/_nuxt/assets/images/sam/banner11.jpg', title: '눈여겨봐야 할\n신상 아이템! UTILITY BAG'},
+];
