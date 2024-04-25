@@ -192,7 +192,6 @@ section {
             gap:1rem;
             :deep(.input) {
                 textarea {
-                    width:100%;
                     height: 14.1rem;
                     margin-bottom:2rem;
                     padding:1.5rem;
