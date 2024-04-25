@@ -7,7 +7,7 @@
                     <dd>
                     <div class="multi_form">
                     <Inputs _type="text" _placeholder="주문 제품을 선택해주세요" />
-                    <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'full');" />
+                    <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'fullMo');" />
                     </div>
                     </dd>
                 </dl>
@@ -73,6 +73,7 @@
                     회원정보 수정을 통해 변경해주시기 바랍니다.
                 </em>
                 <Button txt="문의하기" />
+                <Button txt="문의하기" class="btn_ active" @click="modal.open('check_modal', 'full');"/>
             </section>
         </div>
 
@@ -124,6 +125,22 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="modal_wrap" id="check_modal">
+          <div class="modal_container">
+              <div class="modal_header">
+                  <h2>알려드립니다.</h2>
+              </div>
+              <div class="modal_content">
+                  1:1문의 작성이 완료되었습니다.
+              </div>
+              <div class="modal_footer">
+                  <Button txt="확인" @click="modal.close(this);" />
+              </div>
+          </div>
+          <div class="overlay" @click="modal.close(this);"></div>
+      </div>
 </template>
 
 <script setup>
@@ -268,9 +285,16 @@ section {
             background-repeat:no-repeat;
             background-size:250px;
             background-position:-138px -130px;
-
-
         }
+      &.active {
+        background-color: #000;
+        &::before {
+          background-image: url('../../assets/mo_images/common/icon_split.png');
+            background-repeat:no-repeat;
+            background-size:250px;
+            background-position:-138px -162px;
+        }
+      }
     }
 }
 
@@ -403,5 +427,25 @@ section {
             }
         }
     }
+}
+
+#check_modal {
+  .modal_container {
+    .modal_header {
+      font-size:1.2rem;
+      border-bottom:0;
+    }
+    .modal_content {
+      padding:30px 30px 30px 20px;
+    }
+    .modal_footer {
+      padding:0;
+      button.btn_ {
+        width:100%;
+        padding:30px !important;
+        background: #00BC70;
+      }
+    }
+  }
 }
 </style>
