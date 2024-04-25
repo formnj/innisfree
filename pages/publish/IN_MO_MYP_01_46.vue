@@ -39,13 +39,9 @@
                     </dt>
                     <dd>
                         <Inputs _type="text" _placeholder="제목을 입력해주세요. (최대 30자 이내)" />
-                        <div class="textarea">
-                            <textarea name="cnt" id="cnt"
-                            placeholder="내용을 입력해 주세요. 문의 내용 본문에는 개인정보를 입력하지 말아주세요. 고객정보보호를 위해 마스킹 처리될 수 있습니다.(예 : 성명, 연락처, 이메일주소, 계좌번호 등)">
-                        </textarea>
-                        </div>
-
-
+                        <!-- 24-04-25 Add -->
+                        <Textarea _placeholder="내용을 입력해 주세요. 문의 내용 본문에는 개인정보를 입력하지 말아주세요. 고객정보보호를 위해 마스킹 처리될 수 있습니다.(예 : 성명, 연락처, 이메일주소, 계좌번호 등)" />
+                        <!-- //24-04-25 Add -->
                     </dd>
                 </dl>
                 <Button class="btn_outline" txt="사진 최대 5장(선택)" />
@@ -211,9 +207,8 @@ section {
             display:flex;
             flex-direction:column;
             gap:1rem;
-            .textarea {
+            :deep(.input) {
                 textarea {
-                    width:100%;
                     height: 14.1rem;
                     margin-bottom:2rem;
                     padding:1.5rem;

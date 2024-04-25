@@ -17,6 +17,14 @@
   </section>
 
   <section>
+    <h2>Textarea</h2>
+    <div class="design_box">
+      <Textarea _placeholder="문구를 입력해주세요." />
+    </div>
+    <pre class="code_box"><code>&lt;Textarea _placeholder="문구를 입력해주세요." /&gt;</code></pre>
+  </section>
+
+  <section>
     <h2>Select</h2>
     <div class="design_box">
       <Selectbox :options="[
@@ -56,6 +64,17 @@
       </div>
     </div>
     <pre class="code_box"><code>&lt;Button /&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>Icons</h2>
+    <ul class="explain">
+      <li>아이콘 버튼으로 style은 pc베이스로 잡고, 모바일 스타일은 mobile.scss에 선언.</li>
+    </ul>
+    <div class="design_box">
+      <Icons class="tooltip" />
+    </div>
+    <pre class="code_box"><code>&lt;Icons class="tooltip" /&gt;</code></pre>
   </section>
 
   <section>
