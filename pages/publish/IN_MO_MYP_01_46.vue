@@ -378,9 +378,9 @@ section {
                         height: 4rem;
                         padding: 0 1.5rem;
                         border: 0.1rem solid #eee;
-                        align-items: center;
                         position: relative;
                         display: flex;
+                        align-items: center;
                         justify-content:space-between;
                         input {
                             position: absolute;
