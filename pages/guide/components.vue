@@ -17,6 +17,14 @@
   </section>
 
   <section>
+    <h2>Textarea</h2>
+    <div class="design_box">
+      <Textarea _placeholder="문구를 입력해주세요." />
+    </div>
+    <pre class="code_box"><code>&lt;Textarea _placeholder="문구를 입력해주세요." /&gt;</code></pre>
+  </section>
+
+  <section>
     <h2>Select</h2>
     <div class="design_box">
       <Selectbox :options="[
