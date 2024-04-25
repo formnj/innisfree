@@ -173,7 +173,7 @@ onMounted(() => {})
       background:none;
       display: flex;
       align-items: center;
-      ::v-deep em {
+      :deep(em) {
         padding:0;
         color: #000;
         font-size: 1.3rem;

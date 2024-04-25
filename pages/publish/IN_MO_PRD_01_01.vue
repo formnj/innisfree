@@ -336,7 +336,7 @@ const setFilter = (event) =>{
     > li {
         width:16.5rem;
         padding:0;
-        ::v-deep .goods_item {
+        :deep(.goods_item) {
           .img_wrap {
             .btnIconBox {
               left:0;

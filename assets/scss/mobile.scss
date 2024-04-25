@@ -212,7 +212,7 @@
 }
 
 /* 일치하는 상품 X */
-.no_content {
+:deep(.no_content) {
   font-size:1.5rem;
   font-weight:600;
   display:flex;

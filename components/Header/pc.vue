@@ -522,7 +522,7 @@ header {
             width:400px;
             margin:30px;
             position:relative;
-            ::v-deep .search {
+            :deep() .search {
                 padding-right:15px;
                 border:1px solid #00BC70;
                 border-radius:40px;
@@ -574,7 +574,7 @@ header {
                 position:relative;
                 display:flex;
                 justify-content:space-between;
-                ::v-deep .btn_txt {
+                :deep() .btn_txt {
                     em {
                         color:#999;
                         font-size:12px;
@@ -630,7 +630,7 @@ header {
                             font-weight:400;
                             display:block;
                         }
-                        ::v-deep .btn_del {
+                        :deep() .btn_del {
                             width:12px;
                             height:12px;
                             margin-top:1px;
@@ -698,7 +698,7 @@ header {
                         li {
                           width:100%;
                           padding:0;
-                          ::v-deep .goods_item {
+                          :deep() .goods_item {
                             display:flex;
                             gap:20px;
                             .img_wrap {
@@ -926,7 +926,7 @@ header {
                 z-index:1;
                 display:flex;
             }
-            .btn_category::v-deep {
+            :deep(.btn_category) {
                 width:140px;
                 height:auto;
                 padding:18px 0 19px;
@@ -1098,7 +1098,7 @@ header {
                     }
                 }
             }
-            .btn_category::v-deep {
+            :deep(.btn_category) {
                 height:60px;
                 padding:0 31px 0 20px;
                 border:1px solid #eee;

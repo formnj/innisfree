@@ -100,7 +100,7 @@ const banner_list = [
       word-break: break-all;
     }
   }
-  ::v-deep .btn_all {
+  :deep(.btn_all) {
     height:fit-content;
     padding:0.6rem 0.8rem;
     display:flex;
@@ -223,7 +223,7 @@ const banner_list = [
 .modal_wrap {
   .modal_container {
     .modal_content {
-      ::v-deep .showcase_item {
+      :deep(.showcase_item) {
         height:21rem;
         img {
           width:100%;

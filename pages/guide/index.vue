@@ -604,9 +604,9 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-26/2024-04-24', worker:'형민우'
     }, {
         depth:['','','전체보기 팝업',''],
-        id:'IN_MO_HOM_01_13', status:'ing',
+        id:'IN_MO_HOM_01_13', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-26/', worker:'형민우'
+        sDate:'', eDate:'2024-04-26/2024-04-25', worker:'형민우'
     }, {
         depth:['','라이브(T)','',''],
         id:'IN_MO_HOM_01_14', status:'',
