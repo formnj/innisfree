@@ -26,7 +26,7 @@
                 아모레퍼시픽 뷰티포인트 상담실(080-023-5454/오전 9시 - 6시, 단, 12시 - 1시 점심시간 제외)로 문의부탁드립니다.
                 소중한 시간 내어 문의 주신 점 감사 드립니다.
                 행복한 하루 보내세요.
-                <button class="btn_outline">
+                <button class="btn_outline" @click="modal.open('delete_modal', 'alert')">
                   문의취소
                 </button>
               </div>
@@ -60,6 +60,22 @@
           </dl>
         </div>
 
+        <div class="modal_wrap" id="delete_modal">
+          <div class="modal_container">
+              <div class="modal_header">
+                  <h2>알림</h2>
+                  <button class="btn_close" @click="modal.close(this);">닫기</button>
+              </div>
+              <div class="modal_content">
+                  <div>해당 상담내역을 삭제 하시겠습니까?</div>
+              </div>
+              <div class="modal_footer">
+                  <Button class="btn_ confirm" txt="확인" @click="modal.close(this);"/>
+              </div>
+          </div>
+          <div class="overlay" @click="modal.close(this);"></div>
+        </div>
+
 
 </template>
 
@@ -76,7 +92,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   }
 });
 
-
+import { modal } from '~/assets/js/common-ui.js'
 
 onMounted(() => {
 

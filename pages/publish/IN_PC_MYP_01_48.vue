@@ -109,7 +109,7 @@
                     <td class="date">2024-04-25 08:42:20 </td>
                     <td class="btn">
                         <span>처리중</span>
-                        <Button class="btn_outline" txt="삭제" />
+                        <Button class="btn_outline" txt="삭제" @click="modal.open('delete_modal', 'alert')"/>
                     </td>
                 </tr>
                 <tr class="questionCont">
