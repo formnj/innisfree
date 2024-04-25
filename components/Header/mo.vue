@@ -466,7 +466,7 @@ const cate_tab = (e) => {
     const target = document.querySelectorAll('.nav_wrap > div section')[index];
 
     nav_cont.scrollTo({top: target.offsetTop, behavior: 'smooth'});
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -521,7 +521,7 @@ header {
                 position:relative;
                 display:flex;
                 justify-content:space-between;
-                ::v-deep .btn_txt {
+                :deep(.btn_txt) {
                     em {
                         color:#999;
                         font-size:1.2rem;
@@ -550,7 +550,7 @@ header {
                     align-items:center;
                     flex:1;
                 }
-                ::v-deep .input {
+                :deep(.input) {
                     i, input {
                         font-size:1.3rem;
                     }
@@ -618,7 +618,7 @@ header {
                             font-weight:400;
                             display:block;
                         }
-                        ::v-deep .btn_del {
+                        :deep(.btn_del) {
                             width:12px;
                             height:12px;
                             margin-top:1px;
@@ -698,7 +698,7 @@ header {
                         li {
                             width:100%;
                             padding:0;
-                            ::v-deep .goods_item {
+                            :deep(.goods_item) {
                                 padding:0;
                                 display:flex;
                                 align-items:center;
@@ -886,7 +886,7 @@ header {
                     align-items: center;
                     flex: 1;
                 }
-                ::v-deep .input {
+                :deep(.input) {
                     i, input {
                         font-size:13px;
                     }
@@ -1043,7 +1043,7 @@ header {
                                 gap:5px;
                                 li {
                                     width:50%;
-                                    ::v-deep .goods_item {
+                                    :deep(.goods_item) {
                                         padding-bottom:50px;
                                         a {
                                             padding:0;
