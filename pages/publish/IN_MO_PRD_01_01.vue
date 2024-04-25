@@ -6,7 +6,7 @@
 
         <div class="pdtSortTab_wrap">
             <div class="sortTab">
-                <button class="btn_dropdown" @click="modal.open('sample_modal_sort', 'bottom');" >추천순</button>
+                <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom');" >추천순</button>
             </div>
             <button @click="modal.open('sample_modal_search', 'bottom');">필터</button>
         </div>
@@ -18,7 +18,7 @@
             </li>
         </ul>
     </div>
-    <div class="modal_wrap" id="sample_modal_sort">
+    <div class="modal_wrap" id="modal_sort">
         <div class="modal_container">
             <div class="modal_header">
                 <button class="btn_close" @click="modal.close(this);"></button>
@@ -346,11 +346,90 @@ const setFilter = (event) =>{
     }
 }
 
-.modal_wrap {
+.modal_wrap.bottom {
     .modal_container {
         z-index:100;
+        .modal_header {}
+        .modal_content {
+          padding: 0 20px 34px !important;
+        }
+
     }
 }
+
+#modal_sort {
+    .modal_container {
+      border-top-left-radius: 20px 20px;
+      border-top-right-radius: 20px 20px;
+      .modal_header {
+        width: 100%;
+        height: 29.4px;
+        padding: 0;
+        border-bottom: 0;
+        position: relative;
+        .btn_close {
+          top: 50%;
+          right: 50%;
+          transform: translate(-50%, -50%);
+          &::before {
+            width: 67px;
+            height: 5px;
+            border-radius: 100px;
+            border-top: 0;
+            background-color: #dddddd;
+            position: absolute;
+            transform: rotate(0deg);
+          }
+          &::after {
+            display: none;
+          }
+        }
+      }
+      .modal_content {
+        padding: 0;
+        height: calc(100% - 29.4px);
+        overflow-y: auto;
+        div {
+          ul {
+            li {
+              padding: 16px 28px;
+              border-bottom: 1px solid #f5f5f5;
+              &:last-of-type {
+                border-bottom: 0;
+              }
+              &.active {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                &::after {
+                  content: '';
+                  width: 22.4px;
+                  height: 22.4px;
+                  background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+                  background-repeat: no-repeat;
+                  background-size: 250px;
+                  background-position: -203px -94px;
+                  display: inline-block;
+                }
+                a {
+                  color: #00bc70;
+                  font-weight: 700;
+                }
+              }
+              a {
+                color: #000000;
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 17.5px;
+                letter-spacing: -0.14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
 
 .sortList {
       margin-bottom:30px;
