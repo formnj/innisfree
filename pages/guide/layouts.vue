@@ -51,6 +51,92 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 &lt;/script&gt;</code></pre>
   </section>
 
+  <section>
+    <h2>Content wrap</h2>
+    <ul class="explain">
+      <li>content 구성 마크업</li>
+    </ul>
+    <div class="design_box">
+      <div class="content">
+        <div class="title_wrap" style="max-width:1320px; margin:0 auto; padding:0 20px; display:flex; justify-content:space-between;">
+          <h2 style="font-size:38px; position:relative;">Title
+            <em class="badge count" style="padding:3px 6px; color:#fff; font-size:13px; font-weight:600; background-color:#00BC70; border-radius:100px; position:absolute; top:0; right:-10px; transform:translateX(100%);">20</em>
+          </h2>
+          <a href="#none" class="btn_link" style="position:absolute; top:0; right:0;">링크</a>
+
+          <div class="pdt_sort">
+            <div class="sortTab">
+              <button class="btn_dropdown">추천순</button>
+              <ul>
+                <li><a href="#none" class="active">추천순</a></li>
+                <li><a href="#none">신제품순</a></li>
+                <li><a href="#none">판매량순</a></li>
+                <li><a href="#none">낮은 가격순</a></li>
+                <li><a href="#none">높은 가격순</a></li>
+                <li><a href="#none">리뷰순</a></li>
+                <li><a href="#none">판매금액순</a></li>
+              </ul>
+            </div>
+            <button>상세검색</button>
+          </div>
+        </div>
+
+        <div class="sub_title_wrap">
+          <h3>Sub title
+            <Icons class="tooltip" txt="툴팁" />
+          </h3>
+          <p class="explain">타이틀 설명 글</p>
+          <a href="#none" class="btn_link">링크</a>
+        </div>
+        <div class="inner">
+          콘텐츠
+        </div>
+
+        <div class="sub_title_wrap">
+          <h3>Sub title
+            <Icons class="tooltip" txt="툴팁" />
+          </h3>
+          <p class="explain">타이틀 설명 글</p>
+          <a href="#none" class="btn_link">링크</a>
+        </div>
+        <div class="inner">
+          콘텐츠
+        </div>
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="content"&gt;
+  &lt;div class="title_wrap"&gt;
+    &lt;h2&gt;Title
+      &lt;em class="badge count"&gt;20&lt;/em&gt;
+    &lt;/h2&gt;
+    &lt;a href="#none" class="btn_link"&gt;링크&lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;div class="sub_title_wrap"&gt;
+    &lt;h3&gt;Sub title
+      &lt;Icons class="tooltip" txt="툴팁" /&gt;
+    &lt;/h3&gt;
+    &lt;p class="explain"&gt;타이틀 설명 글&lt;/p&gt;
+    &lt;a href="#none" class="btn_link"&gt;링크&lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;div class="inner"&gt;
+    콘텐츠
+  &lt;/div&gt;
+
+  &lt;div class="sub_title_wrap"&gt;
+    &lt;h3&gt;Sub title
+      &lt;Icons class="tooltip" txt="툴팁" /&gt;
+    &lt;/h3&gt;
+    &lt;p class="explain"&gt;타이틀 설명 글&lt;/p&gt;
+    &lt;a href="#none" class="btn_link"&gt;링크&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class="inner"&gt;
+    콘텐츠
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
 </template>
 
 <script setup>
@@ -62,14 +148,14 @@ definePageMeta({
 <style lang="scss" scoped>
 .guide_wrap {
     padding:30px 0;
-    section {
+    > section {
         margin:0 20px;
         & + section {
             margin-top:30px;
             padding-top:30px;
             border-top:1px dashed #ababab;
         }
-        h2 {
+        > h2 {
             margin-bottom:20px;
             padding:10px 10px 10px 20px;
             font-size: 24px;
