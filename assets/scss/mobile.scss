@@ -152,6 +152,56 @@
 }
 /* //eventitem */
 
+/* liveitem */
+:deep(.live_item) {
+  .img_wrap {
+    .thumb {
+      height:auto;
+      padding-top:133.333333%;
+      position:relative;
+      & > em {
+        position:absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+      }
+    }
+    .notice {
+      padding:1rem;
+      font-size:1.2rem;
+      line-height:1.6rem;
+    }
+    .event_item {
+      right:1rem;
+      bottom:1rem;
+      left:1rem;
+      .thumb {
+        width: 3.6rem;
+        height: 4.8rem;
+      }
+      .cont {
+        padding:1rem 0.8rem 1rem 1rem;
+        strong {
+          font-size:1.2rem;
+          line-height:1.6rem;
+        }
+      }
+    }
+  }
+  .cont {
+    .name {
+      padding-top: 1.5rem;
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+    }
+    button em {
+      font-size:1rem;
+    }
+  }
+}
+/* //liveitem */
+
 /* hash */
 :deep(.hash) {
   button {

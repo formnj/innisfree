@@ -36,72 +36,32 @@
     </section>
     <!-- //라이브 콘텐츠 -->
 
-    <h3>이니슾라이브 다시보기</h3>
+    <h3>이니슾라이브 다시보기
+      <a href="/publish/IN_MO_HOM_01_18" class="btn_link_arrw">전체보기</a>
+    </h3>
     <div class="swiper_wrap">
       <swiper
         :slides-per-view="'auto'"
-        :space-between="20"
-        :loop="true"
-        :pagination="{
-          type:'fraction'
-        }"
+        :loop="false"
         @swiper="onSwiper"
       >
-        <swiper-slide>
-          <div class="list_wrap">
-            <ul class="goods_list">
-              <li v-for="(item, idx) in sample_live.slice(0,10)" :key="idx">
-                <LiveItem :item="item" />
-              </li>
-            </ul>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <ul class="goods_list">
-            <li v-for="(item, idx) in sample_live.slice(10,20)" :key="idx">
-              <LiveItem :item="item" />
-            </li>
-          </ul>
+        <swiper-slide v-for="(item, idx) in sample_live" :key="idx">
+          <LiveItem :item="item" />
         </swiper-slide>
       </swiper>
-      <div class="navigation">
-        <button class="swiper-button-prev" @click="swiper_nav.prev"></button>
-        <button class="swiper-button-next" @click="swiper_nav.next">Next</button>
-      </div>
     </div>
 
     <h3>라이브 다시보기</h3>
     <div class="swiper_wrap">
       <swiper
         :slides-per-view="'auto'"
-        :space-between="20"
-        :loop="true"
-        :pagination="{
-          type:'fraction'
-        }"
+        :loop="false"
         @swiper="onSwiper"
       >
-        <swiper-slide>
-          <div class="list_wrap">
-            <ul class="goods_list">
-              <li v-for="(item, idx) in sample_live.slice(0,10)" :key="idx">
-                <LiveItem :item="item" />
-              </li>
-            </ul>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <ul class="goods_list">
-            <li v-for="(item, idx) in sample_live.slice(10,20)" :key="idx">
-              <LiveItem :item="item" />
-            </li>
-          </ul>
+        <swiper-slide v-for="(item, idx) in sample_live" :key="idx">
+          <LiveItem :item="item" />
         </swiper-slide>
       </swiper>
-      <div class="navigation">
-        <button class="swiper-button-prev" @click="swiper_nav.prev"></button>
-        <button class="swiper-button-next" @click="swiper_nav.next">Next</button>
-      </div>
     </div>
   </div>
 </template>
@@ -132,7 +92,7 @@ const swiper_nav = {
 /* swiper custom navigation */
 
 definePageMeta({
-	layout: 'pc-category'
+	layout: 'mo-category'
 });
 
 onMounted(() => {
@@ -148,9 +108,9 @@ const props = defineProps({
 <style lang="scss" scoped>
 
 h3 {
-  margin-top:100px;
-  margin-bottom:30px;
-  font-size: 24px;
+  margin-top:3rem;
+  margin-bottom:2rem;
+  font-size: 1.6rem;
   font-weight: 600;
   line-height: 1.33;
 }
@@ -174,16 +134,17 @@ h3 {
 }
 
 .swiper_wrap {
-  width:1280px;
-  margin:0 auto;
-  position:relative;
-  ::v-deep .swiper-container {
-    padding-bottom:61px;
-    div[role="button"] {
-      &:after {
-        color:#000000;
-        font-size:24px;
-      }
+  margin-right:-20px;
+  margin-left:-20px;
+  :deep(.swiper-container) {
+    padding-right:20px;
+    padding-left:20px;
+    .swiper-wrapper {
+      margin-left:-0.3rem
+    }
+    .swiper-slide {
+      width:16.5rem;
+      padding-left:0.3rem;
     }
   }
   .navigation {
@@ -219,10 +180,12 @@ h3 {
 }
 
 .live_box {
+  margin-right:-20px;
+  margin-left:-20px;
   .liveVisual_none {
     position: relative;
-    height: 550px;
-    padding: 40px 0 0;
+    height: 46rem;
+    padding: 4.5rem 0 0;
     text-align: center;
     background: linear-gradient(180deg, #F5F5F5 0%, #E8E8E8 100%);
     &:before, &:after {
@@ -232,58 +195,69 @@ h3 {
       display:inline-block;
     }
     &:before {
-      height: 280px;
+      height: 21rem;
       background: url('~/assets/images/ui/bg_live_typo.png') no-repeat 50% 50%;
+      background-size:33.3rem 21rem;
       left: 0;
-      bottom: 64px;
+      bottom: 7.5rem;
     }
     &:after {
-      height: 354px;
+      height: 26.5rem;
       background: url('~/assets/images/ui/bg_live_mockup.png') no-repeat 50% bottom;
+      background-size:17rem 26.5rem;
       left: 0;
       bottom: 0;
     }
     .imgTitle {
-      width: 190px;
-      height: 40px;
-      margin-bottom: 20px;
+      width: 13.6rem;
+      height: 2.9rem;
+      margin-bottom: 1.6rem;
       font-size:0;
       background: url('~/assets/images/ui/img_InniLive.png') no-repeat 50% 50%;
+      background-size:13.6rem 2.9rem;
       display: inline-block;
     }
     .notice {
-      line-height:1.38;
+      font-size:1.3rem;
+      line-height:2rem;
     }
   }
   .snsBox {
-    padding: 20px 0;
+    padding: 1.8rem 2.1rem;
     letter-spacing: -0.01em;
     border: 1px solid #eee;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     .txt {
-      margin-right: 30px;
       font-weight: 600;
-      font-size: 20px;
-      line-height: 1;
+    }
+    :deep(button) {
+      height:2.4rem;
+      border-radius:0.1rem;
+      em {
+        padding:0 0.8rem;
+        font-size:1rem;
+        font-weight:600;
+        line-height:2.4rem;
+      }
     }
   }
   .innarea {
-    padding: 60px 0;
+    padding:3rem 20px;
     border-bottom: 1px solid #eee;
     position: relative;
-    text-align: center;
     .title {
       margin: 0 0 10px;
-      font-size: 24px;
-      font-weight: 600;
-      line-height: 1.33;
+      font-size:1.6rem;
+      font-weight:600;
+      line-height:1.25;
     }
     .desc {
+      margin-top:0.5rem;
       color: #666;
-      font-size: 18px;
-      line-height: 1.33em;
+      font-size: 1.2rem;
+      line-height: 1.54;
     }
   }
 }
