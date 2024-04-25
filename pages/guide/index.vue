@@ -355,12 +355,12 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 문의하기(T)',''],
-        id:'IN_PC_MYP_01_46', status:'',
+        id:'IN_PC_MYP_01_46', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 답변확인(T)',''],
-        id:'IN_PC_MYP_01_48', status:'',
+        id:'IN_PC_MYP_01_48', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {

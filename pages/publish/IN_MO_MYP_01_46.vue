@@ -136,7 +136,7 @@
                   1:1문의 작성이 완료되었습니다.
               </div>
               <div class="modal_footer">
-                  <Button txt="확인" />
+                  <Button txt="확인" @click="modal.close(this);" />
               </div>
           </div>
           <div class="overlay" @click="modal.close(this);"></div>
