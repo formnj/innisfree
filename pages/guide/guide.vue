@@ -237,14 +237,14 @@ const modal = {
 <style lang="scss" scoped>
 .guide_wrap {
     padding:30px 0;
-    section {
+    > section {
         margin:0 20px;
         & + section {
             margin-top:30px;
             padding-top:30px;
             border-top:1px dashed #ababab;
         }
-        h2 {
+        > h2 {
             margin-bottom:20px;
             padding:10px 10px 10px 20px;
             font-size: 24px;

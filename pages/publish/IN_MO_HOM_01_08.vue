@@ -173,16 +173,4 @@ definePageMeta({
     }
   }
 }
-
-.post_list {
-  gap: 3rem .3rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  li {
-    width: 16.5rem;
-  }
-}
 </style>

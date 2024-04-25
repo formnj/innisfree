@@ -67,7 +67,7 @@ onMounted(()=>{
 #container {
   padding-bottom:100px;
   flex:1 auto;
-  ::v-deep .inner {
+  :deep(.inner) {
     max-width:1320px;
     margin:0 auto;
     padding:0 20px;

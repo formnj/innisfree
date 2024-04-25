@@ -602,7 +602,7 @@ onMounted(() => {
     > li {
       width:16.5rem;
       padding:0;
-      ::v-deep .goods_item {
+      :deep(.goods_item) {
         .btnIconBox {
           left:0;
         }
@@ -637,7 +637,7 @@ onMounted(() => {
   }
   .swiper-container {
     padding-bottom:20px;
-    ::v-deep .swiper-pagination {
+    :deep(.swiper-pagination) {
       bottom:0;
       span {
         width:5px;
@@ -729,7 +729,7 @@ onMounted(() => {
     li {
       width:14rem;
       position:relative;
-      ::v-deep .goods_item {
+      :deep(.goods_item) {
         .img_wrap {
           position:relative;
           .thumb {
