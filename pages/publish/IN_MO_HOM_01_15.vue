@@ -73,7 +73,6 @@
         </div>
 
       </div>
-
     </div>
   </section>
 
@@ -170,7 +169,7 @@
     </div>
 
     <div class="list_wrap">
-      <ul class="post_list">
+      <ul class="post_list_vertial">
         <li v-for="(item, idx) in samplePost.slice(0,3)" :key="idx">
           <PostItemVertical :item="item" :link="item.link" class="type_vertical"/>
         </li>
@@ -184,7 +183,7 @@
   </div>
 
   <!-- 쇼핑로그 안내 모달 -->
-  <div class="modal_wrap" id="log_info">
+  <div id="log_info" class="modal_wrap">
      <div class="modal_container">
         <div class="modal_header">
             <h2>쇼핑로그 안내
@@ -199,7 +198,7 @@
           </ul>
         </div>
         <div class="modal_footer">
-            <Button @click="modal.close(this);" class="btn_ confirm" txt="확인" />
+            <Button class="btn_ confirm" txt="확인" @click="modal.close(this);" />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -214,9 +213,7 @@ import { sample_goods, samplePost, sampleShowcase, sample_log } from '/test/data
 import SwiperCore, { Autoplay, Navigation, Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
-SwiperCore.use([Autoplay, Navigation, Pagination, A11y]);
+SwiperCore.use([A11y]);
 
 definePageMeta({
   layout: 'mo-default'
@@ -276,6 +273,10 @@ section {
     font-size: 1.2rem;
     color: #999;
   }
+
+  h2 + .txt_desc + * {
+    margin-top: 3rem;
+  }
 }
 
 .list_wrap {
@@ -320,16 +321,6 @@ section {
         .review_score {
           display: none;
         }
-      }
-    }
-  }
-
-  .post_list {
-    margin-bottom: 3rem;
-
-    li {
-      & + li {
-        margin-top: 2.5rem;
       }
     }
   }
