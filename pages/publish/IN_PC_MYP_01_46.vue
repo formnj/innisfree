@@ -35,7 +35,7 @@
                                     { val: 'value', txt: '옵션01' },
                                     { val: 'value', txt: '옵션02' }
                                 ]" />
-                                <span class="error"></span>
+                                <span class="error">상품구분을 선택해 주세요.</span>
                             </td>
                         </tr>
                         <tr>
@@ -49,7 +49,6 @@
                                     { val: 'value', txt: '옵션01' },
                                     { val: 'value', txt: '옵션02' }
                                 ]" />
-                                <span class="error"></span>
                             </td>
                         </tr>
                         <tr>
@@ -58,6 +57,15 @@
                             </th>
                             <td>
                                 <Button class="btn_outline" txt="주문상품찾기" @click="modal.open('choice_modal', 'full');"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span>제목</span>
+                            </th>
+                            <td>
+                                <Inputs _type="text" _placeholder="최대 30자 이내" />
+                                <span class="error">제목을 입력해 주세요.</span>
                             </td>
                         </tr>
                         <tr>
@@ -218,8 +226,9 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 
 .inner {
     section {
+        position: relative;
         .info {
-            margin:70px 20px 50px;
+            margin:80px 0px 50px;
             padding:100px 0 0;
             color: #666;
             text-align:center;
@@ -230,7 +239,12 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                 background-image: url('/_nuxt/assets/images/common/icon_split.png');
                 background-repeat:no-repeat;
                 background-size:500px;
-                background-position:0px 0px;
+                background-position:-247px -399px;
+                position:absolute;
+                top:-15px;
+                left:50%;
+                display:block;
+                transform:translateX(-50%);
             }
             strong {
             font-size:24px;
@@ -308,8 +322,11 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                     }
                     .label_wrap {
                         ::v-deep label.input {
+                            input {
+                                width:600px !important;
+                            }
                             textarea {
-                                width:500px;
+                                width:600px;
                                 height:200px !important;
                             }
                         }
@@ -359,6 +376,12 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                                 }
                             }
                         }
+                    }
+                    .error {
+                        margin-top:10px;
+                        color:#FF0000;
+                        font-size:12px;
+                        display:block;
                     }
 
                 }
