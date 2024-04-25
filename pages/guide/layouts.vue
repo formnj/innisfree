@@ -54,17 +54,33 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   <section>
     <h2>Content wrap</h2>
     <ul class="explain">
-      <li>content 구성 마크업</li>
+      <li>content 구성 기본 마크업</li>
     </ul>
     <div class="design_box">
       <div class="content">
-        <div class="title_wrap" style="max-width:1320px; margin:0 auto; padding:0 20px; display:flex; justify-content:space-between;">
-          <h2 style="font-size:38px; position:relative;">Title
-            <em class="badge count" style="padding:3px 6px; color:#fff; font-size:13px; font-weight:600; background-color:#00BC70; border-radius:100px; position:absolute; top:0; right:-10px; transform:translateX(100%);">20</em>
-          </h2>
-          <a href="#none" class="btn_link" style="position:absolute; top:0; right:0;">링크</a>
 
-          <div class="pdt_sort">
+        <div class="title_wrap" style="max-width:1320px; margin:0 auto; padding:0 20px; display:flex; align-items:flex-start; justify-content:space-between;">
+          <div>
+            <h2 style="font-size:38px; position:relative; display:inline-block;">Title
+              <em class="badge count" style="padding:3px 6px; color:#fff; font-size:13px; font-weight:600; background-color:#00BC70; border-radius:100px; position:absolute; top:0; right:-10px; transform:translateX(100%);">20</em>
+            </h2>
+            <p class="explain" style="margin-top:10px; margin-bottom:0; color:#999; font-size:12px;">fsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetete</p>
+            <Button class="btn_min_outline" txt="구매 안내사항" style="margin-top:10px;" />
+          </div>
+          <a href="#none" class="btn_link_arrw" style="position:absolute; top:50%; right:20px; transform:translateY(-50%);">링크</a>
+
+        </div>
+
+        <div class="title_wrap" style="max-width:1320px; margin:0 auto; padding:0 20px; display:flex; align-items:flex-start; justify-content:space-between;">
+          <div>
+            <h2 style="font-size:38px; position:relative; display:inline-block;">Title
+              <em class="badge count" style="padding:3px 6px; color:#fff; font-size:13px; font-weight:600; background-color:#00BC70; border-radius:100px; position:absolute; top:0; right:-10px; transform:translateX(100%);">20</em>
+            </h2>
+            <p class="explain" style="margin-top:10px; margin-bottom:0; color:#999; font-size:12px;">fsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetete</p>
+            <Button class="btn_min_outline" txt="구매 안내사항" style="margin-top:10px;" />
+          </div>
+
+          <div class="pdtSortTab_wrap">
             <div class="sortTab">
               <button class="btn_dropdown">추천순</button>
               <ul>
@@ -79,45 +95,80 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
             </div>
             <button>상세검색</button>
           </div>
+
         </div>
 
-        <div class="sub_title_wrap">
-          <h3>Sub title
-            <Icons class="tooltip" txt="툴팁" />
+        <div class="sub_title_wrap" style="max-width:1320px; margin:0 auto; padding:0 20px; position:relative;">
+          <h3 style="font-size:24px; font-weight:600; display:flex; align-items:center;">Sub title
+            <Icons class="tooltip" txt="툴팁" style="margin-left:12px;" />
           </h3>
-          <p class="explain">타이틀 설명 글</p>
-          <a href="#none" class="btn_link">링크</a>
+          <p class="explain" style="margin-top:10px; color:#999; font-size:16px;">타이틀 설명 글</p>
+          <a href="#none" class="btn_link_arrw" style="position:absolute; top:0; right:20px;">링크</a>
         </div>
-        <div class="inner">
+
+        <div class="inner" style="max-width:1320px; margin:0 auto; padding:0 20px;">
           콘텐츠
         </div>
 
-        <div class="sub_title_wrap">
-          <h3>Sub title
-            <Icons class="tooltip" txt="툴팁" />
-          </h3>
-          <p class="explain">타이틀 설명 글</p>
-          <a href="#none" class="btn_link">링크</a>
+        <div class="sub_title_wrap" style="max-width:1320px; margin:0 auto; padding:0 20px; position:relative;">
+          <h3 style="font-size:24px; font-weight:600; display:flex; align-items:center;">Sub title</h3>
+          <p class="explain" style="margin-top:10px; color:#999; font-size:16px;">타이틀 설명 글</p>
+          <a href="#none" class="btn_link_arrw" style="position:absolute; top:0; right:20px;">링크</a>
         </div>
-        <div class="inner">
+
+        <div class="inner" style="max-width:1320px; margin:0 auto; padding:0 20px;">
           콘텐츠
         </div>
+
       </div>
     </div>
     <pre class="code_box"><code>&lt;div class="content"&gt;
+
   &lt;div class="title_wrap"&gt;
-    &lt;h2&gt;Title
-      &lt;em class="badge count"&gt;20&lt;/em&gt;
-    &lt;/h2&gt;
-    &lt;a href="#none" class="btn_link"&gt;링크&lt;/a&gt;
+    &lt;div&gt;
+      &lt;h2&gt;Title
+        &lt;em class="badge count"&gt;20&lt;/em&gt;
+      &lt;/h2&gt;
+      &lt;p class="explain"&gt;설명글설명글설명글설명글설명글&lt;/p&gt;
+      &lt;Button class="btn_min_outline mt10" txt="구매 안내사항"/&gt;
+    &lt;/div&gt;
+    &lt;a href="#none" class="btn_link_arrw"&gt;링크&lt;/a&gt;
+
+  &lt;/div&gt;
+
+  &lt;div class="title_wrap"&gt;
+    &lt;div&gt;
+      &lt;h2&gt;Title
+        &lt;em class="badge count"&gt;20&lt;/em&gt;
+      &lt;/h2&gt;
+      &lt;p class="explain"&gt;설명글설명글설명글설명글설명글&lt;/p&gt;
+      &lt;Button class="btn_min_outline mt10" txt="구매 안내사항" /&gt;
+    &lt;/div&gt;
+
+    &lt;div class="pdtSortTab_wrap"&gt;
+      &lt;div class="sortTab"&gt;
+        &lt;button class="btn_dropdown"&gt;추천순&lt;/button&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href="#none" class="active"&gt;추천순&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#none"&gt;신제품순&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#none"&gt;판매량순&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#none"&gt;낮은 가격순&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#none"&gt;높은 가격순&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#none"&gt;리뷰순&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#none"&gt;판매금액순&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;button&gt;상세검색&lt;/button&gt;
+    &lt;/div&gt;
+
   &lt;/div&gt;
 
   &lt;div class="sub_title_wrap"&gt;
     &lt;h3&gt;Sub title
       &lt;Icons class="tooltip" txt="툴팁" /&gt;
     &lt;/h3&gt;
-    &lt;p class="explain"&gt;타이틀 설명 글&lt;/p&gt;
-    &lt;a href="#none" class="btn_link"&gt;링크&lt;/a&gt;
+    &lt;p class="explain"&gt;설명글설명글설명글설명글설명글&lt;/p&gt;
+    &lt;a href="#none" class="btn_link_arrw"&gt;링크&lt;/a&gt;
   &lt;/div&gt;
 
   &lt;div class="inner"&gt;
@@ -125,15 +176,15 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   &lt;/div&gt;
 
   &lt;div class="sub_title_wrap"&gt;
-    &lt;h3&gt;Sub title
-      &lt;Icons class="tooltip" txt="툴팁" /&gt;
-    &lt;/h3&gt;
+    &lt;h3&gt;Sub title&lt;/h3&gt;
     &lt;p class="explain"&gt;타이틀 설명 글&lt;/p&gt;
-    &lt;a href="#none" class="btn_link"&gt;링크&lt;/a&gt;
+    &lt;a href="#none" class="btn_link_arrw"&gt;링크&lt;/a&gt;
   &lt;/div&gt;
+
   &lt;div class="inner"&gt;
     콘텐츠
   &lt;/div&gt;
+
 &lt;/div&gt;</code></pre>
   </section>
 
