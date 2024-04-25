@@ -849,12 +849,12 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 문의하기(T)',''],
-        id:'IN_MO_MYP_01_46', status:'ing',
+        id:'IN_MO_MYP_01_46', status:'com',
         type:'', note:'',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 답변확인(T)',''],
-        id:'IN_MO_MYP_01_48', status:'ing',
+        id:'IN_MO_MYP_01_48', status:'com',
         type:'', note:'',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }
