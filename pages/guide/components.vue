@@ -67,6 +67,17 @@
   </section>
 
   <section>
+    <h2>Icons</h2>
+    <ul class="explain">
+      <li>아이콘 버튼으로 style은 pc베이스로 잡고, 모바일 스타일은 mobile.scss에 선언.</li>
+    </ul>
+    <div class="design_box">
+      <Icons class="tooltip" />
+    </div>
+    <pre class="code_box"><code>&lt;Icons class="tooltip" /&gt;</code></pre>
+  </section>
+
+  <section>
     <h2>Multi form</h2>
     <div class="design_box">
       <ul class="form_group">
