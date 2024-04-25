@@ -64,14 +64,12 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
             <h2 style="font-size:38px; position:relative; display:inline-block;">Title
               <em class="badge count" style="padding:3px 6px; color:#fff; font-size:13px; font-weight:600; background-color:#00BC70; border-radius:100px; position:absolute; top:0; right:-10px; transform:translateX(100%);">20</em>
             </h2>
-            <p class="explain" style="margin-top:10px; margin-bottom:0; color:#999; font-size:12px;">fsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetete</p>
-            <Button class="btn_min_outline" txt="구매 안내사항" style="margin-top:10px;" />
           </div>
           <a href="#none" class="btn_link_arrw" style="position:absolute; top:50%; right:20px; transform:translateY(-50%);">링크</a>
 
         </div>
 
-        <div class="title_wrap" style="max-width:1320px; margin:0 auto; padding:0 20px; display:flex; align-items:flex-start; justify-content:space-between;">
+        <div class="title_wrap" style="max-width:1320px; margin:40px auto 0; padding:0 20px; display:flex; align-items:flex-start; justify-content:space-between;">
           <div>
             <h2 style="font-size:38px; position:relative; display:inline-block;">Title
               <em class="badge count" style="padding:3px 6px; color:#fff; font-size:13px; font-weight:600; background-color:#00BC70; border-radius:100px; position:absolute; top:0; right:-10px; transform:translateX(100%);">20</em>
