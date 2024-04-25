@@ -73,7 +73,6 @@
         </div>
 
       </div>
-
     </div>
   </section>
 
@@ -170,7 +169,7 @@
     </div>
 
     <div class="list_wrap">
-      <ul class="post_list">
+      <ul class="post_list_vertial">
         <li v-for="(item, idx) in samplePost.slice(0,3)" :key="idx">
           <PostItemVertical :item="item" :link="item.link" class="type_vertical"/>
         </li>
@@ -180,11 +179,11 @@
 
   <div class="showcase">
     <ShowcaseModalItem v-for="(item, idx) in sampleShowcase.slice(0,1)" :key="idx" :item="item" :link="item.link"/>
-    <Button class="btn_min_outline" txt="전체보기" />
+    <Button class="btn_min_outline" txt="전체보기" @click="modal.open('modal_showcase_all', 'fullMo')"/>
   </div>
 
   <!-- 쇼핑로그 안내 모달 -->
-  <div class="modal_wrap" id="log_info">
+  <div id="log_info" class="modal_wrap">
      <div class="modal_container">
         <div class="modal_header">
             <h2>쇼핑로그 안내
@@ -199,18 +198,35 @@
           </ul>
         </div>
         <div class="modal_footer">
-            <Button @click="modal.close(this);" class="btn_ confirm" txt="확인" />
+            <Button class="btn_ confirm" txt="확인" @click="modal.close(this);" />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
   <!-- //쇼핑로그 안내 모달 -->
 
+  <!-- 쇼케이스 전체보기 모달 -->
+  <div id="modal_showcase_all" class="modal_wrap">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>전체보기</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <div class="content">
+            <ShowcaseModalItem v-for="(item, idx) in banner_list" :key="idx" :item="item" :link="item.link"/>
+          </div>
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- 쇼케이스 전체보기 모달 -->
+
 </template>
 
 <script setup>
 import { modal } from '~/assets/js/common-ui'
-import { sample_goods, samplePost, sampleShowcase, sample_log } from '/test/data/dummyData'
+import { sample_goods, samplePost, sampleShowcase, sample_log, banner_list } from '/test/data/dummyData'
 import SwiperCore, { Autoplay, Navigation, Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";
@@ -320,16 +336,6 @@ section {
         .review_score {
           display: none;
         }
-      }
-    }
-  }
-
-  .post_list {
-    margin-bottom: 3rem;
-
-    li {
-      & + li {
-        margin-top: 2.5rem;
       }
     }
   }
@@ -601,6 +607,18 @@ section {
       border:1px solid #009d5e;
       border-radius:100px;
       display:block;
+    }
+  }
+}
+
+.modal_wrap {
+  :deep(.showcase_item) {
+    height: 21rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
