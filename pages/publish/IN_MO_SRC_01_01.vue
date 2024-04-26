@@ -70,10 +70,15 @@
       </ul>
     </div>
 
-    <div class="event_wrap">
-      <h3>
-        <span>연관이벤트 <strong>5</strong></span>
+    <!-- title washed -->
+    <div class="sub_title_wrap">
+      <h3>연관이벤트
+        <strong>5</strong>
       </h3>
+    </div>
+    <!-- //title washed -->
+
+    <div class="event_wrap">
       <swiper
         :slides-per-view="'auto'"
         :loop="true"
@@ -109,11 +114,18 @@
         </li>
       </ul>
     </div>
+  </div>
 
+  <!-- title washed -->
+  <div class="sub_title_wrap">
+    <h3>
+      <a href="#none"><strong>주소희</strong>님 이 제품은 어때요?</a>
+    </h3>
+  </div>
+  <!-- //title washed -->
+
+  <div class="inner">
     <div class="pdt_wrap">
-      <h3>
-        <button><strong>주소희</strong>님 이 제품은 어때요?</button>
-      </h3>
       <ul class="pdt_list">
         <li v-for="(item, idx) in sample_pdt" :key="idx">
           <GoodsItem :item="item" :link="item.link" />

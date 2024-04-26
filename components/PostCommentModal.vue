@@ -54,7 +54,7 @@
 </template>
 
 <script setup>
-import { sampleCmnt } from '/test/data/dummyData'
+import { sampleCmnt } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui.js'
 
 onMounted(() => {

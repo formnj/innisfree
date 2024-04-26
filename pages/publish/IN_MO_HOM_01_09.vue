@@ -125,7 +125,7 @@
 
 <script setup>
 import { modal, setFilter } from '~/assets/js/common-ui.js'
-import { sample_goods, sampleCmnt, samplePost } from '/test/data/dummyData'
+import { sample_goods, sampleCmnt, samplePost } from '~/test/data/publish/dummyData'
 import SwiperCore, { Autoplay, Navigation, Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";
