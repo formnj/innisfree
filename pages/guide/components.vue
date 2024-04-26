@@ -67,6 +67,17 @@
   </section>
 
   <section>
+    <h2>Icons</h2>
+    <ul class="explain">
+      <li>아이콘 버튼으로 style은 pc베이스로 잡고, 모바일 스타일은 mobile.scss에 선언.</li>
+    </ul>
+    <div class="design_box">
+      <Icons class="tooltip" />
+    </div>
+    <pre class="code_box"><code>&lt;Icons class="tooltip" /&gt;</code></pre>
+  </section>
+
+  <section>
     <h2>Multi form</h2>
     <div class="design_box">
       <ul class="form_group">
@@ -130,6 +141,26 @@
     &lt;ul class="event_list"&gt;
         &lt;li v-for="(item, idx) in sample_event" :key="idx"&gt;
             &lt;EventItem :item="item" :link="item.link" /&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>Live Item</h2>
+    <div class="design_box">
+      <div class="list_wrap">
+        <ul class="goods_list">
+          <li v-for="(item, idx) in sample_live.slice(0,5)" :key="idx">
+            <LiveItem :item="item" :link="item.link" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
+    &lt;ul class="goods_list"&gt;
+        &lt;li v-for="(item, idx) in sample_live" :key="idx"&gt;
+            &lt;LiveItem :item="item" :link="item.link" /&gt;
         &lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
@@ -345,7 +376,7 @@ definePageMeta({
 })
 
 import { modal, Drop_Down, setFilter } from '~/assets/js/common-ui.js'
-import { sample_goods, sam_menu, sampleSlide, sample_event } from '~/test/data/dummyData.js'
+import { sample_goods, sam_menu, sampleSlide, sample_event, sample_live } from '~/test/data/dummyData.js'
 
 /* swiper */
 // import Swiper core and required components
@@ -454,14 +485,14 @@ onMounted(()=>{
 <style lang="scss" scoped>
 .guide_wrap {
     padding:30px 0;
-    section {
+    > section {
         margin:0 20px;
         & + section {
             margin-top:30px;
             padding-top:30px;
             border-top:1px dashed #ababab;
         }
-        h2 {
+        > h2 {
             margin-bottom:20px;
             padding:10px 10px 10px 20px;
             font-size: 24px;

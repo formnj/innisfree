@@ -125,9 +125,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-26/2024-04-24', worker:'형민우'
     }, {
         depth:['','라이브(T)','',''],
-        id:'IN_PC_HOM_01_14', status:'ing',
+        id:'IN_PC_HOM_01_14', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-23/', worker:'이종환'
+        sDate:'', eDate:'2024-05-23/2024-04-25', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
         id:'IN_PC_HOM_01_15', status:'',
@@ -355,12 +355,12 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 문의하기(T)',''],
-        id:'IN_PC_MYP_01_46', status:'',
+        id:'IN_PC_MYP_01_46', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 답변확인(T)',''],
-        id:'IN_PC_MYP_01_48', status:'',
+        id:'IN_PC_MYP_01_48', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
@@ -609,14 +609,14 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-26/2024-04-24', worker:'형민우'
     }, {
         depth:['','','전체보기 팝업',''],
-        id:'IN_MO_HOM_01_13', status:'ing',
+        id:'IN_MO_HOM_01_13', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-26/', worker:'형민우'
+        sDate:'', eDate:'2024-04-26/2024-04-25', worker:'형민우'
     }, {
         depth:['','라이브(T)','',''],
-        id:'IN_MO_HOM_01_14', status:'',
+        id:'IN_MO_HOM_01_14', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-26/', worker:'이종환'
+        sDate:'', eDate:'2024-04-26/2024-04-25', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
         id:'IN_MO_HOM_01_15', status:'com',
@@ -849,12 +849,12 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 문의하기(T)',''],
-        id:'IN_MO_MYP_01_46', status:'ing',
+        id:'IN_MO_MYP_01_46', status:'com',
         type:'', note:'',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 답변확인(T)',''],
-        id:'IN_MO_MYP_01_48', status:'ing',
+        id:'IN_MO_MYP_01_48', status:'com',
         type:'', note:'',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }

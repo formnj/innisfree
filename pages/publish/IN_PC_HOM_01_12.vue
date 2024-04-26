@@ -210,7 +210,7 @@ const qr_menu = (e) => {
     position:absolute;
     left:10px;
     bottom:10px;
-    ::v-deep em {
+    :deep(em) {
       padding:0;
       font-size:0;
     }
@@ -284,7 +284,7 @@ const qr_menu = (e) => {
   padding:100px 0;
   margin:0 auto;
   position:relative;
-  ::v-deep .swiper-container {
+  :deep(.swiper-container) {
     padding-bottom:61px;
     .swiper-pagination {
       height:2px;

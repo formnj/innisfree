@@ -212,7 +212,7 @@ const props = defineProps({
     font-size: 12px;
     display: block;
   }
-  >::v-deep button {
+  >:deep(button) {
     margin-top:10px;
     em {
       color:#000;

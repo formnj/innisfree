@@ -5,7 +5,7 @@ export const modal = {
     const body = document.querySelector("body");
     const pageY = document.body.scrollTop || document.documentElement.scrollTop;
 
-    if(_type.indexOf('layer') < 0){
+    if(_type.indexOf('layer') < 0 && _type.indexOf('fullMo') < 0){
       if (!body.hasAttribute("scrollY")) {
         body.setAttribute("scrollY", String(pageY));
         body.classList.add("lockbody");

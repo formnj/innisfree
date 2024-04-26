@@ -533,7 +533,7 @@ header {
             font-weight:500;
             display:flex;
             align-items:center;
-            button::v-deep {
+            :deep(button) {
                 background:unset;
                 &:after {
                 content:'';
@@ -588,7 +588,7 @@ header {
                 position:relative;
                 display:flex;
                 justify-content:space-between;
-                ::v-deep .btn_txt {
+                :deep(.btn_txt) {
                     em {
                         color:#999;
                         font-size:1.2rem;
@@ -617,7 +617,7 @@ header {
                     align-items:center;
                     flex:1;
                 }
-                ::v-deep .input {
+                :deep(.input) {
                     i, input {
                         font-size:1.3rem;
                     }
@@ -685,7 +685,7 @@ header {
                             font-weight:400;
                             display:block;
                         }
-                        ::v-deep .btn_del {
+                        :deep(.btn_del) {
                             width:12px;
                             height:12px;
                             margin-top:1px;
@@ -765,7 +765,7 @@ header {
                         li {
                             width:100%;
                             padding:0;
-                            ::v-deep .goods_item {
+                            :deep(.goods_item) {
                                 padding:0;
                                 display:flex;
                                 align-items:center;
@@ -953,7 +953,7 @@ header {
                     align-items: center;
                     flex: 1;
                 }
-                ::v-deep .input {
+                :deep(.input) {
                     i, input {
                         font-size:13px;
                     }
@@ -1110,7 +1110,7 @@ header {
                                 gap:5px;
                                 li {
                                     width:50%;
-                                    ::v-deep .goods_item {
+                                    :deep(.goods_item) {
                                         padding-bottom:50px;
                                         a {
                                             padding:0;
@@ -1234,78 +1234,46 @@ header {
 }
 
 .modal_wrap {
-  z-index:100;
-  .modal_container {
-    border-radius:12px 12px 0 0;
-  }
-  .modal_header {
-    padding:0;
-    border-radius:100px;
-    border-bottom:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    > .btn_close {
-      width:100%;
-      height:21px;
-      position:relative;
-      top:0;
-      left:0;
-      right:0;
-      &::before {
-        width:61px;
-        height:5px;
-        border:0;
-        border-radius:4px;
-        background-color:#ddd;
-        transform:none;
-        top:100%;
-        left:50%;
-        transform:translate(-50%,-100%);
-      }
-      &::after {
-        border:0;
-      }
-    }
-  }
-  .modal_content {
-    padding:0;
-    ul {
-      li {
-        &:first-child {
-          a {
-            border-top:0;
-          }
-        }
-        &.active {
-          a {
-            color:#00bc70;
-            font-weight:700;
-            &::after {
-              content:'현재 선택';
-              width:16px;
-              height:16px;
-              color:transparent;
-              font-size:0;
-              background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
-              background-repeat:no-repeat;
-              background-position:-80px -70px;
-              background-size:250px auto;
-              display:block;
+  &#modal_nav {
+    .modal_content {
+      padding:0;
+      ul {
+        li {
+          &:first-child {
+            a {
+              border-top:0;
             }
           }
-        }
-        a {
-          width:100%;
-          padding:15px 26px;
-          text-align:left;
-          border-top:1px solid #f5f5f5;
-          color:#000;
-          font-weight:300;
-          font-size:16px;
-          display:flex;
-          align-items:center;
-          justify-content:space-between;
+          &.active {
+            a {
+              color:#00bc70;
+              font-weight:700;
+              &::after {
+                content:'현재 선택';
+                width:16px;
+                height:16px;
+                color:transparent;
+                font-size:0;
+                background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+                background-repeat:no-repeat;
+                background-position:-80px -70px;
+                background-size:250px auto;
+                display:block;
+              }
+            }
+          }
+          a {
+            width:100%;
+            padding:15px 26px;
+            text-align:left;
+            border-top:1px solid #f5f5f5;
+            color:#000;
+            font-weight:300;
+            font-size:16px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+          }
         }
       }
     }

@@ -9,6 +9,7 @@
                 </div>
                 <p>뷰티포인트 소멸시기가 궁금합니다.</p>
                 <span>2024-04-24 08:22:50</span>
+                <em></em>
               </a>
             </dt>
             <dd>
@@ -37,6 +38,7 @@
                 </div>
                 <p>뷰티포인트 소멸시기가 궁금합니다.</p>
                 <span>2024-04-24 08:22:50</span>
+                <em></em>
               </a>
             </dt>
             <dd>
@@ -62,6 +64,8 @@
 </template>
 
 <script setup>
+import { createUnparsedSourceFile } from 'typescript';
+
 definePageMeta({
 layout: 'mo-category'
 });
@@ -76,6 +80,60 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 
 onMounted(() => {
 
+  /* accordion */
+function accordion(_target, evt){ // 23.08.18 nextElementSibling 테그가 없는 경우를 위한 수정
+    var evt;
+    var rotate_icon= document.querySelectorAll('.board_type_toggle dt > a > em');
+    console.log(rotate_icon)
+    accordion = document.querySelectorAll(_target, evt);
+    console.log('accordion :', accordion)
+    accordion.forEach(el => {
+        console.log('el :', el)
+        el.querySelectorAll('.board_type_toggle > dt > a').forEach((el, i) => {
+            el.addEventListener(evt, function(){
+                if(el.closest('dl').classList.contains('single')){
+                    console.log('closet :', el.closest('dl'))
+                    const parent_index = Array.from(el.closest('dl').getElementsByTagName('dt')).indexOf(el.parentNode);
+                    console.log('parent_index :', parent_index)
+                    var j
+                    for(j=0; j<el.closest('dl').getElementsByTagName('dt').length; j++){
+                        if(i != j && el.closest('dl').getElementsByTagName('dt')[j].nextElementSibling != null){
+                            el.closest('dl').getElementsByTagName('dt')[j].nextElementSibling.classList.remove('show');
+                            rotate_icon[j].classList.remove('active');
+                            console.log('rotate', rotate_icon[j])
+                        }
+                    }
+                }
+
+                if(el.parentNode.nextElementSibling != null){
+                    if(el.parentNode.nextElementSibling.classList.contains('show')){
+                        el.parentNode.nextElementSibling.style.height = '0px'
+
+                        el.parentNode.nextElementSibling.addEventListener('transitionend', () => {
+                            el.parentNode.nextElementSibling.classList.remove('show');
+                            console.log('el.parentNode.nextElementSibling', el.parentNode.nextElementSibling)
+                            console.log('el.parentNode.firstElementChild.lastElementChild')
+                            el.parentNode.firstElementChild.lastElementChild.classList.remove('active')
+                        }, {once: true});
+                    } else {
+                        el.parentNode.nextElementSibling.classList.add('show');
+                        el.parentNode.firstElementChild.lastElementChild.classList.add('active')
+
+
+                        el.parentNode.nextElementSibling.style.height = 'auto'
+                        var height = el.parentNode.nextElementSibling.clientHeight + 'px'
+                        el.parentNode.nextElementSibling.style.height = '0px'
+                        setTimeout(() => {
+                            el.parentNode.nextElementSibling.style.height = height
+                        });
+                    }
+                }
+            });
+        });
+    });
+}
+
+accordion('.board_type_toggle', 'click')
 
 })
 
@@ -103,21 +161,6 @@ onMounted(() => {
     padding:3rem 3rem;
     border-bottom: #f4f4f4 solid 0.1rem;
     position:relative;
-    &::after {
-      content:'';
-      width:24px;
-      height:24px;
-      background-image: url('../../assets/mo_images/common/icon_split.png');
-      background-repeat:no-repeat;
-      background-size:250px;
-      background-position:0px 0px;
-      position:absolute;
-      top:50%;
-      right:2rem;
-      display:inline-block;
-      transform:translateY(-50%);
-
-    }
     a {
       div {
         em {
@@ -150,6 +193,25 @@ onMounted(() => {
         line-height:1.6rem;
         display:inline-block;
       }
+      > em {
+      content:'';
+      width:24px;
+      height:24px;
+      background-image: url('../../assets/mo_images/common/icon_split.png');
+      background-repeat:no-repeat;
+      background-size:250px;
+      background-position:-5px -215px;
+      position:absolute;
+      top:50%;
+      right:2rem;
+      display:inline-block;
+      transform:translateY(-50%);
+      transition:all 0.3s;
+      &.active {
+        transform:translateY(-50%) rotate(180deg);
+      }
+
+      }
     }
   }
   dd {
@@ -160,6 +222,9 @@ onMounted(() => {
     font-size:13px;
     line-height:20px;
     background:#F5F5F5;
+    overflow:hidden;
+    display:none;
+    transition:height 0.2s ease-out;
     div {
       margin-top:2rem;
       padding-top:2rem;
@@ -189,5 +254,6 @@ onMounted(() => {
     }
   }
 }
+.show {display:block !important;}
 
 </style>
