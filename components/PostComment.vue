@@ -8,10 +8,12 @@
         <span class="name">{{ item.name }}<span class="time">{{ item.time }}</span></span>
       </span>
 
-      <p class="text">
+      <p v-if="!item.userDelete && !item.blocked" class="text">
         <span v-if="item.reply.is" class="to">{{ item.reply.to }}</span> <!--답글일 경우에만 노출, '@'는 css로 고정 -->
         {{ item.cmnt }}
       </p>
+      <p v-if="item.userDelete" class=" text noti">작성자에 의해 삭제된 답글입니다.</p>
+      <p v-if="item.blocked" class=" text noti">회원님의 요청으로 차단되었습니다.</p>
 
       <div class="btn_wrap">
         <button type="button">답글 달기</button>
@@ -110,6 +112,11 @@ const modalPositioning = () => {
         &:before {
           content: '@';
         }
+      }
+
+      &.noti {
+        font-weight: 300;
+        color: #999;
       }
     }
 

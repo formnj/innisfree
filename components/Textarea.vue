@@ -2,7 +2,7 @@
     <div class="label_wrap">
         <label class="input" :class="{'err':isError}">
             <i v-if="_placeholder && !isDisabled">{{_placeholder}}</i>
-            <textarea :id="_id" :value="_value" @focus="hidePlaceholder" @blur="valueChk" @keyup="input_btn_chk" :readonly="isReadonly" :disabled="isDisabled" />
+            <textarea :id="_id" :value="_value" @focus="hidePlaceholder" @blur="valueChk" @keyup="input_btn_chk" :readonly="isReadonly" :disabled="isDisabled" :rows="_rows" />
             <em v-if="isError" class="err_txt">{{_err_text}}</em>
             <button class="icon_del" v-if="_type != 'password'" @click="input_btn_fn">Delete</button>
         </label>
@@ -20,6 +20,7 @@
         isReadonly: false, // readonly 여부
         isDisabled:false, // disabled 여부
         isRrequired: false, // 필수값 여부
+        _rows: Number, //textarea 라인 수
     });
 
     const hidePlaceholder = (e) => { //focus시 placeholder 숨김
@@ -29,7 +30,7 @@
     }
 
     const valueChk = (e) => { //blur 시 value 유무 확인하여 placeholder 조절
-        console.log(e.currentTarget.value.length);
+        // console.log(e.currentTarget.value.length);
         if(e.currentTarget.value.length > 0){
             if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){
                 e.currentTarget.previousSibling.style.display='none';
