@@ -98,7 +98,7 @@ import { setFilter } from '~/assets/js/common-ui.js'
 import { modal } from '~/assets/js/common-ui.js'
 
 definePageMeta({
-layout: 'pc-category'
+layout:'pc-category'
 });
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음

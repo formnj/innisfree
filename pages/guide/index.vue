@@ -184,15 +184,15 @@ const PC_arry = ([
         type:'modal', note:'마이페이지 > 배송지관리 > 추가',
         sDate:'2024-04-26', eDate:'2024-05-03/2024-04-26', worker:'김희경'
     }, {
-        depth:['','','배송지 수정',''],
+        depth:['','','배송지 수정','ing'],
         id:'IN_PC_ORD_01_03', status:'',
-        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        type:'modal', note:'IN_PC_ORD_01_02 에서 해당 팝업창 확인 가능',
+        sDate:'2024-04-26', eDate:'2024-05-03/', worker:'김희경'
     }, {
-        depth:['','','배송지 추가',''],
+        depth:['','','배송지 추가','ing'],
         id:'IN_PC_ORD_01_04', status:'',
-        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        type:'modal', note:'IN_PC_ORD_01_02 에서 해당 팝업창 확인 가능',
+        sDate:'2024-04-26', eDate:'2024-05-03/', worker:'김희경'
     }, {
         depth:['','안심번호 서비스 안내','',''],
         id:'IN_PC_ORD_01_08', status:'',
