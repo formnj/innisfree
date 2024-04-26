@@ -746,12 +746,23 @@ export const sampleCmnt = [
   {
     photo: ("/_nuxt/public/images/sam/photo_editor_02.png"),
     isEditor: true,
-    name: "Poby****",
+    name: "Pony****",
     time: "10분전",
     cmnt: "에디터 끼리 통한 부분이 있네요!",
     reply: {
       is: true,
       to: 'Leesa****'
+    },
+  },
+  {
+    photo: "",
+    isEditor: false,
+    name: "aaa****",
+    time: "5분전",
+    cmnt: "좋은 정보 감사합니다!!",
+    reply: {
+      is: true,
+      to: 'Pony****'
     },
   },
   {
@@ -763,6 +774,28 @@ export const sampleCmnt = [
     reply: {
       is: false,
       to: ''
+    },
+  },
+  {
+    photo: "",
+    isEditor: false,
+    name: "lcj****",
+    time: "2시간전",
+    cmnt: "좋은 정보 감사합니다!!",
+    reply: {
+      is: false,
+      to: ''
+    },
+  },
+  {
+    photo: "",
+    isEditor: false,
+    name: "lcj****",
+    time: "2시간전",
+    cmnt: "좋은 정보 감사합니다!!",
+    reply: {
+      is: true,
+      to: 'lcj****'
     },
   },
 ]
