@@ -376,7 +376,7 @@ definePageMeta({
 })
 
 import { modal, Drop_Down, setFilter } from '~/assets/js/common-ui.js'
-import { sample_goods, sam_menu, sampleSlide, sample_event, sample_live } from '~/test/data/dummyData.js'
+import { sample_goods, sam_menu, sampleSlide, sample_event, sample_live } from '~/test/data/publish/dummyData.js'
 
 /* swiper */
 // import Swiper core and required components

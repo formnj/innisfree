@@ -129,7 +129,7 @@
   </div>
 </template>
 <script setup>
-import { sample_goods } from '~/test/data/dummyData'
+import { sample_goods } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui'
 
 definePageMeta({

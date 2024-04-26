@@ -29,7 +29,7 @@
 import {
   breadcrumbData,
   sam_lnb
-} from '~/test/data/dummyData'
+} from '~/test/data/publish/dummyData'
 
 const layoutType = ref(true);
 

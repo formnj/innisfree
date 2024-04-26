@@ -247,7 +247,7 @@ import {
     categoryForSearchLayerData,
     latestSearchWordData,
     sample_goods
-} from '~/test/data/dummyData'
+} from '~/test/data/publish/dummyData'
 
 /* sample data */
 const global_menu = [

@@ -25,7 +25,7 @@ layout: 'mo-category'
 
 import {
   sample_event
-} from '~/test/data/dummyData'
+} from '~/test/data/publish/dummyData'
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   link: {

@@ -172,7 +172,7 @@
   <!-- <InmBasicModal title="제목" message="메세지" /> -->
 </template>
 <script setup lang="ts">
-import { breadcrumbData } from '~/test/data/dummyData'
+import { breadcrumbData } from '~/test/data/publish/dummyData'
 
 definePageMeta({
   layout: 'aa-guide'

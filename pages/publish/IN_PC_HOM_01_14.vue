@@ -120,7 +120,7 @@
   </div>
 </template>
 <script setup>
-import { sample_live } from '~/test/data/dummyData'
+import { sample_live } from '~/test/data/publish/dummyData'
 
 import SwiperCore, { Navigation, Pagination, A11y, Controller } from "swiper";
 

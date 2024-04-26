@@ -22,7 +22,7 @@
   </div>
 </template>
 <script setup>
-import { sample_goods } from '~/test/data/dummyData'
+import { sample_goods } from '~/test/data/publish/dummyData'
 import SwiperCore, { Navigation, Pagination, A11y, Controller } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";

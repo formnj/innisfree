@@ -234,7 +234,7 @@ import {
   categoryForSearchLayerData,
   sample_goods,
   latestSearchWordData
-} from '~/test/data/dummyData'
+} from '~/test/data/publish/dummyData'
 
 
 /* sample data */

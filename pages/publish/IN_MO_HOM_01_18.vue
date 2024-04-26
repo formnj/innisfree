@@ -89,7 +89,7 @@
 </template>
 <script setup>
 import { modal } from '~/assets/js/common-ui'
-import { sample_log } from '~/test/data/dummyData'
+import { sample_log } from '~/test/data/publish/dummyData'
 
 definePageMeta({
   layout: 'mo-category'

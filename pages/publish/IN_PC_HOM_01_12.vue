@@ -105,7 +105,7 @@
   <!-- //콘텐츠 우선순위에 맞는 배치 변경 -->
 </template>
 <script setup>
-import { sample_goods } from '~/test/data/dummyData'
+import { sample_goods } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui'
 import SwiperCore, { Navigation, Pagination, A11y, Controller } from "swiper";
 

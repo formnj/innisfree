@@ -74,7 +74,7 @@
 import {
   breadcrumbData,
   sam_lnb
-} from '~/test/data/dummyData'
+} from '~/test/data/publish/dummyData'
 
 let lnb_click = (event)=>{
   const target = event.currentTarget;

@@ -182,7 +182,7 @@
 <script setup>
 import {
   sample_goods
-} from '~/test/data/dummyData'
+} from '~/test/data/publish/dummyData'
 import {
   modal,
   Drop_Down,
