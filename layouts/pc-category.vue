@@ -29,7 +29,7 @@
 import {
   breadcrumbData,
   sam_lnb
-} from '~/test/data/dummyData'
+} from '~/test/data/publish/dummyData'
 
 const layoutType = ref(true);
 
@@ -82,14 +82,14 @@ onMounted(()=>{
   &.has_lnb {
     max-width:1320px;
     margin:0 auto;
-    padding:0 20px;
     display:flex;
     flex-wrap:wrap;
     .lnb {
       width:200px;
       height:100%;
-      margin-right:60px;
+      margin-right:40px;
       padding-top:60px;
+      padding-left:20px;
       position:sticky;
       top:60px;
       z-index:1;

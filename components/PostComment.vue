@@ -8,28 +8,30 @@
         <span class="name">{{ item.name }}<span class="time">{{ item.time }}</span></span>
       </span>
 
-      <p class="text">
+      <p v-if="!item.userDelete && !item.blocked" class="text">
         <span v-if="item.reply.is" class="to">{{ item.reply.to }}</span> <!--답글일 경우에만 노출, '@'는 css로 고정 -->
         {{ item.cmnt }}
       </p>
+      <p v-if="item.userDelete" class=" text noti">작성자에 의해 삭제된 답글입니다.</p>
+      <p v-if="item.blocked" class=" text noti">회원님의 요청으로 차단되었습니다.</p>
 
       <div class="btn_wrap">
         <button type="button">답글 달기</button>
         <button type="button">답글 2개 더보기</button>
       </div>
     </div>
-    <button type="button" class="menu" @click="modal.open('modal_reply_menu', 'layer');modalPositioning();">답글 메뉴</button>
+    <button type="button" class="btn_reply_menu" @click="modal.open('modal_reply_menu', 'layer');modalPositioning();">답글 메뉴</button>
   </div>
 </template>
 <script setup>
-import { sampleCmnt } from '/test/data/dummyData'
 import { modal } from '~/assets/js/common-ui.js'
 const props = defineProps({
   item: {},
 })
 const modalPositioning = () => {
   const top = window.scrollY + event.target.getBoundingClientRect().top;
-  document.getElementById('modal_reply_menu').style.cssText="top:"+top+"px;"
+  const right = window.outerWidth - event.target.getBoundingClientRect().left + 80; //80은 modal_reply_menu의 너비
+  document.getElementById('modal_reply_menu').style.cssText="top:" + top + "px;left:unset;right:" + right + "px;bottom:unset;"
 }
 </script>
 <style lang="scss" scoped>
@@ -42,11 +44,22 @@ const modalPositioning = () => {
   position: relative;
 
   &.reply {
-    padding: 0 2.1rem 0 6.6rem;
-    border-top: 0;
+    margin:0 2.1rem 2rem;
 
-    .menu {
-      top: 0;
+    &:before {
+      content:'';
+      width: .8rem;
+      height: 1.2rem;
+      border-left: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 2.7rem;
+    }
+
+    .btn_reply_menu {
+      right: 0;
     }
   }
 
@@ -100,6 +113,11 @@ const modalPositioning = () => {
           content: '@';
         }
       }
+
+      &.noti {
+        font-weight: 300;
+        color: #999;
+      }
     }
 
     .btn_wrap {
@@ -113,7 +131,7 @@ const modalPositioning = () => {
     }
   }
 
-  .menu {
+  .btn_reply_menu {
     width: 2.4rem;
     height: 2.4rem;
     font-size: 0;

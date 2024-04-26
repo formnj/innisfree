@@ -3,6 +3,111 @@
 @include mo_749 {
 }
 
+:deep(.title_wrap) {
+  max-width:initial;
+  margin:3.0rem 0 2.0rem;
+  padding:0;
+  h2 {
+    .badge {
+      color:#000;
+      font-size:1.2rem;
+      background-color:#fff;
+      position:static;
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      transform:initial;
+      em {
+        color:#2FAF63;
+      }
+    }
+  }
+}
+
+:deep(.sub_title_wrap) {
+  max-width:initial;
+  margin:3.0rem 0 2.0rem;
+  padding:0;
+  display:flex;
+  justify-content:space-between;
+  h3 {
+    font-size:1.6rem;
+    line-height:2rem;
+    position:relative;
+    flex:1;
+    a:after {
+      content: "";
+      width: 0.8rem;
+      height: 0.8rem;
+      border-top: 1px solid #000;
+      border-left: 1px solid #000;
+      position:absolute;
+      top:50%;
+      right:0;
+      display: inline-block;
+      transform: translateY(-50%) rotate(135deg);
+    }
+    .badge {
+      font-size:1.4rem;
+      font-weight:600;
+      position:static;
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      em {
+        color:#666;
+        font-size:1rem;
+        font-weight:400;
+      }
+    }
+  }
+  .btn_link_arrw {
+    margin-left:auto;
+    position:static;
+  }
+  .btn_all {
+    height:fit-content;
+    padding:0.6rem 0.8rem;
+    display:flex;
+    align-items:center;
+    gap:0 0.3rem;
+    em {
+      padding:0;
+      font-size:1rem;
+      font-weight:600;
+      line-height:1.2rem;
+    }
+    &:after {
+      content:'';
+      display:inline-block;
+      width:1.2rem;
+      height:1.2rem;
+      background:url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -23rem -10rem;
+      background-size:25rem auto;
+    }
+  }
+}
+
+:deep([class*="title_wrap"]) {
+  .pdtSortTab_wrap {
+    margin-top:0;
+    button {
+      font-size:1.2rem;
+      &:after {
+        width:1.6rem;
+        height:1.6rem;
+      }
+    }
+  }
+  .sortTab ~ button {
+    margin-left:2rem;
+    padding-left:0;
+    &:before {
+      display:none;
+    }
+  }
+}
+
 /* goodsItem */
 :deep(.goods_item) {
   padding-bottom:calc(24px + 1rem);
@@ -257,7 +362,7 @@
 
 
 /* 텍스트 링크 with 오른쪽 화살표 */
-:deep(a.btn_link_arrw) {
+:deep(.btn_link_arrw) {
   font-size: 1.2rem;
   &:after {
     width: .8rem;

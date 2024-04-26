@@ -1,25 +1,31 @@
 <template>
-    <div class="title_wrap">
-        <h2>스킨케어
-            <span class="pdt_count"><strong>32</strong></span>
-        </h2>
-
-        <div class="pdtSortTab_wrap">
-			<div class="sortTab">
-				<button class="btn_dropdown" @click="Drop_Down()" >추천순</button>
-				<ul>
-					<li><a href="#none" class="active">추천순</a></li>
-					<li><a href="#none">신제품순</a></li>
-					<li><a href="#none">판매량순</a></li>
-					<li><a href="#none">낮은 가격순</a></li>
-					<li><a href="#none">높은 가격순</a></li>
-					<li><a href="#none">리뷰순</a></li>
-					<li><a href="#none">판매금액순</a></li>
-				</ul>
-			</div>
-            <button @click="modal.open('detailSearch', 'detailSearch');">상세검색</button>
-        </div>
+  <!-- title washed -->
+  <div class="title_wrap">
+    <div>
+      <h2>스킨케어
+        <em class="badge count">20</em>
+      </h2>
     </div>
+
+    <div class="pdtSortTab_wrap">
+      <div class="sortTab">
+        <button class="btn_dropdown" @click="Drop_Down()">추천순</button>
+        <ul>
+          <li><a href="#none" class="active">추천순</a></li>
+          <li><a href="#none">신제품순</a></li>
+          <li><a href="#none">판매량순</a></li>
+          <li><a href="#none">낮은 가격순</a></li>
+          <li><a href="#none">높은 가격순</a></li>
+          <li><a href="#none">리뷰순</a></li>
+          <li><a href="#none">판매금액순</a></li>
+        </ul>
+      </div>
+      <button>상세검색</button>
+    </div>
+  </div>
+  <!-- //title washed -->
+
+
     <div class="list_wrap">
         <ul class="goods_list">
             <li v-for="(item, idx) in sample_goods" :key="idx">
@@ -288,89 +294,10 @@ const setFilter = (event) =>{
 </script>
 
 <style lang="scss">
-.title_wrap {
-    .pdtSortTab_wrap {
-        margin-left:auto;
-        position:relative;
-        display:flex;
-        align-items:center;
-        button {
-            padding:0 20px;
-            font-size:14px;
-            font-weight:600;
-            line-height: 1.43em;
-            letter-spacing: -0.01em;
-            display:flex;
-            align-items:center;
-            &::after {
-                content:'';
-                width:16px;
-                height:16px;
-                margin-left:10px;
-                display:inline-block;
-            }
-        }
-    }
-}
-
-.sortTab {
-    position:relative;
-    > button::after {
-        background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
-        background-size:250px;
-        background-repeat:no-repeat;
-        background-position:-110px -60px;
-    }
-    & ~ button {
-        position:relative;
-        &::after {
-            background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
-            background-size:250px;
-            background-repeat:no-repeat;
-            background-position:-130px -60px;
-        }
-        &::before {
-            content:'';
-            width:1px;
-            height:14px;
-            background:#EEEEEE;
-            position:absolute;
-            top:50%;
-            left:0;
-            display:inline-block;
-            transform:translateY(-50%);
-        }
-    }
-    ul {
-        width:170px;
-        height:0px;
-        padding:10px 0;
-        background:#fff;
-        position:absolute;
-        left:-70px;
-        top:45px;
-        z-index:1;
-        overflow:hidden;
-        transition:all 0.2s;
-        li {
-            padding:10px 15px;
-            a {
-                color:#888;
-                font-size:14px;
-                transition:all 0.1s;
-                &.active {
-                    color:#00BC70;
-                }
-            }
-        }
-    }
-}
 
 .goods_list {
-  margin-left:-20px;
   > li {
       width:25%;
-      padding-left:20px;
   }
 }
     .sortList {

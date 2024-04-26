@@ -11,10 +11,13 @@
     </section>
   </div>
 
+  <!-- title washed -->
   <div class="title_wrap">
-    <h2>
-      <span class="pdt_count">총 <strong>32</strong>건</span>
-    </h2>
+    <div>
+      <h2>
+        <strong class="badge count">총 <em>32</em>건</strong>
+      </h2>
+    </div>
     <div class="pdtSortTab_wrap">
       <div class="sortTab">
         <button
@@ -28,6 +31,7 @@
       </button>
     </div>
   </div>
+  <!-- //title washed -->
 
   <div class="inner">
     <div class="list_wrap">
@@ -125,7 +129,7 @@
   </div>
 </template>
 <script setup>
-import { sample_goods } from '~/test/data/dummyData'
+import { sample_goods } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui'
 
 definePageMeta({
@@ -192,94 +196,6 @@ onMounted(() => {})
         background-repeat:no-repeat;
         background-size: 250px auto;
         background-position:-210px -20px;
-      }
-    }
-  }
-}
-
-.title_wrap {
-  padding: 35px 0 25px;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  h2 {
-    font-size: 0;
-    .pdt_count {
-      margin-left: 0;
-      padding: 3px 6px;
-      color: #000;
-      font-size: 13px;
-      white-space: nowrap;
-      border-radius: 999px;
-      background: none;
-      position: unset;
-      strong {
-        color: #2faf63;
-      }
-    }
-  }
-  .pdtSortTab_wrap {
-    margin-left: auto;
-    position: relative;
-    display: flex;
-    align-items: center;
-    button {
-      padding: 0 10px;
-      font-size: 13px;
-      font-weight: 600;
-      font-family:'Pretendard';
-      line-height: 1.43em;
-      letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-      &::after {
-        content: '';
-        width: 16px;
-        height: 16px;
-        margin-left: 5px;
-        display: inline-block;
-      }
-    }
-  }
-}
-
-.sortTab {
-  position: relative;
-  > button::after {
-    background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
-    background-size: 250px;
-    background-repeat: no-repeat;
-    background-position: -110px -60px;
-  }
-  & ~ button {
-    position: relative;
-    &::after {
-      background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
-      background-size: 250px;
-      background-repeat: no-repeat;
-      background-position: -130px -60px;
-    }
-  }
-  ul {
-    width: 170px;
-    height: 0px;
-    padding: 10px 0;
-    background: #fff;
-    position: absolute;
-    left: -70px;
-    top: 45px;
-    z-index: 1;
-    overflow: hidden;
-    transition: all 0.2s;
-    li {
-      padding: 10px 15px;
-      a {
-        color: #888;
-        font-size: 14px;
-        transition: all 0.1s;
-        &.active {
-          color: #00bc70;
-        }
       }
     }
   }

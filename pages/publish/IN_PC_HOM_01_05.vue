@@ -1,8 +1,12 @@
 <template>
-    <div class="title_wrap" :data-layout="props.layoutType">
-        <h2>이벤트</h2>
-        <button>당첨자 발표</button>
+  <!-- title washed -->
+  <div class="title_wrap" :data-layout="props.layoutType">
+    <div>
+      <h2>이벤트</h2>
     </div>
+    <a href="#none" class="btn_link_arrw">당첨자 발표</a>
+  </div>
+  <!-- //title washed -->
 
     <div class="inner">
       <Tabs :item="[{txt:'전체'},{txt:'체험/리뷰'},{txt:'쇼핑혜택'},{txt:'제휴혜택'}]" :tabidx="0" />
@@ -34,7 +38,7 @@ definePageMeta({
 
 import {
   sample_event
-} from '~/test/data/dummyData'
+} from '~/test/data/publish/dummyData'
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
     layoutType: {
@@ -46,28 +50,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 </script>
 
 <style lang="scss" scoped>
-.title_wrap {
-    padding: 60px 20px;
-    display:flex;
-    justify-content:space-between;
-    button {
-        font-size:14px;
-        display:flex;
-        align-items:center;
-        &::after {
-            content:'';
-            width:16px;
-            height:16px;
-            background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
-            background-repeat:no-repeat;
-            background-size:250px;
-            background-position:-110px -58px;
-            display:inline-block;
-            transform:rotate(-90deg);
-
-        }
-    }
-}
 
 .list_wrap {
   margin-top:60px;

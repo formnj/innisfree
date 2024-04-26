@@ -59,23 +59,23 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
     <div class="design_box">
       <div class="content">
 
-        <div class="title_wrap" style="max-width:1320px; margin:0 auto; padding:0 20px; display:flex; align-items:flex-start; justify-content:space-between;">
+        <div class="title_wrap" style="margin:0 auto;">
           <div>
-            <h2 style="font-size:38px; position:relative; display:inline-block;">Title
-              <em class="badge count" style="padding:3px 6px; color:#fff; font-size:13px; font-weight:600; background-color:#00BC70; border-radius:100px; position:absolute; top:0; right:-10px; transform:translateX(100%);">20</em>
+            <h2>Title
+              <strong class="badge count"><em>20</em></strong>
             </h2>
           </div>
-          <a href="#none" class="btn_link_arrw" style="position:absolute; top:50%; right:20px; transform:translateY(-50%);">링크</a>
+          <a href="#none" class="btn_link_arrw">링크</a>
 
         </div>
 
-        <div class="title_wrap" style="max-width:1320px; margin:40px auto 0; padding:0 20px; display:flex; align-items:flex-start; justify-content:space-between;">
+        <div class="title_wrap" style="margin:40px auto 0;">
           <div>
-            <h2 style="font-size:38px; position:relative; display:inline-block;">Title
-              <em class="badge count" style="padding:3px 6px; color:#fff; font-size:13px; font-weight:600; background-color:#00BC70; border-radius:100px; position:absolute; top:0; right:-10px; transform:translateX(100%);">20</em>
+            <h2>Title
+              <strong class="badge count"><em>20</em></strong>
             </h2>
-            <p class="explain" style="margin-top:10px; margin-bottom:0; color:#999; font-size:12px;">fsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetete</p>
-            <Button class="btn_min_outline" txt="구매 안내사항" style="margin-top:10px;" />
+            <p class="explain" style="margin-bottom:0; color:#999;">fsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetetefsetetetete</p>
+            <Button class="btn_min_outline mt10" txt="구매 안내사항" />
           </div>
 
           <div class="pdtSortTab_wrap">
@@ -96,22 +96,22 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 
         </div>
 
-        <div class="sub_title_wrap" style="max-width:1320px; margin:0 auto; padding:0 20px; position:relative;">
-          <h3 style="font-size:24px; font-weight:600; display:flex; align-items:center;">Sub title
-            <Icons class="tooltip" txt="툴팁" style="margin-left:12px;" />
+        <div class="sub_title_wrap" style="margin:0 auto;">
+          <h3>Sub title
+            <Icons class="tooltip" txt="툴팁" />
           </h3>
-          <p class="explain" style="margin-top:10px; color:#999; font-size:16px;">타이틀 설명 글</p>
-          <a href="#none" class="btn_link_arrw" style="position:absolute; top:0; right:20px;">링크</a>
+          <p class="explain">타이틀 설명 글</p>
+          <a href="#none" class="btn_link_arrw">링크</a>
         </div>
 
         <div class="inner" style="max-width:1320px; margin:0 auto; padding:0 20px;">
           콘텐츠
         </div>
 
-        <div class="sub_title_wrap" style="max-width:1320px; margin:0 auto; padding:0 20px; position:relative;">
-          <h3 style="font-size:24px; font-weight:600; display:flex; align-items:center;">Sub title</h3>
-          <p class="explain" style="margin-top:10px; color:#999; font-size:16px;">타이틀 설명 글</p>
-          <a href="#none" class="btn_link_arrw" style="position:absolute; top:0; right:20px;">링크</a>
+        <div class="sub_title_wrap">
+          <h3>Sub title</h3>
+          <p class="explain">타이틀 설명 글</p>
+          <a href="#none" class="btn_link_arrw">링크</a>
         </div>
 
         <div class="inner" style="max-width:1320px; margin:0 auto; padding:0 20px;">
@@ -125,7 +125,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   &lt;div class="title_wrap"&gt;
     &lt;div&gt;
       &lt;h2&gt;Title
-        &lt;em class="badge count"&gt;20&lt;/em&gt;
+        &lt;strong class="badge count"&gt;&lt;em&gt;20&lt;/em&gt;&lt;/strong&gt;
       &lt;/h2&gt;
       &lt;p class="explain"&gt;설명글설명글설명글설명글설명글&lt;/p&gt;
       &lt;Button class="btn_min_outline mt10" txt="구매 안내사항"/&gt;
@@ -137,7 +137,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   &lt;div class="title_wrap"&gt;
     &lt;div&gt;
       &lt;h2&gt;Title
-        &lt;em class="badge count"&gt;20&lt;/em&gt;
+        &lt;strong class="badge count"&gt;&lt;em&gt;20&lt;/em&gt;&lt;/strong&gt;
       &lt;/h2&gt;
       &lt;p class="explain"&gt;설명글설명글설명글설명글설명글&lt;/p&gt;
       &lt;Button class="btn_min_outline mt10" txt="구매 안내사항" /&gt;

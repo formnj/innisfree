@@ -142,7 +142,7 @@ import {
   searchData,
   latestSearchWordData,
   categoryForSearchLayerData
-} from '~/test/data/dummyData'
+} from '~/test/data/publish/dummyData'
 
 interface IHeaderProps {
   device: string

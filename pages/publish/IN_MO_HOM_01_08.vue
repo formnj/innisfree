@@ -58,7 +58,7 @@
 
 <script setup>
 import { modal } from '~/assets/js/common-ui.js'
-import { samplePost } from '/test/data/dummyData'
+import { samplePost } from '~/test/data/publish/dummyData'
 definePageMeta({
   layout: 'mo-default'
 })

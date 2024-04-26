@@ -18,6 +18,12 @@
       </a>
     </div>
   </div>
+
+  <div class="postFixedArea">
+    <button class="btn_like" title="좋아요" @click="setFilter">32</button>
+    <button class="btn_reply" title="답글" @click="openReplyModal();">120</button>
+  </div>
+
   <div class="post_detail">
     <!-- 개발 시 아래 div 삭제 -->
     <div style="width: 100%; padding:5rem 0; background-color:#ccc; text-align:center; color:#fff;">포스트 내용</div>
@@ -44,27 +50,24 @@
   <!-- 답글 -->
   <section>
     <div class="inner">
-      <h2><a href="#답글모달" class="btn_link_arrw">답글 <em>3</em></a></h2>
+      <h2><button type="button" class="btn_link_arrw" @click="openReplyModal()">답글 <em>3</em></button></h2>
     </div>
     <!-- 답글 없을 경우 -->
-    <div>
-      등록된 답글이 없습니다.<br>
-      답글을 남겨보세요
+    <div class="no_content">
+      등록된 답글이 없습니다.<br>답글을 남겨보세요
     </div>
     <!-- //답글 없을 경우 -->
 
-    <div class="inner no_lr_pd">
-      <div class="cmnt_list">
-        <ul>
-          <li v-for="(item, idx) in sampleCmnt" :key="idx">
-            <PostComment :item="item" />
-          </li>
-        </ul>
-      </div>
+    <div class="cmnt_list">
+      <ul>
+        <li v-for="(item, idx) in sampleCmnt.slice(0,3)" :key="idx">
+          <PostComment :item="item" />
+        </li>
+      </ul>
     </div>
 
-    <div class="inner">
-      <Inputs _type="text" _placeholder="답글을 남겨보세요" />
+    <div class="inner inner_s">
+      <Inputs _type="text" _placeholder="답글을 남겨보세요" @click="openReplyModal();"/>
     </div>
   </section>
   <!-- //답글 -->
@@ -85,6 +88,7 @@
   </section>
   <!-- //같은 주제 다른 포스트 -->
 
+  <!-- 인기 포스트 -->
   <section>
     <div class="inner">
       <h2><a href="" class="btn_link_arrw"><em>이사배</em> 님의 인기 포스트</a></h2>
@@ -98,17 +102,30 @@
       </ul>
     </div>
   </section>
+  <!-- //인기 포스트 -->
 
+  <!-- 답글 메뉴 -->
   <div id="modal_reply_menu" class="modal_wrap">
     <div class="modal_container">
-      메뉴
+      <ul class="reply_menu">
+        <li><button type="button" class="btn_single_menu">신고하기</button></li>
+        <li><button type="button" class="btn_single_menu">차단하기</button></li>
+        <li><button type="button" class="btn_single_menu">수정하기</button></li>
+        <li><button type="button" class="btn_single_menu">삭제하기</button></li>
+      </ul>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
+  <!-- //답글 메뉴 -->
+
+  <!-- 답글 모달 -->
+  <PostCommentModal />
+  <!-- //답글 모달 -->
 </template>
 
 <script setup>
-import { sample_goods, sampleCmnt, samplePost } from '/test/data/dummyData'
+import { modal, setFilter } from '~/assets/js/common-ui.js'
+import { sample_goods, sampleCmnt, samplePost } from '~/test/data/publish/dummyData'
 import SwiperCore, { Autoplay, Navigation, Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";
@@ -117,8 +134,24 @@ import "swiper/components/pagination/pagination.scss";
 SwiperCore.use([Autoplay, Navigation, Pagination, A11y]);
 
 definePageMeta({
-  layout: 'mo-sub'
+  layout: 'mo-product'
 })
+
+onMounted(()=>{
+  //답글 메뉴 외 영역 클릭 시 메뉴 닫힘
+  const body = document.querySelector('body');
+  body.addEventListener('click', (event)=>{
+    const target = event.target;
+    const replyMenuModal = document.getElementById('modal_reply_menu');
+    if (!target.classList.contains('btn_reply_menu') && replyMenuModal.classList.contains('active') && !target.classList.contains('btn_single_menu')){
+      replyMenuModal.classList.remove('active')
+    }
+  });
+})
+
+const openReplyModal = () => {
+  modal.open('modal_comment', 'bottom');
+}
 </script>
 
 <style lang="scss" scoped>
@@ -226,12 +259,20 @@ section {
   .inner {
     padding: 3rem 2.1rem;
 
+    &.inner_s {
+      padding: 2rem 2.1rem;
+    }
+
     &.no_r_pd {
       padding-right: 0;
     }
 
     &.no_lr_pd {
       padding: 3rem 0;
+    }
+
+    &.no_t_pd {
+      padding-top: 0;
     }
   }
 
@@ -247,8 +288,9 @@ section {
       margin-top: 2rem;
     }
 
-    a.btn_link_arrw {
+    .btn_link_arrw {
       font-size: 1.8rem;
+      font-weight: 500;
       display: flex;
       align-items: center;
 
@@ -315,7 +357,75 @@ section {
   }
 }
 
-.cmnt_list {
+:deep(.no_content) {
+  padding-bottom: 2rem;
+  font-size: 1.3rem !important;
+  font-weight: 400 !important;
+  color: #888;
+  text-align: center;
   border-bottom: 1px solid #f5f5f5;
+}
+
+.reply_menu {
+  border:1px solid #999;
+
+  li {
+    width: 8rem;
+
+    & + li {
+      border-top: 1px solid #999;
+    }
+
+    button {
+      padding: 1.2rem 0;
+      width:100%;
+      font-size: 1.2rem;
+      text-align: center;
+      line-height: 1.6rem;
+      display: block;
+    }
+  }
+}
+
+.postFixedArea {
+  width: 100%;
+  padding: 1.5rem 2.1rem 1.6rem;;
+  gap: 2rem;
+  background-color: #fff;
+  display: flex;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index:3;
+
+  button {
+    line-height: 1.8rem;
+    color: #333;
+    display: flex;
+    align-items: center;;
+
+    &:before {
+      content: '';
+      margin-right: .5rem;
+      width: 2.4rem;
+      height: 2.4rem;
+      background: url('/assets/mo_images/common/icon_split.png') -4rem -14.5rem / 25rem auto no-repeat;
+      display: inline-block;
+    }
+
+    &.btn_like {
+      &.active:before {
+        background-position: -18rem -7rem;
+      }
+    }
+
+    &.btn_reply:before {
+      background-position: -4rem -17rem;
+    }
+  }
+}
+
+#modal_reply_menu {
+  z-index: 16;
 }
 </style>

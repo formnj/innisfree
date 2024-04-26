@@ -1,15 +1,17 @@
 <template>
+  <!-- title washed -->
   <div class="title_wrap" :data-layout="props.layoutType">
-    <div class="prd_tit">
+    <div>
       <h2>임직원샵
-          <span class="pdt_count"><strong>32</strong></span>
+        <em class="badge count">20</em>
       </h2>
-      <span>이니스프리 및 AP 임직원 전용 이니스프리 제품 특가샵입니다. 구매 전 안내사항을 확인해주세요.</span>
-      <Button txt="구매 안내사항" class="btn_min_outline" @click="modal.open('modal_staff', 'full');" />
+      <p class="explain">이니스프리 및 AP 임직원 전용 이니스프리 제품 특가샵입니다. 구매 전 안내사항을 확인해주세요.</p>
+      <Button @click="modal.open('modal_staff', 'full');" class="btn_min_outline mt10" txt="구매 안내사항" />
     </div>
+
     <div class="pdtSortTab_wrap">
       <div class="sortTab">
-        <button class="btn_dropdown" @click="Drop_Down()" >추천순</button>
+        <button @click="Drop_Down()" class="btn_dropdown">추천순</button>
         <ul>
           <li><a href="#none" class="active">추천순</a></li>
           <li><a href="#none">신제품순</a></li>
@@ -23,6 +25,8 @@
       <button @click="modal.open('modal_search', 'detailSearch');">상세검색</button>
     </div>
   </div>
+  <!-- //title washed -->
+
   <div class="inner">
     <div class="list_wrap">
         <ul class="goods_list">
@@ -178,7 +182,7 @@
 <script setup>
 import {
   sample_goods
-} from '~/test/data/dummyData'
+} from '~/test/data/publish/dummyData'
 import {
   modal,
   Drop_Down,
@@ -199,107 +203,6 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-.prd_tit {
-  h2 {
-    display:inline-block;
-  }
-  > span {
-    width: 100%;
-    margin-top: 10px;
-    word-wrap: break-word;
-    word-break: keep-all;
-    color: #999999;
-    font-size: 12px;
-    display: block;
-  }
-  >:deep(button) {
-    margin-top:10px;
-    em {
-      color:#000;
-      font-size:12px;
-      font-weight:600;
-      font-family:'Pretendard';
-    }
-  }
-}
-
-.pdtSortTab_wrap {
-  margin-top:16px;
-  margin-left:auto;
-  position:relative;
-  display:flex;
-  align-items:center;
-  button {
-    padding:0 20px;
-    font-size:14px;
-    font-weight:600;
-    line-height: 1.43em;
-    letter-spacing: -0.01em;
-    display:flex;
-    align-items:center;
-    &::after {
-        content:'';
-        width:16px;
-        height:16px;
-        margin-left:10px;
-        display:inline-block;
-    }
-  }
-}
-
-.sortTab {
-    position:relative;
-    > button::after {
-        background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
-        background-size:250px;
-        background-repeat:no-repeat;
-        background-position:-110px -60px;
-    }
-    & ~ button {
-        position:relative;
-        &::after {
-            background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
-            background-size:250px;
-            background-repeat:no-repeat;
-            background-position:-130px -60px;
-        }
-        &::before {
-            content:'';
-            width:1px;
-            height:14px;
-            background:#EEEEEE;
-            position:absolute;
-            top:50%;
-            left:0;
-            display:inline-block;
-            transform:translateY(-50%);
-        }
-    }
-    ul {
-        width:170px;
-        height:0px;
-        padding:10px 0;
-        background:#fff;
-        position:absolute;
-        left:-70px;
-        top:45px;
-        z-index:1;
-        overflow:hidden;
-        transition:all 0.2s;
-        li {
-            padding:10px 15px;
-            a {
-                color:#888;
-                font-size:14px;
-                transition:all 0.1s;
-                &.active {
-                    color:#00BC70;
-                }
-            }
-        }
-    }
-}
-
 .goods_list {
   margin-left:-20px;
   > li {

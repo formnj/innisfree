@@ -297,7 +297,7 @@ import {
   mainSam,
   sample_goods,
   sample_event
-} from '~/test/data/dummyData'
+} from '~/test/data/publish/dummyData'
 
 definePageMeta({
   layout: 'mo-default'

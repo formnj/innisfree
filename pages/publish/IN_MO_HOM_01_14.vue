@@ -1,10 +1,4 @@
 <template>
-  <div class="title_wrap" :data-layout="props.layoutType">
-    <div class="prd_tit">
-      <h2>라이브</h2>
-    </div>
-  </div>
-
   <div class="inner">
     <!-- 라이브 콘텐츠 -->
     <section class="live_box">
@@ -28,17 +22,22 @@
       <div class="innarea">
           <p class="title">이니슾라이브</p>
           <p class="desc">
-              FUN한 라이브! 이니슾라이브에서 만나보세요.<br>
-              이니슾라이브만의 특별한 쇼핑 혜택에 FUN한 콘텐츠까지!<br><br>
-              이니슾라이브는 매 월 여러분들을 찾아갑니다!
+            FUN한 라이브! 이니슾라이브에서 만나보세요.<br>
+            이니슾라이브만의 특별한 쇼핑 혜택에 FUN한 콘텐츠까지!<br><br>
+            이니슾라이브는 매 월 여러분들을 찾아갑니다!
           </p>
       </div>
     </section>
     <!-- //라이브 콘텐츠 -->
 
-    <h3>이니슾라이브 다시보기
-      <a href="/publish/IN_MO_HOM_01_18" class="btn_link_arrw">전체보기</a>
-    </h3>
+    <!-- title washed -->
+    <div class="sub_title_wrap">
+      <h3>
+        <a href="#none">이니슾라이브 다시보기</a>
+      </h3>
+    </div>
+    <!-- //title washed -->
+
     <div class="swiper_wrap">
       <swiper
         :slides-per-view="'auto'"
@@ -51,7 +50,13 @@
       </swiper>
     </div>
 
-    <h3>라이브 다시보기</h3>
+    <!-- title washed -->
+    <div class="sub_title_wrap">
+      <h3>
+        <a href="#none">라이브 다시보기</a>
+      </h3>
+    </div>
+    <!-- //title washed -->
     <div class="swiper_wrap">
       <swiper
         :slides-per-view="'auto'"
@@ -66,7 +71,7 @@
   </div>
 </template>
 <script setup>
-import { sample_live } from '~/test/data/dummyData'
+import { sample_live } from '~/test/data/publish/dummyData'
 
 import SwiperCore, { Navigation, Pagination, A11y, Controller } from "swiper";
 
@@ -106,33 +111,6 @@ const props = defineProps({
 });
 </script>
 <style lang="scss" scoped>
-
-h3 {
-  margin-top:3rem;
-  margin-bottom:2rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 1.33;
-}
-
-.title_wrap {
-  padding: 60px 20px 30px;
-  justify-content:space-between;
-  .prd_tit {
-    h2 {
-      margin-bottom:30px;
-      font-size:38px;
-      font-weight:300;
-    }
-    p {
-      color:#000;
-      font-size:24px;
-      font-weight:600;
-      line-height:31px;
-    }
-  }
-}
-
 .swiper_wrap {
   margin-right:-20px;
   margin-left:-20px;

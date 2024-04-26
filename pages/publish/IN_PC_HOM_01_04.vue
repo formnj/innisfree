@@ -1,144 +1,96 @@
 <template>
-    <div class="title_wrap" :data-layout="props.layoutType">
-        <h2>특가s</h2>
+  <!-- title washed -->
+  <div class="title_wrap" :data-layout="props.layoutType">
+    <div>
+      <h2>특가s</h2>
     </div>
+  </div>
+  <!-- //title washed -->
 
-    <div class="inner">
-        <div class="tab_wrap">
+  <div class="inner">
+    <div class="tab_wrap">
+        <ul class="type_02">
+            <li v-for="(name, idx) in sale_menu" :key="idx" class="tab_title">
+                <Button :txt="name" @click="tab_click($event)"/>
+            </li>
+            <li class="benefit">
+                <label for="skin1" class="setFilter_sample">
+                    <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
+                </label>
+            </li>
+        </ul>
+        <div class="sticky_menu_wrap">
             <ul class="type_02">
                 <li v-for="(name, idx) in sale_menu" :key="idx" class="tab_title">
-                    <Button :txt="name" @click="tab_click($event)"/>
-                </li>
-                <li class="benefit">
-                    <label for="skin1" class="setFilter_sample">
-                        <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
-                    </label>
+                    <Button :txt="name" @click="tab_click($event)" />
                 </li>
             </ul>
-            <div class="sticky_menu_wrap">
-                <ul class="type_02">
-                    <li v-for="(name, idx) in sale_menu" :key="idx" class="tab_title">
-                        <Button :txt="name" @click="tab_click($event)" />
-                    </li>
-                </ul>
-                <label for="skin1" class="setFilter_sample">
-                        <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
-                </label>
-            </div>
+            <label for="skin1" class="setFilter_sample">
+                    <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
+            </label>
         </div>
-
-
-        <section v-for="(item, idx) in sample_data" :key="idx">
-            <h3>
-                {{ item.sub_title }}
-                <!-- Edit: 2024-04-23 버튼 클래스 -->
-                <Icons class="tooltip" txt="툴팁" @click="modal.open(item.notice.modal_id, 'layer');" />
-                <div class="modal_wrap" id="sample_01">
-                    <div class="modal_container">
-                        <div class="modal_header">
-                            <h2>프로모션 제품 구매시 유의사항</h2>
-                            <button class="btn_close" @click="modal.close(this);">닫기</button>
-                        </div>
-                        <div class="modal_content">
-                            <div>
-                                <p>{{sample_data[0].notice.exp}}</p>
-                                <p>{{sample_data[0].notice.period}}</p>
-                                <p v-if="sample_data[0].notice.exception">{{sample_data[0].notice.exception}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </h3>
-            <em>{{ item.desc }}</em>
-            <div class="timer_wrap" v-if="item.date">
-                <div class="num">
-                    <span id="prom_day">{{item.date.day}}</span>
-                </div>
-                <span class="unit">일</span>
-                <div class="num">
-                    <span id="prom_hh">{{item.date.hour}}</span>
-                </div>
-                <span class="unit">시</span>
-                <div class="num">
-                    <span id="prom_mm">{{item.date.min}}</span>
-                </div>
-                <span class="unit">분</span>
-                <div class="num">
-                    <span id="prom_ss">{{item.date.sec}}</span>
-                </div>
-                <span class="unit">초</span>
-            </div>
-
-            <div class="list_wrap">
-                <ul class="goods_list">
-                    <li v-for="(item, idx) in sample_goods" :key="idx">
-                        <GoodsItem :item="item" :link="item.link" />
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <div class="benefits_wrap">
-            <h3>이니스프리 혜택 모음</h3>
-            <div class="list_wrap">
-                <ul class="goods_list">
-                    <li v-for="(item, idx) in sample_goods" :key="idx">
-                    <GoodsItem :item="item" :link="item.link" />
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-
-
-        <div class="modal_wrap" id="giveaway_01">
-            <div class="modal_container">
-                <div class="modal_header">
-                    <h2>증정품 안내</h2>
-                    <button class="btn_close" @click="modal.close(this);">닫기</button>
-                </div>
-                <div class="modal_content">
-                    <dl>
-                        <dt><img src="../../assets/images/sam/giveaway_alert_01.png"></dt>
-                        <dd>
-                            <div>
-                                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
-                                <em>24.3.25 ~ 24.3.31</em>
-                            </div>
-                            <span>1개 구매시 1개 증정</span>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt><img src="../../assets/images/sam/giveaway_alert_02.png"></dt>
-                        <dd>
-                            <div>
-                                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
-                                <em>24.3.25 ~ 24.3.31</em>
-                            </div>
-                            <span>1개 구매시 1개 증정</span>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt><img src="../../assets/images/sam/giveaway_alert_03.png"></dt>
-                        <dd>
-                            <div>
-                                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
-                                <em>24.3.25 ~ 24.3.31</em>
-                            </div>
-                            <span>1개 구매시 1개 증정</span>
-                        </dd>
-                    </dl>
-                </div>
-                <div class="modal_footer">
-                    <Button txt="확인" class="btn_type_02" @click="modal.close(this);" />
-                </div>
-            </div>
-            <div class="overlay" @click="modal.close(this);"></div>
-        </div>
-
-
-
     </div>
+  </div>
+
+  <template  v-for="(item, idx) in sample_data" :key="idx">
+    <!-- title washed -->
+    <div class="sub_title_wrap">
+      <h3>{{ item.sub_title }}
+        <Icons class="tooltip" txt="툴팁" @click="modal.open('sample_01', 'alert');" />
+      </h3>
+      <p class="explain">{{item.desc}}</p>
+    </div>
+    <!-- //title washed -->
+
+    <div class="inner">
+      <div class="timer_wrap" v-if="item.date">
+          <div class="num">
+              <span id="prom_day">{{item.date.day}}</span>
+          </div>
+          <span class="unit">일</span>
+          <div class="num">
+              <span id="prom_hh">{{item.date.hour}}</span>
+          </div>
+          <span class="unit">시</span>
+          <div class="num">
+              <span id="prom_mm">{{item.date.min}}</span>
+          </div>
+          <span class="unit">분</span>
+          <div class="num">
+              <span id="prom_ss">{{item.date.sec}}</span>
+          </div>
+          <span class="unit">초</span>
+      </div>
+
+      <div class="list_wrap">
+        <ul class="goods_list">
+            <li v-for="(item, idx) in sample_goods" :key="idx">
+                <GoodsItem :item="item" :link="item.link" />
+            </li>
+        </ul>
+      </div>
+    </div>
+  </template>
+
+  <!-- tooltip modal -->
+  <div class="modal_wrap" id="sample_01">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>프로모션 제품 구매시 유의사항</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <div>
+              <p>동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능</p>
+              <p>기간 : 4/14(일) - 5/1(수) 23:59:00까지</p>
+              <p>(행사제외 - 블루베리 클렌징 워터)</p>
+          </div>
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //tooltip modal -->
+
 </template>
 
 <script setup>
@@ -199,6 +151,16 @@ const sample_data = [
             min:59,
             sec:60
         },
+        notice:{
+            modal_id:'sample_02',
+            title:'“클렌징오일/워터/크림” 기획전 제품 구매 시 유의사항',
+            exp:'동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능',
+            period:'기간 : 4/14(일) - 5/1(수) 23:59:00까지',
+            exception:'(행사제외 - 블루베리 클렌징 워터)'
+        },
+    },
+    {
+        sub_title :'이니스프리 혜택 모음',
         notice:{
             modal_id:'sample_02',
             title:'“클렌징오일/워터/크림” 기획전 제품 구매 시 유의사항',
@@ -343,27 +305,53 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.title_wrap {
-  padding: 60px 20px 10px 20px;
+.timer_wrap {
+  margin-bottom:40px;
+  display:flex;
+  align-items:center;
+  .num {
+      width:42px;
+      height:48px;
+      background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+      background-repeat:no-repeat;
+      background-size:250px;
+      background-position:-117px -142px;
+      position:relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &::after {
+          content: '';
+          width:40px;
+          height:1px;
+          background: #1D1D1D;
+          position:absolute;
+          left:1px;
+          top:24px;
+          z-index: 2;
+          display: block;
+          opacity: 0.5;
+      }
+      span {
+          color: #FFFFFF;
+          font-size: 24px;
+          line-height: 1px;
+          letter-spacing: -0.01em;
+          position: relative;
+          z-index: 1;
+      }
+  }
+  .unit {
+      padding: 0 10px;
+      color: #000000;
+      font-size: 18px;
+      line-height: 1.33em;
+      letter-spacing: -0.01em;
+      display: block;
+  }
 }
-.inner {
-    h3 {
-        font-size:24px;
-        font-weight:600;
-        position:relative;
-        display:flex;
-        align-items:center;
-        > button {
-            width:24px;
-            height:24px;
-            margin-left:1.3px;
-            background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
-            background-repeat:no-repeat;
-            background-size:250px;
-            background-position:-94px -206px;
-        }
-    }
 
+.inner {
     .tab_wrap {
         height:100%;
         margin-bottom:40px;
@@ -482,50 +470,6 @@ onMounted(() => {
             color:#999;
             font-size:14px;
             display:inline-block;
-        }
-        .timer_wrap {
-            display:flex;
-            align-items:center;
-            .num {
-                width:42px;
-                height:48px;
-                background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
-                background-repeat:no-repeat;
-                background-size:250px;
-                background-position:-117px -142px;
-                position:relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                &::after {
-                    content: '';
-                    width:40px;
-                    height:1px;
-                    background: #1D1D1D;
-                    position:absolute;
-                    left:1px;
-                    top:24px;
-                    z-index: 2;
-                    display: block;
-                    opacity: 0.5;
-                }
-                span {
-                    color: #FFFFFF;
-                    font-size: 24px;
-                    line-height: 1px;
-                    letter-spacing: -0.01em;
-                    position: relative;
-                    z-index: 1;
-                }
-            }
-            .unit {
-                padding: 0 10px;
-                color: #000000;
-                font-size: 18px;
-                line-height: 1.33em;
-                letter-spacing: -0.01em;
-                display: block;
-            }
         }
         > .list_wrap {
             margin-top:40px;
