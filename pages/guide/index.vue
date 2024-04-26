@@ -589,12 +589,12 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-19/2024-04-19', worker:'김나람'
     }, {
         depth:['','','상세',''],
-        id:'IN_MO_HOM_01_09', status:'ing',
+        id:'IN_MO_HOM_01_09', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-03', worker:'김나람'
+        sDate:'', eDate:'2024-05-03/2024-04-26', worker:'김나람'
     }, {
         depth:['','','에디터별 보기',''],
-        id:'IN_MO_HOM_01_10', status:'',
+        id:'IN_MO_HOM_01_10', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-03', worker:'김나람'
     }, {

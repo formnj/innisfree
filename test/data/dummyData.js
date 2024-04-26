@@ -922,6 +922,32 @@ export const sample_live = [
 
 export const sampleCmnt = [
   {
+    photo: "",
+    isEditor: false,
+    name: "user01****",
+    time: "5분전",
+    cmnt: "역시 이니스프리 화산송이 폼이 짱이죠!",
+    reply: {
+      is: false,
+      to: ''
+    },
+    userDelete: true,
+    blocked: false,
+  },
+  {
+    photo: "",
+    isEditor: false,
+    name: "user02****",
+    time: "5분전",
+    cmnt: "역시 이니스프리 화산송이 폼이 짱이죠!",
+    reply: {
+      is: false,
+      to: ''
+    },
+    userDelete: false,
+    blocked: true,
+  },
+  {
     photo: ("/_nuxt/public/images/sam/photo_editor_01.png"),
     isEditor: true,
     name: "Leesa****",
@@ -931,6 +957,8 @@ export const sampleCmnt = [
       is: false,
       to: ''
     },
+    userDelete: false,
+    blocked: false,
   },
   {
     photo: ("/_nuxt/public/images/sam/photo_editor_02.png"),
@@ -942,6 +970,8 @@ export const sampleCmnt = [
       is: true,
       to: 'Leesa****'
     },
+    userDelete: false,
+    blocked: false,
   },
   {
     photo: "",
@@ -953,17 +983,21 @@ export const sampleCmnt = [
       is: true,
       to: 'Pony****'
     },
+    userDelete: false,
+    blocked: false,
   },
   {
     photo: "",
     isEditor: false,
-    name: "user3****",
+    name: "user03****",
     time: "1시간전",
     cmnt: "역시 이니스프리 화산송이 폼이 짱이죠! 성분도 순하고 깔끔하게 클렌징되서 5년째 클렌징은 화산송이 라인만 사용하고 있어요 :)",
     reply: {
       is: false,
       to: ''
     },
+    userDelete: false,
+    blocked: false,
   },
   {
     photo: "",
@@ -975,6 +1009,8 @@ export const sampleCmnt = [
       is: false,
       to: ''
     },
+    userDelete: false,
+    blocked: false,
   },
   {
     photo: "",
@@ -986,6 +1022,8 @@ export const sampleCmnt = [
       is: true,
       to: 'lcj****'
     },
+    userDelete: false,
+    blocked: false,
   },
 ]
 
