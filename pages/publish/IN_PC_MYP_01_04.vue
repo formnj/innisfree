@@ -3,7 +3,7 @@
 </template>
 <script setup>
 definePageMeta({
-  layout: 'pc-category'
+  layout:'pc-category'
 });
 </script>
 <style lang="scss" scoped>

@@ -34,7 +34,7 @@ SwiperCore.use([Navigation, Pagination, A11y, Controller]);
 /* swiper custom navigation */
 
 definePageMeta({
-  layout: 'pc-category'
+  layout:'pc-category'
 });
 
 onMounted(() => {

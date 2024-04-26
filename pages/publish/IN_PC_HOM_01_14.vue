@@ -146,7 +146,7 @@ const swiper_nav = {
 /* swiper custom navigation */
 
 definePageMeta({
-	layout: 'pc-category'
+	layout:'pc-category'
 });
 
 onMounted(() => {

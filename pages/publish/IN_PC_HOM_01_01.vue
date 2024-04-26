@@ -358,7 +358,7 @@ import {
 } from '~/test/data/publish/dummyData'
 
 definePageMeta({
-  layout: 'pc-default'
+  layout:'pc-default'
 })
 
 const rankingTabs = [

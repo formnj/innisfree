@@ -134,7 +134,7 @@ import "swiper/components/pagination/pagination.scss";
 SwiperCore.use([Autoplay, Navigation, Pagination, A11y]);
 
 definePageMeta({
-  layout: 'mo-product'
+  layout:'mo-product'
 })
 
 onMounted(()=>{

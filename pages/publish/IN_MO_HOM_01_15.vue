@@ -235,7 +235,7 @@ import "swiper/components/pagination/pagination.scss";
 SwiperCore.use([Autoplay, Navigation, Pagination, A11y]);
 
 definePageMeta({
-  layout: 'mo-default'
+  layout:'mo-default'
 })
 </script>
 

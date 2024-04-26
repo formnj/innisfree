@@ -145,7 +145,7 @@
 
 <script setup>
 definePageMeta({
-	layout: 'mo-category'
+	layout:'mo-category'
 });
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음

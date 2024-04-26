@@ -190,7 +190,7 @@ import {
 } from '~/assets/js/common-ui'
 
 definePageMeta({
-	layout: 'pc-category'
+	layout:'pc-category'
 });
 
 const props = defineProps({

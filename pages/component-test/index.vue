@@ -175,7 +175,7 @@
 import { breadcrumbData } from '~/test/data/publish/dummyData'
 
 definePageMeta({
-  layout: 'aa-guide'
+  layout:'aa-guide'
 })
 
 const inputTextValue: Ref<string | number> = ref('')
