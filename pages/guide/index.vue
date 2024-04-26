@@ -180,9 +180,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-24/', worker:''
     }, {
         depth:['','배송지 등록/변경','',''],
-        id:'IN_PC_ORD_01_02', status:'',
+        id:'IN_PC_ORD_01_02', status:'com',
         type:'modal', note:'마이페이지 > 배송지관리 > 추가',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        sDate:'2024-04-26', eDate:'2024-05-03/2024-04-26', worker:'김희경'
     }, {
         depth:['','','배송지 수정',''],
         id:'IN_PC_ORD_01_03', status:'',
@@ -350,7 +350,7 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','1:1문의','내역',''],
-        id:'IN_PC_MYP_01_45', status:'',
+        id:'IN_PC_MYP_01_45', status:'com',
         type:'', note:'답변확인에서 확인가능',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
@@ -844,7 +844,7 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','1:1문의','내역',''],
-        id:'IN_MO_MYP_01_45', status:'',
+        id:'IN_MO_MYP_01_45', status:'com',
         type:'', note:'답변확인에서 확인가능',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {

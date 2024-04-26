@@ -32,7 +32,7 @@
             <h3>
                 {{ item.sub_title }}
                 <!-- Edit: 2024-04-23 버튼 클래스 -->
-                <Icons class="tooltip" txt="툴팁" @click="modal.open(item.notice.modal_id, 'alert');" />
+                <Icons class="tooltip" txt="툴팁" @click="modal.open(item.notice.modal_id, 'layer');" />
                 <div class="modal_wrap" id="sample_01">
                     <div class="modal_container">
                         <div class="modal_header">
@@ -130,7 +130,7 @@
                     </dl>
                 </div>
                 <div class="modal_footer">
-                    <Button txt="확인" class="btn_type_02" />
+                    <Button txt="확인" class="btn_type_02" @click="modal.close(this);" />
                 </div>
             </div>
             <div class="overlay" @click="modal.close(this);"></div>
@@ -143,6 +143,7 @@
 
 <script setup>
 import { setFilter } from '~/assets/js/common-ui.js'
+import { modal } from '~/assets/js/common-ui.js'
 
 definePageMeta({
 layout: 'pc-category'
@@ -306,38 +307,6 @@ const sale_menu = [
     "립 ~50%","마스크팩 ~50%","클렌징 ~30%","립 ~50%","마스크팩 ~50%","클렌징 ~30%","마스크팩 ~50%","클렌징 ~30%","립 ~50%","마스크팩 ~50%","클렌징 ~30%",
 ]
 
-const modal = {
-    open: (_target, _type) => {
-        document.getElementById(_target).classList.add('active', _type);
-        const body = document.querySelector("body");
-        const pageY = document.body.scrollTop || document.documentElement.scrollTop;
-
-        if (!body.hasAttribute("scrollY")) {
-            body.setAttribute("scrollY", String(pageY));
-            body.classList.add("lockbody");
-        }
-        body.addEventListener("touchmove", modal.lockScrollHandle, { passive: false });
-    }, close: (_target) => {
-        event.target.closest('.modal_wrap').setAttribute('class','modal_wrap');
-        const body = document.querySelector("body");
-
-        if (body.hasAttribute("scrollY")) {
-            body.classList.remove("lockbody");
-            body.scrollTop = Number(body.getAttribute("scrollY"));
-            body.removeAttribute("scrollY");
-        }
-
-        body.removeEventListener("touchmove", modal.lockScrollHandle, { passive: true });
-    }, lockScrollHandle(event) {
-        const e = event || window.event;
-
-        // 멀티 터치는 터치 되게 한다
-        if (e.touches.length > 1) return;
-
-        // event 초기화 속성이 있음 초기화
-        e.preventDefault();
-    }
-}
 /* //component sample data */
 
 const tab_click = (event)=>{
@@ -381,6 +350,7 @@ onMounted(() => {
     h3 {
         font-size:24px;
         font-weight:600;
+        position:relative;
         display:flex;
         align-items:center;
         > button {
@@ -400,8 +370,8 @@ onMounted(() => {
         padding:20px 0;
         background:#fff;
         position:sticky;
-        top:81px;
-        z-index:10;
+        top:79px;
+        z-index:3;
         ul {
             display:flex;
             &.type_02 {
@@ -568,19 +538,24 @@ onMounted(() => {
           margin-bottom:40px;
         }
     }
-    .modal_wrap.alert {
+    .modal_wrap{
+      &.layer {
         .modal_container  {
-            min-width:600px;
-            box-shadow:5px 5px 8px 0 rgba(0, 0, 0, 0.5);
             .modal_header {
-                border-bottom:0px;
+              margin-top:20px;
+              padding:20px;
+              border-bottom:0;
                 h2 {
-                    font-size:16px;
+                    font-size:18px;
                     font-weight:600;
                 }
             }
             .modal_content {
+              padding:20px 20px 30px;
                 > div {
+                  > * + * {
+                    margin-top:8px;
+                  }
                      p {
                         color:#666;
                         font-size:13px;
@@ -589,6 +564,7 @@ onMounted(() => {
                 }
             }
         }
+      }
         &[id^="giveaway_"]{
             .modal_container {
                 width:500px;
@@ -604,9 +580,6 @@ onMounted(() => {
                                 width:100px;
                                 height:133px;
                                 background:#eee;
-                            img {
-
-                            }
                         }
                         dd {
                             padding:18px 0;
