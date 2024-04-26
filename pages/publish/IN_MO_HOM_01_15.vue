@@ -226,7 +226,7 @@
 
 <script setup>
 import { modal } from '~/assets/js/common-ui'
-import { sample_goods, samplePost, sampleShowcase, sample_log, banner_list } from '/test/data/dummyData'
+import { sample_goods, samplePost, sampleShowcase, sample_log, banner_list } from '~/test/data/publish/dummyData'
 import SwiperCore, { Autoplay, Navigation, Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";

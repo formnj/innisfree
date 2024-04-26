@@ -22,7 +22,7 @@
   </div>
 </template>
 <script setup>
-import { prodInfo } from '../../test/data/dummyData'
+import { prodInfo } from '../..~/test/data/publish/dummyData'
 </script>
 <style lang="scss" scoped>
 .prod_info {
