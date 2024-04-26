@@ -1,144 +1,146 @@
 <template>
-    <div class="title_wrap" :data-layout="props.layoutType">
-        <h2>특가s</h2>
+   <div class="title_wrap" :data-layout="props.layoutType">
+    <div>
+      <h2>특가s</h2>
     </div>
+  </div>
 
-    <div class="inner">
-        <div class="tab_wrap">
-            <ul class="type_02">
-                <li v-for="(name, idx) in sale_menu" :key="idx" class="tab_title">
-                    <Button :txt="name" @click="tab_click($event)"/>
-                </li>
-                <li class="benefit">
-                    <label for="skin1" class="setFilter_sample">
-                        <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
-                    </label>
-                </li>
-            </ul>
-            <div class="sticky_menu_wrap">
-                <ul class="type_02">
-                    <li v-for="(name, idx) in sale_menu" :key="idx" class="tab_title">
-                        <Button :txt="name" @click="tab_click($event)" />
-                    </li>
-                </ul>
-                <label for="skin1" class="setFilter_sample">
-                        <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
-                </label>
-            </div>
-        </div>
-
-
-        <section v-for="(item, idx) in sample_data" :key="idx">
-            <h3>
-                {{ item.sub_title }}
-                <!-- Edit: 2024-04-23 버튼 클래스 -->
-                <Icons class="tooltip" txt="툴팁" @click="modal.open(item.notice.modal_id, 'alert');" />
-                <div class="modal_wrap" id="sample_01">
-                    <div class="modal_container">
-                        <div class="modal_header">
-                            <h2>프로모션 제품 구매시 유의사항</h2>
-                            <button class="btn_close" @click="modal.close(this);">닫기</button>
-                        </div>
-                        <div class="modal_content">
-                            <div>
-                                <p>{{sample_data[0].notice.exp}}</p>
-                                <p>{{sample_data[0].notice.period}}</p>
-                                <p v-if="sample_data[0].notice.exception">{{sample_data[0].notice.exception}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </h3>
-            <em>{{ item.desc }}</em>
-            <div class="timer_wrap" v-if="item.date">
-                <div class="num">
-                    <span id="prom_day">{{item.date.day}}</span>
-                </div>
-                <span class="unit">일</span>
-                <div class="num">
-                    <span id="prom_hh">{{item.date.hour}}</span>
-                </div>
-                <span class="unit">시</span>
-                <div class="num">
-                    <span id="prom_mm">{{item.date.min}}</span>
-                </div>
-                <span class="unit">분</span>
-                <div class="num">
-                    <span id="prom_ss">{{item.date.sec}}</span>
-                </div>
-                <span class="unit">초</span>
-            </div>
-
-            <div class="list_wrap">
-                <ul class="goods_list">
-                    <li v-for="(item, idx) in sample_goods" :key="idx">
-                        <GoodsItem :item="item" :link="item.link" />
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <div class="benefits_wrap">
-            <h3>이니스프리 혜택 모음</h3>
-            <div class="list_wrap">
-                <ul class="goods_list">
-                    <li v-for="(item, idx) in sample_goods" :key="idx">
-                    <GoodsItem :item="item" :link="item.link" />
-                    </li>
-                </ul>
-            </div>
-        </div>
+  <div class="inner">
+      <div class="tab_wrap">
+          <ul class="type_02">
+              <li v-for="(name, idx) in sale_menu" :key="idx" class="tab_title">
+                  <Button :txt="name" @click="tab_click($event)"/>
+              </li>
+              <li class="benefit">
+                  <label for="skin1" class="setFilter_sample">
+                      <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
+                  </label>
+              </li>
+          </ul>
+          <div class="sticky_menu_wrap">
+              <ul class="type_02">
+                  <li v-for="(name, idx) in sale_menu" :key="idx" class="tab_title">
+                      <Button :txt="name" @click="tab_click($event)" />
+                  </li>
+              </ul>
+              <label for="skin1" class="setFilter_sample">
+                      <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
+              </label>
+          </div>
+      </div>
 
 
+      <section v-for="(item, idx) in sample_data" :key="idx">
+          <h3>
+              {{ item.sub_title }}
+              <!-- Edit: 2024-04-23 버튼 클래스 -->
+              <Icons class="tooltip" txt="툴팁" @click="modal.open(item.notice.modal_id, 'alert');" />
+              <div class="modal_wrap" id="sample_01">
+                  <div class="modal_container">
+                      <div class="modal_header">
+                          <h2>프로모션 제품 구매시 유의사항</h2>
+                          <button class="btn_close" @click="modal.close(this);">닫기</button>
+                      </div>
+                      <div class="modal_content">
+                          <div>
+                              <p>{{sample_data[0].notice.exp}}</p>
+                              <p>{{sample_data[0].notice.period}}</p>
+                              <p v-if="sample_data[0].notice.exception">{{sample_data[0].notice.exception}}</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </h3>
+          <em>{{ item.desc }}</em>
+          <div class="timer_wrap" v-if="item.date">
+              <div class="num">
+                  <span id="prom_day">{{item.date.day}}</span>
+              </div>
+              <span class="unit">일</span>
+              <div class="num">
+                  <span id="prom_hh">{{item.date.hour}}</span>
+              </div>
+              <span class="unit">시</span>
+              <div class="num">
+                  <span id="prom_mm">{{item.date.min}}</span>
+              </div>
+              <span class="unit">분</span>
+              <div class="num">
+                  <span id="prom_ss">{{item.date.sec}}</span>
+              </div>
+              <span class="unit">초</span>
+          </div>
 
-        <div class="modal_wrap" id="giveaway_01">
-            <div class="modal_container">
-                <div class="modal_header">
-                    <h2>증정품 안내</h2>
-                    <button class="btn_close" @click="modal.close(this);">닫기</button>
-                </div>
-                <div class="modal_content">
-                    <dl>
-                        <dt><img src="../../assets/images/sam/giveaway_alert_01.png"></dt>
-                        <dd>
-                            <div>
-                                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
-                                <em>24.3.25 ~ 24.3.31</em>
-                            </div>
-                            <span>1개 구매시 1개 증정</span>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt><img src="../../assets/images/sam/giveaway_alert_02.png"></dt>
-                        <dd>
-                            <div>
-                                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
-                                <em>24.3.25 ~ 24.3.31</em>
-                            </div>
-                            <span>1개 구매시 1개 증정</span>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt><img src="../../assets/images/sam/giveaway_alert_03.png"></dt>
-                        <dd>
-                            <div>
-                                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
-                                <em>24.3.25 ~ 24.3.31</em>
-                            </div>
-                            <span>1개 구매시 1개 증정</span>
-                        </dd>
-                    </dl>
-                </div>
-                <div class="modal_footer">
-                    <Button txt="확인" class="btn_type_02" />
-                </div>
-            </div>
-            <div class="overlay" @click="modal.close(this);"></div>
-        </div>
+          <div class="list_wrap">
+              <ul class="goods_list">
+                  <li v-for="(item, idx) in sample_goods" :key="idx">
+                      <GoodsItem :item="item" :link="item.link" />
+                  </li>
+              </ul>
+          </div>
+      </section>
+
+      <div class="benefits_wrap">
+          <h3>이니스프리 혜택 모음</h3>
+          <div class="list_wrap">
+              <ul class="goods_list">
+                  <li v-for="(item, idx) in sample_goods" :key="idx">
+                  <GoodsItem :item="item" :link="item.link" />
+                  </li>
+              </ul>
+          </div>
+      </div>
 
 
 
-    </div>
+      <div class="modal_wrap" id="giveaway_01">
+          <div class="modal_container">
+              <div class="modal_header">
+                  <h2>증정품 안내</h2>
+                  <button class="btn_close" @click="modal.close(this);">닫기</button>
+              </div>
+              <div class="modal_content">
+                  <dl>
+                      <dt><img src="../../assets/images/sam/giveaway_alert_01.png"></dt>
+                      <dd>
+                          <div>
+                              <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+                              <em>24.3.25 ~ 24.3.31</em>
+                          </div>
+                          <span>1개 구매시 1개 증정</span>
+                      </dd>
+                  </dl>
+                  <dl>
+                      <dt><img src="../../assets/images/sam/giveaway_alert_02.png"></dt>
+                      <dd>
+                          <div>
+                              <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+                              <em>24.3.25 ~ 24.3.31</em>
+                          </div>
+                          <span>1개 구매시 1개 증정</span>
+                      </dd>
+                  </dl>
+                  <dl>
+                      <dt><img src="../../assets/images/sam/giveaway_alert_03.png"></dt>
+                      <dd>
+                          <div>
+                              <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+                              <em>24.3.25 ~ 24.3.31</em>
+                          </div>
+                          <span>1개 구매시 1개 증정</span>
+                      </dd>
+                  </dl>
+              </div>
+              <div class="modal_footer">
+                  <Button txt="확인" class="btn_type_02" />
+              </div>
+          </div>
+          <div class="overlay" @click="modal.close(this);"></div>
+      </div>
+
+
+
+  </div>
 </template>
 
 <script setup>
