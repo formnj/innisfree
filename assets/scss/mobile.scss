@@ -257,7 +257,7 @@
 
 
 /* 텍스트 링크 with 오른쪽 화살표 */
-:deep(a.btn_link_arrw) {
+:deep(.btn_link_arrw) {
   font-size: 1.2rem;
   &:after {
     width: .8rem;

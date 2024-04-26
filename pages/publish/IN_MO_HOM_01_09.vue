@@ -21,7 +21,7 @@
 
   <div class="postFixedArea">
     <button class="btn_like" title="좋아요" @click="setFilter">32</button>
-    <button class="btn_reply" title="답글" @click="console.log('답글모달열림')">120</button>
+    <button class="btn_reply" title="답글" @click="openReplyModal();">120</button>
   </div>
 
   <div class="post_detail">
@@ -50,7 +50,7 @@
   <!-- 답글 -->
   <section>
     <div class="inner">
-      <h2><a href="#답글모달" class="btn_link_arrw">답글 <em>3</em></a></h2>
+      <h2><button type="button" class="btn_link_arrw" @click="openReplyModal()">답글 <em>3</em></button></h2>
     </div>
     <!-- 답글 없을 경우 -->
     <div class="no_content">
@@ -288,8 +288,9 @@ section {
       margin-top: 2rem;
     }
 
-    a.btn_link_arrw {
+    .btn_link_arrw {
       font-size: 1.8rem;
+      font-weight: 500;
       display: flex;
       align-items: center;
 
@@ -422,5 +423,9 @@ section {
       background-position: -4rem -17rem;
     }
   }
+}
+
+#modal_reply_menu {
+  z-index: 16;
 }
 </style>
