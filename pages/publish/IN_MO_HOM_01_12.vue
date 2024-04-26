@@ -1,10 +1,10 @@
 <template>
-  <div class="title_wrap">
-    <div class="prd_tit">
-      <h2>봄맞이 핑크템으로<br>생기를 더하세요!</h2>
-    </div>
+  <!-- title washed -->
+  <div class="sub_title_wrap">
+    <h3>봄맞이 핑크템으로<br>생기를 더하세요!</h3>
     <Button class="btn_all btn_outline" txt="전체보기" @click="modal.open('modal_all', 'fullMo')" />
   </div>
+  <!-- //title washed -->
 
   <div class="inner">
     <div class="prd_wrap">
@@ -81,48 +81,6 @@ const banner_list = [
 
 </script>
 <style lang="scss" scoped>
-.title_wrap {
-  padding: 3rem 0 2rem;
-  justify-content:space-between;
-  .prd_tit {
-    h2 {
-      color:#000;
-      font-size:1.6rem;
-      font-weight:600;
-      line-height:2rem;
-      white-space: normal;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      word-wrap: break-word;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      word-break: break-all;
-    }
-  }
-  :deep(.btn_all) {
-    height:fit-content;
-    padding:0.6rem 0.8rem;
-    display:flex;
-    align-items:center;
-    gap:0 0.3rem;
-    em {
-      padding:0;
-      font-size:1rem;
-      font-weight:600;
-      line-height:1.2rem;
-    }
-    &:after {
-      content:'';
-      display:inline-block;
-      width:1.2rem;
-      height:1.2rem;
-      background:url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -23rem -10rem;
-      background-size:25rem auto;
-    }
-  }
-}
-
 .prd_wrap {
   margin:0 -20px;
   >div {

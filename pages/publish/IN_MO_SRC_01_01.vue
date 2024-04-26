@@ -47,10 +47,11 @@
       일치하는 결과가 없습니다.
   </div>
 
-  <div class="title_wrap">
-    <h2>
-      <span class="pdt_count">제품 <strong>23</strong></span>
-    </h2>
+  <!-- title washed -->
+  <div class="sub_title_wrap">
+    <h3>
+      <strong class="badge count">제품 <em>23</em></strong>
+    </h3>
     <div class="pdtSortTab_wrap">
       <div class="sortTab">
         <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom')">랭킹순</button>
@@ -58,6 +59,7 @@
       <button @click="modal.open('modal_search', 'bottom')">필터</button>
     </div>
   </div>
+  <!-- //title washed -->
 
   <div class="inner">
     <div class="list_wrap">
@@ -502,50 +504,6 @@ onMounted(() => {
     }
   }
 }
-.title_wrap {
-  padding:20px 0;
-  h2 {
-    .pdt_count {
-      padding:0;
-      margin:0;
-      color:#000;
-      font-size:14px;
-      font-weight:700;
-      background:none;
-      display:flex;
-      align-items:center;
-      gap:5px;
-      strong {
-        color:#666;
-        font-size:12px;
-        font-weight:400;
-      }
-    }
-  }
-  .pdtSortTab_wrap {
-    margin-top:0;
-    gap:20px;
-    .sortTab {
-      .btn_dropdown {
-        padding:0;
-        font-size:12px;
-        font-family:inherit;
-        &:after {
-          margin-left:5px;
-        }
-      }
-    }
-    >button {
-      padding:0;
-      font-size:12px;
-      font-family:inherit;
-      &:before {
-        content:none;
-      }
-    }
-  }
-}
-
 
 .no_pdt {
   padding:20px 0 50px;

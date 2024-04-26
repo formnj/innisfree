@@ -1,7 +1,12 @@
 	<template>
+    <!-- title washed -->
     <div class="title_wrap" :data-layout="props.layoutType">
+      <div>
         <h2>1:1 문의</h2>
+      </div>
     </div>
+    <!-- //title washed -->
+
 	  <div class="inner">
         <Tabs tabType="type_03" :item="[{txt:'1&#58;1 문의하기'},{txt:'답변확인'}]" :tabidx="0" />
         <section>
@@ -131,56 +136,56 @@
 		</section>
 	</div>
 
-    <div class="modal_wrap" id="choice_modal">
-        <div class="modal_container">
-            <div class="modal_header">
-                <h2>주문제품 선택</h2>
-                <button class="btn_close" @click="modal.close(this);">닫기</button>
-            </div>
-            <div class="modal_content">
-                <div class="inner">
-                    <Tabs tabType="type_01" :item="[{txt:'1개월'},{txt:'2개월'},{txt:'3개월'},{txt:'6개월'}]"  :tabidx="0" />
-                    <div class="date_wrap">
-                        <div class="date">
-                            <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
-                            <div class="dataValue">
-                                2024-03-24
-                            </div>
-                        </div>
-                        <div>~</div>
-                        <div class="date">
-                            <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
-                            <div class="dataValue">
-                                2024-03-24
-                            </div>
-                        </div>
-                        <Button class="btn_outline" txt="검색"/>
-                    </div>
-                </div>
-                <p class="alt">최근 <span>1년 내역만 검색</span>이 가능합니다.</p>
-                <div class="table_wrap">
-                    <table>
-                        <caption>주문내역</caption>
-                        <thead>
-                            <tr>
-                                <th>주문번호</th>
-                                <th>주문제품</th>
-                                <th>주문일자</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="3">검색된 주문정보가 없습니다.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+  <div class="modal_wrap" id="choice_modal">
+      <div class="modal_container">
+          <div class="modal_header">
+              <h2>주문제품 선택</h2>
+              <button class="btn_close" @click="modal.close(this);">닫기</button>
+          </div>
+          <div class="modal_content">
+              <div class="inner">
+                  <Tabs tabType="type_01" :item="[{txt:'1개월'},{txt:'2개월'},{txt:'3개월'},{txt:'6개월'}]"  :tabidx="0" />
+                  <div class="date_wrap">
+                      <div class="date">
+                          <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
+                          <div class="dataValue">
+                              2024-03-24
+                          </div>
+                      </div>
+                      <div>~</div>
+                      <div class="date">
+                          <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
+                          <div class="dataValue">
+                              2024-03-24
+                          </div>
+                      </div>
+                      <Button class="btn_outline" txt="검색"/>
+                  </div>
+              </div>
+              <p class="alt">최근 <span>1년 내역만 검색</span>이 가능합니다.</p>
+              <div class="table_wrap">
+                  <table>
+                      <caption>주문내역</caption>
+                      <thead>
+                          <tr>
+                              <th>주문번호</th>
+                              <th>주문제품</th>
+                              <th>주문일자</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td colspan="3">검색된 주문정보가 없습니다.</td>
+                          </tr>
+                      </tbody>
+                  </table>
 
-                </div>
-            </div>
-        </div>
-        <div class="overlay" @click="modal.close(this);"></div>
-    </div>
-	</template>
+              </div>
+          </div>
+      </div>
+      <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+</template>
 
 <script setup>
 definePageMeta({
@@ -199,15 +204,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 </script>
 
 <style lang="scss" scoped>
-.title_wrap {
-  padding: 60px 20px 24px;
-  display:flex;
-  justify-content:space-between;
-  h2 {
-    font-size:24px !important;
-    font-weight:600;
-  }
-}
 .tab_wrap {
   ul {
     li {

@@ -1,7 +1,11 @@
 <template>
+  <!-- title washed -->
   <div class="title_wrap" :data-layout="props.layoutType">
-    <h2>베스트</h2>
+    <div>
+      <h2>베스트</h2>
+    </div>
   </div>
+  <!-- //title washed -->
 
   <div class="inner">
     <div class="sort_tab_wrap">

@@ -1,22 +1,13 @@
 <template>
-  <div class="qr_wrap">
-    <div class="box off">
-      <span>실시간 이니스프리<br>이야기</span>
+  <!-- title washed -->
+  <div class="title_wrap" :data-layout="props.layoutType">
+    <div>
+      <h2>쇼케이스</h2>
     </div>
-    <div class="box on">
-      <h3>대학생 에디터들의 뷰티팁을<br>에디터에서 만나보세요.</h3>
-      <div class="qr"><img src="/assets/images/sam/sample_qrcode.gif"></div>
-      <p>휴대폰으로 QR코드를 스캔하여<br>모바일로 이동해주세요.</p>
-    </div>
-    <Button txt="닫기" class="btn_close" @click="qr_menu" />
   </div>
 
-  <div class="title_wrap" :data-layout="props.layoutType">
-    <div class="prd_tit">
-      <h2>쇼케이스</h2>
-      <p>봄맞이 핑크템으로<br>생기를 더하세요!</p>
-    </div>
-
+  <div class="sub_title_wrap">
+    <h3>봄맞이 핑크템으로 생기를 더하세요!</h3>
     <!-- 공유 레이어 -->
     <div class="share_wrap">
       <button class="btn_share" @click="modal.open('modal_share', 'layer')"></button>
@@ -40,8 +31,10 @@
     </div>
     <!-- //공유 레이어 -->
   </div>
+  <!-- //title washed -->
 
   <div class="inner">
+
     <div class="prd_wrap">
       <div><img src="/assets/images/sam/pinkdoc1.jpg"></div>
       <div>
@@ -96,6 +89,20 @@
           <a href="#none" class="last">마지막으로</a>
       </div>
   </div>
+
+  <!-- 콘텐츠 우선순위에 맞는 배치 변경 -->
+  <div class="qr_wrap">
+    <div class="box off">
+      <span>실시간 이니스프리<br>이야기</span>
+    </div>
+    <div class="box on">
+      <h3>대학생 에디터들의 뷰티팁을<br>에디터에서 만나보세요.</h3>
+      <div class="qr"><img src="/assets/images/sam/sample_qrcode.gif"></div>
+      <p>휴대폰으로 QR코드를 스캔하여<br>모바일로 이동해주세요.</p>
+    </div>
+    <Button txt="닫기" class="btn_close" @click="qr_menu" />
+  </div>
+  <!-- //콘텐츠 우선순위에 맞는 배치 변경 -->
 </template>
 <script setup>
 import { sample_goods } from '~/test/data/dummyData'
@@ -228,30 +235,6 @@ const qr_menu = (e) => {
       }
     }
   }
-}
-
-.title_wrap {
-  padding: 60px 20px 30px;
-  justify-content:space-between;
-  z-index:unset;
-  .prd_tit {
-    h2 {
-      margin-bottom:30px;
-      font-size:38px;
-      font-weight:300;
-    }
-    p {
-      color:#000;
-      font-size:24px;
-      font-weight:600;
-      line-height:31px;
-    }
-  }
-}
-
-.share_wrap {
-  right:20px;
-  bottom:30px;
 }
 
 .prd_wrap {

@@ -1,7 +1,11 @@
 <template>
-<div class="title_wrap" :data-layout="props.layoutType">
+  <!-- title washed -->
+  <div class="title_wrap" :data-layout="props.layoutType">
+    <div>
       <h2>1:1 문의</h2>
+    </div>
   </div>
+  <!-- //title washed -->
   <div class="inner">
       <Tabs tabType="type_03" :item="[{txt:'1&#58;1 문의하기'},{txt:'답변확인'}]" :tabidx="0" />
       <section>
@@ -199,15 +203,6 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.title_wrap {
-padding: 60px 20px 24px;
-display:flex;
-justify-content:space-between;
-h2 {
-  font-size:24px !important;
-  font-weight:600;
-}
-}
 .tab_wrap {
     ul {
         li {

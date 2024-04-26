@@ -1,9 +1,11 @@
 <template>
+  <!-- title washed -->
   <div class="title_wrap" :data-layout="props.layoutType">
-    <div class="prd_tit">
+    <div>
       <h2>라이브</h2>
     </div>
   </div>
+  <!-- //title washed -->
 
   <div class="inner">
     <!-- 라이브 콘텐츠 -->
@@ -34,9 +36,15 @@
           </p>
       </div>
     </section>
+  </div>
     <!-- //라이브 콘텐츠 -->
 
+  <!-- title washed -->
+  <div class="sub_title_wrap">
     <h3>이니슾라이브 다시보기</h3>
+  </div>
+  <!-- //title washed -->
+  <div class="inner">
     <div class="swiper_wrap">
       <swiper
         :slides-per-view="'auto'"
@@ -69,8 +77,14 @@
         <button class="swiper-button-next" @click="swiper_nav.next">Next</button>
       </div>
     </div>
+  </div>
 
+  <!-- title washed -->
+  <div class="sub_title_wrap">
     <h3>라이브 다시보기</h3>
+  </div>
+  <!-- //title washed -->
+  <div class="inner">
     <div class="swiper_wrap">
       <swiper
         :slides-per-view="'auto'"
@@ -146,33 +160,6 @@ const props = defineProps({
 });
 </script>
 <style lang="scss" scoped>
-
-h3 {
-  margin-top:100px;
-  margin-bottom:30px;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.33;
-}
-
-.title_wrap {
-  padding: 60px 20px 30px;
-  justify-content:space-between;
-  .prd_tit {
-    h2 {
-      margin-bottom:30px;
-      font-size:38px;
-      font-weight:300;
-    }
-    p {
-      color:#000;
-      font-size:24px;
-      font-weight:600;
-      line-height:31px;
-    }
-  }
-}
-
 .swiper_wrap {
   width:1280px;
   margin:0 auto;
