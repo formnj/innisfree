@@ -150,7 +150,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-24/2024-04-09', worker:'김희경'
     }, {
         depth:['','상세','',''],
-        id:'IN_PC_PRD_01_09', status:'',
+        id:'IN_PC_PRD_01_09', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-03/', worker:'김나람'
     }, {
@@ -594,9 +594,9 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-03/2024-04-26', worker:'김나람'
     }, {
         depth:['','','에디터별 보기',''],
-        id:'IN_MO_HOM_01_10', status:'ing',
+        id:'IN_MO_HOM_01_10', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-03', worker:'김나람'
+        sDate:'', eDate:'2024-05-03/2024-04-29', worker:'김나람'
     }, {
         depth:['','베스트','',''],
         id:'IN_MO_HOM_01_00-1', status:'com',
@@ -639,7 +639,7 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-24/2024-04-11', worker:'김희경'
     }, {
         depth:['','상세','',''],
-        id:'IN_MO_PRD_01_09', status:'',
+        id:'IN_MO_PRD_01_09', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-03/', worker:'김나람'
     }, {
