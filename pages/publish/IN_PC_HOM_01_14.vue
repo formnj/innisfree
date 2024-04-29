@@ -41,7 +41,9 @@
 
   <!-- title washed -->
   <div class="sub_title_wrap">
-    <h3>이니슾라이브 다시보기</h3>
+    <div>
+      <h3>이니슾라이브 다시보기</h3>
+    </div>
   </div>
   <!-- //title washed -->
   <div class="inner">
@@ -81,7 +83,9 @@
 
   <!-- title washed -->
   <div class="sub_title_wrap">
-    <h3>라이브 다시보기</h3>
+    <div>
+      <h3>라이브 다시보기</h3>
+    </div>
   </div>
   <!-- //title washed -->
   <div class="inner">

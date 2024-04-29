@@ -35,10 +35,12 @@
   <template  v-for="(item, idx) in sample_data" :key="idx">
     <!-- title washed -->
     <div class="sub_title_wrap">
-      <h3>{{ item.sub_title }}
-        <Icons class="tooltip" txt="툴팁" @click="modal.open('sample_01', 'alert');" />
-      </h3>
-      <p class="explain">{{item.desc}}</p>
+      <div>
+        <h3>{{ item.sub_title }}
+          <Icons class="tooltip" txt="툴팁" @click="modal.open('sample_01', 'alert');" />
+        </h3>
+        <p class="explain">{{item.desc}}</p>
+      </div>
     </div>
     <!-- //title washed -->
 

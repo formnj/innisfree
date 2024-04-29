@@ -97,10 +97,12 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
         </div>
 
         <div class="sub_title_wrap" style="margin:0 auto;">
-          <h3>Sub title
-            <Icons class="tooltip" txt="툴팁" />
-          </h3>
-          <p class="explain">타이틀 설명 글</p>
+          <div>
+            <h3>Sub title
+              <Icons class="tooltip" txt="툴팁" />
+            </h3>
+            <p class="explain">타이틀 설명 글</p>
+          </div>
           <a href="#none" class="btn_link_arrw">링크</a>
         </div>
 
@@ -109,8 +111,10 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
         </div>
 
         <div class="sub_title_wrap">
-          <h3>Sub title</h3>
-          <p class="explain">타이틀 설명 글</p>
+          <div>
+            <h3>Sub title</h3>
+            <p class="explain">타이틀 설명 글</p>
+          </div>
           <a href="#none" class="btn_link_arrw">링크</a>
         </div>
 
@@ -162,10 +166,12 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   &lt;/div&gt;
 
   &lt;div class="sub_title_wrap"&gt;
-    &lt;h3&gt;Sub title
-      &lt;Icons class="tooltip" txt="툴팁" /&gt;
-    &lt;/h3&gt;
-    &lt;p class="explain"&gt;설명글설명글설명글설명글설명글&lt;/p&gt;
+    &lt;div&gt;
+      &lt;h3&gt;Sub title
+        &lt;Icons class="tooltip" txt="툴팁" /&gt;
+      &lt;/h3&gt;
+      &lt;p class="explain"&gt;설명글설명글설명글설명글설명글&lt;/p&gt;
+    &lt;/div&gt;
     &lt;a href="#none" class="btn_link_arrw"&gt;링크&lt;/a&gt;
   &lt;/div&gt;
 
@@ -174,8 +180,10 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   &lt;/div&gt;
 
   &lt;div class="sub_title_wrap"&gt;
-    &lt;h3&gt;Sub title&lt;/h3&gt;
-    &lt;p class="explain"&gt;타이틀 설명 글&lt;/p&gt;
+    &lt;div&gt;
+      &lt;h3&gt;Sub title&lt;/h3&gt;
+      &lt;p class="explain"&gt;타이틀 설명 글&lt;/p&gt;
+    &lt;/div&gt;
     &lt;a href="#none" class="btn_link_arrw"&gt;링크&lt;/a&gt;
   &lt;/div&gt;
 
