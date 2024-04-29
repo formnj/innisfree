@@ -42,7 +42,9 @@
   <div class="modal_wrap" id="address_add_modal">
     <div class="modal_container">
         <div class="modal_header">
-            <h2>배송지 추가</h2>
+            <h2>
+              배송지 추가
+            </h2>
             <button class="btn_close" @click="modal.close(this);">닫기</button>
         </div>
         <div class="modal_content">
@@ -51,7 +53,10 @@
               <a href="#none">군부대 배송안내<Icons class="tooltip" @click="modal.open('shippingArmyInfo', 'full')" /></a>
           </section>
           <div>
-            <h3>검색결과</h3>
+            <h3>
+              검색결과
+              <span>1건</span>
+            </h3>
             <div class="res_address_wrap" @click="[setFilter($event), show_hide()]">
               <p>
                 <span class="flag">도로명</span>
@@ -496,6 +501,13 @@ onMounted(() => {
             padding:0 4rem 2.5rem;
             font-size:1.6rem;
             border-bottom:0.1rem solid #F5F5F5;
+            display:flex;
+            align-items:center;
+            > span {
+              margin-left: 1.0rem;
+              color: #00BC70;
+              font-size: 1.3rem;
+            }
           }
           .res_address_wrap {
             > * + * {
