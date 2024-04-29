@@ -155,7 +155,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-03/', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
-        id:'IN_PC_CAR_01_01', status:'',
+        id:'IN_PC_CAR_01_01', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {

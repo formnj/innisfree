@@ -540,7 +540,7 @@ header {
                 width:16px;
                 height:16px;
                 margin-left:10px;
-                background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
+                background-image:url('~/assets/images/common/icon_split.png');
                 background-size:250px;
                 background-repeat:no-repeat;
                 background-position:-110px -60px;

@@ -411,7 +411,7 @@ onMounted(() => {
         width:14px;
         height:7px;
         margin-left:auto;
-        background:url("/_nuxt/assets/images/common/PC-icon_split.png") no-repeat -110px -64px;
+        background:url("~/assets/images/common/icon_split.png") no-repeat -110px -64px;
         background-size:250px auto;
         display:inline-block;
       }
@@ -683,7 +683,7 @@ onMounted(() => {
         width:14px;
         height:7px;
         margin-left:auto;
-        background:url(/_nuxt/assets/images/common/PC-icon_split.png) no-repeat -111px -65px;
+        background:url(~/assets/images/common/icon_split.png) no-repeat -111px -65px;
         background-size:250px auto;
         display:inline-block;
         transform:rotate(-90deg);
@@ -830,7 +830,7 @@ onMounted(() => {
                   content: '';
                   width: 22.4px;
                   height: 22.4px;
-                  background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+                  background-image: url('~/assets/images/common/icon_split.png');
                   background-repeat: no-repeat;
                   background-size: 250px;
                   background-position: -203px -94px;

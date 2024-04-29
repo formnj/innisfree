@@ -354,7 +354,7 @@ const setFilter = (event) =>{
                   content: '';
                   width: 22.4px;
                   height: 22.4px;
-                  background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+                  background-image: url('~/assets/images/common/icon_split.png');
                   background-repeat: no-repeat;
                   background-size: 250px;
                   background-position: -203px -94px;
