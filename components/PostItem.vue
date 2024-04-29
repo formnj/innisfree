@@ -1,19 +1,13 @@
 <template>
   <div class="post_item">
-    <a href="#none">
+    <a :href="link">
       <span class="thumb">
         <img :src="item.img" alt="">
       </span>
       <span class="info">
         <span class="desc">
           <span class="title">{{  item. title  }}</span>
-          <span class="editor">
-              <img :src="item.editor.photo">
-              <span class="info">
-                <em>{{ item.editor.name }}</em>
-                <span>{{ item.editor.type }}</span>
-              </span>
-          </span>
+          <EditorProfile :item="item" />
         </span>
         <span class="post_icons">
           <span class="i view">{{ item.view.cnt }}</span>
@@ -29,6 +23,10 @@
 import { setFilter } from '/assets/js/common-ui'
 const props = defineProps({
     item: {},
+    link: {
+      type: String,
+      default: "#none",
+    }
 })
 </script>
 <style lang="scss" scoped>
@@ -68,37 +66,13 @@ const props = defineProps({
         overflow: hidden;
       }
 
-      .editor {
+      :deep(.editor_profile) {
         margin-top: .8rem;
         gap: 0 .8rem;
         display: flex;
 
-        img {
-          width: 3.5rem;
-          height: 3.5rem;
-        }
-
-        .info {
-          gap: .5rem 0;
-          display: flex;
-          flex-direction: column;
-          font-size: 1.2rem;
-          color: #999;
-
-          em {
-            font-size: 1.3rem;
-            color: #666;
-          }
-
-          span {
-            height: 1.6rem;
-            line-height: 1.6rem;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 1;
-            overflow: hidden;
-          }
+        .mark_editor {
+          display: none;
         }
       }
     }

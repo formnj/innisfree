@@ -110,7 +110,7 @@
       <h2>
         <span><em>왕 벚꽃 글로우 젤리 크림</em>을<br>구매한 고객이 최근 구매한 제품이에요</span>
       </h2>
-      <div class="swiper_wrap horizontal">
+      <div class="swiper_wrap">
         <swiper
           :slides-per-view="'auto'"
         >
