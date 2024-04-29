@@ -119,6 +119,25 @@ const props = defineProps({
         }
       }
     }
+    &.type_03 {
+      li {
+        :deep(button) {
+          height:62px;
+          border-color:#a7a7a7;
+          em {
+            color:#666;
+          }
+        }
+        &.current {
+          background:#000;
+          :deep(button) {
+            em {
+              color:#fff;
+            }
+          }
+        }
+      }
+    }
     &.type_txt {
       margin-left:-30px;
       position:relative;

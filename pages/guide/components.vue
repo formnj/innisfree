@@ -212,6 +212,10 @@
             :item="[{txt:'tab01'},{txt:'tab02'},{txt:'tab03'},{txt:'tab04'},{txt:'tab05'},{txt:'tab06'},{txt:'tab07'},{txt:'tab08'},{txt:'tab09'},{txt:'tab10'}]"
             :tabidx="0" />
         </li>
+        <li>
+          <p class="form_tit">[type_03]</p>
+          <Tabs tabType="type_03" :item="[{txt:'tab01'},{txt:'tab02'}]" :tabidx="0" />
+        </li>
       </ul>
     </div>
     <pre
