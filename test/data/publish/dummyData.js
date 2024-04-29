@@ -4,7 +4,20 @@
  * jjy11@amorepacific.com
  */
 
-
+export const adress_list = [
+  {
+    name:'김이나',
+    on:'기본배송지',
+    tel:'111-1111-1111',
+    adress:'(12345)서울특별시 강서구 양천로 551-17'
+  },
+  {
+    name:'김하나',
+    on:'',
+    tel:'111-1111-1111',
+    adress:'(12345)서울특별시 강서구 양천로 551-17'
+  }
+]
 
 
 export const Delivery_data = [

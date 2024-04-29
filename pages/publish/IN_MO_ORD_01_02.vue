@@ -225,6 +225,7 @@ layout:'mo-category'
 });
 import { modal } from '~/assets/js/common-ui.js'
 import { setFilter } from '~/assets/js/common-ui.js'
+import {adress_list} from '~/test/data/publish/dummyData.js'
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   link: {
@@ -232,21 +233,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
       default: '#none'
   }
 });
-
-const adress_list = [
-  {
-    name:'김이나',
-    on:'기본배송지',
-    tel:'111-1111-1111',
-    adress:'(12345)서울특별시 강서구 양천로 551-17'
-  },
-  {
-    name:'김하나',
-    on:'',
-    tel:'111-1111-1111',
-    adress:'(12345)서울특별시 강서구 양천로 551-17'
-  }
-]
 
 const tab_click = (event)=>{
     let tab_title = document.querySelectorAll('.inner .adress_wrap li')
