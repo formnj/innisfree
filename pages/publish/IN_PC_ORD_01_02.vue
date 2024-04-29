@@ -160,21 +160,7 @@
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
 
-  <div class="modal_wrap" id="adress_modify_modal">
-      <div class="modal_container">
-          <div class="modal_header">
-              <h2>Modal Title</h2>
-              <button class="btn_close" @click="modal.close(this);">닫기</button>
-          </div>
-          <div class="modal_content">
-              <!-- modal contents -->
-          </div>
-          <div class="modal_footer">
-            <Button txt="저장" class="btn_ confirm" />
-          </div>
-      </div>
-      <div class="overlay" @click="modal.close(this);"></div>
-  </div>
+
 
 
   <div class="modal_wrap" id="shippingArmyInfo">
@@ -266,6 +252,7 @@ layout:'pc-mypage'
 });
 
 import { modal } from '~/assets/js/common-ui.js'
+import {Delivery_data} from '../../test/data/publish/dummyData'
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   layoutType: {
@@ -283,18 +270,6 @@ const reset = (event) => {
   document.querySelector('#adress_add_modal .modal_container').style.display="block"
   document.querySelector('#adress_modify_modal .modal_container').style.display="block"
 }
-
-
-const Delivery_data = [
-  {
-      modal_id:'adress_add_modal',
-      check:'yes'
-  },
-  {
-      modal_id:'adress_modify_modal',
-  }
-]
-
 
 
 </script>

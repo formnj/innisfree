@@ -4,6 +4,33 @@
  * jjy11@amorepacific.com
  */
 
+export const adress_list = [
+  {
+    name:'김이나',
+    on:'기본배송지',
+    tel:'111-1111-1111',
+    adress:'(12345)서울특별시 강서구 양천로 551-17'
+  },
+  {
+    name:'김하나',
+    on:'',
+    tel:'111-1111-1111',
+    adress:'(12345)서울특별시 강서구 양천로 551-17'
+  }
+]
+
+
+export const Delivery_data = [
+  {
+      modal_id:'adress_add_modal',
+      check:'yes'
+  },
+  {
+      modal_id:'adress_modify_modal',
+  }
+]
+
+
 export const mainTopBannerData = {
   bannerText: '하나Pay 3만원 결제 시, 하나머니 5천원 적립',
   url: 'https://www.innisfree.com/kr/ko'
