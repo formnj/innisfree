@@ -1,8 +1,12 @@
 <template>
   <Tabs tabType="type_01" :item="[{txt:'전체'},{txt:'체험/리뷰'},{txt:'쇼핑혜택'},{txt:'제휴혜택'}]" :tabidx="0" />
-  <div class="title_wrap">
-      <button>당첨자 발표</button>
+
+  <!-- title washed -->
+  <div class="sub_title_wrap">
+    <a href="#none" class="btn_link_arrw">당첨자 발표</a>
   </div>
+  <!-- title washed -->
+
   <div class="inner">
       <div class="list_wrap">
           <ul class="event_list">
@@ -16,12 +20,12 @@
 
 <script setup>
 definePageMeta({
-layout: 'mo-category'
+layout:'mo-category'
 });
 
 import {
   sample_event
-} from '~/test/data/dummyData'
+} from '~/test/data/publish/dummyData'
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   link: {
@@ -47,31 +51,5 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 }
 .event_list > li {
   width:100% !important;
-}
-.title_wrap {
-  padding: 30px 0px;
-  position:relative;
-  button {
-      font-size:12px;
-      text-align:right;
-      position:absolute;
-      top:50%;
-      right:0px;
-      display:flex;
-      align-items:center;
-      transform:translateY(-50%);
-      &::after {
-          content:'';
-          width:16px;
-          height:16px;
-          background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
-          background-repeat:no-repeat;
-          background-size:250px;
-          background-position:-110px -58px;
-          display:inline-block;
-          transform:rotate(-90deg);
-
-      }
-  }
 }
 </style>

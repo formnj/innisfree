@@ -180,6 +180,36 @@ const props = defineProps({
           }
         }
       }
+
+    }
+    &.type_03 {
+      li {
+        margin-left:-1px;
+        flex:1;
+        &::v-deep > * {
+            width:100%;
+            height:64px;
+            font-size:16px;
+            background-color:transparent;
+            border:1px solid #eee;
+            position:relative;
+            display:block;
+            transition:border 0.25s;
+            em {
+                color:#666;
+                transition:color 0.25s;
+            }
+        }
+        &.current > * {
+            border-color:#000;
+            background: #000 !important;
+            z-index:1;
+            ::v-deep em {
+                color:#fff;
+                font-weight:600;
+            }
+        }
+      }
     }
   }
 }

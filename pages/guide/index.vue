@@ -30,7 +30,7 @@
 
 <script setup>
 definePageMeta({
-  layout: 'guide'
+  layout:'guide'
 })
 
 /* device check text : 개발 시 제거해주세요. */
@@ -125,9 +125,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-26/2024-04-24', worker:'형민우'
     }, {
         depth:['','라이브(T)','',''],
-        id:'IN_PC_HOM_01_14', status:'ing',
+        id:'IN_PC_HOM_01_14', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-23/', worker:'이종환'
+        sDate:'', eDate:'2024-05-23/2024-04-25', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
         id:'IN_PC_HOM_01_15', status:'',
@@ -180,19 +180,19 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-24/', worker:''
     }, {
         depth:['','배송지 등록/변경','',''],
-        id:'IN_PC_ORD_01_02', status:'',
+        id:'IN_PC_ORD_01_02', status:'com',
         type:'modal', note:'마이페이지 > 배송지관리 > 추가',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        sDate:'2024-04-26', eDate:'2024-05-03/2024-04-26', worker:'김희경'
     }, {
-        depth:['','','배송지 수정',''],
+        depth:['','','배송지 수정','ing'],
         id:'IN_PC_ORD_01_03', status:'',
-        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        type:'modal', note:'IN_PC_ORD_01_02 에서 해당 팝업창 확인 가능',
+        sDate:'2024-04-26', eDate:'2024-05-03/', worker:'김희경'
     }, {
-        depth:['','','배송지 추가',''],
+        depth:['','','배송지 추가','ing'],
         id:'IN_PC_ORD_01_04', status:'',
-        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        type:'modal', note:'IN_PC_ORD_01_02 에서 해당 팝업창 확인 가능',
+        sDate:'2024-04-26', eDate:'2024-05-03/', worker:'김희경'
     }, {
         depth:['','안심번호 서비스 안내','',''],
         id:'IN_PC_ORD_01_08', status:'',
@@ -350,19 +350,19 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','1:1문의','내역',''],
-        id:'IN_PC_MYP_01_45', status:'',
+        id:'IN_PC_MYP_01_45', status:'com',
         type:'', note:'답변확인에서 확인가능',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 문의하기(T)',''],
-        id:'IN_PC_MYP_01_46', status:'',
+        id:'IN_PC_MYP_01_46', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-26', worker:'김희경'
+        sDate:'2024-04-25', eDate:'2024-04-26/2024-04-25', worker:'김희경'
     }, {
         depth:['','','1:1 답변확인(T)',''],
-        id:'IN_PC_MYP_01_48', status:'',
+        id:'IN_PC_MYP_01_48', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-26', worker:'김희경'
+        sDate:'2024-04-25', eDate:'2024-04-26/2024-04-26', worker:'김희경'
     }, {
         depth:['','공병수거 현황','내 공병수거 현황(T)','온라인 공병수거 신청'],
         id:'IN_PC_MYP_01_51', status:'',
@@ -589,12 +589,12 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-19/2024-04-19', worker:'김나람'
     }, {
         depth:['','','상세',''],
-        id:'IN_MO_HOM_01_09', status:'ing',
+        id:'IN_MO_HOM_01_09', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-03', worker:'김나람'
+        sDate:'', eDate:'2024-05-03/2024-04-26', worker:'김나람'
     }, {
         depth:['','','에디터별 보기',''],
-        id:'IN_MO_HOM_01_10', status:'',
+        id:'IN_MO_HOM_01_10', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-03', worker:'김나람'
     }, {
@@ -614,14 +614,14 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-26/2024-04-25', worker:'형민우'
     }, {
         depth:['','라이브(T)','',''],
-        id:'IN_MO_HOM_01_14', status:'',
+        id:'IN_MO_HOM_01_14', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-26/', worker:'이종환'
+        sDate:'', eDate:'2024-04-26/2024-04-25', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
-        id:'IN_MO_HOM_01_15', status:'ing',
-        type:'', note:'쇼핑로그 영역, 쇼케이스 전체보기 모달 필요',
-        sDate:'', eDate:'2024-04-26/', worker:'김나람'
+        id:'IN_MO_HOM_01_15', status:'com',
+        type:'', note:'',
+        sDate:'', eDate:'2024-04-26/2024-04-25', worker:'김나람'
     }, {
         depth:['','임직원샵','목록',''],
         id:'IN_MO_HOM_01_16', status:'com',
@@ -844,19 +844,19 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','1:1문의','내역',''],
-        id:'IN_MO_MYP_01_45', status:'',
+        id:'IN_MO_MYP_01_45', status:'com',
         type:'', note:'답변확인에서 확인가능',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 문의하기(T)',''],
-        id:'IN_MO_MYP_01_46', status:'ing',
+        id:'IN_MO_MYP_01_46', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-26', worker:'김희경'
+        sDate:'2024-04-24', eDate:'2024-04-26/2024-04-24', worker:'김희경'
     }, {
         depth:['','','1:1 답변확인(T)',''],
-        id:'IN_MO_MYP_01_48', status:'ing',
+        id:'IN_MO_MYP_01_48', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-26', worker:'김희경'
+        sDate:'2024-04-24', eDate:'2024-04-26/2024-04-24', worker:'김희경'
     }
     , {
         depth:['','입고알림 신청내역','',''],

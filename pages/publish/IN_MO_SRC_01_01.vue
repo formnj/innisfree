@@ -47,10 +47,11 @@
       일치하는 결과가 없습니다.
   </div>
 
-  <div class="title_wrap">
-    <h2>
-      <span class="pdt_count">제품 <strong>23</strong></span>
-    </h2>
+  <!-- title washed -->
+  <div class="sub_title_wrap">
+    <h3>
+      <strong class="badge count">제품 <em>23</em></strong>
+    </h3>
     <div class="pdtSortTab_wrap">
       <div class="sortTab">
         <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom')">랭킹순</button>
@@ -58,6 +59,7 @@
       <button @click="modal.open('modal_search', 'bottom')">필터</button>
     </div>
   </div>
+  <!-- //title washed -->
 
   <div class="inner">
     <div class="list_wrap">
@@ -68,10 +70,15 @@
       </ul>
     </div>
 
-    <div class="event_wrap">
-      <h3>
-        <span>연관이벤트 <strong>5</strong></span>
+    <!-- title washed -->
+    <div class="sub_title_wrap">
+      <h3>연관이벤트
+        <strong>5</strong>
       </h3>
+    </div>
+    <!-- //title washed -->
+
+    <div class="event_wrap">
       <swiper
         :slides-per-view="'auto'"
         :loop="true"
@@ -107,11 +114,21 @@
         </li>
       </ul>
     </div>
+  </div>
 
-    <div class="pdt_wrap">
+  <!-- title washed -->
+  <div class="sub_title_wrap">
+    <div>
       <h3>
-        <button><strong>주소희</strong>님 이 제품은 어때요?</button>
+        <strong>주소희</strong>님 이 제품은 어때요?
       </h3>
+    </div>
+    <a href="#none" class="btn_link_arrw"></a>
+  </div>
+  <!-- //title washed -->
+
+  <div class="inner">
+    <div class="pdt_wrap">
       <ul class="pdt_list">
         <li v-for="(item, idx) in sample_pdt" :key="idx">
           <GoodsItem :item="item" :link="item.link" />
@@ -268,7 +285,7 @@
     </div>
 </template>
 <script setup>
-import { sample_goods, sampleSlide } from '~/test/data/dummyData'
+import { sample_goods, sampleSlide } from '~/test/data/publish/dummyData'
 import { modal, setFilter } from '~/assets/js/common-ui'
 
 import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
@@ -281,7 +298,7 @@ import "swiper/components/pagination/pagination.scss";
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 definePageMeta({
-  layout: 'mo-category'
+  layout:'mo-category'
 });
 
 const sample_pdt = [
@@ -502,50 +519,6 @@ onMounted(() => {
     }
   }
 }
-.title_wrap {
-  padding:20px 0;
-  h2 {
-    .pdt_count {
-      padding:0;
-      margin:0;
-      color:#000;
-      font-size:14px;
-      font-weight:700;
-      background:none;
-      display:flex;
-      align-items:center;
-      gap:5px;
-      strong {
-        color:#666;
-        font-size:12px;
-        font-weight:400;
-      }
-    }
-  }
-  .pdtSortTab_wrap {
-    margin-top:0;
-    gap:20px;
-    .sortTab {
-      .btn_dropdown {
-        padding:0;
-        font-size:12px;
-        font-family:inherit;
-        &:after {
-          margin-left:5px;
-        }
-      }
-    }
-    >button {
-      padding:0;
-      font-size:12px;
-      font-family:inherit;
-      &:before {
-        content:none;
-      }
-    }
-  }
-}
-
 
 .no_pdt {
   padding:20px 0 50px;

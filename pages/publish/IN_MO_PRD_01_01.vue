@@ -1,149 +1,151 @@
 <template>
-    <div class="title_wrap">
-        <h2>스킨케어
-            <span class="pdt_count">총 <strong>32</strong>건</span>
-        </h2>
-
-        <div class="pdtSortTab_wrap">
-            <div class="sortTab">
-                <button class="btn_dropdown" @click="modal.open('sample_modal_sort', 'bottom');" >추천순</button>
-            </div>
-            <button @click="modal.open('sample_modal_search', 'bottom');">필터</button>
-        </div>
-    </div>
-    <div class="list_wrap">
-        <ul class="goods_list">
-            <li v-for="(item, idx) in sample_goods" :key="idx">
-                <GoodsItem :item="item" :link="item.link" />
-            </li>
-        </ul>
-    </div>
-    <div class="modal_wrap" id="sample_modal_sort">
-        <div class="modal_container">
-            <div class="modal_header">
-                <button class="btn_close" @click="modal.close(this);"></button>
-            </div>
-            <div class="modal_content">
-                <div>
-                    <ul>
-                        <li class="active"><a href="#none" class="active">추천순</a></li>
-                        <li><a href="#none">신제품순</a></li>
-                        <li><a href="#none">판매량순</a></li>
-                        <li><a href="#none">낮은 가격순</a></li>
-                        <li><a href="#none">높은 가격순</a></li>
-                        <li><a href="#none">리뷰순</a></li>
-                        <li><a href="#none">판매금액순</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="overlay" @click="modal.close(this);"></div>
+  <div class="title_wrap">
+    <div>
+      <h2>
+        <strong class="badge count">총 <em>32</em>건</strong>
+      </h2>
     </div>
 
-    <div class="modal_wrap" id="sample_modal_search">
-        <div class="modal_container">
-            <div class="modal_header">
-                <h2>상세검색</h2>
-                <button class="btn_close" @click="modal.close(this);">닫기</button>
-            </div>
-            <div class="modal_content">
-                <dl class="sortList">
-                  <dt>혜택별</dt>
-                  <dd>
-                    <ul>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">증정</span>
-                        </label>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-                <dl class="sortList">
-                  <dt>고민별</dt>
-                  <dd>
-                    <ul>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">트러블/리페어</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">영양/토탈안티에이징</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">잡티/피부톤</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">주름/탄력</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">수분/보습/속건조</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">각질/피부결</span>
-                        </label>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-                <dl class="sortList">
-                  <dt>기능성</dt>
-                  <dd>
-                    <ul>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">미백</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">주름개선</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">비건인증</span>
-                        </label>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-                <dl class="sortList">
-                  <dt>공병수거</dt>
-                  <dd>
-                    <ul>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">공병수거 가능</span>
-                        </label>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-            </div>
-            <div class="modal_footer">
-                <Button class="btn_big btn_reset" txt="초기화" />
-                <Button class="btn_big btn_type_02" txt="검색" />
-            </div>
+    <div class="pdtSortTab_wrap">
+        <div class="sortTab">
+            <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom');" >추천순</button>
         </div>
-        <div class="overlay" @click="modal.close(this);"></div>
+        <button @click="modal.open('sample_modal_search', 'bottom');">필터</button>
     </div>
+  </div>
+  <div class="list_wrap">
+      <ul class="goods_list">
+          <li v-for="(item, idx) in sample_goods" :key="idx">
+              <GoodsItem :item="item" :link="item.link" />
+          </li>
+      </ul>
+  </div>
+  <div class="modal_wrap" id="modal_sort">
+      <div class="modal_container">
+          <div class="modal_header">
+              <button class="btn_close" @click="modal.close(this);"></button>
+          </div>
+          <div class="modal_content">
+              <div>
+                  <ul>
+                      <li class="active"><a href="#none" class="active">추천순</a></li>
+                      <li><a href="#none">신제품순</a></li>
+                      <li><a href="#none">판매량순</a></li>
+                      <li><a href="#none">낮은 가격순</a></li>
+                      <li><a href="#none">높은 가격순</a></li>
+                      <li><a href="#none">리뷰순</a></li>
+                      <li><a href="#none">판매금액순</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+
+  <div class="modal_wrap" id="sample_modal_search">
+      <div class="modal_container">
+          <div class="modal_header">
+              <h2>상세검색</h2>
+              <button class="btn_close" @click="modal.close(this);">닫기</button>
+          </div>
+          <div class="modal_content">
+              <dl class="sortList">
+                <dt>혜택별</dt>
+                <dd>
+                  <ul>
+                    <li>
+                      <label for="benefit1" class="inputChk">
+                        <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">증정</span>
+                      </label>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+              <dl class="sortList">
+                <dt>고민별</dt>
+                <dd>
+                  <ul>
+                    <li>
+                      <label for="benefit1" class="inputChk">
+                        <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">트러블/리페어</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label for="benefit1" class="inputChk">
+                        <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">영양/토탈안티에이징</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label for="benefit1" class="inputChk">
+                        <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">잡티/피부톤</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label for="benefit1" class="inputChk">
+                        <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">주름/탄력</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label for="benefit1" class="inputChk">
+                        <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">수분/보습/속건조</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label for="benefit1" class="inputChk">
+                        <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">각질/피부결</span>
+                      </label>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+              <dl class="sortList">
+                <dt>기능성</dt>
+                <dd>
+                  <ul>
+                    <li>
+                      <label for="benefit1" class="inputChk">
+                        <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">미백</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label for="benefit1" class="inputChk">
+                        <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">주름개선</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label for="benefit1" class="inputChk">
+                        <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">비건인증</span>
+                      </label>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+              <dl class="sortList">
+                <dt>공병수거</dt>
+                <dd>
+                  <ul>
+                    <li>
+                      <label for="benefit1" class="inputChk">
+                        <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">공병수거 가능</span>
+                      </label>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+          </div>
+          <div class="modal_footer">
+              <Button class="btn_big btn_reset" txt="초기화" />
+              <Button class="btn_big btn_type_02" txt="검색" />
+          </div>
+      </div>
+      <div class="overlay" @click="modal.close(this);"></div>
+  </div>
 
 </template>
 
 <script setup>
 definePageMeta({
-	layout: 'mo-category'
+	layout:'mo-category'
 });
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
@@ -276,59 +278,6 @@ const setFilter = (event) =>{
 </script>
 
 <style lang="scss" scoped>
-.title_wrap {
-    padding:35px 0 25px;
-    position:relative;
-    z-index:1;
-    display:flex;
-    h2 {
-        font-size:0;
-        font-weight:300;
-        position:relative;
-        .pdt_count {
-            margin-left:0;
-            padding:0;
-            color:#000;
-            font-size:12px;
-            font-weight:600;
-            border-radius:999px;
-            background:transparent;
-            position:unset;
-            strong {
-                color:#2FAF63;
-            }
-        }
-    }
-    .pdtSortTab_wrap {
-        margin-top:0;
-        button {
-            padding:0;
-            font-size:12px;
-            &::after {
-                margin-left:8px;
-            }
-            &::before {
-              content:none;
-            }
-        }
-        >button {
-          padding-left:20px;
-        }
-    }
-}
-
-.sortTab {
-    & ~ button {
-        position:relative;
-        &::after {
-            background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
-            background-size:250px;
-            background-repeat:no-repeat;
-            background-position:-130px -60px;
-        }
-    }
-}
-
 .goods_list {
     margin:0;
     gap:4rem 0.3rem;
@@ -346,11 +295,90 @@ const setFilter = (event) =>{
     }
 }
 
-.modal_wrap {
+.modal_wrap.bottom {
     .modal_container {
         z-index:100;
+        .modal_header {}
+        .modal_content {
+          padding: 0 20px 34px !important;
+        }
+
     }
 }
+
+#modal_sort {
+    .modal_container {
+      border-top-left-radius: 20px 20px;
+      border-top-right-radius: 20px 20px;
+      .modal_header {
+        width: 100%;
+        height: 29.4px;
+        padding: 0;
+        border-bottom: 0;
+        position: relative;
+        .btn_close {
+          top: 50%;
+          right: 50%;
+          transform: translate(-50%, -50%);
+          &::before {
+            width: 67px;
+            height: 5px;
+            border-radius: 100px;
+            border-top: 0;
+            background-color: #dddddd;
+            position: absolute;
+            transform: rotate(0deg);
+          }
+          &::after {
+            display: none;
+          }
+        }
+      }
+      .modal_content {
+        padding: 0;
+        height: calc(100% - 29.4px);
+        overflow-y: auto;
+        div {
+          ul {
+            li {
+              padding: 16px 28px;
+              border-bottom: 1px solid #f5f5f5;
+              &:last-of-type {
+                border-bottom: 0;
+              }
+              &.active {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                &::after {
+                  content: '';
+                  width: 22.4px;
+                  height: 22.4px;
+                  background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+                  background-repeat: no-repeat;
+                  background-size: 250px;
+                  background-position: -203px -94px;
+                  display: inline-block;
+                }
+                a {
+                  color: #00bc70;
+                  font-weight: 700;
+                }
+              }
+              a {
+                color: #000000;
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 17.5px;
+                letter-spacing: -0.14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
 
 .sortList {
       margin-bottom:30px;

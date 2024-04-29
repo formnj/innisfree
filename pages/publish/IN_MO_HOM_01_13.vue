@@ -18,11 +18,11 @@
   <!-- 전체보기 모달 -->
 </template>
 <script setup>
-import { banner_list } from '~/test/data/dummyData';
+import { banner_list } from '~/test/data/publish/dummyData';
 import { modal } from '~/assets/js/common-ui'
 
 definePageMeta({
-	layout: 'mo-category'
+	layout:'mo-category'
 });
 
 </script>

@@ -12,7 +12,7 @@
         <ul class="explain">
             <li>Vue Guide : <a href="https://vuejs.org/style-guide/" target="_blank">https://vuejs.org/style-guide/</a></li>
             <li>ESLint / editorconfig / prettier 익스텐션 설치</li>
-            <li>test용 dummy 데이터 : ~/test/data/dummyData.js</li>
+            <li>test용 dummy 데이터 : ~/test/data/publish/dummyData.js</li>
             <li>image path : 샘플이미지 = public / 공통이미지 = ~/assets/images</li>
             <li>Props : 카멜케이스 /  언더스코어 프리픽스 사용 금지</li>
         </ul>
@@ -74,7 +74,7 @@ media query : @import "~/assets/scss/_mo_mixin";
 
 <script setup>
 definePageMeta({
-  layout: 'guide'
+  layout:'guide'
 })
 
 /* component sample data */
@@ -237,14 +237,14 @@ const modal = {
 <style lang="scss" scoped>
 .guide_wrap {
     padding:30px 0;
-    section {
+    > section {
         margin:0 20px;
         & + section {
             margin-top:30px;
             padding-top:30px;
             border-top:1px dashed #ababab;
         }
-        h2 {
+        > h2 {
             margin-bottom:20px;
             padding:10px 10px 10px 20px;
             font-size: 24px;

@@ -114,10 +114,10 @@
 </template>
 
 <script setup>
-import { sample_goods } from '~/test/data/dummyData'
+import { sample_goods } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui'
 definePageMeta({
-layout: 'mo-category'
+layout:'mo-category'
 });
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음

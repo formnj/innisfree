@@ -12,7 +12,7 @@
 
 <script setup>
 definePageMeta({
-  layout: 'publish'
+  layout:'publish'
 });
 const props = defineProps({
   device: {

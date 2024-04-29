@@ -563,6 +563,40 @@ export const samplePost = [
       cmnt: '20'
     }
   },
+  {
+    sticker:[
+      {txt:'에디터 찐템 추천', type:'type02'}
+    ],
+    img: ("/_nuxt/public/images/sam/img_ed_topic_01.png"),
+    title: '내가 하알루론산 수분 무기자차 선크림에 정착한 찐 이유 Top 10',
+    editor: {
+      photo: ("/_nuxt/public/images/sam/photo_editor_01.png"),
+      name: '이사배',
+      type: '민감성피부 · 주름/탄력/다크써클 고민 · 봄브라이트 · INFJ',
+    },
+    view: {
+      cnt: '999+',
+      like: '123',
+      cmnt: '233'
+    }
+  },
+  {
+    sticker:[
+      {txt:'에디터 찐템 추천', type:'type02'}
+    ],
+    img: ("/_nuxt/public/images/sam/img_ed_topic_02.png"),
+    title: '특별한 이니스프리 경험!',
+    editor: {
+      photo: ("/_nuxt/public/images/sam/photo_editor_02.png"),
+      name: '포니',
+      type: '건성피부 · 트러블/건조함/피부톤',
+    },
+    view: {
+      cnt: '152',
+      like: '11',
+      cmnt: '20'
+    }
+  },
 ]
 export const sampleShowcase = [
   {
@@ -886,6 +920,114 @@ export const sample_live = [
   }
 ]
 
+export const sampleCmnt = [
+  {
+    photo: "",
+    isEditor: false,
+    name: "user01****",
+    time: "5분전",
+    cmnt: "역시 이니스프리 화산송이 폼이 짱이죠!",
+    reply: {
+      is: false,
+      to: ''
+    },
+    userDelete: true,
+    blocked: false,
+  },
+  {
+    photo: "",
+    isEditor: false,
+    name: "user02****",
+    time: "5분전",
+    cmnt: "역시 이니스프리 화산송이 폼이 짱이죠!",
+    reply: {
+      is: false,
+      to: ''
+    },
+    userDelete: false,
+    blocked: true,
+  },
+  {
+    photo: ("/_nuxt/public/images/sam/photo_editor_01.png"),
+    isEditor: true,
+    name: "Leesa****",
+    time: "1시간전",
+    cmnt: "역시 이니스프리 화산송이 폼이 짱이죠! 성분도 순하고 깔끔하게 클렌징되서 5년째 클렌징은 화산송이 라인만 사용하고 있어요 :)",
+    reply: {
+      is: false,
+      to: ''
+    },
+    userDelete: false,
+    blocked: false,
+  },
+  {
+    photo: ("/_nuxt/public/images/sam/photo_editor_02.png"),
+    isEditor: true,
+    name: "Pony****",
+    time: "10분전",
+    cmnt: "에디터 끼리 통한 부분이 있네요!",
+    reply: {
+      is: true,
+      to: 'Leesa****'
+    },
+    userDelete: false,
+    blocked: false,
+  },
+  {
+    photo: "",
+    isEditor: false,
+    name: "aaa****",
+    time: "5분전",
+    cmnt: "좋은 정보 감사합니다!!",
+    reply: {
+      is: true,
+      to: 'Pony****'
+    },
+    userDelete: false,
+    blocked: false,
+  },
+  {
+    photo: "",
+    isEditor: false,
+    name: "user03****",
+    time: "1시간전",
+    cmnt: "역시 이니스프리 화산송이 폼이 짱이죠! 성분도 순하고 깔끔하게 클렌징되서 5년째 클렌징은 화산송이 라인만 사용하고 있어요 :)",
+    reply: {
+      is: false,
+      to: ''
+    },
+    userDelete: false,
+    blocked: false,
+  },
+  {
+    photo: "",
+    isEditor: false,
+    name: "lcj****",
+    time: "2시간전",
+    cmnt: "좋은 정보 감사합니다!!",
+    reply: {
+      is: false,
+      to: ''
+    },
+    userDelete: false,
+    blocked: false,
+  },
+  {
+    photo: "",
+    isEditor: false,
+    name: "lcj****",
+    time: "2시간전",
+    cmnt: "좋은 정보 감사합니다!!",
+    reply: {
+      is: true,
+      to: 'lcj****'
+    },
+    userDelete: false,
+    blocked: false,
+  },
+]
+
+
 export const banner_list = [
   {img: '/_nuxt/assets/images/sam/banner01.jpg', title: '4월은 지구의 달\n공병수거하며 지구를 지켜요!'},
   {img: '/_nuxt/assets/images/sam/banner02.jpg', title: '꾸준히 사랑받는 한란 라인\n활용TIP!'},
@@ -898,4 +1040,4 @@ export const banner_list = [
   {img: '/_nuxt/assets/images/sam/banner09.jpg', title: '반려견들을 위한 산책 뷰티템\n이니스프리 그린펫클럽'},
   {img: '/_nuxt/assets/images/sam/banner10.jpg', title: '이니스프리 FOAM 미쳤다!\n이니스프리 클렌징폼'},
   {img: '/_nuxt/assets/images/sam/banner11.jpg', title: '눈여겨봐야 할\n신상 아이템! UTILITY BAG'},
-]
+];

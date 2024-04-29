@@ -6,7 +6,7 @@
 </template>
 <script setup>
 definePageMeta({
-  layout: 'mo-product'
+  layout:'mo-product'
 })
 </script>
 <style lang="scss" scoped>

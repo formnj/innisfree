@@ -32,7 +32,7 @@
 
 <script setup>
 definePageMeta({
-layout: 'mo-category'
+layout:'mo-category'
 });
 
 const props = defineProps({
@@ -44,7 +44,7 @@ const props = defineProps({
 
 import {
 sample_goods
-} from '~/test/data/dummyData'
+} from '~/test/data/publish/dummyData'
 
 </script>
 

@@ -9,6 +9,7 @@
                 </div>
                 <p>뷰티포인트 소멸시기가 궁금합니다.</p>
                 <span>2024-04-24 08:22:50</span>
+                <em></em>
               </a>
             </dt>
             <dd>
@@ -25,7 +26,7 @@
                 아모레퍼시픽 뷰티포인트 상담실(080-023-5454/오전 9시 - 6시, 단, 12시 - 1시 점심시간 제외)로 문의부탁드립니다.
                 소중한 시간 내어 문의 주신 점 감사 드립니다.
                 행복한 하루 보내세요.
-                <button class="btn_outline">
+                <button class="btn_outline" @click="modal.open('delete_modal', 'alert')">
                   문의취소
                 </button>
               </div>
@@ -37,6 +38,7 @@
                 </div>
                 <p>뷰티포인트 소멸시기가 궁금합니다.</p>
                 <span>2024-04-24 08:22:50</span>
+                <em></em>
               </a>
             </dt>
             <dd>
@@ -58,12 +60,30 @@
           </dl>
         </div>
 
+        <div class="modal_wrap" id="delete_modal">
+          <div class="modal_container">
+              <div class="modal_header">
+                  <h2>알림</h2>
+                  <button class="btn_close" @click="modal.close(this);">닫기</button>
+              </div>
+              <div class="modal_content">
+                  <div>해당 상담내역을 삭제 하시겠습니까?</div>
+              </div>
+              <div class="modal_footer">
+                  <Button class="btn_ confirm" txt="확인" @click="modal.close(this);"/>
+              </div>
+          </div>
+          <div class="overlay" @click="modal.close(this);"></div>
+        </div>
+
 
 </template>
 
 <script setup>
+import { createUnparsedSourceFile } from 'typescript';
+
 definePageMeta({
-layout: 'mo-category'
+layout:'mo-category'
 });
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   link: {
@@ -72,10 +92,64 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   }
 });
 
-
+import { modal } from '~/assets/js/common-ui.js'
 
 onMounted(() => {
 
+  /* accordion */
+function accordion(_target, evt){ // 23.08.18 nextElementSibling 테그가 없는 경우를 위한 수정
+    var evt;
+    var rotate_icon= document.querySelectorAll('.board_type_toggle dt > a > em');
+    console.log(rotate_icon)
+    accordion = document.querySelectorAll(_target, evt);
+    console.log('accordion :', accordion)
+    accordion.forEach(el => {
+        console.log('el :', el)
+        el.querySelectorAll('.board_type_toggle > dt > a').forEach((el, i) => {
+            el.addEventListener(evt, function(){
+                if(el.closest('dl').classList.contains('single')){
+                    console.log('closet :', el.closest('dl'))
+                    const parent_index = Array.from(el.closest('dl').getElementsByTagName('dt')).indexOf(el.parentNode);
+                    console.log('parent_index :', parent_index)
+                    var j
+                    for(j=0; j<el.closest('dl').getElementsByTagName('dt').length; j++){
+                        if(i != j && el.closest('dl').getElementsByTagName('dt')[j].nextElementSibling != null){
+                            el.closest('dl').getElementsByTagName('dt')[j].nextElementSibling.classList.remove('show');
+                            rotate_icon[j].classList.remove('active');
+                            console.log('rotate', rotate_icon[j])
+                        }
+                    }
+                }
+
+                if(el.parentNode.nextElementSibling != null){
+                    if(el.parentNode.nextElementSibling.classList.contains('show')){
+                        el.parentNode.nextElementSibling.style.height = '0px'
+
+                        el.parentNode.nextElementSibling.addEventListener('transitionend', () => {
+                            el.parentNode.nextElementSibling.classList.remove('show');
+                            console.log('el.parentNode.nextElementSibling', el.parentNode.nextElementSibling)
+                            console.log('el.parentNode.firstElementChild.lastElementChild')
+                            el.parentNode.firstElementChild.lastElementChild.classList.remove('active')
+                        }, {once: true});
+                    } else {
+                        el.parentNode.nextElementSibling.classList.add('show');
+                        el.parentNode.firstElementChild.lastElementChild.classList.add('active')
+
+
+                        el.parentNode.nextElementSibling.style.height = 'auto'
+                        var height = el.parentNode.nextElementSibling.clientHeight + 'px'
+                        el.parentNode.nextElementSibling.style.height = '0px'
+                        setTimeout(() => {
+                            el.parentNode.nextElementSibling.style.height = height
+                        });
+                    }
+                }
+            });
+        });
+    });
+}
+
+accordion('.board_type_toggle', 'click')
 
 })
 
@@ -103,21 +177,6 @@ onMounted(() => {
     padding:3rem 3rem;
     border-bottom: #f4f4f4 solid 0.1rem;
     position:relative;
-    &::after {
-      content:'';
-      width:24px;
-      height:24px;
-      background-image: url('../../assets/mo_images/common/icon_split.png');
-      background-repeat:no-repeat;
-      background-size:250px;
-      background-position:0px 0px;
-      position:absolute;
-      top:50%;
-      right:2rem;
-      display:inline-block;
-      transform:translateY(-50%);
-
-    }
     a {
       div {
         em {
@@ -150,6 +209,25 @@ onMounted(() => {
         line-height:1.6rem;
         display:inline-block;
       }
+      > em {
+      content:'';
+      width:24px;
+      height:24px;
+      background-image: url('../../assets/mo_images/common/icon_split.png');
+      background-repeat:no-repeat;
+      background-size:250px;
+      background-position:-5px -215px;
+      position:absolute;
+      top:50%;
+      right:2rem;
+      display:inline-block;
+      transform:translateY(-50%);
+      transition:all 0.3s;
+      &.active {
+        transform:translateY(-50%) rotate(180deg);
+      }
+
+      }
     }
   }
   dd {
@@ -160,6 +238,9 @@ onMounted(() => {
     font-size:13px;
     line-height:20px;
     background:#F5F5F5;
+    overflow:hidden;
+    display:none;
+    transition:height 0.2s ease-out;
     div {
       margin-top:2rem;
       padding-top:2rem;
@@ -189,5 +270,6 @@ onMounted(() => {
     }
   }
 }
+.show {display:block !important;}
 
 </style>

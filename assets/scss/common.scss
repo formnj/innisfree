@@ -49,6 +49,11 @@ html {
   }
 }
 
+/* margin */
+.mt10 {
+  margin-top:10px;
+}
+
 .form_group {
   >li+li {
     margin-top: 20px;
@@ -68,31 +73,75 @@ html {
 }
 
 .title_wrap {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 60px 0;
-  position: relative;
-  z-index: 2;
-  display: flex;
-
+  max-width:1320px;
+  margin:60px auto;
+  padding:0 20px;
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
   h2 {
-    font-size: 38px;
-    font-weight: 300;
-    position: relative;
-
-    .pdt_count {
-      margin-left: 5px;
-      padding: 3px 6px;
-      color: #fff;
-      font-size: 13px;
-      white-space: nowrap;
-      background-color: #00BC70;
-      border-radius: 999px;
-      position: absolute;
-      top: 0;
-      left: 100%;
-      display: block;
+    font-size:38px;
+    font-weight:300;
+    position:relative;
+    display:inline-block;
+    .badge {
+      position:absolute;
+      top:0;
+      right:-10px;
+      transform:translateX(100%);
+      &.count {
+        padding:3px 6px;
+        color:#fff;
+        font-size:13px;
+        font-weight:600;
+        background-color:#00BC70;
+        border-radius:100px;
+      }
     }
+  }
+  .btn_link_arrw {
+    position:absolute;
+    top:50%;
+    right:20px;
+    transform:translateY(-50%);
+  }
+  .explain {
+    margin-top:10px;
+    margin-bottom:0;
+    color:#999;
+    font-size:12px;
+  }
+}
+
+.sub_title_wrap {
+  max-width:1320px;
+  margin:60px auto 40px;
+  padding:0 20px;
+  position:relative;
+  z-index:1;
+  h3 {
+    font-size:24px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    button {
+      margin-left:12px;
+    }
+  }
+  .btn_link_arrw {
+    position:absolute;
+    top:0;
+    right:20px;
+  }
+  .explain {
+    margin-top:10px;
+    color:#999;
+    font-size:16px;
+  }
+  .share_wrap {
+    right:20px;
   }
 }
 
@@ -104,7 +153,6 @@ html {
   align-items: center;
 
   button {
-    padding: 0 20px;
     font-size: 14px;
     font-weight: 600;
     line-height: 1.43em;
@@ -125,7 +173,7 @@ html {
 .sortTab {
   position: relative;
 
-  >button::after {
+  > button::after {
     background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
     background-size: 250px;
     background-repeat: no-repeat;
@@ -133,6 +181,8 @@ html {
   }
 
   &~button {
+    margin-left:20px;
+    padding-left:20px;
     position: relative;
 
     &::after {
@@ -146,7 +196,7 @@ html {
       content: '';
       width: 1px;
       height: 14px;
-      background: #EEEEEE;
+      background: #eee;
       position: absolute;
       top: 50%;
       left: 0;
@@ -725,7 +775,7 @@ ul.bullet_list {
 }
 
 /* 텍스트 링크 with 오른쪽 화살표 */
-a.btn_link_arrw {
+.btn_link_arrw {
   &:after {
     content: '';
     margin-left: 5px;

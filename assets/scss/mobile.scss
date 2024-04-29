@@ -3,6 +3,107 @@
 @include mo_749 {
 }
 
+:deep(.title_wrap) {
+  max-width:initial;
+  margin:3.0rem 0 2.0rem;
+  padding:0;
+  h2 {
+    .badge {
+      color:#000;
+      font-size:1.2rem;
+      background-color:#fff;
+      position:static;
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      transform:initial;
+      em {
+        color:#2FAF63;
+      }
+    }
+  }
+}
+
+:deep(.sub_title_wrap) {
+  max-width:initial;
+  margin:3.0rem 0 2.0rem;
+  padding:0;
+  display:flex;
+  justify-content:space-between;
+  h3 {
+    font-size:1.6rem;
+    line-height:2rem;
+    position:relative;
+    flex:1;
+    strong {
+      color:#009d5e;
+    }
+    .badge {
+      color:#000;
+      font-size:1.4rem;
+      font-weight:600;
+      position:static;
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      em {
+        color:#666;
+        font-size:1rem;
+        font-weight:400;
+      }
+    }
+  }
+  .btn_link_arrw {
+    min-width:1.5rem;
+    margin-left:auto;
+    position:static;
+    &:after {
+      margin-top:0.8rem;
+    }
+  }
+  .btn_all {
+    height:fit-content;
+    padding:0.6rem 0.8rem;
+    display:flex;
+    align-items:center;
+    gap:0 0.3rem;
+    em {
+      padding:0;
+      font-size:1rem;
+      font-weight:600;
+      line-height:1.2rem;
+    }
+    &:after {
+      content:'';
+      display:inline-block;
+      width:1.2rem;
+      height:1.2rem;
+      background:url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -23rem -10rem;
+      background-size:25rem auto;
+    }
+  }
+}
+
+:deep([class*="title_wrap"]) {
+  .pdtSortTab_wrap {
+    margin-top:0;
+    button {
+      font-size:1.2rem;
+      &:after {
+        width:1.6rem;
+        height:1.6rem;
+      }
+    }
+  }
+  .sortTab ~ button {
+    margin-left:2rem;
+    padding-left:0;
+    &:before {
+      display:none;
+    }
+  }
+}
+
 /* goodsItem */
 :deep(.goods_item) {
   padding-bottom:calc(24px + 1rem);
@@ -152,6 +253,56 @@
 }
 /* //eventitem */
 
+/* liveitem */
+:deep(.live_item) {
+  .img_wrap {
+    .thumb {
+      height:auto;
+      padding-top:133.333333%;
+      position:relative;
+      & > em {
+        position:absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+      }
+    }
+    .notice {
+      padding:1rem;
+      font-size:1.2rem;
+      line-height:1.6rem;
+    }
+    .event_item {
+      right:1rem;
+      bottom:1rem;
+      left:1rem;
+      .thumb {
+        width: 3.6rem;
+        height: 4.8rem;
+      }
+      .cont {
+        padding:1rem 0.8rem 1rem 1rem;
+        strong {
+          font-size:1.2rem;
+          line-height:1.6rem;
+        }
+      }
+    }
+  }
+  .cont {
+    .name {
+      padding-top: 1.5rem;
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+    }
+    button em {
+      font-size:1rem;
+    }
+  }
+}
+/* //liveitem */
+
 /* hash */
 :deep(.hash) {
   button {
@@ -160,7 +311,7 @@
 }
 
 
-/* 토픽 아이콘 스타일(조회수, 좋아요수, 댓글수) */
+/* 토픽 아이콘 스타일(조회수, 좋아요수, 댓글수, 시계(날짜)) */
 :deep(.post_icons) {
   margin-top: 1rem;
   padding-top: 1rem;
@@ -197,19 +348,24 @@
     &.cmnt:before {
       background-position: -4rem -10.5rem;
     }
+
+    &.clock:before {
+      background-position: -19rem -10rem;
+    }
   }
 }
 /* //토픽 아이콘 스타일 */
 
 
 /* 텍스트 링크 with 오른쪽 화살표 */
-:deep(a.btn_link_arrw) {
+:deep(.btn_link_arrw) {
   font-size: 1.2rem;
   &:after {
     width: .8rem;
     height: .8rem;
   }
 }
+/* //텍스트 링크 with 오른쪽 화살표 */
 
 /* icon button */
 :deep(button) {
@@ -241,3 +397,62 @@
   display:block;
   }
 }
+
+
+/* input component */
+:deep(.label_wrap) {
+  label.input {
+    i {
+      font-size: 1.4rem;
+      left: 2.1rem;
+      top: 50%;
+    }
+  }
+
+  label.input input[type='text'],
+  label.input input[type='password'],
+  label.input input[type='number'] {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+
+  input[type=text],
+  input[type=email],
+  input[type=number],
+  input[type=tel],
+  input[type=password],
+  input[type=url],
+  input[type=search],
+  input[type=file],
+  textarea{
+    height: 4.8rem;
+    padding: 0 2.1rem;
+  }
+}
+
+
+
+/* 포스트 리스트 */
+/** 격자형 **/
+:deep(.post_list) {
+  gap: 3rem .3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  li {
+    width: 16.5rem;
+  }
+}
+/** 리스트형 **/
+:deep(.post_list_vertial) {
+  margin-bottom: 3rem;
+
+  li {
+    & + li {
+      margin-top: 2.5rem;
+    }
+  }
+}
+/* //포스트 리스트 */

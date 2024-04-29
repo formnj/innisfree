@@ -58,9 +58,9 @@
 
 <script setup>
 import { modal } from '~/assets/js/common-ui.js'
-import { samplePost } from '/test/data/dummyData'
+import { samplePost } from '~/test/data/publish/dummyData'
 definePageMeta({
-  layout: 'mo-default'
+  layout:'mo-default'
 })
 </script>
 
@@ -171,18 +171,6 @@ definePageMeta({
       background: url(/_nuxt/assets/images/common/icon_split.png) -11rem -6rem / 25rem auto no-repeat;
       display: inline-block;
     }
-  }
-}
-
-.post_list {
-  gap: 3rem .3rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  li {
-    width: 16.5rem;
   }
 }
 </style>
