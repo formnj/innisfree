@@ -145,7 +145,7 @@
 
 <script setup>
 definePageMeta({
-layout: 'mo-category'
+layout:'mo-category'
 });
 import { modal } from '~/assets/js/common-ui.js'
 
@@ -207,6 +207,11 @@ section {
             display:flex;
             flex-direction:column;
             gap:1rem;
+            .multi_form {
+              button.btn_outline {
+                height:auto;
+              }
+            }
             :deep(.input) {
                 textarea {
                     height: 14.1rem;

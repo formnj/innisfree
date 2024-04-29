@@ -32,9 +32,10 @@
 
     <!-- title washed -->
     <div class="sub_title_wrap">
-      <h3>
-        <a href="#none">이니슾라이브 다시보기</a>
-      </h3>
+      <div>
+        <h3>이니슾라이브 다시보기</h3>
+      </div>
+      <a href="#none" class="btn_link_arrw"></a>
     </div>
     <!-- //title washed -->
 
@@ -52,9 +53,10 @@
 
     <!-- title washed -->
     <div class="sub_title_wrap">
-      <h3>
-        <a href="#none">라이브 다시보기</a>
-      </h3>
+      <div>
+        <h3>라이브 다시보기</h3>
+      </div>
+      <a href="#none" class="btn_link_arrw"></a>
     </div>
     <!-- //title washed -->
     <div class="swiper_wrap">
@@ -97,7 +99,7 @@ const swiper_nav = {
 /* swiper custom navigation */
 
 definePageMeta({
-	layout: 'mo-category'
+	layout:'mo-category'
 });
 
 onMounted(() => {

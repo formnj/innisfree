@@ -35,19 +35,11 @@
     line-height:2rem;
     position:relative;
     flex:1;
-    a:after {
-      content: "";
-      width: 0.8rem;
-      height: 0.8rem;
-      border-top: 1px solid #000;
-      border-left: 1px solid #000;
-      position:absolute;
-      top:50%;
-      right:0;
-      display: inline-block;
-      transform: translateY(-50%) rotate(135deg);
+    strong {
+      color:#009d5e;
     }
     .badge {
+      color:#000;
       font-size:1.4rem;
       font-weight:600;
       position:static;
@@ -62,8 +54,12 @@
     }
   }
   .btn_link_arrw {
+    min-width:1.5rem;
     margin-left:auto;
     position:static;
+    &:after {
+      margin-top:0.8rem;
+    }
   }
   .btn_all {
     height:fit-content;

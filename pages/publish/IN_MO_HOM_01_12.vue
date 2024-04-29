@@ -1,7 +1,9 @@
 <template>
   <!-- title washed -->
   <div class="sub_title_wrap">
-    <h3>봄맞이 핑크템으로<br>생기를 더하세요!</h3>
+    <div>
+      <h3>봄맞이 핑크템으로<br>생기를 더하세요!</h3>
+    </div>
     <Button class="btn_all btn_outline" txt="전체보기" @click="modal.open('modal_all', 'fullMo')" />
   </div>
   <!-- //title washed -->
@@ -60,7 +62,7 @@ import { sample_goods } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui'
 
 definePageMeta({
-	layout: 'mo-category'
+	layout:'mo-category'
 });
 
 onMounted(() => {});

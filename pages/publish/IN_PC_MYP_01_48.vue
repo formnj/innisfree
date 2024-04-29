@@ -167,7 +167,7 @@
 
 <script setup>
 definePageMeta({
-layout: 'pc-mypage'
+layout:'pc-mypage'
 });
 
 

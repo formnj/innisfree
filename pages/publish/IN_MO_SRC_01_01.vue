@@ -70,10 +70,15 @@
       </ul>
     </div>
 
-    <div class="event_wrap">
-      <h3>
-        <span>연관이벤트 <strong>5</strong></span>
+    <!-- title washed -->
+    <div class="sub_title_wrap">
+      <h3>연관이벤트
+        <strong>5</strong>
       </h3>
+    </div>
+    <!-- //title washed -->
+
+    <div class="event_wrap">
       <swiper
         :slides-per-view="'auto'"
         :loop="true"
@@ -109,11 +114,21 @@
         </li>
       </ul>
     </div>
+  </div>
 
-    <div class="pdt_wrap">
+  <!-- title washed -->
+  <div class="sub_title_wrap">
+    <div>
       <h3>
-        <button><strong>주소희</strong>님 이 제품은 어때요?</button>
+        <strong>주소희</strong>님 이 제품은 어때요?
       </h3>
+    </div>
+    <a href="#none" class="btn_link_arrw"></a>
+  </div>
+  <!-- //title washed -->
+
+  <div class="inner">
+    <div class="pdt_wrap">
       <ul class="pdt_list">
         <li v-for="(item, idx) in sample_pdt" :key="idx">
           <GoodsItem :item="item" :link="item.link" />
@@ -283,7 +298,7 @@ import "swiper/components/pagination/pagination.scss";
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 definePageMeta({
-  layout: 'mo-category'
+  layout:'mo-category'
 });
 
 const sample_pdt = [

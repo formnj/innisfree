@@ -189,7 +189,7 @@
 
 <script setup>
 definePageMeta({
-layout: 'pc-mypage'
+layout:'pc-mypage'
 });
 
 import { modal } from '~/assets/js/common-ui.js'

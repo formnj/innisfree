@@ -55,7 +55,7 @@
 
 <script setup>
 definePageMeta({
-	layout: 'pc-category'
+	layout:'pc-category'
 });
 
 const props = defineProps({

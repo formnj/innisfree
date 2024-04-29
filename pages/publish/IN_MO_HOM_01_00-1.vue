@@ -32,7 +32,7 @@
 
 <script setup>
 definePageMeta({
-layout: 'mo-category'
+layout:'mo-category'
 });
 
 const props = defineProps({

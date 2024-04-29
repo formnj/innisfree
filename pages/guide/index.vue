@@ -30,7 +30,7 @@
 
 <script setup>
 definePageMeta({
-  layout: 'guide'
+  layout:'guide'
 })
 
 /* device check text : 개발 시 제거해주세요. */
@@ -180,19 +180,19 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-24/', worker:''
     }, {
         depth:['','배송지 등록/변경','',''],
-        id:'IN_PC_ORD_01_02', status:'',
+        id:'IN_PC_ORD_01_02', status:'com',
         type:'modal', note:'마이페이지 > 배송지관리 > 추가',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        sDate:'2024-04-26', eDate:'2024-05-03/2024-04-26', worker:'김희경'
     }, {
-        depth:['','','배송지 수정',''],
+        depth:['','','배송지 수정','ing'],
         id:'IN_PC_ORD_01_03', status:'',
-        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        type:'modal', note:'IN_PC_ORD_01_02 에서 해당 팝업창 확인 가능',
+        sDate:'2024-04-26', eDate:'2024-05-03/', worker:'김희경'
     }, {
-        depth:['','','배송지 추가',''],
+        depth:['','','배송지 추가','ing'],
         id:'IN_PC_ORD_01_04', status:'',
-        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        type:'modal', note:'IN_PC_ORD_01_02 에서 해당 팝업창 확인 가능',
+        sDate:'2024-04-26', eDate:'2024-05-03/', worker:'김희경'
     }, {
         depth:['','안심번호 서비스 안내','',''],
         id:'IN_PC_ORD_01_08', status:'',
@@ -350,7 +350,7 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','1:1문의','내역',''],
-        id:'IN_PC_MYP_01_45', status:'',
+        id:'IN_PC_MYP_01_45', status:'com',
         type:'', note:'답변확인에서 확인가능',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
@@ -844,7 +844,7 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','1:1문의','내역',''],
-        id:'IN_MO_MYP_01_45', status:'',
+        id:'IN_MO_MYP_01_45', status:'com',
         type:'', note:'답변확인에서 확인가능',
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {

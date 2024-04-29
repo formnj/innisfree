@@ -3,7 +3,7 @@
 </template>
 <script setup lang="ts">
 definePageMeta({
-  layout: 'aa-default'
+  layout:'aa-default'
 })
 </script>
 <style lang=""></style>

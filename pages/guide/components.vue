@@ -372,7 +372,7 @@ const onSlideChange = () => {
 
 <script setup>
 definePageMeta({
-  layout: 'guide'
+  layout:'guide'
 })
 
 import { modal, Drop_Down, setFilter } from '~/assets/js/common-ui.js'

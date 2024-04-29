@@ -22,7 +22,7 @@ import { banner_list } from '~/test/data/publish/dummyData';
 import { modal } from '~/assets/js/common-ui'
 
 definePageMeta({
-	layout: 'mo-category'
+	layout:'mo-category'
 });
 
 </script>

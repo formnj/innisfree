@@ -60,7 +60,7 @@
 import { modal } from '~/assets/js/common-ui.js'
 import { samplePost } from '~/test/data/publish/dummyData'
 definePageMeta({
-  layout: 'mo-default'
+  layout:'mo-default'
 })
 </script>
 
