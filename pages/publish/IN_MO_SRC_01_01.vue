@@ -118,9 +118,12 @@
 
   <!-- title washed -->
   <div class="sub_title_wrap">
-    <h3>
-      <a href="#none"><strong>주소희</strong>님 이 제품은 어때요?</a>
-    </h3>
+    <div>
+      <h3>
+        <strong>주소희</strong>님 이 제품은 어때요?
+      </h3>
+    </div>
+    <a href="#none" class="btn_link_arrw"></a>
   </div>
   <!-- //title washed -->
 
