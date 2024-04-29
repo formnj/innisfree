@@ -198,7 +198,11 @@
               <a href="#none">군부대 배송안내<Icons class="tooltip" @click="modal.open('shippingArmyInfo', 'full')" /></a>
             </li>
             <li class="chk_agree">
-              <Inputs _type="checkbox" _text="개인정보 수집동의" /><a @click="modal.open('personalinfo', 'fullMo')">자세히보기</a>
+              <div>
+                <Inputs _type="checkbox" _text="개인정보 수집동의" />
+                <a @click="modal.open('personalinfo', 'fullMo')">자세히보기</a>
+              </div>
+              <span class="error">개인정보 수집에 동의해주셔야 배송지 저장 가능합니다.</span>
             </li>
           </ul>
         </div>
@@ -399,7 +403,8 @@ onMounted(() => {
             &:last-of-type {
               margin-top:1.5rem;
               display:flex;
-              align-items:center;
+              flex-direction:column;
+
               a {
                 margin-left:1rem;
                 text-decoration:underline;
