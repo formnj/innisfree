@@ -118,7 +118,7 @@ import "swiper/components/pagination/pagination.scss";
 SwiperCore.use([Navigation, Pagination, A11y, Controller]);
 
 definePageMeta({
-	layout: 'pc-category'
+	layout:'pc-category'
 });
 
 onMounted(() => {

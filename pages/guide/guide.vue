@@ -74,7 +74,7 @@ media query : @import "~/assets/scss/_mo_mixin";
 
 <script setup>
 definePageMeta({
-  layout: 'guide'
+  layout:'guide'
 })
 
 /* component sample data */

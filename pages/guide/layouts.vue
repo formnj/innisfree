@@ -39,7 +39,7 @@
 
 &lt;script setup&gt;
 definePageMeta({
-  layout: 'pc-category'
+  layout:'pc-category'
 });
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
@@ -190,7 +190,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 
 <script setup>
 definePageMeta({
-  layout: 'guide'
+  layout:'guide'
 })
 </script>
 

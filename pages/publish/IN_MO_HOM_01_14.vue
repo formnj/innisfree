@@ -97,7 +97,7 @@ const swiper_nav = {
 /* swiper custom navigation */
 
 definePageMeta({
-	layout: 'mo-category'
+	layout:'mo-category'
 });
 
 onMounted(() => {

@@ -19,7 +19,7 @@
 </template>
 <script setup>
 definePageMeta({
-  layout: 'pc-default'
+  layout:'pc-default'
 })
 
 const sampleSlide = [

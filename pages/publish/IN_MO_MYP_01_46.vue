@@ -145,7 +145,7 @@
 
 <script setup>
 definePageMeta({
-layout: 'mo-category'
+layout:'mo-category'
 });
 import { modal } from '~/assets/js/common-ui.js'
 

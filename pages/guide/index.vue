@@ -30,7 +30,7 @@
 
 <script setup>
 definePageMeta({
-  layout: 'guide'
+  layout:'guide'
 })
 
 /* device check text : 개발 시 제거해주세요. */

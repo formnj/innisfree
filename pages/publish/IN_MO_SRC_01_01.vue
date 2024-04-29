@@ -295,7 +295,7 @@ import "swiper/components/pagination/pagination.scss";
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 definePageMeta({
-  layout: 'mo-category'
+  layout:'mo-category'
 });
 
 const sample_pdt = [

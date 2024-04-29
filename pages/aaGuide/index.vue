@@ -39,7 +39,7 @@
 </template>
 <script setup>
 definePageMeta({
-  layout: 'aa-guide'
+  layout:'aa-guide'
 })
 </script>
 <style lang="scss">
