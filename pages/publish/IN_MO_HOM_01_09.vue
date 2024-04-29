@@ -10,10 +10,8 @@
 
     <div class="post_editor">
       <a href="#none">
-        <img src="/_nuxt/public/images/sam/photo_editor_01.png" alt="">
-        <span class="info">
-          <em>이사배 <span class="mark_editor">Editor</span></em>
-          <span>민감성피부 · 주름/탄력/다크써클 고민 · 봄브라이트 · INFJ</span>
+        <span v-for="(item, idx) in samplePost.slice(0, 1)" :key="idx" class="info">
+          <EditorProfile :item="item" />
         </span>
       </a>
     </div>
