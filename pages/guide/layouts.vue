@@ -13,7 +13,7 @@
   <section>
     <h2>[공통] content</h2>
     <ul class="explain">
-      <li>[class="inner"] = width:1320px; padding-right:20px; padding-left:20px;</li>
+      <li>[class="inner"] = max-width:1320px; padding-right:20px; padding-left:20px;</li>
       <li>상품 리스트, 이벤트 리스트 등 content 내부에 공통으로 사용하며, pc에서는 넓이의 제한을 주기위해 사용하지만, mo에서는 소스의 통일성을 위해 사용함</li>
     </ul>
     <pre class="code_box"><code>&lt;template&gt;
@@ -106,7 +106,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
           <a href="#none" class="btn_link_arrw">링크</a>
         </div>
 
-        <div class="inner" style="width:1320px; margin:0 auto; padding:0 20px;">
+        <div class="inner" style="max-width:1320px; margin:0 auto; padding:0 20px;">
           콘텐츠
         </div>
 
@@ -118,7 +118,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
           <a href="#none" class="btn_link_arrw">링크</a>
         </div>
 
-        <div class="inner" style="width:1320px; margin:0 auto; padding:0 20px;">
+        <div class="inner" style="max-width:1320px; margin:0 auto; padding:0 20px;">
           콘텐츠
         </div>
 

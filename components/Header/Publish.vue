@@ -453,7 +453,7 @@ const cate_layer = {
         border-bottom:1px solid #f5f5f5;
         position:relative;
         .inner {
-            width:1320px;
+            max-width:1320px;
             margin:0 auto;
             padding:0 20px;
             display:flex;
@@ -853,7 +853,7 @@ const cate_layer = {
                     display:block;
                 }
                 nav {
-                    width:1320px;
+                    max-width:1320px;
                     margin:0 auto;
                     padding:0 20px;
                     background-color:#fff;

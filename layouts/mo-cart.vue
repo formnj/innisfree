@@ -94,4 +94,5 @@ import { modal } from '~/assets/js/common-ui.js'
   padding:0 20px;
 }
 
+@import "~/assets/scss/mobile.scss";
 </style>

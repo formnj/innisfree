@@ -504,7 +504,7 @@ header {
     top:-101px;
     z-index:3;
     .inner {
-        width:1320px;
+        max-width:1320px;
         margin:0 auto;
         padding:0 20px;
         display:flex;
@@ -1044,7 +1044,7 @@ header {
                 display:block;
             }
             nav {
-                width:1320px;
+                max-width:1320px;
                 margin:0 auto;
                 padding:40px 20px;
                 background-color:#fff;

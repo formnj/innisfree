@@ -169,14 +169,14 @@ onMounted(()=>{
   padding-bottom:100px;
   flex:1 auto;
   :deep(.inner) {
-    width:1320px;
+    max-width:1320px;
     margin:0 auto;
     padding:0 20px;
   }
 }
 
 .content_wrap {
-  width:1320px;
+  max-width:1320px;
   margin:0 auto;
   display:flex;
   flex-wrap:wrap;

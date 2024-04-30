@@ -3,8 +3,12 @@
 @include mo_749 {
 }
 
+#wrap {
+  min-width:initial;
+}
+
 :deep(.title_wrap) {
-  max-width:initial;
+  width:initial;
   margin:3.0rem 0 2.0rem;
   padding:0;
   h2 {
@@ -25,7 +29,7 @@
 }
 
 :deep(.sub_title_wrap) {
-  max-width:initial;
+  width:initial;
   margin:3.0rem 0 2.0rem;
   padding:0;
   display:flex;
@@ -475,5 +479,12 @@
     background: url(/_nuxt/assets/mo_images/common/icon_split.png) -20.8rem -9.8rem / 25rem auto no-repeat;
     display: inline-block;
     padding: .2rem;
+  }
+}
+
+.list_wrap {
+  .type_default {
+    border-top:2px solid #000;
+    border-bottom:1px solid #eee;
   }
 }
