@@ -10,20 +10,22 @@
           <Inputs _type="checkbox" _text="" />
           <a href="#none" @click="modal.open('delete_modal', 'alert');">취소</a>
         </div>
-        <a href="#none">
-          <img :src="goods.img" alt="">
-          <dl>
-            <dt>{{ goods.name }}</dt>
-            <dd>
-              <span>{{ goods.price.discount }}</span>
-              <del>{{ goods.price.regular }}</del>
-            </dd>
-          </dl>
-        </a>
-        <p>
-          <button class="cart"></button>
-          <button class="order"></button>
-        </p>
+        <section>
+          <a href="#none">
+            <img :src="goods.img" alt="">
+            <dl>
+              <dt>{{ goods.name }}</dt>
+              <dd>
+                <span>{{ goods.price.discount }}</span>
+                <del>{{ goods.price.regular }}</del>
+              </dd>
+            </dl>
+          </a>
+          <p>
+            <button class="cart"></button>
+            <button class="order"></button>
+          </p>
+        </section>
       </li>
     </ul>
 
@@ -85,38 +87,122 @@ onMounted(() => {
 <style lang="scss" scoped>
 
 .inner {
-  section {
-    padding:1.0rem 0;
+  > section {
+    margin-left:-2.1rem;
+    margin-right:-2.1rem;
+    padding:1.0rem 2.1rem;
     border-bottom:0.1rem solid #EEEEEE;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    ::v-deep label.check{
+      display:flex;
+      align-items:center;
+      em {
+        font-size:1.4rem;
+      }
+    }
+    ::v-deep button.btn_min_outline {
+      height:2.8rem;
+      em {
+        padding:0 0.8rem;
+        font-size:1.0rem;
+        font-weight:600;
+      }
+    }
   }
   ul {
     li {
+      width:100%;
       height:auto;
       padding:3.0rem 0;
       border-bottom:0.1rem solid #F5F5F5;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:space-between;
       > div {
+        width:100%;
         display:flex;
         align-items:center;
         justify-content:space-between;
         > a {
           width:2.4rem;
           height:2.4rem;
-          border:1px solid red;
+          background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+          background-repeat:no-repeat;
+          background-size:25rem;
+          background-position:-8.0rem -17.5rem;
           display:inline-block;
+          text-indent:-999px;
         }
       }
-      > a {
-
-      }
-      > p {
+      section {
+        width:100%;
+        margin-top:0.5rem;
+        display:flex;
+        justify-content:space-between;
+          > a {
+          display:flex;
+          img {
+            width:9.0rem;
+            height:12.0rem;
+          }
+          dl {
+            width: 18.9rem;
+            height: 10.4rem;
+            margin-left: 2.0rem;
+            flex:1 auto;
+            dt {
+              font-size:1.4rem;
+              font-weight:300
+            }
+            dd {
+              margin-top:1.5rem;
+              span {
+                margin-right:1.0rem;
+                font-size:1.4rem;
+                font-weight:700;
+              }
+              del {
+                color:#999;
+                font-size:1rem;
+                font-weight:300;
+                display:inline-block;
+              }
+            }
+          }
+        }
+        > p {
+          display:flex;
+          flex-direction:column;
+          gap:10px;
+          button {
+            width:2.4rem;
+            height:2.4rem;
+            background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+            background-repeat:no-repeat;
+            background-size:25rem;
+            display:inline-block;
+            &.cart {
+              background-position:-16.9rem -3.8rem;
+            }
+            &.order {
+              background-position:-19.9rem -3.8rem;
+            }
+          }
+        }
 
       }
     }
   }
-
+  .paging {
+    div {
+      a {
+        font-size:1.6rem;
+      }
+    }
+  }
 }
 
 
