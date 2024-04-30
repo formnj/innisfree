@@ -335,9 +335,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-10', worker:''
     }, {
         depth:['','찜한제품','',''],
-        id:'IN_PC_MYP_01_40', status:'',
+        id:'IN_PC_MYP_01_40', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        sDate:'2024-04-30', eDate:'2024-05-03/2024-04-30', worker:'김희경'
     }, {
         depth:['','스마트 영수증','목록',''],
         id:'IN_PC_MYP_01_43', status:'',
@@ -829,7 +829,7 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-03', worker:''
     }, {
         depth:['','찜한제품','',''],
-        id:'IN_MO_MYP_01_40', status:'',
+        id:'IN_MO_MYP_01_40', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-03', worker:'김희경'
     }, {
@@ -860,9 +860,9 @@ const MO_arry = ([
     }
     , {
         depth:['','입고알림 신청내역','',''],
-        id:'IN_MO_MYP_01_49', status:'ing',
+        id:'IN_MO_MYP_01_49', status:'com',
         type:'', note:'품절상품 상세에서 알림신청가능 - PC에서도 신청 가능',
-        sDate:'2024-04-29', eDate:'2024-05-03/', worker:'김희경'
+        sDate:'2024-04-30', eDate:'2024-05-03/2024-04-30', worker:'김희경'
     }, {
         depth:['','공병수거 현황','내 공병수거 현황(T)','온라인 공병수거 신청'],
         id:'IN_MO_MYP_01_51', status:'',

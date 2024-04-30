@@ -276,7 +276,8 @@ const reset = (event) => {
 
 <style lang="scss" scoped>
 .title_wrap {
-  padding: 60px 20px 24px;
+  margin-bottom:24px;
+  padding:0px;
   display:flex;
   justify-content:space-between;
   h2 {
