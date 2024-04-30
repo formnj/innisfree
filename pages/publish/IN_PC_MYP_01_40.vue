@@ -26,19 +26,23 @@
                     <Inputs _type="checkbox" />
                   </td>
                   <td>
-                    <a href="#none">이미지</a>
+                    <a href="#none">
+                      <img src="/_nuxt/assets/images/sam/MYP_01_04_1.jpg" alt="">
+                    </a>
                   </td>
                   <td class="name">
                     <a href="#none">비타C 그린티 엔자임 잡티 토닝 패드 x 2개 패키지</a>
                   </td>
-                  <td>
+                  <td class="price">
                     <del>56,000원</del>
                     <span>42,000원</span>
                   </td>
-                  <td class="btn_wrap">
-                    <Button class="btn_outline" txt="바로구매" />
-                    <Button class="btn_outline" txt="장바구니로 이동" />
-                    <Button class="btn_outline cancel" />
+                  <td class="btn">
+                    <div class="btn_wrap">
+                      <Button class="btn_outline" txt="바로구매" />
+                      <Button class="btn_outline" txt="장바구니로 이동" />
+                      <a href="#none"></a>
+                    </div>
                   </td>
                 </tr>
             </tbody>
@@ -140,32 +144,14 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
     font-size:12;
     display:block;
   }
-   > .btn_wrap {
-      margin-top:60px;;
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      button[class*=btn_] {
-        padding:25px 30px;
-        font-size:16px;
-        font-weight:600;
-        &.btn_outline {
-          font :18px / 40px 'Pretendard', 'SDNeoL', 'notoR';
-        }
-        em {
-          font-size:16px;
-        }
-      }
-    }
-
 }
 
 .table_wrap {
     border-top: 2px solid #000;
     table {
-        width: 100%;
+        width:100%;
         border-collapse: collapse;
-        border: 0;
+        border:0;
         table-layout: fixed;
         caption {
             display:none;
@@ -173,11 +159,14 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
         tbody {
             tr {
                 td {
+                    height:100% !important;
                     padding:30px 0;
                     font-size:16px;
                     border-bottom:1px solid #f5f5f5;
                     text-align:center;
-                    &.btn_wrap {
+                  &.btn {
+                    position:relative;
+                    .btn_wrap {
                       display:flex;
                       align-items:center;
                       justify-content:center;
@@ -185,30 +174,29 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                       ::v-deep button.btn_outline {
                         width:120px;
                         height:30px;
-                        font-size:12px;
-                        border:1px solid #999;
+                        font :12px / 40px 'Pretendard', 'SDNeoL', 'notoR';
+                        border:1px solid #000;
+                        em {
+                          color:#000;
+                        }
+                      }
+                      > a {
+                        width:24px;
+                        height:24px;
+                        border:1px solid red;
+                        background-image: url('/_nuxt/assets/images/common/icon_split.png');
+                        background-repeat:no-repeat;
+                        background-size:250px;
+                        background-position:-25px -212px;
+                        display:block;
                       }
                     }
+                  }
                     ::v-deep button.btn_outline {
                         em {
                             padding:0 5px;
                             color:#999;
                             font-weight:600;
-                        }
-                    }
-                    label.select {
-                        width:30%;
-                        display:block !important;
-                    }
-                    .label_wrap {
-                        ::v-deep label.input {
-                            input {
-                                width:140px !important;
-                            }
-                            textarea {
-                                width:600px;
-                                height:200px !important;
-                            }
                         }
                     }
                     &:first-of-type {
@@ -217,6 +205,21 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                     &.name {
                       padding-left:20px;
                       text-align:left;
+                    }
+                    &.price {
+                      text-align:right;
+                      del {
+                        color: #aaa;
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 1.29em;
+                      }
+                      span {
+                        margin-top:5px;
+                        font-size:18px;
+                        font-weight:700;
+                        display:inline-block;
+                      }
                     }
                 }
 
