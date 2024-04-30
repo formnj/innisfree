@@ -155,9 +155,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-03/', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
-        id:'IN_PC_CAR_01_01', status:'ing',
-        type:'', note:'',
-        sDate:'', eDate:'2024-05-10/', worker:'이종환'
+        id:'IN_PC_CAR_01_01', status:'com',
+        type:'', note:'한페이지에 모두 배치',
+        sDate:'', eDate:'2024-05-10/2024-04-30', worker:'이종환'
     }, {
         depth:['','상품 있음','',''],
         id:'IN_PC_CAR_01_02', status:'',
@@ -166,7 +166,7 @@ const PC_arry = ([
     }, {
         depth:['','적립예정 뷰티포인트','',''],
         id:'IN_PC_CAR_01_03', status:'',
-        type:'', note:'',
+        type:'', note:'IN_PC_CAR_01_01에 모달 처리',
         sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['','구매 시 최대할인 안내','',''],
@@ -644,9 +644,9 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-03/', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
-        id:'IN_MO_CAR_01_01', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'2024-05-10/', worker:'이종환'
+        id:'IN_MO_CAR_01_01', status:'com',
+        type:'', note:'한페이지 모두 배치',
+        sDate:'', eDate:'2024-05-10/2024-04-30', worker:'이종환'
     }, {
         depth:['','상품 있음','',''],
         id:'IN_MO_CAR_01_02', status:'',
@@ -655,7 +655,7 @@ const MO_arry = ([
     }, {
         depth:['','적립예정 뷰티포인트','',''],
         id:'IN_MO_CAR_01_03', status:'',
-        type:'', note:'',
+        type:'', note:'IN_MO_CAR_01_01 모달 배치',
         sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['','구매 시 최대할인 안내','',''],

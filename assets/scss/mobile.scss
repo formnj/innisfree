@@ -580,6 +580,7 @@
     > li {
       padding:1.5rem;
       background-color:#F7F9FA;
+      position:relative;
       & + li {
         margin-top:0.3rem;
       }
@@ -592,6 +593,21 @@
         text-align:right;
         display:flex;
         align-items:center;
+      }
+      button.del {
+        width:2rem;
+        height:2rem;
+        background-color:#d4e2dd;
+        border-radius:50%;
+        position:absolute;
+        top:1rem;
+        right:1rem;
+        &:before, &:after {
+          width:1.3rem;
+          margin-top:-0.05rem;
+          margin-left:-0.6rem;
+          border-color:#fff;
+        }
       }
     }
   }

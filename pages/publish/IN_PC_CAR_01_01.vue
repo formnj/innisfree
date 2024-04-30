@@ -17,6 +17,13 @@
         </div>
       </div>
       <ul class="cart_list type_default">
+        <!-- no data -->
+        <li>
+          <p class="no_data">
+            <strong>장바구니에 담긴 제품이 없습니다.</strong>
+          </p>
+        </li>
+        <!-- //no data -->
         <li>
           <div class="row">
             <div class="cell check">

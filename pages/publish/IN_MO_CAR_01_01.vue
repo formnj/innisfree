@@ -10,6 +10,19 @@
         </div>
       </div>
       <ul class="cart_list type_default">
+        <!-- no data -->
+        <li>
+          <div class="no_data">
+            <strong>장바구니에 담긴 제품이 없습니다.</strong>
+            <span>특가혜택 제품과 실시간 가장 인기있는<br>제품들을 살펴보세요</span>
+            <p class="btnSection">
+              <Button class="btn_min_outline" txt="특가" />
+              <Button class="btn_min_outline" txt="베스트" />
+            </p>
+          </div>
+        </li>
+        <!-- //no data -->
+
         <li>
           <div class="row">
             <div class="cell check">
@@ -54,6 +67,7 @@
                     </p>
                   </div>
                 </div>
+                <Icons class="del" />
               </li>
               <li>
                 <div class="opt_wrap">
