@@ -22,7 +22,7 @@
                   </dl>
                   <dl>
                     <dt>적립 예정 뷰티포인트
-                        <Icons class="tooltip" txt="툴팁" @click="modal.open('accum_point', 'layer')" />
+                        <Icons class="tooltip" txt="툴팁" @click="modal.open('accum_point', 'alert')" />
                         <div class="layer_wrap">
                           <!-- layer modal -->
                           <div class="modal_wrap" id="accum_point">
@@ -145,24 +145,11 @@ import { modal } from '~/assets/js/common-ui.js'
           dt {
             display:flex;
             align-items:center;
-            .tooltip {
-              width:16px;
-              height:16px;
-              margin-left:6px;
-              background-position:0 -260px;
-              vertical-align:top;
-            }
           }
           dd {
             strong {
               font-weight:500;
             }
-          }
-          .modal_container {
-            white-space:nowrap;
-            top:100%;
-            right:0;
-            left:initial;
           }
         }
         .total_price {
