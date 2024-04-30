@@ -130,6 +130,10 @@ onMounted(() => {
               border: 1px solid red;
               width:20px;
               height:20px;
+              background-image: url('/_nuxt/assets/mo_images/common/icon_split.png');
+              background-repeat:no-repeat;
+              background-size:250px;
+              background-position:0px 0px;
 
               display:inline-block;
             }
