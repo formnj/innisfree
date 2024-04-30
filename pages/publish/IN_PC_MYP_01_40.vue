@@ -78,7 +78,7 @@
             <button class="btn_close" @click="modal.close(this);">닫기</button>
         </div>
         <div class="modal_content">
-            <div>삭제사히겠습니까?</div>
+            <div>삭제하시겠습니까?</div>
         </div>
         <div class="modal_footer">
             <Button class="btn_mid confirm" txt="확인" />
