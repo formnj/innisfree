@@ -405,7 +405,7 @@ onMounted(() => {
               align-items:center;
               gap:0.5rem;
               .btn_outline {
-                height:48px;
+                max-height:48px;
               }
               + .label_wrap{
                 margin-top:0.8rem
