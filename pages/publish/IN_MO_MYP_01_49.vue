@@ -23,7 +23,22 @@
               <span>신청일자:2024-04-29</span>
             </div>
           </a>
-          <Button class="btn_outline" txt="알림취소" />
+          <Button class="btn_outline" txt="알림취소"  @click="modal.open('delete_modal', 'full');"/>
+        </li>
+        <li>
+          <a href="#none">
+            <p>
+              <img src="../../assets/images/sam/sam_myp_01_49.jpg" alt="쿠로미이미지">
+            </p>
+            <div>
+              <em>입고예정</em>
+              <p>
+                [쿠로미x이니스프리] 노세범 AC 파우더 5g
+              </p>
+              <span>신청일자:2024-04-29</span>
+            </div>
+          </a>
+          <Button class="btn_outline" txt="알림취소"  @click="modal.open('delete_modal', 'full');"/>
         </li>
       </ul>
     </div>
@@ -112,6 +127,9 @@ onMounted(() => {
     > div {
       margin-top:3.0rem;
       > ul {
+        > * + * {
+          margin-top:1rem;
+        }
         li {
           position:relative;
           ::v-deep .btn_outline {
@@ -125,20 +143,21 @@ onMounted(() => {
             position:absolute;
             bottom:0.6rem;
             right:0;
+            display:flex;
+            align-items:center;
             &::before {
               content:'';
-              border: 1px solid red;
               width:20px;
               height:20px;
               background-image: url('/_nuxt/assets/mo_images/common/icon_split.png');
               background-repeat:no-repeat;
               background-size:250px;
-              background-position:0px 0px;
+              background-position:-41px -199px;
 
               display:inline-block;
             }
             em {
-              padding:0 4px !important;
+              padding:0 0px !important;
             }
           }
           > a {
@@ -216,8 +235,8 @@ onMounted(() => {
         }
       }
       .modal_content {
-        padding:2rem 3rem 3rem 2rem;
-        text-align:center;
+        padding:1rem 3rem 3rem 2rem;
+        color:#666;
       }
       .modal_footer {
         padding:0;
