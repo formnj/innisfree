@@ -12,7 +12,9 @@
       <ul>
         <li>
           <a href="#none">
-            <span>이미지</span>
+            <p>
+              <img src="../../assets/images/sam/sam_myp_01_49.jpg" alt="쿠로미이미지">
+            </p>
             <div>
               <em>입고예정</em>
               <p>
@@ -108,7 +110,94 @@ onMounted(() => {
       }
     }
     > div {
-      margin-top:3.0rem
+      margin-top:3.0rem;
+      > ul {
+        li {
+          position:relative;
+          ::v-deep .btn_outline {
+            height:3.6rem;
+            padding:0 1rem 0 1rem;
+            font-size:1.1rem;
+            text-align: center;
+            border:0.1rem solid #ccc;
+            border-radius: 1.8rem;
+            background-color:#fff;
+            position:absolute;
+            bottom:0.6rem;
+            right:0;
+            &::before {
+              content:'';
+              border: 1px solid red;
+              width:20px;
+              height:20px;
+
+              display:inline-block;
+            }
+            em {
+              padding:0 4px !important;
+            }
+          }
+          > a {
+            display:flex;
+            gap:1.2rem;
+            > p {
+              max-width: 12.1rem;
+              width: 35%;
+              border-radius:0.5rem;
+              overflow:hidden;
+              position:relative;
+              &::after {
+                content: '';
+                width: 100%;
+                height: 100%;
+                border-radius: 0.5rem;
+                background-color: rgba(34, 34, 34, 0.02);
+                position: absolute;
+                top: 0;
+                left: 0;
+                overflow: hidden;
+                z-index: 1;
+                display:block;
+              }
+              img {
+                height:100% !important;
+              }
+            }
+            > div {
+              width:65%;
+              font-size:1.3rem;
+              text-align:left;
+              em {
+                height: 1.9rem;
+                margin: 0 0.1rem 0.4rem 0;
+                padding: 0 0.6rem 0 0.6rem;
+                color: #12b560;
+                font-size: 1rem;
+                border: 0.1rem solid #a2dec0;
+                border-radius: 0.5rem;
+                background-color: #effff7;
+                line-height: 1.9rem;
+                white-space: nowrap;
+                box-sizing: border-box;
+                display: inline-block;
+              }
+              > p {
+                width:20.6rem;
+                margin-bottom:0.2rem;
+                color:#222;
+                white-space: normal;
+                text-overflow: ellipsis;
+                word-wrap: break-word;
+              }
+              > span {
+                color: #999;
+                margin-top: 0.8rem;
+                display:block;
+              }
+            }
+          }
+        }
+      }
     }
 
   }
