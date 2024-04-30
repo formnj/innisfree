@@ -1,12 +1,10 @@
 <template>
   <div class="inner">
-
-
     <div class="title_wrap" :data-layout="props.layoutType">
         <h2>찜한 제품</h2>
         <div>
           <Inputs _type="checkbox" _text="전체 선택" />
-          <Button class="btn_min_outline" txt="선택 삭제" />
+          <Button class="btn_min_outline" txt="선택 삭제" @click="modal.open('delete_modal', 'alert');"/>
         </div>
     </div>
 
@@ -21,28 +19,33 @@
                 <col style="width:350px">
             </colgroup>
             <tbody>
-                <tr>
+                <tr v-for="(goods, idx) in select_list" :key="idx">
                   <td>
                     <Inputs _type="checkbox" />
                   </td>
                   <td>
                     <a href="#none">
-                      <img src="/_nuxt/assets/images/sam/MYP_01_04_1.jpg" alt="">
+                      <img :src="goods.img" alt="">
                     </a>
                   </td>
                   <td class="name">
-                    <a href="#none">비타C 그린티 엔자임 잡티 토닝 패드 x 2개 패키지</a>
+                    <a href="#none">{{ goods.name }}</a>
                   </td>
                   <td class="price">
-                    <del>56,000원</del>
-                    <span>42,000원</span>
+                    <del>{{ goods.price.regular }}</del>
+                    <span>{{ goods.price.discount }}</span>
                   </td>
                   <td class="btn">
                     <div class="btn_wrap">
                       <Button class="btn_outline" txt="바로구매" />
                       <Button class="btn_outline" txt="장바구니로 이동" />
-                      <a href="#none"></a>
+                      <a href="#none" @click="modal.open('delete_modal', 'alert');"></a>
                     </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="5">
+                    <span>찜 목록이 없습니다.</span>
                   </td>
                 </tr>
             </tbody>
@@ -62,7 +65,7 @@
     <span>찜한 제품의 구매를 원하시면 해당 제품을 선택 후 ‘장바구니 이동’ 버튼을 통해 구매하실 수 있습니다.</span>
     <span>선택 및 장바구니 이동 불가 : 일시 품절, 모바일/APP 전용 제품(삭제만 가능)</span>
 
-    <Button class="btn_ confirm" txt="장바구니로 이동"/>
+    <Button class="btn_mid confirm" txt="장바구니로 이동"/>
   </div>
 
 
@@ -71,14 +74,14 @@
   <div class="modal_wrap" id="delete_modal">
     <div class="modal_container">
         <div class="modal_header">
-            <h2>배송지 관리</h2>
+            <h2>알림</h2>
             <button class="btn_close" @click="modal.close(this);">닫기</button>
         </div>
         <div class="modal_content">
-            <div>배송지를 삭제 하시겠습니까?</div>
+            <div>삭제사히겠습니까?</div>
         </div>
         <div class="modal_footer">
-            <Button class="btn_ confirm" txt="확인" />
+            <Button class="btn_mid confirm" txt="확인" />
             <Button txt="취소" @click="modal.close(this);"/>
         </div>
     </div>
@@ -99,6 +102,7 @@ layout:'pc-mypage'
 });
 
 import { modal } from '~/assets/js/common-ui.js'
+import {select_list} from '../../test/data/publish/dummyData'
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   layoutType: {
@@ -113,7 +117,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 <style lang="scss" scoped>
 .title_wrap {
   padding:0;
-  margin-bottom:15px;
+  margin-bottom:10px;
   display:flex;
   flex-direction:column;
   h2 {
@@ -126,6 +130,9 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
     display:flex;
     align-items:center;
     justify-content:space-between;
+    ::v-deep .check {
+      margin-top:-10px;
+    }
     ::v-deep .btn_min_outline {
       width:84px !important;;
       em {
@@ -139,10 +146,27 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 
 .inner {
   > span {
-    margin-top:10px;
-    color:#FF0000;
-    font-size:12;
+    margin-top:30px;
+    color:#888;
+    font-size:13px;
     display:block;
+    + span {
+      margin-top:5px;
+    }
+    &::before {
+      content:'※';
+      margin-right:5px;
+      display:inline-block;
+    }
+  }
+  > button.btn_mid.confirm {
+    margin:60px auto 0 auto;
+    text-align:center;
+    ::v-deep em {
+      padding:0px 62px;
+      font :16px / 40px 'Pretendard', 'SDNeoL', 'notoR';
+      font-weight:600;
+    }
   }
 }
 
@@ -183,11 +207,13 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                       > a {
                         width:24px;
                         height:24px;
-                        border:1px solid red;
                         background-image: url('/_nuxt/assets/images/common/icon_split.png');
                         background-repeat:no-repeat;
                         background-size:250px;
-                        background-position:-25px -212px;
+                        background-position:-26px -252px;
+                        position:absolute;
+                        top:30px;
+                        right:2px;
                         display:block;
                       }
                     }
@@ -221,6 +247,9 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                         display:inline-block;
                       }
                     }
+                    &[colspan="5"]{
+                      font-weight:600;
+                    }
                 }
 
             }
@@ -230,133 +259,17 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 }
 
 .modal_wrap {
-  &#adress_add_modal{
+  &#delete_modal {
     .modal_container {
-      width:720px;
-    }
-  }
-  &#adress_modify_modal {
-    .modal_container {
-      width:720px;
-    }
-  }
-  &#shippingArmyInfo{
-    .modal_container {
-      max-width:640px;
-      top: 350px;
-      left: 560px;
       .modal_header {
-        border-bottom:0;
+        padding:20px;
+        h2 {
+          font-size:18px;
+        }
       }
       .modal_content {
-        padding:30px 20px;
-        p {
-          color: #666666;
-          font-size: 13px;
-          line-height: 1.54em;
-          letter-spacing: -0.01em;
-          display:flex;
-          flex-direction:column;
-          strong {
-            font-weight:600;
-          }
-        }
-        ol {
-          margin:10px 0 0 15px;
-          > * + * {
-            margin-top:5px;
-          }
-          li {
-            color:#888;
-            font-size:13px;
-            list-style-type:decimal;
-              em {
-              color:#d72137 !important;
-            }
-          }
-        }
+        padding:30px;
       }
-    }
-  }
-  &#personalinfo{
-    .modal_container {
-      width:720px !important;
-      position:fixed;
-      top:50%;
-      left:50%;
-      transform:translate(-50%,-50%);
-      .modal_content {
-        p {
-          color:#888;
-          font-size:13px;
-        }
-        .table_wrap {
-          margin:10px 0;
-          table {
-            thead {
-              th {
-                color:#888;
-                font-size:13px;
-              }
-            }
-            tbody {
-              tr {
-                > * + * {
-                  text-align:center;
-                }
-                td {
-                  padding:10px;
-                  color:#888;
-                  font-size:13px;
-                  strong {
-                    font-size:17px;
-                    font-weight:normal;
-                    text-decoration: underline;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  .modal_container {
-    .modal_content {
-      > .check {
-        margin-bottom:20px;
-        color:#000;
-        font-weight:500;
-      }
-      .error {
-            margin:10px 0;
-            color:#FF0000;
-            font-size:12px;
-            display:block;
-        }
-        ul {
-          margin-top:10px;
-          li {
-            display:flex;
-            align-items:center;
-            a {
-              margin-left:20px;
-              color:#666;
-              font-size:14px;
-              text-decoration:underline;
-            }
-          }
-        }
-        ::v-deep button.btn_outline {
-          border:1px solid #000;
-          box-sizing:border-box;
-          em {
-              padding:0 20px;
-              color:#000;
-              font-size:12px;
-              font-weight:600;
-          }
-        }
     }
   }
 }

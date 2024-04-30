@@ -4,6 +4,25 @@
  * jjy11@amorepacific.com
  */
 
+export const select_list = [
+  {
+    img:('/_nuxt/assets/images/sam/MYP_01_04_1.jpg'),
+    name:'비타C 그린티 엔자임 잡티 토닝 패드 x 2개 패키지',
+    price:{
+      regular:'56,000원',
+      discount:'42,000원'
+    }
+  },
+  {
+    img:('/_nuxt/assets/images/sam/MYP_01_04_1.jpg'),
+    name:'그린티 씨드 세럼 대용랑+리필',
+    price:{
+      regular:'78,000원',
+      discount:'52,000원'
+    }
+  },
+]
+
 export const adress_list = [
   {
     name:'김이나',
