@@ -107,7 +107,7 @@ html {
 }
 
 .title_wrap {
-  max-width:1320px;
+  width:1320px;
   margin:60px auto;
   padding:0 20px;
   position:relative;
@@ -156,7 +156,7 @@ html {
 }
 
 .sub_title_wrap {
-  max-width:1320px;
+  width:1320px;
   margin:60px auto 40px;
   padding:0 20px;
   position:relative;
@@ -682,6 +682,26 @@ ul.select_list {
     z-index: 2;
     display: block;
   }
+  .allChk_wrap {
+    margin-bottom:20px;
+    display:flex;
+    align-items:center;
+    .btnSection {
+      margin-left:auto;
+    }
+  }
+  .type_default {
+    border-top:2px solid #000;
+    border-bottom:1px solid #eee;
+    .row {
+      padding:40px 0;
+      display:flex;
+      gap:15px;
+      & + .row {
+        border-top:1px solid #f5f5f5;
+      }
+    }
+  }
 }
 
 /* goods list */
@@ -705,6 +725,89 @@ ul.select_list {
     }
   }
 
+}
+
+/* cart list */
+.cart_list {
+  .cell {
+    &.count, &.price {
+      display:flex;
+      align-items:center;
+    }
+  }
+  .pdt_img {
+    width:100px;
+  }
+  .pdt_info {
+    margin-right:50px;
+    flex:1;
+    .name {
+      a {
+        font-size:16px;
+      }
+      .alt {
+        margin-top:15px;
+        color:#EB5B54;
+      }
+    }
+    .select {
+      margin-top:20px;
+      display:block;
+    }
+  }
+  .count {
+    width:116px;
+    .count_wrap {
+      border:1px solid #eee;
+      display:flex;
+      button {
+        width:45px;
+        background-color:#fff;
+        em {
+          padding:0;
+          color:#000;
+        }
+        &.icon_del {
+          display:none !important;
+        }
+      }
+      input {
+        padding:0;
+        border:0;
+        text-align:center;
+      }
+    }
+  }
+  .price {
+    flex-direction:column;
+    justify-content:center;
+    p, .point {
+      width:100%;
+      text-align:right;
+    }
+    p {
+      font-size:14px;
+      font-weight:500;
+      strong {
+        font-size:18px;
+      }
+    }
+    .point {
+      margin-top:5px;
+      color:#009D5E;
+      font-size:13px;
+    }
+    span {
+      margin-bottom:10px;
+      color:#d72137;
+      font-size:13px;
+    }
+    button {
+      em {
+        font-size:12px;
+      }
+    }
+  }
 }
 
 .event_list {

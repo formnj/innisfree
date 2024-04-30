@@ -85,13 +85,13 @@ const sam_lnb = ['에센스/세럼/앰플','로션/크림','스킨/토너/미스
 #container.PC {
     flex:1 auto;
     .inner {
-        max-width:1320px;
+        width:1320px;
         margin:0 auto;
         padding:0 20px;
         display:flex;
     }
     .content_wrap {
-        max-width:1320px;
+        width:1320px;
         margin:0 auto;
         padding:0 20px;
         display:flex;

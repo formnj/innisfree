@@ -523,7 +523,7 @@ const rankingTabs = [
           background-color:#f5f5f5;
         }
         .inner {
-          max-width:1320px;
+          width:1320px;
           margin:0 auto;
           padding:0 20px;
         }

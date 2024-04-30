@@ -192,7 +192,7 @@
                     <a href="#none">한정 기간 특가할인 / 사은품 증정 제품 모아보기</a>
                 </div>
                 <!-- //mo banner -->
-                
+
                 <nav>
                     <div class="nav_wrap" v-if="props.device == 'PC'">
                         <Button class="btn_category" txt="카테고리" />
@@ -232,7 +232,7 @@
                             </section>
                         </div>
                     </div>
-                </nav>            
+                </nav>
             </div>
         </div>
     </header>
@@ -453,7 +453,7 @@ const cate_layer = {
         border-bottom:1px solid #f5f5f5;
         position:relative;
         .inner {
-            max-width:1320px;
+            width:1320px;
             margin:0 auto;
             padding:0 20px;
             display:flex;
@@ -853,7 +853,7 @@ const cate_layer = {
                     display:block;
                 }
                 nav {
-                    max-width:1320px;
+                    width:1320px;
                     margin:0 auto;
                     padding:0 20px;
                     background-color:#fff;
@@ -1467,7 +1467,7 @@ const cate_layer = {
                             }
                         }
                     }
-                }               
+                }
             }
         }
     }

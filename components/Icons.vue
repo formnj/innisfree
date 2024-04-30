@@ -75,5 +75,26 @@ button {
     background-size:250px auto;
     display: inline-block;
   }
+  &.del {
+    width:24px;
+    height:24px;
+    position:relative;
+    background:none;
+    &:before, &:after {
+      width:20px;
+      margin-left:-10px;
+      border-top:1px solid #000;
+      content:'';
+      position:absolute;
+      top:50%;
+      left:50%;
+    }
+    &:before {
+      transform:rotate(45deg);
+    }
+    &:after {
+      transform:rotate(-45deg);
+    }
+  }
 }
 </style>

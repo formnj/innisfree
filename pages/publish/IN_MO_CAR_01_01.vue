@@ -1,11 +1,4 @@
 <template>
-  <!-- title washed -->
-  <div class="title_wrap">
-    <div>
-      <h2>장바구니</h2>
-    </div>
-  </div>
-  <!-- //title washed -->
 
   <div class="inner">
     <!-- cart list -->
@@ -89,7 +82,7 @@ import { setFilter } from '~/assets/js/common-ui.js'
 import { modal } from '~/assets/js/common-ui.js'
 
 definePageMeta({
-layout:'pc-cart'
+layout:'mo-cart'
 });
 </script>
 

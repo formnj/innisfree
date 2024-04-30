@@ -103,7 +103,7 @@ let lnb_click = (event)=>{
   padding-bottom:100px;
   flex:1 auto;
   :deep(.inner) {
-    max-width:1320px;
+    width:1320px;
     margin:0 auto;
     padding:0 20px;
   }
@@ -137,7 +137,7 @@ let lnb_click = (event)=>{
 }
 
 .content_wrap {
-  max-width:1320px;
+  width:1320px;
   margin:0 auto;
   position:relative;
   display:flex;

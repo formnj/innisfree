@@ -214,7 +214,7 @@ const scroll_top = () => {
 <style lang="scss" scoped>
 footer {
   .inner {
-    max-width:1320px;
+    width:1320px;
     margin:0 auto;
     padding:107px 20px 30px;
     padding-top:107px;
