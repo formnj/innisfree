@@ -13,29 +13,6 @@
         <!-- //답글 없을 경우 -->
         <div class="cmnt_list">
           <ul>
-            <!-- <li>
-              <div class="comment_box" :class="item.reply.is ? 'reply' : ''">
-              <span class="photo"><img :src="item.photo" alt=""></span>
-
-              <div class="comment">
-                <span class="info">
-                  <span v-if="item.isEditor" class="mark_editor">Editor</span>
-                  <span class="name">{{ item.name }}<span class="time">{{ item.time }}</span></span>
-                </span>
-
-                <p class="text">
-                  <span v-if="item.reply.is" class="to">{{ item.reply.to }}</span>
-                  {{ item.cmnt }}
-                </p>
-
-                <div class="btn_wrap">
-                  <button type="button">답글 달기</button>
-                  <button type="button">답글 2개 더보기</button>
-                </div>
-              </div>
-              <button type="button" class="btn_reply_menu" @click="modal.open('modal_reply_menu', 'layer');modalPositioning();">답글 메뉴</button>
-            </div>
-            </li> -->
             <li v-for="(item, idx) in sampleCmnt" :key="idx">
               <PostComment :item="item" />
             </li>
