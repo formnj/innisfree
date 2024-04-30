@@ -1298,7 +1298,7 @@ const cate_layer = {
                         height: 24px;
                         margin-right: 10px;
                         background-color: transparent;
-                        background-image: url(/_nuxt/assets/mo_images/common/icon_split.png);
+                        background-image: url('~/assets/mo_images/common/icon_split.png');
                         background-position: 0 -40px;
                         background-repeat: no-repeat;
                         background-size: 250px auto;

@@ -243,7 +243,7 @@ const openReplyModal = () => {
     content: '';
     width: 2rem;
     height: 2rem;
-    background: url(/_nuxt/assets/mo_images/common/icon_split.png) -20.8rem -9.8rem / 25rem auto no-repeat;
+    background: url('~/assets/mo_images/common/icon_split.png') -20.8rem -9.8rem / 25rem auto no-repeat;
     display: inline-block;
     padding: .2rem;
   }

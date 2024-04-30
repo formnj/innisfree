@@ -53,9 +53,9 @@
               <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
               <Button class="btn_min_outline" txt="입고알림신청" />
               <p>
-                <strong>52,000</strong>원
+                <strong>52,000 <em>원</em></strong>
+                <span class="point">+529P</span><!-- point -->
               </p>
-              <em class="point">+529P</em><!-- point -->
             </div>
             <div class="cell del">
               <Icons class="del" />

@@ -10,7 +10,6 @@
             <div class="payment">
               <div class="inner">
                 <div>
-                  <h4>결제정보</h4>
                   <dl>
                     <dt>주문금액</dt>
                     <dd>
@@ -91,7 +90,100 @@ import { modal } from '~/assets/js/common-ui.js'
 }
 
 #container {
-  padding:0 20px;
+  padding:0 2rem;
+
+  :deep(.customBen) {
+    margin:0 -2rem;
+    overflow:hidden;
+    position: relative;
+    .img {
+      img {
+        vertical-align:top;
+      }
+    }
+    .textWrap {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      .text {
+        height: 100%;
+        margin: 0 2rem;
+        color: #fff;
+        font-size: 1.7rem;
+        line-height: 1.43;
+        letter-spacing: -0.7px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: left;
+        .t1, .t2 {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  .payment {
+    .inner {
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+      > div {
+        padding:1.5rem 0 12rem;
+        flex:1;
+        dl {
+          color:#333;
+          font-size:1.4rem;
+          display:flex;
+          justify-content:space-between;
+          & + dl {
+            margin-top:15px;
+          }
+          dt {
+            display:flex;
+            align-items:center;
+            .tooltip {
+              width:16px;
+              height:16px;
+              margin-left:6px;
+              background-position:0 -260px;
+              vertical-align:top;
+            }
+          }
+          dd {
+            strong {
+              font-weight:500;
+            }
+          }
+          .modal_container {
+            white-space:nowrap;
+            top:100%;
+            right:0;
+            left:initial;
+          }
+        }
+        .total_price {
+          margin-top:25px;
+          padding-top:20px;
+          border-top:1px solid #eee;
+          dt {
+            color:#000;
+          }
+          dd {
+            font-size:1.4rem;
+            font-weight:600;
+            strong {
+              font-size:2rem;
+              font-weight:600;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @import "~/assets/scss/mobile.scss";

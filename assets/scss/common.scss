@@ -53,39 +53,6 @@ html {
     }
   }
 }
-.customBen {
-  margin: 100px 0 0;
-  overflow:hidden;
-  position: relative;
-  .img {
-    img {
-      vertical-align:top;
-    }
-  }
-  .textWrap {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top:0;
-    left:0;
-    .text {
-      height: 100%;
-      margin: 0 375px 0 80px;
-      color: #fff;
-      font-size: 28px;
-      line-height: 1.43;
-      letter-spacing: -0.7px;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      text-align: left;
-      .t1, .t2 {
-        white-space: nowrap;
-      }
-    }
-  }
-}
 
 /* margin */
 .mt10 {
@@ -111,7 +78,7 @@ html {
 }
 
 .title_wrap {
-  max-max-width:1320px;
+  max-width:1320px;
   margin:60px auto;
   padding:0 20px;
   position:relative;
@@ -160,7 +127,7 @@ html {
 }
 
 .sub_title_wrap {
-  max-max-width:1320px;
+  max-width:1320px;
   margin:60px auto 40px;
   padding:0 20px;
   position:relative;
@@ -764,7 +731,7 @@ ul.select_list {
       &.first {
         width: 40px;
         height: 40px;
-        background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+        background-image: url('~/assets/images/common/icon_split.png');
         background-repeat: no-repeat;
         background-size: 250px;
         background-position: -120px -88px;
@@ -775,7 +742,7 @@ ul.select_list {
       &.last {
         width: 40px;
         height: 40px;
-        background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+        background-image: url('~/assets/images/common/icon_split.png');
         background-repeat: no-repeat;
         background-size: 250px;
         background-position: -120px -88px;
@@ -982,10 +949,14 @@ ul.bullet_list {
       text-align:right;
     }
     p {
-      font-size:14px;
-      font-weight:500;
+      display:flex;
+      flex-direction:column;
       strong {
         font-size:18px;
+      }
+      em {
+        font-size:14px;
+        font-weight:500;
       }
     }
     .point {

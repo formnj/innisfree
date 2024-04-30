@@ -35,21 +35,41 @@
                   { val: 'value', txt: '옵션02' }
               ]" />
             </div>
-            <div class="cell count">
-              <div class="count_wrap">
-                <Button txt="-" />
-                <Inputs />
-                <Button txt="+" />
-              </div>
-            </div>
-            <div class="cell price">
-              <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
-              <Button class="btn_min_outline" txt="입고알림신청" />
-              <p>
-                <strong>52,000</strong>원
-              </p>
-              <em class="point">+529P</em><!-- point -->
-            </div>
+            <ul class="addOrder">
+              <li>
+                <p class="title"> 1호 베이비 핑크</p>
+                <div class="opt_wrap">
+                  <div class="count">
+                    <div class="count_wrap">
+                      <Button txt="-" />
+                      <Inputs />
+                      <Button txt="+" />
+                    </div>
+                  </div>
+                  <div class="cell price">
+                    <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
+                    <p>
+                      <strong>52,000 <em>원</em></strong>
+                      <span class="point">+529P</span><!-- point -->
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="opt_wrap">
+                  <div class="count">
+                    <div class="count_wrap">
+                      <Button txt="-" />
+                      <Inputs />
+                      <Button txt="+" />
+                    </div>
+                  </div>
+                  <div class="cell price">
+                    <span>판매중지</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
+                  </div>
+                </div>
+              </li>
+            </ul>
             <div class="cell del">
               <Icons class="del" />
             </div>

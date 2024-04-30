@@ -66,7 +66,7 @@ const modalPositioning = () => {
   .photo {
     width: 3.5rem;
     height: 3.5rem;
-    background: url(/_nuxt/assets/mo_images/common/icon_split.png) 0rem -14.5rem / 25rem auto no-repeat;
+    background: url('~/assets/mo_images/common/icon_split.png') 0rem -14.5rem / 25rem auto no-repeat;
     display: inline-block;
     flex-shrink: 0;
   }
@@ -135,7 +135,7 @@ const modalPositioning = () => {
     width: 2.4rem;
     height: 2.4rem;
     font-size: 0;
-    background: url(/_nuxt/assets/mo_images/common/icon_split.png) -21rem -7rem / 25rem auto no-repeat;
+    background: url('~/assets/mo_images/common/icon_split.png') -21rem -7rem / 25rem auto no-repeat;
     position: absolute;
     top: 2rem;
     right: 1.6rem;
