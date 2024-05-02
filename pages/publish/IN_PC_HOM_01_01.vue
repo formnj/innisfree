@@ -623,6 +623,7 @@ const rankingTabs = [
         &.recommend {
           .module_01 {
             > ul {
+              margin-left:-30px;
               display:flex;
               > li {
                 width:33.3333%;
