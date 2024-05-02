@@ -35,7 +35,7 @@
         <li class="point">
           <p>
             뷰티포인트
-            <Icons class="tooltip" @mouseenter="tooltip.open" />
+            <Icons class="tooltip" @mouseenter="tooltip.open($event,0)" />
           </p>
           <span class="num"><strong>1,000</strong>P</span>
         </li>
@@ -125,7 +125,7 @@
           <p>뷰티포인트는 회원이 제품 구매 시 적립해 드리는 뷰티포인트를 모아<br>브랜드에 관계없이 자유롭게 사용할 수 있으며, 다양한 제휴 서비스도 누릴 수 있습니다.</p>
           <span>
             아모레퍼시픽 전 매장&#40;온/오프라인&#41;에서 자유롭게 합산 및 사용하실 수 있습니다.
-            <Button class="btn_outline" txt="사용가능매장" />
+            <Button class="btn_outline" txt="사용가능매장" @mouseenter="tooltip.open($event,1)" />
           </span>
         </div>
         <h4 class="sub_tit">뷰티포인트 적립안내</h4>
@@ -345,7 +345,14 @@
       </div>
     </section>
 
-    <div class="tooltip_wrap" @click="tooltip.close"></div>
+    <div class="tooltip_wrap">
+      <div class="con" :style="{width:tool_list[tool_idx].width+'px'}">
+        <h5>{{ tool_list[tool_idx].tit }}</h5>
+        <p class="desc">{{ tool_list[tool_idx].desc }}</p>
+        <p class="sub_desc">{{ tool_list[tool_idx].sub }}</p>
+      </div>
+      <button type="button" @click="tooltip.close">툴팁닫기</button>
+    </div>
   </div>
 </template>
 <script setup>
@@ -382,6 +389,19 @@ const swiper_options = {
 }
 /* swiper option */
 
+const tool_list = [
+  {
+    tit:'뷰티 포인트',
+    desc:'뷰티 포인트는 쌓을수록 아름다워지는 아모레퍼시픽 통합 멤버십 포인트 입니다.',
+    sub:'아모레퍼시픽의 화장품, 생활용품, 건강식품의 모든 브랜드와 이니스프리, 에뛰드, 에스쁘아의 고객들에게 제공되는 통합 멤버십 서비스입니다. 뷰티포인트는 회원이 제품 구매 시 적립해 드리는 뷰티포인트를 모아 브랜드에 관계없이 자유롭게 사용할 수 있으며, 다양한 제휴 서비스도 누릴 수 있습니다.',
+    width:283,
+  }, {
+    tit:'사용가능 매장',
+    desc:'아모레퍼시픽 전 매장(온/오프라인)에서\n자유롭게 합산 및 사용하실 수 있습니다.',
+    sub:'아모레퍼시픽, 설화수, 헤라, 라네즈, 마몽드,\n아이오페, 아리따움, 한율, 프리메라, 리리코스,\n베리떼, makeON, 이니스프리, 에뛰드, 에스쁘아,\n오설록, VB프로그램, 롤리타렘피카, ANNICKGOUTAL,\n려, 미장센, 해피바스, 일리, 오딧세이, 미래파,\n틴:클리어, 댄트롤, 메디안, 송염'
+  }
+]
+
 onMounted(() => {
   document.querySelectorAll('#membership_tab li').forEach((item,idx) => {
     item.addEventListener('click', () => {
@@ -410,19 +430,20 @@ const toggle_btn = (e) => {
 }
 
 const tooltip = {
-  open: (e) => {
+  open: (e,idx) => {
     const tooltip_wrap = document.querySelector('.tooltip_wrap');
-    const rect = e.target.getBoundingClientRect();
-    const top = rect.top;
-    const right = rect.right;
+    const top = e.target.offsetTop;
+    const left = e.target.offsetLeft - tooltip_wrap.clientWidth;
 
     tooltip_wrap.classList.add('active');
-    tooltip_wrap.style.cssText=`top:${top}px;left:${right}px;`;
+    tooltip_wrap.style.cssText=`top:${top+10}px;left:${left}px;`;
+    tool_idx.value = idx;
   },
   close: () => {
     document.querySelector('.tooltip_wrap').classList.remove('active');
   }
-}
+};
+const tool_idx = ref(0);
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   layoutType: {
@@ -443,15 +464,51 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 }
 
 .tooltip_wrap {
-  width:500px;
-  height:500px;
-  background:#009D5E;
-  display:none;
+  background:#fff;
+  box-shadow:5px 5px 20px rgba(0,0,0,0.15);
+  opacity:0;
+  visibility:hidden;
   position:absolute;
   top:0;
   left:0;
+  .con {
+    padding:30px 20px;
+    h5 {
+      margin-bottom:10px;
+      color:#000;
+      font-size:18px;
+      font-weight:600;
+      line-height:1.33em;
+      letter-spacing:-0.01em;
+    }
+    p {
+      font-size:13px;
+      line-height:20px;
+      letter-spacing:-0.13px;
+      &.desc {
+        color:#666;
+      }
+      &.sub_desc {
+        margin-top:8px;
+        color:#777;
+        font-weight:600;
+      }
+    }
+  }
+  button {
+    width:24px;
+    height:24px;
+    background:url('~/assets/images/common/icon_split.png') no-repeat -55px -250px;
+    background-size:250px auto;
+    font-size:0;
+    text-indent:-99999px;
+    position:absolute;
+    top:10px;
+    right:10px;
+  }
   &.active {
-    display:block;
+    opacity:1;
+    visibility:visible;
   }
 }
 
@@ -881,16 +938,15 @@ section {
         display:block;
       }
       .header {
+        width:700px;
         height:140px;
         margin:10px auto 0;
         padding-left:170px;
         background:url('~/assets/images/common/img_beauty_logo.png') no-repeat 0 0;
-        display:inline-flex;
+        display:flex;
         flex-direction:column;
         justify-content:center;
-        position:relative;
-        left:50%;
-        transform:translateX(-50%);
+        letter-spacing: -0.01em;
         h4 {
           font-size:20px;
           font-weight:600;
