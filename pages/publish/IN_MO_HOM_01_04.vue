@@ -75,11 +75,14 @@
         </div>
         <div class="modal_content">
           <div>
-              <p>동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능</p>
-              <p>기간 : 4/14(일) - 5/1(수) 23:59:00까지</p>
-              <p>(행사제외 - 블루베리 클렌징 워터)</p>
+              <p>동일 제품 및 교차 구매 / 기간 내 최대 10개 구매 가능</p>
+              <span>기간 : 3/14(목) - 3/31(일) 23:59:00까지</span>
           </div>
         </div>
+        <div class="modal_footer">
+            <Button txt="확인" class="btn_ confirm"/>
+        </div>
+
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
@@ -95,7 +98,7 @@
         <div class="modal_content">
           <dl>
             <dt>
-              <img src="/_nuxt/assets/images/sam/sam_pre_01.png">
+              <img src="/_nuxt/assets/images/sam/giveaway_01.png">
             </dt>
             <dd>
               <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
@@ -105,7 +108,7 @@
           </dl>
           <dl>
             <dt>
-              <img src="/_nuxt/assets/images/sam/sam_pre_02.png">
+              <img src="/_nuxt/assets/images/sam/giveaway_02.png">
             </dt>
             <dd>
               <p>비타C 세럼 럭키 박스 (30ml + 랜덤기프트)</p>
@@ -115,7 +118,7 @@
           </dl>
           <dl>
             <dt>
-              <img src="/_nuxt/assets/images/sam/am_pre_03.png">
+              <img src="/_nuxt/assets/images/sam/giveaway_03.png">
             </dt>
             <dd>
               <p>레티놀 시카 앰플 포커싱 패치 1ea / 9patches</p>
@@ -403,19 +406,14 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
         dl {
           border:1px solid #F5F5F5;
           display:flex;
-          gap:2.0rem;
           dt {
             width:8.8rem;
             height:11.7rem;
-            border:1px solid red;
-            flex:1 auto;
-            img {
-              object-fit: cover;
-            }
+
           }
           dd {
             width:20.4rem;
-            padding:1.8rem 2.1rem 1.8rem 0;
+            padding:1.8rem 0 1.8rem 2.1rem;
             display:flex;
             flex-direction:column;
             p {
@@ -432,6 +430,30 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
               font-size:1.3rem;
             }
           }
+        }
+      }
+    }
+  }
+}
+.modal_wrap {
+  &#sample_01 {
+    .modal_container {
+      .modal_header {
+        border-bottom:0;
+        h2 {
+          font-size:1.8rem;;
+        }
+      }
+      .modal_content {
+        padding:2.0rem;
+        p {
+          font-size:1.3rem;
+        }
+        span {
+          margin-top:0.8rem;
+          color:#666;
+          font-size:1.3rem;
+          display:inline-block;
         }
       }
     }
