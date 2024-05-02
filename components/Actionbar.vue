@@ -4,7 +4,7 @@
             <Button class="btn_icon_back" txt=""/>
             <div class="pdtSortTab_wrap">
                 <div class="sortTab">
-                    <button class="btn_dropdown" @click="modal.open('sample_modal_sort', 'bottom');" >추천순</button>
+                    <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom');" >추천순</button>
                 </div>
                 <button @click="modal.open('sample_modal_search', 'bottom');">상세검색</button>
             </div>
@@ -305,6 +305,8 @@ const cate_layer = {
     }
 
     .pdtSortTab_wrap {
+      width: 20rem;
+    height: 3.8rem;
         padding:10px 15px;
         border:1px solid #000;
         border-radius:20px;
@@ -323,14 +325,14 @@ const cate_layer = {
             opacity:1;
         }
         button {
-            font-size:13px;
+            font-size:1.2rem;
             font-weight:600;
             border-radius:0;
         }
         .sortTab {
             position:relative;
             > button {
-                margin-right:16px;
+
                 display: flex;
                 justify-content:center;
                 &::after {
@@ -351,7 +353,7 @@ const cate_layer = {
                 display: flex;
                 justify-content:center;
                 &::before{
-                    left:-8px !important;
+                    left:1px !important;
                 }
                 &::after {
                     content:'';
