@@ -81,7 +81,7 @@
 </script>
 <style scoped>
 em {font-style:normal;}
-.check {min-height:20px; padding-left:26px; line-height:1; position:relative; display:inline-block;}
+.check {min-height:20px; padding-left:26px; line-height:1; position:relative; display:inline-block; cursor:pointer;}
 .check > * {line-height:1.4; vertical-align:middle; display:inline-block;}
 .check input {margin:0 0 0 1px; position:absolute;}
 .check .label:before, .check .label:after {content:''; position:absolute; display:inline-block;}
@@ -92,8 +92,10 @@ em {font-style:normal;}
 .check input[type='radio']:checked + .label:after {width:14px; height:14px; background-color:#333; border-radius:50%; box-sizing:border-box; top:3px; left:3px;}
 
 /* checkbox */
-.check input[type='checkbox'], .check input[type='checkbox'] + .label:before {width:20px; height:20px; background-color:#fff; border:1px solid #ccc; box-sizing:border-box; top:0; left:0;}
-.check input[type='checkbox']:checked + .label:after {width:8px; height:13px; border:2px solid #333; border-top:0; border-left:0; top:1px; left:6px; -webkit-transform:rotate(45deg); transform:rotate(45deg);}
+.check input[type='checkbox'], .check input[type='checkbox'] + .label:before {width:20px; height:20px; background-color:#ddd; box-sizing:border-box; top:0; left:0; transition:all .2s;}
+.check input[type='checkbox'] + .label:after {width:6px; height:9px; border:2px solid #fff; border-top:0; border-left:0; top:4px; left:7px; -webkit-transform:rotate(45deg); transform:rotate(45deg);}
+.check input[type='checkbox']:checked, .check input[type='checkbox']:checked + .label:before {background-color:#00BC70;}
+.check input[type='checkbox']:disabled, .check input[type='checkbox']:disabled + .label:before {background-color:#f5f5f5;}
 
 .check_ani {position:relative; display:inline-block;}
 .check_ani input {margin:0 0 0 1px; position:absolute; opacity:0;}

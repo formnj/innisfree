@@ -1,12 +1,13 @@
 <template>
-    <ul class="hash">
+    <ul class="hash" :class="hashType">
         <li v-for="(item,idx) in item" :key="idx"><button>{{ item }}</button></li>
     </ul>
 </template>
 
 <script setup>
 const props = defineProps({
-    item: Array,
+  hashType: String,
+  item: Array,
 })
 </script>
 
@@ -21,6 +22,17 @@ const props = defineProps({
         font-size:10px;
         background-color:#EDFFF8;
         border-radius:100px;
+    }
+
+    &.round {
+     button {
+      padding: 3px 10px;
+      font-size: 12px;
+      background-color: #fff;
+      border: 1px solid #009D5E;
+      display: flex;
+      align-items: center;
+     }
     }
 }
 </style>
