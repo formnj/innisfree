@@ -4,6 +4,114 @@
  * jjy11@amorepacific.com
  */
 
+export const mo_benefit_goods = [
+  {
+      img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+      overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+      cate:'BEST',
+      name:'히알루론 수분 선크림 SPF 50+ PA++++',
+      price:'11,000', sale:'~50%', cost:'26,000',
+      status:'sold_out',
+  },
+  {
+    img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+    overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+    cate:'BEST',
+    name:'블랙티 유스 인핸싱 앰플 50ml',
+    price:'11,000', sale:'~50%', cost:'26,000',
+    hash:['#스킨팩','#화장솜','#순면화장솜'],
+    giveaway: {
+        modal_id:'giveaway_01',
+        modal_type:'bottom',
+        img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
+        img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
+        img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
+    }
+  },
+  {
+      img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+      overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
+      cate:'NEW',
+      name:'그린티 씨드 히알루론산 세렘 80ml',
+      price:'44,800', sale:'~20%', cost:'56,000',
+      status:'coming_soon',
+      sticker:[
+          {txt:'1+1', type:'type02'},
+          {txt:'뷰티포인트전용', type:'type01'},
+          {txt:'첫구매전용', type:'type01'}
+      ]
+  },
+  {
+      img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+      overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+      cate:'BEST',
+      name:'블랙티 유스 인핸싱 앰플 50ml',
+      price:'11,000', sale:'~50%', cost:'26,000',
+      status:'sold_out',
+      giveaway: {
+          modal_id:'giveaway_01',
+          modal_type:'bottom',
+          img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
+          img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
+          img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
+      }
+  },
+]
+
+export const sample_data = [
+  {
+      sub_title :'립 2개 이상 50%',
+      desc:'립 카테고리 전 제품 1개 구매시 30% 2개 이상 구매시 50% 반값!!',
+      notice:{
+          modal_id:'sample_01',
+          title:'“납작아이브로우/컨실러” 기획전 제품 구매 시 유의사항',
+          exp:'동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능',
+          period:'기간 : 4/14(일) - 5/1(수) 23:59:00까지',
+          exception:''
+      },
+  },
+
+  {
+      sub_title :'마스크팩 10개 구매시 50%',
+      desc:'에너지마스크팩 10개 담으면 50% 반값!!',
+      date:{
+          day:15,
+          hour:10,
+          min:59,
+          sec:60
+      },
+      notice:{
+          modal_id:'sample_01',
+          title:'“납작아이브로우/컨실러” 기획전 제품 구매 시 유의사항',
+          exp:'동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능',
+          period:'기간 : 4/14(일) - 5/1(수) 23:59:00까지',
+          exception:''
+      },
+  },
+  {
+      sub_title :'클렌징폼 3개 이상 구매시 30% 할인',
+      desc:'클렌징폼 저렴하게 구할 수 있는 절호의 찬스!',
+      date:{
+          day:14,
+          hour:15,
+          min:59,
+          sec:60
+      },
+      notice:{
+          modal_id:'sample_02',
+          title:'“클렌징오일/워터/크림” 기획전 제품 구매 시 유의사항',
+          exp:'동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능',
+          period:'기간 : 4/14(일) - 5/1(수) 23:59:00까지',
+          exception:'(행사제외 - 블루베리 클렌징 워터)'
+      },
+  },
+]
+
+
+export const sale_menu = [
+  "립 ~50%","마스크팩 ~50%","클렌징 ~30%","립 ~50%","마스크팩 ~50%","클렌징 ~30%","마스크팩 ~50%","클렌징 ~30%","립 ~50%","마스크팩 ~50%","클렌징 ~30%",
+]
+
 export const select_list = [
   {
     img:('/_nuxt/assets/images/sam/MYP_01_04_1.jpg'),

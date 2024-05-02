@@ -1,121 +1,142 @@
 <template>
-    <div class="prdnav">
-        <button @click="modal.open('sample_modal_sort', 'bottom');">
-            <span>전체</span>
-        </button>
-    </div>
     <div class="inner">
-        <section v-for="(item, idx) in sample_data" :key="idx">
-            <h3>{{ item.sub_title_01 }}</h3>
-            <p>{{ item.sub_title_02 }}</p>
-            <em>{{ item.desc }}</em>
-            <div class="timer_wrap">
-                <div class="num">
-                    <span id="prom_day">{{item.date.day}}</span>
-                </div>
-                <span class="unit">일</span>
-                <div class="num">
-                    <span id="prom_hh">{{item.date.hour}}</span>
-                </div>
-                <span class="unit">시</span>
-                <div class="num">
-                    <span id="prom_mm">{{item.date.min}}</span>
-                </div>
-                <span class="unit">분</span>
-                <div class="num">
-                    <span id="prom_ss">{{item.date.sec}}</span>
-                </div>
-                <span class="unit">초</span>
-            </div>
-            <button @click="modal.open(item.notice.modal_id, 'alert');">유의사항</button>
-            <div class="list_wrap">
-                <ul class="goods_list">
-                    <li v-for="(item, idx) in sample_goods" :key="idx">
-                    <GoodsItem :item="item" :link="item.link" />
-                    </li>
-                </ul>
-            </div>
-            <hr>
-        </section>
-
-        <div class="benefits_wrap">
-            <h3>특가 할인 찬스 / 사은품 증정 혜택</h3>
-            <div class="list_wrap">
-                <ul class="goods_list">
-                    <li v-for="(item, idx) in sample_goods" :key="idx">
-                    <GoodsItem :item="item" :link="item.link" />
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-
-        <div class="modal_wrap" id="sample_01">
-            <div class="modal_container">
-                <div class="modal_header">
-                    <h2>기획전 제품 구매 유의사항</h2>
-                    <button class="btn_close" @click="modal.close(this);">닫기</button>
-                </div>
-                <div class="modal_content">
-                    <div>
-                        <span>{{sample_data[0].notice.title}}</span>
-                        <p>{{sample_data[0].notice.exp}}</p>
-                        <p>{{sample_data[0].notice.period}}</p>
-                        <p v-if="sample_data[0].notice.exception">{{sample_data[0].notice.exception}}</p>
-                    </div>
-                </div>
-                <div class="modal_footer">
-                    <Button class="btn_type_02" txt="확인" />
-                </div>
-            </div>
-            <div class="overlay" @click="modal.close(this);"></div>
-        </div>
-
-        <div class="modal_wrap" id="sample_02">
-            <div class="modal_container">
-                <div class="modal_header">
-                    <h2>기획전 제품 구매 유의사항</h2>
-                    <button class="btn_close" @click="modal.close(this);">닫기</button>
-                </div>
-                <div class="modal_content">
-                    <div>
-                        <span>{{sample_data[1].notice.title}}</span>
-                        <p>{{sample_data[1].notice.exp}}</p>
-                        <p>{{sample_data[1].notice.period}}</p>
-                        <p v-if="sample_data[1].notice.exception">{{sample_data[1].notice.exception}}</p>
-                    </div>
-                </div>
-                <div class="modal_footer">
-                    <Button class="btn_type_02" txt="확인" />
-                </div>
-            </div>
-            <div class="overlay" @click="modal.close(this);"></div>
-        </div>
-
-
-        <div class="modal_wrap" id="sample_modal_sort">
-            <div class="modal_container">
-                <div class="modal_header">
-                    <button class="btn_close" @click="modal.close(this);">닫기</button>
-                </div>
-                <div class="modal_content">
-                    <div>
-                        <ul class="discount_list">
-                            <li class="active"><a href="#none" class="active">전체</a></li>
-                            <li><a href="#none">납작아이브로우/컨실러 2개 이상 구매시 40%</a></li>
-                            <li><a href="#none">클렌징오일/워터/크림 2개 이상 구매시 40%</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="overlay" @click="modal.close(this);"></div>
+        <div class="tab_scroll_wrap">
+          <Tabs tabType="type_02" :item="[{txt:'립 ~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'}]"  :tabidx="0" />
+          <label for="skin1" class="setFilter_sample">
+            <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
+          </label>
         </div>
     </div>
+  <template  v-for="(item, idx) in sample_data" :key="idx">
+    <!-- title washed -->
+    <div class="sub_title_wrap">
+      <div>
+        <h3>{{ item.sub_title }}
+          <Icons class="tooltip" txt="툴팁" @click="modal.open('sample_01', 'alert');" />
+        </h3>
+        <p class="explain">{{item.desc}}</p>
+      </div>
+    </div>
+    <!-- //title washed -->
+
+    <div class="inner">
+      <div class="timer_wrap" v-if="item.date">
+          <div class="num">
+              <span id="prom_day">{{item.date.day}}</span>
+          </div>
+          <span class="unit">일</span>
+          <div class="num">
+              <span id="prom_hh">{{item.date.hour}}</span>
+          </div>
+          <span class="unit">시</span>
+          <div class="num">
+              <span id="prom_mm">{{item.date.min}}</span>
+          </div>
+          <span class="unit">분</span>
+          <div class="num">
+              <span id="prom_ss">{{item.date.sec}}</span>
+          </div>
+          <span class="unit">초</span>
+      </div>
+
+      <div class="list_wrap">
+        <ul class="goods_list">
+            <li v-for="(item, idx) in sample_goods" :key="idx" >
+                <GoodsItem :item="item" :link="item.link" class="type_cart"/>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </template>
+
+  <div class="sub_title_wrap">
+    <div>
+      <h3>이니스프리 혜택 모음
+        <Icons class="tooltip" txt="툴팁" @click="modal.open('sample_01', 'alert');" />
+      </h3>
+    </div>
+  </div>
+  <div class="inner benefis">
+    <div class="list_wrap">
+      <ul class="goods_list division_02">
+          <li v-for="(item, idx) in mo_benefit_goods" :key="idx" >
+              <GoodsItem :item="item" :link="item.link" class="type_cart"/>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- tooltip modal -->
+  <div class="modal_wrap" id="sample_01">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>프로모션 제품 구매시 유의사항</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <div>
+              <p>동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능</p>
+              <p>기간 : 4/14(일) - 5/1(수) 23:59:00까지</p>
+              <p>(행사제외 - 블루베리 클렌징 워터)</p>
+          </div>
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //tooltip modal -->
+
+
+  <div class="modal_wrap" id="giveaway_01">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>증정품안내</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <dl>
+            <dt>
+              <img src="/_nuxt/assets/images/sam/sam_pre_01.png">
+            </dt>
+            <dd>
+              <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+              <em>24.3.25 ~ 24.3.31</em>
+              <span>1개 구매시 1개 증정</span>
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <img src="/_nuxt/assets/images/sam/sam_pre_02.png">
+            </dt>
+            <dd>
+              <p>비타C 세럼 럭키 박스 (30ml + 랜덤기프트)</p>
+              <em>23.4.11</em>
+              <span>1개 구매시 n개 증정</span>
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <img src="/_nuxt/assets/images/sam/am_pre_03.png">
+            </dt>
+            <dd>
+              <p>레티놀 시카 앰플 포커싱 패치 1ea / 9patches</p>
+              <em>24.2.29 ~ 24.3.31</em>
+              <span>1개 구매시 n개 증정</span>
+            </dd>
+          </dl>
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+</div>
+
 </template>
 
 <script setup>
 import { sample_goods } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui'
+import {sample_data} from '~/test/data/publish/dummyData.js'
+import {mo_benefit_goods} from '~/test/data/publish/dummyData.js'
+import { setFilter } from '~/assets/js/common-ui.js'
+
 definePageMeta({
 layout:'mo-category'
 });
@@ -127,149 +148,147 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
     }
 });
 
-const sample_data = [
-    {
-        sub_title_01 :'납작브로우 컨실러',
-        sub_title_02 :'2개이상 구매시 40%',
-        desc:'납작 아이 브로우 펜슬/라이트 피팅 컨실러 1개 30%, 2개 이상 구매시 40%',
-        date:{
-            day:15,
-            hour:10,
-            min:59,
-            sec:60
-        },
-        notice:{
-            modal_id:'sample_01',
-            title:'납작아이브로우/컨실러 2개이상 구매시 40%',
-            exp:'동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능',
-            period:'기간 : 4/14(일) - 5/1(수) 23:59:00까지',
-            exception:''
-        },
-    },
-    {
-        sub_title_01 :'클렌징오일/워터/크림',
-        sub_title_02 :'2개이상 구매시 40%',
-        desc:'클렌징오일/워터/크림 1개 구매 시 30%, 2개 이상 구매 시 40%',
-        date:{
-            day:14,
-            hour:15,
-            min:59,
-            sec:60
-        },
-        notice:{
-            modal_id:'sample_02',
-            title:'클렌징오일/워터/크림 2개이상 구매시 40%',
-            exp:'동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능',
-            period:'기간 : 4/14(일) - 5/1(수) 23:59:00까지',
-            exception:'(행사제외 - 블루베리 클렌징 워터)'
-        },
-    },
-]
+
+
 </script>
 
 <style lang="scss" scoped>
 
-.prdnav {
-    width:100%;
-    height:100%;
-    margin-top:10px;
-    position:sticky;
-    top:100px;
-    z-index:5;
-    button {
-        width:inherit;
-        padding:10px;
-        border: 1px solid #EEE;
-        background:#fff;
-        display:inline-block;
-        span {
-            width:inherit;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            &::after {
-                content:'';
-                width:16px;
-                height:16px;
-                background-image: url('~/assets/mo_images/common/icon_split.png');
-                background-repeat:no-repeat;
-                background-size:250px;
-                background-position:0px -69px;;
-                display:inline-block;
-
-            }
-        }
+.tab_scroll_wrap {
+  width:100%;
+  height:100%;
+  position:sticky;
+  top:140px;
+  display:flex;
+  align-items:center;
+  gap:1.0rem;
+  ::v-deep .tab_wrap {
+    width:80%;
+    overflow-x:auto;
+    &::-webkit-scrollbar{
+    display:none;
     }
+    .type_02 {
+      margin-left: -9px !important;
+    }
+    .benefit {
+      > * {
+            border-color:transparent !important;
+            background-color:#fff !important;
+        }
+      }
+
+  }
+    .setFilter_sample {
+    padding-left: 0;
+    display: inline-block;
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      z-indeX: -1;
+      opacity: 0;
+    }
+
+    span {
+      padding: 6px 14px;
+      color: #00BC70;
+      font-weight: 600;
+      font-size: 14px;
+      border:2px solid #00BC70;
+      border-radius:15px;
+      line-height: 1.29em;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+
+      &.active {
+        color: #FFFFFF;
+        background: #00BC70;
+      }
+    }
+  }
+}
+
+.sub_title_wrap {
+  > div {
+    h3 {
+      font-size:1.8rem;
+      font-weight:600;
+    }
+    p.explain {
+      font-size:1.3rem;
+      font-weight:400;
+    }
+  }
 }
 .inner {
-    height:100%;
-    h3 {
-            font-size:18px;
-            font-weight:600;
-        }
-    > section {
-        padding:20px 0;
-        p {
-            font-size:18px;
-            font-weight:600;
-        }
-        em {
-            padding:10px 0 15px;
-            color:#999;
-            font-size:12px;
-            display:inline-block;
-        }
-        .timer_wrap {
-            display:flex;
-            align-items:center;
-            .num {
-                width: 42px;
-                height: 48px;
-                background-image: url('~/assets/images/common/icon_split.png');
-                background-repeat:no-repeat;
-                background-size:250px;
-                background-position:-117px -142px;
-                position:relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                &::after {
-                    content: '';
-                    width: 100%;
-                    height: 1px;
-                    background: #1D1D1D;
-                    position: absolute;
-                    left: 1px;
-                    top: 24px;
-                    z-index: 2;
-                    display: block;
-                    opacity: 0.5;
-                }
-                span {
-                    color: #FFFFFF;
-                    font-size: 18px;
-                    line-height: 0.83em;
-                    letter-spacing: -0.01em;
-                    position: relative;
-                    z-index: 1;
-                }
-            }
-            .unit {
-                padding: 0 10px;
-                color: #000000;
-                font-size: 14px;
-                line-height: 1.33em;
-                letter-spacing: -0.01em;
-                display: block;
-            }
-        }
+  height:100%;
+  margin-left: -2.1rem;
+  margin-right: -2.1rem;
+  padding-left:2.1rem;
+  padding-right:2.1rem;
+  border-bottom:5px solid #F5F5F5;
+  &:first-of-type {
+    border-bottom:0;
+  }
+  &.benefis {
+    border-bottom:0;
+  }
+  em {
+      padding:10px 0 15px;
+      color:#999;
+      font-size:12px;
+      display:inline-block;
+  }
+  .timer_wrap {
+      display:flex;
+      align-items:center;
+      .num {
+          width: 42px;
+          height: 48px;
+          background-image: url('~/assets/images/common/icon_split.png');
+          background-repeat:no-repeat;
+          background-size:250px;
+          background-position:-117px -142px;
+          position:relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          &::after {
+              content: '';
+              width: 100%;
+              height: 1px;
+              background: #1D1D1D;
+              position: absolute;
+              left: 1px;
+              top: 24px;
+              z-index: 2;
+              display: block;
+              opacity: 0.5;
+          }
+          span {
+              color: #FFFFFF;
+              font-size: 18px;
+              line-height: 0.83em;
+              letter-spacing: -0.01em;
+              position: relative;
+              z-index: 1;
+          }
+      }
+      .unit {
+          padding: 0 10px;
+          color: #000000;
+          font-size: 14px;
+          line-height: 1.33em;
+          letter-spacing: -0.01em;
+          display: block;
+      }
+  }
         > button {
             margin-top:20px;
             font-size:12px;
             text-decoration:underline;
-        }
-        > .list_wrap {
-            margin-top:40px;
         }
         hr {
           margin-top: 60px;
@@ -277,7 +296,7 @@ const sample_data = [
           margin-right: -21px;
           border: 2px solid #eee;
         }
-    }
+
     >.benefits_wrap {
         padding:20px 0;
         h3 {
@@ -315,15 +334,108 @@ const sample_data = [
         }
     }
     .goods_list {
-    margin-top:-20px;
-    margin-left:-15px;
+      margin-left: -1rem;
+      margin-top:2.0rem;
+      &.division_02 {
+        margin-left: -1rem;
+        margin-right:-1rem;
         > li {
-            width:50%;
-            padding-top:20px;
-            padding-left:15px;
+          width:48%;
+          ::v-deep .goods_item  {
+            .img_wrap {
+              a {
+                span.thumb {
+                  width:16.5rem !important;
+                  height:22.0rem !important;
+                }
+              }
+            }
+          }
+        }
+      }
+        > li {
+            width:33.333%;
+            padding-top:0 !important;
+            padding-left:1.0rem !important;
         }
     }
 
+}
+
+.modal_wrap.bottom {
+  &#giveaway_01 {
+    ::v-deep .modal_container {
+      .modal_header {
+        .btn_close {
+          width: 24px;
+          height: 24px;
+          font-size: 0;
+          background-color: transparent;
+          position: absolute;
+          top: 20px !important;
+          left:90% !important;
+          transform: translate(0,0);
+          &::before, &::after{
+            width: 100%;
+            border-top: 1px solid #222;
+            border-radius:0;
+            background:none;
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: block;
+          }
+          &::before {
+            transform: rotate(45deg);
+          }
+          &::after {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+      .modal_content {
+        padding:2.0rem 2.1rem;
+        border-top:1px solid #eee;
+        > * + * {
+          margin-top:1.0rem;
+        }
+        dl {
+          border:1px solid #F5F5F5;
+          display:flex;
+          gap:2.0rem;
+          dt {
+            width:8.8rem;
+            height:11.7rem;
+            border:1px solid red;
+            flex:1 auto;
+            img {
+              object-fit: cover;
+            }
+          }
+          dd {
+            width:20.4rem;
+            padding:1.8rem 2.1rem 1.8rem 0;
+            display:flex;
+            flex-direction:column;
+            p {
+              font-size:1.3rem;
+            }
+            em {
+              margin-top:0.5rem;
+              color:#666;
+              font-size:1.2rem;
+            }
+            span {
+              margin-top:auto;
+              margin-bottom:0;
+              font-size:1.3rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 </style>
