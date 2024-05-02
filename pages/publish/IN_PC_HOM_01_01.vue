@@ -373,7 +373,7 @@ const rankingTabs = [
 </script>
 <style lang="scss" scoped>
     .main {
-      min-width:1320px;
+      min-max-width:1320px;
       .visual {
         margin-top:40px;
         .swiper-container {

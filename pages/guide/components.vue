@@ -73,8 +73,10 @@
     </ul>
     <div class="design_box">
       <Icons class="tooltip" />
+      <Icons class="del" />
     </div>
-    <pre class="code_box"><code>&lt;Icons class="tooltip" /&gt;</code></pre>
+    <pre class="code_box"><code>&lt;Icons class="tooltip" /&gt;
+&lt;Icons class="del" /&gt;</code></pre>
   </section>
 
   <section>
@@ -166,6 +168,60 @@
         &lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>Cart list</h2>
+    <ul class="explain">
+      <li>장바구니 리스트 등 ul, li를 이용한 table Row 형태의 리스트</li>
+      <li>class : 하위요소의 넓이 등을 지정 할 클래스명(예: cart_list), type_default : 형태(예: type_default = 기본 리스트 스타일)</li>
+    </ul>
+    <div class="design_box">
+      <div class="list_wrap">
+        <ul class="cart_list type_default">
+          <li>
+            <div class="row">
+              <div class="cell check">
+                <Inputs _type="checkbox" />
+              </div>
+              <div class="cell pdt_img">
+                <a href="#none">
+                  <span class="thumb">
+                    <em><img src="https://images.innisfree.co.kr/upload/product/36116_l_S_140.jpg?T202404300927" alt="" /></em>
+                  </span>
+                </a>
+              </div>
+              <div class="cell pdt_info">
+                <a href="#none" class="name">상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명</a>
+                <div class="alt">
+                  <span>[4/23 ~ 5/1, 기간내 5개]</span>
+                </div>
+                <Selectbox
+                    :options="[
+                    { val: 'value', txt: '1호 블랙' },
+                    { val: 'value', txt: '옵션02' }
+                ]" />
+              </div>
+              <div class="cell count">
+                <div class="count_wrap">
+                  <Button txt="-" />
+                  <Inputs />
+                  <Button txt="+" />
+                </div>
+              </div>
+              <div class="cell price">
+                <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
+                <Button class="btn_min_outline" txt="입고알림신청" />
+                <p>
+                  <strong>52,000</strong>원
+                </p>
+                <em class="point">+529P</em><!-- point -->
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section>

@@ -181,7 +181,40 @@ onMounted(()=>{
   display:flex;
   flex-wrap:wrap;
   .content {
-      flex:1;
+    flex:1;
+    :deep(.customBen) {
+      margin: 100px 0 0;
+      overflow:hidden;
+      position: relative;
+      .img {
+        img {
+          vertical-align:top;
+        }
+      }
+      .textWrap {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:0;
+        left:0;
+        .text {
+          height: 100%;
+          margin: 0 375px 0 80px;
+          color: #fff;
+          font-size: 28px;
+          line-height: 1.43;
+          letter-spacing: -0.7px;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          text-align: left;
+          .t1, .t2 {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
   }
   .payment {
     width:360px;

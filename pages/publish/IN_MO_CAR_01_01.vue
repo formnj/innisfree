@@ -1,11 +1,4 @@
 <template>
-  <!-- title washed -->
-  <div class="title_wrap">
-    <div>
-      <h2>장바구니</h2>
-    </div>
-  </div>
-  <!-- //title washed -->
 
   <div class="inner">
     <!-- cart list -->
@@ -19,11 +12,17 @@
       <ul class="cart_list type_default">
         <!-- no data -->
         <li>
-          <p class="no_data">
+          <div class="no_data">
             <strong>장바구니에 담긴 제품이 없습니다.</strong>
-          </p>
+            <span>특가혜택 제품과 실시간 가장 인기있는<br>제품들을 살펴보세요</span>
+            <p class="btnSection">
+              <Button class="btn_min_outline" txt="특가" />
+              <Button class="btn_min_outline" txt="베스트" />
+            </p>
+          </div>
         </li>
         <!-- //no data -->
+
         <li>
           <div class="row">
             <div class="cell check">
@@ -49,21 +48,42 @@
                   { val: 'value', txt: '옵션02' }
               ]" />
             </div>
-            <div class="cell count">
-              <div class="count_wrap">
-                <Button txt="-" />
-                <Inputs />
-                <Button txt="+" />
-              </div>
-            </div>
-            <div class="cell price">
-              <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
-              <Button class="btn_min_outline" txt="입고알림신청" />
-              <p>
-                <strong>52,000 <em>원</em></strong>
-                <span class="point">+529P</span><!-- point -->
-              </p>
-            </div>
+            <ul class="addOrder">
+              <li>
+                <p class="title"> 1호 베이비 핑크</p>
+                <div class="opt_wrap">
+                  <div class="count">
+                    <div class="count_wrap">
+                      <Button txt="-" />
+                      <Inputs />
+                      <Button txt="+" />
+                    </div>
+                  </div>
+                  <div class="cell price">
+                    <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
+                    <p>
+                      <strong>52,000 <em>원</em></strong>
+                      <span class="point">+529P</span><!-- point -->
+                    </p>
+                  </div>
+                </div>
+                <Icons class="del" />
+              </li>
+              <li>
+                <div class="opt_wrap">
+                  <div class="count">
+                    <div class="count_wrap">
+                      <Button txt="-" />
+                      <Inputs />
+                      <Button txt="+" />
+                    </div>
+                  </div>
+                  <div class="cell price">
+                    <span>판매중지</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
+                  </div>
+                </div>
+              </li>
+            </ul>
             <div class="cell del">
               <Icons class="del" />
             </div>
@@ -96,7 +116,7 @@ import { setFilter } from '~/assets/js/common-ui.js'
 import { modal } from '~/assets/js/common-ui.js'
 
 definePageMeta({
-layout:'pc-cart'
+layout:'mo-cart'
 });
 </script>
 

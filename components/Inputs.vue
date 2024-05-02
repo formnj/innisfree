@@ -1,17 +1,30 @@
 <template>
+  <div class="input_wrap" :class="{err:isError}">
     <label v-if="_type == 'checkbox' || _type == 'radio'" :class="{'check': !isswitch, 'check_ani': isswitch}">
         <input :type="_type" :id="_id" :name="_name" />
         <em class="label">{{_text}}</em>
     </label>
     <div v-else class="label_wrap">
-        <label class="input" :class="{'err':isError}">
+        <label class="input">
             <i v-if="_placeholder && !isDisabled">{{_placeholder}}</i>
-            <input :type="_type" :id="_id" :value="_value" @focus="hidePlaceholder" @blur="valueChk" @keyup="input_btn_chk" :readonly="isReadonly" :disabled="isDisabled" />
-            <em v-if="isError" class="err_txt">{{_err_text}}</em>
+            <input
+              :id="_id"
+              :type="_type"
+              :value="_value"
+              :readonly="isReadonly"
+              :disabled="isDisabled"
+              @focus="hidePlaceholder"
+              @blur="valueChk"
+              @keyup="input_btn_chk" />
             <button class="icon_del" v-if="_type != 'password'" @click="input_btn_fn">Delete</button>
             <button class="icon_pass" v-if="_type == 'password'" @click="input_btn_fn">password</button>
         </label>
     </div>
+    <!-- 에러문구 -->
+    <em v-if="isError" class="err_txt">{{_err_text}}</em>
+    <!-- //에러문구 -->
+  </div>
+
 </template>
 
 <script setup>
@@ -80,8 +93,11 @@
     }
 </script>
 <style scoped>
+.input_wrap .err_txt {margin-top:5px; color:#ff7200; font-size:12px; line-height:18px; display:none;}
+.input_wrap.err .err_txt {display:block;}
+
 em {font-style:normal;}
-.check {min-height:20px; padding-left:26px; line-height:1; position:relative; display:inline-block;}
+.check {min-height:20px; padding-left:26px; line-height:1; position:relative; display:inline-block; cursor:pointer;}
 .check > * {line-height:1.4; vertical-align:middle; display:inline-block;}
 .check input {margin:0 0 0 1px; position:absolute;}
 .check .label:before, .check .label:after {content:''; position:absolute; display:inline-block;}
@@ -92,8 +108,10 @@ em {font-style:normal;}
 .check input[type='radio']:checked + .label:after {width:14px; height:14px; background-color:#333; border-radius:50%; box-sizing:border-box; top:3px; left:3px;}
 
 /* checkbox */
-.check input[type='checkbox'], .check input[type='checkbox'] + .label:before {width:20px; height:20px; background-color:#fff; border:1px solid #ccc; box-sizing:border-box; top:0; left:0;}
-.check input[type='checkbox']:checked + .label:after {width:8px; height:13px; border:2px solid #333; border-top:0; border-left:0; top:1px; left:6px; -webkit-transform:rotate(45deg); transform:rotate(45deg);}
+.check input[type='checkbox'], .check input[type='checkbox'] + .label:before {width:20px; height:20px; background-color:#ddd; box-sizing:border-box; top:0; left:0; transition:all .2s;}
+.check input[type='checkbox'] + .label:after {width:6px; height:9px; border:2px solid #fff; border-top:0; border-left:0; top:4px; left:7px; -webkit-transform:rotate(45deg); transform:rotate(45deg);}
+.check input[type='checkbox']:checked, .check input[type='checkbox']:checked + .label:before {background-color:#00BC70;}
+.check input[type='checkbox']:disabled, .check input[type='checkbox']:disabled + .label:before {background-color:#f5f5f5;}
 
 .check_ani {position:relative; display:inline-block;}
 .check_ani input {margin:0 0 0 1px; position:absolute; opacity:0;}
@@ -107,8 +125,6 @@ em {font-style:normal;}
 label.input, label.select > div {position:relative; display:block;}
 label.input i {color:#aaa; font-size:16px; font-style:normal; line-height:18px; position:absolute; top:20px; left:15px; transform:translateY(-50%);}/* placeholder */
 label.input input[type='text'], label.input input[type='password'], label.input input[type='number'] {width:100%; font-size:16px;; line-height:18px;}
-label.input .err_txt {margin-top:5px; color:#ff7200; font-size:12px; line-height:18px; display:none;}
-label.input.err .err_txt {display:block;}
 label.input * {flex:1 auto;}
 
 .label_wrap {position:relative; flex:1;}

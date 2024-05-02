@@ -192,7 +192,7 @@
                     <a href="#none">한정 기간 특가할인 / 사은품 증정 제품 모아보기</a>
                 </div>
                 <!-- //mo banner -->
-                
+
                 <nav>
                     <div class="nav_wrap" v-if="props.device == 'PC'">
                         <Button class="btn_category" txt="카테고리" />
@@ -232,7 +232,7 @@
                             </section>
                         </div>
                     </div>
-                </nav>            
+                </nav>
             </div>
         </div>
     </header>
@@ -1298,7 +1298,7 @@ const cate_layer = {
                         height: 24px;
                         margin-right: 10px;
                         background-color: transparent;
-                        background-image: url(/_nuxt/assets/mo_images/common/icon_split.png);
+                        background-image: url('~/assets/mo_images/common/icon_split.png');
                         background-position: 0 -40px;
                         background-repeat: no-repeat;
                         background-size: 250px auto;
@@ -1467,7 +1467,7 @@ const cate_layer = {
                             }
                         }
                     }
-                }               
+                }
             }
         }
     }
