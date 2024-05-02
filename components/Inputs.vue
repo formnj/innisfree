@@ -1,17 +1,30 @@
 <template>
+  <div class="input_wrap" :class="{err:isError}">
     <label v-if="_type == 'checkbox' || _type == 'radio'" :class="{'check': !isswitch, 'check_ani': isswitch}">
         <input :type="_type" :id="_id" :name="_name" />
         <em class="label">{{_text}}</em>
     </label>
     <div v-else class="label_wrap">
-        <label class="input" :class="{'err':isError}">
+        <label class="input">
             <i v-if="_placeholder && !isDisabled">{{_placeholder}}</i>
-            <input :type="_type" :id="_id" :value="_value" @focus="hidePlaceholder" @blur="valueChk" @keyup="input_btn_chk" :readonly="isReadonly" :disabled="isDisabled" />
-            <em v-if="isError" class="err_txt">{{_err_text}}</em>
+            <input
+              :id="_id"
+              :type="_type"
+              :value="_value"
+              :readonly="isReadonly"
+              :disabled="isDisabled"
+              @focus="hidePlaceholder"
+              @blur="valueChk"
+              @keyup="input_btn_chk" />
             <button class="icon_del" v-if="_type != 'password'" @click="input_btn_fn">Delete</button>
             <button class="icon_pass" v-if="_type == 'password'" @click="input_btn_fn">password</button>
         </label>
     </div>
+    <!-- 에러문구 -->
+    <em v-if="isError" class="err_txt">{{_err_text}}</em>
+    <!-- //에러문구 -->
+  </div>
+
 </template>
 
 <script setup>
@@ -80,6 +93,9 @@
     }
 </script>
 <style scoped>
+.input_wrap .err_txt {margin-top:5px; color:#ff7200; font-size:12px; line-height:18px; display:none;}
+.input_wrap.err .err_txt {display:block;}
+
 em {font-style:normal;}
 .check {min-height:20px; padding-left:26px; line-height:1; position:relative; display:inline-block; cursor:pointer;}
 .check > * {line-height:1.4; vertical-align:middle; display:inline-block;}
@@ -109,8 +125,6 @@ em {font-style:normal;}
 label.input, label.select > div {position:relative; display:block;}
 label.input i {color:#aaa; font-size:16px; font-style:normal; line-height:18px; position:absolute; top:20px; left:15px; transform:translateY(-50%);}/* placeholder */
 label.input input[type='text'], label.input input[type='password'], label.input input[type='number'] {width:100%; font-size:16px;; line-height:18px;}
-label.input .err_txt {margin-top:5px; color:#ff7200; font-size:12px; line-height:18px; display:none;}
-label.input.err .err_txt {display:block;}
 label.input * {flex:1 auto;}
 
 .label_wrap {position:relative; flex:1;}

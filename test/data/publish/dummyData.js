@@ -4,6 +4,52 @@
  * jjy11@amorepacific.com
  */
 
+export const select_list = [
+  {
+    img:('/_nuxt/assets/images/sam/MYP_01_04_1.jpg'),
+    name:'비타C 그린티 엔자임 잡티 토닝 패드 x 2개 패키지',
+    price:{
+      regular:'56,000원',
+      discount:'42,000원'
+    }
+  },
+  {
+    img:('/_nuxt/assets/images/sam/MYP_01_04_1.jpg'),
+    name:'그린티 씨드 세럼 대용랑+리필',
+    price:{
+      regular:'78,000원',
+      discount:'52,000원'
+    }
+  },
+]
+
+export const adress_list = [
+  {
+    name:'김이나',
+    on:'기본배송지',
+    tel:'111-1111-1111',
+    adress:'(12345)서울특별시 강서구 양천로 551-17'
+  },
+  {
+    name:'김하나',
+    on:'',
+    tel:'111-1111-1111',
+    adress:'(12345)서울특별시 강서구 양천로 551-17'
+  }
+]
+
+
+export const Delivery_data = [
+  {
+      modal_id:'adress_add_modal',
+      check:'yes'
+  },
+  {
+      modal_id:'adress_modify_modal',
+  }
+]
+
+
 export const mainTopBannerData = {
   bannerText: '하나Pay 3만원 결제 시, 하나머니 5천원 적립',
   url: 'https://www.innisfree.com/kr/ko'

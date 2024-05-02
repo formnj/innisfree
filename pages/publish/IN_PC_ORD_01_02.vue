@@ -116,7 +116,7 @@
                               </div>
                               <Inputs _type="text" _placeholder="" />
                               <Inputs _type="text" _placeholder="" />
-                              <a href="#none" @mousemove="modal.open('shippingArmyInfo','layer')">군부대 배송안내
+                              <a href="#none" @mouseover="[modal.open('shippingArmyInfo','layer'),]" >군부대 배송안내
                               </a>
                             </td>
                         </tr>
@@ -160,21 +160,7 @@
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
 
-  <div class="modal_wrap" id="adress_modify_modal">
-      <div class="modal_container">
-          <div class="modal_header">
-              <h2>Modal Title</h2>
-              <button class="btn_close" @click="modal.close(this);">닫기</button>
-          </div>
-          <div class="modal_content">
-              <!-- modal contents -->
-          </div>
-          <div class="modal_footer">
-            <Button txt="저장" class="btn_ confirm" />
-          </div>
-      </div>
-      <div class="overlay" @click="modal.close(this);"></div>
-  </div>
+
 
 
   <div class="modal_wrap" id="shippingArmyInfo">
@@ -206,7 +192,6 @@
           </ol>
         </div>
     </div>
-    <div class="overlay" @click="modal.close(this);"></div>
   </div>
 
   <div class="modal_wrap" id="personalinfo">
@@ -266,6 +251,7 @@ layout:'pc-mypage'
 });
 
 import { modal } from '~/assets/js/common-ui.js'
+import {Delivery_data} from '../../test/data/publish/dummyData'
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   layoutType: {
@@ -277,23 +263,13 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 const adress_more = (event) => {
   document.querySelector('#adress_add_modal .modal_container').style.display="none"
   document.querySelector('#adress_modify_modal .modal_container').style.display="none"
-  document.querySelector('#shippingArmyInfo .modal_container').style.display="none"
+  document.querySelector('.modal_wrap#shippingArmyInfo').classList.remove('active')
 }
 const reset = (event) => {
   document.querySelector('#adress_add_modal .modal_container').style.display="block"
   document.querySelector('#adress_modify_modal .modal_container').style.display="block"
+  document.querySelector('.modal_wrap#shippingArmyInfo').classList.remove('active')
 }
-
-
-const Delivery_data = [
-  {
-      modal_id:'adress_add_modal',
-      check:'yes'
-  },
-  {
-      modal_id:'adress_modify_modal',
-  }
-]
 
 
 
@@ -301,7 +277,8 @@ const Delivery_data = [
 
 <style lang="scss" scoped>
 .title_wrap {
-  padding: 60px 20px 24px;
+  margin-bottom:24px;
+  padding:0px;
   display:flex;
   justify-content:space-between;
   h2 {
@@ -470,7 +447,7 @@ const Delivery_data = [
                         content:'';
                         width:12px;
                         height:12px;
-                        background-image:url('/_nuxt/assets/images/common/PC-icon_split.png');
+                        background-image:url('~/assets/images/common/icon_split.png');
                         background-repeat:no-repeat;
                         background-size:250px;
                         background-position: -67px -146px;
@@ -511,10 +488,25 @@ const Delivery_data = [
     }
   }
   &#shippingArmyInfo{
+    z-index:15;
+    &.active {
+      display:block;
+    }
     .modal_container {
       max-width:640px;
-      top: 350px;
       left: 560px;
+      @media screen and (min-width:1921px) {
+        top:350px;
+      }
+      @media screen and (min-width:3840px) {
+        top:755px;
+      }
+      @media screen and (max-width:1920px) {
+        top:226px;
+      }
+      @media screen and (max-width:1280px) {
+        top:195px;
+      }
       .modal_header {
         border-bottom:0;
       }

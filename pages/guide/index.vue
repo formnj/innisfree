@@ -152,12 +152,12 @@ const PC_arry = ([
         depth:['','상세','',''],
         id:'IN_PC_PRD_01_09', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-03/', worker:'김나람'
+        sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
-        id:'IN_PC_CAR_01_01', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'2024-05-10/', worker:'이종환'
+        id:'IN_PC_CAR_01_01', status:'com',
+        type:'', note:'한페이지에 모두 배치',
+        sDate:'', eDate:'2024-05-10/2024-04-30', worker:'이종환'
     }, {
         depth:['','상품 있음','',''],
         id:'IN_PC_CAR_01_02', status:'',
@@ -166,7 +166,7 @@ const PC_arry = ([
     }, {
         depth:['','적립예정 뷰티포인트','',''],
         id:'IN_PC_CAR_01_03', status:'',
-        type:'', note:'',
+        type:'', note:'IN_PC_CAR_01_01에 모달 처리',
         sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['','구매 시 최대할인 안내','',''],
@@ -184,15 +184,15 @@ const PC_arry = ([
         type:'modal', note:'마이페이지 > 배송지관리 > 추가',
         sDate:'2024-04-26', eDate:'2024-05-03/2024-04-26', worker:'김희경'
     }, {
-        depth:['','','배송지 수정','ing'],
-        id:'IN_PC_ORD_01_03', status:'',
+        depth:['','','배송지 수정',''],
+        id:'IN_PC_ORD_01_03', status:'com',
         type:'modal', note:'IN_PC_ORD_01_02 에서 해당 팝업창 확인 가능',
-        sDate:'2024-04-26', eDate:'2024-05-03/', worker:'김희경'
+        sDate:'2024-04-26', eDate:'2024-05-03/2024-05-02', worker:'김희경'
     }, {
-        depth:['','','배송지 추가','ing'],
-        id:'IN_PC_ORD_01_04', status:'',
+        depth:['','','배송지 추가',''],
+        id:'IN_PC_ORD_01_04', status:'com',
         type:'modal', note:'IN_PC_ORD_01_02 에서 해당 팝업창 확인 가능',
-        sDate:'2024-04-26', eDate:'2024-05-03/', worker:'김희경'
+        sDate:'2024-04-26', eDate:'2024-05-03/2024-05-02', worker:'김희경'
     }, {
         depth:['','안심번호 서비스 안내','',''],
         id:'IN_PC_ORD_01_08', status:'',
@@ -335,9 +335,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-10', worker:''
     }, {
         depth:['','찜한제품','',''],
-        id:'IN_PC_MYP_01_40', status:'',
+        id:'IN_PC_MYP_01_40', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        sDate:'2024-04-30', eDate:'2024-05-03/2024-04-30', worker:'김희경'
     }, {
         depth:['','스마트 영수증','목록',''],
         id:'IN_PC_MYP_01_43', status:'',
@@ -641,12 +641,12 @@ const MO_arry = ([
         depth:['','상세','',''],
         id:'IN_MO_PRD_01_09', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-03/', worker:'김나람'
+        sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
-        id:'IN_MO_CAR_01_01', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'2024-05-10/', worker:'이종환'
+        id:'IN_MO_CAR_01_01', status:'com',
+        type:'', note:'한페이지 모두 배치',
+        sDate:'', eDate:'2024-05-10/2024-04-30', worker:'이종환'
     }, {
         depth:['','상품 있음','',''],
         id:'IN_MO_CAR_01_02', status:'',
@@ -655,7 +655,7 @@ const MO_arry = ([
     }, {
         depth:['','적립예정 뷰티포인트','',''],
         id:'IN_MO_CAR_01_03', status:'',
-        type:'', note:'',
+        type:'', note:'IN_MO_CAR_01_01 모달 배치',
         sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['','구매 시 최대할인 안내','',''],
@@ -669,19 +669,19 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-24/', worker:''
     }, {
         depth:['','배송지 등록/변경','',''],
-        id:'IN_MO_ORD_01_02', status:'',
+        id:'IN_MO_ORD_01_02', status:'com',
         type:'modal', note:'마이페이지 > 배송지관리 > 추가',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        sDate:'2024-04-29', eDate:'2024-05-03/2024-04-29', worker:'김희경'
     }, {
         depth:['','','배송지 수정',''],
-        id:'IN_MO_ORD_01_03', status:'',
-        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        id:'IN_MO_ORD_01_03', status:'com',
+        type:'modal', note:'IN_MO_ORD_01_02 모달팝업 내에서 확인가능',
+        sDate:'', eDate:'2024-05-03/2024-04-29', worker:'김희경'
     }, {
         depth:['','','배송지 추가',''],
-        id:'IN_MO_ORD_01_04', status:'',
-        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        id:'IN_MO_ORD_01_04', status:'com',
+        type:'modal', note:'IN_MO_ORD_01_02 모달팝업 내에서 확인가능',
+        sDate:'', eDate:'22024-05-03/2024-04-29', worker:'김희경'
     }, {
         depth:['','안심번호 서비스 안내','',''],
         id:'IN_MO_ORD_01_08', status:'',
@@ -829,9 +829,9 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-03', worker:''
     }, {
         depth:['','찜한제품','',''],
-        id:'IN_MO_MYP_01_40', status:'',
+        id:'IN_MO_MYP_01_40', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        sDate:'2024-04-30', eDate:'2024-05-03/2024-04-30', worker:'김희경'
     }, {
         depth:['','스마트 영수증','목록',''],
         id:'IN_MO_MYP_01_43', status:'',
@@ -860,9 +860,9 @@ const MO_arry = ([
     }
     , {
         depth:['','입고알림 신청내역','',''],
-        id:'IN_MO_MYP_01_49', status:'',
+        id:'IN_MO_MYP_01_49', status:'com',
         type:'', note:'품절상품 상세에서 알림신청가능 - PC에서도 신청 가능',
-        sDate:'', eDate:'2024-05-03', worker:'김희경'
+        sDate:'2024-04-30', eDate:'2024-05-03/2024-04-30', worker:'김희경'
     }, {
         depth:['','공병수거 현황','내 공병수거 현황(T)','온라인 공병수거 신청'],
         id:'IN_MO_MYP_01_51', status:'',

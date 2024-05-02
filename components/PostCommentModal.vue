@@ -157,7 +157,7 @@ onMounted(() => {
         position: absolute;
         top: .5rem;
         right: 1rem;
-        background: url(/_nuxt/assets/mo_images/common/icon_split.png) -10.5rem -7rem / 25rem auto no-repeat;
+        background: url('~/assets/mo_images/common/icon_split.png') -10.5rem -7rem / 25rem auto no-repeat;
       }
     }
 
@@ -176,7 +176,7 @@ onMounted(() => {
         content: '';
         width: .83rem;
         height: 1.15rem;
-        background: url(/_nuxt/assets/mo_images/common/icon_split.png) -23.5rem -12rem / 25rem auto no-repeat;
+        background: url('~/assets/mo_images/common/icon_split.png') -23.5rem -12rem / 25rem auto no-repeat;
         display: inline-block;
       }
 
