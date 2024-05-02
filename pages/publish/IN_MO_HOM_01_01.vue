@@ -39,16 +39,34 @@
         <div class="custom_pagination">
           <div class="current">
             <em class="idx_01"></em>
-            <em class="idx_02"></em>
           </div>
           <strong class="total"></strong>
 
-          <Button class="swiper_controler" :data="swiper_status" :txt="swiper_status" @click="swiper_control" />
+          <Button class="swiper_controler" @click="modal.open('visual_modal', 'fullMo');" />
         </div>
         <!-- //customer pagination -->
       </swiper>
     </div>
     <!-- //visual -->
+
+    <!-- quick menu -->
+    <section class="category">
+      <div class="swiper_wrap">
+        <swiper class="module_02"
+          v-bind="swieprOpt.category"
+        >
+          <swiper-slide v-for="item in categoryForSearchLayerData" :key="item">
+            <a href="#none">
+              <span class="thumb">
+                <em><img :src="item.imageUrl" /></em>
+              </span>
+              <p>{{ item.text }}</p>
+            </a>
+          </swiper-slide>
+        </swiper>
+      </div>
+    </section>
+    <!-- //quick menu -->
 
     <section>
       <ul class="list_wrap type_column">
@@ -149,8 +167,41 @@
     </section>
     <!-- //랭킹 -->
   </div>
+
+  <div class="modal_wrap" id="visual_modal">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>전체보기</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <ul class="visual_list">
+            <li v-for="(item, idx) in mainSam.visual" :key="idx">
+              <a href="#none" class="item">
+                <!-- item text content -->
+                <div class="cont">
+                  <p class="name">
+                    <strong>{{item.name[0]}}</strong>
+                    <span>{{item.name[1]}}</span>
+                  </p>
+                </div>
+                <!-- //item text content -->
+
+                <!-- visual image -->
+                <span class="thumb">
+                  <em><img :src="item.img"></em>
+                </span>
+                <!-- //visual image -->
+              </a>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+</div>
 </template>
 <script setup>
+import { modal } from '~/assets/js/common-ui.js'
 // import Swiper core and required components
 import SwiperCore, { Autoplay, Navigation, Pagination, A11y } from "swiper";
 
@@ -177,6 +228,11 @@ const swieprOpt = {
       delay: 3000,
       disableOnInteraction: false,
     }
+  },
+  category: {
+    slidesPerView:'auto',
+    spaceBetween: 12,
+    loop: false
   },
   recommend02: {
     slidesPerView:'auto',
@@ -239,21 +295,7 @@ const onSwiper = (swiper) => {
 
   if(total < 10) {
     document.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
-
-    if((current+1) > total) {
-      document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+((total - current)+1);
-    } else {
-      document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+(current+1);
-    }
-
     document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
-  }
-
-  if(swiper_status.value == 'pause') {
-    swiper.autoplay.stop();
-    console.log(' / slide : ',swiper.autoplay)
-  } else {
-    swiper.autoplay.start();
   }
 };
 
@@ -263,40 +305,16 @@ const onSlideChange = (swiper) => {
 
   if(total < 10) {
     document.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
-
-    if((current+1) > total) {
-      document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+((total - current)+1);
-    } else {
-      document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+(current+1);
-    }
-
     document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
   }
-
-  console.log(swiper_status.value);
-
-  if(swiper_status.value == 'pause') {
-    swiper.autoplay.stop();
-    console.log(' / slide : ',swiper.autoplay)
-  } else {
-    swiper.autoplay.start();
-  }
 };
-
-const swiper_status = ref('play');
-const swiper_control = (e) => {
-  if(swiper_status.value == 'play'){
-    swiper_status.value='pause'
-  } else {
-    swiper_status.value='play';
-  }
-}
 
 import {
   sampleSlide,
   mainSam,
   sample_goods,
-  sample_event
+  sample_event,
+  categoryForSearchLayerData,
 } from '~/test/data/publish/dummyData'
 
 definePageMeta({
@@ -321,33 +339,51 @@ const rankingTabs = [
           display:none;
         }
         .custom_pagination {
-          padding:8px;
+          padding:0.8rem;
           background-color:rgba(0,0,0,0.6);
           position:absolute;
           right:0;
           bottom:0;
           z-index:1;
           display:flex;
+          align-items:center;
           justify-content:center;
+          * {
+            color:#fff;
+            font-size:1rem;
+          }
           em {
             font-weight:600;
-            & + em:before {
-              margin:0 3px;
-              content:'/';
-            }
           }
           strong {
-            margin:0 10px;
-            color:#888;
+            margin-right:0.8rem;
             font-weight:400;
             display:flex;
             align-items:center;
             &:before {
-              height:8px;
-              margin-right:10px;
-              border-left:1px solid rgba(0,0,0,0.2);
+              height:0.8rem;
+              margin-left:0.4rem;
+              padding-right:0.4rem;
+              border-left:1px solid rgba(255,255,255,0.2);
               content:'';
               display:block;
+            }
+          }
+          button {
+            width:1.2rem;
+            height:1.2rem;
+            font-size:0;
+            position:relative;
+            &:before, &:after {
+              border-top:1px solid #fff;
+              content:'';
+              position:absolute;
+              top:50%;
+              right:0.2rem;
+              left:0.2rem;
+            }
+            &:after {
+              transform:rotate(90deg);
             }
           }
         }
@@ -498,6 +534,18 @@ const rankingTabs = [
         &.type_01 {
           .swiper-slide {
             width:14rem;
+          }
+        }
+      }
+      &.category {
+        margin:3rem 0 2.4rem;
+        .swiper-slide {
+          width:5.7rem;
+          text-align:center;
+          p {
+            margin-top:0.8rem;
+            color:#888;
+            font-size:1.2rem;
           }
         }
       }
@@ -892,6 +940,36 @@ const rankingTabs = [
             }
           }
         }
+      }
+    }
+  }
+
+  /* modal */
+  .visual_list {
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.1rem;
+    > li {
+      width:calc(50% - 0.05rem);
+      a {
+       position:relative;
+       .thumb img {
+        vertical-align:top;
+       }
+       .cont {
+        position:absolute;
+        bottom:3rem;
+        left:2.1rem;
+        .name {
+          color:#fff;
+          font-size:1.3rem;
+          font-weight:600;
+          line-height:1.38rem;
+          > * {
+            display:block;
+          }
+        }
+       }
       }
     }
   }

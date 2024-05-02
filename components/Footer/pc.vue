@@ -111,6 +111,7 @@
             <h2><strong>김이니</strong>님의 쇼핑로그
               <Icons class="tooltip" txt="툴팁" @click="modal.open('log_info', 'alert')" />
             </h2>
+            <p class="explain">최근 본 제품, 이벤트, 검색어예요</p>
             <button class="btn_close" @click="modal.close(this);">닫기</button>
         </div>
         <div class="modal_content shopping_log">
@@ -182,9 +183,7 @@
   <div class="modal_wrap" id="log_info">
      <div class="modal_container">
         <div class="modal_header">
-            <h2>쇼핑로그 안내
-              <p class="explain">최근 본 제품, 이벤트, 검색어예요</p>
-            </h2>
+            <h2>쇼핑로그 안내</h2>
             <button class="btn_close" @click="modal.close(this);">닫기</button>
         </div>
         <div class="modal_content">
