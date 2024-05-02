@@ -42,7 +42,7 @@
             width:16px;
             height:16px;
             font-size:0;
-            background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+            background-image: url('~/assets/images/common/icon_split.png');
             background-size:250px;
             background-repeat:no-repeat;
             background-position:-41px -143px;
@@ -70,7 +70,7 @@
                             width:12px;
                             height:12px;
                             margin:0 12px;
-                            background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+                            background-image: url('~/assets/images/common/icon_split.png');
                             background-size:250px;
                             background-repeat:no-repeat;
                             background-position:-84px -145px;
@@ -81,7 +81,7 @@
                             width:12px;
                             height:12px;
                             margin-left:5px;
-                            background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+                            background-image: url('~/assets/images/common/icon_split.png');
                             background-size:250px;
                             background-repeat:no-repeat;
                             background-position:-65px -144px;
@@ -91,7 +91,7 @@
                         &.active {
                             color:#000 !important;
                             &::after {
-                                background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+                                background-image: url('~/assets/images/common/icon_split.png');
                                 background-size:250px;
                                 background-repeat:no-repeat;
                                 background-position:-209px 1px;

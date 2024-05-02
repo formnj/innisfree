@@ -1,0 +1,168 @@
+<template>
+  <div class="editor_post_item">
+    <a :href="link">
+      <span class="thumb">
+        <img :src="item.img" alt="">
+      </span>
+      <span class="title">
+        <Sticker :item="item.sticker" />{{ item.title }}
+      </span>
+    </a>
+
+    <div class="swiper_wrap">
+      <swiper :slides-per-view="'auto'" :space-between="16" :slides-offset-before="21">
+        <swiper-slide v-for="( goods, idx ) in  sample_goods.slice(0, 10) " :key="idx" class="swiper_item">
+          <GoodsItem :item="goods" :link="goods.link" />
+        </swiper-slide>
+      </swiper>
+    </div>
+
+    <span class="post_icons">
+      <span class="i view">{{ item.view.cnt }}</span>
+      <span class="i like">{{ item.view.like }}</span>
+      <span class="i cmnt">{{ item.view.cmnt }}</span>
+    </span>
+  </div>
+</template>
+
+<script setup>
+import { sample_goods } from '~/test/data/publish/dummyData'
+import SwiperCore, { A11y } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
+SwiperCore.use([A11y]);
+const props = defineProps({
+  item: {},
+  link: {
+    type: String,
+    default: "#none",
+  }
+})
+</script>
+
+<style lang="scss" scoped>
+.editor_post_item {
+  a {
+    display: block;
+
+    .thumb {
+      display: block;
+      position: relative;
+
+      img {
+        vertical-align: top;
+      }
+
+      &:after {
+        content: '';
+        width: 3.6rem;
+        height: 3.6rem;
+        background: #000 url('/assets/mo_images/common/icon_split.png') -21rem -15.5rem / 25rem auto no-repeat;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+    }
+
+    .title {
+      margin: 0 2.1rem;
+      padding: 2rem 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+      line-height: 2.4rem;
+      border-bottom: 1px solid #f5f5f5;
+      display: block;
+
+      :deep(.sticker) {
+        margin-bottom: 1.2rem;
+
+        em {
+          font-size: 1rem;
+          line-height: 1.4rem;
+        }
+      }
+    }
+  }
+
+  .swiper_wrap {
+    &:after {
+      content: '';
+      width: calc(100% - 4.2rem);
+      margin-left: 2.1rem;
+      border-bottom: 1px solid #f5f5f5;
+      display: block;
+    }
+
+    .swiper-container {
+      padding: 1.5rem 0;
+    }
+
+    .swiper-slide {
+      width: 23.5rem;
+    }
+
+    .swiper_item {
+      :deep(.goods_item) {
+        padding-bottom: 0;
+        display: flex;
+        gap: 1.5rem;
+        position: relative;
+
+        .img_wrap {
+          overflow: visible;
+
+          .thumb {
+            width: 6rem;
+            height: 8rem;
+          }
+
+          .btnIconBox {
+            left: auto;
+            right: 0;
+
+            .btn_heart,
+            .btn_buy {
+              display: none;
+            }
+          }
+        }
+
+
+        .cont {
+          height: 100%;
+          margin-top: 0;
+          padding: .7rem 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          &>.price {
+            em {
+              display: none;
+            }
+          }
+
+          .sticker,
+          .hash,
+          .review_score {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  :deep(.post_icons) {
+    padding: 0 2.1rem;
+    border-top: 0;
+    gap: 1.2rem;
+
+    .i {
+      flex: 0;
+      gap: .2rem;
+    }
+  }
+}
+</style>

@@ -10,10 +10,8 @@
 
     <div class="post_editor">
       <a href="#none">
-        <img src="/_nuxt/public/images/sam/photo_editor_01.png" alt="">
-        <span class="info">
-          <em>이사배 <span class="mark_editor">Editor</span></em>
-          <span>민감성피부 · 주름/탄력/다크써클 고민 · 봄브라이트 · INFJ</span>
+        <span v-for="(item, idx) in samplePost.slice(0, 1)" :key="idx" class="info">
+          <EditorProfile :item="item" />
         </span>
       </a>
     </div>
@@ -245,7 +243,7 @@ const openReplyModal = () => {
     content: '';
     width: 2rem;
     height: 2rem;
-    background: url(/_nuxt/assets/mo_images/common/icon_split.png) -20.8rem -9.8rem / 25rem auto no-repeat;
+    background: url('~/assets/mo_images/common/icon_split.png') -20.8rem -9.8rem / 25rem auto no-repeat;
     display: inline-block;
     padding: .2rem;
   }

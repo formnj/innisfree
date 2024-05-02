@@ -297,7 +297,7 @@ const cate_layer = {
     .btn_icon_back {
         width:44px !important;
         height:44px !important;
-        background-image:url('/_nuxt/assets/images/common/MO-icon_split.png');
+        background-image:url('~/assets/mo_images/common/icon_split.png');
         background-position:-33px -32px;
         position:absolute;
         bottom:0;
@@ -338,7 +338,7 @@ const cate_layer = {
                     width:17px;
                     height:17px;
                     margin-left:5px;
-                    background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+                    background-image: url('~/assets/images/common/icon_split.png');
                     background-size:250px;
                     background-repeat:no-repeat;
                     background-position:-110px -60px;
@@ -358,7 +358,7 @@ const cate_layer = {
                     width:17px;
                     height:17px;
                     margin-left:5px;
-                    background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+                    background-image: url('~/assets/images/common/icon_split.png');
                     background-size:250px;
                     background-repeat:no-repeat;
                     background-position:-130px -60px;
@@ -377,7 +377,7 @@ const cate_layer = {
         .btn_icon_history {
             width:44px !important;
             height:44px !important;
-            background-image:url('/_nuxt/assets/images/common/MO-icon_split.png');
+            background-image:url('~/assets/mo_images/common/icon_split.png');
             background-position:-66px -29px;
             transform:translateY(54px);
             transition:all 0.2s;
@@ -388,7 +388,7 @@ const cate_layer = {
         .top_btn {
             width:44px !important;
             height:44px !important;
-            background-image:url('/_nuxt/assets/images/common/MO-icon_split.png');
+            background-image:url('~/assets/mo_images/common/icon_split.png');
             background-position:-99px -30px;
             transform:translateX(400px);
             transition:all 0.3s;

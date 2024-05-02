@@ -191,7 +191,7 @@ const sample_data = [
                 content:'';
                 width:16px;
                 height:16px;
-                background-image: url('/_nuxt/assets/images/common/MO-icon_split.png');
+                background-image: url('~/assets/mo_images/common/icon_split.png');
                 background-repeat:no-repeat;
                 background-size:250px;
                 background-position:0px -69px;;
@@ -225,7 +225,7 @@ const sample_data = [
             .num {
                 width: 42px;
                 height: 48px;
-                background-image: url('/_nuxt/assets/images/common/PC-icon_split.png');
+                background-image: url('~/assets/images/common/icon_split.png');
                 background-repeat:no-repeat;
                 background-size:250px;
                 background-position:-117px -142px;
