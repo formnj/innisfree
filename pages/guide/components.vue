@@ -702,4 +702,10 @@ onMounted(()=>{
     }
   }
 }
+
+@import "~/assets/scss/_mo_mixin";
+
+@include mo_749 {
+  @import "~/assets/scss/mobile.scss";
+}
 </style>
