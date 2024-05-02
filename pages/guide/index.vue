@@ -185,14 +185,14 @@ const PC_arry = ([
         sDate:'2024-04-26', eDate:'2024-05-03/2024-04-26', worker:'김희경'
     }, {
         depth:['','','배송지 수정',''],
-        id:'IN_PC_ORD_01_03', status:'ing',
+        id:'IN_PC_ORD_01_03', status:'com',
         type:'modal', note:'IN_PC_ORD_01_02 에서 해당 팝업창 확인 가능',
-        sDate:'2024-04-26', eDate:'2024-05-03/', worker:'김희경'
+        sDate:'2024-04-26', eDate:'2024-05-03/2024-05-02', worker:'김희경'
     }, {
         depth:['','','배송지 추가',''],
-        id:'IN_PC_ORD_01_04', status:'ing',
+        id:'IN_PC_ORD_01_04', status:'com',
         type:'modal', note:'IN_PC_ORD_01_02 에서 해당 팝업창 확인 가능',
-        sDate:'2024-04-26', eDate:'2024-05-03/', worker:'김희경'
+        sDate:'2024-04-26', eDate:'2024-05-03/2024-05-02', worker:'김희경'
     }, {
         depth:['','안심번호 서비스 안내','',''],
         id:'IN_PC_ORD_01_08', status:'',
