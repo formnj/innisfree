@@ -116,7 +116,7 @@
                               </div>
                               <Inputs _type="text" _placeholder="" />
                               <Inputs _type="text" _placeholder="" />
-                              <a href="#none" @mousemove="modal.open('shippingArmyInfo','layer')">군부대 배송안내
+                              <a href="#none" @mouseover="[modal.open('shippingArmyInfo','layer'),]" >군부대 배송안내
                               </a>
                             </td>
                         </tr>
@@ -192,7 +192,6 @@
           </ol>
         </div>
     </div>
-    <div class="overlay" @click="modal.close(this);"></div>
   </div>
 
   <div class="modal_wrap" id="personalinfo">
@@ -264,12 +263,14 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 const adress_more = (event) => {
   document.querySelector('#adress_add_modal .modal_container').style.display="none"
   document.querySelector('#adress_modify_modal .modal_container').style.display="none"
-  document.querySelector('#shippingArmyInfo .modal_container').style.display="none"
+  document.querySelector('.modal_wrap#shippingArmyInfo').classList.remove('active')
 }
 const reset = (event) => {
   document.querySelector('#adress_add_modal .modal_container').style.display="block"
   document.querySelector('#adress_modify_modal .modal_container').style.display="block"
+  document.querySelector('.modal_wrap#shippingArmyInfo').classList.remove('active')
 }
+
 
 
 </script>
@@ -487,10 +488,25 @@ const reset = (event) => {
     }
   }
   &#shippingArmyInfo{
+    z-index:15;
+    &.active {
+      display:block;
+    }
     .modal_container {
       max-width:640px;
-      top: 350px;
       left: 560px;
+      @media screen and (min-width:1921px) {
+        top:350px;
+      }
+      @media screen and (min-width:3840px) {
+        top:755px;
+      }
+      @media screen and (max-width:1920px) {
+        top:226px;
+      }
+      @media screen and (max-width:1280px) {
+        top:195px;
+      }
       .modal_header {
         border-bottom:0;
       }
