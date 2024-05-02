@@ -6,6 +6,7 @@
         v-bind="swieprOpt.visual"
         @swiper="onSwiper"
         @slideChange="onSlideChange"
+        :navigation="navigation"
       >
         <swiper-slide v-for="(item, idx) in mainSam.visual" :key="idx">
           <a href="#none" class="item">
@@ -35,6 +36,9 @@
             <!-- //visual image -->
           </a>
         </swiper-slide>
+
+        <button class="swiper-button-next">Next</button>
+        <button class="swiper-button-prev">Prev</button>
         <!-- customer pagination -->
         <div class="custom_pagination">
           <div class="current">
@@ -43,7 +47,9 @@
           </div>
           <strong class="total"></strong>
 
-          <Button class="swiper_controler" :data="swiper_status" :txt="swiper_status" @click="swiper_control" />
+          <Button class="swiper-button-next" :data="swiper_status" :txt="swiper_status" @click="swiper_control" />
+
+          <!-- <button class="swiper-button-next" style="flex:1;" @click="swiper_control">Button</button> -->
         </div>
         <!-- //customer pagination -->
       </swiper>
@@ -290,8 +296,6 @@ const navigation = {
 /* //swiper options */
 
 const onSwiper = (swiper) => {
-
-  console.log('swiper : ',swiper);
   const total = swiper.loopedSlides,
   current = swiper.realIndex+1;
 
@@ -309,7 +313,6 @@ const onSwiper = (swiper) => {
 
   if(swiper_status.value == 'pause') {
     swiper.autoplay.stop();
-    console.log(' / slide : ',swiper.autoplay)
   } else {
     swiper.autoplay.start();
   }
@@ -331,11 +334,8 @@ const onSlideChange = (swiper) => {
     document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
   }
 
-  console.log(swiper_status.value);
-
   if(swiper_status.value == 'pause') {
     swiper.autoplay.stop();
-    console.log(' / slide : ',swiper.autoplay)
   } else {
     swiper.autoplay.start();
   }
@@ -348,6 +348,10 @@ const swiper_control = (e) => {
   } else {
     swiper_status.value='play';
   }
+}
+
+const test = () => {
+  console.log('a');
 }
 
 import {
@@ -381,6 +385,9 @@ const rankingTabs = [
           :deep(.swiper-pagination) {
             display:none;
           }
+          [class*="swiper-button-"] {
+            display:none;
+          }
           .custom_pagination {
             position:absolute;
             right:0;
@@ -407,6 +414,23 @@ const rankingTabs = [
                 border-left:1px solid rgba(0,0,0,0.2);
                 content:'';
                 display:block;
+              }
+            }
+            .swiper-button-next {
+              width:20px;
+              height:20px;
+              margin:0;
+              position:static;
+              display:block;
+              transform:rotate(0);
+              :deep(em) {
+                font-size:0;
+              }
+              &[data="play"] {
+                background-position:-130px -250px;
+              }
+              &[data="pause"] {
+                background-position:-100px -250px;
               }
             }
           }
@@ -599,6 +623,7 @@ const rankingTabs = [
         &.recommend {
           .module_01 {
             > ul {
+              margin-left:-30px;
               display:flex;
               > li {
                 width:33.3333%;

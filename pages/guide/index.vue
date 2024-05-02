@@ -240,24 +240,24 @@ const PC_arry = ([
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','멤버십','멤버십 혜택안내',''],
-        id:'IN_PC_MYP_01_04', status:'',
+        id:'IN_PC_MYP_01_04', status:'com',
         type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
-        sDate:'', eDate:'2024-05-03', worker:'형민우'
+        sDate:'', eDate:'2024-05-03/2024-05-02', worker:'형민우'
     }, {
         depth:['','','뷰티포인트 안내(T)','뷰티포인트'],
-        id:'IN_PC_MYP_01_05', status:'',
+        id:'IN_PC_MYP_01_05', status:'com',
         type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
-        sDate:'', eDate:'2024-05-03', worker:'형민우'
+        sDate:'', eDate:'2024-05-03/2024-05-02', worker:'형민우'
     }, {
         depth:['','','','VIP 등급안내(T)'],
-        id:'IN_PC_MYP_01_06', status:'',
+        id:'IN_PC_MYP_01_06', status:'com',
         type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
-        sDate:'', eDate:'2024-05-03', worker:'형민우'
+        sDate:'', eDate:'2024-05-03/2024-05-02', worker:'형민우'
     }, {
         depth:['','','모바일 앱 다운로드(T)',''],
-        id:'IN_PC_MYP_01_07', status:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
+        id:'IN_PC_MYP_01_07', status:'com',
         type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
-        sDate:'', eDate:'2024-05-03', worker:'형민우'
+        sDate:'', eDate:'2024-05-03/2024-05-02', worker:'형민우'
     }, {
         depth:['','주문내역','목록',''],
         id:'IN_PC_MYP_01_08', status:'',
@@ -734,24 +734,24 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','멤버십','멤버십 혜택안내',''],
-        id:'IN_MO_MYP_01_04', status:'',
+        id:'IN_MO_MYP_01_04', status:'com',
         type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
-        sDate:'', eDate:'2024-05-03', worker:'형민우'
+        sDate:'', eDate:'2024-05-03/2024-05-02', worker:'형민우'
     }, {
         depth:['','','뷰티포인트 안내(T)','뷰티포인트'],
-        id:'IN_MO_MYP_01_05', status:'',
+        id:'IN_MO_MYP_01_05', status:'com',
         type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
-        sDate:'', eDate:'2024-05-03', worker:'형민우'
+        sDate:'', eDate:'2024-05-03/2024-05-02', worker:'형민우'
     }, {
         depth:['','','','VIP 등급안내(T)'],
-        id:'IN_MO_MYP_01_06', status:'',
+        id:'IN_MO_MYP_01_06', status:'com',
         type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
-        sDate:'', eDate:'2024-05-03', worker:'형민우'
+        sDate:'', eDate:'2024-05-03/2024-05-02', worker:'형민우'
     }, {
         depth:['','','모바일 앱 다운로드(T)',''],
-        id:'IN_MO_MYP_01_07', status:'',
+        id:'IN_MO_MYP_01_07', status:'com',
         type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
-        sDate:'', eDate:'2024-05-03', worker:'형민우'
+        sDate:'', eDate:'2024-05-03/2024-05-02', worker:'형민우'
     }, {
         depth:['','주문내역','목록',''],
         id:'IN_MO_MYP_01_08', status:'',
