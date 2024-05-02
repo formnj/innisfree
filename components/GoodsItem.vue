@@ -32,7 +32,7 @@
                 <!-- Hash -->
                 <Hash v-if="item.hash" :item="item.hash" />
                 <!-- //Hash -->
-                <button v-if="item.giveaway" class="giveaway" @click="modal.open(item.giveaway.modal_id, 'alert');">
+                <button v-if="item.giveaway" class="giveaway" @click="modal.open(item.giveaway.modal_id, item.giveaway.modal_type);">
                   <img :src="item.giveaway.img_01">
                   <img :src="item.giveaway.img_02">
                   <img :src="item.giveaway.img_03">
@@ -61,39 +61,7 @@ const props = defineProps({
     }
 })
 
-const modal = {
-    open: (_target, _type) => {
-        document.getElementById(_target).classList.add('active', _type);
-        const body = document.querySelector("body");
-        const pageY = document.body.scrollTop || document.documentElement.scrollTop;
-
-        if (!body.hasAttribute("scrollY")) {
-            body.setAttribute("scrollY", String(pageY));
-            body.classList.add("lockbody");
-        }
-        body.addEventListener("touchmove", modal.lockScrollHandle, { passive: false });
-    }, close: (_target) => {
-        event.target.closest('.modal_wrap').setAttribute('class','modal_wrap');
-        const body = document.querySelector("body");
-
-        if (body.hasAttribute("scrollY")) {
-            body.classList.remove("lockbody");
-            body.scrollTop = Number(body.getAttribute("scrollY"));
-            body.removeAttribute("scrollY");
-        }
-
-        body.removeEventListener("touchmove", modal.lockScrollHandle, { passive: true });
-    }, lockScrollHandle(event) {
-        const e = event || window.event;
-
-        // 멀티 터치는 터치 되게 한다
-        if (e.touches.length > 1) return;
-
-        // event 초기화 속성이 있음 초기화
-        e.preventDefault();
-    }
-}
-
+import { modal } from '~/assets/js/common-ui.js'
 
 
 
@@ -128,6 +96,34 @@ const modal = {
             }
         }
     }
+    &.type_cart {
+        padding-bottom: 0;
+        .img_wrap {
+          position: relative !important;
+          .thumb {
+            width:auto !important;
+            height:14.5rem !important;
+          }
+          .btnIconBox {
+            position:absolute;
+            bottom:8px !important;
+            right:0px;
+            justify-content:end !important;
+            .btn_heart,
+            .btn_buy {
+              display: none;
+            }
+            .btn_cart {
+              position:relative;
+            }
+          }
+        }
+        .review_score {
+          display: none;
+        }
+    }
+
+
     .img_wrap {
         position:relative;
         overflow:hidden;
@@ -244,7 +240,7 @@ const modal = {
             }
         }
         > button.giveaway {
-          width:121px;
+          width:100%;
           height:60px;
           padding:8px;
           margin-top:15px;

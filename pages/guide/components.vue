@@ -109,6 +109,8 @@
     <h2>Goods Item</h2>
     <ul class="explain">
       <li>sold out, coming soon = status:'sold_out' or 'coming_soon'</li>
+      <li>모바일에서 btn_cart 아이콘만 노출되게 하고 싶을 경우!
+        &lt;GoodsItem :item="item" :link="item.link" class="type_cart"/&gt; class에 type_cart 추가</li>
     </ul>
     <div class="design_box">
       <div class="list_wrap">

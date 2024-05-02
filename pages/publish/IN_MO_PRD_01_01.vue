@@ -300,7 +300,7 @@ const setFilter = (event) =>{
         z-index:100;
         .modal_header {}
         .modal_content {
-          padding: 0 20px 34px !important;
+          padding: 0 0 34px !important;
         }
 
     }

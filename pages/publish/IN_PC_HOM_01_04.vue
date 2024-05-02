@@ -98,6 +98,8 @@
 <script setup>
 import { setFilter } from '~/assets/js/common-ui.js'
 import { modal } from '~/assets/js/common-ui.js'
+import {sale_menu} from '~/test/data/publish/dummyData.js'
+import {sample_data} from '~/test/data/publish/dummyData.js'
 
 definePageMeta({
 layout:'pc-category'
@@ -113,66 +115,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
       default: '#none'
   }
 });
-
-const sample_data = [
-    {
-        sub_title :'립 2개 이상 50%',
-        desc:'립 카테고리 전 제품 1개 구매시 30% 2개 이상 구매시 50% 반값!!',
-        notice:{
-            modal_id:'sample_01',
-            title:'“납작아이브로우/컨실러” 기획전 제품 구매 시 유의사항',
-            exp:'동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능',
-            period:'기간 : 4/14(일) - 5/1(수) 23:59:00까지',
-            exception:''
-        },
-    },
-
-    {
-        sub_title :'마스크팩 10개 구매시 50%',
-        desc:'에너지마스크팩 10개 담으면 50% 반값!!',
-        date:{
-            day:15,
-            hour:10,
-            min:59,
-            sec:60
-        },
-        notice:{
-            modal_id:'sample_01',
-            title:'“납작아이브로우/컨실러” 기획전 제품 구매 시 유의사항',
-            exp:'동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능',
-            period:'기간 : 4/14(일) - 5/1(수) 23:59:00까지',
-            exception:''
-        },
-    },
-    {
-        sub_title :'클렌징폼 3개 이상 구매시 30% 할인',
-        desc:'클렌징폼 저렴하게 구할 수 있는 절호의 찬스!',
-        date:{
-            day:14,
-            hour:15,
-            min:59,
-            sec:60
-        },
-        notice:{
-            modal_id:'sample_02',
-            title:'“클렌징오일/워터/크림” 기획전 제품 구매 시 유의사항',
-            exp:'동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능',
-            period:'기간 : 4/14(일) - 5/1(수) 23:59:00까지',
-            exception:'(행사제외 - 블루베리 클렌징 워터)'
-        },
-    },
-    {
-        sub_title :'이니스프리 혜택 모음',
-        notice:{
-            modal_id:'sample_02',
-            title:'“클렌징오일/워터/크림” 기획전 제품 구매 시 유의사항',
-            exp:'동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능',
-            period:'기간 : 4/14(일) - 5/1(수) 23:59:00까지',
-            exception:'(행사제외 - 블루베리 클렌징 워터)'
-        },
-    },
-]
-
 
 
 const sample_goods = [
@@ -267,9 +209,6 @@ const sample_goods = [
     },
 ]
 
-const sale_menu = [
-    "립 ~50%","마스크팩 ~50%","클렌징 ~30%","립 ~50%","마스크팩 ~50%","클렌징 ~30%","마스크팩 ~50%","클렌징 ~30%","립 ~50%","마스크팩 ~50%","클렌징 ~30%",
-]
 
 /* //component sample data */
 
