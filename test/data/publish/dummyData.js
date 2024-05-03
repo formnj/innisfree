@@ -584,7 +584,7 @@ export const mainSam = {
   ],
   recommend02 : [
     {
-      img:("/_nuxt/public/images/sam/recommend_01.png"),
+      img:(" /_nuxt/public/images/sam/recommend_01.png"),
       title:'최강한파?! 오히려 좋아!<br/> 귀여운 귀마개를 드려요♥',
       txt:'디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!0',
       goods:{
@@ -1252,5 +1252,3 @@ export const review = [
     }
   }
 ]
-ITY BAG'},
-];
