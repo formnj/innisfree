@@ -20,7 +20,7 @@
   <!-- //title washed -->
 
   <div class="inner">
-    <Tabs tabType="type_03" :item="[{txt:'작성 가능한 리뷰'},{txt:'내가 작성한 리뷰'}]" :tabidx="0" />
+    <Tabs tabType="type_03" :item="[{txt:'작성 가능한 리뷰'},{txt:'내가 작성한 리뷰'}]" :tabidx="1" />
 
     <div class="list_wrap">
 
@@ -39,7 +39,7 @@
             <span>{{item.age}}대</span>
             <em>{{item.gender}}</em>
             <Reviewpoint :width="item.point" />
-            <em>{{item.date}}</em>
+            <em class="date">{{item.date}}</em>
 
             <div class="btnSection">
               <Button class="btn_txt" txt="수정" />
