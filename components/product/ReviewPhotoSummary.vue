@@ -1,0 +1,63 @@
+<template>
+  <a :href="link">
+    <img class="" :src="item.img" alt="">
+    <span v-if="idx == 9">99,999</span>
+  </a>
+</template>
+<script setup>
+const props = defineProps({
+  item: {},
+  idx: Number,
+  link: {
+    type: String,
+    default: "#none",
+  }
+})
+</script>
+<style lang="scss" scoped>
+a {
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
+.last {
+  a {
+    &:before {
+      content:'';
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+  }
+
+  span {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+
+    &:before {
+      content: '';
+      width: 24px;
+      height: 24px;
+      margin: 0 auto 10px;
+      background: url("~/assets/images/common/icon_split.png") -460px -70px no-repeat;
+      flex: none;
+      display: block;
+    }
+  }
+}
+</style>
