@@ -290,14 +290,14 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-10', worker:''
     }, {
         depth:['','','작성 가능 리뷰(T)',''],
-        id:'IN_PC_MYP_01_20', status:'ing',
+        id:'IN_PC_MYP_01_20', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-05-10', worker:'이종환'
     }, {
         depth:['','','작성한 리뷰(T)',''],
-        id:'IN_PC_MYP_01_26', status:'',
+        id:'IN_PC_MYP_01_26', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-10', worker:'이종환'
+        sDate:'', eDate:'2024-05-10 / 2024-05-03', worker:'이종환'
     }, {
         depth:['','임직원 인증/해제','',''],
         id:'IN_PC_MYP_01_28', status:'',
@@ -396,7 +396,7 @@ const PC_arry = ([
     }, {
         depth:['','피부정보 관리','',''],
         id:'IN_PC_MYP_01_81', status:'',
-        type:'', note:'',
+        type:'', note:'리뷰>프로필 등록하기 시 이동',
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','원클릭결제 카드관리','',''],
@@ -789,9 +789,9 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-03', worker:'이종환'
     }, {
         depth:['','','작성한 리뷰(T)',''],
-        id:'IN_MO_MYP_01_26', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'2024-05-03', worker:'이종환'
+        id:'IN_MO_MYP_01_26', status:'com',
+        type:'', note:'리뷰정책 팝업 포함',
+        sDate:'', eDate:'2024-05-03 / 2024-05-03', worker:'이종환'
     }, {
         depth:['','임직원 인증/해제','',''],
         id:'IN_MO_MYP_01_28', status:'',
@@ -896,7 +896,7 @@ const MO_arry = ([
     }, {
         depth:['','피부정보 관리','',''],
         id:'IN_MO_MYP_01_81', status:'',
-        type:'', note:'',
+        type:'', note:'리뷰>프로필 등록하기 시 이동',
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','원클릭결제 카드관리','',''],
