@@ -37,13 +37,12 @@ export const modal = {
 /* //공통 - 모달 */
 
 /* toast 모달 */
-export const toast_pop = () => {
-  // let tostmessage = document.querySelector('modal_wrap.active.toast')
-  console.log('hihi')
+export const toast_pop = (_time) => { //시간 지정해서 사라지게 처리
+  let tostmessage = document.querySelector('.modal_wrap.toast') //modal_wrap에 .이 빠져서 찾지 못하는 문제였어요~
 
-  // setTimeout(function(){
-  //   tostmessage.classList.remove('active');
-  // },3000);
+  setTimeout(function(){
+    tostmessage.classList.remove('active');
+  },_time);
 }
 
 
