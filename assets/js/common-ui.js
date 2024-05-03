@@ -38,12 +38,19 @@ export const modal = {
 
 /* toast 모달 */
 export const toast_pop = (_time) => { //시간 지정해서 사라지게 처리
-  let tostmessage = document.querySelector('.modal_wrap.toast') //modal_wrap에 .이 빠져서 찾지 못하는 문제였어요~
-
+  let allmodal = document.querySelectorAll('.modal_wrap')
+  allmodal.forEach((el) => {
+    el.classList.remove('active')
+  });
+  let tostmessage = document.querySelector('.modal_wrap.toast')
+  tostmessage.classList.add('active')
+  let body = document.querySelector("body");
   setTimeout(function(){
     tostmessage.classList.remove('active');
+    body.classList.remove('lockbody');
   },_time);
 }
+
 
 
 /* PC - 상품 목록 드롭다운 */

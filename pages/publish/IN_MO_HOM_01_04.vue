@@ -145,7 +145,7 @@
               </p>
           </div>
           <div class="modal_footer">
-              <Button txt="장바구니가기" />
+              <Button txt="장바구니가기" @click="[modal.open('cart_toast', 'toast'), toast_pop(3000)];"/>
               <Button txt="제품 더 담기" class="btn_ confirm" />
           </div>
       </div>
@@ -168,7 +168,7 @@
               </p>
           </div>
           <div class="modal_footer">
-              <Button txt="장바구니가기" />
+              <Button txt="장바구니가기" @click="[modal.open('cart_toast', 'toast'), toast_pop(3000)];" />
               <Button txt="제품 더 담기" class="btn_ confirm" />
           </div>
       </div>
@@ -191,14 +191,27 @@
       <div class="overlay" @click="modal.close(this);"></div>
   </div>
 
+  <div class="modal_wrap" id="cart_toast">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>Modal Title</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          장바구니 담기가 완료 되었습니다.
+        </div>
+        <div class="modal_footer">
+            <Button class="btn_outline" txt="cancel" />
+            <Button txt="OK" />
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
 </template>
 
 <script setup>
-import { sample_goods } from '~/test/data/publish/dummyData'
-import { modal } from '~/assets/js/common-ui'
-import {sample_data} from '~/test/data/publish/dummyData.js'
-import {mo_benefit_goods} from '~/test/data/publish/dummyData.js'
-import { setFilter } from '~/assets/js/common-ui.js'
+import { sample_goods, sample_data, mo_benefit_goods } from '~/test/data/publish/dummyData'
+import { modal, setFilter, toast_pop } from '~/assets/js/common-ui'
 import { walkUpBindingElementsAndPatterns } from 'typescript'
 
 definePageMeta({
@@ -212,9 +225,13 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
     }
 });
 
+const allmodal = () => {
+  let allmodal = document.querySelectorAll('.modal_wrap')
+
+}
+
 onMounted(() => {
-  const header = document.querySelector('header');
-  console.log(header)
+
 })
 
 

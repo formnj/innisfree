@@ -515,12 +515,13 @@ html {
       text-align:center;
       top: 90%;
       left: 50%;
-      transform: translate(-50%, -30%);
+      transform: translate(-50%, -80%);
 
       .modal_header {
         display:none;
       }
       .modal_content {
+        padding:1.0rem;
         color:#fff;
         font-size:1.3rem
       }
@@ -653,7 +654,7 @@ ul.select_list {
   }
 
   to {
-    transform: translate(-50%, -30%);
+    transform: translate(-50%, -80%);
     opacity: 1;
   }
 }

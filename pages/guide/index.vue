@@ -564,9 +564,9 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-22/2024-04-22', worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
-        id:'IN_MO_HOM_01_04', status:'ing',
+        id:'IN_MO_HOM_01_04', status:'com',
         type:'', note:'디자인 고도화',
-        sDate:'', eDate:'2024-04-19/2024-04-16', worker:'김희경'
+        sDate:'', eDate:'2024-04-19/2024-05-03', worker:'김희경'
     }, {
         depth:['','이벤트(T)','목록',''],
         id:'IN_MO_HOM_01_05', status:'com',
