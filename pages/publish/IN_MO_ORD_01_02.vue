@@ -257,7 +257,15 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.chk_agree {
+  > div {
+    display:flex;
+    ::v-deep .input_wrap {
+      flex:0 auto;
+    }
 
+  }
+}
 .inner {
   section {
   margin-right:-2.1rem;
@@ -383,6 +391,9 @@ onMounted(() => {
           }
           li {
             font-size:1.3rem;
+            > * + * {
+              margin-top:0.8rem;
+            }
             &.chk_army {
               margin-top:1.5rem;
               a {
@@ -402,10 +413,15 @@ onMounted(() => {
               }
             }
             > .multi_form {
+              height:100%;
               align-items:center;
               gap:0.5rem;
+              ::v-deep .input_wrap {
+                flex:1;
+              }
               .btn_outline {
-                max-height:48px;
+                min-height:48px;
+                display: block;
               }
               + .label_wrap{
                 margin-top:0.8rem
@@ -496,6 +512,7 @@ onMounted(() => {
             }
           }
           .res_address_wrap {
+            margin-top:2.5rem;
             > * + * {
               margin-top:0.8rem;
             }

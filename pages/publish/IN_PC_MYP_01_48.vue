@@ -261,6 +261,17 @@ onMounted(() => {
                     background:#00BC70;
                 }
             }
+            tbody {
+              tr {
+                td {
+                  ::v-deep .input_wrap{
+                    em {
+                      margin-right:15px;
+                    }
+                  }
+                }
+              }
+            }
         }
     }
     > p {
@@ -353,8 +364,7 @@ onMounted(() => {
                       }
                   }
                   > div {
-                      display:flex;
-                      align-items:center;
+                      display:table-cell;
                   }
                   > dl {
                       margin-top:16px;

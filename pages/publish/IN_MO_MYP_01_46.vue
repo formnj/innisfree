@@ -262,6 +262,7 @@ section {
                     color: #666;
                 }
                 dd {
+                  display:flex;
                     label.check {
                         width:13.7rem !important;
                         margin-right:1.7rem !important;

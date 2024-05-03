@@ -348,29 +348,50 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                     &.qa_sms {
                         > div {
                             gap:6px;
-                            ::v-deep .label_wrap {
-                            flex:0 !important;
-                                label.input {
-                                    width:150px !important;
-                                    input[type='text'] {
-                                        width:150px !important;
-                                    }
-                                }
+                            ::v-deep  .input_wrap {
+                              flex:0 auto !important;
+                              .label_wrap {
+                              flex:0 !important;
+                                  label.input {
+                                      width:150px !important;
+                                      input[type='text'] {
+                                          width:150px !important;
+                                      }
+                                  }
+                              }
                             }
+                        }
+                        dl {
+                          dd {
+                            ::v-deep .input_wrap{
+                              flex:0 auto;
+                            }
+                          }
                         }
                     }
                     &.qa_email {
                         > div {
                             gap:6px;
-                            ::v-deep .label_wrap {
-                            flex:0 !important;
-                                label.input {
-                                    width:150px !important;
-                                    input[type='text'] {
-                                        width:150px !important;
-                                    }
-                                }
+
+                            ::v-deep .input_wrap {
+                              flex:0 auto !important;
+                              .label_wrap {
+                              flex:0 !important;
+                                  label.input {
+                                      width:150px !important;
+                                      input[type='text'] {
+                                          width:150px !important;
+                                      }
+                                  }
+                              }
                             }
+                        }
+                        dl {
+                          dd {
+                            ::v-deep .input_wrap{
+                              flex:0 auto;
+                            }
+                          }
                         }
                     }
                     .error {
