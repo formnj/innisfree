@@ -93,8 +93,7 @@
     }
 </script>
 <style scoped>
-.input_wrap {flex:1;}
-.input_wrap .err_txt {margin-top:5px; color:#ff7200; font-size:12px; line-height:18px; display:none;}
+.input_wrap .err_txt {margin-top:5px; color:#12b560; font-size:12px; line-height:18px; display:none;}
 .input_wrap.err .err_txt {display:block;}
 
 em {font-style:normal;}
