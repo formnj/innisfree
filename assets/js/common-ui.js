@@ -36,6 +36,16 @@ export const modal = {
 }
 /* //공통 - 모달 */
 
+/* toast 모달 */
+export const toast_pop = () => {
+  // let tostmessage = document.querySelector('modal_wrap.active.toast')
+  console.log('hihi')
+
+  // setTimeout(function(){
+  //   tostmessage.classList.remove('active');
+  // },3000);
+}
+
 
 /* PC - 상품 목록 드롭다운 */
 export const Drop_Down = () => {

@@ -12,6 +12,10 @@ export const mo_benefit_goods = [
       name:'히알루론 수분 선크림 SPF 50+ PA++++',
       price:'11,000', sale:'~50%', cost:'26,000',
       status:'sold_out',
+      cart_alert: {
+        modal_id:'cart_alert_01',
+        modal_type:'alert',
+      }
   },
   {
     img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
@@ -26,6 +30,10 @@ export const mo_benefit_goods = [
         img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
         img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
         img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
+    },
+    cart_alert: {
+      modal_id:'cart_alert_02',
+      modal_type:'alert',
     }
   },
   {
@@ -39,7 +47,11 @@ export const mo_benefit_goods = [
           {txt:'1+1', type:'type02'},
           {txt:'뷰티포인트전용', type:'type01'},
           {txt:'첫구매전용', type:'type01'}
-      ]
+      ],
+      cart_alert: {
+        modal_id:'cart_alert_01',
+        modal_type:'alert',
+      }
   },
   {
       img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
@@ -54,6 +66,10 @@ export const mo_benefit_goods = [
           img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
           img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
           img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
+      },
+      cart_alert: {
+        modal_id:'cart_alert_02',
+        modal_type:'alert',
       }
   },
 ]
@@ -418,7 +434,12 @@ export const sample_goods = [
             {txt:'type03', type:'type03'},
             {txt:'type04', type:'type04'}
         ],
-        hash:['#스킨팩','#화장솜','#순면화장솜']
+        hash:['#스킨팩','#화장솜','#순면화장솜'],
+        cart_alert: {
+          modal_id:'cart_alert_01',
+          modal_type:'alert',
+        }
+
     }, {
         img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
         overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
@@ -429,7 +450,11 @@ export const sample_goods = [
             {txt:'1+1', type:'type02'},
             {txt:'뷰티포인트전용', type:'type01'},
             {txt:'첫구매전용', type:'type01'}
-        ]
+        ],
+        cart_alert: {
+          modal_id:'cart_alert_02',
+          modal_type:'alert',
+        }
     }, {
         img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
         overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),

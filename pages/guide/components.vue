@@ -247,6 +247,7 @@
         <Button txt="Modal detailSearch" @click="modal.open('sample_modal', 'detailSearch');" />
         <Button txt="Modal layer" id="layer" @click="modal.open('sample_modal', 'layer');" />
         <Button txt="Modal fullMo" @click="modal.open('sample_modal', 'fullMo');" />
+        <Button txt="Modal toast" @click="[modal.open('sample_modal', 'toast'), toast_pop()];" />
       </div>
     </div>
     <pre class="code_box"><code>&lt;div class="modal_wrap" id="모달_아이디"&gt;
@@ -437,7 +438,7 @@ definePageMeta({
   layout:'guide'
 })
 
-import { modal, Drop_Down, setFilter } from '~/assets/js/common-ui.js'
+import { modal, Drop_Down, setFilter, toast_pop} from '~/assets/js/common-ui.js'
 import { sample_goods, sam_menu, sampleSlide, sample_event, sample_live } from '~/test/data/publish/dummyData.js'
 
 /* swiper */
@@ -535,11 +536,13 @@ const tool_select = (props) => {
     }
 }
 
+
 /* modal layer type sample position */
 onMounted(()=>{
   document.getElementById('layer').addEventListener('click', (event)=>{
     document.getElementById('sample_modal').style.cssText="top:"+event.currentTarget.offsetTop+"px; left:"+event.currentTarget.offsetLeft+"px;"
   });
+
 });
 /* //inputs type function */
 </script>
