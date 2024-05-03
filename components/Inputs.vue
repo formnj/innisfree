@@ -93,12 +93,8 @@
     }
 </script>
 <style scoped>
-<<<<<<< HEAD
 .input_wrap {flex:1;}
 .input_wrap .err_txt {margin-top:5px; color:#ff7200; font-size:12px; line-height:18px; display:none;}
-=======
-.input_wrap .err_txt {margin-top:5px; color:#12b560; font-size:12px; line-height:18px; display:none;}
->>>>>>> e8080cfa4cc07f1470ba12c7362579a88613698f
 .input_wrap.err .err_txt {display:block;}
 
 em {font-style:normal;}
