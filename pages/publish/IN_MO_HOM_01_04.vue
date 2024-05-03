@@ -1,12 +1,12 @@
 <template>
-    <div class="inner">
-        <div class="tab_scroll_wrap">
-          <Tabs tabType="type_02" :item="[{txt:'립 ~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'}]"  :tabidx="0" />
-          <label for="skin1" class="setFilter_sample">
-            <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
-          </label>
-        </div>
-    </div>
+  <div class="inner title_wrap_inner">
+      <div class="tab_scroll_wrap">
+        <Tabs tabType="type_02" :item="[{txt:'립 ~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'}]"  :tabidx="0" />
+        <label for="skin1" class="setFilter_sample">
+          <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
+        </label>
+      </div>
+  </div>
   <template  v-for="(item, idx) in sample_data" :key="idx">
     <!-- title washed -->
     <div class="sub_title_wrap">
@@ -47,6 +47,7 @@
         </ul>
       </div>
     </div>
+    <hr>
   </template>
 
   <div class="sub_title_wrap">
@@ -129,7 +130,66 @@
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
-</div>
+  </div>
+
+  <div class="modal_wrap" id="cart_alert_01">
+      <div class="modal_container">
+          <div class="modal_header">
+              <button class="btn_close" @click="modal.close(this);">닫기</button>
+          </div>
+          <div class="modal_content">
+              <h2>장바구니담기가 완료 되었습니다.</h2>
+              <h3>프로모션 제품 입니다!!</h3>
+              <p>
+                <span>5개</span>더 담으면 <strong>50%</strong>할인 (3/14 ~ 31까지)
+              </p>
+          </div>
+          <div class="modal_footer">
+              <Button txt="장바구니가기" />
+              <Button txt="제품 더 담기" class="btn_ confirm" />
+          </div>
+      </div>
+      <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+
+  <div class="modal_wrap" id="cart_alert_02">
+      <div class="modal_container">
+          <div class="modal_header">
+              <button class="btn_close" @click="modal.close(this);">닫기</button>
+          </div>
+          <div class="modal_content">
+            <h2>장바구니담기가 완료 되었습니다.</h2>
+            <h3>프로모션 제품 입니다!!</h3>
+              <p>
+                <span>1개</span>더 담으면 <strong>30%</strong>할인 or
+              </p>
+              <p>
+                <span>2개</span>더 담으면 <strong>50%</strong>할인 (3/14 ~ 31까지)
+              </p>
+          </div>
+          <div class="modal_footer">
+              <Button txt="장바구니가기" />
+              <Button txt="제품 더 담기" class="btn_ confirm" />
+          </div>
+      </div>
+      <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+
+  <div class="modal_wrap" id="option_pop">
+      <div class="modal_container">
+          <div class="modal_header">
+              <h2>알림</h2>
+              <button class="btn_close" @click="modal.close(this);">닫기</button>
+          </div>
+          <div class="modal_content">
+            옵션을 선택해주세요
+          </div>
+          <div class="modal_footer">
+              <Button txt="확인" class="btn_ confirm" />
+          </div>
+      </div>
+      <div class="overlay" @click="modal.close(this);"></div>
+  </div>
 
 </template>
 
@@ -139,6 +199,7 @@ import { modal } from '~/assets/js/common-ui'
 import {sample_data} from '~/test/data/publish/dummyData.js'
 import {mo_benefit_goods} from '~/test/data/publish/dummyData.js'
 import { setFilter } from '~/assets/js/common-ui.js'
+import { walkUpBindingElementsAndPatterns } from 'typescript'
 
 definePageMeta({
 layout:'mo-category'
@@ -151,68 +212,20 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
     }
 });
 
+onMounted(() => {
+  const header = document.querySelector('header');
+  console.log(header)
+})
 
 
 </script>
 
 <style lang="scss" scoped>
-
-.tab_scroll_wrap {
-  width:100%;
-  height:100%;
-  position:sticky;
-  top:140px;
-  display:flex;
-  align-items:center;
-  gap:1.0rem;
-  ::v-deep .tab_wrap {
-    width:80%;
-    overflow-x:auto;
-    &::-webkit-scrollbar{
-    display:none;
-    }
-    .type_02 {
-      margin-left: -9px !important;
-    }
-    .benefit {
-      > * {
-            border-color:transparent !important;
-            background-color:#fff !important;
-        }
-      }
-
-  }
-    .setFilter_sample {
-    padding-left: 0;
-    display: inline-block;
-    cursor: pointer;
-
-    input {
-      position: absolute;
-      z-indeX: -1;
-      opacity: 0;
-    }
-
-    span {
-      padding: 6px 14px;
-      color: #00BC70;
-      font-weight: 600;
-      font-size: 14px;
-      border:2px solid #00BC70;
-      border-radius:15px;
-      line-height: 1.29em;
-      letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-
-      &.active {
-        color: #FFFFFF;
-        background: #00BC70;
-      }
-    }
-  }
+hr {
+  margin-left: -2.1rem;
+  margin-right: -2.1rem;
+  border: 2px solid #eee;
 }
-
 .sub_title_wrap {
   > div {
     h3 {
@@ -226,14 +239,69 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   }
 }
 .inner {
-  height:100%;
-  margin-left: -2.1rem;
-  margin-right: -2.1rem;
-  padding-left:2.1rem;
-  padding-right:2.1rem;
-  border-bottom:5px solid #F5F5F5;
-  &:first-of-type {
-    border-bottom:0;
+  &.title_wrap_inner {
+    height:100%;
+    margin-right:-2.1rem;
+    margin-left:-2.1rem;
+    padding: 1.6rem 2.1rem;;
+    background: #fff;
+    box-shadow: 0px 15px 10px -15px rgba(0,0,0,0.15);
+    position:sticky;
+    top:100px;
+    z-index:10;
+
+      .tab_scroll_wrap {
+      height:100%;
+      display:flex;
+      align-items:center;
+      gap:1.0rem;
+      ::v-deep .tab_wrap {
+        width:80%;
+        overflow-x:auto;
+        &::-webkit-scrollbar{
+        display:none;
+        }
+        .type_02 {
+          margin-left: -9px !important;
+        }
+        .benefit {
+          > * {
+                border-color:transparent !important;
+                background-color:#fff !important;
+            }
+          }
+
+      }
+        .setFilter_sample {
+        padding-left: 0;
+        display: inline-block;
+        cursor: pointer;
+
+        input {
+          position: absolute;
+          z-indeX: -1;
+          opacity: 0;
+        }
+
+        span {
+          padding: 6px 14px;
+          color: #00BC70;
+          font-weight: 600;
+          font-size: 14px;
+          border:2px solid #00BC70;
+          border-radius:15px;
+          line-height: 1.29em;
+          letter-spacing: -0.01em;
+          display: flex;
+          align-items: center;
+
+          &.active {
+            color: #FFFFFF;
+            background: #00BC70;
+          }
+        }
+      }
+    }
   }
   &.benefis {
     border-bottom:0;
@@ -292,12 +360,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
             margin-top:20px;
             font-size:12px;
             text-decoration:underline;
-        }
-        hr {
-          margin-top: 60px;
-          margin-left: -21px;
-          margin-right: -21px;
-          border: 2px solid #eee;
         }
 
     >.benefits_wrap {
@@ -436,6 +498,41 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   }
 }
 .modal_wrap {
+  &[id^="cart_alert_"]{
+    .modal_container {
+      .modal_header {
+        padding:10px;
+        border-bottom:0;
+      }
+      .modal_content {
+        h2 {
+          margin-bottom:0.6rem;
+          color:#00BC70;
+          font-size:1.3rem;
+          font-weight:400;
+        }
+        h3 {
+          margin-bottom:1.0rem;
+          font-size:1.8rem;
+          font-weight:600;
+        }
+        p {
+          + p {
+            margin-top:0.5rem;
+          }
+          color:#666;
+          span, strong {
+            color:#00BC70;
+            font-size:1.3rem;
+            font-weight:700;
+          }
+          strong {
+            color:#666 !important;
+          }
+        }
+      }
+    }
+  }
   &#sample_01 {
     .modal_container {
       .modal_header {

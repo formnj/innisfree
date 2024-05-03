@@ -508,6 +508,36 @@ html {
       display:none;
     }
   }
+  &.toast {
+    .modal_container {
+      width:calc(100% - 60px);
+      background-color: rgba(0, 0, 0, 0.8);
+      text-align:center;
+      top: 90%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+
+      .modal_header {
+        display:none;
+      }
+      .modal_content {
+        color:#fff;
+        font-size:1.3rem
+      }
+      .modal_footer {
+        display:none;
+      }
+    }
+    .overlay {
+      display:none;
+    }
+    &.active {
+      .modal_container {
+        animation-duration: 0.5s;
+        animation-name: toast_up;
+      }
+    }
+  }
 
   //쇼핑로그 공통 스타일
   &.detailSearch {
@@ -614,6 +644,19 @@ ul.select_list {
   }
 }
 
+
+
+@keyframes toast_up {
+  from {
+    transform: translate(-50%, 200%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, -30%);
+    opacity: 1;
+  }
+}
 
 @keyframes show_up {
   from {

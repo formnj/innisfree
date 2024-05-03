@@ -300,7 +300,6 @@ const setFilter = (event) =>{
         z-index:100;
         .modal_header {}
         .modal_content {
-          padding: 0 0 34px !important;
         }
 
     }
@@ -335,7 +334,7 @@ const setFilter = (event) =>{
         }
       }
       .modal_content {
-        padding: 0;
+        padding: 0 0 34px !important;
         height: calc(100% - 29.4px);
         overflow-y: auto;
         div {

@@ -9,7 +9,7 @@
             </a>
             <ul class="btnIconBox">
                 <li><Button class="btn_heart" /></li>
-                <li><Button class="btn_cart" /></li>
+                <li><Button class="btn_cart" @click="modal.open(item.cart_alert.modal_id, item.cart_alert.modal_type);" /></li>
                 <li><Button class="btn_buy" /></li>
             </ul>
         </div>
