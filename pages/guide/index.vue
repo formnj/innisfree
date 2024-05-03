@@ -290,7 +290,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-10', worker:''
     }, {
         depth:['','','작성 가능 리뷰(T)',''],
-        id:'IN_PC_MYP_01_20', status:'',
+        id:'IN_PC_MYP_01_20', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-10', worker:'이종환'
     }, {
