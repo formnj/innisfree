@@ -241,7 +241,7 @@ const PC_arry = ([
     }, {
         depth:['','멤버십','멤버십 혜택안내',''],
         id:'IN_PC_MYP_01_04', status:'com',
-        type:'', note:'https://www.innisfree.com/kr/ko/GreenteaClubMembership.do',
+        type:'', note:'tooltip',
         sDate:'', eDate:'2024-05-03/2024-05-02', worker:'형민우'
     }, {
         depth:['','','뷰티포인트 안내(T)','뷰티포인트'],
