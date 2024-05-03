@@ -238,6 +238,12 @@ onMounted(() => {
             document.querySelector('.sticky_menu_wrap').style.display="none";
         }
     })
+
+    let header = document.querySelector('header');
+    let header_height = header.getBoundingClientRect().height;
+    let breadcrumb_height = document.querySelector('.breadcrumb').getBoundingClientRect().height;
+    console.log('header_height',header_height)
+    console.log('breadcrumb_height',breadcrumb_height)
 })
 
 

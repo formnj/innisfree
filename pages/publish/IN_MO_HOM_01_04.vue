@@ -225,13 +225,13 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
     }
 });
 
-const allmodal = () => {
-  let allmodal = document.querySelectorAll('.modal_wrap')
-
-}
 
 onMounted(() => {
-
+    let header = document.querySelector('header');
+    let header_height = header.offsetHeight
+    console.log('header_height',header_height)
+    let title_wrap_inner = document.querySelector('.title_wrap_inner')
+    title_wrap_inner.style.top = header_height - 1 + 'px';
 })
 
 
@@ -264,7 +264,6 @@ hr {
     background: #fff;
     box-shadow: 0px 15px 10px -15px rgba(0,0,0,0.15);
     position:sticky;
-    top:100px;
     z-index:10;
 
       .tab_scroll_wrap {
