@@ -1,41 +1,72 @@
 <template>
-  <div class="prod_swiper">
+  <div class="main_swiper">
     <swiper
-        :slides-per-view="'1'"
-        :loop="true"
-        :pagination="pagination"
-        :autoplay="autoplay"
-        :speed="500"
-      >
-        <swiper-slide v-for="(item, idx) in prodImgData" :key="idx">
-          <img :src="item.img">
-        </swiper-slide>
-        <div class="custom-pagination"></div>
-        <div class="swiper-notify"><strong>7명의 고객님</strong> 동시에 확인중 <button type="button" class="btn_close">닫기</button></div>
-      </swiper>
+      :slides-per-view="'1'" :loop="loopYN" :pagination="pagination" :autoplay="autoplayYN" :speed="500" :navigation="navigation" :thumbs="{ swiper: thumbsSwiper }">
+      <swiper-slide v-for="(item, idx) in prodImgData" :key="idx">
+        <img :src="item.img">
+      </swiper-slide>
+      <!-- <div class="custom_pagination"></div> -->
+    </swiper>
+  </div>
+
+  <div v-if="thumbYN" class="thumb_swiper">
+    <swiper
+      :slides-per-view="5" :space-between="5" :navigation="navigation" watch-slides-progress @swiper="setThumbsSwiper">
+      <swiper-slide v-for="(item, idx) in prodImgData" :key="idx">
+        <img :src="item.img">
+      </swiper-slide>
+    </swiper>
+    <div class="custom_nav">
+      <button type="button" class="nav_prev">prev</button>
+      <button type="button" class="nav_next">next</button>
+    </div>
   </div>
 </template>
 
 <script setup>
-import SwiperCore, { Autoplay, Pagination, A11y } from "swiper";
+import SwiperCore, { Autoplay, Pagination, A11y, Navigation, Thumbs } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";
 import "swiper/components/pagination/pagination.scss";
+import "swiper/components/navigation/navigation.scss";
 import { prodImgData } from '~/test/data/publish/dummyData';
 
-SwiperCore.use([Autoplay, Pagination, A11y]);
+SwiperCore.use([Autoplay, Pagination, A11y, Navigation, Thumbs]);
 
-const pagination = {
-  el: ".custom-pagination",
-  type: "custom",
-  renderCustom: function(swiper, current, total) {
-    return "<span class='pagination-current'>0" + current + "</span><span class='pagination-total'>0" + total + "</span>";
+
+const props = defineProps({
+  autoplayYN: { //autoplay 여부
+    type: Boolean,
+    default: false
+  },
+  loopYN: { //loop 여부
+    type: Boolean,
+    default: false
+  },
+  thumbYN: { //loop 여부
+    type: Boolean,
+    default: true
   }
+});
+
+// const pagination = {
+//   el: ".custom-pagination",
+//   type: "custom",
+//   renderCustom: function (swiper, current, total) {
+//     return "<span class='pagination_current'>0" + current + "</span><span class='pagination_total'>0" + total + "</span>";
+//   }
+// }
+
+const navigation = {
+  prevEl: ".nav_prev",
+  nextEl: ".nav_next",
+  type: "custom",
 }
 
-const autoplay = {
-  delay: 5000
-}
+const thumbsSwiper = ref(null);
+const setThumbsSwiper = (swiper) => {
+  thumbsSwiper.value = swiper;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -47,61 +78,39 @@ const autoplay = {
       vertical-align: top;
     }
   }
+}
 
-  .custom-pagination {
-    width: 70px;
-    height: 30px;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 600;
-    background: rgba(0, 0, 0, 0.3);
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: unset;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-    display: flex;
+.thumb_swiper {
+  margin: 30px 0;
+  position: relative;
 
-    .pagination-total {
-      opacity: .5;
+  & :deep(.swiper-container) {
+    width: 430px;
 
-      &::before {
-        content: '';
-        width: 0.1rem;
-        height: 0.8rem;
-        margin: 0 0.8rem;
-        background-color: rgba(255, 255, 255, 0.2);
-        display: inline-flex;
-      }
+    .swiper-slide {
+      cursor: pointer;
     }
   }
 
-  .swiper-notify {
-    height: 30px;
-    padding: 0 10px;
-    font-size: 13px;
-    font-weight: 400;
-    color: #fff;
-    background-color: #000;
-    align-items: center;
-    bottom: 0;
-    right: 70px;
-    position: absolute;
-    z-index: 2;
-    display: inline-flex;
-
-    strong {
-      color: #00BC70;
-    }
-
-    .btn_close {
-      width: 16px;
-      height: 16px;
-      margin-left: 10px;
+  .custom_nav {
+    button {
+      width: 24px;
+      height: 24px;
       font-size: 0;
-      background: url('/assets/mo_images/common/icon_split.png') -105px -70px / 250px auto no-repeat;
+      background: url('/assets/images/common/icon_split.png') -420px -30px no-repeat;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+
+      &.nav_prev {
+        left: 0;
+        transform: rotate(180deg) translateY(50%);
+      }
+
+      &.nav_next {
+        right: 0;
+      }
     }
   }
 }

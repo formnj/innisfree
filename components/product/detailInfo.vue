@@ -5,88 +5,110 @@
       <p class="top_text">{{ prodInfo.topText }}</p>
       <strong>BEST</strong> {{ prodInfo.name }}
     </div>
-    <div class="rate">
-      <span class="star_rate">별점</span>
-      {{ prodInfo.rate }}
-      <span class="cnt_review">{{ prodInfo.cntReview }}건 리뷰</span>
+    <div class="info_box">
+      <div class="price">
+        <em>{{ prodInfo.price }}</em>
+        <span class="sale">{{ prodInfo.sale }}</span>
+        <span class="cost">{{ prodInfo.cost }}</span>
+      </div>
+      <div class="rate">
+        <a href="#리뷰탭으로이동">
+          <span class="star_rate">
+            <span class="star_wrap"><span class="star" style="width:50%;">별점</span></span>
+            <!-- 별점 : .star의 width에 퍼센테이지로 입력 -->
+            {{ prodInfo.rate }}
+          </span>
+          <span class="review_cnt">{{ prodInfo.cntReview }}건 리뷰</span>
+        </a>
+      </div>
     </div>
-    <p class="summary_review">
+    <p class="review_summary">
       {{ prodInfo.summaryReview }}
       <button type="button">더보기</button>
     </p>
-    <div class="price">
-      <em>{{ prodInfo.price }}</em>
-      <span class="sale">{{ prodInfo.sale }}</span>
-      <span class="cost">{{ prodInfo.cost }}</span>
-    </div>
   </div>
 </template>
 <script setup>
-import { prodInfo } from '../..~/test/data/publish/dummyData'
+import { prodInfo } from '~/test/data/publish/dummyData'
 </script>
 <style lang="scss" scoped>
 .prod_info {
-  padding:30px 21px;
-  border-bottom:5px solid #f5f5f5;
-  .name {
-    font-size:18px;
-    line-height:24px;
-    letter-spacing:-1px;
-    color:#000;
-    .top_text {
-      margin-bottom:5px;
-      font-size:13px;
-      line-height:16px;
-    }
-    strong {
-      font-weight:600;
-    }
-  }
-  .sticker + .name {
-    margin-top:10px;
-  }
-  .rate {
-    margin-top:10px;
-    font-size:12px;
-    .cnt_review {
-      margin-left:10px;
-      color:#606664;
-      text-decoration:underline;
-    }
-  }
-  .summary_review {
-    margin-top:10px;
-    line-height:20px;
-    font-size:13px;
-    color:#666;
-    button {
-      margin-left:10px;
-      font-weight:700;
-      text-decoration:underline;
-    }
-  }
-  .price {
-    margin-top:20px;
-    padding-top:20px;
-    font-size:20px;
-    border-top:1px solid #eee;
-    display:flex;
-    align-items:center;
-    span {
-      margin-left:10px;
-    }
+  width: 680px;
+
+  :deep(.sticker) {
+    margin-bottom: 32px;
+
     em {
-      font-weight:700;
-      color:#000;
+      height: 22px;
+      font-size: 12px;
+      line-height: 1.5em;
     }
-    .sale {
-      color:#ff0000;
+  }
+
+  .name {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -0.014px;
+    color: #000000;
+
+    .top_text {
+      margin-bottom: 5px;
+      font-size: 18px;
+      line-height: 1.33;
     }
-    .cost {
-      font-size:16px;
-      font-weight:300;
-      color:#999;
-      text-decoration:line-through
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  .info_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0 30px;
+
+    .price {
+      font-size: 28px;
+      line-height: 1.29em;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 10px;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 1.2em;
+        letter-spacing: -0.01em;
+      }
+
+      em {
+        font-weight: 700;
+        color: #000;
+      }
+
+      .sale {
+        color: #ff0000;
+      }
+
+      .cost {
+        color: #999;
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  .review_summary {
+    margin-bottom: 30px;
+    line-height: 20px;
+    font-size: 13px;
+    color: #666;
+
+    button {
+      margin-left: 20px;
+      font-weight: 700;
+      text-decoration-line: underline;
     }
   }
 }

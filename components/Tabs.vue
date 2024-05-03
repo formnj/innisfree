@@ -1,8 +1,9 @@
 <template>
-    <div class="tab_wrap">
+    <div class="tab_wrap" :class="isProduct?'product':''">
         <ul :class="tabType">
             <li v-for="(item, idx) in item" :key="idx" :class="{ current: tabidx == idx }" >
                 <Button :txt="item.txt" @click="tabidx = idx" />
+                <span v-if="isProduct && item.txt =='리뷰'">{{ reviewCnt }}</span>
             </li>
         </ul>
     </div>
@@ -13,7 +14,9 @@
 const props = defineProps({
     item: {},
     tabidx: Number,
-    tabType: String
+    tabType: String,
+    isProduct: Boolean,
+    reviewCnt: Number,
 });
 </script>
 
@@ -26,7 +29,7 @@ const props = defineProps({
     li {
         margin-left:-1px;
         flex:1;
-        &::v-deep > * {
+        &::v-deep > button {
             width:100%;
             height:51px;
             font-size:16px;
@@ -40,14 +43,14 @@ const props = defineProps({
                 transition:color 0.25s;
             }
         }
-        &:hover > * {
+        &:hover > button {
             border-color:#00BC70;
             z-index:2;
             ::v-deep em {
                 color:#00BC70;
             }
         }
-        &.current > * {
+        &.current > button {
             border-color:#000;
             z-index:1;
             ::v-deep em {
@@ -58,7 +61,7 @@ const props = defineProps({
     }
     &.type_01 {
         li {
-        &::v-deep > * {
+        &::v-deep > button {
             height:60px;
             font-size:14px;
             border:0;
@@ -77,7 +80,7 @@ const props = defineProps({
             }
         }
         &.current {
-          ::v-deep > * {
+          ::v-deep > button {
             &:after {
               border-bottom:2px solid #000;
             }
@@ -96,7 +99,7 @@ const props = defineProps({
         padding-top:10px;
         padding-left:10px;
         flex:0 auto;
-        &::v-deep > * {
+        &::v-deep > button {
           height:auto;
           font-size:14px;
           background-color:#f5f5f5;
@@ -109,7 +112,7 @@ const props = defineProps({
           }
         }
         &.current {
-          &::v-deep > * {
+          &::v-deep > button {
             background-color:#fff;
             border-color:#000;
             em {
@@ -151,7 +154,7 @@ const props = defineProps({
       }
       li {
         flex:0 auto;
-        &::v-deep > * {
+        &::v-deep > button {
           height:auto;
           padding:0 30px;
           border:0;
@@ -164,7 +167,7 @@ const props = defineProps({
           }
         }
         &.current {
-          ::v-deep > * {
+          ::v-deep > button {
             em {
               color:#000;
               font-weight:600;
@@ -186,7 +189,7 @@ const props = defineProps({
       li {
         margin-left:-1px;
         flex:1;
-        &::v-deep > * {
+        &::v-deep > button {
             width:100%;
             height:64px;
             font-size:16px;
@@ -200,7 +203,7 @@ const props = defineProps({
                 transition:color 0.25s;
             }
         }
-        &.current > * {
+        &.current > button {
             border-color:#000;
             background: #000 !important;
             z-index:1;
@@ -209,6 +212,19 @@ const props = defineProps({
                 font-weight:600;
             }
         }
+      }
+    }
+  }
+  &.product {
+    li {
+      position: relative;
+      span {
+        font-size: 10px;
+        color: #888;
+        position: absolute;
+        left: 50%;
+        top: 22px;
+        transform: translateX(15px)
       }
     }
   }

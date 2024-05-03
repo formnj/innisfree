@@ -93,7 +93,7 @@
     }
 </script>
 <style scoped>
-.input_wrap .err_txt {margin-top:5px; color:#ff7200; font-size:12px; line-height:18px; display:none;}
+.input_wrap .err_txt {margin-top:5px; color:#12b560; font-size:12px; line-height:18px; display:none;}
 .input_wrap.err .err_txt {display:block;}
 
 em {font-style:normal;}
@@ -116,11 +116,11 @@ em {font-style:normal;}
 .check_ani {position:relative; display:inline-block;}
 .check_ani input {margin:0 0 0 1px; position:absolute; opacity:0;}
 .check_ani input[type='checkbox'] {opacity:0;}
-.check_ani .label {min-height:22px; padding-left:48px; position:relative; display:block;}
-.check_ani .label:before {width:42px; height:22px; background-color:#ccc; border:0; border-radius:60px; content:''; position:absolute; top:0; left:0; display:inline-block;}
-.check_ani input[type='checkbox'] + .label:after {width:18px; height:18px; background-color:#fff; border-radius:50%; content:''; position:absolute; top:50%; left:2px; z-index:1; display:block; transform:translateY(-50%); transition:all 0.2s;}
-.check_ani input[type='checkbox']:checked + .label:before {background-color:#ff7200;}
-.check_ani input[type='checkbox']:checked + .label:after {left:22px;}
+.check_ani .label {min-height:20px; padding-left:48px; font-size:16px; position:relative; display:block;}
+.check_ani .label:before {width:35px; height:20px; background-color:#dcdcdc; border:0; border-radius:60px; content:''; position:absolute; top:0; left:0; display:inline-block;}
+.check_ani input[type='checkbox'] + .label:after {width:16px; height:16px; background-color:#fff; border-radius:50%; content:''; position:absolute; top:50%; left:2px; z-index:1; display:block; transform:translateY(-50%); transition:all 0.2s; box-shadow:0px 1px 4px rgba(0, 0, 0, 0.25);}
+.check_ani input[type='checkbox']:checked + .label:before {background-color:#12b560;}
+.check_ani input[type='checkbox']:checked + .label:after {left:17px;}
 
 label.input, label.select > div {position:relative; display:block;}
 label.input i {color:#aaa; font-size:16px; font-style:normal; line-height:18px; position:absolute; top:20px; left:15px; transform:translateY(-50%);}/* placeholder */
