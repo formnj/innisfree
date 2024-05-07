@@ -264,7 +264,7 @@ onMounted(() => {
             tbody {
               tr {
                 td {
-                  ::v-deep .input_wrap{
+                  :deep(.input_wrap) {
                     em {
                       margin-right:15px;
                     }
@@ -340,7 +340,7 @@ onMounted(() => {
                   font-size:16px;
                   font-weight:500;
                   border-bottom:1px solid #f5f5f5;
-                  ::v-deep button.btn_outline {
+                  :deep(button.btn_outline) {
                       em {
                           font-weight:600;
                       }
@@ -353,7 +353,7 @@ onMounted(() => {
                       display:block !important;
                   }
                   .label_wrap {
-                      ::v-deep label.input {
+                      :deep(label.input) {
                           input {
                               width:600px !important;
                           }
@@ -383,7 +383,7 @@ onMounted(() => {
                   &.qa_sms {
                       > div {
                           gap:6px;
-                          ::v-deep .label_wrap {
+                          :deep(.label_wrap) {
                           flex:0 !important;
                               label.input {
                                   width:150px !important;
@@ -397,7 +397,7 @@ onMounted(() => {
                   &.qa_email {
                       > div {
                           gap:6px;
-                          ::v-deep .label_wrap {
+                          :deep(.label_wrap) {
                           flex:0 !important;
                               label.input {
                                   width:150px !important;
@@ -427,7 +427,7 @@ onMounted(() => {
                     justify-content:center;
                     gap:16px;
                     button {
-                        ::v-deep &.btn_outline {
+                        &.btn_outline {
                             height:30px !important;
                             padding:0 1px;
                             em {
@@ -510,7 +510,7 @@ onMounted(() => {
           .inner {
               padding:0;
 
-              ::v-deep .tab_wrap {
+              :deep(.tab_wrap) {
                   ul {
                       border-bottom:1px solid #eee;
                       gap:50px;

@@ -271,7 +271,7 @@ hr {
       display:flex;
       align-items:center;
       gap:1.0rem;
-      ::v-deep .tab_wrap {
+      :deep(.tab_wrap) {
         width:80%;
         overflow-x:auto;
         &::-webkit-scrollbar{
@@ -422,7 +422,7 @@ hr {
         margin-right:-1rem;
         > li {
           width:48%;
-          ::v-deep .goods_item  {
+          :deep(.goods_item)  {
             .img_wrap {
               a {
                 span.thumb {
@@ -445,7 +445,7 @@ hr {
 
 .modal_wrap.bottom {
   &#giveaway_01 {
-    ::v-deep .modal_container {
+    :deep(.modal_container) {
       .modal_header {
         .btn_close {
           width: 24px;

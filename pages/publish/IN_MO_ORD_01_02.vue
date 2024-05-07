@@ -260,7 +260,7 @@ onMounted(() => {
 .chk_agree {
   > div {
     display:flex;
-    ::v-deep .input_wrap {
+    :deep(.input_wrap) {
       flex:0 auto;
     }
 
@@ -279,7 +279,7 @@ onMounted(() => {
         &.btn_outline {
           display:flex;
           align-items:center;
-          ::v-deep em {
+          :deep(em) {
             font-size:1.2rem;
             display:flex;
             align-items:center;
@@ -336,7 +336,7 @@ onMounted(() => {
               dd {
                 display:flex;
                 gap:8px;
-                ::v-deep button.btn_outline {
+                :deep(button.btn_outline) {
                   height:2.4rem;
                   border:0.1rem solid #999 !important;
                   em {
@@ -416,7 +416,7 @@ onMounted(() => {
               height:100%;
               align-items:center;
               gap:0.5rem;
-              ::v-deep .input_wrap {
+              :deep(.input_wrap) {
                 flex:1;
               }
               .btn_outline {
@@ -455,7 +455,7 @@ onMounted(() => {
           margin-right:-2.1rem;
           padding:2rem 4.0rem 1.5rem;
           border-bottom: 0.5rem solid #F5F5F5;
-          ::v-deep div.label_wrap[data-v-2dbf1d8f] {
+          :deep(div.label_wrap) {
             &::after {
               content:'';
               width: 2.4rem;

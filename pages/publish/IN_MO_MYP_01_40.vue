@@ -95,14 +95,14 @@ onMounted(() => {
     display:flex;
     align-items:center;
     justify-content:space-between;
-    ::v-deep label.check{
+    :deep(label.check) {
       display:flex;
       align-items:center;
       em {
         font-size:1.4rem;
       }
     }
-    ::v-deep button.btn_min_outline {
+    :deep(button.btn_min_outline) {
       height:2.8rem;
       em {
         padding:0 0.8rem;

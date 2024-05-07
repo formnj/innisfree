@@ -114,7 +114,7 @@ onMounted(() => {
           gap:10px;
         .btn_min_outline {
           border: 0.1rem solid #999 !important;
-          ::v-deep em {
+          :deep(em) {
             padding:0 1.5rem;
             color:#999 !important;
             font-size:1.1rem;
@@ -132,7 +132,7 @@ onMounted(() => {
         }
         li {
           position:relative;
-          ::v-deep .btn_outline {
+          :deep(.btn_outline) {
             height:3.6rem;
             padding:0 1rem 0 1rem;
             font-size:1.1rem;

@@ -168,7 +168,7 @@ const props = defineProps({
   width:1280px;
   margin:0 auto;
   position:relative;
-  ::v-deep .swiper-container {
+  :deep(.swiper-container) {
     padding-bottom:61px;
     div[role="button"] {
       &:after {

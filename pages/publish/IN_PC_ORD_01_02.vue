@@ -365,14 +365,14 @@ const reset = (event) => {
                       align-items:center;
                       justify-content:center;
                       gap:8px;
-                      ::v-deep button.btn_outline {
+                      :deep(button.btn_outline) {
                         width:60px;
                         height:30px;
                         font-size:12px;
                         border:1px solid #999;
                       }
                     }
-                    ::v-deep button.btn_outline {
+                    :deep(button.btn_outline) {
                         em {
                             padding:0 15px;
                             color:#999;
@@ -384,7 +384,7 @@ const reset = (event) => {
                         display:block !important;
                     }
                     .label_wrap {
-                        ::v-deep label.input {
+                        :deep(label.input) {
                             input {
                                 width:140px !important;
                             }
@@ -408,7 +408,7 @@ const reset = (event) => {
                       display:flex;
                       align-items:center;
                       gap:8px;
-                      ::v-deep label.select {
+                      :deep(label.select) {
                         display:block !important;
                         select {
                           width:140px !important;
@@ -420,7 +420,7 @@ const reset = (event) => {
                      > * + * {
                       margin-top:8px;
                      }
-                    ::v-deep .label_wrap {
+                    :deep(.label_wrap) {
                       input[type="text"] {
                         width:100% !important;
                       }
@@ -429,7 +429,7 @@ const reset = (event) => {
                       gap:5px;
                       .label_wrap {
                         flex:0 !important;
-                        ::v-deep label.input {
+                        :deep(label.input) {
                           input{
                             width:140px !important;
                           }
@@ -609,7 +609,7 @@ const reset = (event) => {
             }
           }
         }
-        ::v-deep button.btn_outline {
+        :deep(button.btn_outline) {
           border:1px solid #000;
           box-sizing:border-box;
           em {

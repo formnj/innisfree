@@ -1192,19 +1192,19 @@ h2 .badge.com:before {background-color:#ddeeff;}
 h2 .badge.ing:before {background-color:#fff4f4;}
 h2 .badge.edit:before {background-color:yellow;}
 table {width:100%; border-spacing:0; border-collapse:collapse;}
-::v-deep th, ::v-deep td {padding:8px 10px; font-size:12px;}
+:deep(th), :deep(td) {padding:8px 10px; font-size:12px;}
 thead {background-color:#fcfcfc; border-bottom:1px solid #222;}
-thead tr > * + *, ::v-deep td {border-left:1px solid #ddd;}
-::v-deep th {background-color:#f2f3f5;}
-::v-deep tr.row {border-top:2px solid #222;}
-::v-deep td.com {background-color:#ddeeff;}
-::v-deep td.ing {background-color:#fff4f4;}
-::v-deep td.edit {background-color:yellow;}
-::v-deep td {border-bottom:1px solid #ddd;}
-::v-deep td a {font-weight:700; text-decoration:underline; display:block;}
-::v-deep td a.modal {padding:4px 5px; color:#fff; font-weight:400; background-color:#0070ba; border:1px solid #0070ba; text-decoration:none; border-radius:4px;}
+thead tr > * + *, :deep(td) {border-left:1px solid #ddd;}
+:deep(th) {background-color:#f2f3f5;}
+:deep(tr.row) {border-top:2px solid #222;}
+:deep(td.com) {background-color:#ddeeff;}
+:deep(td.ing) {background-color:#fff4f4;}
+:deep(td.edit) {background-color:yellow;}
+:deep(td) {border-bottom:1px solid #ddd;}
+:deep(td) a {font-weight:700; text-decoration:underline; display:block;}
+:deep(td) a.modal {padding:4px 5px; color:#fff; font-weight:400; background-color:#0070ba; border:1px solid #0070ba; text-decoration:none; border-radius:4px;}
 
 .content section + section:before {margin:30px -20px; border-top:4px solid #F1F1F1; content:''; display:block;}
 
-::v-deep .not_link a {cursor: default; pointer-events: none;}
+:deep(.not_link) a {cursor: default; pointer-events: none;}
 </style>

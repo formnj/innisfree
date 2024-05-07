@@ -130,10 +130,10 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
     display:flex;
     align-items:center;
     justify-content:space-between;
-    ::v-deep .check {
+    :deep(.check) {
       margin-top:-10px;
     }
-    ::v-deep .btn_min_outline {
+    :deep(.btn_min_outline) {
       width:84px !important;;
       em {
         padding:0 14px;
@@ -162,7 +162,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   > button.btn_mid.confirm {
     margin:60px auto 0 auto;
     text-align:center;
-    ::v-deep em {
+    :deep(em) {
       padding:0px 62px;
       font :16px / 40px 'Pretendard', 'SDNeoL', 'notoR';
       font-weight:600;
@@ -195,7 +195,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                       align-items:center;
                       justify-content:center;
                       gap:8px;
-                      ::v-deep button.btn_outline {
+                      :deep(button.btn_outline) {
                         width:120px;
                         height:30px;
                         font :12px / 40px 'Pretendard', 'SDNeoL', 'notoR';
@@ -218,7 +218,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                       }
                     }
                   }
-                    ::v-deep button.btn_outline {
+                    :deep(button.btn_outline) {
                         em {
                             padding:0 5px;
                             color:#999;
