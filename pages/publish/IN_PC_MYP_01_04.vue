@@ -67,7 +67,7 @@
               <p>가입 시 총 70,000원 쿠폰팩 발급</p>
             </li>
           </ul>
-          <img src="/assets/images/sam/membership_coupon.jpg">
+          <img src="/_nuxt/public/images/sam/membership_coupon.jpg">
         </div>
         <div class="detail_wrap">
           <button type="button" @click="toggle_btn">등급 기준 자세히 알아보기</button>

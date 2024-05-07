@@ -10,11 +10,11 @@
 
   <div class="inner">
     <div class="prd_wrap">
-      <div><img src="/assets/images/sam/pinkdoc1.jpg"></div>
+      <div><img src="/_nuxt/public/images/sam/pinkdoc1.jpg"></div>
       <div>
-        <img src="/assets/images/sam/pinkdoc2.jpg">
-        <div class="video"><img src="/assets/images/sam/colored.gif"></div>
-        <div class="overlay"><img src="/assets/images/sam/lipstick.png"></div>
+        <img src="/_nuxt/public/images/sam/pinkdoc2.jpg">
+        <div class="video"><img src="/_nuxt/public/images/sam/colored.gif"></div>
+        <div class="overlay"><img src="/_nuxt/public/images/sam/lipstick.png"></div>
       </div>
     </div>
 

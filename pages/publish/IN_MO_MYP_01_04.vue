@@ -332,7 +332,7 @@
     </section>
 
     <section class="con mobile_app">
-      <div class="img"><img src="/assets/images/sam/appdown_img.png" alt=""></div>
+      <div class="img"><img src="/_nuxt/public/images/sam/appdown_img.png" alt=""></div>
       <div class="download">
         <h4>모바일 APP으로<br>더 간편하게! 더 특별하게!</h4>
         <Button txt="APP 다운로드" />

@@ -20,8 +20,8 @@
             </div>
             <div class="modal_content">
               <div class="img">
-                <a href="#none"><img src="/assets/images/sam/icon_sns_facebook.png"></a>
-                <a href="#none"><img src="/assets/images/sam/icon_share_url.png"></a>
+                <a href="#none"><img src="/_nuxt/public/images/sam/icon_sns_facebook.png"></a>
+                <a href="#none"><img src="/_nuxt/public/images/sam/icon_share_url.png"></a>
               </div>
             </div>
         </div>
@@ -36,11 +36,11 @@
   <div class="inner">
 
     <div class="prd_wrap">
-      <div><img src="/assets/images/sam/pinkdoc1.jpg"></div>
+      <div><img src="/_nuxt/public/images/sam/pinkdoc1.jpg"></div>
       <div>
-        <img src="/assets/images/sam/pinkdoc2.jpg">
-        <div class="video"><img src="/assets/images/sam/colored.gif"></div>
-        <div class="overlay"><img src="/assets/images/sam/lipstick.png"></div>
+        <img src="/_nuxt/public/images/sam/pinkdoc2.jpg">
+        <div class="video"><img src="/_nuxt/public/images/sam/colored.gif"></div>
+        <div class="overlay"><img src="/_nuxt/public/images/sam/lipstick.png"></div>
       </div>
     </div>
 
@@ -97,7 +97,7 @@
     </div>
     <div class="box on">
       <h3>대학생 에디터들의 뷰티팁을<br>에디터에서 만나보세요.</h3>
-      <div class="qr"><img src="/assets/images/sam/sample_qrcode.gif"></div>
+      <div class="qr"><img src="/_nuxt/public/images/sam/sample_qrcode.gif"></div>
       <p>휴대폰으로 QR코드를 스캔하여<br>모바일로 이동해주세요.</p>
     </div>
     <Button txt="닫기" class="btn_close" @click="qr_menu" />

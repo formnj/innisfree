@@ -115,8 +115,8 @@
                 </div>
                 <div class="modal_content">
                   <div class="img">
-                    <a href="#none"><img src="/assets/images/sam/icon_sns_facebook.png"></a>
-                    <a href="#none"><img src="/assets/images/sam/icon_share_url.png"></a>
+                    <a href="#none"><img src="/_nuxt/public/images/sam/icon_sns_facebook.png"></a>
+                    <a href="#none"><img src="/_nuxt/public/images/sam/icon_share_url.png"></a>
                   </div>
                 </div>
               </div>
