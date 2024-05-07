@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="inner">
-      <a href="#none"><img src="../../assets/images/footer/Wordmark.png" alt=""></a>
+      <a href="#none"><img src="~/assets/images/footer/Wordmark.png" alt=""></a>
       <div class="cont_footer">
         <span>
           본 사이트와 앱의 모든 정보, 콘텐츠, UI등에 대한 무단 복제, 전송, 배포<br/>

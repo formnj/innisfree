@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="inner">
-      <a href="#none"><img src="../../assets/images/footer/Wordmark.png" alt=""></a>
+      <a href="#none"><img src="~/assets/images/footer/Wordmark.png" alt=""></a>
       <div class="cont_footer">
         <ul>
           <li>

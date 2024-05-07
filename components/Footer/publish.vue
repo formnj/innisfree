@@ -1,7 +1,7 @@
 <template>
   <footer :class="props.device">
     <div class="inner">
-      <a href="#none"><img src="../../assets/images/footer/Wordmark.png" alt=""></a>
+      <a href="#none"><img src="~/assets/images/footer/Wordmark.png" alt=""></a>
       <!-- mobile -->
       <div class="cont_footer" v-if="props.device == 'MO'">
         <span>
