@@ -125,7 +125,7 @@ const search_close = (e) => {
         position:relative;
         display:flex;
         justify-content:space-between;
-        ::v-deep .btn_txt {
+        :deep(.btn_txt) {
             em {
                 color:#999;
                 font-size:12px;
@@ -146,7 +146,7 @@ const search_close = (e) => {
             align-items:center;
             flex:1;
         }
-        ::v-deep .input {
+        :deep(.input) {
             input {
                 padding-right:5px;
                 font-size:13px;
@@ -166,7 +166,7 @@ const search_close = (e) => {
             background-repeat:no-repeat;
             background-size:250px auto;
             display:block;
-            ::v-deep em {
+            :deep(em) {
                 padding:0;
                 font-size:0;
             }
@@ -218,7 +218,7 @@ const search_close = (e) => {
                     font-weight:400;
                     display:block;
                 }
-                ::v-deep .btn_del {
+                :deep(.btn_del) {
                     width:12px;
                     height:12px;
                     margin-top:1px;
