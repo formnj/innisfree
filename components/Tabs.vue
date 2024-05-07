@@ -29,7 +29,7 @@ const props = defineProps({
     li {
         margin-left:-1px;
         flex:1;
-        &::v-deep > button {
+        &:deep(> button) {
             width:100%;
             height:51px;
             font-size:16px;
@@ -46,14 +46,14 @@ const props = defineProps({
         &:hover > button {
             border-color:#00BC70;
             z-index:2;
-            ::v-deep em {
+            :deep(em) {
                 color:#00BC70;
             }
         }
         &.current > button {
             border-color:#000;
             z-index:1;
-            ::v-deep em {
+            :deep(em) {
                 color:#000;
                 font-weight:600;
             }
@@ -61,7 +61,7 @@ const props = defineProps({
     }
     &.type_01 {
         li {
-        &::v-deep > button {
+        &:deep(> button) {
             height:60px;
             font-size:14px;
             border:0;
@@ -80,7 +80,7 @@ const props = defineProps({
             }
         }
         &.current {
-          ::v-deep > button {
+          :deep(> button) {
             &:after {
               border-bottom:2px solid #000;
             }
@@ -99,7 +99,7 @@ const props = defineProps({
         padding-top:10px;
         padding-left:10px;
         flex:0 auto;
-        &::v-deep > button {
+        &:deep(> button) {
           height:auto;
           font-size:14px;
           background-color:#f5f5f5;
@@ -112,7 +112,7 @@ const props = defineProps({
           }
         }
         &.current {
-          &::v-deep > button {
+          &:deep(> button) {
             background-color:#fff;
             border-color:#000;
             em {
@@ -154,7 +154,7 @@ const props = defineProps({
       }
       li {
         flex:0 auto;
-        &::v-deep > button {
+        &:deep(> button) {
           height:auto;
           padding:0 30px;
           border:0;
@@ -167,7 +167,7 @@ const props = defineProps({
           }
         }
         &.current {
-          ::v-deep > button {
+          :deep(> button) {
             em {
               color:#000;
               font-weight:600;
@@ -189,7 +189,7 @@ const props = defineProps({
       li {
         margin-left:-1px;
         flex:1;
-        &::v-deep > button {
+        &:deep(> button) {
             width:100%;
             height:64px;
             font-size:16px;
@@ -207,7 +207,7 @@ const props = defineProps({
             border-color:#000;
             background: #000 !important;
             z-index:1;
-            ::v-deep em {
+            :deep(em) {
                 color:#fff;
                 font-weight:600;
             }

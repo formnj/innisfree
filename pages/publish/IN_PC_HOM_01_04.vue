@@ -317,7 +317,7 @@ onMounted(() => {
                     padding-top:10px;
                     padding-left:10px;
                     flex:0 auto;
-                        &::v-deep > * {
+                        &:deep(> *) {
                         height:auto;
                         font-size:14px;
                         background-color:#f5f5f5;
@@ -330,7 +330,7 @@ onMounted(() => {
                         }
                         }
                         &.current {
-                        &::v-deep > * {
+                        &:deep(> *) {
                             background-color:#fff;
                             border-color:#000;
                             em {

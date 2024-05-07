@@ -259,7 +259,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
             justify-content:center;
             align-items:center;
             gap:0 10px;
-            ::v-deep button {
+            :deep(button) {
                 &.btn_mid {
                     padding:0 30px;
                     font-size:16px;
@@ -307,7 +307,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                     font-size:16px;
                     font-weight:500;
                     border-bottom:1px solid #f5f5f5;
-                    ::v-deep button.btn_outline {
+                    :deep(button.btn_outline) {
                         em {
                             font-weight:600;
                         }
@@ -317,7 +317,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                         display:block !important;
                     }
                     .label_wrap {
-                        ::v-deep label.input {
+                        :deep(label.input) {
                             input {
                                 width:600px !important;
                             }
@@ -348,7 +348,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                     &.qa_sms {
                         > div {
                             gap:6px;
-                            ::v-deep  .input_wrap {
+                            :deep(.input_wrap) {
                               flex:0 auto !important;
                               .label_wrap {
                               flex:0 !important;
@@ -363,7 +363,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                         }
                         dl {
                           dd {
-                            ::v-deep .input_wrap{
+                            :deep(.input_wrap) {
                               flex:0 auto;
                             }
                           }
@@ -373,7 +373,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                         > div {
                             gap:6px;
 
-                            ::v-deep .input_wrap {
+                            :deep(.input_wrap) {
                               flex:0 auto !important;
                               .label_wrap {
                               flex:0 !important;
@@ -388,7 +388,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                         }
                         dl {
                           dd {
-                            ::v-deep .input_wrap{
+                            :deep(.input_wrap) {
                               flex:0 auto;
                             }
                           }
@@ -433,7 +433,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
             .inner {
                 padding:0;
 
-                ::v-deep .tab_wrap {
+                :deep(.tab_wrap) {
                     ul {
                         border-bottom:1px solid #eee;
                         gap:50px;

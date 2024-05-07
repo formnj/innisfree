@@ -366,7 +366,7 @@ section {
                     margin-right:0 !important;
                      ul {
                          li {
-                            &::v-deep > * {
+                            &:deep(> *) {
                                 height:40px !important;
                                 font-size:1.3rem !important;
                             }

@@ -652,13 +652,13 @@ onMounted(()=>{
     overflow:auto;
 }
 
-::v-deep .breadcrumb {
+:deep(.breadcrumb) {
     .inner {
         margin:0 !important;
     }
 }
 
-::v-deep .swiper-slide {
+:deep(.swiper-slide) {
   width:620px !important;
   opacity:0.2;
   filter:grayscale(1);

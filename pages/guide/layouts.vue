@@ -306,7 +306,7 @@ definePageMeta({
     overflow:auto;
 }
 
-::v-deep .breadcrumb {
+:deep(.breadcrumb) {
     .inner {
         margin:0 !important;
     }
