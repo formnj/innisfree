@@ -251,7 +251,7 @@ layout:'pc-mypage'
 });
 
 import { modal } from '~/assets/js/common-ui.js'
-import {Delivery_data} from '../../test/data/publish/dummyData'
+import {Delivery_data} from '~/test/data/publish/dummyData'
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   layoutType: {
