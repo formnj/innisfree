@@ -296,12 +296,60 @@ const setFilter = (event) =>{
 }
 
 .modal_wrap.bottom {
+  &#sample_modal_search {
+    .modal_container {
+      .modal_content {
+        padding:30px !important;
+        .sortList {
+          margin-bottom:20px;
+          dt {
+            margin-bottom: 10px;
+            color: #999999;
+            font-size: 12px;
+            line-height: 1.32em;
+            letter-spacing: -0.01em;
+
+          }
+          dd {
+            ul {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+              li {
+                label {
+                  padding-left: 0;
+                  input {
+                    position: absolute;
+                    z-indeX: -1;
+                    opacity: 0;
+                  }
+                  span {
+                    height: 30px;
+                    padding: 0 20px;
+                    color: #AAAAAA;
+                    font-weight: 600;
+                    font-size: 14px;
+                    border-radius: 5px;
+                    background-color: #F5F5F5;
+                    line-height: 1.29em;
+                    letter-spacing: -0.01em;
+                    display: flex;
+                    align-items: center;
+                    &.active {
+                      color: #FFFFFF;
+                      background:#00BC70;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
     .modal_container {
         z-index:100;
-        .modal_header {}
-        .modal_content {
-        }
-
     }
 }
 
@@ -379,51 +427,9 @@ const setFilter = (event) =>{
   }
 
 
-.sortList {
-      margin-bottom:30px;
-      dt {
-        margin-bottom: 10px;
-        color: #999999;
-        font-size: 12px;
-        line-height: 1.32em;
-        letter-spacing: -0.01em;
 
-      }
-      dd {
-        ul {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          li {
-            label {
-              padding-left: 0;
-              input {
-                position: absolute;
-                z-indeX: -1;
-                opacity: 0;
-              }
-              span {
-                height: 30px;
-                padding: 0 20px;
-                color: #AAAAAA;
-                font-weight: 600;
-                font-size: 14px;
-                border-radius: 5px;
-                background-color: #F5F5F5;
-                line-height: 1.29em;
-                letter-spacing: -0.01em;
-                display: flex;
-                align-items: center;
-                &.active {
-                  color: #FFFFFF;
-                  background:#00BC70;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+
+
 
 @import "~/assets/scss/_mo_mixin.scss";
 
