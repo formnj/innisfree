@@ -288,7 +288,7 @@ onMounted(() => {
                 width:16px;
                 height:16px;
                 margin-right:1rem;
-                background-image: url('../../assets/mo_images/common/icon_split.png');
+                background-image: url('~/assets/mo_images/common/icon_split.png');
                 background-repeat:no-repeat;
                 background-size:250px;
                 background-position:-228px -98px;

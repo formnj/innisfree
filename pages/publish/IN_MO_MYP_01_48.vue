@@ -213,7 +213,7 @@ accordion('.board_type_toggle', 'click')
       content:'';
       width:24px;
       height:24px;
-      background-image: url('../../assets/mo_images/common/icon_split.png');
+      background-image: url('~/assets/mo_images/common/icon_split.png');
       background-repeat:no-repeat;
       background-size:250px;
       background-position:-5px -215px;

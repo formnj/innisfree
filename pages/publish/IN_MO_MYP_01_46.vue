@@ -239,7 +239,7 @@ section {
                 width:16px;
                 height:16px;
                 margin-right:-10px;
-                background-image: url('../../assets/mo_images/common/icon_split.png');
+                background-image: url('~/assets/mo_images/common/icon_split.png');
                 background-repeat:no-repeat;
                 background-size:250px;
                 background-position:-170px -135px;
@@ -287,7 +287,7 @@ section {
             width:24px;
             height:24px;
             margin-right:-10px;
-            background-image: url('../../assets/mo_images/common/icon_split.png');
+            background-image: url('~/assets/mo_images/common/icon_split.png');
             background-repeat:no-repeat;
             background-size:250px;
             background-position:-138px -130px;
@@ -295,7 +295,7 @@ section {
       &.active {
         background-color: #000;
         &::before {
-          background-image: url('../../assets/mo_images/common/icon_split.png');
+          background-image: url('~/assets/mo_images/common/icon_split.png');
             background-repeat:no-repeat;
             background-size:250px;
             background-position:-138px -162px;
@@ -403,7 +403,7 @@ section {
                         > em {
                             width:16px;
                             height:16px;
-                            background-image: url('../../assets/mo_images/common/icon_split.png');
+                            background-image: url('~/assets/mo_images/common/icon_split.png');
                             background-repeat:no-repeat;
                             background-size:250px;
                             background-position:-195px -135px;

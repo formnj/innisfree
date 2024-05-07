@@ -159,7 +159,7 @@ footer {
         a {
           width:26px;
           height:26px;
-          background-image:url('../../assets/images/footer/SNS.png');
+          background-image:url('~/assets/images/footer/SNS.png');
           background-repeat:no-repeat;
           background-size: 170px auto;
           display:inline-block;
@@ -201,13 +201,13 @@ footer {
         background-repeat:no-repeat;
         }
         &.web2023::before {
-          background-image:url('../../assets/images/footer/Award.png');
+          background-image:url('~/assets/images/footer/Award.png');
         }
         &.smart2023::before {
-          background-image:url('../../assets/images/footer/Award-1.png');
+          background-image:url('~/assets/images/footer/Award-1.png');
         }
         &.smart2022::before {
-          background-image:url('../../assets/images/footer/Award-2.png');
+          background-image:url('~/assets/images/footer/Award-2.png');
 
         }
         > span {
