@@ -148,7 +148,7 @@
                         <a href="#none" class="delivery">배송조회</a>
                     </li>
                     <li>
-                        <a href="#none" class="cart">장바구니
+                        <a href="/publish/IN_PC_CAR_01_01" class="cart">장바구니
                             <em>5</em>
                         </a>
                     </li>
