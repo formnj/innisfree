@@ -5,7 +5,6 @@
       <swiper-slide v-for="(item, idx) in prodImgData" :key="idx">
         <img :src="item.img">
       </swiper-slide>
-      <!-- <div class="custom_pagination"></div> -->
     </swiper>
   </div>
 
@@ -48,14 +47,6 @@ const props = defineProps({
     default: true
   }
 });
-
-// const pagination = {
-//   el: ".custom-pagination",
-//   type: "custom",
-//   renderCustom: function (swiper, current, total) {
-//     return "<span class='pagination_current'>0" + current + "</span><span class='pagination_total'>0" + total + "</span>";
-//   }
-// }
 
 const navigation = {
   prevEl: ".nav_prev",

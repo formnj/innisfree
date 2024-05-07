@@ -65,8 +65,8 @@
 <style scoped>
 em {font-style:normal;}
 label.input {position:relative; display:block;}
-label.input i {color:#aaa; font-size:16px; font-style:normal; line-height:18px; position:absolute; top:50px; left:15px; transform:translateY(-50%);}/* placeholder */
-label.input textarea {width:100%; font-size:16px;; line-height:18px; resize:none;}
+label.input i {color:#aaa; font-size:16px; font-style:normal; line-height:18px; position:absolute; top:15px; left:15px;}/* placeholder */
+label.input textarea {width:100%; font-size:16px;; line-height:18px; resize:none; padding:10px 15px}
 label.input .err_txt {margin-top:5px; color:#ff7200; font-size:12px; line-height:18px; display:none;}
 label.input.err .err_txt {display:block;}
 label.input * {flex:1 auto;}

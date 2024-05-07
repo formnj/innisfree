@@ -91,7 +91,7 @@
   </div>
 
   <!-- 콘텐츠 우선순위에 맞는 배치 변경 -->
-  <div class="qr_wrap">
+  <div class="floating_wrap">
     <div class="box off">
       <span>실시간 이니스프리<br>이야기</span>
     </div>
@@ -100,7 +100,7 @@
       <div class="qr"><img src="/assets/images/sam/sample_qrcode.gif"></div>
       <p>휴대폰으로 QR코드를 스캔하여<br>모바일로 이동해주세요.</p>
     </div>
-    <Button txt="닫기" class="btn_close" @click="qr_menu" />
+    <button type="button" class="btn_close" @click="qr_menu">닫기</button>
   </div>
   <!-- //콘텐츠 우선순위에 맞는 배치 변경 -->
 </template>
@@ -123,7 +123,7 @@ definePageMeta({
 
 onMounted(() => {
   setTimeout(() => {
-    document.querySelector('.qr_wrap').classList.add('close');
+    document.querySelector('.floating_wrap').classList.add('close');
   }, 3000);
 });
 
@@ -162,34 +162,12 @@ const swiper_nav = {
 /* swiper custom navigation */
 
 const qr_menu = (e) => {
-  e.target.closest('.qr_wrap').classList.toggle('close');
+  e.target.closest('.floating_wrap').classList.toggle('close');
 };
 </script>
 <style lang="scss" scoped>
-.qr_wrap {
-  width: 300px;
-  height: 290px;
-  margin-left: 650px;
-  padding: 40px 0 43px;
-  border: 1px solid #000;
-  text-align: center;
-  background: #fff;
-  box-sizing: border-box;
-  overflow: hidden;
-  position: fixed;
-  right: 40px;
-  top: 417px;
-  z-index: 2;
-  transition: 0.4s ease-in-out;
-  * {
-    transition: 0.4s ease-in-out;
-  }
+.floating_wrap {
   .box {
-    width:100%;
-    position:absolute;
-    top:40px;
-    left:50%;
-    transform:translateX(-50%);
     &.off {
       line-height:1.43;
       opacity:0;
@@ -210,17 +188,10 @@ const qr_menu = (e) => {
     }
   }
   .btn_close {
-    width:24px;
-    height:24px;
     background:url('/_nuxt/assets/images/common/icon_split.png') no-repeat -210px -170px;
     background-size:250px auto;
-    position:absolute;
     left:10px;
     bottom:10px;
-    :deep(em) {
-      padding:0;
-      font-size:0;
-    }
   }
   &.close {
     width:160px;
