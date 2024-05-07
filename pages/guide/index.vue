@@ -321,12 +321,17 @@ const PC_arry = ([
     }, {
         depth:['','보유쿠폰','다운로드 가능한 쿠폰(T)',''],
         id:'IN_PC_MYP_01_32', status:'',
-        type:'', note:'',
+        type:'', note:'마이페이지 > 보유쿠폰',
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','','보유쿠폰(T)',''],
         id:'IN_PC_MYP_01_35', status:'',
         type:'', note:'',
+        sDate:'', eDate:'2024-06-28', worker:''
+    }, {
+        depth:['','','쿠폰상세',''],
+        id:'IN_PC_MYP_01_36', status:'',
+        type:'modal', note:'',
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','뷰티포인트 내역','',''],
@@ -815,12 +820,17 @@ const MO_arry = ([
     }, {
         depth:['','보유쿠폰','다운로드 가능한 쿠폰(T)',''],
         id:'IN_MO_MYP_01_32', status:'',
-        type:'', note:'',
+        type:'', note:'마이페이지 > 보유쿠폰',
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','','보유쿠폰(T)',''],
         id:'IN_MO_MYP_01_35', status:'',
         type:'', note:'',
+        sDate:'', eDate:'2024-06-28', worker:''
+    }, {
+        depth:['','','쿠폰상세',''],
+        id:'IN_MO_MYP_01_36', status:'',
+        type:'modal', note:'',
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','뷰티포인트 내역','',''],

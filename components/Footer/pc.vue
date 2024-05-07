@@ -92,7 +92,7 @@
   </footer>
 
   <!-- float menu -->
-  <div class="flaot_menu">
+  <div class="float_menu">
     <ul>
       <li>
         <Button class="btn_history" txt="쇼핑로그" @click="modal.open('shopping_log', 'detailSearch')" />
@@ -417,7 +417,7 @@ footer {
   }
 }
 
-.flaot_menu {
+.float_menu {
   position:fixed;
   right:40px;
   bottom:40px;
@@ -453,7 +453,7 @@ footer {
       }
     }
     &.btn_history em:after {
-      background-position:-200px -130px;
+      background-position:-170px -250px;
     }
     &.btn_goTop em:after {
       background-position:-180px -60px;
