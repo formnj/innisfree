@@ -37,8 +37,11 @@
       <div class="prod_detail_info">
         <!-- 상품 정보 -->
         <productDetailInfo />
+
         <div class="list_wrap">
+
           <productDetailBenefit />
+
           <dl class="benefit_list">
             <dt>뷰티포인트</dt>
             <dd>
@@ -178,13 +181,13 @@
 
       <div class="tab_contents">  <!-- 상세 탭 컨텐츠 -->
         <!-- 상세 정보 -->
-        <div class="tab_cont">
+        <div class="tab_cont" style="display: block;">
           <ProductDetailConts />
         </div>
         <!-- //상세 정보 -->
 
         <!-- 리뷰 -->
-        <div class="tab_cont review" style="display:block;">
+        <div class="tab_cont tab_cont_review" style="display: block;">
 
           <ProductReviewSummary /> <!-- 리뷰 요약 -->
 
@@ -269,6 +272,7 @@
                 <ProductReview :item="item" /> <!-- 리뷰 -->
               </li>
             </ul>
+
             <div class="paging">
               <div>
                 <a href="#none" class="first">처음으로</a>
@@ -284,51 +288,49 @@
           <!-- //리뷰 리스트 -->
 
           <section>
-            <h1>이 제품과 같은 라인 <a href="#none" class="btn_link_arrw"><em>노세범</em> 라인</a></h1>
-            <div class="swiper_progressbar_wrap">
-              <swiper
-                :slides-per-view="'auto'"
-                :space-between="20"
-                :loop="true"
-                :auto-height="true"
-                :pagination="{
-                  type:'progressbar'
-                }"
-                @swiper="onSwiper"
-              >
-                <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx">
-                  <GoodsItem :item="item" :link="item.link" />
-                </swiper-slide>
-              </swiper>
-              <div class="navigation">
-                <button class="swiper-button-prev" @click="swiper_nav.prev"></button>
-                <button class="swiper-button-next" @click="swiper_nav.next">Next</button>
-              </div>
-            </div>
+            <h2>이 제품의 카테고리 BEST</h2>
+            <ProductDetailSwiperProgressBar />
           </section>
 
+          <section>
+            <h2>이 제품을 본 분들의 관심 제품</h2>
+            <ProductDetailSwiperProgressBar />
+          </section>
         </div>
         <!-- //리뷰 -->
 
-        <div class="tab_cont">유의사항</div>
-        <div class="tab_cont">문의</div>
+        <!-- 유의사항 -->
+        <div class="tab_cont">
+          <ProductDetailNotice />
+        </div>
+        <!-- //유의사항 -->
+
+        <!-- 문의 --
+        <div class="tab_cont">
+        </div>
+         //문의 -->
       </div>
       <!-- //상세 컨텐츠 -->
     </div>
   </div>
-    <!-- <div class="swiper-notify"><strong>7명의 고객님</strong> 동시에 확인중 <button type="button" class="btn_close">닫기</button></div> -->
+
+  <ProductQnaModal /> <!-- 문의 모달(제품문의 작성) -->
+
+  <!-- 플로팅 배너 -->
+  <div class="floating_wrap open">
+    <button type="button" class="btn_close" @click="float_close">닫기</button>
+    <p>지금 <em>2명의 고객님</em>이<br>이 제품을 함께 보고 있습니다!</p>
+    <div class="ipt_wrap">
+      <Inputs _type="checkbox" _text="이 알림을 일주일간 보지 않기" />
+    </div>
+  </div>
+  <!-- //플로팅 배너 -->
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 import { modal, setFilter } from '~/assets/js/common-ui'
-import { sample_review, sample_goods } from '~/test/data/publish/dummyData'
-import SwiperCore, { Navigation, Pagination, A11y, Controller } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
-SwiperCore.use([Navigation, Pagination, A11y, Controller]);
-
+import { sample_review } from '~/test/data/publish/dummyData'
 
 definePageMeta({
   layout:'pc-category'
@@ -356,18 +358,17 @@ const DropDown = () => {
   list.classList.toggle('active');
 }
 
-/* swiper custom navigation */
-const setSwiper = ref(null);
-const onSwiper = (swiper) => setSwiper.value = swiper;
-const swiper_nav = {
-  prev: () => {
-    setSwiper.value.slidePrev();
-  },
-  next: () => {
-    setSwiper.value.slideNext();
-  },
-};
-/* swiper custom navigation */
+const float_close = () => {
+  const el = event.currentTarget;
+  el.parentElement.classList.remove("open");
+}
+
+onMounted(()=>{
+  const flotBanner = document.getElementsByClassName("floating_wrap")[0];
+  setTimeout(()=>{
+    flotBanner.classList.remove("open");
+  }, 6000)
+})
 </script>
 
 <style lang="scss">
@@ -399,6 +400,8 @@ const swiper_nav = {
           }
 
           dd {
+            width: 100%;
+
             a {
               width: auto;
               max-width: 100%;
@@ -531,6 +534,13 @@ const swiper_nav = {
 
   section {
     padding: 50px 0;
+
+    h2 {
+      margin-bottom: 30px;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 32px;
+    }
   }
 
   .modal_wrap.layer {
@@ -718,6 +728,69 @@ const swiper_nav = {
         }
       }
     }
+  }
+}
+
+.floating_wrap {
+  width: 280px;
+  height: auto;
+  padding: 0;
+  top: auto;
+  bottom: -400px;
+
+  &.open {
+    bottom: 100px;
+  }
+
+  .btn_close {
+    top: 10px;
+    right: 10px;
+
+    &:before,
+    &:after {
+      width: 18px;
+      margin-left: 2px;
+      border-top: 1px solid #000;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: block;
+    }
+
+    &:before {
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  p {
+    padding: 40px 0 30px;
+    font-size: 16px;
+    line-height: 1.4;
+
+    &:before {
+      content: '';
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 10px;
+      background: url("~/assets/images/common/icon_split.png") -420px -260px no-repeat;
+      display: block;
+    }
+
+    em {
+      font-weight: 600;
+      color: #00BC70;
+    }
+  }
+
+  .ipt_wrap {
+    padding: 15px 14px;
+    text-align: left;
+    border-top: 1px solid #eee;
   }
 }
 
@@ -938,75 +1011,6 @@ button.tooltip {
 
   .paging {
     margin: 60px 0 0;
-  }
-}
-
-.swiper_progressbar_wrap {
-  width: 1280px;
-  padding: 30px 0 0;
-  margin: 0 auto;
-  position: relative;
-
-  .swiper-container {
-    .swiper-pagination {
-      height: 2px;
-      bottom: 0;
-      top: unset;
-      background: #DDDDDD;
-
-      span {
-        background: #000000;
-      }
-    }
-
-    div[role="button"] {
-      &:after {
-        color: #000000;
-        font-size: 24px;
-      }
-    }
-
-    .swiper-slide {
-      width: 240px;
-      // padding-bottom: 61px;
-    }
-  }
-
-  .navigation {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-
-    button {
-      color: #000;
-      font-size: 0;
-      position: absolute;
-
-      &:after {
-        font-size: 22px;
-      }
-
-      &.swiper-button-prev {
-        left: -65px;
-
-        &:after {
-          content: 'prev';
-        }
-      }
-
-      &.swiper-button-next {
-        right: -65px;
-
-        &:after {
-          content: 'next';
-        }
-      }
-    }
   }
 }
 </style>

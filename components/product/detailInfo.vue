@@ -12,7 +12,7 @@
         <span class="cost">{{ prodInfo.cost }}</span>
       </div>
       <div class="rate">
-        <a href="#리뷰탭으로이동">
+        <a href="javascript:void(0);" @click="gotoReview">
           <span class="star_rate">
             <span class="star_wrap"><span class="star" style="width:50%;">별점</span></span>
             <!-- 별점 : .star의 width에 퍼센테이지로 입력 -->
@@ -24,12 +24,18 @@
     </div>
     <p class="review_summary">
       {{ prodInfo.summaryReview }}
-      <button type="button">더보기</button>
+      <button type="button" @click="gotoReview">더보기</button>
     </p>
   </div>
 </template>
 <script setup>
 import { prodInfo } from '~/test/data/publish/dummyData'
+const gotoReview = () => {
+  const el = document.getElementsByClassName('tab_cont_review')[0];
+  const contPadding = document.getElementsByClassName('gnb_wrap')[0].offsetHeight + document.getElementsByClassName('tab_wrap')[0].offsetHeight;
+  const contsTop = el.getBoundingClientRect().y + window.pageYOffset - contPadding;
+  window.scrollTo({top:contsTop, behavior: 'smooth'});
+}
 </script>
 <style lang="scss" scoped>
 .prod_info {
