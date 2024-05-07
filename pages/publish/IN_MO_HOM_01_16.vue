@@ -145,7 +145,7 @@ onMounted(() => {})
     height: 25rem;
     padding:4rem 0 0 2.1rem;
     letter-spacing: -0.01em;
-    background: url('/_nuxt/assets/images/sam/bg_staff_visual.png') no-repeat center;
+    background: url('/_nuxt/public/images/sam/bg_staff_visual.png') no-repeat center;
     background-size: cover;
     >span {
       padding: 0.2rem 0.5rem;

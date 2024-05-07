@@ -352,12 +352,12 @@ definePageMeta({
 });
 
 const img_sample = [
-  {img:'/_nuxt/assets/images/sam/kit_2023_2.png',date:'2023 하반기',text:'마리떼 새해웰컴키트'},
-  {img:'/_nuxt/assets/images/sam/kit_2023_2.png',date:'2023 상반기',text:'해피 리벌스데이 키트'},
-  {img:'/_nuxt/assets/images/sam/kit_2023_2.png',date:'2022 하반기',text:'웰컴 그린티 기프트'},
-  {img:'/_nuxt/assets/images/sam/kit_2023_2.png',date:'2022 상반기',text:'수분충전 키트'},
-  {img:'/_nuxt/assets/images/sam/kit_2023_2.png',date:'2021 하반기',text:'ECO-TOGETHER KIT'},
-  {img:'/_nuxt/assets/images/sam/kit_2023_2.png',date:'2021 상반기',text:'올리브 그린 키트'},
+  {img:'/_nuxt/public/images/sam/kit_2023_2.png',date:'2023 하반기',text:'마리떼 새해웰컴키트'},
+  {img:'/_nuxt/public/images/sam/kit_2023_2.png',date:'2023 상반기',text:'해피 리벌스데이 키트'},
+  {img:'/_nuxt/public/images/sam/kit_2023_2.png',date:'2022 하반기',text:'웰컴 그린티 기프트'},
+  {img:'/_nuxt/public/images/sam/kit_2023_2.png',date:'2022 상반기',text:'수분충전 키트'},
+  {img:'/_nuxt/public/images/sam/kit_2023_2.png',date:'2021 하반기',text:'ECO-TOGETHER KIT'},
+  {img:'/_nuxt/public/images/sam/kit_2023_2.png',date:'2021 상반기',text:'올리브 그린 키트'},
 ];
 
 const tbidx = ref(0);

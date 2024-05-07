@@ -18,7 +18,7 @@ export const mo_benefit_goods = [
       }
   },
   {
-    img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+    img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
     overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
     cate:'BEST',
     name:'블랙티 유스 인핸싱 앰플 50ml',
@@ -27,9 +27,9 @@ export const mo_benefit_goods = [
     giveaway: {
         modal_id:'giveaway_01',
         modal_type:'bottom',
-        img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
-        img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
-        img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
+        img_01:("/_nuxt/public/images/sam/sam_pre_01.png"),
+        img_02:("/_nuxt/public/images/sam/sam_pre_02.png"),
+        img_03:("/_nuxt/public/images/sam/am_pre_03.png"),
     },
     cart_alert: {
       modal_id:'cart_alert_02',
@@ -37,8 +37,8 @@ export const mo_benefit_goods = [
     }
   },
   {
-      img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-      overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
+      img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
+      overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
       cate:'NEW',
       name:'그린티 씨드 히알루론산 세렘 80ml',
       price:'44,800', sale:'~20%', cost:'56,000',
@@ -63,9 +63,9 @@ export const mo_benefit_goods = [
       giveaway: {
           modal_id:'giveaway_01',
           modal_type:'bottom',
-          img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
-          img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
-          img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
+          img_01:("/_nuxt/public/images/sam/sam_pre_01.png"),
+          img_02:("/_nuxt/public/images/sam/sam_pre_02.png"),
+          img_03:("/_nuxt/public/images/sam/am_pre_03.png"),
       },
       cart_alert: {
         modal_id:'cart_alert_02',
@@ -130,7 +130,7 @@ export const sale_menu = [
 
 export const select_list = [
   {
-    img:('/_nuxt/assets/images/sam/MYP_01_04_1.jpg'),
+    img:('/_nuxt/public/images/sam/MYP_01_04_1.jpg'),
     name:'비타C 그린티 엔자임 잡티 토닝 패드 x 2개 패키지',
     price:{
       regular:'56,000원',
@@ -138,7 +138,7 @@ export const select_list = [
     }
   },
   {
-    img:('/_nuxt/assets/images/sam/MYP_01_04_1.jpg'),
+    img:('/_nuxt/public/images/sam/MYP_01_04_1.jpg'),
     name:'그린티 씨드 세럼 대용랑+리필',
     price:{
       regular:'78,000원',
@@ -332,71 +332,71 @@ export const breadcrumbData = [
 
 export const sample_event = [
  {
-      img:("/_nuxt/assets/images/sam/event_list_01.jpg"),
+      img:("/_nuxt/public/images/sam/event_list_01.jpg"),
       cate:'제휴혜택',
       title:'트러블?수분?탄력?<br/> 고민따라 10% 추가할인 쿠폰위크!!',
       data:'24.4.14(일) ~ 24.4.30(화)',
   },  {
-      img:("/_nuxt/assets/images/sam/event_list_02.jpg"),
+      img:("/_nuxt/public/images/sam/event_list_02.jpg"),
       cate:'쇼핑혜택',
       title:'남성에게도 딱! 맞는<br/> 그린티 씨드 세럼 대용량 출시',
       data:'24.4.14(일) ~ 24.4.22(월)',
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_03.jpg"),
+      img:("/_nuxt/public/images/sam/event_list_03.jpg"),
       cate:'체험/리뷰',
       title:'잡티와 토닝을 한번에!<br/> NEW 패드 즉시 증정!',
       data:'24.4.1(월) ~ 24.4.30(화)',
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_04.jpg"),
+      img:("/_nuxt/public/images/sam/event_list_04.jpg"),
       cate:'제휴혜택',
       title:'자신감 있는 레티놀 앰플<br/> 매일 3,656개 판매! ',
       data:'24.4.14(일) ~ 24.4.22(월)',
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_05.jpg"),
+      img:("/_nuxt/public/images/sam/event_list_05.jpg"),
       cate:'체험/리뷰',
       title:'이니스프리 공식몰이 처음이라면?',
       data:'24.4.14(일) ~ 24.5.1(수)',
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_06.jpg"),
+      img:("/_nuxt/public/images/sam/event_list_06.jpg"),
       cate:'쇼핑혜택',
       title:'비타C 1+1 럭키박스<br/> 행운의 주인공은?',
       data:'24.4.1(월) ~ 24.4.30(화)',
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_01.jpg"),
+      img:("/_nuxt/public/images/sam/event_list_01.jpg"),
       cate:'제휴혜택',
       title:'트러블?수분?탄력?<br/> 고민따라 10% 추가할인 쿠폰위크!!',
       data:'24.4.14(일) ~ 24.4.30(화)',
   },  {
-      img:("/_nuxt/assets/images/sam/event_list_02.jpg"),
+      img:("/_nuxt/public/images/sam/event_list_02.jpg"),
       cate:'쇼핑혜택',
       title:'남성에게도 딱! 맞는<br/> 그린티 씨드 세럼 대용량 출시',
       data:'24.4.14(일) ~ 24.4.22(월)',
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_03.jpg"),
+      img:("/_nuxt/public/images/sam/event_list_03.jpg"),
       cate:'체험/리뷰',
       title:'잡티와 토닝을 한번에!<br/> NEW 패드 즉시 증정!',
       data:'24.4.1(월) ~ 24.4.30(화)',
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_04.jpg"),
+      img:("/_nuxt/public/images/sam/event_list_04.jpg"),
       cate:'제휴혜택',
       title:'자신감 있는 레티놀 앰플<br/> 매일 3,656개 판매! ',
       data:'24.4.14(일) ~ 24.4.22(월)',
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_05.jpg"),
+      img:("/_nuxt/public/images/sam/event_list_05.jpg"),
       cate:'체험/리뷰',
       title:'이니스프리 공식몰이 처음이라면?',
       data:'24.4.14(일) ~ 24.5.1(수)',
   },
   {
-      img:("/_nuxt/assets/images/sam/event_list_06.jpg"),
+      img:("/_nuxt/public/images/sam/event_list_06.jpg"),
       cate:'쇼핑혜택',
       title:'비타C 1+1 럭키박스<br/> 행운의 주인공은?',
       data:'24.4.1(월) ~ 24.4.30(화)',
@@ -441,8 +441,8 @@ export const sample_goods = [
         }
 
     }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
+        overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
         cate:'NEW',
         name:'그린티 씨드 히알루론산 세렘 80ml',
         price:'44,800', sale:'~20%', cost:'56,000',
@@ -456,8 +456,8 @@ export const sample_goods = [
           modal_type:'alert',
         }
     }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
+        overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
         cate:'NEW',
         name:'그린티 씨드 히알루론산 세렘 80ml',
         price:'44,800', sale:'~20%', cost:'56,000',
@@ -484,7 +484,7 @@ export const sample_goods = [
         hash:['#스킨팩','#화장솜','#순면화장솜']
     },
     {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
         overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
         cate:'BEST',
         name:'블랙티 유스 인핸싱 앰플 50ml5',
@@ -492,16 +492,16 @@ export const sample_goods = [
         hash:['#스킨팩','#화장솜','#순면화장솜']
     },
     {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
     },
     {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
     },
     {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
     },
     {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
     },{
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
     },
@@ -600,7 +600,7 @@ export const mainSam = {
       txt:'디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!1',
       hash:['세럼','비타C', '토닝'],
       goods:{
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
         cate:'NEW',
         name:'그린티 씨드 히알루론산 세렘 80ml',
         price:'44,800', sale:'~20%', cost:'56,000',
@@ -883,7 +883,7 @@ export const sample_log = [
     type: 'event',
     item: [
       {
-        img:("/_nuxt/assets/images/sam/event_list_01.jpg"),
+        img:("/_nuxt/public/images/sam/event_list_01.jpg"),
         cate:'제휴혜택',
         title:'트러블?수분?탄력?<br/> 고민따라 10% 추가할인 쿠폰위크!!',
         data:'24.4.14(일) ~ 24.4.30(화)',
@@ -893,7 +893,7 @@ export const sample_log = [
     type: 'event',
     item: [
       {
-        img:("/_nuxt/assets/images/sam/event_list_01.jpg"),
+        img:("/_nuxt/public/images/sam/event_list_01.jpg"),
         cate:'제휴혜택',
         title:'트러블?수분?탄력?<br/> 고민따라 10% 추가할인 쿠폰위크!!',
         data:'24.4.14(일) ~ 24.4.30(화)',
@@ -1276,17 +1276,17 @@ export const sampleCmnt = [
 
 
 export const banner_list = [
-  {img: '/_nuxt/assets/images/sam/banner01.jpg', title: '4월은 지구의 달\n공병수거하며 지구를 지켜요!'},
-  {img: '/_nuxt/assets/images/sam/banner02.jpg', title: '꾸준히 사랑받는 한란 라인\n활용TIP!'},
-  {img: '/_nuxt/assets/images/sam/banner03.jpg', title: '지구 환경도 챙기고\n뷰티포인트도 챙기자!'},
-  {img: '/_nuxt/assets/images/sam/banner04.jpg', title: '추운 겨울 내 파우치 속 필수템\n취향따라 골라쓰는 퍼퓸드 핸드크림!'},
-  {img: '/_nuxt/assets/images/sam/banner05.jpg', title: '겨울철 가려움, 각질 고민\n완벽 케어 솔루션!'},
-  {img: '/_nuxt/assets/images/sam/banner06.jpg', title: '새해맞이!\n안티에이징 홈 케어 제품 추천!'},
-  {img: '/_nuxt/assets/images/sam/banner07.jpg', title: '돌아온 보습 레전드\n올리브 라인'},
-  {img: '/_nuxt/assets/images/sam/banner08.jpg', title: '이니스프리 직원 추천템\n#이니찐템'},
-  {img: '/_nuxt/assets/images/sam/banner09.jpg', title: '반려견들을 위한 산책 뷰티템\n이니스프리 그린펫클럽'},
-  {img: '/_nuxt/assets/images/sam/banner10.jpg', title: '이니스프리 FOAM 미쳤다!\n이니스프리 클렌징폼'},
-  {img: '/_nuxt/assets/images/sam/banner11.jpg', title: '눈여겨봐야 할\n신상 아이템! UTILITY BAG'},
+  {img: '/_nuxt/public/images/sam/banner01.jpg', title: '4월은 지구의 달\n공병수거하며 지구를 지켜요!'},
+  {img: '/_nuxt/public/images/sam/banner02.jpg', title: '꾸준히 사랑받는 한란 라인\n활용TIP!'},
+  {img: '/_nuxt/public/images/sam/banner03.jpg', title: '지구 환경도 챙기고\n뷰티포인트도 챙기자!'},
+  {img: '/_nuxt/public/images/sam/banner04.jpg', title: '추운 겨울 내 파우치 속 필수템\n취향따라 골라쓰는 퍼퓸드 핸드크림!'},
+  {img: '/_nuxt/public/images/sam/banner05.jpg', title: '겨울철 가려움, 각질 고민\n완벽 케어 솔루션!'},
+  {img: '/_nuxt/public/images/sam/banner06.jpg', title: '새해맞이!\n안티에이징 홈 케어 제품 추천!'},
+  {img: '/_nuxt/public/images/sam/banner07.jpg', title: '돌아온 보습 레전드\n올리브 라인'},
+  {img: '/_nuxt/public/images/sam/banner08.jpg', title: '이니스프리 직원 추천템\n#이니찐템'},
+  {img: '/_nuxt/public/images/sam/banner09.jpg', title: '반려견들을 위한 산책 뷰티템\n이니스프리 그린펫클럽'},
+  {img: '/_nuxt/public/images/sam/banner10.jpg', title: '이니스프리 FOAM 미쳤다!\n이니스프리 클렌징폼'},
+  {img: '/_nuxt/public/images/sam/banner11.jpg', title: '눈여겨봐야 할\n신상 아이템! UTILITY BAG'},
 ];
 
 export const review = [
@@ -1312,7 +1312,7 @@ export const review = [
     date: '2024.00.00',
     review: '이름이 모든 걸 다 말해주네요!<br/> 트루 히알루론👍<br/> 이니스프리 선크림은 대체로 만족하면서 쓰는 편이었지만, 이거 아니면 안돼! 까지는 아니라 진짜 다양한 제품들 써보는 유목민이었는데, 이제 트루 히알루론에 안착합니다.<br/> 우선 저는 민감하고 유수분 밸런스 맞추기 어려운 피부라 피곤하거나 너무 건조하거나 너무 유분기가 많거나, 암튼간에 조금만 어디로 기운다 싶으면 무조건 붉은 트러블이 올라옵니다🥲<br/> 트루 히알루론은 일반 크림 바르는 것처럼 가볍게 발리고 무거운 느낌도 전혀 없어요.<br/> 백탁도 없어서 남자들도 쓰기 너무 좋구요.<br/> 무엇보다 얼굴 당김이나 과한 유분기도 안 느껴져서 대만족입니다!',
     goods: {
-      img: ("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+      img: ("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
       overflip: ("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
       cate: 'BEST',
       name: '블랙티 유스 인핸싱 앰플 50ml',

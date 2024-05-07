@@ -330,16 +330,16 @@ const global_menu = [
 const latest = ['그린티 스킨','그린티 세럼','스킨','세럼','그린티 히알루론산','콜라겐','팩트','노세범','파우더','팩']
 
 const category = [
-    {img:'/_nuxt/assets/images/sam/h_cate_01.png', txt:'베스트'},
-    {img:'/_nuxt/assets/images/sam/h_cate_02.png', txt:'Sale 52%'},
-    {img:'/_nuxt/assets/images/sam/h_cate_03.png', txt:'스킨케어'},
-    {img:'/_nuxt/assets/images/sam/h_cate_04.png', txt:'선케어'},
-    {img:'/_nuxt/assets/images/sam/h_cate_05.png', txt:'세럼'},
-    {img:'/_nuxt/assets/images/sam/h_cate_06.png', txt:'팩/마스크'},
-    {img:'/_nuxt/assets/images/sam/h_cate_07.png', txt:'헤어/바디'},
-    {img:'/_nuxt/assets/images/sam/h_cate_08.png', txt:'펫'},
-    {img:'/_nuxt/assets/images/sam/h_cate_09.png', txt:'기획세트'},
-    {img:'/_nuxt/assets/images/sam/h_cate_10.png', txt:'미용소품'}
+    {img:'/_nuxt/public/images/sam/h_cate_01.png', txt:'베스트'},
+    {img:'/_nuxt/public/images/sam/h_cate_02.png', txt:'Sale 52%'},
+    {img:'/_nuxt/public/images/sam/h_cate_03.png', txt:'스킨케어'},
+    {img:'/_nuxt/public/images/sam/h_cate_04.png', txt:'선케어'},
+    {img:'/_nuxt/public/images/sam/h_cate_05.png', txt:'세럼'},
+    {img:'/_nuxt/public/images/sam/h_cate_06.png', txt:'팩/마스크'},
+    {img:'/_nuxt/public/images/sam/h_cate_07.png', txt:'헤어/바디'},
+    {img:'/_nuxt/public/images/sam/h_cate_08.png', txt:'펫'},
+    {img:'/_nuxt/public/images/sam/h_cate_09.png', txt:'기획세트'},
+    {img:'/_nuxt/public/images/sam/h_cate_10.png', txt:'미용소품'}
 ]
 /* //sample data */
 
