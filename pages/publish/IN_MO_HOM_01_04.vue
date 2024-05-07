@@ -99,7 +99,7 @@
         <div class="modal_content">
           <dl>
             <dt>
-              <img src="/_nuxt/assets/images/sam/giveaway_01.png">
+              <img src="/_nuxt/public/images/sam/giveaway_01.png">
             </dt>
             <dd>
               <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
@@ -109,7 +109,7 @@
           </dl>
           <dl>
             <dt>
-              <img src="/_nuxt/assets/images/sam/giveaway_02.png">
+              <img src="/_nuxt/public/images/sam/giveaway_02.png">
             </dt>
             <dd>
               <p>비타C 세럼 럭키 박스 (30ml + 랜덤기프트)</p>
@@ -119,7 +119,7 @@
           </dl>
           <dl>
             <dt>
-              <img src="/_nuxt/assets/images/sam/giveaway_03.png">
+              <img src="/_nuxt/public/images/sam/giveaway_03.png">
             </dt>
             <dd>
               <p>레티놀 시카 앰플 포커싱 패치 1ea / 9patches</p>

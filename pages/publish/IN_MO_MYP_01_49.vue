@@ -13,7 +13,7 @@
         <li>
           <a href="#none">
             <p>
-              <img src="../../assets/images/sam/sam_myp_01_49.jpg" alt="쿠로미이미지">
+              <img src="/_nuxt/public/images/sam/sam_myp_01_49.jpg" alt="쿠로미이미지">
             </p>
             <div>
               <em>입고예정</em>
@@ -28,7 +28,7 @@
         <li>
           <a href="#none">
             <p>
-              <img src="../../assets/images/sam/sam_myp_01_49.jpg" alt="쿠로미이미지">
+              <img src="/_nuxt/public/images/sam/sam_myp_01_49.jpg" alt="쿠로미이미지">
             </p>
             <div>
               <em>입고예정</em>

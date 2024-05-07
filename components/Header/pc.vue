@@ -142,13 +142,13 @@
                         <a href="#none" class="wish">관심상품</a>
                     </li>
                     <li>
-                        <a href="#none" class="mypage">마이페이지</a>
+                        <a href="/publish/IN_PC_MYP_01_04" class="mypage">마이페이지</a>
                     </li>
                     <li>
                         <a href="#none" class="delivery">배송조회</a>
                     </li>
                     <li>
-                        <a href="#none" class="cart">장바구니
+                        <a href="/publish/IN_PC_CAR_01_01" class="cart">장바구니
                             <em>5</em>
                         </a>
                     </li>

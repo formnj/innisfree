@@ -67,7 +67,7 @@ definePageMeta({
 layout:'mo-category'
 });
 import { modal } from '~/assets/js/common-ui.js'
-import {select_list} from '../../test/data/publish/dummyData'
+import {select_list} from '~/test/data/publish/dummyData'
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   link: {

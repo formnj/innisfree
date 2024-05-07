@@ -126,8 +126,8 @@ const sample_goods = [
         price:'11,000', sale:'~50%', cost:'26,000',
         status:'sold_out',
     }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
+        overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
         cate:'NEW',
         name:'그린티 씨드 히알루론산 세렘 80ml',
         price:'44,800', sale:'~20%', cost:'56,000',
@@ -138,8 +138,8 @@ const sample_goods = [
             {txt:'첫구매전용', type:'type01'}
         ]
     }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
+        overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
         cate:'NEW',
         name:'그린티 씨드 히알루론산 세렘 80ml',
         price:'44,800', sale:'~20%', cost:'56,000',
@@ -158,9 +158,9 @@ const sample_goods = [
         status:'sold_out',
         giveaway: {
             modal_id:'giveaway_01',
-            img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
-            img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
-            img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
+            img_01:("/_nuxt/public/images/sam/sam_pre_01.png"),
+            img_02:("/_nuxt/public/images/sam/sam_pre_02.png"),
+            img_03:("/_nuxt/public/images/sam/am_pre_03.png"),
         }
     }, {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
@@ -172,7 +172,7 @@ const sample_goods = [
         hash:['#스킨팩','#화장솜','#순면화장솜']
     },
     {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
         overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
         cate:'BEST',
         name:'블랙티 유스 인핸싱 앰플 50ml',
@@ -180,31 +180,31 @@ const sample_goods = [
         hash:['#스킨팩','#화장솜','#순면화장솜'],
         giveaway: {
             modal_id:'giveaway_02',
-            img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
-            img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
-            img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
+            img_01:("/_nuxt/public/images/sam/sam_pre_01.png"),
+            img_02:("/_nuxt/public/images/sam/sam_pre_02.png"),
+            img_03:("/_nuxt/public/images/sam/am_pre_03.png"),
         }
     },
     {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
     },
     {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
     },
     {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
     },
     {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
     },{
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
     },
     {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
         giveaway: {
-            img_01:("/_nuxt/assets/images/sam/sam_pre_01.png"),
-            img_02:("/_nuxt/assets/images/sam/sam_pre_02.png"),
-            img_03:("/_nuxt/assets/images/sam/am_pre_03.png"),
+            img_01:("/_nuxt/public/images/sam/sam_pre_01.png"),
+            img_02:("/_nuxt/public/images/sam/sam_pre_02.png"),
+            img_03:("/_nuxt/public/images/sam/am_pre_03.png"),
         },
     },
 ]
@@ -230,6 +230,40 @@ onMounted(() => {
             target.style.display="none";
             document.querySelector('.title_wrap').style.display="none";
             document.querySelector('.sticky_menu_wrap').style.display="flex";
+
+            /* sticky wrap slide */
+            const slider = document.querySelector('.sticky_menu_wrap > ul');
+
+            setTimeout(function(){
+              let isDown = false;
+              let startX;
+              let scrollLeft;
+              slider.addEventListener('mousedown', e => {
+                isDown = true;
+                slider.classList.add('active');
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+              });
+
+              slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.classList.remove('active');
+              });
+
+              slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.classList.remove('active');
+              });
+
+              slider.addEventListener('mousemove', e => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = x - startX;
+                slider.scrollLeft = scrollLeft - walk;
+              });
+              /* //sticky wrap slide */
+            });
 
         }
         else {
@@ -356,7 +390,6 @@ onMounted(() => {
         .sticky_menu_wrap {
             width:100%;
             height:100%;
-            margin-left:-10px;
             display:none;
             align-items:center;
             justify-content:space-between;

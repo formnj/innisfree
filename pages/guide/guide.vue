@@ -94,7 +94,7 @@ const select_opt = `[
 
 const sample_goods = [
     {
-        // img:("/_nuxt/assets/images/sam/sam_goods_list_01.jpg"),
+        // img:("/_nuxt/public/images/sam/sam_goods_list_01.jpg"),
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
         overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
         cate:'BEST',
@@ -109,19 +109,19 @@ const sample_goods = [
         ],
         hash:['#스킨팩','#화장솜','#순면화장솜']
     }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/assets/images/sam/sam_goods_list_02-1.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
+        overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
         name:'히알루론 수분 선크림 SPF 50+ PA++++',
         status:'coming_soon',
         sticker:[
             {txt:'증정', type:'type02'}
         ]
     }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_03.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_03.jpg"),
     }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
     }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
     }
 ]
 

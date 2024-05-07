@@ -67,7 +67,7 @@
               <p>가입 시 총 70,000원 쿠폰팩 발급</p>
             </li>
           </ul>
-          <img src="/assets/images/sam/membership_coupon.jpg">
+          <img src="/_nuxt/public/images/sam/membership_coupon.jpg">
         </div>
         <div class="detail_wrap">
           <button type="button" @click="toggle_btn">등급 기준 자세히 알아보기</button>
@@ -731,13 +731,13 @@ section {
             height:48px;
           }
           &:nth-child(1):after {
-            background:url('~/assets/images/sam/benefitCommon1.png') no-repeat 0 0;
+            background:url('/_nuxt/public/images/sam/benefitCommon1.png') no-repeat 0 0;
           }
           &:nth-child(2):after {
-            background:url('~/assets/images/sam/benefitCommon2.png') no-repeat 0 0;
+            background:url('/_nuxt/public/images/sam/benefitCommon2.png') no-repeat 0 0;
           }
           &:nth-child(3):after {
-            background:url('~/assets/images/sam/benefitCommon5.png') no-repeat 0 0;
+            background:url('/_nuxt/public/images/sam/benefitCommon5.png') no-repeat 0 0;
           }
           p {
             display:flex;
@@ -1117,9 +1117,9 @@ section {
             flex: 1;
             flex-direction: column;
             justify-content: center;
-            background:url('~/assets/images/sam/icon_point01.png') no-repeat 0 0;
+            background:url('/_nuxt/public/images/sam/icon_point01.png') no-repeat 0 0;
             &:last-child {
-              background:url('~/assets/images/sam/icon_point02.png') no-repeat 0 0;
+              background:url('/_nuxt/public/images/sam/icon_point02.png') no-repeat 0 0;
             }
             span {
               line-height:1.2;
@@ -1163,7 +1163,7 @@ section {
       height:750px;
       padding:0 0 110px 700px;
       margin-top:60px;
-      background:url('~/assets/images/sam/img_app_down.png') no-repeat left top;
+      background:url('/_nuxt/public/images/sam/img_app_down.png') no-repeat left top;
       display:flex;
       flex-direction:column;
       justify-content:flex-end;

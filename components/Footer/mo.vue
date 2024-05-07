@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="inner">
-      <a href="#none"><img src="../../assets/images/footer/Wordmark.png" alt=""></a>
+      <a href="#none"><img src="~/assets/images/footer/Wordmark.png" alt=""></a>
       <div class="cont_footer">
         <span>
           본 사이트와 앱의 모든 정보, 콘텐츠, UI등에 대한 무단 복제, 전송, 배포<br/>
@@ -159,7 +159,7 @@ footer {
         a {
           width:26px;
           height:26px;
-          background-image:url('../../assets/images/footer/SNS.png');
+          background-image:url('~/assets/images/footer/SNS.png');
           background-repeat:no-repeat;
           background-size: 170px auto;
           display:inline-block;
@@ -201,13 +201,13 @@ footer {
         background-repeat:no-repeat;
         }
         &.web2023::before {
-          background-image:url('../../assets/images/footer/Award.png');
+          background-image:url('~/assets/images/footer/Award.png');
         }
         &.smart2023::before {
-          background-image:url('../../assets/images/footer/Award-1.png');
+          background-image:url('~/assets/images/footer/Award-1.png');
         }
         &.smart2022::before {
-          background-image:url('../../assets/images/footer/Award-2.png');
+          background-image:url('~/assets/images/footer/Award-2.png');
 
         }
         > span {

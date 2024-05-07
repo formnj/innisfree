@@ -20,8 +20,8 @@
             </div>
             <div class="modal_content">
               <div class="img">
-                <a href="#none"><img src="/assets/images/sam/icon_sns_facebook.png"></a>
-                <a href="#none"><img src="/assets/images/sam/icon_share_url.png"></a>
+                <a href="#none"><img src="/_nuxt/public/images/sam/icon_sns_facebook.png"></a>
+                <a href="#none"><img src="/_nuxt/public/images/sam/icon_share_url.png"></a>
               </div>
             </div>
         </div>
@@ -36,11 +36,11 @@
   <div class="inner">
 
     <div class="prd_wrap">
-      <div><img src="/assets/images/sam/pinkdoc1.jpg"></div>
+      <div><img src="/_nuxt/public/images/sam/pinkdoc1.jpg"></div>
       <div>
-        <img src="/assets/images/sam/pinkdoc2.jpg">
-        <div class="video"><img src="/assets/images/sam/colored.gif"></div>
-        <div class="overlay"><img src="/assets/images/sam/lipstick.png"></div>
+        <img src="/_nuxt/public/images/sam/pinkdoc2.jpg">
+        <div class="video"><img src="/_nuxt/public/images/sam/colored.gif"></div>
+        <div class="overlay"><img src="/_nuxt/public/images/sam/lipstick.png"></div>
       </div>
     </div>
 
@@ -97,7 +97,7 @@
     </div>
     <div class="box on">
       <h3>대학생 에디터들의 뷰티팁을<br>에디터에서 만나보세요.</h3>
-      <div class="qr"><img src="/assets/images/sam/sample_qrcode.gif"></div>
+      <div class="qr"><img src="/_nuxt/public/images/sam/sample_qrcode.gif"></div>
       <p>휴대폰으로 QR코드를 스캔하여<br>모바일로 이동해주세요.</p>
     </div>
     <Button txt="닫기" class="btn_close" @click="qr_menu" />
@@ -135,17 +135,17 @@ const props = defineProps({
 });
 
 const banner_list = [
-  {img: '/_nuxt/assets/images/sam/banner01.jpg', text: '4월은 지구의 달\n공병수거하며 지구를 지켜요!'},
-  {img: '/_nuxt/assets/images/sam/banner02.jpg', text: '꾸준히 사랑받는 한란 라인\n활용TIP!'},
-  {img: '/_nuxt/assets/images/sam/banner03.jpg', text: '지구 환경도 챙기고\n뷰티포인트도 챙기자!'},
-  {img: '/_nuxt/assets/images/sam/banner04.jpg', text: '추운 겨울 내 파우치 속 필수템\n취향따라 골라쓰는 퍼퓸드 핸드크림!'},
-  {img: '/_nuxt/assets/images/sam/banner05.jpg', text: '겨울철 가려움, 각질 고민\n완벽 케어 솔루션!'},
-  {img: '/_nuxt/assets/images/sam/banner06.jpg', text: '새해맞이!\n안티에이징 홈 케어 제품 추천!'},
-  {img: '/_nuxt/assets/images/sam/banner07.jpg', text: '돌아온 보습 레전드\n올리브 라인'},
-  {img: '/_nuxt/assets/images/sam/banner08.jpg', text: '이니스프리 직원 추천템\n#이니찐템'},
-  {img: '/_nuxt/assets/images/sam/banner09.jpg', text: '반려견들을 위한 산책 뷰티템\n이니스프리 그린펫클럽'},
-  {img: '/_nuxt/assets/images/sam/banner10.jpg', text: '이니스프리 FOAM 미쳤다!\n이니스프리 클렌징폼'},
-  {img: '/_nuxt/assets/images/sam/banner11.jpg', text: '눈여겨봐야 할\n신상 아이템! UTILITY BAG'},
+  {img: '/_nuxt/public/images/sam/banner01.jpg', text: '4월은 지구의 달\n공병수거하며 지구를 지켜요!'},
+  {img: '/_nuxt/public/images/sam/banner02.jpg', text: '꾸준히 사랑받는 한란 라인\n활용TIP!'},
+  {img: '/_nuxt/public/images/sam/banner03.jpg', text: '지구 환경도 챙기고\n뷰티포인트도 챙기자!'},
+  {img: '/_nuxt/public/images/sam/banner04.jpg', text: '추운 겨울 내 파우치 속 필수템\n취향따라 골라쓰는 퍼퓸드 핸드크림!'},
+  {img: '/_nuxt/public/images/sam/banner05.jpg', text: '겨울철 가려움, 각질 고민\n완벽 케어 솔루션!'},
+  {img: '/_nuxt/public/images/sam/banner06.jpg', text: '새해맞이!\n안티에이징 홈 케어 제품 추천!'},
+  {img: '/_nuxt/public/images/sam/banner07.jpg', text: '돌아온 보습 레전드\n올리브 라인'},
+  {img: '/_nuxt/public/images/sam/banner08.jpg', text: '이니스프리 직원 추천템\n#이니찐템'},
+  {img: '/_nuxt/public/images/sam/banner09.jpg', text: '반려견들을 위한 산책 뷰티템\n이니스프리 그린펫클럽'},
+  {img: '/_nuxt/public/images/sam/banner10.jpg', text: '이니스프리 FOAM 미쳤다!\n이니스프리 클렌징폼'},
+  {img: '/_nuxt/public/images/sam/banner11.jpg', text: '눈여겨봐야 할\n신상 아이템! UTILITY BAG'},
 ]
 
 /* swiper custom navigation */

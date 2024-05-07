@@ -91,7 +91,7 @@ const PC_arry = ([
     }, {
         depth:['','특가(T)','',''],
         id:'IN_PC_HOM_01_04', status:'ing',
-        type:'', note:'디자인 고도화 / sticky 시 해당영역 스크롤 바 없이는 좌우 스크롤 불가함<br/> [tooltip 버튼], [layout 모달]',
+        type:'', note:'디자인 고도화 / <del>sticky 시 해당영역 스크롤 바 없이는 좌우 스크롤 불가함</del><br/> [tooltip 버튼], [layout 모달]',
         sDate:'', eDate:'2024-04-19/2024-04-16', worker:'김희경'
     }, {
         depth:['','이벤트(T)','목록',''],
@@ -321,12 +321,17 @@ const PC_arry = ([
     }, {
         depth:['','보유쿠폰','다운로드 가능한 쿠폰(T)',''],
         id:'IN_PC_MYP_01_32', status:'',
-        type:'', note:'',
+        type:'', note:'마이페이지 > 보유쿠폰',
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','','보유쿠폰(T)',''],
         id:'IN_PC_MYP_01_35', status:'',
         type:'', note:'',
+        sDate:'', eDate:'2024-06-28', worker:''
+    }, {
+        depth:['','','쿠폰상세',''],
+        id:'IN_PC_MYP_01_36', status:'',
+        type:'modal', note:'',
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','뷰티포인트 내역','',''],
@@ -815,12 +820,17 @@ const MO_arry = ([
     }, {
         depth:['','보유쿠폰','다운로드 가능한 쿠폰(T)',''],
         id:'IN_MO_MYP_01_32', status:'',
-        type:'', note:'',
+        type:'', note:'마이페이지 > 보유쿠폰',
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','','보유쿠폰(T)',''],
         id:'IN_MO_MYP_01_35', status:'',
         type:'', note:'',
+        sDate:'', eDate:'2024-06-28', worker:''
+    }, {
+        depth:['','','쿠폰상세',''],
+        id:'IN_MO_MYP_01_36', status:'',
+        type:'modal', note:'',
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','뷰티포인트 내역','',''],

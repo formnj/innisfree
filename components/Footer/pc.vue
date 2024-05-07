@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="inner">
-      <a href="#none"><img src="../../assets/images/footer/Wordmark.png" alt=""></a>
+      <a href="#none"><img src="~/assets/images/footer/Wordmark.png" alt=""></a>
       <div class="cont_footer">
         <ul>
           <li>
@@ -92,7 +92,7 @@
   </footer>
 
   <!-- float menu -->
-  <div class="flaot_menu">
+  <div class="float_menu">
     <ul>
       <li>
         <Button class="btn_history" txt="쇼핑로그" @click="modal.open('shopping_log', 'detailSearch')" />
@@ -334,8 +334,8 @@ footer {
       justify-content:space-between;
       position:absolute;
       top:0;
-      left:0;
-      right:0;
+      left:20px;
+      right:20px;
       ul {
         display:flex;
         align-content:center;
@@ -358,7 +358,7 @@ footer {
         a {
           width:26px;
           height:26px;
-          background-image:url('../../assets/images/footer/SNS.png');
+          background-image:url('~/assets/images/footer/SNS.png');
           background-repeat:no-repeat;
           background-size: 170px auto;
           display:inline-block;
@@ -397,13 +397,13 @@ footer {
         background-size:28px auto;
         }
         &.web2023::before {
-          background-image:url('../../assets/images/footer/Award.png');
+          background-image:url('~/assets/images/footer/Award.png');
         }
         &.smart2023::before {
-          background-image:url('../../assets/images/footer/Award-1.png');
+          background-image:url('~/assets/images/footer/Award-1.png');
         }
         &.smart2022::before {
-          background-image:url('../../assets/images/footer/Award-2.png');
+          background-image:url('~/assets/images/footer/Award-2.png');
 
         }
         > span {
@@ -417,7 +417,7 @@ footer {
   }
 }
 
-.flaot_menu {
+.float_menu {
   position:fixed;
   right:40px;
   bottom:40px;
@@ -453,7 +453,7 @@ footer {
       }
     }
     &.btn_history em:after {
-      background-position:-200px -130px;
+      background-position:-170px -250px;
     }
     &.btn_goTop em:after {
       background-position:-180px -60px;
