@@ -477,14 +477,84 @@ const reset = (event) => {
 }
 
 .modal_wrap {
+    .modal_container {
+      .modal_header {}
+      .modal_content {
+        .table_wrap {
+          tbody {
+            tr {
+              td {
+                :deep(.input_wrap){
+                  width: 29%;
+                }
+              }
+            }
+          }
+        }
+        ul {
+          li {
+            :deep(.input_wrap){
+              flex:0 auto;
+            }
+          }
+        }
+      }
+    }
   &#adress_add_modal{
     .modal_container {
       width:720px;
+      .modal_content {
+        .table_wrap {
+          margin-top:10px;
+          tbody {
+            tr {
+              td {
+                &.adress {
+                  .multi_form {
+                    :deep(.input_wrap) {
+                      flex:0 auto;
+                    }
+                  }
+                  > .input_wrap {
+                    width:100%;
+                  }
+                }
+              }
+            }
+          }
+        }
+        ul {
+          li {
+            :deep(.input_wrap){
+              flex:0 auto;
+            }
+          }
+        }
+      }
     }
   }
+
   &#adress_modify_modal {
     .modal_container {
       width:720px;
+      .table_wrap {
+          tbody {
+            tr {
+              td {
+                &.adress {
+                  .multi_form {
+                    :deep(.input_wrap) {
+                      flex:0 auto;
+                    }
+                  }
+                  > .input_wrap {
+                    width:100%;
+                  }
+                }
+              }
+            }
+          }
+        }
     }
   }
   &#shippingArmyInfo{
