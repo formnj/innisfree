@@ -96,6 +96,9 @@
       &:after {
         width:1.6rem;
         height:1.6rem;
+        margin-left:0.5rem;
+        background-size:25rem;
+        background-position:-11rem -6rem;
       }
     }
   }
@@ -104,6 +107,9 @@
     padding-left:0;
     &:before {
       display:none;
+    }
+    &:after {
+      background-position:-13rem -6rem;
     }
   }
 }

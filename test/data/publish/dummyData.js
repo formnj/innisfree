@@ -207,77 +207,81 @@ export const breadcrumbData = [
 ]
 
 export const sample_event = [
- {
+  {
       img:("/_nuxt/assets/images/sam/event_list_01.jpg"),
       cate:'제휴혜택',
       title:'트러블?수분?탄력?<br/> 고민따라 10% 추가할인 쿠폰위크!!',
-      data:'24.4.14(일) ~ 24.4.30(화)',
+      date:'24.4.14(일) ~ 24.4.30(화)',
+      sticker:true,
   },  {
       img:("/_nuxt/assets/images/sam/event_list_02.jpg"),
       cate:'쇼핑혜택',
       title:'남성에게도 딱! 맞는<br/> 그린티 씨드 세럼 대용량 출시',
-      data:'24.4.14(일) ~ 24.4.22(월)',
+      date:'24.4.14(일) ~ 24.4.22(월)',
+      sticker:true,
   },
   {
       img:("/_nuxt/assets/images/sam/event_list_03.jpg"),
       cate:'체험/리뷰',
       title:'잡티와 토닝을 한번에!<br/> NEW 패드 즉시 증정!',
-      data:'24.4.1(월) ~ 24.4.30(화)',
+      date:'24.4.1(월) ~ 24.4.30(화)',
+      sticker:true,
   },
   {
       img:("/_nuxt/assets/images/sam/event_list_04.jpg"),
       cate:'제휴혜택',
       title:'자신감 있는 레티놀 앰플<br/> 매일 3,656개 판매! ',
-      data:'24.4.14(일) ~ 24.4.22(월)',
+      date:'24.4.14(일) ~ 24.4.22(월)',
+      sticker:true,
   },
   {
       img:("/_nuxt/assets/images/sam/event_list_05.jpg"),
       cate:'체험/리뷰',
       title:'이니스프리 공식몰이 처음이라면?',
-      data:'24.4.14(일) ~ 24.5.1(수)',
+      date:'24.4.14(일) ~ 24.5.1(수)',
+      sticker:true,
   },
   {
       img:("/_nuxt/assets/images/sam/event_list_06.jpg"),
       cate:'쇼핑혜택',
       title:'비타C 1+1 럭키박스<br/> 행운의 주인공은?',
-      data:'24.4.1(월) ~ 24.4.30(화)',
+      date:'24.4.1(월) ~ 24.4.30(화)',
   },
   {
       img:("/_nuxt/assets/images/sam/event_list_01.jpg"),
       cate:'제휴혜택',
       title:'트러블?수분?탄력?<br/> 고민따라 10% 추가할인 쿠폰위크!!',
-      data:'24.4.14(일) ~ 24.4.30(화)',
+      date:'24.4.14(일) ~ 24.4.30(화)',
   },  {
       img:("/_nuxt/assets/images/sam/event_list_02.jpg"),
       cate:'쇼핑혜택',
       title:'남성에게도 딱! 맞는<br/> 그린티 씨드 세럼 대용량 출시',
-      data:'24.4.14(일) ~ 24.4.22(월)',
+      date:'24.4.14(일) ~ 24.4.22(월)',
   },
   {
       img:("/_nuxt/assets/images/sam/event_list_03.jpg"),
       cate:'체험/리뷰',
       title:'잡티와 토닝을 한번에!<br/> NEW 패드 즉시 증정!',
-      data:'24.4.1(월) ~ 24.4.30(화)',
+      date:'24.4.1(월) ~ 24.4.30(화)',
   },
   {
       img:("/_nuxt/assets/images/sam/event_list_04.jpg"),
       cate:'제휴혜택',
       title:'자신감 있는 레티놀 앰플<br/> 매일 3,656개 판매! ',
-      data:'24.4.14(일) ~ 24.4.22(월)',
+      date:'24.4.14(일) ~ 24.4.22(월)',
   },
   {
       img:("/_nuxt/assets/images/sam/event_list_05.jpg"),
       cate:'체험/리뷰',
       title:'이니스프리 공식몰이 처음이라면?',
-      data:'24.4.14(일) ~ 24.5.1(수)',
+      date:'24.4.14(일) ~ 24.5.1(수)',
   },
   {
       img:("/_nuxt/assets/images/sam/event_list_06.jpg"),
       cate:'쇼핑혜택',
       title:'비타C 1+1 럭키박스<br/> 행운의 주인공은?',
-      data:'24.4.1(월) ~ 24.4.30(화)',
+      date:'24.4.1(월) ~ 24.4.30(화)',
   }
-
 ]
 
 //sample visual
@@ -1087,3 +1091,104 @@ export const banner_list = [
   {img: '/_nuxt/assets/images/sam/banner10.jpg', title: '이니스프리 FOAM 미쳤다!\n이니스프리 클렌징폼'},
   {img: '/_nuxt/assets/images/sam/banner11.jpg', title: '눈여겨봐야 할\n신상 아이템! UTILITY BAG'},
 ];
+
+export const sample_auto = [
+  {text:'그린히알루론산',url:'#none',latest:'3분전'},
+  {text:'그린티 세럼', url:'#none',latest:'3시간전'},
+  {text:'New 그린티 씨드 히알루론산 세럼', url:'#none',latest:'5일전'},
+  {text:'역대급 그티 클럽 키트', url:'#none',latest:'1주전'}
+];
+
+export const global_menu = [
+    {
+        link:'#none', menu:'스킨케어',
+        sub_menu: [
+            {link:'#none', menu:'에센스/세럼/앰플'},
+            {link:'#none', menu:'로션/크림'},
+            {link:'#none', menu:'스킨/토너/미스트'},
+            {link:'#none', menu:'선케어'},
+            {link:'#none', menu:'클렌징'},
+            {link:'#none', menu:'팩/마스크'},
+            {link:'#none', menu:'립/아이케어'},
+            {link:'#none', menu:'오일/마사지'},
+            {link:'#none', menu:'기획세트'},
+            {link:'#none', menu:'기타'}
+        ],
+        goods: [
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-1.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-2.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
+        ]
+    }, {
+        link:'#none', menu:'메이크업',
+        sub_menu: [
+            {link:'#none', menu:'페이스메이크업'},
+            {link:'#none', menu:'아이메이크업'},
+            {link:'#none', menu:'립메이크업'},
+            {link:'#none', menu:'네일'}
+        ],
+        goods: [
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-3.png', name: '노세범 블러 프라이머 25mL', cate:'BEST'},
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-4.png', name: '노세범 AC 파우더 5G'},
+        ]
+    }, {
+        link:'#none', menu:'남성',
+        sub_menu: [
+            {link:'#none', menu:'스킨케어'},
+            {link:'#none', menu:'클렌징'},
+            {link:'#none', menu:'선케어'},
+            {link:'#none', menu:'헤어 스타일링'},
+            {link:'#none', menu:'기획세트'}
+        ],
+        goods: [
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-5.png', name: '포레스트 포맨 쉐이빙&클렌징 폼', cate:'BEST'},
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-6.png', name: '포레스트 프레시 스킨 로션 2종 세트', cate:'BEST'},
+        ]
+    }, {
+        link:'#none', menu:'헤어/바디',
+        sub_menu: [
+            {link:'#none', menu:'핸드/풋케어'},
+            {link:'#none', menu:'바디 로션/미스트'},
+            {link:'#none', menu:'바디 워시/청결제'},
+            {link:'#none', menu:'헤어 에센스/미스트'},
+            {link:'#none', menu:'샴푸/트리트먼트'}
+        ],
+        goods: [
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-7.png', name: '아일 넘버 바디 앤 핸드 워시 300mL'},
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-8.png', name: '[LTD] 마이퍼퓸드 핸드크림 2종 기획 세트'},
+        ]
+    }, {
+        link:'#none', menu:'기획세트',
+        sub_menu: [
+            {link:'#none', menu:'기획세트'}
+        ],
+        goods: [
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-9.png', name: '[LTD] 블랙티 유스 인핸싱 앰플 세트', cate:'BEST'},
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-10.png', name: '[LTD] 비타C 잡티 토닝 세럼 대용량 세트', cate:'BEST'},
+        ]
+    }, {
+        link:'#none', menu:'미용소품',
+        sub_menu: [
+            {link:'#none', menu:'네일 소품'},
+            {link:'#none', menu:'헤어/바디 소품'},
+            {link:'#none', menu:'화장솜/면봉/기름종이'},
+            {link:'#none', menu:'클렌징 소품'},
+            {link:'#none', menu:'기타 소품'},
+        ],
+        goods: [
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-11.png', name: '패들 헤어 브러시 1EA'},
+            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-12.png', name: '리스테이 리-스펜서 350mL'},
+        ]
+    }, {
+        link:'#none', menu:'고민별제품',
+        sub_menu: [
+            {link:'#none', menu:'수분/보습/속건조', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-13.png'},
+            {link:'#none', menu:'모공/피지/블랙헤드', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-14.png'},
+            {link:'#none', menu:'주름/탄력', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-15.png'},
+            {link:'#none', menu:'트러블/리페어', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-16.png'},
+            {link:'#none', menu:'각질/피부결', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-17.png'},
+            {link:'#none', menu:'잡티/피부결', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-18.png'},
+            {link:'#none', menu:'영양/토탈안티에이징', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-19.png'},
+            {link:'#none', menu:'진정/민감', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-20.png'}
+        ]
+    },
+]

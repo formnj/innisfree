@@ -380,7 +380,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','개인정보 수정','비밀번호 확인',''],
-        id:'IN_PC_MYP_01_68', status:'',
+        id:'IN_PC_MYP_01_68', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-10', worker:'형민우'
     }, {

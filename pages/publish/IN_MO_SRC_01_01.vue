@@ -1,67 +1,180 @@
 <template>
-  <div class="keyword_wrap search_area">
-      <h2>
-        <button type="button">
-          인기검색어
-          <span>3분전 갱신</span>
-        </button>
-      </h2>
-      <div class="keyword">
-          <ol>
-              <li>
-                  <a href="#none" class="up"><em>1</em><span>장원영 네컷</span></a>
-              </li>
-              <li>
-                  <a href="#none" class="up"><em>2</em><span>노세범</span></a>
-              </li>
-              <li>
-                  <a href="#none" class="down"><em>3</em><span>메이크업도구</span></a>
-              </li>
-              <li>
-                  <a href="#none"><em>4</em><span>그린티 신상</span></a>
-              </li>
-              <li>
-                  <a href="#none"><em>5</em><span>아이라이너</span></a>
-              </li>
-              <li>
-                  <a href="#none"><em>6</em><span>검색어 최대 9자까지 가능</span></a>
-              </li>
-              <li>
-                  <a href="#none" class="down"><em>7</em><span>바디로션</span></a>
-              </li>
-              <li>
-                  <a href="#none" class="new"><em>8</em><span>선크림</span></a>
-              </li>
-              <li>
-                  <a href="#none"><em>9</em><span>신규 구매 혜택</span></a>
-              </li>
-              <li>
-                  <a href="#none" class="up"><em>10</em>이벤트</a>
-              </li>
-          </ol>
+  <!-- 검색 전 영역 -->
+  <section class="search">
+    <div class="search_wrap">
+      <section>
+          <strong>
+              인기검색
+              <span>3분전 갱신</span>
+          </strong>
+          <div class="keyword_wrap">
+              <div class="keyword">
+                  <ol>
+                      <li>
+                          <a href="#none" class="up"><em>1</em><span>장원영 네컷</span></a>
+                      </li>
+                      <li>
+                          <a href="#none" class="up"><em>2</em><span>노세범</span></a>
+                      </li>
+                      <li>
+                          <a href="#none" class="down"><em>3</em><span>메이크업도구</span></a>
+                      </li>
+                      <li>
+                          <a href="#none"><em>4</em><span>그린티 신상</span></a>
+                      </li>
+                      <li>
+                          <a href="#none"><em>5</em><span>아이라이너</span></a>
+                      </li>
+                  </ol>
+                  <ol>
+                      <li>
+                          <a href="#none"><em>6</em><span>검색어 최대 9자까지 가능</span></a>
+                      </li>
+                      <li>
+                          <a href="#none" class="down"><em>7</em><span>바디로션</span></a>
+                      </li>
+                      <li>
+                          <a href="#none" class="new"><em>8</em><span>선크림</span></a>
+                      </li>
+                      <li>
+                          <a href="#none"><em>9</em><span>신규 구매 혜택</span></a>
+                      </li>
+                      <li>
+                          <a href="#none" class="up"><em>10</em>이벤트</a>
+                      </li>
+                  </ol>
+              </div>
+          </div>
+      </section>
+      <section>
+          <strong>최근검색어
+              <Button class="btn_txt" txt="전체삭제" @click="keyword_del_all" />
+          </strong>
+          <ul class="latest">
+              <template  v-if="key_cnt > 0">
+                  <li v-for="(item, idx) in latestSearchWordData" :key="idx">
+                      <div v-if="key_cnt > 0">
+                          <a href="#none">{{ item.word }}</a>
+                          <Button class="btn_del" @click="keyword_del" />
+                      </div>
+                  </li>
+              </template>
+              <template v-else>
+                  <li class="no_data">최근 검색어가 없습니다.</li>
+              </template>
+          </ul>
+      </section>
+      <section>
+          <div class="cate_wrap">
+              <ul class="category">
+                  <li v-for="item in categoryForSearchLayerData" :key="item">
+                      <a href="#none">
+                          <span class="thumb">
+                              <em><img :src="item.imageUrl" /></em>
+                          </span>
+                          <p>{{ item.text }}</p>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </section>
+      <!-- 자동완성 영역 -->
+      <div class="auto_complete_wrap" :class="{ active:isValid !== '' }">
+        <section v-if="!isBool">
+            <ul class="auto">
+                <li v-for="(item, idx) in auto_list" :key="idx">
+                    <a :href="item.url">
+                        {{ item.text }}
+                        <span>{{ item.latest }}</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section v-if="!isBool">
+            <ul class="key_item goods_list">
+                <li v-for="(item,idx) in key_item_list" :key="idx">
+                    <GoodsItem :item="item" :link="item.link" />
+                </li>
+            </ul>
+        </section>
+        <section v-if="isBool">
+            <div class="no_content">
+                일치하는 결과가 없습니다.
+            </div>
+        </section>
       </div>
-  </div>
-
-  <div class="no_pdt">
-      <span></span>
-      일치하는 결과가 없습니다.
-  </div>
-
-  <!-- title washed -->
-  <div class="sub_title_wrap">
-    <h3>
-      <strong class="badge count">제품 <em>23</em></strong>
-    </h3>
-    <div class="pdtSortTab_wrap">
-      <div class="sortTab">
-        <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom')">랭킹순</button>
-      </div>
-      <button @click="modal.open('modal_search', 'bottom')">필터</button>
+      <!-- //자동완성 영역 -->
     </div>
-  </div>
-  <!-- //title washed -->
+  </section>
+  <!-- //검색 전 영역 -->
 
-  <div class="inner">
+  <!-- 검색결과 영역 -->
+  <section class="keyword">
+    <div class="keyword_wrap search_area">
+        <h2>
+          <button type="button">
+            인기검색어
+            <span>3분전 갱신</span>
+          </button>
+        </h2>
+        <div class="keyword">
+            <ol>
+                <li>
+                    <a href="#none" class="up"><em>1</em><span>장원영 네컷</span></a>
+                </li>
+                <li>
+                    <a href="#none" class="up"><em>2</em><span>노세범</span></a>
+                </li>
+                <li>
+                    <a href="#none" class="down"><em>3</em><span>메이크업도구</span></a>
+                </li>
+                <li>
+                    <a href="#none"><em>4</em><span>그린티 신상</span></a>
+                </li>
+                <li>
+                    <a href="#none"><em>5</em><span>아이라이너</span></a>
+                </li>
+                <li>
+                    <a href="#none"><em>6</em><span>검색어 최대 9자까지 가능</span></a>
+                </li>
+                <li>
+                    <a href="#none" class="down"><em>7</em><span>바디로션</span></a>
+                </li>
+                <li>
+                    <a href="#none" class="new"><em>8</em><span>선크림</span></a>
+                </li>
+                <li>
+                    <a href="#none"><em>9</em><span>신규 구매 혜택</span></a>
+                </li>
+                <li>
+                    <a href="#none" class="up"><em>10</em>이벤트</a>
+                </li>
+            </ol>
+        </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="no_content">
+      일치하는 결과가 없습니다.
+    </div>
+  </section>
+
+  <section>
+    <!-- title washed -->
+    <div class="sub_title_wrap">
+      <h3>
+        <strong class="badge count">제품 <em>23</em></strong>
+      </h3>
+      <div class="pdtSortTab_wrap">
+        <div class="sortTab">
+          <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom')">랭킹순</button>
+        </div>
+        <button @click="modal.open('modal_search', 'bottom')">필터</button>
+      </div>
+    </div>
+    <!-- //title washed -->
+
     <div class="list_wrap">
       <ul class="goods_list">
         <li v-for="(item, idx) in sample_goods" :key="idx">
@@ -69,7 +182,9 @@
         </li>
       </ul>
     </div>
+  </section>
 
+  <section>
     <!-- title washed -->
     <div class="sub_title_wrap">
       <h3>연관이벤트
@@ -80,33 +195,16 @@
 
     <div class="event_wrap">
       <swiper
-        :slides-per-view="'auto'"
-        :loop="true"
-        :pagination="{
-          type: 'bullets'
-        }"
-        :centered-slides="true"
-        :slides-offset-before="1"
+        v-bind="swieprOpt.events"
       >
-        <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx">
-          <div class="item">
-            <div class="img">
-              <strong>체험리뷰</strong>
-              <img :src="item.img">
-            </div>
-            <div class="text">
-              <p>
-                2024 새해<br>
-                콜라겐크림 기획전<br>
-                럭키그린박스 + 럭키드로우
-              </p>
-              <span>23.2.20(월)~23.2.23(수)</span>
-            </div>
-          </div>
+        <swiper-slide v-for="(item, idx) in sample_event.slice(0,5)" :key="idx">
+          <EventItem :item="item" :link="item.link" />
         </swiper-slide>
       </swiper>
     </div>
+  </section>
 
+  <section>
     <div class="list_wrap">
       <ul class="goods_list">
         <li v-for="(item, idx) in sample_goods" :key="idx">
@@ -114,28 +212,29 @@
         </li>
       </ul>
     </div>
-  </div>
+  </section>
 
-  <!-- title washed -->
-  <div class="sub_title_wrap">
-    <div>
-      <h3>
-        <strong>주소희</strong>님 이 제품은 어때요?
-      </h3>
-    </div>
-    <a href="#none" class="btn_link_arrw"></a>
-  </div>
-  <!-- //title washed -->
-
-  <div class="inner">
-    <div class="pdt_wrap">
-      <ul class="pdt_list">
-        <li v-for="(item, idx) in sample_pdt" :key="idx">
-          <GoodsItem :item="item" :link="item.link" />
-        </li>
-      </ul>
-    </div>
-  </div>
+  <section>
+      <!-- title washed -->
+      <div class="sub_title_wrap">
+        <div>
+          <h3>
+            <strong>주소희</strong>님 이 제품은 어때요?
+          </h3>
+        </div>
+        <a href="#none" class="btn_link_arrw"></a>
+      </div>
+      <!-- //title washed -->
+      <div class="swiper_wrap type_01">
+        <swiper
+          v-bind="swieprOpt.recommend04"
+        >
+          <swiper-slide v-for="(item, idx) in sample_goods.slice(0,5)" :key="idx">
+            <GoodsItem class="type_cart" :item="item" />
+          </swiper-slide>
+        </swiper>
+      </div>
+  </section>
 
   <div id="modal_sort" class="modal_wrap">
     <div class="modal_container">
@@ -282,10 +381,17 @@
             </div>
         </div>
         <div class="overlay" @click="modal.close(this);"></div>
-    </div>
+  </div>
+  <!-- //검색결과 영역 -->
 </template>
 <script setup>
-import { sample_goods, sampleSlide } from '~/test/data/publish/dummyData'
+import {
+  sample_goods,
+  sample_event,
+  sample_auto,
+  categoryForSearchLayerData,
+  latestSearchWordData,
+} from '~/test/data/publish/dummyData'
 import { modal, setFilter } from '~/assets/js/common-ui'
 
 import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
@@ -298,47 +404,30 @@ import "swiper/components/pagination/pagination.scss";
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 definePageMeta({
-  layout:'mo-category'
+  layout:'mo-search'
 });
 
-const sample_pdt = [
-    {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'히알루론 수분 선크림 SPF 50+ PA++++',
-        price:'11,000', sale:'50%', cost:'26,000',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        cate:'NEW',
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'20%', cost:'56,000',
-        hash:['#주름개선기능','#콜라겐크림']
-    }, {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_02.jpg"),
-        name:'BEST 블랙티 유스 앰플 30mL + 블랙티 크림 50mL',
-        price:'44,800', sale:'20%', cost:'56,000',
-        hash:['#주름개선기능','#콜라겐크림']
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'50%', cost:'26,000',
-        hash:['#주름개선기능','#콜라겐크림']
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'50%', cost:'26,000',
-        hash:['#주름개선기능','#콜라겐크림']
+
+const swieprOpt = {
+  events: {
+    slidesPerView:'auto',
+    loop:false,
+    pagination:{
+      type:'bullets'
     },
-    {
-        img:("/_nuxt/assets/images/sam/sam_goods_list_04.jpg"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml5',
-        price:'11,000', sale:'50%', cost:'26,000',
-        hash:['#주름개선기능','#콜라겐크림']
-    }
-];
+    centeredSlides:true,
+    slidesOffsetBefore:1
+  },
+  recommend04: {
+    slidesPerView:'auto',
+    spaceBetween:3,
+    loop: false,
+    // autoplay: {
+    //   delay: 3000,
+    //   disableOnInteraction: false,
+    // },
+  }
+}
 
 onMounted(() => {
   /* keyword rolling */
@@ -352,7 +441,7 @@ onMounted(() => {
   keyword_pos.insertAdjacentHTML('beforeend', '<li>'+clone_roll.innerHTML+'</li>');
 
   const roll_fn = () => {
-      keyword_pos.style.cssText='transform:translateY(-'+(i*16)+'px); transition:all 0.35s ease-in;'
+      keyword_pos.style.cssText='transform:translateY(-'+(i*1.9)+'rem); transition:all 0.35s ease-in;'
       if(i < (roll_size.length+1)){
           i++;
 
@@ -367,7 +456,6 @@ onMounted(() => {
 
   let key_rolling = setInterval(roll_fn, roll_timer);
   /* //keyword rolling */
-
   const keyword_wrap = document.querySelector('.keyword_wrap.search_area');
   const roll_last = keyword_wrap.querySelector('ol').lastChild;
   const keyword_act = () => {
@@ -385,208 +473,582 @@ onMounted(() => {
   };
 
   keyword_wrap.addEventListener('click', keyword_act);
+
+  document.querySelector('.search_header .input input').addEventListener('input', auto_complete);
 });
+const key_item_list = ref([]),
+auto_list = ref([]),
+isValid = ref(''),
+isBool = ref(false),
+key_cnt = ref(latestSearchWordData.length);
+
+const keyword_del = (e) => {
+    e.target.closest('li').remove();
+    key_cnt.value = document.querySelector('.latest').childElementCount;
+}
+
+const keyword_del_all = (e) => {
+    const target = e.target.closest('section').querySelector('.latest');
+
+    if(!target.firstElementChild.classList.contains('no_data')){
+        while (target.firstElementChild) {
+            target.removeChild(target.firstElementChild);
+            key_cnt.value = document.querySelector('.latest').childElementCount;
+        }
+    }
+}
+
+const auto_complete = (e) => {
+  isValid.value = e.target.value;
+
+  auto_list.value = sample_auto.filter(e => e.text.indexOf(isValid.value) >= 0);
+  key_item_list.value = sample_goods.filter(e => e.name !== undefined && e.name.indexOf(isValid.value) >= 0);
+
+  key_item_list.value.length <= 0 ? isBool.value = true : isBool.value = false;
+};
 </script>
 <style lang="scss" scoped>
-.keyword_wrap {
-  position:relative;
-  h2 {
-    padding:17px 20px;
-    margin:0 -20px;
-    border-top:1px solid #eee;
-    border-bottom:1px solid #eee;
-    button {
-      width:100%;
-      font-size:16px;
-      font-weight:600;
-      font-family:inherit;
-      outline:0;
-      display:flex;
-      align-items:center;
-      span {
-        display:none;
-      }
-      &:after {
-        content:'';
-        width:14px;
-        height:7px;
-        margin-left:auto;
-        background:url("~/assets/images/common/icon_split.png") no-repeat -110px -64px;
-        background-size:250px auto;
-        display:inline-block;
-      }
-    }
-  }
-  .keyword {
-    width:50%;
-    height:16px;
-    overflow:hidden;
-    position:absolute;
-    top:19px;
-    left:50%;
-    transform:translateX(-45%);
-    ol {
-      li {
-        a {
-          display:flex;
-          align-items:center;
-          gap:27px;
-          em {
-            min-width:16px;
-            font-size:13px;
+section {
+  &.search {
+    .search_wrap {
+        &.active {
+            display:block;
+        }
+        strong {
+            margin-bottom:2rem;
+            font-size:1.6rem;
             font-weight:600;
-            line-height:16px;
-            text-align:center;
             position:relative;
-            &:after {
+            display:flex;
+            justify-content:space-between;
+            :deep(.btn_txt) {
+                em {
+                    color:#999;
+                    font-size:1.2rem;
+                }
+            }
+            span {
+                color:#999999;
+                font-size:1.2rem;
+                font-weight:300;
+                line-height:1.6rem;
+            }
+        }
+        .search_box {
+            padding:1rem 1.6rem;
+            border:0;
+            border-radius:0;
+            background:#fff;
+            display:flex;
+            align-items:center;
+            & > div {
+                height:4rem;
+                border:0.1rem solid #000;
+                border-radius:5px;
+                overflow:hidden;
+                display:flex;
+                align-items:center;
+                flex:1;
+                .input_wrap {
+                  flex:1;
+                }
+            }
+            :deep(.input) {
+                i, input {
+                    font-size:1.3rem;
+                }
+                input {
+                    height:4rem;
+                    padding-right:0.5rem;
+                    border:0;
+                }
+            }
+            .btn_search {
+                width:2.4rem;
+                height:2.4rem;
+                margin-right:1rem;
+                background-color:transparent;
+                background-position:0 -4rem;
+            }
+            .back {
+                margin-right:1rem;
+            }
+            .barcode {
+                margin-left:1rem;
+            }
+        }
+        section {
+            padding:3rem 0;
+            background:#fff;
+            & + section:before {
+                border-top:1px solid #f5f5f5;
                 content:'';
-                width:8px;
-                height:8px;
-                background: url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -10px -130px;
-                background-size:250px auto;
-                position:absolute;
-                top:50%;
-                right:-15px;
-                transform:translateY(-50%);
+                display:block;
+                transform:translateY(-30px);
+            }
+            strong {
+                padding:0 2.2rem;
+                margin-bottom:3rem;
+            }
+            ul {
+                padding:0 2.2rem;
+                margin-bottom:3.1rem;
+                display:flex;
+                flex-wrap:wrap;
+                gap:0.5rem;
+                &.latest {
+                    & + strong {
+                        margin-bottom:2rem;
+                    }
+                    li:not(.no_data) {
+                        padding:0 1.5rem;
+                        border:1px solid #ddd;
+                        border-radius:100px;
+                        div {
+                            display:flex;
+                            align-items:center;
+                        }
+                    }
+                    li.no_data {
+                        width:100%;
+                        padding:5rem 1rem;
+                        color:#999;
+                        text-align:center;
+                    }
+                    a {
+                        padding:0.7rem 0;
+                        color:#333;
+                        font-size:1.4rem;
+                        font-weight:400;
+                        display:block;
+                    }
+                    :deep(.btn_del) {
+                        width:12px;
+                        height:12px;
+                        margin-top:1px;
+                        margin-left:10px;
+                        background-color:transparent;
+                        position:relative;
+                        &:before, &:after {
+                            width:10px;
+                            margin-top:5px;
+                            margin-left:1px;
+                            border-top:1px solid #999;
+                            content:'';
+                            position:absolute;
+                            top:0;
+                            left:0;
+                            display:block;
+                        }
+                        &:before {
+                            transform:rotate(45deg);
+                        }
+                        &:after {
+                            transform:rotate(135deg);
+                        }
+                        em {
+                            padding:0;
+                            font-size:0;
+                        }
+                    }
+                }
+                &.category {
+                    padding:0 2.2rem;
+                    margin:0;
+                    overflow:auto;
+                    flex-wrap:nowrap;
+                    gap:1.2rem;
+                    scrollbar-width:none;
+                    &::-webkit-scrollbar {
+                        display:none;
+                    }
+                    li {
+                        .thumb {
+                            width:5.7rem;
+                            height:5.7rem;
+                            display:block;
+                        }
+                        p {
+                            margin-top:0.8rem;
+                            color:#888;
+                            font-size:1.2rem;
+                            font-weight:400;
+                            text-align:center;
+                            white-space:nowrap;
+                        }
+                    }
+                }
+            }
+            .cate_wrap {
+                padding:0;
+                margin-bottom:5.8rem;
+                overflow:hidden;
+            }
+            .keyword_wrap {
+                padding:0 2.2rem 3.1rem;
+                .keyword {
+                    display:flex;
+                }
+                ol {
+                    width:50%;
+                    display:flex;
+                    flex-wrap:wrap;
+                    gap:2.5rem 0;
+                    li {
+                        width:100%;
+                        a {
+                            font-size:1.4rem;
+                            font-weight:400;
+                            display:flex;
+                            align-items:center;
+                            gap:2.7rem;
+                            em {
+                                min-width:1.6rem;
+                                font-size:1.3rem;
+                                font-weight:600;
+                                line-height:1.6rem;
+                                text-align:center;
+                                position:relative;
+                                &:after {
+                                    content:'';
+                                    width:1.2rem;
+                                    height:1.2rem;
+                                    background: url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -1.5rem -13rem;
+                                    background-size:25rem auto;
+                                    position:absolute;
+                                    top:50%;
+                                    right:-1.8rem;
+                                    transform:translateY(-50%);
+                                }
+                            }
+                            span {
+                                overflow: hidden;
+                                display: -webkit-box;
+                                -webkit-box-orient: vertical;
+                                -webkit-line-clamp: 1;
+                            }
+                            &.up {
+                                em{
+                                    &:after {
+                                        background-position:0 -13rem;
+                                    }
+                                }
+                            }
+                            &.down {
+                                em{
+                                    &:after {
+                                        background-position:-3rem -13rem;
+                                    }
+                                }
+                            }
+                            &.new {
+                                em{
+                                    &:after {
+                                        background-position:-4.5rem -13rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .auto_complete_wrap {
+          background:rgba(0,0,0,0.6);
+          display:none;
+          position:fixed;
+          top:60px;
+          right:0;
+          left:0;
+          bottom:0;
+          z-index:10;
+          &.active {
+            display:block;
+          }
+          .auto {
+              gap:2.5rem;
+              li {
+                  width:100%;
+                  a {
+                      font-size:1.4rem;
+                      font-weight:400;
+                      display:flex;
+                      align-items:center;
+                      justify-content:space-between;
+                      span {
+                          color:#aaa;
+                          font-size:1.2rem;
+                          font-weight:400;
+                      }
+                  }
+              }
+          }
+          .key_item {
+              margin:0;
+              gap:0.3rem;
+              li {
+                  width:100%;
+                  padding:0;
+                  :deep(.goods_item) {
+                      padding:0;
+                      display:flex;
+                      align-items:center;
+                      gap:2rem;
+                      .img_wrap {
+                          width:9rem;
+                          .thumb {
+                              width:9rem;
+                              height:12rem;
+                          }
+                          .btnIconBox {
+                              display:none;
+                          }
+                      }
+                      >a {
+                          .cont {
+                              width:22rem;
+                              .review_score {
+                                  display:none;
+                              }
+                              .price {
+                                  strong {
+                                      margin-right:0.5rem;
+                                  }
+                                  span {
+                                      margin-right:1rem;
+                                  }
+                                  em {
+                                      display:inline-block;
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+          .no_content {
+            padding:0;
+            &:after {
+              content:unset;
             }
           }
+        }
+    }
+  }
+
+  &.keyword {
+    .keyword_wrap {
+      position:relative;
+      h2 {
+        padding:1.7rem 2rem;
+        border-top:0.1rem solid #eee;
+        border-bottom:0.1rem solid #eee;
+        button {
+          width:100%;
+          font-size:1.6rem;
+          font-weight:600;
+          font-family:inherit;
+          outline:0;
+          display:flex;
+          align-items:center;
           span {
-              overflow: hidden;
-              display: -webkit-box;
-              -webkit-box-orient: vertical;
-              -webkit-line-clamp: 1;
+            display:none;
           }
-          &.up {
-              em{
-                  &:after {
-                      background-position:0 -130px;
+          &:after {
+            content:'';
+            width:1.4rem;
+            height:0.7rem;
+            margin-left:auto;
+            background:url("~/assets/images/common/icon_split.png") no-repeat -11rem -6.4rem;
+            background-size:25rem auto;
+            display:inline-block;
+          }
+        }
+      }
+      .keyword {
+        width:50%;
+        height:1.9rem;
+        overflow:hidden;
+        position:absolute;
+        top:1.9rem;
+        left:50%;
+        transform:translateX(-45%);
+        ol {
+          li {
+            height:1.9rem;
+            display:flex;
+            align-items:center;
+            a {
+              display:flex;
+              align-items:center;
+              gap:2.7rem;
+              em {
+                min-width:1.6rem;
+                font-size:1.3rem;
+                font-weight:600;
+                line-height:1.6rem;
+                text-align:center;
+                position:relative;
+                &:after {
+                    content:'';
+                    width:1.2rem;
+                    height:1.2rem;
+                    background: url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -1.5rem -13rem;
+                    background-size:25rem auto;
+                    position:absolute;
+                    top:50%;
+                    right:-15px;
+                    transform:translateY(-50%);
+                }
+              }
+              &.up {
+                  em{
+                      &:after {
+                          background-position:0 -13rem;
+                      }
                   }
               }
-          }
-          &.down {
-              em{
-                  &:after {
-                      background-position:-20px -130px;
+              &.down {
+                  em{
+                      &:after {
+                          background-position:-3rem -13rem;
+                      }
                   }
               }
-          }
-          &.new {
-              em{
-                  &:after {
-                      background-position:-30px -130px;
+              &.new {
+                  em{
+                      &:after {
+                          background-position:-4.5rem -13rem;
+                      }
                   }
               }
+              span {
+                  overflow: hidden;
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 1;
+              }
+            }
+          }
+        }
+      }
+      &.active {
+        h2 {
+          button {
+            span {
+              margin-left:15px;
+              color:#999;
+              font-size:12px;
+              font-weight:300;
+              display:inline-block;
+            }
+            &:after {
+              transform:rotate(180deg);
+            }
+          }
+        }
+        .keyword {
+          width:auto;
+          height:24.1rem;
+          padding:3rem 2rem;
+          margin:0 -20px;
+          border-bottom:0.1rem solid #eee;
+          overflow:auto;
+          position:unset;
+          transform:translateX(0);
+          ol {
+            width:100%;
+            height:100%;
+            display:flex;
+            flex-wrap:wrap;
+            flex-direction:column;
+            gap:2.1rem 0;
+            li {
+              width:50%;
+            }
           }
         }
       }
     }
   }
-  &.active {
-    h2 {
-      button {
-        span {
-          margin-left:15px;
-          color:#999;
-          font-size:12px;
-          font-weight:300;
-          display:inline-block;
-        }
-        &:after {
-          transform:rotate(180deg);
-        }
-      }
-    }
-    .keyword {
-      width:auto;
-      height:241px;
-      padding:30px 20px;
-      margin:0 -20px;
-      border-bottom:1px solid #eee;
-      overflow:auto;
-      position:unset;
-      transform:translateX(0);
-      ol {
-        width:100%;
-        height:100%;
-        display:flex;
-        flex-wrap:wrap;
-        flex-direction:column;
-        gap:25px 0;
-        li {
-          width:50%;
-        }
-      }
-    }
-  }
-}
 
-.no_pdt {
-  padding:20px 0 50px;
-  margin-top:30px;
-  font-size:15px;
-  font-weight:600;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  &:after {
-    content:'';
-    width:calc(100% + 39px);
-    height:5px;
-    background:#F5F5F5;
-    position:absolute;
-    bottom:0;
-    left:50%;
-    transform:translateX(-50%);
-  }
-  span {
-      width:60px;
-      height:60px;
-      margin:20px 0;
-      background:url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -65px -100px;
-      background-size:250px auto;
-      display:block;
-  }
-}
-
-.list_wrap {
-  position:relative;
-  &:after {
-    content:'';
-    width:calc(100% + 39px);
-    height:5px;
-    background:#F5F5F5;
-    position:absolute;
-    bottom:0;
-    left:50%;
-    transform:translateX(-50%);
-  }
-  & ~ .list_wrap {
+  .no_content {
+    padding:3.7rem 0 5rem;
+    position:relative;
     &:after {
+      content:'';
+      width:calc(100% + 39px);
+      height:5px;
+      background:#F5F5F5;
+      position:absolute;
+      bottom:0;
+      left:50%;
+      transform:translateX(-50%);
+    }
+  }
+
+  .list_wrap {
+    position:relative;
+    &:after {
+      content:'';
+      width:calc(100% + 39px);
+      height:5px;
+      background:#F5F5F5;
+      position:absolute;
+      bottom:0;
+      left:50%;
+      transform:translateX(-50%);
       opacity:0.5;
     }
+    .goods_list {
+      padding-bottom:30px;
+      margin:0;
+      gap:4rem 0.3rem;
+      justify-content:space-between;
+      > li {
+        width:16.5rem;
+        padding:0;
+      }
+    }
   }
-  .goods_list {
-    padding-bottom:30px;
-    margin:0;
-    gap:4rem 0.3rem;
-    justify-content:space-between;
-    > li {
-      width:16.5rem;
-      padding:0;
-      :deep(.goods_item) {
-        .btnIconBox {
-          left:0;
+}
+
+:deep(.goods_item) {
+  &.type_cart {
+    .img_wrap {
+      position:relative;
+      .thumb {
+        width:100%;
+        height:auto;
+        padding-top:135%;
+      }
+      .btnIconBox {
+        right:0.8rem;
+        bottom:0.8rem;
+        left:initial;
+        gap:0;
+        button {
+          display:none;
+          &.btn_cart {
+            display:block;
+          }
+        }
+      }
+    }
+    .cont {
+      .name {
+        strong {
+          font-size:1.4rem;
         }
       }
     }
   }
 }
 
+
 .event_wrap {
-  padding:30px 0;
-  margin:0 0px 30px;
+  padding-bottom:30px;
+  margin-bottom:30px;
   position:relative;
   &:after {
     content:'';
@@ -598,18 +1060,8 @@ onMounted(() => {
     left:50%;
     transform:translateX(-50%);
   }
-  h3 {
-    margin-bottom:20px;
-    span {
-      font-size:16px;
-      font-weight:600;
-      strong {
-        color:#00BC70;
-      }
-    }
-  }
   .swiper-container {
-    padding-bottom:20px;
+    padding-bottom:30px;
     :deep(.swiper-pagination) {
       bottom:0;
       span {
@@ -623,114 +1075,23 @@ onMounted(() => {
       }
     }
   }
-  .item {
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-    gap:20px;
-    .img {
-      width:16rem;
-      position:relative;
-      strong {
-        padding:2px 5px;
-        color:#fff;
-        font-size:10px;
+  :deep(.event_item){
+    .item {
+      .date {
         font-weight:300;
-        background:#000;
-        position:absolute;
-        top:0;
-        left:0;
-      }
-      img {
-        width:100%;
-        height:100%;
-      }
-    }
-    .text {
-      p {
-        padding-bottom:16px;
-        font-size:14px;
-        font-weight:600;
-        line-height:18px;
-        letter-spacing:-0.1px;
-      }
-      span {
-        color:#999;
-        font-size:12px;
-        font-weight:300;
-        line-height:16px;
       }
     }
   }
 }
 
-.pdt_wrap {
-  padding-top:30px;
-  h3 {
-    margin-bottom:20px;
-    button {
-      width:100%;
-      font-size:16px;
-      font-weight:600;
-      font-family:inherit;
-      display:flex;
-      align-items:center;
-      strong {
-        color: #00BC70;
-      }
-      &:after {
-        content: "";
-        width:14px;
-        height:7px;
-        margin-left:auto;
-        background:url(~/assets/images/common/icon_split.png) no-repeat -111px -65px;
-        background-size:250px auto;
-        display:inline-block;
-        transform:rotate(-90deg);
-      }
-    }
+.swiper_wrap {
+  margin:0 -2.1rem;
+  .swiper-container{
+    padding:0 2.1rem;
   }
-  .pdt_list {
-    margin-right:-20px;
-    overflow-x:scroll;
-    display:flex;
-    gap:3px;
-    scrollbar-width:none;
-    &::-webkit-scrollbar {
-        display:none;
-    }
-    li {
+  &.type_01 {
+    .swiper-slide {
       width:14rem;
-      position:relative;
-      :deep(.goods_item) {
-        .img_wrap {
-          position:relative;
-          .thumb {
-            width:14rem;
-          }
-          .btnIconBox {
-            left:unset;
-            bottom:8px;
-            right:8px;
-            justify-content:end;
-            li {
-              &:first-child {
-                display:none;
-              }
-              &:last-child {
-                display:none;
-              }
-            }
-          }
-        }
-        .cont {
-          margin-top:15px;
-          margin-right:10px;
-          .review_score {
-            display:none;
-          }
-        }
-      }
     }
   }
 }
