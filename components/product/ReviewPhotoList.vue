@@ -1,17 +1,26 @@
 <template>
-  <a :href="link">
+  <a v-if="isAll == true" href="#none">
+    <img class="" :src="item.img" alt="">
+  </a>
+
+
+  <a v-if="isAll == false && idx != 9" href="#none">
+    <img class="" :src="item.img" alt="">
+  </a>
+  <a v-if="isAll == false && idx == 9" href="javascript:;" @click="modal.open('modal_photo_review_all', 'full')"> <!-- 리뷰 10번째 사진일 경우 -->
     <img class="" :src="item.img" alt="">
     <span v-if="idx == 9">99,999</span>
   </a>
 </template>
 <script setup>
+import { modal } from '~/assets/js/common-ui'
 const props = defineProps({
-  item: {},
-  idx: Number,
-  link: {
-    type: String,
-    default: "#none",
-  }
+    item: {},
+    idx: Number,
+    isAll:{ //포토 요약일 경우 false
+      type: Boolean,
+      default: true
+    },
 })
 </script>
 <style lang="scss" scoped>

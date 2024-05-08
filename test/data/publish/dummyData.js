@@ -1334,7 +1334,7 @@ export const sample_review = [
     date: '2024.01.01',
     option: {
       is: true,
-      name: '옵션) 1호 샐먼 베이지'
+      name: '1호 샐먼 베이지'
     },
     imgs: [
       ('/_nuxt/public/images/sam/img_ed_topic_01.png'),

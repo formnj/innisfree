@@ -254,6 +254,36 @@
       flex:1 auto;
     }
   }
+
+  &.checkbox02 {
+    .check {
+      padding: 0;
+    }
+    input[type='checkbox'] {
+      opacity: 0;
+    }
+    input[type='checkbox'] + .label {
+      width: 110px;
+      height: 35px;
+      padding: 0;
+      text-align: center;
+      font-size: 16px;
+      line-height: 33px;
+      border: 1px solid #ccc;
+      border-radius: 17px;
+    }
+    input[type='checkbox']:checked + .label {
+      color: #fff;
+      border-color: #12b560;
+      background-color: #12b560;
+    }
+    input[type='checkbox'] + .label:before {
+      content: none;
+    }
+    input[type='checkbox'] + .label:after {
+      content: none;
+    }
+  }
 }
 
 .label_wrap {

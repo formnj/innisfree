@@ -26,7 +26,7 @@
     <div class="list_photo_wrap">
       <ul>
         <li v-for="(item, idx) in samplePost" :key="idx" :class="idx == 9 ? 'last' : '' ">  <!-- 마지막 포토에 last 클래스 추가 -->
-          <ProductReviewPhotoSummary :item="item" :idx="idx" :link="idx == 9 ? '#none' : ''"/>  <!-- 마지막 포토에 모아보기 모달 열기 -->
+          <ProductReviewPhotoList :item="item" :idx="idx" :isAll="false" />  <!-- 마지막 포토에 모아보기 모달 열기 -->
         </li>
       </ul>
     </div>
