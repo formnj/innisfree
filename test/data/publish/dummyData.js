@@ -1467,3 +1467,16 @@ export const global_menu = [
         ]
     },
 ]
+
+/* mo sample menu */
+export const gnb_list = [
+  { tit: '이벤트', url: '/publish/IN_MO_HOM_01_05' },
+  { tit: '특가', url: '/publish/IN_MO_HOM_01_04', admChk: true },
+  { tit: '베스트', url: '/publish/IN_MO_HOM_01_00-1' },
+  { tit: '쿠폰존', url: '#none' },
+  { tit: '에디터', url: '/publish/IN_MO_HOM_01_08', type: 'active' },
+  { tit: '쇼케이스', url: '/publish/IN_MO_HOM_01_12' },
+  { tit: '라이브', url: '/publish/IN_MO_HOM_01_14' },
+  { tit: 'FOR ME', url: '/publish/IN_MO_HOM_01_15' },
+  { tit: '임직원샵', url: '/publish/IN_MO_HOM_01_16' },
+];

@@ -161,28 +161,28 @@
                 <nav class="navGnb">
                     <ul>
                         <li>
-                            <a href="/publish/IN_PC_HOM_01_05">이벤트</a>
+                            <a href="/publish/IN_PC_HOM_01_05"><em>이벤트</em></a>
                         </li>
                         <li>
-                            <a href="/publish/IN_PC_HOM_01_04" class="point">특가</a>
+                            <a href="/publish/IN_PC_HOM_01_04" class="point"><em>특가</em></a>
+                        </li>
+                        <li class="active">
+                            <a href="/publish/IN_PC_HOM_01_00-1"><em>베스트</em></a>
                         </li>
                         <li>
-                            <a href="/publish/IN_PC_HOM_01_00-1">베스트</a>
+                            <a href="#none"><em>쿠폰존</em></a>
                         </li>
                         <li>
-                            <a href="#none">쿠폰존</a>
+                            <a href="/publish/IN_PC_HOM_01_12"><em>쇼케이스</em></a>
                         </li>
                         <li>
-                            <a href="/publish/IN_PC_HOM_01_12">쇼케이스</a>
+                            <a href="/publish/IN_PC_HOM_01_14"><em>라이브</em></a>
                         </li>
                         <li>
-                            <a href="/publish/IN_PC_HOM_01_14">라이브</a>
+                            <a href="/publish/IN_PC_HOM_01_15"><em>FOR ME</em></a>
                         </li>
                         <li>
-                            <a href="/publish/IN_PC_HOM_01_15">FOR ME</a>
-                        </li>
-                        <li>
-                            <a href="/publish/IN_PC_HOM_01_16">임직원샵</a>
+                            <a href="/publish/IN_PC_HOM_01_16"><em>임직원샵</em></a>
                         </li>
                     </ul>
                 </nav>
@@ -488,6 +488,14 @@ const cate_layer = {
             .quick {
                 display:none;
             }
+        }
+        .navGnb {
+          a {
+            height:80px;
+          }
+          .active a:after {
+            bottom:0;
+          }
         }
     }
     .navCategory {
@@ -1001,19 +1009,24 @@ header {
             .navGnb {
                 padding-left:18px;
                 li {
+                  padding:0 4px;
+                  display:flex;
+                  align-items:center;
+                  a {
                     height:58px;
-                    padding:0 4px;
-                    display:flex;
-                    align-items:center;
-                }
-                a {
                     padding:0 8px;
                     font-size:16px;
                     font-weight:600;
                     position:relative;
-                    display:block;
+                    display:flex;
+                    align-items:center;
+                    em {
+                      position:relative;
+                      display:block;
+                    }
                     &.point {
-                        padding-right:18px;
+                      em {
+                        padding-right:10px;
                         &:after {
                             width:5px;
                             height:5px;
@@ -1022,10 +1035,25 @@ header {
                             content:'';
                             position:absolute;
                             top:0;
-                            right:8px;
+                            right:0;
                             display:block;
                         }
+                      }
                     }
+                  }
+                  &.active {
+                    em {
+                      color:#00BC70;
+                    }
+                    a:after {
+                      border-bottom:2px solid #00BC70;
+                      content:'';
+                      position:absolute;
+                      right:8px;
+                      bottom:-1px;
+                      left:8px;
+                    }
+                  }
                 }
             }
         }
