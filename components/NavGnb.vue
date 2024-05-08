@@ -2,8 +2,8 @@
   <div class="inner">
       <nav class="navGnb">
           <ul>
-              <li v-for="(item,idx) in props.gnb " :key="idx">
-                  <a href="#none">{{ item }}</a>
+              <li v-for="(item,idx) in props.gnb" :key="idx" :class="item.type">
+                  <a :href="item.url">{{ item.tit }}</a>
               </li>
           </ul>
       </nav>
@@ -17,7 +17,7 @@ const props = defineProps({
       return []
     }
   },
-})
+});
 </script>
 
 <style lang="scss" scoped>
@@ -45,6 +45,20 @@ const props = defineProps({
               a {
                 font-weight:700;
                 border-bottom:2px solid #000;
+              }
+            }
+            &.point {
+              a {
+                &:after {
+                  content:'';
+                  width:0.5rem;
+                  height:0.5rem;
+                  background:#00BC70;
+                  border-radius:100px;
+                  position:absolute;
+                  top:10px;
+                  right:-5px;
+                }
               }
             }
         }
