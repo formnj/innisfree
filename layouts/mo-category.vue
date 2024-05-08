@@ -54,7 +54,7 @@ const sam_lnb = ['에센스/세럼/앰플','로션/크림','스킨/토너/미스
 }
 
 #container {
-    padding:0 20px;
+    padding:0 2.1rem;
     .content_wrap {
         .lnb {
             margin:0 -20px;
