@@ -310,6 +310,9 @@ onMounted(()=>{
                   color:#333;
                   font-size:16px;
                 }
+                .input_wrap {
+                  flex:0 auto;
+                }
               }
               em {
                 color:#666;
