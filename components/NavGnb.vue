@@ -2,6 +2,7 @@
   <div class="inner">
       <nav class="navGnb">
           <ul>
+              <!-- 강조시: point 클래스 추가, 활성화: active 클래스 추가  -->
               <li v-for="(item,idx) in props.gnb" :key="idx" :class="item.type">
                   <a :href="item.url" :class="{'point':item.admChk}">
                     <em>{{ item.tit }}</em>
@@ -70,7 +71,12 @@ const props = defineProps({
             }
             &.active {
               a {
-                font-weight:700;
+                font-weight:600;
+                border-bottom:2px solid #00BC70;
+              }
+            }
+            &.point {
+              a {
                 &:after {
                   border-bottom:0.2rem solid #00BC70;
                   content:'';

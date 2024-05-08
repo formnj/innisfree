@@ -254,7 +254,7 @@ export const searchData = {
 }
 
 export const latestSearchWordData = [
-  { word: '그린티 스킨', url: 'https://www.innisfree.com/kr/ko' },
+  { word: '그린티 스킨스킨스킨스킨스킨스킨', url: 'https://www.innisfree.com/kr/ko' },
   { word: '그린티 세럼', url: 'https://www.innisfree.com/kr/ko' },
   { word: '스킨', url: 'https://www.innisfree.com/kr/ko' },
   { word: '세럼', url: 'https://www.innisfree.com/kr/ko' },
@@ -268,10 +268,10 @@ export const latestSearchWordData = [
 
 export const categoryForSearchLayerData = [
   { imageUrl: '/images/sam/h_cate_01.png', text: '베스트', url: 'https://www.innisfree.com/kr/ko' },
-  { imageUrl: '/images/sam/h_cate_02.png', text: 'Sale 52%', url: 'https://www.innisfree.com/kr/ko' },
-  { imageUrl: '/images/sam/h_cate_03.png', text: '스킨케어', url: 'https://www.innisfree.com/kr/ko' },
+  { imageUrl: '/images/sam/h_cate_02.png', text: 'Sale 52%', url: 'https://www.innisfree.com/kr/ko', type: 'point' },
+  { imageUrl: '/images/sam/h_cate_03.png', text: '스킨케어', url: 'https://www.innisfree.com/kr/ko', type: 'point' },
   { imageUrl: '/images/sam/h_cate_04.png', text: '선케어', url: 'https://www.innisfree.com/kr/ko' },
-  { imageUrl: '/images/sam/h_cate_05.png', text: '세럼', url: 'https://www.innisfree.com/kr/ko' },
+  { imageUrl: '/images/sam/h_cate_05.png', text: '세럼', url: 'https://www.innisfree.com/kr/ko', type: 'point' },
   { imageUrl: '/images/sam/h_cate_06.png', text: '팩/마스크', url: 'https://www.innisfree.com/kr/ko' },
   { imageUrl: '/images/sam/h_cate_07.png', text: '헤어/바디', url: 'https://www.innisfree.com/kr/ko' },
   { imageUrl: '/images/sam/h_cate_08.png', text: '펫', url: 'https://www.innisfree.com/kr/ko' },
