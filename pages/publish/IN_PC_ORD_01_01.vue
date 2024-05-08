@@ -160,34 +160,113 @@
       </div>
       <div class="table_wrap">
         <table>
-            <caption>쿠폰/포인트 적용</caption>
+            <caption>주문 상품 정보</caption>
             <colgroup>
-                <col style="">
-                <col style="width:113px;">
+                <col style="width:100%;">
             </colgroup>
             <tbody>
                 <tr>
-                    <td>
-                      <a href="#none">
-                        <img src="" alt="">
+                  <td>
+                    <a href="#none">
+                      <img src="/_nuxt/public/images/sam/order_sam_01.png" alt="">
+                      <div>
+                        <em>5/2~15, 기간내 5개</em>
+                        <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
+                        <span>1개</span>
+                      </div>
+                    </a>
+                    <p>
+                      <strong>67,600 <em>원</em></strong>
+                      <i>+964 P</i>
+                    </p>
+                  </td>
+                </tr>
+                <tr class="col_tr">
+                  <td>
+                    <a href="#none">
+                      <img src="/_nuxt/public/images/sam/order_sam_01.png" alt="">
+                      <div>
+                        <em>5/2~15, 기간내 5개</em>
+                        <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
+                        <span>1개</span>
+                      </div>
+                    </a>
+                    <p>
+                      <strong>67,600 <em>원</em></strong>
+                      <i>+964 P</i>
+                    </p>
+                  </td>
+                  <td class="gifts">
+                    <dl class="board_type_toggle single">
+                      <dt>
+                        <a href="#none">
+                          그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
+                          <em>버튼</em>
+                        </a>
+                      </dt>
+                      <dd>
                         <div>
-                          <em>5/2~15, 기간내 5개</em>
-                          <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
-                          <span>1개</span>
+                          <img src="/_nuxt/public/images/sam/order_list_01.png" alt="">
+                          <p>
+                            레티놀 시카 흔적 앰플 1mL
+                            <em>6개</em>
+                          </p>
                         </div>
-                      </a>
-                    </td>
-                    <td>
-                      <strong>67,600</strong>원
-                      <i>67,600원</i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                  </tr>
+                        <div>
+                          <img src="/_nuxt/public/images/sam/order_list_02.png" alt="">
+                          <p>
+                            레티놀 시카 흔적 앰플 1mL
+                            <em>6개</em>
+                          </p>
+                        </div>
+                      </dd>
+                    </dl>
+
+                  </td>
+                </tr>
+                <tr class="col_tr">
+                  <td>
+                    <a href="#none">
+                      <img src="/_nuxt/public/images/sam/order_sam_01.png" alt="">
+                      <div>
+                        <em>5/2~15, 기간내 5개</em>
+                        <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
+                        <span>1개</span>
+                      </div>
+                    </a>
+                    <p>
+                      <strong>67,600 <em>원</em></strong>
+                      <i>+964 P</i>
+                    </p>
+                  </td>
+                  <td class="gifts">
+                    <dl class="board_type_toggle single">
+                      <dt>
+                        <a href="#none">
+                          그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
+                          <em>버튼</em>
+                        </a>
+                      </dt>
+                      <dd>
+                        <div>
+                          <img src="/_nuxt/public/images/sam/order_list_01.png" alt="">
+                          <p>
+                            레티놀 시카 흔적 앰플 1mL
+                            <em>6개</em>
+                          </p>
+                        </div>
+                        <div>
+                          <img src="/_nuxt/public/images/sam/order_list_02.png" alt="">
+                          <p>
+                            레티놀 시카 흔적 앰플 1mL
+                            <em>6개</em>
+                          </p>
+                        </div>
+                      </dd>
+                    </dl>
+
+                  </td>
+                </tr>
             </tbody>
         </table>
       </div>
@@ -583,8 +662,35 @@ const change_res = (event) => {
   document.querySelector('.deliveryList').classList.remove('hide')
 }
 
+
+
 onMounted(() => {
-  console.log(document.querySelector('.modal_wrap#add_list_modal'))
+  let target = document.querySelectorAll('.board_type_toggle dt a');
+  let rotate = document.querySelectorAll('.board_type_toggle dt a em');
+  let i
+  target.forEach((a,i)=>{
+    a.addEventListener('click', function(){
+
+      if(a.parentNode.nextElementSibling.classList.contains('show')){
+        a.parentNode.nextElementSibling.style.height = '0px'
+        a.parentNode.nextElementSibling.addEventListener('transitionend', () => {
+          a.parentNode.nextElementSibling.remove('show');
+          rotate[i].classList.remove('active')
+        }, {once: true});
+      }
+      else{
+        a.parentNode.nextElementSibling.classList.add('show');
+        rotate[i].classList.add('active')
+        a.parentNode.nextElementSibling.style.height = 'auto'
+        var height = a.parentNode.nextElementSibling.clientHeight + 'px'
+        a.parentNode.nextElementSibling.style.height = '0px'
+        setTimeout(() => {
+          a.parentNode.nextElementSibling.style.height = height
+        });
+      }
+    })
+  })
+
 })
 
 </script>
@@ -1246,5 +1352,153 @@ div.list {
   }
 }
 
+.order_info {
+ .table_wrap {
+  table {
+    tbody {
+      tr {
+        display:flex;
+        align-items:center;
+        justify-content: space-between;
+        td {
+          width:100%;
+          padding:40px 0;
+          display:flex;
+          align-items:center;
+            a {
+            display: flex;
+            align-items:flex-start;
+            gap:20px;
+            img {
+              width: 100px;
+              height: 133px;
+            }
+            > div {
+              em {
+                padding:2px 5px;
+                color:#00BC70;
+                font-size:12px;
+                background:#E0FBF0
+              }
+              p {
+                margin:10px 0;
+                font-size:16px;
+                font-weight:400;
+              }
+              span {
+                color:#888;
+                font-size:14px;
+              }
+            }
+          }
+          > p {
+            margin-left:auto;
+            margin-right:0;
+            text-align:right;
+            display:flex;
+            flex-direction:column;
+            strong {
+              font-size:18px;;
+              em {
+                font-size:14px;;
+                font-weight:normal;
+              }
+            }
+            i {
+              margin-top: 5px;
+              color: #009D5E;
+              font-size: 13px;
+              font-style:normal;
+              line-height: 1.23;
+              display: block;
+            }
+          }
+        }
+        &.col_tr {
+          flex-direction:column;
+        }
+        td {
+          &:first-of-type {
+            border-bottom:0;
+          }
+          &.gifts {
+            width:100%;
+            dl {
+              width:100%;
+              dt {
+                height:69px;
+                padding:0 20px;
+                color: #333;
+                font-weight:600;
+                font-size:16px;
+                border:1px solid #eee;
+                border-radius: 3px;
+                background:#FCFCFD;
+                position:relative;
+                display:flex;
+                align-items: center;
+                a {
+                  width:100%;
+                }
+                em {
+                  width:40px;
+                  height:40px;
+                  background-image: url('~/assets/images/common/icon_split.png');
+                  background-repeat: no-repeat;
+                  background-size: 250px;
+                  background-position: -200px -60px;
+                  text-indent: -9999px;
+                  position:absolute;
+                  top:15%;
+                  right:10px;
+                  transform:rotate(180deg);
+                  transition:all 0.5s;
+                  &.active {
+                    transform:translateY(40%) rotate(0deg);
+                  }
+                }
+              }
+              dd {
+                width:100%;
+                padding: 25px 19px;
+                border:1px solid #eee;
+                border-top:0;
+                display:none;
+                align-items:center;
+                gap:25px;
+                overflow:hidden;
+                transition:height 0.2s ease-out;
+                div {
+                  width:390px;
+                  display:flex;
+                  align-items:center;
+                  img {
+                    width:68px;
+                    height:90px;
+                    margin-right:15px;
+                  }
+                  p {
+                    font-size:14px;
+                    font-weight:400;
+                    display:flex;
+                    flex-direction:column;
+                    gap:10px;
+                    em {
+                      color:#666;
+                      font-size:13px;;
+                    }
+                  }
+                }
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+ }
+}
+.show {display:flex !important;}
 
 </style>
