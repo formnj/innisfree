@@ -674,7 +674,8 @@ onMounted(() => {
       if(a.parentNode.nextElementSibling.classList.contains('show')){
         a.parentNode.nextElementSibling.style.height = '0px'
         a.parentNode.nextElementSibling.addEventListener('transitionend', () => {
-          a.parentNode.nextElementSibling.remove('show');
+          //a.parentNode.nextElementSibling.remove('show'); <- 클래스가 아닌 nextElementSibling를 .remove 시킨거였네요~ 확인 후 삭제해주세요.
+          a.parentNode.nextElementSibling.classList.remove('show');
           rotate[i].classList.remove('active')
         }, {once: true});
       }
