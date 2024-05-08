@@ -133,23 +133,11 @@ import { modal } from '~/assets/js/common-ui'
 import {
     global_menu,
     latestSearchWordData,
-    sample_goods
+    sample_goods,
+    gnb_list
 } from '~/test/data/publish/dummyData'
 
 /* sample data */
-
-const gnb_list = [
-  { tit:'이벤트', url:'/publish/IN_MO_HOM_01_05' },
-  { tit:'특가', url:'/publish/IN_MO_HOM_01_04' },
-  { tit:'베스트', url:'/publish/IN_MO_HOM_01_00-1' },
-  { tit:'쿠폰존', url:'#none' },
-  { tit:'에디터', url:'/publish/IN_MO_HOM_01_08', type:'point' },
-  { tit:'쇼케이스', url:'/publish/IN_MO_HOM_01_12' },
-  { tit:'라이브', url:'/publish/IN_MO_HOM_01_14' },
-  { tit:'FOR ME', url:'/publish/IN_MO_HOM_01_15' },
-  { tit:'임직원샵', url:'/publish/IN_MO_HOM_01_16' },
-];
-
 const nav_goods = [
     {
         img:("/_nuxt/public/images/sam/category_sam_goods_list_01.png"),
@@ -359,21 +347,6 @@ header {
                     font-weight:600;
                     border:1px solid #ddd;
                     border-radius:100px;
-                    display:block;
-                }
-            }
-            .navGnb {
-                li {
-                    padding:0 2px;
-                    display:flex;
-                    align-items:center;
-                }
-                a {
-                    padding:15px 8px;
-                    font-size:14px;
-                    font-weight:400;
-                    white-space:nowrap;
-                    position:relative;
                     display:block;
                 }
             }
