@@ -1,9 +1,6 @@
 <template>
   <section>
     <h2>Inputs</h2>
-    <ul class="explain">
-      <li>[checkbox / radio]의 label text는 줄바꿈 등의 이슈로 v-html로 수정하였음 (24-05-08)</li>
-    </ul>
     <ul class="toolbar">
       <li><button class="current" @click="tool_select('text');">Text</button></li>
       <li><button @click="tool_select('error');">Error</button></li>
@@ -13,7 +10,7 @@
       <li><button @click="tool_select('isswitch');">Switch</button></li>
     </ul>
     <div class="design_box">
-      <Inputs :_type="input_opt.type" :isswitch="input_opt.isswitch" :_placeholder="input_opt.Placeholder" :_text="input_opt.Label"
+      <Inputs :_type="input_opt.type" :isswitch="input_opt.isswitch" :_placeholder="input_opt.Placeholder" _text="Label"
         :isDisabled="_disabled" :isError="input_opt.isError" :_err_text="input_opt.err_text" />
     </div>
     <pre class="code_box"><code>&lt;Inputs {{ input_opt.opt }} /&gt;</code></pre>
@@ -521,15 +518,13 @@ const tool_select = (props) => {
         case 'check':
             input_opt.isswitch = false,
             input_opt.type = 'checkbox',
-            input_opt.Label = 'check<br/> label text'
-            input_opt.opt = '_type="' + input_opt.type + '" _text="' + input_opt.Label + '"'
+            input_opt.opt = '_type="' + input_opt.type + '" _text="Label"'
             break;
 
         case 'radio':
             input_opt.isswitch = false,
             input_opt.type = 'radio',
-            input_opt.Label = 'radio<br/> label text'
-            input_opt.opt = '_type="' + input_opt.type + '" _text="' + input_opt.Label + '"'
+            input_opt.opt = '_type="' + input_opt.type + '" _text="Label"'
             break;
 
         default:

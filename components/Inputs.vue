@@ -2,7 +2,7 @@
   <div class="input_wrap" :class="{err:isError}">
     <label v-if="_type == 'checkbox' || _type == 'radio'" :class="{'check': !isswitch, 'check_ani': isswitch}">
         <input :type="_type" :id="_id" :name="_name" />
-        <em class="label" v-html="_text"></em><!-- Edit 2024-05-08 텍스트 줄바꿈 등 활용을 위한 수정 -->
+        <em class="label">{{_text}}</em>
     </label>
     <div v-else class="label_wrap">
         <label class="input">
