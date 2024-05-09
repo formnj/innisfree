@@ -377,6 +377,66 @@
           <h3>결제수단 선택</h3>
         </div>
       </div>
+      <div class="table_wrap">
+        <table>
+            <caption>결제수단 선택</caption>
+            <colgroup>
+                <col style="">
+            </colgroup>
+            <tbody>
+                <tr>
+                  <td>
+                    <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" />
+                    <Inputs _type="radio" _text="원클릭 결제" _name="pay_method"/>
+                    <Inputs _type="radio" _text="다른 결제 수단" _name="pay_method"/>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <article class="method_card">
+        <ul>
+          <li></li>
+        </ul>
+        <a href="#none">무이자할부</a>
+        <p class="tosspay">
+          <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
+          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" />
+        </p>
+      </article>
+      <article class="method_onclick">
+        <div>
+          <button>
+            <span>대표카드를 등록해 주세요</span>
+          </button>
+        </div>
+        <p class="tosspay">
+          <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
+          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" />
+        </p>
+      </article>
+      <article class="method_other">
+        <ul>
+          <li></li>
+        </ul>
+
+        <div class="paycont">
+          <p>
+            <strong></strong>
+            <ul>
+              <li></li>
+            </ul>
+          </p>
+          <dl>
+            <dt>유의사항</dt>
+            <dd></dd>
+          </dl>
+        </div>
+        <p class="tosspay">
+          <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
+          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" />
+        </p>
+      </article>
     </section>
 
     <section class="soldout">
@@ -1566,6 +1626,64 @@ button.tooltip {
   height: 16px;
   margin-left:5px;
   background-position: 0px -260px;
+}
+
+.pay_method {
+  .table_wrap {
+    table {
+      tbody {
+        tr {
+          td {
+            display:flex;
+            .input_wrap {
+              width:18%;
+            }
+          }
+        }
+      }
+    }
+  }
+  article {
+    padding:40px 0 0;
+    &.method_card {}
+    &.method_onclick{
+      > div {
+        width:100%;
+        button {
+          width:300px;
+          height:180px;
+          margin:0 auto;
+          color:#000;
+          font-size:16px;
+          line-height:1.25;
+          border:1px dashed #DDDDDD;
+          border-radius:5px;
+          background: #F5F5F5;
+          display:block;
+          span {
+            &::before {
+              content:'';
+              width:24px;
+              height:25px;
+              margin:0 auto;
+              border:1px solid red;
+              background-image: url('/_nuxt/assets/images/common/icon_split.png');
+              background-repeat:no-repeat;
+              background-size:250px;
+              background-position:0px 0px;
+              display:block;
+            }
+          }
+        }
+      }
+    }
+    &.method_other{}
+  }
+  .tosspay {
+    margin:40px 0 0;
+    padding:20px 0 0;
+    border-top:1px solid #eee;
+  }
 }
 
 </style>
