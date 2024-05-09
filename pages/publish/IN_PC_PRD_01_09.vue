@@ -204,8 +204,7 @@
             <div class="sort">
               <span>
                 <button type="button" @click="setFilter">추천순</button>
-                <button type="button" class="tooltip"
-                  @click="modal.open('modal_review_standard', 'layer'); modalPositioning();">추천순 리뷰 기준 자세히
+                <button type="button" class="tooltip" @click="modal.open('modal_review_standard', 'layer'); modalPositioning();">추천순 리뷰 기준 자세히
                   보기</button>
                 <div id="modal_review_standard" class="modal_wrap"><!-- 추천순 리뷰 기준 툴팁 -->
                   <div class="modal_container">
@@ -243,7 +242,7 @@
               <Inputs _type="checkbox" :isswitch="true" _text="프로필 맞춤" /> <span class="txt" style="font-size: 14px; color: #999;">설정된 피부 프로필 없음</span>
             </div>
             <div class="filter">
-              <button type="button" @click="modal.open('피부속성필터, full')">피부 속성 필터</button>
+              <button type="button" @click="modal.open('modal_skin_type', 'full')">피부 속성 필터</button>
             </div>
           </div>
           <!-- //리뷰 옵션 선택 -->
@@ -306,7 +305,7 @@
         <!-- //유의사항 -->
 
         <!-- 문의 --
-        <div class="tab_cont">
+        <div class="tab_cont">d_type
         </div>
          //문의 -->
       </div>
@@ -315,6 +314,8 @@
   </div>
 
   <ProductQnaModal /> <!-- 문의 모달(제품문의 작성) -->
+  <ProductReviewPhotoAllModal />  <!-- 포토리뷰 모아보기 모달-->
+  <ProductReviewModal /> <!-- 리뷰보기 모달 -->
 
   <!-- 플로팅 배너 -->
   <div class="floating_wrap open">
@@ -325,6 +326,120 @@
     </div>
   </div>
   <!-- //플로팅 배너 -->
+
+  <!-- 피부 속성 필터 모달 -->
+  <div id="modal_skin_type" class="modal_wrap">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>피부 속성 필터</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <div class="list_wrap">
+            <h3>피부타입(필수 1개)</h3>
+            <ul>
+              <li>
+                <Inputs _id="skinType1" _name="skinType" _type="checkbox" class="checkbox02" _text="건성" />
+              </li>
+              <li>
+                <Inputs _id="skinType2" _name="skinType" _type="checkbox" class="checkbox02" _text="중성" />
+              </li>
+              <li>
+                <Inputs _id="skinType3" _name="skinType" _type="checkbox" class="checkbox02" _text="지성" />
+              </li>
+              <li>
+                <Inputs _id="skinType4" _name="skinType" _type="checkbox" class="checkbox02" _text="민감성" />
+              </li>
+              <li>
+                <Inputs _id="skinType5" _name="skinType" _type="checkbox" class="checkbox02" _text="복합성" />
+              </li>
+              <li>
+                <Inputs _id="skinType6" _name="skinType" _type="checkbox" class="checkbox02" _text="약건성" />
+              </li>
+              <li>
+                <Inputs _id="skinType7" _name="skinType" _type="checkbox" class="checkbox02" _text="트러블성" />
+              </li>
+            </ul>
+
+            <h3>연령대(필수 1개)</h3>
+            <ul>
+              <li>
+                <Inputs _id="age1" _name="age" _type="checkbox" class="checkbox02" _text="10대" />
+              </li>
+              <li>
+                <Inputs _id="age2" _name="age" _type="checkbox" class="checkbox02" _text="20대" />
+              </li>
+              <li>
+                <Inputs _id="age3" _name="age" _type="checkbox" class="checkbox02" _text="30대" />
+              </li>
+              <li>
+                <Inputs _id="age4" _name="age" _type="checkbox" class="checkbox02" _text="40대" />
+              </li>
+              <li>
+                <Inputs _id="age5" _name="age" _type="checkbox" class="checkbox02" _text="50대 이상" />
+              </li>
+            </ul>
+          </div>
+
+          <div class="list_wrap">
+            <h3>피부고민(최대 3개)</h3>
+            <ul>
+              <li>
+                <Inputs _id="skinTrb1" _name="skinTrb" _type="checkbox" class="checkbox02" _text="모공" />
+              </li>
+              <li>
+                <Inputs _id="skinTrb2" _name="skinTrb" _type="checkbox" class="checkbox02" _text="주름" />
+              </li>
+              <li>
+                <Inputs _id="skinTrb15" _name="skinTrb" _type="checkbox" class="checkbox02" _text="탄력" />
+              </li>
+              <li>
+                <Inputs _id="skinTrb3" _name="skinTrb" _type="checkbox" class="checkbox02" _text="블랙헤드" />
+              </li>
+              <li>
+                <Inputs _id="skinTrb4" _name="skinTrb" _type="checkbox" class="checkbox02" _text="트러블" />
+              </li>
+              <li>
+                <Inputs _id="skinTrb5" _name="skinTrb" _type="checkbox" class="checkbox02" _text="각질" />
+              </li>
+              <li>
+                <Inputs _id="skinTrb6" _name="skinTrb" _type="checkbox" class="checkbox02" _text="잡티" />
+              </li>
+              <li>
+                <Inputs _id="skinTrb7" _name="skinTrb" _type="checkbox" class="checkbox02" _text="피지과다" />
+              </li>
+              <li>
+                <Inputs _id="skinTrb8" _name="skinTrb" _type="checkbox" class="checkbox02" _text="건조함" />
+              </li>
+              <li>
+                <Inputs _id="skinTrb9" _name="skinTrb" _type="checkbox" class="checkbox02" _text="민감성" />
+              </li>
+              <li>
+                <Inputs _id="skinTrb10" _name="skinTrb" _type="checkbox" class="checkbox02" _text="색소침착" />
+              </li>
+              <li>
+                <Inputs _id="skinTrb11" _name="skinTrb" _type="checkbox" class="checkbox02" _text="피부톤" />
+              </li>
+              <li>
+                <Inputs _id="skinTrb12" _name="skinTrb" _type="checkbox" class="checkbox02" _text="다크서클" />
+              </li>
+              <li>
+                <Inputs _id="skinTrb13" _name="skinTrb" _type="checkbox" class="checkbox02" _text="피부결" />
+              </li>
+              <li>
+                <Inputs _id="skinTrb14" _name="skinTrb" _type="checkbox" class="checkbox02" _text="홍조" />
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal_footer">
+          <Button class="btn_outline" txt="초기화" disabled />
+          <Button txt="적용하기" disabled />
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //피부 속성 필터 -->
 </template>
 
 <script setup>
@@ -355,7 +470,14 @@ const modalPositioning = () => {
 const DropDown = () => {
   const el = event.currentTarget;
   const list = el.nextElementSibling;
-  list.classList.toggle('active');
+  if(list.classList.contains('active')){
+    list.style.cssText=""
+  }else {
+    list.style.cssText="display:block;"
+  }
+  setTimeout(()=>{
+    list.classList.toggle('active');
+  }, 100)
 }
 
 const float_close = () => {
@@ -672,6 +794,7 @@ onMounted(()=>{
           z-index: 1;
           overflow: hidden;
           transition: all 0.2s;
+          display: none;
 
           &.active {
             height: auto;
@@ -793,6 +916,51 @@ onMounted(()=>{
     border-top: 1px solid #eee;
   }
 }
+
+#modal_skin_type.modal_wrap.full {
+  .modal_container {
+    width: 804px;
+  }
+
+  .modal_content {
+    padding: 40px;
+    display: flex;
+    gap: 30px;
+
+    .list_wrap {
+      flex: 1;
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: 400;
+        color: #222;
+        line-height: 27px;
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 8px;
+
+        & + h3 {
+          margin-top: 26px;
+        }
+      }
+    }
+  }
+
+  .modal_footer {
+    padding: 30px 20px 45px;
+
+    button {
+      width: 260px;
+      height: 46px;
+      border-radius: 5px;
+    }
+  }
+}
+
 
 /* 상품 상세 내 공통 사용 */
 .bul_list {

@@ -25,7 +25,7 @@
 
     const hidePlaceholder = (e) => { //focus시 placeholder 숨김
         if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){
-            e.currentTarget.previousSibling.style.display="none"
+            e.currentTarget.previousSibling.classList.add('hide');
         }
     }
 
@@ -33,11 +33,11 @@
         // console.log(e.currentTarget.value.length);
         if(e.currentTarget.value.length > 0){
             if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){
-                e.currentTarget.previousSibling.style.display='none';
+                e.currentTarget.previousSibling.classList.add('hide');
             }
         } else {
             if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){
-                e.currentTarget.previousSibling.style.removeProperty('display');
+                e.currentTarget.previousSibling.classList.remove('hide');
             }
         }
     }
@@ -45,37 +45,89 @@
     const input_btn_chk = (e) => { //keypress 시 value 유무 확인하여 버튼 노출 조절
         var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');
         if(e.currentTarget.value.length > 0){
-            icon_button.style.cssText="display:block;"
+            icon_button.classList.add('active');
         }else{
-            icon_button.style.cssText="display:none;"
+            icon_button.classList.remove('active');
         }
     }
 
     const input_btn_fn = (e) => { //label_wrap의 버튼 클릭 시 각 기능
-        var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');
-        if(icon_button.getAttribute('class') == 'icon_del'){ //value 삭제
-            e.currentTarget.closest('.label_wrap').querySelector('textarea').value = null;
-            icon_button.style.cssText="display:none;"
-            if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){
-                e.currentTarget.closest('.label_wrap').querySelector('i').style.display='block';
-            }
-        }
+      var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');
+      if(icon_button.getAttribute('class').indexOf('icon_del') > -1){ //value 삭제
+          e.currentTarget.closest('.label_wrap').querySelector('textarea').value = null;
+          icon_button.classList.remove('active');
+          if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){
+              e.currentTarget.closest('.label_wrap').querySelector('i').classList.remove('hide');
+          }
+      }
     }
 </script>
-<style scoped>
-em {font-style:normal;}
-label.input {position:relative; display:block;}
-label.input i {color:#aaa; font-size:16px; font-style:normal; line-height:18px; position:absolute; top:15px; left:15px;}/* placeholder */
-label.input textarea {width:100%; font-size:16px;; line-height:18px; resize:none; padding:10px 15px}
-label.input .err_txt {margin-top:5px; color:#ff7200; font-size:12px; line-height:18px; display:none;}
-label.input.err .err_txt {display:block;}
-label.input * {flex:1 auto;}
+<style lang="scss" scoped>
+label.input {
+  position:relative;
+  display:block;
+  i {
+    color:#aaa;
+    font-size:16px;
+    font-style:normal;
+    line-height:18px;
+    position:absolute;
+    top:15px;
+    left:15px;
+    display:block;
+    &.hide {
+      display:none;
+    }
+  }
+  textarea {
+    width:100%;
+    padding:10px 15px;
+    font-size:16px;
+    line-height:18px;
+    resize:none;
+  }
+  .err_txt {
+    margin-top:5px;
+    color:#12b560;
+    font-size:12px;
+    line-height:18px;
+    display:block;
+  }
+}
 
-.label_wrap {position:relative; flex:1;}
-.label_wrap button[class*='icon_'] {width:24px; height:24px; font-size:0; background-repeat:no-repeat; border-radius:50%; position:absolute; top:9px; right:15px; z-index:1; display:none;}
-.label_wrap button[class*='icon_'] + button[class*='icon_'] {margin-right:34px;}
-.label_wrap button[class*='icon_'] {background-image:url('@/assets/images/common/icon_split.png'); background-repeat:no-repeat; background-size:250px auto;}
-.label_wrap button.icon_del {background-position:0 0;}
-.label_wrap button.icon_pass {background-position:-80px 0;}
-.label_wrap button.icon_text {background-position:-40px 0;}
+.label_wrap {
+  position:relative; flex:1;
+  em {
+    font-style:normal;
+  }
+  button[class*='icon_'] {
+    width:24px;
+    height:24px;
+    font-size:0;
+    background-image:url('@/assets/images/common/icon_split.png');
+    background-repeat:no-repeat;
+    background-size:250px auto;
+    border-radius:50%;
+    position:absolute;
+    top:9px;
+    right:15px;
+    z-index:1;
+    display:none;
+    & + button[class*='icon_'] {
+      margin-right:34px;
+    }
+    &.active {
+      display:block;
+    }
+    &.icon_del {
+      background-position:0 0;
+    }
+    &.icon_pass {
+      background-position:-80px 0;
+    }
+    &.icon_text {
+      background-position:-40px 0;
+    }
+  }
+}
 </style>
