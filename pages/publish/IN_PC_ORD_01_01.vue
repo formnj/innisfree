@@ -125,6 +125,32 @@
                           </div>
                           <div class="checkbox_wrap">
                             <Inputs _type="checkbox" _text="안심번호 서비스 사용" /><Icons class="tooltip" @click="modal.open('layerTooltip', 'layer');"/>
+                            <div class="modal_wrap" id="layerTooltip">
+                              <div class="modal_container">
+                                  <div class="modal_header">
+                                      <h2>안심번호 서비스 안내</h2>
+                                      <button class="btn_close" @click="modal.close(this);">닫기</button>
+                                  </div>
+                                  <div class="modal_content">
+                                    <span>
+                                      고객님의 실제 휴대폰번호와 연락처가 노출되지<br>
+                                      않도록 1회성 임시번호(050-000-0000)를 제공하는<br>
+                                      서비스 입니다.
+                                    </span>
+                                    <ul class="bullistType_01">
+                                      <li>
+                                        판매자/택배사에 안심번호로 전달되므로 개인정보
+                                        유출을 사전에 방지할 수 있습니다.
+                                        (택배상자에 안심번호 표시)
+                                      </li>
+                                      <li>배송완료 후 일정시간이 지나면 안심번호는 자동으로
+                                          해제됩니다.
+                                      </li>
+                                      <li>안심번호 서비스는 LMS/MMS 사용이 불가합니다.</li>
+                                    </ul>
+                                  </div>
+                              </div>
+                            </div>
                           </div>
                         </li>
                       </ul>
@@ -270,6 +296,30 @@
             </tbody>
         </table>
       </div>
+      <article>
+        <em>친환경 종이 완충재로 포장하여 안전하게 보내드립니다.</em>
+        <Icons class="tooltip" @click="modal.open('ecoTooltip', 'layer');"/>
+        <div class="modal_wrap" id="ecoTooltip">
+          <div class="modal_container">
+              <div class="modal_header">
+                  <h2>이니스프리 배송 포장재 안내</h2>
+                  <button class="btn_close" @click="modal.close(this);">닫기</button>
+              </div>
+              <div class="modal_content">
+                <span>
+                  이니스프리는 환경을 생각하는 마음으로,<br>
+                  일반 플라스틱 완충제(에어캡) 대신 친환경 종이<br>
+                  완충제(FSC인증)로 제품을 보호하고 있습니다.
+                </span>
+                <ul class="bullistType_01">
+                  <li>
+                    업체 배송 및 일부 제품 제외
+                  </li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </article>
     </section>
 
     <section class="point">
@@ -590,32 +640,8 @@
     </div>
   </div>
 
-  <div class="modal_wrap" id="layerTooltip">
-    <div class="modal_container">
-        <div class="modal_header">
-            <h2>안심번호 서비스 안내</h2>
-            <button class="btn_close" @click="modal.close(this);">닫기</button>
-        </div>
-        <div class="modal_content">
-          <span>
-            고객님의 실제 휴대폰번호와 연락처가 노출되지<br>
-            않도록 1회성 임시번호(050-000-0000)를 제공하는<br>
-            서비스 입니다.
-          </span>
-          <ul class="bullistType_01">
-            <li>
-              판매자/택배사에 안심번호로 전달되므로 개인정보
-              유출을 사전에 방지할 수 있습니다.
-              (택배상자에 안심번호 표시)
-            </li>
-            <li>배송완료 후 일정시간이 지나면 안심번호는 자동으로
-                해제됩니다.
-            </li>
-            <li>안심번호 서비스는 LMS/MMS 사용이 불가합니다.</li>
-          </ul>
-        </div>
-    </div>
-  </div>
+
+
 
 
 
@@ -624,7 +650,6 @@
 </template>
 
 <script setup>
-import { setFilter } from '~/assets/js/common-ui.js'
 import { modal } from '~/assets/js/common-ui.js'
 import {Delivery_data} from '../../test/data/publish/dummyData'
 
@@ -674,7 +699,6 @@ onMounted(() => {
       if(a.parentNode.nextElementSibling.classList.contains('show')){
         a.parentNode.nextElementSibling.style.height = '0px'
         a.parentNode.nextElementSibling.addEventListener('transitionend', () => {
-          //a.parentNode.nextElementSibling.remove('show'); <- 클래스가 아닌 nextElementSibling를 .remove 시킨거였네요~ 확인 후 삭제해주세요.
           a.parentNode.nextElementSibling.classList.remove('show');
           rotate[i].classList.remove('active')
         }, {once: true});
@@ -916,17 +940,12 @@ onMounted(() => {
                         }
                         .checkbox_wrap {
                           margin-top:10px;
+                          position:relative;
                           display:flex;
                           align-items:center;
-                          gap:6px;
                           .input_wrap {
                             width:22% !important;
                             margin-top:0;
-                          }
-                          button.tooltip {
-                            width:16px;
-                            height:16px;
-                            background-position:0px -260px;
                           }
                         }
                       }
@@ -1275,16 +1294,42 @@ div.list {
         border-bottom:0;
       }
       .modal_content{
-        color: #666666;
+        padding-top:0;
         font-size: 13px;
         line-height: 1.54em;
         letter-spacing: -0.01em;
+        span {
+          color: #666666;
+          &::before {
+            content:none;
+          }
+        }
         ul {
+          > * + * {
+            margin-top:5px;
+          }
           margin-top:0;
+          padding:0;
+          border:0;
+          li {
+            color: #666666;
+          }
         }
       }
     }
   }
+  &#ecoTooltip{
+    left:315px;
+    .modal_header {
+      color:#000;
+      border-bottom:0;
+    }
+    .modal_content {
+      color:#666666;
+      padding-top:0;
+    }
+  }
+
 }
 
 .bullistType_01 {
@@ -1499,7 +1544,28 @@ div.list {
     }
   }
  }
+ > article {
+    position: relative;
+    margin-top:20px;
+    color:#888;
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    em {
+    &::before {
+      content:'※';
+      margin-right:5px;
+      display:inline-block;
+    }
+  }
+ }
 }
 .show {display:flex !important;}
+button.tooltip {
+  width: 16px;
+  height: 16px;
+  margin-left:5px;
+  background-position: 0px -260px;
+}
 
 </style>
