@@ -550,7 +550,7 @@ const MO_arry = ([
     }, {
         depth:['','검색','',''],
         id:'IN_MO_SRC_01_01', status:'com',
-        type:'component', note:'',
+        type:'component', note:'디자인 고도화 / 검색 영역 추가 ( IN_MO_SRC_01_01 참고 )',
         sDate:'', eDate:'2024-04-24/2024-04-23', worker:'형민우'
     }, {
         depth:['','푸터','',''],
@@ -637,6 +637,16 @@ const MO_arry = ([
         id:'IN_MO_HOM_01_18', status:'com',
         type:'', note:'goods_item > btnIconBox > btn_heart 노출',
         sDate:'', eDate:'2024-04-23/2024-04-23', worker:'이종환'
+    }, {
+        depth:['검색','검색','',''],
+        id:'IN_MO_SRC_01_01', status:'com',
+        type:'', note:'모바일 검색 페이지 분리',
+        sDate:'', eDate:'2024-04-24/2024-05-08', worker:'형민우'
+    }, {
+        depth:['','검색결과','',''],
+        id:'IN_MO_SRC_01_02', status:'com',
+        type:'', note:'모바일 검색 페이지 분리',
+        sDate:'', eDate:'2024-04-24/2024-05-08', worker:'형민우'
     }, {
         depth:['상품','목록','',''],
         id:'IN_MO_PRD_01_01', status:'com',
