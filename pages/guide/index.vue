@@ -638,6 +638,21 @@ const MO_arry = ([
         type:'', note:'goods_item > btnIconBox > btn_heart 노출',
         sDate:'', eDate:'2024-04-23/2024-04-23', worker:'이종환'
     }, {
+        depth:['샘플마켓','목록','',''],
+        id:'IN_MO_APP_01_06_01', status:'',
+        type:'', note:'앱에서만 노출되는 페이지',
+        sDate:'', eDate:'2024-05-24', worker:'김나람'
+    }, {
+        depth:['','신청완료','',''],
+        id:'IN_MO_APP_01_06_07', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-05-24', worker:'김나람'
+    }, {
+        depth:['','장바구니 담기','',''],
+        id:'IN_MO_APP_01_06_01-3', status:'',
+        type:'modal', note:'디자인/SB참고',
+        sDate:'', eDate:'2024-05-24', worker:'김나람'
+    }, {
         depth:['검색','검색','',''],
         id:'IN_MO_SRC_01_01', status:'com',
         type:'', note:'모바일 검색 페이지 분리',
