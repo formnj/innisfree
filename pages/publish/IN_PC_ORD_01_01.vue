@@ -386,15 +386,15 @@
             <tbody>
                 <tr>
                   <td>
-                    <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" />
-                    <Inputs _type="radio" _text="원클릭 결제" _name="pay_method"/>
-                    <Inputs _type="radio" _text="다른 결제 수단" _name="pay_method"/>
+                    <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" @change="radioChk = 'card'" /><!-- [Tip] change되었을 때, 변수값을 지정해준 값으로 변경해준다. -->
+                    <Inputs _type="radio" _text="원클릭 결제" _name="pay_method" @change="radioChk = 'onclick'"/>
+                    <Inputs _type="radio" _text="다른 결제 수단" _name="pay_method" @change="radioChk = 'other'"/>
                   </td>
                 </tr>
             </tbody>
         </table>
       </div>
-      <article class="method_card">
+      <article class="method_card" :class="{ active: radioChk == 'card' }"><!-- 활성화된 article에 active 클래스 추가 --><!-- [Tip] 라디오버튼이 change되어 변경된 변수값을 확인하여 해당 article에 active 클래스를 활성화 시킴 -->
         <ul>
           <li v-for="(item, idx) in bank_info" :key="idx" :id="item.li_id">
             <input type="radio" name="cardList" :id="item.input_id">
@@ -407,7 +407,7 @@
           <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
         </p>
       </article>
-      <article class="method_onclick">
+      <article class="method_onclick" :class="{ active: radioChk == 'onclick' }">
         <div>
           <button>
             <span>대표카드를 등록해 주세요</span>
@@ -418,7 +418,7 @@
           <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
         </p>
       </article>
-      <article class="method_other">
+      <article class="method_other" :class="{ active: radioChk == 'other' }">
         <ul>
           <li v-for="(item, idx) in etc_info" :key="idx" :id="item.li_id">
             <input type="radio" name="etcList" :id="item.input_id">
@@ -481,7 +481,6 @@
 
 
   <!-- modal -->
-
   <div class="modal_wrap" id="delete_modal">
     <div class="modal_container">
         <div class="modal_header">
@@ -714,12 +713,6 @@
         </div>
     </div>
   </div>
-
-
-
-
-
-
   <!-- //modal -->
 
 </template>
@@ -735,6 +728,8 @@ import {benefit_info} from '../../test/data/publish/dummyData'
 definePageMeta({
 layout:'pc-ord'
 });
+
+const radioChk = ref('card');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
 
 const toss_info = () => {
   window.open("https://consumer.tosspayments.com/escrow/detail?mertid=innisfree", "_blank");
@@ -768,8 +763,6 @@ const change_res = (event) => {
   document.querySelector('.new_address').classList.remove('active')
   document.querySelector('.deliveryList').classList.remove('hide')
 }
-
-
 
 onMounted(() => {
   let target = document.querySelectorAll('.board_type_toggle dt a');
@@ -1667,6 +1660,10 @@ button.tooltip {
   }
   article {
     padding:20px 0 0;
+    display:none;
+    &.active {
+      display:block;
+    }
     &.method_card {
       ul {
         display:flex;
