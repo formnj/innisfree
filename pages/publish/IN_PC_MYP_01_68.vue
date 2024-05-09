@@ -1,22 +1,24 @@
 <template>
-  <div class="inner">
-    <div class="sub_title_wrap">
-      <h3>뷰티포인트 통합 회원 정보 수정</h3>
-      <div class="explain">* 이 페이지에서 회원정보 수정, 비밀번호 수정시 뷰티포인트 통합 아이디로 로그인하는 아모레퍼시픽 사이트의 정보가 함께 변경됩니다.</div>
+  <div class="sub_title_wrap">
+    <h3>비밀번호 재확인</h3>
+    <div class="explain">
+      회원님의 개인정보 보호를 위해 비밀번호를 입력해주세요.<br>
+      이니스프리는 회원님의 개인정보를 신중히 취급하며, 회원님의 동의 없이는 회원정보가 공개되지 않습니다.<br>
+      보다 다양한 혜택/서비스를 받으시려면 회원 정보를 최신으로 유지해주세요.
     </div>
-    <Tabs id="membership_tab" tabType="type_03" :item="[{txt:'멤버십 등급/혜택안내'},{txt:'뷰티포인트 안내'},{txt:'모바일 앱 다운로드'}]" :tabidx="0" />
   </div>
+
+  <fieldset class="pwd_field">
+    <legend>비밀번호 입력</legend>
+    <div class="label">비밀번호</div>
+    <Inputs _type="password" />
+    <Button class="btn_mid confirm" txt="확인" />
+  </fieldset>
+
 </template>
 <script setup>
 definePageMeta({
   layout:'pc-mypage',
-});
-
-const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
-layoutType: {
-  type:String,
-  default:'default'
-}
 });
 </script>
 <style lang="scss" scoped>
@@ -24,9 +26,46 @@ layoutType: {
   padding:0;
   margin-bottom:24px;
   .explain {
-    margin-top:6px;
-    color:#888;
-    font-size:13px;
+    margin-top:24px;
+    color:#000;
+  }
+}
+
+.pwd_field {
+  padding:20px;
+  border-top:2px solid #000;
+  border-bottom:1px solid #eee;
+  position:relative;
+  legend {
+    position:absolute;
+    z-index:-1;
+    font-size:0;
+  }
+  .label {
+    margin-right:70px;
+    color:#000;
+    font-size:14px;
+    line-height:20px;
+    display:inline-block;
+  }
+  :deep(.input_wrap) {
+    width:227px;
+    display:inline-block;
+    .input {
+      input {
+        border-color:#eee;
+      }
+    }
+  }
+  >:deep(button) {
+    width:200px;
+    padding:0 30px;
+    font-size:16px;
+    font-weight:600;
+    position:absolute;
+    bottom:-110px;
+    left:50%;
+    transform:translateX(-50%);
   }
 }
 </style>
