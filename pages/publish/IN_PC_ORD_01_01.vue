@@ -386,7 +386,7 @@
             <tbody>
                 <tr>
                   <td>
-                    <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" @change="radioChk = 'card'" /><!-- [Tip] change되었을 때, 변수값을 지정해준 값으로 변경해준다. -->
+                    <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" @change="radioChk = 'card'" _checked/><!-- [Tip] change되었을 때, 변수값을 지정해준 값으로 변경해준다. -->
                     <Inputs _type="radio" _text="원클릭 결제" _name="pay_method" @change="radioChk = 'onclick'"/>
                     <Inputs _type="radio" _text="다른 결제 수단" _name="pay_method" @change="radioChk = 'other'"/>
                   </td>
@@ -427,26 +427,115 @@
             <div class="discount_txt" v-if="item.discont_txt">{{ item.discont_txt }}</div>
           </li>
         </ul>
-        <div class="radioTabContents" >
-          <div class="discount_info" v-for="(item, idx) in benefit_info" :key="idx">
-            <h4 v-if="item.title">{{item.title}}</h4>
-            <ul>
-              <li>{{ item.benefit[0] }}</li>
-            </ul>
+        <div class="other_cont">
+          <div class="naver" >
+            네이버
+          </div>
+          <div class="kakao" >
+            <div class="discount_info">
+              <h4>카카오페이 결제 혜택</h4>
+              <ul class="bullistType_01">
+                <li>카카오페이 머니로 결제 시에만 적용 가능(신용카드 제외)</li>
+                <li>기간 : 5/9(목) - 5/13(월)</li>
+                <li>카카오페이 머니로 3만원 이상 결제 시 5,000원 즉시할인</li>
+                <li>공식온라인몰 / 오프라인매장 기간 내 각 1회 할인가능</li>
+              </ul>
+            </div>
+            <div class="notice">
+              <h5>유의사항</h5>
+              <ul>
+                <li>카카오톡안에서 개인 신용카드(체크카드포함)를 등록하여 카카오페이 비밀번호로 결제할 수 있는 간편결제입니다.</li>
+                <li>본인명의 스마트폰에서 본인명의 카드 등록 후 사용 가능합니다.(카드등록 : 카카오톡 > 더 보기 > 카카오페이 > 카드)</li>
+                <li>카드사별 무이자 할부 행사는 카카오페이 결제 창에서 확인 가능합니다.</li>
+                <li>결제메시지 요청 시 입력하신 휴대폰 번호로 카카오페이로부터 메시지가 발송됩니다.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="payco" >
+            페이코
+          </div>
+          <div class="toss" >
+            <div class="discount_info">
+              <h4>토스페이 결제 혜택</h4>
+              <ul class="bullistType_01">
+                <li>토스 페이로 생애 첫 결제 시 2천원 적립!</li>
+                <li>토스 페이로 결제 시(토스로 등록된 신용카드 결제 시 제외</li>
+                <li>토스 전체 가맹점에서 결제 이력이 없는 경우 적용됩니다.(토스 ID당 1회)</li>
+                <li>토스페이 결제 화면에서 생애 첫 결제 혜택이 보이지 않을 경우 대상이 아닙니다.</li>
+                <li>생애 첫 결제 프로모션은 기타 할인 및 적립 프로모션과 중복으로 적용이 가능합니다.</li>
+                <li>관련 문의는 토스 고객센터(1599-4905)로 문의 부탁드립니다.</li>
+              </ul>
+            </div>
+            <div class="notice">
+              <h5>유의사항</h5>
+              <ul>
+                <li>토스페이 결제시 토스페이 또는 등록된 카드로 결제가 가능합니다.</li>
+                <li>토스페이로 결제한 경우 환불(또는 부분환불)시 토스페이로 환불됩니다.</li>
+                <li>토스페이 앱을 최신 버전으로 업데이트 해주세요. 최신 버전이 아닌 경우 결제가 원활하지 않을 수 있습니다.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="kb" >
+            <div class="discount_info">
+              <h4>KB페이 결제 혜택</h4>
+              <ul class="bullistType_01">
+                <li>KB Pay 결제 시 적용 (국민카드>KB Pay 선택시에도 적용)</li>
+                <li>기간 : 5/9(목) - 5/13(월)</li>
+                <li>KB국민카드로 3만원 이상 결제 시 5,000원 즉시할인</li>
+                <li>공식온라인몰에서만 진행됩니다.</li>
+              </ul>
+            </div>
+            <div class="notice">
+              <h5>유의사항</h5>
+              <ul>
+                <li>이벤트 페이지 참조</li>
+              </ul>
+            </div>
+          </div>
+          <div class="sam" >
+            <div class="notice">
+              <h5>유의사항</h5>
+              <ul>
+                <li>스마트폰 명의자와 카드명의자가 동일한 경우에만 삼성페이 서비스에 카드등록이 가능합니다.</li>
+                <li>삼성페이 지원 가능한 단말기는 아래 삼성페이 홈페이지에서 확인 가능합니다. (www.samsungpay.com/sec/Samsung-pay)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hana" >
+          </div>
+          <div class="account" >
+          </div>
+          <div class="bankbook" >
+            <div class="notice">
+              <h5>유의사항</h5>
+              <ul>
+                <li>무통장 입금의 경우 주문접수 후 입금이 되지 않고 3일이 지나면 자동 취소됩니다.</li>
+                <li>현금영수증 신청은 주문 시, 각 결제수단(실시간계좌이체, 무통장입금)의 인증 페이지에서 신청 가능합니다.</li>
+                <li>추후 신청은 '회원로그인 > 마이페이지 > 증빙서류 발급'에서 가능합니다.</li>
+                <li>(비회원은 '비회원 로그인(주문조회) > 증빙서류 발급')</li>
+                <li><em>사업자증빙의 경우 반드시 주문 시 신청하여야 합니다.</em></li>
+                <li><em>세금계산서는 고객상담실과 상담 후 발급이 가능합니다.</em></li>
+              </ul>
+            </div>
+          </div>
+          <div class="phone" >
+          </div>
+          <div class="old_card" >
+            <dl>
+              <dt>카드 선택</dt>
+              <dd>
+                <Selectbox
+                    :options="[
+                    { val: 'value', txt: '옵션01' },
+                    { val: 'value', txt: '옵션02' }
+                ]" />
+                <a href="#none">무이자 할부 안내</a>
+              </dd>
+            </dl>
           </div>
         </div>
-        <div class="paycont">
-          <p>
-            <strong></strong>
-            <ul>
-              <li></li>
-            </ul>
-          </p>
-          <dl>
-            <dt>유의사항</dt>
-            <dd></dd>
-          </dl>
-        </div>
+
+
         <p class="tosspay">
           <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
           <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
@@ -719,10 +808,7 @@
 
 <script setup>
 import { modal } from '~/assets/js/common-ui.js'
-import {Delivery_data} from '../../test/data/publish/dummyData'
-import {bank_info} from '../../test/data/publish/dummyData'
-import {etc_info} from '../../test/data/publish/dummyData'
-import {benefit_info} from '../../test/data/publish/dummyData'
+import {Delivery_data, bank_info, etc_info} from '../../test/data/publish/dummyData'
 
 
 definePageMeta({
@@ -730,6 +816,7 @@ layout:'pc-ord'
 });
 
 const radioChk = ref('card');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
+const orderChk = ref('naver');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
 
 const toss_info = () => {
   window.open("https://consumer.tosspayments.com/escrow/detail?mertid=innisfree", "_blank");
@@ -2036,17 +2123,75 @@ button.tooltip {
         }
       }
       > div {
-        strong {}
-        ul {
-          li {}
-        }
-      }
-      > p {
-        strong {}
-        ol {
-          li {
-
+        > div {
+          &.old_card {
+              dl {
+                display:flex;
+                align-items:center;
+                dt {
+                  width:210px;
+                }
+                dd {
+                  display:flex;
+                  align-items:flex-end;
+                  label.select {
+                    width:50%;
+                  }
+                }
+              }
+            }
+          > div {
+              ul {
+                margin-top:10px;
+                flex-direction:column;
+                > * + * {
+                  margin-top:5px;
+                }
+                li {
+                  width:100%;
+                  height:100%;
+                }
+              }
+              &.discount_info {
+                margin-top:25px;
+                padding:30px;
+                border:1px solid #eee;
+                background:#fcfcfd;
+                h4 {
+                  color: #333;
+                  font-weight: 600;
+                }
+                ul {
+                  li {
+                    color:#666;
+                    font-size:14px;
+                }
+              }
+            }
+            &.notice {
+              margin-top:30px;
+              h5 {
+                color: #666;
+                font-size: 16px;
+                font-weight: 600;
+              }
+              ul {
+                color: #888;
+                font-size: 13px;
+                li {
+                  &::before {
+                    content:'※';
+                    margin-right:5px;
+                    display:inline-block;
+                    em {
+                      color:#d72137 !important;
+                    }
+                  }
+                }
+              }
+            }
           }
+
         }
       }
 
