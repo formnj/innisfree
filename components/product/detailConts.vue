@@ -1,23 +1,33 @@
 <template>
-  <div class="prod_detail_conts">
+  <div class="prod_detail_conts" :class="isOpen ? 'open' : ''">
     <!-- 개발시 삭제 -->
     <div class="temp_area">
       <img src="https://www.innisfree.com/kr/ko/upload/pdtDetailRB/makeup/face/concealer/myConcealer_darkCircle_cover/img01.jpg" alt="">
     </div>
     <!-- //개발시 삭제 -->
-    <!-- <div class="btn_more_area">
-      <button type="button" @click="showCont()">제품정보 더보기</button>
-    </div> -->
+
+    <div v-if="isMo" class="btn_more_area">
+      <button type="button" @click="onClick">제품정보&nbsp;<span v-if="!isOpen">더보기</span><span v-if="isOpen">접기</span></button>
+    </div>
   </div>
 </template>
 <script setup>
-// const showCont = () => {
-//   console.log(1);
-// }
+const props = defineProps({
+  isMo: { //모바일 여부
+    type: Boolean,
+    default: false
+  },
+})
+
+const isOpen = ref(false);
+const onClick = () => {
+  isOpen.value = !isOpen.value;
+  // console.log(isOpen.value)
+}
+
 </script>
 <style lang="scss" scoped>
 .prod_detail_conts {
-  // height: 840px;
   text-align: center;
   overflow: hidden;
   position: relative;
@@ -44,7 +54,7 @@
       justify-content: center;
       display: flex;
 
-      &::after {
+      &:after {
         content: '';
         width: 16px;
         height: 16px;
@@ -52,6 +62,20 @@
         background: url('/assets/mo_images/common/icon_split.png') 0 -70px;
         background-size: 250px auto;
         display: inline-block;
+      }
+    }
+  }
+
+  &.open {
+    height: auto;
+
+    .btn_more_area {
+      height: auto;
+      padding: 2.0rem 2.1rem 4.0rem;
+      position: relative;
+
+      button:after {
+        transform: rotate(180deg);
       }
     }
   }
