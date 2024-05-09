@@ -53,6 +53,18 @@
         }
     }
 
+    &:disabled {
+      border-color:#ccc;
+      background-color:#ccc;
+      cursor: default;
+
+      &[class*='_outline'] {
+        em {
+          color:#ccc;
+        }
+      }
+    }
+
     /* background-color */
     &.confirm {
         background-color:#00BC70;

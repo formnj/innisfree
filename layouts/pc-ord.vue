@@ -310,6 +310,9 @@ onMounted(()=>{
                   color:#333;
                   font-size:16px;
                 }
+                .input_wrap {
+                  flex:0 auto;
+                }
               }
               em {
                 color:#666;
@@ -317,7 +320,7 @@ onMounted(()=>{
                 line-height:1.5;
                 display:block;
               }
-              > ::v-deep button.btn_min_outline {
+              > :deep( button.btn_min_outline) {
                 height:24px;
                 margin-top:15px;
                 border:1px solid #999;
@@ -335,7 +338,7 @@ onMounted(()=>{
           }
         }
       }
-      > ::v-deep button.btn_ {
+      > :deep( button.btn_) {
         height:60px;
         em {
           font-size:16px;

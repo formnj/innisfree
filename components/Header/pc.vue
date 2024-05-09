@@ -489,6 +489,14 @@ const cate_layer = {
                 display:none;
             }
         }
+        .navGnb {
+          a {
+            height:80px;
+          }
+          .active a:after {
+            bottom:0;
+          }
+        }
     }
     .navCategory {
         .btn_category {
