@@ -227,7 +227,7 @@
                       <dt>
                         <a href="#none">
                           그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
-                          <em>버튼</em>
+                          <em></em>
                         </a>
                       </dt>
                       <dd>
@@ -270,7 +270,7 @@
                       <dt>
                         <a href="#none">
                           그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
-                          <em>버튼</em>
+                          <em></em>
                         </a>
                       </dt>
                       <dd>
@@ -396,12 +396,15 @@
       </div>
       <article class="method_card">
         <ul>
-          <li></li>
+          <li v-for="(item, idx) in bank_info" :key="idx" :id="item.li_id">
+            <input type="radio" name="cardList" :id="item.input_id">
+            <label :for="item.label_for">{{ item.name }}</label>
+				  </li>
         </ul>
-        <a href="#none">무이자할부</a>
+        <a href="#none">무이자 할부 안내</a>
         <p class="tosspay">
           <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
-          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" />
+          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
         </p>
       </article>
       <article class="method_onclick">
@@ -412,14 +415,30 @@
         </div>
         <p class="tosspay">
           <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
-          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" />
+          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
         </p>
       </article>
       <article class="method_other">
         <ul>
-          <li></li>
-        </ul>
+          <li v-for="(item, idx) in etc_info" :key="idx" :id="item.li_id">
+            <input type="radio" name="etcList" :id="item.input_id">
+            <label :for="item.label_for"><span>{{item.text}}</span></label>
 
+            <div class="discount_txt" v-if="item.discont_txt">{{ item.discont_txt }}</div>
+          </li>
+        </ul>
+        <div>
+          <strong></strong>
+          <ul>
+            <li></li>
+          </ul>
+        </div>
+        <div>
+          <strong>유의사항</strong>
+          <ol>
+            <li></li>
+          </ol>
+        </div>
         <div class="paycont">
           <p>
             <strong></strong>
@@ -434,7 +453,7 @@
         </div>
         <p class="tosspay">
           <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
-          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" />
+          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
         </p>
       </article>
     </section>
@@ -712,11 +731,17 @@
 <script setup>
 import { modal } from '~/assets/js/common-ui.js'
 import {Delivery_data} from '../../test/data/publish/dummyData'
+import {bank_info} from '../../test/data/publish/dummyData'
+import {etc_info} from '../../test/data/publish/dummyData'
+
 
 definePageMeta({
 layout:'pc-ord'
 });
 
+const toss_info = () => {
+  window.open("https://consumer.tosspayments.com/escrow/detail?mertid=innisfree", "_blank");
+}
 
 const ord_addr_more = (event) => {
   document.querySelector('.modal_wrap#add_list_modal').classList.remove('active')
@@ -1644,8 +1669,219 @@ button.tooltip {
     }
   }
   article {
-    padding:40px 0 0;
-    &.method_card {}
+    padding:20px 0 0;
+    &.method_card {
+      ul {
+        display:flex;
+        flex-wrap:wrap;
+        li {
+          width:106px;
+          height:95px;
+          position:relative;
+          input {
+            position:absolute;
+            z-index:-1;
+            opacity:0;
+            &[type="radio"]:checked {
+              + label {
+                border:1px solid #333;
+              }
+            }
+          }
+          label {
+            font-size:12px;
+            border:1px solid transparent;
+            text-align:center;
+            cursor:pointer;
+            position:absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            &::before {
+              content:"";
+              height:50px;
+              margin-bottom:15px;;
+              padding:10px 0 0;
+              background-image: url('/_nuxt/assets/images/common/icon_bank.png');
+              background-repeat:no-repeat;
+              background-size:250px;
+              background-position:4px 0px;
+              display:block;
+            }
+          }
+          &#cardList_1 {
+            label {
+              &::before {
+                background-position:4px -60px;
+              }
+            }
+          }
+          &#cardList_3 {
+            label {
+              &::before {
+                background-position:-100px -3px;
+              }
+            }
+          }
+          &#cardList_4 {
+            label {
+              &::before {
+                background-position:-96px -60px;
+              }
+            }
+          }
+          &#cardList_5 {
+            label {
+              &::before {
+                background-position:4px -120px;
+              }
+            }
+          }
+          &#cardList_6 {
+            label {
+              &::before {
+                background-position:-96px -120px;
+              }
+            }
+          }
+          &#cardList_7 {
+            label {
+              &::before {
+                background-position:4px -174px;
+              }
+            }
+          }
+          &#cardList_8 {
+            label {
+              &::before {
+                background-position:-96px -174px;
+              }
+            }
+          }
+          &#cardList_9 {
+            label {
+              &::before {
+                background-position:4px -225px;
+              }
+            }
+          }
+          &#cardList_10 {
+            label {
+              &::before {
+                background-position:-96px -225px;
+              }
+            }
+          }
+          &#cardList_11 {
+            label {
+              &::before {
+                background-position:4px -280px;
+              }
+            }
+          }
+          &#cardList_12 {
+            label {
+              &::before {
+                background-position:-96px -280px;
+              }
+            }
+          }
+          &#cardList_13 {
+            label {
+              &::before {
+                background-position:4px -335px
+              }
+            }
+          }
+          &#cardList_14 {
+            label {
+              &::before {
+                background-position:-96px -335px
+              }
+            }
+          }
+          &#cardList_15 {
+            label {
+              &::before {
+                background-position:4px -390px
+              }
+            }
+          }
+          &#cardList_16 {
+            label {
+              &::before {
+                background-position:-96px -390px
+              }
+            }
+          }
+          &#cardList_17 {
+            label {
+              &::before {
+                background-position:4px -444px
+              }
+            }
+          }
+          &#cardList_18 {
+            label {
+              &::before {
+                background-position:-96px -444px
+              }
+            }
+          }
+          &#cardList_19 {
+            label {
+              &::before {
+                background-position:4px -498px
+              }
+            }
+          }
+          &#cardList_20 {
+            label {
+              &::before {
+                background-position:-96px -498px
+              }
+            }
+          }
+          &#cardList_21 {
+            label {
+              &::before {
+                background-position:4px -554px
+              }
+            }
+          }
+          &#cardList_22 {
+            label {
+              &::before {
+                background-position:-96px -554px
+              }
+            }
+          }
+          &#cardList_23 {
+            label {
+              &::before {
+                background-position:4px -608px
+
+              }
+            }
+          }
+          &#cardList_24 {
+            label {
+              &::before {
+                background-position:-96px -608px
+              }
+            }
+          }
+        }
+      }
+      > a {
+        margin-top:21px;
+        color:#666;
+        font-size:13px;
+        text-decoration:underline;
+        display:block;
+      }
+    }
     &.method_onclick{
       > div {
         width:100%;
@@ -1665,25 +1901,130 @@ button.tooltip {
               content:'';
               width:24px;
               height:25px;
-              margin:0 auto;
-              border:1px solid red;
+              margin:0 auto 10px auto ;
               background-image: url('/_nuxt/assets/images/common/icon_split.png');
               background-repeat:no-repeat;
               background-size:250px;
-              background-position:0px 0px;
+              background-position:-90px -300px;
               display:block;
             }
           }
         }
       }
     }
-    &.method_other{}
-  }
-  .tosspay {
-    margin:40px 0 0;
-    padding:20px 0 0;
-    border-top:1px solid #eee;
+    &.method_other{
+      ul {
+        display:flex;
+        flex-wrap:wrap;
+        gap:5px;
+        li {
+          width:174px;
+          height:83px;
+          position: relative;
+          input {
+            position:absolute;
+            z-index: -1;
+            opacity: 0;
+            &[type="radio"]:checked {
+              + label {
+                border:3px solid #009D5E;
+              }
+            }
+          }
+          label {
+            color:#222;
+            font-size:14px;
+            border:1px solid #ddd;
+            text-align:center;
+            line-height:22px;
+            position:absolute;
+            top:-1px;
+            right:0;
+            bottom:0;
+            left:-1px;
+            z-index:1;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            cursor:pointer;
+            span {
+              display:flex;
+              flex-direction:column;
+              align-items:center;
+              &::before {
+                content:'';
+                width:60px;
+                height:20px;
+                border:1px solid red;
+                background-image: url('/_nuxt/assets/images/common/icon_bank.png');
+                background-repeat:no-repeat;
+                background-size:250px;
+                background-position:4px 0px;
+                text-align:center;
+                display:inline-block;
+              }
+            }
+          }
+          .discount_txt {
+            padding:3px 8px 4px;
+            color:#fff;
+            font-size:10px;
+            font-weight:700;
+            background:#1A90FB;
+            text-align:center;
+            position:absolute;
+            left:5px;
+            top:-10px;
+            z-index:10;
+            display: block;
+            &::after {
+              content: "";
+              border-top:6px solid #1B8DF7;
+              border-left:6px solid transparent;
+              border-right:6px solid transparent;
+              border-bottom:none;
+              position:absolute;
+              left:6px;
+              bottom:-4px;
+              display:inline-block;
+            }
+          }
+          &#etcdList_8, &#etcdList_9, &#etcdList_10, &#etcdList_11 {
+            label {
+              span {
+                &::before {
+                  display:none;
+                }
+              }
+            }
+          }
+        }
+      }
+      > div {
+        strong {}
+        ul {
+          li {}
+        }
+      }
+      > p {
+        strong {}
+        ol {
+          li {
+
+          }
+        }
+      }
+
+    }
   }
 }
+.tosspay {
+  margin:40px 0 0;
+  padding:20px 0 0;
+  border-top:1px solid #eee;
+  button.btn_min_outline {
+    margin-top:15px;
+  }
+  }
 
 </style>
