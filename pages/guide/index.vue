@@ -385,12 +385,12 @@ const PC_arry = ([
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','개인정보 수정','비밀번호 확인',''],
-        id:'IN_PC_MYP_01_68', status:'ing',
+        id:'IN_PC_MYP_01_68', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-10', worker:'형민우'
+        sDate:'', eDate:'2024-05-10/2024-05-09', worker:'형민우'
     }, {
         depth:['','','','개인정보 수정'],
-        id:'IN_PC_MYP_01_69', status:'',
+        id:'IN_PC_MYP_01_69', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-10', worker:'형민우'
     }, {
@@ -550,7 +550,7 @@ const MO_arry = ([
     }, {
         depth:['','검색','',''],
         id:'IN_MO_SRC_01_01', status:'com',
-        type:'component', note:'',
+        type:'component', note:'디자인 고도화 / 검색 영역 추가 ( IN_MO_SRC_01_01 참고 )',
         sDate:'', eDate:'2024-04-24/2024-04-23', worker:'형민우'
     }, {
         depth:['','푸터','',''],
@@ -637,6 +637,26 @@ const MO_arry = ([
         id:'IN_MO_HOM_01_18', status:'com',
         type:'', note:'goods_item > btnIconBox > btn_heart 노출',
         sDate:'', eDate:'2024-04-23/2024-04-23', worker:'이종환'
+    }, {
+        depth:['샘플마켓','목록','',''],
+        id:'IN_MO_APP_01_06_01', status:'',
+        type:'', note:'앱에서만 노출되는 페이지',
+        sDate:'', eDate:'2024-05-24', worker:'김나람'
+    }, {
+        depth:['','신청완료','',''],
+        id:'IN_MO_APP_01_06_07', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-05-24', worker:'김나람'
+    }, {
+        depth:['검색','검색','',''],
+        id:'IN_MO_SRC_01_01', status:'com',
+        type:'', note:'모바일 검색 페이지 분리',
+        sDate:'', eDate:'2024-04-24/2024-05-08', worker:'형민우'
+    }, {
+        depth:['','검색결과','',''],
+        id:'IN_MO_SRC_01_02', status:'com',
+        type:'', note:'모바일 검색 페이지 분리',
+        sDate:'', eDate:'2024-04-24/2024-05-08', worker:'형민우'
     }, {
         depth:['상품','목록','',''],
         id:'IN_MO_PRD_01_01', status:'com',

@@ -3,6 +3,363 @@
  * 테스트 용도이므로 TS 불필요
  * jjy11@amorepacific.com
  */
+export const benefit_info = [
+  {
+    title:'',
+    benefit:[
+      '',
+    ],
+    notice: [
+      '',
+    ]
+  },
+  {
+    title:'카카오페이 결제혜택',
+    benefit:[
+      '카카오페이 머니로 결제 시에만 적용 가능(신용카드 제외)',
+      '기간 : 5/9(목) - 5/13(월)',
+      '카카오페이 머니로 3만원 이상 결제 시 5,000원 즉시할인',
+      '공식온라인몰 / 오프라인매장 기간 내 각 1회 할인가능',
+    ],
+    notice: [
+      '카카오톡안에서 개인 신용카드(체크카드포함)를 등록하여 카카오페이 비밀번호로 결제할 수 있는 간편결제입니다.',
+      '본인명의 스마트폰에서 본인명의 카드 등록 후 사용 가능합니다.(카드등록 : 카카오톡 > 더 보기 > 카카오페이 > 카드)',
+      '카드사별 무이자 할부 행사는 카카오페이 결제 창에서 확인 가능합니다.',
+      '결제메시지 요청 시 입력하신 휴대폰 번호로 카카오페이로부터 메시지가 발송됩니다.',
+    ]
+  },
+  {
+    title:'',
+    benefit:[
+      '',
+    ],
+    notice: [
+      '페이코로 결제 완료 시 결제하신 수단으로만 환불 가능합니다.',
+      '신용카드 등록 시 휴대폰과 카드명의자가 동일해야 합니다. (모든 신용/체크카드 가능)',
+      '무이자할부는 PAYCO 결제 창에서 확인하실 수 있습니다.',
+      'PAYCO는 온/오프라인 쇼핑은 물론 송금, 멤버십 적립까지 가능한 통합 서비스입니다.',
+      '휴대폰과 카드 명의자가 동일해야 결제 가능하며, 결제금액 제한은 없습니다.'
+    ]
+  },
+  {
+    title:'토스페이 결제 혜택',
+    benefit:[
+      '토스 페이로 생애 첫 결제 시 2천원 적립!',
+      '토스 페이로 결제 시(토스로 등록된 신용카드 결제 시 제외',
+      '토스 전체 가맹점에서 결제 이력이 없는 경우 적용됩니다.(토스 ID당 1회)',
+      '토스페이 결제 화면에서 생애 첫 결제 혜택이 보이지 않을 경우 대상이 아닙니다.',
+      '생애 첫 결제 프로모션은 기타 할인 및 적립 프로모션과 중복으로 적용이 가능합니다.',
+      '관련 문의는 토스 고객센터(1599-4905)로 문의 부탁드립니다.',
+    ],
+    notice: [
+      '토스페이 결제시 토스페이 또는 등록된 카드로 결제가 가능합니다.',
+      '토스페이로 결제한 경우 환불(또는 부분환불)시 토스페이로 환불됩니다.',
+      '토스페이 앱을 최신 버전으로 업데이트 해주세요. 최신 버전이 아닌 경우 결제가 원활하지 않을 수 있습니다.'
+    ]
+  },
+  {
+    title:'KB페이 결제 혜택',
+    benefit:[
+      'KB Pay 결제 시 적용 (국민카드>KB Pay 선택시에도 적용)',
+      '기간 : 5/9(목) - 5/13(월)',
+      'KB국민카드로 3만원 이상 결제 시 5,000원 즉시할인',
+      '공식온라인몰에서만 진행됩니다.'
+    ],
+    notice: [
+      '이벤트 페이지 참조'
+    ]
+  },
+  {
+    title:'',
+    benefit:[
+      ''
+    ],
+    notice: [
+      '스마트폰 명의자와 카드명의자가 동일한 경우에만 삼성페이 서비스에 카드등록이 가능합니다.',
+      '삼성페이 지원 가능한 단말기는 아래 삼성페이 홈페이지에서 확인 가능합니다. (www.samsungpay.com/sec/Samsung-pay)'
+    ]
+  },
+  {
+    title:'',
+    benefit:[
+      ''
+    ],
+    notice: [
+      ''
+    ]
+  },
+  {
+    title:'',
+    benefit:[
+      ''
+    ],
+    notice: [
+      ''
+    ]
+  },
+  {
+    title:'',
+    benefit:[
+      ''
+    ],
+    notice: [
+      '무통장 입금의 경우 주문접수 후 입금이 되지 않고 3일이 지나면 자동 취소됩니다.',
+      '현금영수증 신청은 주문 시, 각 결제수단(실시간계좌이체, 무통장입금)의 인증 페이지에서 신청 가능합니다.',
+      '추후 신청은 "회원로그인 > 마이페이지 > 증빙서류 발급"에서 가능합니다.',
+      '(비회원은 "비회원 로그인(주문조회) > 증빙서류 발급")',
+      '사업자증빙의 경우 반드시 주문 시 신청하여야 합니다.',
+      '세금계산서는 고객상담실과 상담 후 발급이 가능합니다.'
+    ]
+  },
+  {
+    title:'',
+    benefit:[
+      ''
+    ],
+    notice: [
+      ''
+    ]
+  },
+  {
+    title:'',
+    benefit:[
+      ''
+    ],
+    notice: [
+      ''
+    ]
+  }
+
+]
+
+
+export const etc_info = [
+  {
+    li_id:'etcdList_1',
+    input_id:'etcdList1',
+    label_for:'etcdList1',
+    text:'네이버페이',
+    discont_txt:'',
+  },
+    {
+    li_id:'etcdList_2',
+    input_id:'etcdList2',
+    label_for:'etcdList2',
+    text:'카카오페이',
+    discont_txt:'5,000원 할인'
+  },
+    {
+    li_id:'etcdList_3',
+    input_id:'etcdList3',
+    label_for:'etcdList3',
+    text:'페이코',
+    discont_txt:''
+  },
+    {
+    li_id:'etcdList_4',
+    input_id:'etcdList4',
+    label_for:'etcdList4',
+    text:'토스페이',
+    discont_txt:'생애 첫 2천원 적립'
+  },
+    {
+    li_id:'etcdList_5',
+    input_id:'etcdList5',
+    label_for:'etcdList5',
+    text:'KB페이',
+    discont_txt:'5,000원 할인'
+  },
+    {
+    li_id:'etcdList_6',
+    input_id:'etcdList6',
+    label_for:'etcdList6',
+    text:'삼성페이',
+    discont_txt:''
+  },
+    {
+    li_id:'etcdList_7',
+    input_id:'etcdList7',
+    label_for:'etcdList7',
+    text:'하나페이',
+    discont_txt:''
+  },
+    {
+    li_id:'etcdList_8',
+    input_id:'etcdList8',
+    label_for:'etcdList8',
+    text:'실시간 계좌이체',
+    discont_txt:''
+  },
+    {
+    li_id:'etcdList_9',
+    input_id:'etcdList9',
+    label_for:'etcdList9',
+    text:'무통장입금',
+    discont_txt:''
+  },
+    {
+    li_id:'etcdList_10',
+    input_id:'etcdList10',
+    label_for:'etcdList10',
+    text:'휴대폰결제',
+    discont_txt:''
+  },
+    {
+    li_id:'etcdList_11',
+    input_id:'etcdList11',
+    label_for:'etcdList11',
+    text:'(구) 제휴카드',
+    discont_txt:''
+  },
+]
+
+export const bank_info = [
+  {
+    li_id:'cardList_1',
+    input_id:'cardList1',
+    label_for:'cardList1',
+    name:'국민'
+  },
+  {
+    li_id:'cardList_2',
+    input_id:'cardList2',
+    label_for:'cardList2',
+    name:'KEB하나'
+  },
+  {
+    li_id:'cardList_3',
+    input_id:'cardList3',
+    label_for:'cardList3',
+    name:'BC'
+  },
+  {
+    li_id:'cardList_4',
+    input_id:'cardList4',
+    label_for:'cardList4',
+    name:'신한'
+  },
+  {
+    li_id:'cardList_5',
+    input_id:'cardList5',
+    label_for:'cardList5',
+    name:'삼성'
+  },
+  {
+    li_id:'cardList_6',
+    input_id:'cardList6',
+    label_for:'cardList6',
+    name:'현대'
+  },
+  {
+    li_id:'cardList_7',
+    input_id:'cardList7',
+    label_for:'cardList7',
+    name:'롯데'
+  },
+  {
+    li_id:'cardList_8',
+    input_id:'cardList8',
+    label_for:'cardList8',
+    name:'NH'
+  },
+  {
+    li_id:'cardList_9',
+    input_id:'cardList9',
+    label_for:'cardList9',
+    name:'씨티'
+  },
+  {
+    li_id:'cardList_10',
+    input_id:'cardList10',
+    label_for:'cardList10',
+    name:'우리'
+  },
+  {
+    li_id:'cardList_11',
+    input_id:'cardList11',
+    label_for:'cardList11',
+    name:'제주'
+  },
+  {
+    li_id:'cardList_12',
+    input_id:'cardList12',
+    label_for:'cardList12',
+    name:'수협'
+  },
+  {
+    li_id:'cardList_13',
+    input_id:'cardList13',
+    label_for:'cardList13',
+    name:'전북'
+  },
+  {
+    li_id:'cardList_14',
+    input_id:'cardList14',
+    label_for:'cardList14',
+    name:'광주'
+  },
+  {
+    li_id:'cardList_15',
+    input_id:'cardList15',
+    label_for:'cardList15',
+    name:'우체국체크'
+  },
+  {
+    li_id:'cardList_16',
+    input_id:'cardList16',
+    label_for:'cardList16',
+    name:'MG새마을체크'
+  },
+  {
+    li_id:'cardList_17',
+    input_id:'cardList17',
+    label_for:'cardList17',
+    name:'저축은행체크'
+  },
+  {
+    li_id:'cardList_18',
+    input_id:'cardList18',
+    label_for:'cardList18',
+    name:'신협체크'
+  },
+  {
+    li_id:'cardList_19',
+    input_id:'cardList19',
+    label_for:'cardList19',
+    name:'KDB캐피탈'
+  },
+  {
+    li_id:'cardList_20',
+    input_id:'cardList20',
+    label_for:'cardList20',
+    name:'해외VISA'
+  },
+  {
+    li_id:'cardList_21',
+    input_id:'cardList21',
+    label_for:'cardList21',
+    name:'해외MASTER'
+  },
+  {
+    li_id:'cardList_22',
+    input_id:'cardList22',
+    label_for:'cardList22',
+    name:'해외JCB'
+  },
+  {
+    li_id:'cardList_23',
+    input_id:'cardList23',
+    label_for:'cardList23',
+    name:'해외DINERS CLUB'
+  },
+  {
+    li_id:'cardList_24',
+    input_id:'cardList24',
+    label_for:'cardList24',
+    name:'카카오뱅크'
+  },
+]
+
 
 export const mo_benefit_goods = [
   {
@@ -254,7 +611,7 @@ export const searchData = {
 }
 
 export const latestSearchWordData = [
-  { word: '그린티 스킨', url: 'https://www.innisfree.com/kr/ko' },
+  { word: '그린티 스킨스킨스킨스킨스킨스킨', url: 'https://www.innisfree.com/kr/ko' },
   { word: '그린티 세럼', url: 'https://www.innisfree.com/kr/ko' },
   { word: '스킨', url: 'https://www.innisfree.com/kr/ko' },
   { word: '세럼', url: 'https://www.innisfree.com/kr/ko' },
@@ -268,10 +625,10 @@ export const latestSearchWordData = [
 
 export const categoryForSearchLayerData = [
   { imageUrl: '/images/sam/h_cate_01.png', text: '베스트', url: 'https://www.innisfree.com/kr/ko' },
-  { imageUrl: '/images/sam/h_cate_02.png', text: 'Sale 52%', url: 'https://www.innisfree.com/kr/ko' },
-  { imageUrl: '/images/sam/h_cate_03.png', text: '스킨케어', url: 'https://www.innisfree.com/kr/ko' },
+  { imageUrl: '/images/sam/h_cate_02.png', text: 'Sale 52%', url: 'https://www.innisfree.com/kr/ko', type: 'point' },
+  { imageUrl: '/images/sam/h_cate_03.png', text: '스킨케어', url: 'https://www.innisfree.com/kr/ko', type: 'point' },
   { imageUrl: '/images/sam/h_cate_04.png', text: '선케어', url: 'https://www.innisfree.com/kr/ko' },
-  { imageUrl: '/images/sam/h_cate_05.png', text: '세럼', url: 'https://www.innisfree.com/kr/ko' },
+  { imageUrl: '/images/sam/h_cate_05.png', text: '세럼', url: 'https://www.innisfree.com/kr/ko', type: 'point' },
   { imageUrl: '/images/sam/h_cate_06.png', text: '팩/마스크', url: 'https://www.innisfree.com/kr/ko' },
   { imageUrl: '/images/sam/h_cate_07.png', text: '헤어/바디', url: 'https://www.innisfree.com/kr/ko' },
   { imageUrl: '/images/sam/h_cate_08.png', text: '펫', url: 'https://www.innisfree.com/kr/ko' },
@@ -1390,8 +1747,8 @@ export const global_menu = [
             {link:'#none', menu:'기타'}
         ],
         goods: [
-            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-1.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
-            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-2.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-1.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-2.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
         ]
     }, {
         link:'#none', menu:'메이크업',
@@ -1402,8 +1759,8 @@ export const global_menu = [
             {link:'#none', menu:'네일'}
         ],
         goods: [
-            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-3.png', name: '노세범 블러 프라이머 25mL', cate:'BEST'},
-            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-4.png', name: '노세범 AC 파우더 5G'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-3.png', name: '노세범 블러 프라이머 25mL', cate:'BEST'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-4.png', name: '노세범 AC 파우더 5G'},
         ]
     }, {
         link:'#none', menu:'남성',
@@ -1415,8 +1772,8 @@ export const global_menu = [
             {link:'#none', menu:'기획세트'}
         ],
         goods: [
-            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-5.png', name: '포레스트 포맨 쉐이빙&클렌징 폼', cate:'BEST'},
-            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-6.png', name: '포레스트 프레시 스킨 로션 2종 세트', cate:'BEST'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-5.png', name: '포레스트 포맨 쉐이빙&클렌징 폼', cate:'BEST'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-6.png', name: '포레스트 프레시 스킨 로션 2종 세트', cate:'BEST'},
         ]
     }, {
         link:'#none', menu:'헤어/바디',
@@ -1428,8 +1785,8 @@ export const global_menu = [
             {link:'#none', menu:'샴푸/트리트먼트'}
         ],
         goods: [
-            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-7.png', name: '아일 넘버 바디 앤 핸드 워시 300mL'},
-            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-8.png', name: '[LTD] 마이퍼퓸드 핸드크림 2종 기획 세트'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-7.png', name: '아일 넘버 바디 앤 핸드 워시 300mL'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-8.png', name: '[LTD] 마이퍼퓸드 핸드크림 2종 기획 세트'},
         ]
     }, {
         link:'#none', menu:'기획세트',
@@ -1437,8 +1794,8 @@ export const global_menu = [
             {link:'#none', menu:'기획세트'}
         ],
         goods: [
-            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-9.png', name: '[LTD] 블랙티 유스 인핸싱 앰플 세트', cate:'BEST'},
-            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-10.png', name: '[LTD] 비타C 잡티 토닝 세럼 대용량 세트', cate:'BEST'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-9.png', name: '[LTD] 블랙티 유스 인핸싱 앰플 세트', cate:'BEST'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-10.png', name: '[LTD] 비타C 잡티 토닝 세럼 대용량 세트', cate:'BEST'},
         ]
     }, {
         link:'#none', menu:'미용소품',
@@ -1450,20 +1807,20 @@ export const global_menu = [
             {link:'#none', menu:'기타 소품'},
         ],
         goods: [
-            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-11.png', name: '패들 헤어 브러시 1EA'},
-            {img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-12.png', name: '리스테이 리-스펜서 350mL'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-11.png', name: '패들 헤어 브러시 1EA'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-12.png', name: '리스테이 리-스펜서 350mL'},
         ]
     }, {
         link:'#none', menu:'고민별제품',
         sub_menu: [
-            {link:'#none', menu:'수분/보습/속건조', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-13.png'},
-            {link:'#none', menu:'모공/피지/블랙헤드', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-14.png'},
-            {link:'#none', menu:'주름/탄력', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-15.png'},
-            {link:'#none', menu:'트러블/리페어', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-16.png'},
-            {link:'#none', menu:'각질/피부결', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-17.png'},
-            {link:'#none', menu:'잡티/피부결', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-18.png'},
-            {link:'#none', menu:'영양/토탈안티에이징', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-19.png'},
-            {link:'#none', menu:'진정/민감', img:'/_nuxt/assets/images/sam/category_sam_goods_list_00-20.png'}
+            {link:'#none', menu:'수분/보습/속건조', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-13.png'},
+            {link:'#none', menu:'모공/피지/블랙헤드', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-14.png'},
+            {link:'#none', menu:'주름/탄력', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-15.png'},
+            {link:'#none', menu:'트러블/리페어', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-16.png'},
+            {link:'#none', menu:'각질/피부결', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-17.png'},
+            {link:'#none', menu:'잡티/피부결', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-18.png'},
+            {link:'#none', menu:'영양/토탈안티에이징', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-19.png'},
+            {link:'#none', menu:'진정/민감', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-20.png'}
         ]
     },
 ]

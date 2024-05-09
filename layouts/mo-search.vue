@@ -1,6 +1,6 @@
 <template>
   <div id="wrap">
-      <HeaderMoSearch />
+      <HeaderMoSearch/>
       <div id="container">
           <router-view />
       </div>
@@ -9,9 +9,7 @@
   </div>
 </template>
 
-
-<script setup>
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
 

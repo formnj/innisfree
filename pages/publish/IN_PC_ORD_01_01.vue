@@ -125,6 +125,32 @@
                           </div>
                           <div class="checkbox_wrap">
                             <Inputs _type="checkbox" _text="안심번호 서비스 사용" /><Icons class="tooltip" @click="modal.open('layerTooltip', 'layer');"/>
+                            <div class="modal_wrap" id="layerTooltip">
+                              <div class="modal_container">
+                                  <div class="modal_header">
+                                      <h2>안심번호 서비스 안내</h2>
+                                      <button class="btn_close" @click="modal.close(this);">닫기</button>
+                                  </div>
+                                  <div class="modal_content">
+                                    <span>
+                                      고객님의 실제 휴대폰번호와 연락처가 노출되지<br>
+                                      않도록 1회성 임시번호(050-000-0000)를 제공하는<br>
+                                      서비스 입니다.
+                                    </span>
+                                    <ul class="bullistType_01">
+                                      <li>
+                                        판매자/택배사에 안심번호로 전달되므로 개인정보
+                                        유출을 사전에 방지할 수 있습니다.
+                                        (택배상자에 안심번호 표시)
+                                      </li>
+                                      <li>배송완료 후 일정시간이 지나면 안심번호는 자동으로
+                                          해제됩니다.
+                                      </li>
+                                      <li>안심번호 서비스는 LMS/MMS 사용이 불가합니다.</li>
+                                    </ul>
+                                  </div>
+                              </div>
+                            </div>
                           </div>
                         </li>
                       </ul>
@@ -201,7 +227,7 @@
                       <dt>
                         <a href="#none">
                           그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
-                          <em>버튼</em>
+                          <em></em>
                         </a>
                       </dt>
                       <dd>
@@ -244,7 +270,7 @@
                       <dt>
                         <a href="#none">
                           그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
-                          <em>버튼</em>
+                          <em></em>
                         </a>
                       </dt>
                       <dd>
@@ -270,6 +296,30 @@
             </tbody>
         </table>
       </div>
+      <article>
+        <em>친환경 종이 완충재로 포장하여 안전하게 보내드립니다.</em>
+        <Icons class="tooltip" @click="modal.open('ecoTooltip', 'layer');"/>
+        <div class="modal_wrap" id="ecoTooltip">
+          <div class="modal_container">
+              <div class="modal_header">
+                  <h2>이니스프리 배송 포장재 안내</h2>
+                  <button class="btn_close" @click="modal.close(this);">닫기</button>
+              </div>
+              <div class="modal_content">
+                <span>
+                  이니스프리는 환경을 생각하는 마음으로,<br>
+                  일반 플라스틱 완충제(에어캡) 대신 친환경 종이<br>
+                  완충제(FSC인증)로 제품을 보호하고 있습니다.
+                </span>
+                <ul class="bullistType_01">
+                  <li>
+                    업체 배송 및 일부 제품 제외
+                  </li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </article>
     </section>
 
     <section class="point">
@@ -327,6 +377,81 @@
           <h3>결제수단 선택</h3>
         </div>
       </div>
+      <div class="table_wrap">
+        <table>
+            <caption>결제수단 선택</caption>
+            <colgroup>
+                <col style="">
+            </colgroup>
+            <tbody>
+                <tr>
+                  <td>
+                    <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" @change="radioChk = 'card'" /><!-- [Tip] change되었을 때, 변수값을 지정해준 값으로 변경해준다. -->
+                    <Inputs _type="radio" _text="원클릭 결제" _name="pay_method" @change="radioChk = 'onclick'"/>
+                    <Inputs _type="radio" _text="다른 결제 수단" _name="pay_method" @change="radioChk = 'other'"/>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <article class="method_card" :class="{ active: radioChk == 'card' }"><!-- 활성화된 article에 active 클래스 추가 --><!-- [Tip] 라디오버튼이 change되어 변경된 변수값을 확인하여 해당 article에 active 클래스를 활성화 시킴 -->
+        <ul>
+          <li v-for="(item, idx) in bank_info" :key="idx" :id="item.li_id">
+            <input type="radio" name="cardList" :id="item.input_id">
+            <label :for="item.label_for">{{ item.name }}</label>
+				  </li>
+        </ul>
+        <a href="#none">무이자 할부 안내</a>
+        <p class="tosspay">
+          <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
+          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
+        </p>
+      </article>
+      <article class="method_onclick" :class="{ active: radioChk == 'onclick' }">
+        <div>
+          <button>
+            <span>대표카드를 등록해 주세요</span>
+          </button>
+        </div>
+        <p class="tosspay">
+          <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
+          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
+        </p>
+      </article>
+      <article class="method_other" :class="{ active: radioChk == 'other' }">
+        <ul>
+          <li v-for="(item, idx) in etc_info" :key="idx" :id="item.li_id">
+            <input type="radio" name="etcList" :id="item.input_id">
+            <label :for="item.label_for"><span>{{item.text}}</span></label>
+
+            <div class="discount_txt" v-if="item.discont_txt">{{ item.discont_txt }}</div>
+          </li>
+        </ul>
+        <div class="radioTabContents" >
+          <div class="discount_info" v-for="(item, idx) in benefit_info" :key="idx">
+            <h4 v-if="item.title">{{item.title}}</h4>
+            <ul>
+              <li>{{ item.benefit[0] }}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="paycont">
+          <p>
+            <strong></strong>
+            <ul>
+              <li></li>
+            </ul>
+          </p>
+          <dl>
+            <dt>유의사항</dt>
+            <dd></dd>
+          </dl>
+        </div>
+        <p class="tosspay">
+          <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
+          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
+        </p>
+      </article>
     </section>
 
     <section class="soldout">
@@ -356,7 +481,6 @@
 
 
   <!-- modal -->
-
   <div class="modal_wrap" id="delete_modal">
     <div class="modal_container">
         <div class="modal_header">
@@ -589,49 +713,27 @@
         </div>
     </div>
   </div>
-
-  <div class="modal_wrap" id="layerTooltip">
-    <div class="modal_container">
-        <div class="modal_header">
-            <h2>안심번호 서비스 안내</h2>
-            <button class="btn_close" @click="modal.close(this);">닫기</button>
-        </div>
-        <div class="modal_content">
-          <span>
-            고객님의 실제 휴대폰번호와 연락처가 노출되지<br>
-            않도록 1회성 임시번호(050-000-0000)를 제공하는<br>
-            서비스 입니다.
-          </span>
-          <ul class="bullistType_01">
-            <li>
-              판매자/택배사에 안심번호로 전달되므로 개인정보
-              유출을 사전에 방지할 수 있습니다.
-              (택배상자에 안심번호 표시)
-            </li>
-            <li>배송완료 후 일정시간이 지나면 안심번호는 자동으로
-                해제됩니다.
-            </li>
-            <li>안심번호 서비스는 LMS/MMS 사용이 불가합니다.</li>
-          </ul>
-        </div>
-    </div>
-  </div>
-
-
-
   <!-- //modal -->
 
 </template>
 
 <script setup>
-import { setFilter } from '~/assets/js/common-ui.js'
 import { modal } from '~/assets/js/common-ui.js'
 import {Delivery_data} from '../../test/data/publish/dummyData'
+import {bank_info} from '../../test/data/publish/dummyData'
+import {etc_info} from '../../test/data/publish/dummyData'
+import {benefit_info} from '../../test/data/publish/dummyData'
+
 
 definePageMeta({
 layout:'pc-ord'
 });
 
+const radioChk = ref('card');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
+
+const toss_info = () => {
+  window.open("https://consumer.tosspayments.com/escrow/detail?mertid=innisfree", "_blank");
+}
 
 const ord_addr_more = (event) => {
   document.querySelector('.modal_wrap#add_list_modal').classList.remove('active')
@@ -662,8 +764,6 @@ const change_res = (event) => {
   document.querySelector('.deliveryList').classList.remove('hide')
 }
 
-
-
 onMounted(() => {
   let target = document.querySelectorAll('.board_type_toggle dt a');
   let rotate = document.querySelectorAll('.board_type_toggle dt a em');
@@ -674,7 +774,6 @@ onMounted(() => {
       if(a.parentNode.nextElementSibling.classList.contains('show')){
         a.parentNode.nextElementSibling.style.height = '0px'
         a.parentNode.nextElementSibling.addEventListener('transitionend', () => {
-          //a.parentNode.nextElementSibling.remove('show'); <- 클래스가 아닌 nextElementSibling를 .remove 시킨거였네요~ 확인 후 삭제해주세요.
           a.parentNode.nextElementSibling.classList.remove('show');
           rotate[i].classList.remove('active')
         }, {once: true});
@@ -916,17 +1015,12 @@ onMounted(() => {
                         }
                         .checkbox_wrap {
                           margin-top:10px;
+                          position:relative;
                           display:flex;
                           align-items:center;
-                          gap:6px;
                           .input_wrap {
                             width:22% !important;
                             margin-top:0;
-                          }
-                          button.tooltip {
-                            width:16px;
-                            height:16px;
-                            background-position:0px -260px;
                           }
                         }
                       }
@@ -1275,16 +1369,42 @@ div.list {
         border-bottom:0;
       }
       .modal_content{
-        color: #666666;
+        padding-top:0;
         font-size: 13px;
         line-height: 1.54em;
         letter-spacing: -0.01em;
+        span {
+          color: #666666;
+          &::before {
+            content:none;
+          }
+        }
         ul {
+          > * + * {
+            margin-top:5px;
+          }
           margin-top:0;
+          padding:0;
+          border:0;
+          li {
+            color: #666666;
+          }
         }
       }
     }
   }
+  &#ecoTooltip{
+    left:315px;
+    .modal_header {
+      color:#000;
+      border-bottom:0;
+    }
+    .modal_content {
+      color:#666666;
+      padding-top:0;
+    }
+  }
+
 }
 
 .bullistType_01 {
@@ -1499,7 +1619,447 @@ div.list {
     }
   }
  }
+ > article {
+    position: relative;
+    margin-top:20px;
+    color:#888;
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    em {
+    &::before {
+      content:'※';
+      margin-right:5px;
+      display:inline-block;
+    }
+  }
+ }
 }
 .show {display:flex !important;}
+button.tooltip {
+  width: 16px;
+  height: 16px;
+  margin-left:5px;
+  background-position: 0px -260px;
+}
+
+.pay_method {
+  .table_wrap {
+    table {
+      tbody {
+        tr {
+          td {
+            display:flex;
+            .input_wrap {
+              width:18%;
+            }
+          }
+        }
+      }
+    }
+  }
+  article {
+    padding:20px 0 0;
+    display:none;
+    &.active {
+      display:block;
+    }
+    &.method_card {
+      ul {
+        display:flex;
+        flex-wrap:wrap;
+        li {
+          width:106px;
+          height:95px;
+          position:relative;
+          input {
+            position:absolute;
+            z-index:-1;
+            opacity:0;
+            &[type="radio"]:checked {
+              + label {
+                border:1px solid #333;
+              }
+            }
+          }
+          label {
+            font-size:12px;
+            border:1px solid transparent;
+            text-align:center;
+            cursor:pointer;
+            position:absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            &::before {
+              content:"";
+              height:50px;
+              margin-bottom:15px;;
+              padding:10px 0 0;
+              background-image: url('/_nuxt/assets/images/common/icon_bank.png');
+              background-repeat:no-repeat;
+              background-size:250px;
+              background-position:4px 0px;
+              display:block;
+            }
+          }
+          &#cardList_1 {
+            label {
+              &::before {
+                background-position:4px -60px;
+              }
+            }
+          }
+          &#cardList_3 {
+            label {
+              &::before {
+                background-position:-100px -3px;
+              }
+            }
+          }
+          &#cardList_4 {
+            label {
+              &::before {
+                background-position:-96px -60px;
+              }
+            }
+          }
+          &#cardList_5 {
+            label {
+              &::before {
+                background-position:4px -120px;
+              }
+            }
+          }
+          &#cardList_6 {
+            label {
+              &::before {
+                background-position:-96px -120px;
+              }
+            }
+          }
+          &#cardList_7 {
+            label {
+              &::before {
+                background-position:4px -174px;
+              }
+            }
+          }
+          &#cardList_8 {
+            label {
+              &::before {
+                background-position:-96px -174px;
+              }
+            }
+          }
+          &#cardList_9 {
+            label {
+              &::before {
+                background-position:4px -225px;
+              }
+            }
+          }
+          &#cardList_10 {
+            label {
+              &::before {
+                background-position:-96px -225px;
+              }
+            }
+          }
+          &#cardList_11 {
+            label {
+              &::before {
+                background-position:4px -280px;
+              }
+            }
+          }
+          &#cardList_12 {
+            label {
+              &::before {
+                background-position:-96px -280px;
+              }
+            }
+          }
+          &#cardList_13 {
+            label {
+              &::before {
+                background-position:4px -335px
+              }
+            }
+          }
+          &#cardList_14 {
+            label {
+              &::before {
+                background-position:-96px -335px
+              }
+            }
+          }
+          &#cardList_15 {
+            label {
+              &::before {
+                background-position:4px -390px
+              }
+            }
+          }
+          &#cardList_16 {
+            label {
+              &::before {
+                background-position:-96px -390px
+              }
+            }
+          }
+          &#cardList_17 {
+            label {
+              &::before {
+                background-position:4px -444px
+              }
+            }
+          }
+          &#cardList_18 {
+            label {
+              &::before {
+                background-position:-96px -444px
+              }
+            }
+          }
+          &#cardList_19 {
+            label {
+              &::before {
+                background-position:4px -498px
+              }
+            }
+          }
+          &#cardList_20 {
+            label {
+              &::before {
+                background-position:-96px -498px
+              }
+            }
+          }
+          &#cardList_21 {
+            label {
+              &::before {
+                background-position:4px -554px
+              }
+            }
+          }
+          &#cardList_22 {
+            label {
+              &::before {
+                background-position:-96px -554px
+              }
+            }
+          }
+          &#cardList_23 {
+            label {
+              &::before {
+                background-position:4px -608px
+
+              }
+            }
+          }
+          &#cardList_24 {
+            label {
+              &::before {
+                background-position:-96px -608px
+              }
+            }
+          }
+        }
+      }
+      > a {
+        margin-top:21px;
+        color:#666;
+        font-size:13px;
+        text-decoration:underline;
+        display:block;
+      }
+    }
+    &.method_onclick{
+      > div {
+        width:100%;
+        button {
+          width:300px;
+          height:180px;
+          margin:0 auto;
+          color:#000;
+          font-size:16px;
+          line-height:1.25;
+          border:1px dashed #DDDDDD;
+          border-radius:5px;
+          background: #F5F5F5;
+          display:block;
+          span {
+            &::before {
+              content:'';
+              width:24px;
+              height:25px;
+              margin:0 auto 10px auto ;
+              background-image: url('/_nuxt/assets/images/common/icon_split.png');
+              background-repeat:no-repeat;
+              background-size:250px;
+              background-position:-90px -300px;
+              display:block;
+            }
+          }
+        }
+      }
+    }
+    &.method_other{
+      ul {
+        display:flex;
+        flex-wrap:wrap;
+        gap:5px;
+        li {
+          width:174px;
+          height:83px;
+          position: relative;
+          &#etcdList_1 {
+            span {
+              &::before {
+                background-position:-66px -695px;
+              }
+            }
+          }
+          &#etcdList_2 {
+            span {
+              &::before {
+                background-position:-130px -670px;
+              }
+            }
+          }
+          &#etcdList_3 {
+            span {
+              &::before {
+                background-position:-65px -670px;
+              }
+            }
+          }
+          &#etcdList_4 {
+            span {
+              &::before {
+                background-position:0px -720px;
+              }
+            }
+          }
+          &#etcdList_5 {
+            span {
+              &::before {
+                background-position:0px -695px;
+              }
+            }
+          }
+          &#etcdList_6 {
+            span {
+              &::before {
+                background-position:-129px -695px;
+              }
+            }
+          }
+          input {
+            position:absolute;
+            z-index: -1;
+            opacity: 0;
+            &[type="radio"]:checked {
+              + label {
+                border:3px solid #009D5E;
+              }
+            }
+          }
+          label {
+            color:#222;
+            font-size:14px;
+            border:1px solid #ddd;
+            text-align:center;
+            line-height:22px;
+            position:absolute;
+            top:-1px;
+            right:0;
+            bottom:0;
+            left:-1px;
+            z-index:1;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            cursor:pointer;
+            span {
+              display:flex;
+              flex-direction:column;
+              align-items:center;
+              &::before {
+                content:'';
+                width:60px;
+                height:20px;
+                background-image: url('/_nuxt/assets/images/common/icon_bank.png');
+                background-repeat:no-repeat;
+                background-size:250px;
+                background-position:-2px -672px;
+                text-align:center;
+                display:inline-block;
+              }
+            }
+          }
+          .discount_txt {
+            padding:3px 8px 4px;
+            color:#fff;
+            font-size:10px;
+            font-weight:700;
+            background:#1A90FB;
+            text-align:center;
+            position:absolute;
+            left:5px;
+            top:-10px;
+            z-index:10;
+            display: block;
+            &::after {
+              content: "";
+              border-top:6px solid #1B8DF7;
+              border-left:6px solid transparent;
+              border-right:6px solid transparent;
+              border-bottom:none;
+              position:absolute;
+              left:6px;
+              bottom:-4px;
+              display:inline-block;
+            }
+          }
+          &#etcdList_8, &#etcdList_9, &#etcdList_10, &#etcdList_11 {
+            label {
+              span {
+                &::before {
+                  display:none;
+                }
+              }
+            }
+          }
+        }
+      }
+      > div {
+        strong {}
+        ul {
+          li {}
+        }
+      }
+      > p {
+        strong {}
+        ol {
+          li {
+
+          }
+        }
+      }
+
+    }
+  }
+}
+.tosspay {
+  margin:40px 0 0;
+  padding:20px 0 0;
+  border-top:1px solid #eee;
+  button.btn_min_outline {
+    margin-top:15px;
+  }
+  }
 
 </style>

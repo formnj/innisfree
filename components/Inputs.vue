@@ -49,7 +49,7 @@
 
     const hidePlaceholder = (e) => { //focus시 placeholder 숨김
         if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){
-            e.currentTarget.previousSibling.style.display="none"
+            e.currentTarget.previousSibling.classList.add('hide');
         }
     }
 
@@ -57,11 +57,11 @@
         // console.log(e.currentTarget.value.length);
         if(e.currentTarget.value.length > 0){
             if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){
-                e.currentTarget.previousSibling.style.display='none';
+                e.currentTarget.previousSibling.classList.add('hide');
             }
         } else {
             if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){
-                e.currentTarget.previousSibling.style.removeProperty('display');
+                e.currentTarget.previousSibling.classList.remove('hide');
             }
         }
     }
@@ -69,26 +69,26 @@
     const input_btn_chk = (e) => { //keypress 시 value 유무 확인하여 버튼 노출 조절
         var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');
         if(e.currentTarget.value.length > 0){
-            icon_button.style.cssText="display:block;"
+            icon_button.classList.add('active');
         }else{
-            icon_button.style.cssText="display:none;"
+            icon_button.classList.remove('active');
         }
     }
 
     const input_btn_fn = (e) => { //label_wrap의 버튼 클릭 시 각 기능
         var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');
-        if(icon_button.getAttribute('class') == 'icon_del'){ //value 삭제
+        if(icon_button.getAttribute('class').indexOf('icon_del') > -1){ //value 삭제
             e.currentTarget.closest('.label_wrap').querySelector('input').value = null;
-            icon_button.style.cssText="display:none;"
+            icon_button.classList.remove('active');
             if(e.currentTarget.parentElement.querySelectorAll('i').length > 0){
-                e.currentTarget.closest('.label_wrap').querySelector('i').style.display='block';
+                e.currentTarget.closest('.label_wrap').querySelector('i').classList.remove('hide');
             }
-        } else if(icon_button.getAttribute('class') == 'icon_pass') { //비밀번호 보기
+        } else if(icon_button.getAttribute('class').indexOf('icon_pass') > -1) { //비밀번호 보기
             e.currentTarget.closest('.label_wrap').querySelector('input').setAttribute('type','text');
-            icon_button.setAttribute('class', 'icon_text');
+            icon_button.setAttribute('class', 'icon_text active');
         } else { //비밀번호 숨기기
             e.currentTarget.closest('.label_wrap').querySelector('input').setAttribute('type','password');
-            icon_button.setAttribute('class', 'icon_pass');
+            icon_button.setAttribute('class', 'icon_pass active');
         }
     }
 </script>
@@ -101,12 +101,7 @@
     font-size:12px;
     line-height:18px;
     font-style:normal;
-    display:none;
-  }
-  &.err {
-    .err_txt {
-      display:block;
-    }
+    display:block;
   }
   .check {
     min-height:20px;
@@ -243,7 +238,11 @@
       position:absolute;
       top:20px;
       left:15px;
+      display:block;
       transform:translateY(-50%);
+      &.hide {
+        display:none;
+      }
     }
     input[type='text'], input[type='password'], input[type='number'] {
       width:100%;
@@ -304,9 +303,18 @@
     & + button[class*='icon_'] {
       margin-right:34px;
     }
-    &.icon_del {background-position:0 0;}
-    &.icon_pass {background-position:-80px 0;}
-    &.icon_text {background-position:-40px 0;}
+    &.active {
+      display:block;
+    }
+    &.icon_del {
+      background-position:0 0;
+    }
+    &.icon_pass {
+      background-position:-80px 0;
+    }
+    &.icon_text {
+      background-position:-40px 0;
+    }
   }
 }
 </style>
