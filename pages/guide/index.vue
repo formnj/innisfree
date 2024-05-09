@@ -648,11 +648,6 @@ const MO_arry = ([
         type:'', note:'',
         sDate:'', eDate:'2024-05-24', worker:'김나람'
     }, {
-        depth:['','장바구니 담기','',''],
-        id:'IN_MO_APP_01_06_01-3', status:'',
-        type:'modal', note:'디자인/SB참고',
-        sDate:'', eDate:'2024-05-24', worker:'김나람'
-    }, {
         depth:['검색','검색','',''],
         id:'IN_MO_SRC_01_01', status:'com',
         type:'', note:'모바일 검색 페이지 분리',
