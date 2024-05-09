@@ -427,17 +427,13 @@
             <div class="discount_txt" v-if="item.discont_txt">{{ item.discont_txt }}</div>
           </li>
         </ul>
-        <div>
-          <strong></strong>
-          <ul>
-            <li></li>
-          </ul>
-        </div>
-        <div>
-          <strong>유의사항</strong>
-          <ol>
-            <li></li>
-          </ol>
+        <div class="radioTabContents" >
+          <div class="discount_info" v-for="(item, idx) in benefit_info" :key="idx">
+            <h4 v-if="item.title">{{item.title}}</h4>
+            <ul>
+              <li>{{ item.benefit[0] }}</li>
+            </ul>
+          </div>
         </div>
         <div class="paycont">
           <p>
@@ -733,6 +729,7 @@ import { modal } from '~/assets/js/common-ui.js'
 import {Delivery_data} from '../../test/data/publish/dummyData'
 import {bank_info} from '../../test/data/publish/dummyData'
 import {etc_info} from '../../test/data/publish/dummyData'
+import {benefit_info} from '../../test/data/publish/dummyData'
 
 
 definePageMeta({
@@ -1921,6 +1918,48 @@ button.tooltip {
           width:174px;
           height:83px;
           position: relative;
+          &#etcdList_1 {
+            span {
+              &::before {
+                background-position:-66px -695px;
+              }
+            }
+          }
+          &#etcdList_2 {
+            span {
+              &::before {
+                background-position:-130px -670px;
+              }
+            }
+          }
+          &#etcdList_3 {
+            span {
+              &::before {
+                background-position:-65px -670px;
+              }
+            }
+          }
+          &#etcdList_4 {
+            span {
+              &::before {
+                background-position:0px -720px;
+              }
+            }
+          }
+          &#etcdList_5 {
+            span {
+              &::before {
+                background-position:0px -695px;
+              }
+            }
+          }
+          &#etcdList_6 {
+            span {
+              &::before {
+                background-position:-129px -695px;
+              }
+            }
+          }
           input {
             position:absolute;
             z-index: -1;
@@ -1955,11 +1994,10 @@ button.tooltip {
                 content:'';
                 width:60px;
                 height:20px;
-                border:1px solid red;
                 background-image: url('/_nuxt/assets/images/common/icon_bank.png');
                 background-repeat:no-repeat;
                 background-size:250px;
-                background-position:4px 0px;
+                background-position:-2px -672px;
                 text-align:center;
                 display:inline-block;
               }
