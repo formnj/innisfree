@@ -25,8 +25,8 @@
     <!-- 포토 리뷰 요약 -->
     <div class="list_photo_wrap">
       <ul>
-        <li v-for="(item, idx) in samplePost" :key="idx" :class="idx == 9 ? 'last' : '' ">  <!-- 마지막 포토에 last 클래스 추가 -->
-          <ProductReviewPhotoList :item="item" :idx="idx" :isAll="false" />  <!-- 마지막 포토에 모아보기 모달 열기 -->
+        <li v-for="(item, idx) in samplePost.slice(0, limit)" :key="idx" :class="idx == limit-1 ? 'last' : '' ">  <!-- 마지막 포토에 last 클래스 추가 -->
+          <ProductReviewPhotoList :item="item" :idx="idx" :isAll="false" :limit="limit-1"/>
         </li>
       </ul>
     </div>
@@ -35,7 +35,13 @@
 </template>
 <script setup>
 import { samplePost } from '~/test/data/publish/dummyData'
-import { setFilter } from '~/assets/js/common-ui'
+const props = defineProps({
+  isMo: { //모바일 여부
+    type: Boolean,
+    default: false
+  },
+  limit: Number,  //리뷰 갯수
+})
 </script>
 <style lang="scss" scoped>
 .prod_detail_review {

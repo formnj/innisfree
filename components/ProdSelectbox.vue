@@ -1,7 +1,7 @@
 <template>
   <div class="prod_select">
     <button type="button" class="btn_select" @click="selectOpen">옵션을 선택하세요.</button>
-    <ul class="prod_select_list">
+    <ul class="op_list">
       <li v-for="(select, i) in options" :key="i">
         <input :id="select.val" type="radio" :name="select.name"><label :for="select.val">{{ select.txt }}</label>
       </li>
@@ -49,7 +49,7 @@ const selectOpen = () => {
 
 onMounted(()=> {
   //옵션 리스트 선택 후 리스트 닫힘
-  const radios = document.querySelectorAll(".prod_select_list input[type='radio']");
+  const radios = document.querySelectorAll(".prod_select input[type='radio']");
   const btnSelect = document.getElementsByClassName("btn_select")[0];
 	radios.forEach((radio) => {
 		radio.addEventListener("change", () => {
@@ -78,7 +78,7 @@ onMounted(()=> {
     &.open {
       border-color: #000;
 
-      &+.prod_select_list {
+      &+ul {
         // display: block;
         height: auto;
         opacity: 1;
@@ -97,6 +97,43 @@ onMounted(()=> {
       top: 50%;
       right: 16px;
       transform: translateY(-50%) rotate(45deg);
+    }
+  }
+
+  .op_list {
+    width: 100%;
+    max-height: 286px;
+    height: 0;
+    border: 1px solid #AAA;
+    background: #fff;
+    overflow-y: auto;
+    opacity: 0;
+    position: absolute;
+    top: 41px;
+    left: 0;
+    z-index: 1;
+    transition: all .2s;
+
+    li {
+      &+li {
+        border-top: 1px solid #f5f5f5;
+      }
+
+      input {
+        display: none;
+
+        &:checked+label {
+          background: #f3f3f3;
+        }
+      }
+
+      label {
+        width: 100%;
+        font-size: 13px;
+        padding: 14px 20px;
+        display: block;
+        cursor: pointer;
+      }
     }
   }
 
@@ -134,29 +171,74 @@ onMounted(()=> {
         flex: none;
       }
 
-      .quantity_control{
+      .quantity_control {
         width: auto;
         margin-left: 20px;
+        background-color: #fff;
         display: inline-block;
+
+        .name {
+          display: none;
+        }
 
         .count {
           width: 100px;
+          border: 1px solid #eee;
+          display: inline-flex;
+          align-items: center;
+          justify-content: space-between;
 
           button {
             width: 28px;
             height: 28px;
+            background: #fff;
+            font-size: 0;
+            flex: none;
+            position: relative;
 
-            &:before {
+            &:before,
+            &.inc:after {
+              content: '';
               width: 8px;
+              height: 1px;
+              background-color: #000;
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
             }
 
-            &:after {
+            &.inc:after {
+              width: 1px;
               height: 8px;
             }
           }
 
           .ipt_qty {
+            width: 24px;
+            height: 20px;
+            padding: 0;
+            font-weight: 600;
             font-size: 13px;
+            text-align: center;
+            color: #000;
+            border: none;
+          }
+        }
+
+        dd {
+          .price {
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 20px;
+            letter-spacing: -0.16px;
+            display: inline-flex;
+            align-items: center;
+
+            em {
+              font-size: 16px;
+              margin-right: 3px;
+            }
           }
         }
       }

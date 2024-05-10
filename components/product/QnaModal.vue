@@ -34,7 +34,7 @@ import { modal } from '~/assets/js/common-ui'
 </script>
 
 <style lang="scss" scoped>
-#prod_qna_wrap {
+.modal_wrap {
   .modal_container {
     max-width: 480px;
 

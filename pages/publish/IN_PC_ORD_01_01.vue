@@ -1122,7 +1122,7 @@ onMounted(() => {
                             content: "";
                             width: 12px;
                             height: 12px;
-                            background-image: url(/_nuxt/assets/images/common/icon_split.png);
+                            background-image: url(~/assets/images/common/icon_split.png);
                             background-repeat: no-repeat;
                             background-size: 250px;
                             background-position: -67px -146px;
@@ -1815,7 +1815,7 @@ button.tooltip {
               height:50px;
               margin-bottom:15px;;
               padding:10px 0 0;
-              background-image: url('/_nuxt/assets/images/common/icon_bank.png');
+              background-image: url('~/assets/images/common/icon_bank.png');
               background-repeat:no-repeat;
               background-size:250px;
               background-position:4px 0px;
@@ -2014,7 +2014,7 @@ button.tooltip {
               width:24px;
               height:25px;
               margin:0 auto 10px auto ;
-              background-image: url('/_nuxt/assets/images/common/icon_split.png');
+              background-image: url('~/assets/images/common/icon_split.png');
               background-repeat:no-repeat;
               background-size:250px;
               background-position:-9px -138px;
@@ -2109,7 +2109,7 @@ button.tooltip {
                 content:'';
                 width:60px;
                 height:20px;
-                background-image: url('/_nuxt/assets/images/common/icon_bank.png');
+                background-image: url('~/assets/images/common/icon_bank.png');
                 background-repeat:no-repeat;
                 background-size:250px;
                 background-position:-2px -672px;

@@ -311,7 +311,7 @@ const Drop_Down = () => {
                                     content:'';
                                     width:12px;
                                     height:12px;
-                                    background-image: url('/_nuxt/assets/images/categorylist/arr_r12_black.png');
+                                    background-image: url('~/assets/images/categorylist/arr_r12_black.png');
                                     display:inline-block;
                                     position:absolute;
                                     top:50%;
@@ -334,7 +334,7 @@ const Drop_Down = () => {
                                     width:16px;
                                     height:16px;
                                     margin-left:5px;
-                                    background-image: url('/_nuxt/assets/images/categorylist/ico_plus16_gray.png');
+                                    background-image: url('~/assets/images/categorylist/ico_plus16_gray.png');
                                     display:inline-block;
 
                                 }
@@ -388,14 +388,14 @@ const Drop_Down = () => {
                                 }
                                 &.pdtSortTab {
                                     &::after {
-                                        background-image: url('/_nuxt/assets/images/categorylist/arr_drop.png');
+                                        background-image: url('~/assets/images/categorylist/arr_drop.png');
                                         background-repeat: no-repeat;
                                         background-size:contain;
                                     }
                                     & ~ button {
                                     position:relative;
                                         &::after {
-                                            background-image: url('/_nuxt/assets/images/categorylist/icon_fix_filter.png');
+                                            background-image: url('~/assets/images/categorylist/icon_fix_filter.png');
                                             background-repeat: no-repeat;
                                             background-size:cover;
                                         }
@@ -468,7 +468,7 @@ const Drop_Down = () => {
                         .btn_back {
                             width:35px;
                             height:35px;
-                            background-image:url('/_nuxt/assets/images/categorylist/ico_back.png');
+                            background-image:url('~/assets/images/categorylist/ico_back.png');
                             background-repeat:no-repeat;
                             background-size: 32px auto;
                             background-position:0px 2px;
@@ -483,7 +483,7 @@ const Drop_Down = () => {
                                 width:20px;
                                 height:20px;
                                 margin-left:10px;
-                                background-image:url('/_nuxt/assets/images/categorylist/arr_drop.png');
+                                background-image:url('~/assets/images/categorylist/arr_drop.png');
                                 background-repeat:no-repeat;
                                 background-size:cover;
                                 display:inline-block;
@@ -506,10 +506,10 @@ const Drop_Down = () => {
                             display:inline-block;
                         }
                         .btn_search {
-                            background-image:url('/_nuxt/assets/images/categorylist/ico_search_black.png');
+                            background-image:url('~/assets/images/categorylist/ico_search_black.png');
                         }
                         .btn_cart {
-                            background-image:url('/_nuxt/assets/images/categorylist/ico_cart_black.png');
+                            background-image:url('~/assets/images/categorylist/ico_cart_black.png');
                             position:relative;
                             span {
                                 width:20px;
@@ -583,14 +583,14 @@ const Drop_Down = () => {
                             &.pdtSortTab {
                                 margin-right:20px;
                                 &::after {
-                                    background-image: url('/_nuxt/assets/images/categorylist/arr_drop.png');
+                                    background-image: url('~/assets/images/categorylist/arr_drop.png');
                                     background-repeat: no-repeat;
                                     background-size:contain;
                                 }
                                 & ~ button {
                                 position:relative;
                                     &::after {
-                                        background-image: url('/_nuxt/assets/images/categorylist/icon_fix_filter.png');
+                                        background-image: url('~/assets/images/categorylist/icon_fix_filter.png');
                                         background-repeat: no-repeat;
                                         background-size:cover;
                                     }
@@ -681,7 +681,7 @@ const Drop_Down = () => {
                 &.first {
                     width:40px;
                     height:40px;
-                    background-image:url('/_nuxt/assets/images/categorylist/arr_last.png');
+                    background-image:url('~/assets/images/categorylist/arr_last.png');
                     background-repeat:no-repeat;
                     background-size:40px auto;
                     transform: rotate(180deg);
@@ -690,7 +690,7 @@ const Drop_Down = () => {
                 &.last {
                     width:40px;
                     height:40px;
-                    background-image:url('/_nuxt/assets/images/categorylist/arr_last.png');
+                    background-image:url('~/assets/images/categorylist/arr_last.png');
                     background-repeat:no-repeat;
                     background-size:40px auto;
                     text-indent:-9999px;

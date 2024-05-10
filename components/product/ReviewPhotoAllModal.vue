@@ -27,7 +27,7 @@ const props = defineProps({
 })
 </script>
 <style lang="scss" scoped>
-#modal_photo_review_all.modal_wrap {
+.modal_wrap {
   .modal_container {
     width: 550px;
 

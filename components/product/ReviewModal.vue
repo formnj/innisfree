@@ -1,5 +1,5 @@
 <template>
-  <div id="modal_review" class="modal_wrap active">
+  <div id="modal_review" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
         <h2>제품명</h2>
@@ -12,8 +12,7 @@
               <span class="name">{{ item.user }}</span>
               <div class="rate">
                 <span class="star_rate">
-                  <span class="star_wrap"><span class="star"
-                      :style="'width:' + item.rate + '%'">별점</span></span><!-- 별점 : .star의 width에 퍼센테이지로 입력 -->
+                  <span class="star_wrap"><span class="star" :style="'width:' + item.rate + '%'">별점</span></span><!-- 별점 : .star의 width에 퍼센테이지로 입력 -->
                 </span>
               </div>
               <span class="date">{{ item.date }}</span>
@@ -33,11 +32,13 @@
               <button type="button">차단하기</button>
             </div>
           </div>
-          <ProductReview :item="item" :isModal="true" /> <!-- 리뷰 -->
+          <ProductReview :item="item" :isModal="true" :isMo="isMo"/> <!-- 리뷰 -->
         </div>
 
-        <div v-for="(item2, idx) in sample_log.slice(0, 1)" :key="idx" class="goods">
-          <GoodsItem :item="item2.item[0]" :link="item2.item.link" />
+        <div v-if="!isMo">
+          <div v-for="(item2, idx2) in sample_log.slice(0, 1)" :key="idx2" class="goods">
+            <GoodsItem :item="item2.item[0]" :link="item2.item.link" />
+          </div>
         </div>
       </div>
     </div>
@@ -50,10 +51,18 @@ import { sample_review, sample_log } from '~/test/data/publish/dummyData'
 const props = defineProps({
   item: {},
   idx: Number,
+  isModal: {
+    type: Boolean,
+    default: false
+  },
+  isMo: {
+    type: Boolean,
+    default: false
+  }
 })
 </script>
 <style lang="scss" scoped>
-#modal_review.modal_wrap {
+.modal_wrap {
   .modal_container {
     width: 540px;
 

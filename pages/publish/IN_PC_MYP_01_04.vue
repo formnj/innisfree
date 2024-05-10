@@ -33,10 +33,31 @@
       </div>
       <ul>
         <li class="point">
-          <p>
+          <div>
             뷰티포인트
-            <Icons class="tooltip" @mouseenter="tooltip.open($event,0)" />
-          </p>
+            <Icons class="tooltip" @mouseenter="modal.open('modal_beauty_point_tip', 'layer'); modalPositioning();" />
+            <div id="modal_beauty_point_tip" class="modal_wrap"><!-- 뷰티포인트 적립안내 툴팁 -->
+              <div class="modal_container">
+                <div class="modal_header">
+                  <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
+                </div>
+                <div class="modal_content">
+                  <h3>뷰티 포인트</h3>
+                  <p>
+                    뷰티 포인트는 쌓을수록 아름다워지는 아모레퍼시픽 통합<br>멤버십 포인트 입니다.<br><br>
+                    <em>
+                      아모레퍼시픽의 화장품, 생활용품, 건강식품의 모든 브랜드와<br>
+                      이니스프리, 에뛰드, 에스쁘아의 고객들에게 제공되는 통합<br>
+                      멤버십 서비스입니다. 뷰티포인트는 회원이 제품 구매 시<br>
+                      적립해 드리는 뷰티포인트를 모아 브랜드에 관계없이 자유롭게<br>
+                      사용할 수 있으며, 다양한 제휴 서비스도 누릴 수 있습니다.
+                    </em>
+                  </p>
+                </div>
+              </div>
+              <div class="overlay" @click="modal.close(this);"></div>
+            </div><!-- //뷰티포인트 적립안내 툴팁 -->
+          </div>
           <span class="num"><strong>1,000</strong>P</span>
         </li>
         <li class="coupon">
@@ -53,7 +74,7 @@
           <span>가입 즉시 웰컴! VIP, 그린티클럽 되는 날까지~</span>
         </div>
         <div class="benefit_con">
-          <ul class="benefit_list">
+          <ul>
             <li>
               <p>
                 멤버십데이 등급별 할인 쿠폰
@@ -125,8 +146,29 @@
           <p>뷰티포인트는 회원이 제품 구매 시 적립해 드리는 뷰티포인트를 모아<br>브랜드에 관계없이 자유롭게 사용할 수 있으며, 다양한 제휴 서비스도 누릴 수 있습니다.</p>
           <span>
             아모레퍼시픽 전 매장&#40;온/오프라인&#41;에서 자유롭게 합산 및 사용하실 수 있습니다.
-            <Button class="btn_outline" txt="사용가능매장" @mouseenter="tooltip.open($event,1)" />
           </span>
+          <Button class="btn_outline btn_shop" txt="사용가능매장" @mouseenter="modal.open('modal_beauty_shop_tip', 'layer'); modalPositioning();" />
+          <div id="modal_beauty_shop_tip" class="modal_wrap"><!-- 뷰티포인트 사용가능매장 툴팁 -->
+            <div class="modal_container">
+              <div class="modal_header">
+                <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
+              </div>
+              <div class="modal_content">
+                <h3>사용가능 매장</h3>
+                <p>
+                  아모레퍼시픽 전 매장(온/오프라인)에서<br>
+                  자유롭게 합산 및 사용하실 수 있습니다.<br>
+                  아모레퍼시픽, 설화수, 헤라, 라네즈, 마몽드,<br>
+                  아이오페, 아리따움, 한율, 프리메라, 리리코스,<br>
+                  베리떼, makeON, 이니스프리, 에뛰드, 에스쁘아,<br>
+                  오설록, VB프로그램, 롤리타렘피카, ANNICKGOUTAL,<br>
+                  려, 미장센, 해피바스, 일리, 오딧세이, 미래파,<br>
+                  틴:클리어, 댄트롤, 메디안, 송염
+                </p>
+              </div>
+            </div>
+            <div class="overlay" @click="modal.close(this);"></div>
+          </div><!-- //뷰티포인트 사용가능매장 툴팁 -->
         </div>
         <h4 class="sub_tit">뷰티포인트 적립안내</h4>
         <div class="table">
@@ -344,18 +386,11 @@
         </div>
       </div>
     </section>
-
-    <div class="tooltip_wrap">
-      <div class="con" :style="{width:tool_list[tool_idx].width+'px'}">
-        <h5>{{ tool_list[tool_idx].tit }}</h5>
-        <p class="desc">{{ tool_list[tool_idx].desc }}</p>
-        <p class="sub_desc">{{ tool_list[tool_idx].sub }}</p>
-      </div>
-      <button type="button" @click="tooltip.close">툴팁닫기</button>
-    </div>
   </div>
 </template>
 <script setup>
+import { modal } from '~/assets/js/common-ui'
+
 definePageMeta({
   layout:'pc-category'
 });
@@ -389,19 +424,6 @@ const swiper_options = {
 }
 /* swiper option */
 
-const tool_list = [
-  {
-    tit:'뷰티 포인트',
-    desc:'뷰티 포인트는 쌓을수록 아름다워지는 아모레퍼시픽 통합 멤버십 포인트 입니다.',
-    sub:'아모레퍼시픽의 화장품, 생활용품, 건강식품의 모든 브랜드와 이니스프리, 에뛰드, 에스쁘아의 고객들에게 제공되는 통합 멤버십 서비스입니다. 뷰티포인트는 회원이 제품 구매 시 적립해 드리는 뷰티포인트를 모아 브랜드에 관계없이 자유롭게 사용할 수 있으며, 다양한 제휴 서비스도 누릴 수 있습니다.',
-    width:283,
-  }, {
-    tit:'사용가능 매장',
-    desc:'아모레퍼시픽 전 매장(온/오프라인)에서\n자유롭게 합산 및 사용하실 수 있습니다.',
-    sub:'아모레퍼시픽, 설화수, 헤라, 라네즈, 마몽드,\n아이오페, 아리따움, 한율, 프리메라, 리리코스,\n베리떼, makeON, 이니스프리, 에뛰드, 에스쁘아,\n오설록, VB프로그램, 롤리타렘피카, ANNICKGOUTAL,\n려, 미장센, 해피바스, 일리, 오딧세이, 미래파,\n틴:클리어, 댄트롤, 메디안, 송염'
-  }
-]
-
 onMounted(() => {
   document.querySelectorAll('#membership_tab li').forEach((item,idx) => {
     item.addEventListener('click', () => {
@@ -427,7 +449,17 @@ onMounted(() => {
 
 const toggle_btn = (e) => {
   e.target.closest('.detail_wrap').classList.toggle('active');
-}
+};
+
+const modalPositioning = () => {
+  const el = event.currentTarget;
+  setTimeout(()=> {
+    const modalW = el.nextSibling.getElementsByClassName('modal_container')[0].offsetWidth;
+    const top = el.offsetTop + el.offsetHeight;
+    const left = el.offsetLeft - modalW;
+    el.nextSibling.style.cssText="top:"+top+"px; left:"+left+"px;";
+  }, 100)
+};
 
 const tooltip = {
   open: (e,idx) => {
@@ -461,55 +493,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 .title_wrap {
   padding:0 20px;
   margin:60px auto 30px;
-}
-
-.tooltip_wrap {
-  background:#fff;
-  box-shadow:5px 5px 20px rgba(0,0,0,0.15);
-  opacity:0;
-  visibility:hidden;
-  position:absolute;
-  top:0;
-  left:0;
-  .con {
-    padding:30px 20px;
-    h5 {
-      margin-bottom:10px;
-      color:#000;
-      font-size:18px;
-      font-weight:600;
-      line-height:1.33em;
-      letter-spacing:-0.01em;
-    }
-    p {
-      font-size:13px;
-      line-height:20px;
-      letter-spacing:-0.13px;
-      &.desc {
-        color:#666;
-      }
-      &.sub_desc {
-        margin-top:8px;
-        color:#777;
-        font-weight:600;
-      }
-    }
-  }
-  button {
-    width:24px;
-    height:24px;
-    background:url('~/assets/images/common/icon_split.png') no-repeat -55px -250px;
-    background-size:250px auto;
-    font-size:0;
-    text-indent:-99999px;
-    position:absolute;
-    top:10px;
-    right:10px;
-  }
-  &.active {
-    opacity:1;
-    visibility:visible;
-  }
 }
 
 .user_wrap {
@@ -629,7 +612,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
     margin-top:10px;
     display:flex;
     gap:30px;
-    li {
+    > li {
       min-width:100px;
       display:flex;
       flex-direction:column;
@@ -639,7 +622,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
         width:40px;
         height:40px;
         margin-bottom:20px;
-        background:url('/_nuxt/assets/images/common/icon_split.png') no-repeat;
+        background:url('~/assets/images/common/icon_split.png') no-repeat;
         background-size:250px auto;
         display:block;
       }
@@ -651,7 +634,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
           width:16px;
           height:16px;
           margin-left:6px;
-          background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+          background-image:url('~/assets/mo_images/common/icon_split.png');
           background-position:-230px -20px;
         }
       }
@@ -660,7 +643,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
           background-position:-210px -210px;
         }
       }
-      p {
+      > p {
         font-size:14px;
         font-weight:500;
         line-height:1.29em;
@@ -712,11 +695,10 @@ section {
       box-shadow:0 2px 5px rgba(0,0,0,0.05);
       border-radius:3px;
       display:flex;
-      flex-wrap:wrap;
       align-items:center;
       justify-content:space-between;
       position:relative;
-      .benefit_list {
+      ul {
         li {
           width:670px;
           padding:20px 0;
@@ -947,6 +929,7 @@ section {
         flex-direction:column;
         justify-content:center;
         letter-spacing: -0.01em;
+        position:relative;
         h4 {
           font-size:20px;
           font-weight:600;
@@ -959,7 +942,7 @@ section {
             display:inline-block;
           }
         }
-        p {
+        >p {
           margin:10px 0 0;
           font-size:16px;
           line-height:18px;
@@ -972,20 +955,23 @@ section {
           display:flex;
           align-items:center;
           gap:15px;
-          :deep(button) {
-            width:68px;
-            height:24px;
+        }
+        :deep(button.btn_shop) {
+          width:68px;
+          height:24px;
+          color:#999;
+          font-size:10px;
+          font-family:inherit;
+          line-height:22px;
+          border-color:#999;
+          position:absolute;
+          bottom:0;
+          right:20px;
+          em {
+            padding:0;
             color:#999;
             font-size:10px;
-            font-family:inherit;
-            line-height:22px;
-            border-color:#999;
-            em {
-              padding:0;
-              color:#999;
-              font-size:10px;
-              font-weight:600;
-            }
+            font-weight:600;
           }
         }
       }
@@ -1212,6 +1198,54 @@ section {
             background:url('~/assets/images/common/ci_ios.png') no-repeat center;
           }
         }
+      }
+    }
+  }
+}
+
+.modal_wrap.layer {
+  top:unset;
+  right:unset;
+  bottom:unset;
+  left:unset;
+  .modal_container {
+    .modal_header {
+      padding: 0;
+      border-bottom: 0;
+
+      .btn_close {
+        width: 18px;
+        height: 18px;
+        top: 10px;
+        right: 10px;
+
+        &:before,
+        &:after {
+          border-top: 2px solid #000;
+        }
+      }
+    }
+  }
+
+  .modal_content {
+    padding: 30px 20px;
+
+    h3 {
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 24px;
+      color: #000;
+    }
+
+    p {
+      font-size: 13px;
+      color: #666;
+      line-height: 18px;
+      white-space: nowrap;
+
+      em {
+        font-weight: 600;
       }
     }
   }

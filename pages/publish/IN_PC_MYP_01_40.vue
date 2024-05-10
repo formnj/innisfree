@@ -207,7 +207,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                       > a {
                         width:24px;
                         height:24px;
-                        background-image: url('/_nuxt/assets/images/common/icon_split.png');
+                        background-image: url('~/assets/images/common/icon_split.png');
                         background-repeat:no-repeat;
                         background-size:250px;
                         background-position:-26px -252px;

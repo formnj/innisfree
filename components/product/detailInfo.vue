@@ -30,9 +30,16 @@
 </template>
 <script setup>
 import { prodInfo } from '~/test/data/publish/dummyData'
+const props = defineProps({
+  isMo: { //모바일 여부
+    type: Boolean,
+    default: false
+  },
+})
 const gotoReview = () => {
   const el = document.getElementsByClassName('tab_cont_review')[0];
-  const contPadding = document.getElementsByClassName('gnb_wrap')[0].offsetHeight + document.getElementsByClassName('tab_wrap')[0].offsetHeight;
+  let contPadding
+  (!props.isMo ? contPadding = document.getElementsByClassName('gnb_wrap')[0].offsetHeight + document.getElementsByClassName('tab_wrap')[0].offsetHeight : contPadding = 100)
   const contsTop = el.getBoundingClientRect().y + window.pageYOffset - contPadding;
   window.scrollTo({top:contsTop, behavior: 'smooth'});
 }
