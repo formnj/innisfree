@@ -30,7 +30,7 @@ select {
   padding:12px 40px 12px 12px;
   font-size:14px;
   line-height:18px;
-  border:1px solid #aaa;
+  border:1px solid #eee;
   -webkit-appearance:none;
   -moz-appearance:none;
   appearance:none;
