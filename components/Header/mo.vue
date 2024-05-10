@@ -106,7 +106,6 @@
 <script setup>
 import {
     global_menu,
-    sample_goods,
     gnb_list
 } from '~/test/data/publish/dummyData'
 
@@ -199,11 +198,6 @@ onMounted(() => {
         });
     });
 });
-
-const isValid = ref('');
-const isBool = ref(false);
-const auto_list = ref([]);
-const prd_list = ref([]);
 
 const cate_tab = (e) => {
     const lis = [...e.target.parentElement.parentElement.children];
