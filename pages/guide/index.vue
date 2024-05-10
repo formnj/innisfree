@@ -415,7 +415,7 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','마이샵 관리','',''],
-        id:'IN_PC_MYP_01_85', status:'',
+        id:'IN_PC_MYP_01_85', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-10', worker:'김나람'
     }, {
@@ -940,7 +940,7 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','마이샵 관리','',''],
-        id:'IN_MO_MYP_01_85', status:'',
+        id:'IN_MO_MYP_01_85', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-10', worker:'김나람'
     }, {
