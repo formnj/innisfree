@@ -1116,6 +1116,15 @@ ul.bullet_list {
       background: #999E9C;
     }
   }
+
+  &.dash {
+    li:before {
+      content: "-";
+      width: 0;
+      height: 0;
+      top: 0;
+    }
+  }
 }
 
 
