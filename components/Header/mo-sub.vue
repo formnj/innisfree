@@ -132,8 +132,6 @@
 import { modal } from '~/assets/js/common-ui'
 import {
     global_menu,
-    latestSearchWordData,
-    sample_goods,
     gnb_list
 } from '~/test/data/publish/dummyData'
 
@@ -224,23 +222,7 @@ onMounted(() => {
             }
         });
     });
-
-    document.querySelector('.search_layer .input input').addEventListener('input', auto_complete);
 });
-
-const isValid = ref('');
-const isBool = ref(false);
-const auto_list = ref([]);
-const prd_list = ref([]);
-
-const auto_complete = (e) => {
-    isValid.value = e.target.value;
-
-    auto_list.value = sample_auto.filter(e => e.text.indexOf(isValid.value) >= 0);
-    prd_list.value = sample_goods.filter(e => e.name !== undefined && e.name.indexOf(isValid.value) >= 0);
-
-    auto_list.value.length <= 0 ? isBool.value = true : isBool.value = false;
-};
 
 const cate_tab = (e) => {
     const lis = [...e.target.parentElement.parentElement.children];

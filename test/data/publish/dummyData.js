@@ -1720,3 +1720,10 @@ export const gnb_list = [
   { tit: 'FOR ME', url: '/publish/IN_MO_HOM_01_15' },
   { tit: '임직원샵', url: '/publish/IN_MO_HOM_01_16' },
 ];
+
+
+export const shop_list = [
+  { branch: '이마트_IF용산점', distance: '0.5km', add: '[10500] 서울특별시 용산구 한강대로21나길 이마트 용산점 지하1층 이니스프리(한강로4가)', phone: '02-2012-1204'},
+  { branch: '롯데마트_IF화정점', distance: '1.2km', add: '[10500] 경기도 고양시 덕양구 백양로 79 화정점 이니스프리 (화정동, 이마트)', phone: '031-970-7139'},
+  { branch: 'IF행신점', distance: '3.5km', add: '[10500] 경기도 고양시 덕양구 백양로 79 화정점 이니스프리 (화정동, 이마트)', phone: '031-970-7139'},
+]
