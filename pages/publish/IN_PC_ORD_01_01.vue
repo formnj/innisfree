@@ -171,6 +171,7 @@
                           { val: 'value', txt: '배송전에 연락주세요.' },
                           { val: 'value', txt: '메시지 직접 입력' },
                       ]" />
+                      <Inputs _type="text" _placeholder="배송 요청사항을 입력해주세요. (최대 45자까지 입력가능)" />
                     </td>
                 </tr>
             </tbody>
@@ -184,117 +185,139 @@
           <h3>주문 상품 정보</h3>
         </div>
       </div>
-      <div class="table_wrap">
-        <table>
-            <caption>주문 상품 정보</caption>
-            <colgroup>
-                <col style="width:100%;">
-            </colgroup>
-            <tbody>
-                <tr>
-                  <td>
+      <div class="list_wrap">
+        <ul class="cart_list type_default">
+          <li>
+            <div class="row">
+              <div class="order_goods">
+                <div class="cell pdt_img">
+                  <a href="#none">
+                    <span class="thumb">
+                      <em><img src="/_nuxt/public/images/sam/order_list_01.png" alt="" /></em>
+                    </span>
+                  </a>
+                </div>
+                <div class="cell pdt_info">
+                  <em>5/2~15, 기간내 5개</em>
+                  <a href="#none" class="name">
+                    <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
+                    <span>1개</span>
+                  </a>
+                </div>
+                <div class="cell price">
+                  <p>
+                    <strong>52,000</strong>원
+                  </p>
+                  <em class="point">+529P</em><!-- point -->
+                </div>
+              </div>
+              <div class="gifts">
+                <dl class="board_type_toggle single">
+                  <dt>
                     <a href="#none">
-                      <img src="/_nuxt/public/images/sam/order_sam_01.png" alt="">
-                      <div>
-                        <em>5/2~15, 기간내 5개</em>
-                        <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
-                        <span>1개</span>
-                      </div>
+                      그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
+                      <em></em>
                     </a>
-                    <p>
-                      <strong>67,600 <em>원</em></strong>
-                      <i>+964 P</i>
-                    </p>
-                  </td>
-                </tr>
-                <tr class="col_tr">
-                  <td>
+                  </dt>
+                  <dd>
+                    <div>
+                      <img src="/_nuxt/public/images/sam/order_list_01.png" alt="">
+                      <p>
+                        레티놀 시카 흔적 앰플 1mL
+                        <em>6개</em>
+                      </p>
+                    </div>
+                    <div>
+                      <img src="/_nuxt/public/images/sam/order_list_02.png" alt="">
+                      <p>
+                        레티놀 시카 흔적 앰플 1mL
+                        <em>6개</em>
+                      </p>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="order_goods">
+                <div class="cell pdt_img">
+                  <a href="#none">
+                    <span class="thumb">
+                      <em><img src="/_nuxt/public/images/sam/order_list_01.png" alt="" /></em>
+                    </span>
+                  </a>
+                </div>
+                <div class="cell pdt_info">
+                  <em>5/2~15, 기간내 5개</em>
+                  <a href="#none" class="name">
+                    <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
+                    <span>1개</span>
+                  </a>
+                </div>
+                <div class="cell price">
+                  <p>
+                    <strong>52,000</strong>원
+                  </p>
+                  <em class="point">+529P</em><!-- point -->
+                </div>
+              </div>
+              <div class="gifts">
+                <dl class="board_type_toggle single">
+                  <dt>
                     <a href="#none">
-                      <img src="/_nuxt/public/images/sam/order_sam_01.png" alt="">
-                      <div>
-                        <em>5/2~15, 기간내 5개</em>
-                        <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
-                        <span>1개</span>
-                      </div>
+                      그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
+                      <em></em>
                     </a>
-                    <p>
-                      <strong>67,600 <em>원</em></strong>
-                      <i>+964 P</i>
-                    </p>
-                  </td>
-                  <td class="gifts">
-                    <dl class="board_type_toggle single">
-                      <dt>
-                        <a href="#none">
-                          그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
-                          <em></em>
-                        </a>
-                      </dt>
-                      <dd>
-                        <div>
-                          <img src="/_nuxt/public/images/sam/order_list_01.png" alt="">
-                          <p>
-                            레티놀 시카 흔적 앰플 1mL
-                            <em>6개</em>
-                          </p>
-                        </div>
-                        <div>
-                          <img src="/_nuxt/public/images/sam/order_list_02.png" alt="">
-                          <p>
-                            레티놀 시카 흔적 앰플 1mL
-                            <em>6개</em>
-                          </p>
-                        </div>
-                      </dd>
-                    </dl>
-
-                  </td>
-                </tr>
-                <tr class="col_tr">
-                  <td>
-                    <a href="#none">
-                      <img src="/_nuxt/public/images/sam/order_sam_01.png" alt="">
-                      <div>
-                        <em>5/2~15, 기간내 5개</em>
-                        <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
-                        <span>1개</span>
-                      </div>
-                    </a>
-                    <p>
-                      <strong>67,600 <em>원</em></strong>
-                      <i>+964 P</i>
-                    </p>
-                  </td>
-                  <td class="gifts">
-                    <dl class="board_type_toggle single">
-                      <dt>
-                        <a href="#none">
-                          그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
-                          <em></em>
-                        </a>
-                      </dt>
-                      <dd>
-                        <div>
-                          <img src="/_nuxt/public/images/sam/order_list_01.png" alt="">
-                          <p>
-                            레티놀 시카 흔적 앰플 1mL
-                            <em>6개</em>
-                          </p>
-                        </div>
-                        <div>
-                          <img src="/_nuxt/public/images/sam/order_list_02.png" alt="">
-                          <p>
-                            레티놀 시카 흔적 앰플 1mL
-                            <em>6개</em>
-                          </p>
-                        </div>
-                      </dd>
-                    </dl>
-
-                  </td>
-                </tr>
-            </tbody>
-        </table>
+                  </dt>
+                  <dd>
+                    <div>
+                      <img src="/_nuxt/public/images/sam/order_list_01.png" alt="">
+                      <p>
+                        레티놀 시카 흔적 앰플 1mL
+                        <em>6개</em>
+                      </p>
+                    </div>
+                    <div>
+                      <img src="/_nuxt/public/images/sam/order_list_02.png" alt="">
+                      <p>
+                        레티놀 시카 흔적 앰플 1mL
+                        <em>6개</em>
+                      </p>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="order_goods">
+                <div class="cell pdt_img">
+                  <a href="#none">
+                    <span class="thumb">
+                      <em><img src="/_nuxt/public/images/sam/order_sam_01.png" alt="" /></em>
+                    </span>
+                  </a>
+                </div>
+                <div class="cell pdt_info">
+                  <em>5/2~15, 기간내 5개</em>
+                  <a href="#none" class="name">
+                    <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
+                    <span>1개</span>
+                  </a>
+                </div>
+                <div class="cell price">
+                  <p>
+                    <strong>52,000</strong>원
+                  </p>
+                  <em class="point">+529P</em><!-- point -->
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
       <article>
         <em>친환경 종이 완충재로 포장하여 안전하게 보내드립니다.</em>
@@ -371,28 +394,63 @@
       </div>
     </section>
 
+    <section class="odgift">
+      <div class="sub_title_wrap">
+        <div>
+          <h3>증정품</h3>
+        </div>
+      </div>
+      <div class="list_wrap">
+        <dl class="cart_list">
+          <dt>
+            <strong>함께 드리는 증정품</strong>
+          </dt>
+          <dd>
+            <div class="cell pdt_img">
+              <span class="thumb">
+                <em><img src="https://images.innisfree.co.kr/upload/product/36116_l_S_140.jpg?T202404300927" alt="" /></em>
+              </span>
+            </div>
+            <div class="wrap">
+              <div>
+                <span>[특별증정품]</span>
+                <p>[슈퍼 빅세일] 매쉬 썸머 파우치</p>
+              </div>
+              <div class="cell count">
+                <div class="count_wrap">
+                  <Button txt="-" />
+                  <Inputs />
+                  <Button txt="+" />
+                </div>
+              </div>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <ul class="bullistType_02">
+        <li>스페셜 기프트 또는 원하시는 구매 금액 증정품을 선택하셔야 증정품 증정이 가능합니다.</li>
+        <li>구매 금액대별로 선택 가능한 개수만큼 중복 또는 여러 증정품의 선택이 가능합니다.</li>
+        <li>선택하신 증정품은 배송기간 중 품절이나 소진 시 동일 수준 혹은 더 좋은 증정품으로 변경될 수 있습니다.</li>
+      </ul>
+
+    </section>
+
     <section class="pay_method">
       <div class="sub_title_wrap">
         <div>
           <h3>결제수단 선택</h3>
         </div>
       </div>
-      <div class="table_wrap">
-        <table>
-            <caption>결제수단 선택</caption>
-            <colgroup>
-                <col style="">
-            </colgroup>
-            <tbody>
-                <tr>
-                  <td>
-                    <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" @change="radioChk = 'card'" _checked/><!-- [Tip] change되었을 때, 변수값을 지정해준 값으로 변경해준다. -->
-                    <Inputs _type="radio" _text="원클릭 결제" _name="pay_method" @change="radioChk = 'onclick'"/>
-                    <Inputs _type="radio" _text="다른 결제 수단" _name="pay_method" @change="radioChk = 'other'"/>
-                  </td>
-                </tr>
-            </tbody>
-        </table>
+      <div class="list_wrap">
+        <ul class="cart_list type_default">
+          <li>
+            <div class="row">
+              <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" @change="radioChk = 'card'" _checked/><!-- [Tip] change되었을 때, 변수값을 지정해준 값으로 변경해준다. -->
+              <Inputs _type="radio" _text="원클릭 결제" _name="pay_method" @change="radioChk = 'onclick'"/>
+              <Inputs _type="radio" _text="다른 결제 수단" _name="pay_method" @change="radioChk = 'other'"/>
+            </div>
+          </li>
+        </ul>
       </div>
       <article class="method_card" :class="{ active: radioChk == 'card' }"><!-- 활성화된 article에 active 클래스 추가 --><!-- [Tip] 라디오버튼이 change되어 변경된 변수값을 확인하여 해당 article에 active 클래스를 활성화 시킴 -->
         <ul>
@@ -420,18 +478,15 @@
       </article>
       <article class="method_other" :class="{ active: radioChk == 'other' }">
         <ul>
-          <li v-for="(item, idx) in etc_info" :key="idx" :id="item.li_id">
-            <input type="radio" name="etcList" :id="item.input_id">
+          <li v-for="(item, idx) in etc_info" :key="idx" :id="item.li_id" @change="orderChk = item.class">
+            <input type="radio" name="etcList" :id="item.input_id" :checked="item.checked">
             <label :for="item.label_for"><span>{{item.text}}</span></label>
 
             <div class="discount_txt" v-if="item.discont_txt">{{ item.discont_txt }}</div>
           </li>
         </ul>
         <div class="other_cont">
-          <div class="naver" >
-            네이버
-          </div>
-          <div class="kakao" >
+          <div class="kakao" :class="{ active: orderChk == 'kakao' }">
             <div class="discount_info">
               <h4>카카오페이 결제 혜택</h4>
               <ul class="bullistType_01">
@@ -443,7 +498,7 @@
             </div>
             <div class="notice">
               <h5>유의사항</h5>
-              <ul>
+              <ul class="bulListType_02">
                 <li>카카오톡안에서 개인 신용카드(체크카드포함)를 등록하여 카카오페이 비밀번호로 결제할 수 있는 간편결제입니다.</li>
                 <li>본인명의 스마트폰에서 본인명의 카드 등록 후 사용 가능합니다.(카드등록 : 카카오톡 > 더 보기 > 카카오페이 > 카드)</li>
                 <li>카드사별 무이자 할부 행사는 카카오페이 결제 창에서 확인 가능합니다.</li>
@@ -451,10 +506,7 @@
               </ul>
             </div>
           </div>
-          <div class="payco" >
-            페이코
-          </div>
-          <div class="toss" >
+          <div class="toss" :class="{ active: orderChk == 'toss' }">
             <div class="discount_info">
               <h4>토스페이 결제 혜택</h4>
               <ul class="bullistType_01">
@@ -468,14 +520,14 @@
             </div>
             <div class="notice">
               <h5>유의사항</h5>
-              <ul>
+              <ul class="bulListType_02">
                 <li>토스페이 결제시 토스페이 또는 등록된 카드로 결제가 가능합니다.</li>
                 <li>토스페이로 결제한 경우 환불(또는 부분환불)시 토스페이로 환불됩니다.</li>
                 <li>토스페이 앱을 최신 버전으로 업데이트 해주세요. 최신 버전이 아닌 경우 결제가 원활하지 않을 수 있습니다.</li>
               </ul>
             </div>
           </div>
-          <div class="kb" >
+          <div class="kb" :class="{ active: orderChk == 'kb' }" >
             <div class="discount_info">
               <h4>KB페이 결제 혜택</h4>
               <ul class="bullistType_01">
@@ -487,28 +539,24 @@
             </div>
             <div class="notice">
               <h5>유의사항</h5>
-              <ul>
+              <ul class="bulListType_02">
                 <li>이벤트 페이지 참조</li>
               </ul>
             </div>
           </div>
-          <div class="sam" >
+          <div class="sam" :class="{ active: orderChk == 'sam' }">
             <div class="notice">
               <h5>유의사항</h5>
-              <ul>
+              <ul class="bulListType_02">
                 <li>스마트폰 명의자와 카드명의자가 동일한 경우에만 삼성페이 서비스에 카드등록이 가능합니다.</li>
                 <li>삼성페이 지원 가능한 단말기는 아래 삼성페이 홈페이지에서 확인 가능합니다. (www.samsungpay.com/sec/Samsung-pay)</li>
               </ul>
             </div>
           </div>
-          <div class="hana" >
-          </div>
-          <div class="account" >
-          </div>
-          <div class="bankbook" >
+          <div class="bankbook" :class="{ active: orderChk == 'bankbook' }">
             <div class="notice">
               <h5>유의사항</h5>
-              <ul>
+              <ul class="bulListType_02">
                 <li>무통장 입금의 경우 주문접수 후 입금이 되지 않고 3일이 지나면 자동 취소됩니다.</li>
                 <li>현금영수증 신청은 주문 시, 각 결제수단(실시간계좌이체, 무통장입금)의 인증 페이지에서 신청 가능합니다.</li>
                 <li>추후 신청은 '회원로그인 > 마이페이지 > 증빙서류 발급'에서 가능합니다.</li>
@@ -518,16 +566,18 @@
               </ul>
             </div>
           </div>
-          <div class="phone" >
-          </div>
-          <div class="old_card" >
+          <div class="old_card" :class="{ active: orderChk == 'old_card' }">
             <dl>
               <dt>카드 선택</dt>
               <dd>
                 <Selectbox
                     :options="[
-                    { val: 'value', txt: '옵션01' },
-                    { val: 'value', txt: '옵션02' }
+                    { val: 'value', txt: '선택' },
+                    { val: 'value', txt: '국민' },
+                    { val: 'value', txt: '신한' },
+                    { val: 'value', txt: '삼성' },
+                    { val: 'value', txt: '롯데' },
+                    { val: 'value', txt: 'KEB하나' },
                 ]" />
                 <a href="#none">무이자 할부 안내</a>
               </dd>
@@ -549,20 +599,14 @@
           <h3>품절 시 환불 방법</h3>
         </div>
       </div>
-      <div class="table_wrap">
-        <table>
-            <caption>품절 시 환불 방법</caption>
-            <colgroup>
-                <col style="">
-            </colgroup>
-            <tbody>
-                <tr>
-                  <td>
-                    <Inputs _type="radio" _text="결제 수단으로 환불 받기" />
-                  </td>
-                </tr>
-            </tbody>
-        </table>
+      <div class="list_wrap">
+        <ul class="cart_list type_default">
+          <li>
+            <div class="row">
+              <Inputs _type="radio" _text="결제 수단으로 환불 받기" />
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
   </div>
@@ -853,6 +897,7 @@ const change_res = (event) => {
 
 onMounted(() => {
   let target = document.querySelectorAll('.board_type_toggle dt a');
+  console.log(target)
   let rotate = document.querySelectorAll('.board_type_toggle dt a em');
   let i
   target.forEach((a,i)=>{
@@ -959,6 +1004,10 @@ onMounted(() => {
                       label.select {
                           width:75% !important;
                           display:inline-block;
+                        }
+                        .input_wrap {
+                          width:75% !important;
+                          margin-top:12px;
                         }
                     }
                     > div {
@@ -1494,23 +1543,6 @@ div.list {
 
 }
 
-.bullistType_01 {
-  margin-left:8px;
-  li {
-    color:#888;
-    position:relative;
-    &::after {
-      content: "";
-      width: 3px;
-      height: 3px;
-      background: #999E9C;
-      position: absolute;
-      top: 8px;
-      left: -8px;
-    }
-  }
-}
-
 .point {
   .table_wrap {
     table {
@@ -1560,152 +1592,160 @@ div.list {
   }
 }
 
-.order_info {
- .table_wrap {
-  table {
-    tbody {
-      tr {
-        display:flex;
-        align-items:center;
-        justify-content: space-between;
-        td {
-          width:100%;
-          padding:40px 0;
-          display:flex;
-          align-items:center;
-            a {
-            display: flex;
-            align-items:flex-start;
-            gap:20px;
-            img {
-              width: 100px;
-              height: 133px;
-            }
-            > div {
-              em {
-                padding:2px 5px;
-                color:#00BC70;
-                font-size:12px;
-                background:#E0FBF0
-              }
-              p {
-                margin:10px 0;
-                font-size:16px;
-                font-weight:400;
-              }
-              span {
-                color:#888;
-                font-size:14px;
-              }
-            }
-          }
-          > p {
-            margin-left:auto;
-            margin-right:0;
-            text-align:right;
-            display:flex;
-            flex-direction:column;
-            strong {
-              font-size:18px;;
-              em {
-                font-size:14px;;
-                font-weight:normal;
-              }
-            }
-            i {
-              margin-top: 5px;
-              color: #009D5E;
-              font-size: 13px;
-              font-style:normal;
-              line-height: 1.23;
-              display: block;
-            }
-          }
+.odgift {
+  strong {
+    font-weight:600;
+  }
+  dl {
+    border: 1px solid #EEEEEE;
+    border-radius: 3px;
+    background: #FCFCFD;
+    dt {
+      padding: 22px 19px;
+      color: #333;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    dd {
+      padding: 25px 19px;
+      border-top: 1px solid #eee;
+      background: #fff;
+      display:flex;
+      align-items:center;
+      .pdt_img {
+        width: 68px;
+        height: 90px;
+      }
+      .wrap {
+        font-weight:400;
+        p {
+          margin-bottom:10px;
         }
-        &.col_tr {
-          flex-direction:column;
-        }
-        td {
-          &:first-of-type {
-            border-bottom:0;
-          }
-          &.gifts {
-            width:100%;
-            dl {
-              width:100%;
-              dt {
-                height:69px;
-                padding:0 20px;
-                color: #333;
-                font-weight:600;
-                font-size:16px;
-                border:1px solid #eee;
-                border-radius: 3px;
-                background:#FCFCFD;
-                position:relative;
-                display:flex;
-                align-items: center;
-                a {
-                  width:100%;
-                }
-                em {
-                  width:40px;
-                  height:40px;
-                  background-image: url('~/assets/images/common/icon_split.png');
-                  background-repeat: no-repeat;
-                  background-size: 250px;
-                  background-position: -200px -60px;
-                  text-indent: -9999px;
-                  position:absolute;
-                  top:15%;
-                  right:10px;
-                  transform:rotate(180deg);
-                  transition:all 0.5s;
-                  &.active {
-                    transform:translateY(40%) rotate(0deg);
-                  }
-                }
-              }
-              dd {
-                width:100%;
-                padding: 25px 19px;
-                border:1px solid #eee;
-                border-top:0;
-                display:none;
-                align-items:center;
-                gap:25px;
-                overflow:hidden;
-                transition:height 0.2s ease-out;
-                div {
-                  width:390px;
-                  display:flex;
-                  align-items:center;
-                  img {
-                    width:68px;
-                    height:90px;
-                    margin-right:15px;
-                  }
-                  p {
-                    font-size:14px;
-                    font-weight:400;
-                    display:flex;
-                    flex-direction:column;
-                    gap:10px;
-                    em {
-                      color:#666;
-                      font-size:13px;;
-                    }
-                  }
-                }
 
-              }
-            }
-          }
-        }
       }
     }
   }
+  .bullistType_02 {
+    margin-top:20px !important;
+  }
+}
+.order_info {
+
+ .row {
+  flex-direction:column;
+  .order_goods {
+    display:flex;
+    .cell {
+
+      &.pdt_info{
+        margin-left:20px;
+        em {
+          padding:2px 5px;
+          color:#00BC70;
+          font-size:12px;
+          background:#E0FBF0;
+          display:inline-block;
+        }
+        p {
+          margin:10px 0;
+          font-size:16px;
+          font-weight:400;
+        }
+        span {
+          color: #888;
+          font-size: 14px;
+        }
+      }
+      &.price {
+        p {
+          display:flex;
+          flex-direction:row;
+          align-items:center;
+          strong {
+            margin-right:5px;
+          }
+        }
+      }
+
+    }
+  }
  }
+  .gifts {
+    width:100%;
+    dl {
+      width:100%;
+      dt {
+        height:69px;
+        padding:0 20px;
+        color: #333;
+        font-weight:600;
+        font-size:16px;
+        border:1px solid #eee;
+        border-radius: 3px;
+        background:#FCFCFD;
+        position:relative;
+        display:flex;
+        align-items: center;
+        a {
+          width:100%;
+        }
+        em {
+          width:40px;
+          height:40px;
+          background-image: url('~/assets/images/common/icon_split.png');
+          background-repeat: no-repeat;
+          background-size: 250px;
+          background-position: -200px -60px;
+          text-indent: -9999px;
+          position:absolute;
+          top:15%;
+          right:10px;
+          transform:rotate(180deg);
+          transition:all 0.5s;
+          &.active {
+            transform:translateY(40%) rotate(0deg);
+          }
+        }
+      }
+      dd {
+        width:100%;
+        padding: 25px 19px;
+        border:1px solid #eee;
+        border-top:0;
+        display:none;
+        align-items:center;
+        gap:25px;
+        overflow:hidden;
+        transition:height 0.2s ease-out;
+        div {
+          width:390px;
+          display:flex;
+          align-items:center;
+          img {
+            width:68px;
+            height:90px;
+            margin-right:15px;
+          }
+          p {
+            font-size:14px;
+            font-weight:400;
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+            em {
+              color:#666;
+              font-size:13px;;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+
+
+
  > article {
     position: relative;
     margin-top:20px;
@@ -1731,18 +1771,9 @@ button.tooltip {
 }
 
 .pay_method {
-  .table_wrap {
-    table {
-      tbody {
-        tr {
-          td {
-            display:flex;
-            .input_wrap {
-              width:18%;
-            }
-          }
-        }
-      }
+  .list_wrap {
+    .row {
+      gap:30px;
     }
   }
   article {
@@ -1986,7 +2017,7 @@ button.tooltip {
               background-image: url('/_nuxt/assets/images/common/icon_split.png');
               background-repeat:no-repeat;
               background-size:250px;
-              background-position:-90px -300px;
+              background-position:-9px -138px;
               display:block;
             }
           }
@@ -2124,18 +2155,31 @@ button.tooltip {
       }
       > div {
         > div {
+          display:none;
+            &.active {
+              display:block;
+            }
           &.old_card {
               dl {
+                padding:30px 0 20px;
+                border-bottom:1px solid #f5f5f5;
                 display:flex;
-                align-items:center;
+                align-items:flex-start;
                 dt {
                   width:210px;
+                  color:#333;
                 }
                 dd {
+                  width:100%;
                   display:flex;
                   align-items:flex-end;
-                  label.select {
-                    width:50%;
+                  gap:30px;
+                  :deep(label.select) {
+                    width:45%;
+                  }
+                  a {
+                    color:#222;
+                    text-decoration:underline;
                   }
                 }
               }
@@ -2176,16 +2220,16 @@ button.tooltip {
                 font-weight: 600;
               }
               ul {
-                color: #888;
-                font-size: 13px;
                 li {
+                  color: #888;
+                  font-size: 13px;
                   &::before {
-                    content:'※';
-                    margin-right:5px;
-                    display:inline-block;
-                    em {
-                      color:#d72137 !important;
-                    }
+                  content: "※";
+                  margin-right: 10px;
+                  display: inline-block;
+                  }
+                  em {
+                    color:#d72137 !important;
                   }
                 }
               }
@@ -2202,9 +2246,62 @@ button.tooltip {
   margin:40px 0 0;
   padding:20px 0 0;
   border-top:1px solid #eee;
-  button.btn_min_outline {
-    margin-top:15px;
+    button.btn_min_outline {
+      margin-top:15px;
+      :deep(em) {
+        font-size:12px;
+        font-weight:600;
+      }
+    }
   }
+
+.bullistType_01 {
+margin-left:8px;
+li {
+  color:#888;
+  position:relative;
+  &::after {
+    content: "";
+    width: 3px;
+    height: 3px;
+    background: #999E9C;
+    position: absolute;
+    top: 8px;
+    left: -8px;
   }
+}
+}
+
+.bullistType_02 {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  li {
+    color: #888;
+    font-size: 13px;
+    &::before {
+    content: "※";
+    margin-right: 10px;
+    display: inline-block;
+    }
+  }
+}
+
+div.list_wrap {
+  ul.cart_list {
+    li {
+      div.row {
+        .input_wrap {
+          flex:0 auto !important;
+          :deep(label.check) {
+            > * {
+              font-size:16px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 </style>
