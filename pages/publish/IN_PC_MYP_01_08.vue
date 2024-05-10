@@ -89,7 +89,7 @@
                   <td>2,500원</td>
                   <td>배송완료</td>
                   <td>
-                    <Button txt="배송조회" class="btn_min_outline" />
+                    <Button txt="배송조회" class="btn_min_outline" @click="modal.open('my_delivery', 'alert')"/>
                   </td>
                   <td></td>
                 </tr>
@@ -146,6 +146,15 @@
           </li>
         </ol>
       </article>
+      <article>
+        주문취소내역
+      </article>
+      <article>
+        반품처리내역
+      </article>
+      <article>
+        교환처리내역
+      </article>
 
     </section>
 
@@ -168,6 +177,39 @@
       구매내역
     </section>
 	</div>
+
+  <div class="modal_wrap" id="my_delivery">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>배송조회</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <dl>
+            <dt>CJ대한통운</dt>
+            <dd>운송장 번호 540189756906</dd>
+          </dl>
+          <ul>
+            <li class="current">
+              <span>배송완료</span>
+              <em>인천</em>
+              <i>2024-05-07 13:19:49</i>
+            </li>
+            <li>
+              <span>배송출발</span>
+              <em>부평A</em>
+              <i>2024-05-07 13:19:49</i>
+            </li>
+            <li>
+              <span>집화처리</span>
+              <em>옥천HUB</em>
+              <i>2024-05-07 13:19:49</i>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+</div>
 
 </template>
 
@@ -392,25 +434,23 @@ section {
         border-bottom:0;
         flex:0 auto !important;
         > button {
-            &::after {
-            border-bottom:0;
-          }
-          em {
-            padding:0 5px;
-            color:#666;
-            font-size:16px;
-            font-weight:600;
+          padding:0 5px;
+          color:#666;
+          font-size:16px;
+          font-weight:600;
+          &::after {
+          border-bottom:0;
           }
         }
         &.current {
           button {
+            color:#00BC70;
+            font-size:16px;
             &::after {
-              border-bottom:2px solid #00BC70;
-            }
-            em {
               color:#00BC70;
               font-size:16px;
-            }
+              border-bottom:2px solid #00BC70;
+              }
           }
         }
       }
@@ -452,8 +492,31 @@ section {
             width:61px;
             height:60px;
             margin:10px 0;
-            border:1px solid red;
+            background-image:url('~/assets/images/common/goodsDetail_split.png');
+            background-size:300px auto;
+            background-repeat:no-repeat;
+            background-position:0px 0px;
             display:block;
+          }
+          &.icon_2 {
+            &::after {
+              background-position:-70px 0px;
+            }
+          }
+          &.icon_3 {
+            &::after {
+              background-position:-140px 0px;
+            }
+          }
+          &.icon_4 {
+            &::after {
+              background-position:-214px 0px;
+            }
+          }
+          &.icon_5 {
+            &::after {
+              background-position:0px -70px;
+            }
           }
         }
       }
@@ -485,6 +548,91 @@ section {
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+
+.modal_wrap {
+  &#my_delivery{
+    .modal_container {
+      width:540px !important;
+      .modal_content {
+        dl {
+          height:60px;
+          margin:0 20px;
+          padding:20px;
+          background-color: #F5F5F5;
+          display:flex;
+          align-items:center;
+          dt {
+            height:100%;
+            margin-right:20px;
+            padding-right:21px;
+            font-size:16px;
+            font-weight:600;
+            position: relative;
+            &::after {
+              content:'';
+              width:1px;
+              height:100%;
+              background: #ddd;
+              position:absolute;
+              top:0;
+              right:0;
+              display:inline-block;
+            }
+          }
+          dd {
+            color: #999;
+            font-size: 16px;
+          }
+        }
+        ul {
+          margin-top:10px;
+          li {
+            padding:20px 0 18px;
+            border-bottom:1px solid #ccc;
+            position:relative;
+            span {
+              font-weight:600;
+            }
+            em {
+              margin-left:20px;
+              padding-left:21px;
+              color: #666;
+              font-weight:400;
+              position:relative;
+              &::before {
+                content:'';
+                width:1px;
+                height:100%;
+                background-color: #ddd;
+                position:absolute;
+                top:0;
+                left:0;
+                display:inline-block;
+              }
+            }
+            i {
+              color: #999;
+              font:inherit;
+              position:absolute;
+              top:50%;
+              right:4px;
+              transform:translateY(-50%);
+            }
+            &.current {
+              span,em {
+                color: #00BC70;
+              }
+            }
+            &:last-of-type {
+              border-bottom:0;
+            }
+          }
+
         }
       }
     }
