@@ -51,9 +51,9 @@
             </div>
             <div class="cell count">
               <div class="count_wrap">
-                <Button txt="-" />
-                <Inputs />
-                <Button txt="+" />
+                <Button txt="-" @click="decrease" />
+                <Inputs _id="quanity" :_value="quanity" />
+                <Button txt="+" @click="increase" />
               </div>
             </div>
             <div class="cell price">
@@ -98,6 +98,18 @@ import { modal } from '~/assets/js/common-ui.js'
 definePageMeta({
 layout:'pc-cart'
 });
+
+const quanity = ref(1);
+
+const increase = () => {
+  quanity.value = Number(document.getElementById('quanity').value)+1;
+}
+
+const decrease = () => {
+  if(document.getElementById('quanity').value > 1) {
+    quanity.value = Number(document.getElementById('quanity').value)-1;
+  }
+}
 </script>
 
 <style lang="scss" scoped>
