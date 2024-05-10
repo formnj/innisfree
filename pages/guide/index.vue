@@ -150,9 +150,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-24/2024-04-09', worker:'김희경'
     }, {
         depth:['','상세','',''],
-        id:'IN_PC_PRD_01_09', status:'ing',
-        type:'', note:'',
-        sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/', worker:'김나람'
+        id:'IN_PC_PRD_01_09', status:'com',
+        type:'', note:'디자인 고도화 필요',
+        sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/2024-05-09', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_PC_CAR_01_01', status:'com',
@@ -664,9 +664,9 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-24/2024-04-11', worker:'김희경'
     }, {
         depth:['','상세','',''],
-        id:'IN_MO_PRD_01_09', status:'ing',
-        type:'', note:'',
-        sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/', worker:'김나람'
+        id:'IN_MO_PRD_01_09', status:'com',
+        type:'', note:'디자인 고도화 필요',
+        sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/2024-05-09', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_MO_CAR_01_01', status:'com',
