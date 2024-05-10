@@ -61,15 +61,15 @@
         <tbody>
           <tr>
             <th>이름</th>
-            <td>형민우</td>
+            <td>김민수</td>
           </tr>
           <tr>
             <th>아이디</th>
-            <td>gud*******</td>
+            <td>kkk*******</td>
           </tr>
           <tr>
             <th>생년월일</th>
-            <td>1998 년 10 월 29 일</td>
+            <td>1234 년 12 월 12 일</td>
           </tr>
           <tr>
             <th>이메일</th>
@@ -94,7 +94,7 @@
                 <Inputs _type="text" _value="1234" isDisabled="true" />
                 -
                 <Inputs _type="text" _value="1234" isDisabled="true" />
-                <Button class="btn_outline" txt="변경" />
+                <Button class="btn_outline" txt="변경" @click="modal.open('modal_phone', 'alert')" />
               </div>
             </td>
           </tr>
@@ -128,7 +128,7 @@
               </p>
               <div class="radio_box">
                 <p>· 현재 사랑하는 반려동물(강아지, 고양이)과 함께 살고 있나요?</p>
-                <Inputs class="pet" _type="radio" _name="pets" _text="네" />
+                <Inputs class="love" _type="radio" _name="pets" _text="네" />
                 <Inputs _type="radio" _name="pets" _text="아니오" />
               </div>
             </div>
@@ -162,11 +162,11 @@
           <ul class="pets_info">
             <li>
               <span>· 반려동물의 이름을 알려주세요!</span>
-              <Inputs _type="text" _placeholder="이름 입력" />
+              <Inputs _type="text" _placeholder="이름 입력" isDisabled="true" />
             </li>
             <li>
               <span>· 반려동물의 생일은 언제인가요?</span>
-              <Inputs _type="text" _placeholder="생일 입력 (예:20230101)" />
+              <Inputs _type="text" _placeholder="생일 입력 (예:20230101)" isDisabled="true" />
             </li>
           </ul>
         </li>
@@ -296,6 +296,49 @@
     </div>
   </section>
   
+  <div id="modal_phone" class="modal_wrap">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>휴대전화 번호 변경</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+            <p>인증 받으실 휴대전화 번호를 입력하세요.</p>
+            <div class="table">
+              <table>
+                <caption>휴대전화번호 변경</caption>
+                <colgroup>
+                  <col style="width:170px;">
+                  <col>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th>변경할 휴대전화 입력</th>
+                    <td>
+                      <div class="input_list">
+                        <Selectbox :options="[{val:'value',txt:'010'},{val:'value',txt:'011'},{val:'value',txt:'016'},{val:'value',txt:'017'},{val:'value',txt:'018'}]" />
+                        <span>-</span>
+                        <Inputs _type="text" />
+                        <span>-</span>
+                        <div class="multi_form">
+                          <Inputs _type="text" />
+                          <Button class="btn_outline" txt="인증" />
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>인증번호입력</th>
+                    <td><Inputs _type="text" /></td>
+                  </tr>
+                </tbody>
+							</table>
+            </div>
+            <p>인증완료 후 변경된 휴대전화 번호를 저장하시려면 인증완료 버튼을 반드시 눌러주시기 바랍니다.</p>
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+</div>
 </template>
 <script setup>
 import { modal } from '~/assets/js/common-ui'
@@ -656,7 +699,7 @@ section {
   >ul {
     display:flex;
     flex-direction:column;
-    li {
+    >li {
       padding:20px 0;
       border-bottom:1px solid #EEE;
       display:flex;
@@ -689,7 +732,7 @@ section {
             }
             :deep(.input_wrap) {
               flex:0 0 17%;
-              &.pet {
+              &.love {
                 &:after {
                   content:'♥';
                   margin-left:5px;
@@ -912,55 +955,104 @@ section {
   }
 }
 
-.modal_wrap.layer {
-  top:unset;
-  right:unset;
-  bottom:unset;
-  left:unset;
-  .modal_container {
-    .modal_header {
-      padding: 0;
-      border-bottom: 0;
-
-      .btn_close {
-        width: 18px;
-        height: 18px;
-        top: 10px;
-        right: 10px;
-
-        &:before,
-        &:after {
-          border-top: 2px solid #000;
+.modal_wrap {
+  &.layer {
+    top:unset;
+    right:unset;
+    bottom:unset;
+    left:unset;
+    .modal_container {
+      .modal_header {
+        padding: 0;
+        border-bottom: 0;
+  
+        .btn_close {
+          width: 18px;
+          height: 18px;
+          font-size:0;
+          top: 10px;
+          right: 10px;
+  
+          &:before,
+          &:after {
+            border-top: 2px solid #000;
+          }
+        }
+      }
+    }
+  
+    .modal_content {
+      padding: 30px 20px;
+  
+      h3 {
+        margin-bottom: 10px;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
+        color: #000;
+      }
+  
+      p {
+        font-size: 13px;
+        color: #666;
+        line-height: 18px;
+        white-space: nowrap;
+  
+        strong {
+          font-size:16px;
+          font-weight:600;
+          text-decoration:underline;
+        }
+  
+        em {
+          font-weight: 600;
         }
       }
     }
   }
 
-  .modal_content {
-    padding: 30px 20px;
+  &#modal_phone {
+    .modal_container {
+      width:800px;
+      .modal_content {
+        >p {
+          font-size:16px;
 
-    h3 {
-      margin-bottom: 10px;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 24px;
-      color: #000;
-    }
+          &:last-child {
+            text-align:center;
+          }
+        }
 
-    p {
-      font-size: 13px;
-      color: #666;
-      line-height: 18px;
-      white-space: nowrap;
+        .table {
+          padding:30px 0;
+          margin:15px 0;
+          border-top-width:1px;
+          border-bottom:1px solid #000;
 
-      strong {
-        font-size:16px;
-        font-weight:600;
-        text-decoration:underline;
-      }
-
-      em {
-        font-weight: 600;
+          tr {
+            &:last-child {
+              td {
+                padding-top:15px;
+              }
+            }
+            th {
+              border:0;
+            }
+            td {
+              padding:0;
+              border:0;
+              .input_list {
+                display:flex;
+                align-items:center;
+                gap:5px;
+    
+                .select, .input_wrap {
+                  flex:0 0 150px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

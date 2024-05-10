@@ -392,7 +392,7 @@ const PC_arry = ([
         depth:['','','','개인정보 수정'],
         id:'IN_PC_MYP_01_69', status:'com',
         type:'', note:'개인정보 수정 컨텐츠( 회원정보 수정, 비밀번호 수정 ) 포함',
-        sDate:'', eDate:'2024-05-10', worker:'형민우'
+        sDate:'', eDate:'2024-05-10/2024-05-10', worker:'형민우'
     }, {
         depth:['','배송지 관리','',''],
         id:'IN_PC_MYP_01_76', status:'com',
@@ -910,14 +910,14 @@ const MO_arry = ([
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','개인정보 수정','비밀번호 확인',''],
-        id:'IN_MO_MYP_01_68', status:'',
+        id:'IN_MO_MYP_01_68', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-10', worker:'형민우'
+        sDate:'', eDate:'2024-05-10/2024-05-10', worker:'형민우'
     }, {
         depth:['','','','개인정보 수정'],
-        id:'IN_MO_MYP_01_69', status:'',
+        id:'IN_MO_MYP_01_69', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-10', worker:'형민우'
+        sDate:'', eDate:'2024-05-10/2024-05-10', worker:'형민우'
     }, {
         depth:['','배송지 관리','',''],
         id:'IN_MO_MYP_01_76', status:'com',
