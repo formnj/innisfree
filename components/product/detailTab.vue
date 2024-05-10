@@ -12,13 +12,19 @@ const props = defineProps({
 
 onMounted(() => {
   let gnbH, contTop
-  if(!props.isMo) { gnbH = document.getElementsByClassName('gnb_wrap')[0].offsetHeight; }
+  // if(!props.isMo) { gnbH = document.getElementsByClassName('gnb_wrap')[0].offsetHeight; }
   const target = document.querySelector('.product_tab').parentElement;
   window.addEventListener('scroll', () => {
+
+    if(!props.isMo) { gnbH = document.getElementsByClassName('gnb_wrap')[0].offsetHeight; }// [Tip for nrkim : 주석은 확인 후 삭제해주세요] scroll 시 헤더의 높이가 변하기 때문에 변한 후의 높이값을 계산하도록
+
     if(!props.isMo ?  contTop = document.getElementsByClassName('tab_contents')[0].getBoundingClientRect().y - gnbH - target.offsetHeight : contTop = document.getElementsByClassName('tab_contents')[0].getBoundingClientRect().y - target.offsetHeight );
     if (contTop < 0) {
       if (!target.classList.contains('sticky')) {
         target.classList.add('sticky');
+
+        document.querySelector('.prod_detail_cont .tab_contents').style.marginTop = '60px';// [Tip for nrkim : 주석은 확인 후 삭제해주세요] 탭이 fixed된 후 해당 높이만큼 여백을 줌
+
         let top;
         if(!props.isMo ? top = "top:" + gnbH + "px;" : top = "top:0");
         target.style.cssText = top;
@@ -27,6 +33,8 @@ onMounted(() => {
     else if (contTop > 0) {
       target.classList.remove('sticky');
       target.style.cssText = "";
+
+      document.querySelector('.prod_detail_cont .tab_contents').style.marginTop = '0';// [Tip for nrkim : 주석은 확인 후 삭제해주세요] 탭의 fixed가 풀린 후 생성된 여백 삭제
     }
   })
 })
