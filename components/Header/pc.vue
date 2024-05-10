@@ -385,19 +385,19 @@ onMounted(() => {
 
         if (rect.top <= 0) {
             document.querySelector('#wrap').classList.add('fixed');
-            document.querySelector('header h1 img').src = '~/assets/images/common/logo_innisfree_bk.png';
+            document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree_bk.png';
             document.querySelector('.keyword_wrap').classList.remove('active');
         }
         else {
             document.querySelector('#wrap').classList.remove('fixed');
-            document.querySelector('header h1 img').src = '~/assets/images/common/logo_innisfree.png';
+            document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree.png';
         }
     })
 
     const rect = document.querySelector('.gnb_wrap').getBoundingClientRect();
     if (rect.top <= 0) {
         document.querySelector('#wrap').classList.add('fixed');
-        document.querySelector('header h1 img').src = '~/assets/images/common/logo_innisfree_bk.png';
+        document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree_bk.png';
     }
 
     document.querySelector('.search_layer .input input').addEventListener('input', auto_complete);

@@ -7,7 +7,8 @@
         <Icons class="tooltip" txt="툴팁" @click="modal.open('log_info', 'alert')" />
         <p class="explain">최근 본 제품, 이벤트, 검색어예요</p>
       </h3>
-      <p v-if="sample_log.length < 1" class="no_data">
+      <!-- <p v-if="sample_log.length < 1" class="no_data"> -->
+      <p class="no_data">
         <strong>쇼핑로그가 없습니다.</strong>
       </p>
       <!-- list -->

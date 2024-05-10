@@ -15,7 +15,8 @@
 
       <div class="shopping_log">
         <div class="list_wrap">
-          <p v-if="sample_log.length < 1" class="no_data">
+          <!-- <p v-if="sample_log.length < 1" class="no_data"> -->
+          <p class="no_data">
             <strong>쇼핑로그가 없습니다.</strong>
           </p>
           <!-- list -->

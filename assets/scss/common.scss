@@ -935,7 +935,8 @@ ul.bullet_list {
     width:60px;
     height:60px;
     margin-bottom:20px;
-    background-color:#ccc;
+    background:url('~/assets/mo_images/common/icon_split.png') -65px -100px no-repeat;
+    background-size:250px auto;
     content:'';
     display:block;
   }
