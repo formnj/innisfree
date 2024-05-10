@@ -49,7 +49,8 @@
         <ul class="explain">
           <li>사용 이미지와 더미 이미지의 경로 선언에 차별을 둠</li>
         </ul>
-        <pre class="code_box"><code>사용 이미지 : ~/assets/images
+        <pre class="code_box"><code>사용 이미지(PC) : ~/assets/images
+사용 이미지(MO) : ~/assets/mo_images
 더미 이미지 : /_nuxt/public/images/sam</code></pre>
     </section>
 

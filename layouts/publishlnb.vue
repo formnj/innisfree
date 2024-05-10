@@ -102,16 +102,16 @@ const change_device = () => {
                                     content:'';
                                     width:12px;
                                     height:12px;
-                                    background-image: url('/_nuxt/assets/images/categorylist/arr_r12_black.png');
+                                    background-image: url('~/assets/images/categorylist/arr_r12_black.png');
                                     display:inline-block;
                                     position:absolute;
                                     top:50%;
                                     right:5px;
                                     transform:translateY(-50%);
-                                    
+
                                 }
                                 }
-                                
+
                             }
                             a {
                             &.all {
@@ -125,9 +125,9 @@ const change_device = () => {
                                     width:16px;
                                     height:16px;
                                     margin-left:5px;
-                                    background-image: url('/_nuxt/assets/images/categorylist/ico_plus16_gray.png');
+                                    background-image: url('~/assets/images/categorylist/ico_plus16_gray.png');
                                     display:inline-block;
-                                    
+
                                 }
                             }
                             }
@@ -153,7 +153,7 @@ const change_device = () => {
                         .btn_back {
                             width:35px;
                             height:35px;
-                            background-image:url('/_nuxt/assets/images/categorylist/ico_back.png');
+                            background-image:url('~/assets/images/categorylist/ico_back.png');
                             background-repeat:no-repeat;
                             background-size: 32px auto;
                             background-position:0px 2px;
@@ -168,7 +168,7 @@ const change_device = () => {
                                 width:20px;
                                 height:20px;
                                 margin-left:10px;
-                                background-image:url('/_nuxt/assets/images/categorylist/arr_drop.png');
+                                background-image:url('~/assets/images/categorylist/arr_drop.png');
                                 background-repeat:no-repeat;
                                 background-size:cover;
                                 display:inline-block;
@@ -191,10 +191,10 @@ const change_device = () => {
                             display:inline-block;
                         }
                         .btn_search {
-                            background-image:url('/_nuxt/assets/images/categorylist/ico_search_black.png');
+                            background-image:url('~/assets/images/categorylist/ico_search_black.png');
                         }
                         .btn_cart {
-                            background-image:url('/_nuxt/assets/images/categorylist/ico_cart_black.png');
+                            background-image:url('~/assets/images/categorylist/ico_cart_black.png');
                             position:relative;
                             span {
                                 width:20px;

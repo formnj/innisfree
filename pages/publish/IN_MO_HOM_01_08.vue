@@ -168,7 +168,7 @@ definePageMeta({
       width: 1.6rem;
       height: 1.6rem;
       margin-left: .5rem;
-      background: url(/_nuxt/assets/images/common/icon_split.png) -11rem -6rem / 25rem auto no-repeat;
+      background: url(~/assets/images/common/icon_split.png) -11rem -6rem / 25rem auto no-repeat;
       display: inline-block;
     }
   }

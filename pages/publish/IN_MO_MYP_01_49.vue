@@ -96,7 +96,7 @@ onMounted(() => {
         height:65px;
         margin-top:10rem;
         text-indent: -9999px;
-        background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+        background-image:url('~/assets/mo_images/common/icon_split.png');
         background-repeat:no-repeat;
         background-size:250px;
         background-position:-63px -98px;
@@ -149,7 +149,7 @@ onMounted(() => {
               content:'';
               width:20px;
               height:20px;
-              background-image: url('/_nuxt/assets/mo_images/common/icon_split.png');
+              background-image: url('~/assets/mo_images/common/icon_split.png');
               background-repeat:no-repeat;
               background-size:250px;
               background-position:-41px -199px;

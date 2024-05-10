@@ -188,7 +188,7 @@ const qr_menu = (e) => {
     }
   }
   .btn_close {
-    background:url('/_nuxt/assets/images/common/icon_split.png') no-repeat -210px -170px;
+    background:url('~/assets/images/common/icon_split.png') no-repeat -210px -170px;
     background-size:250px auto;
     left:10px;
     bottom:10px;

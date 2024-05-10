@@ -76,7 +76,7 @@
           <th>이메일</th>
           <td>
             <div class="email">
-              <Inputs _type="text" /> 
+              <Inputs _type="text" />
               <span>@</span>
               <Inputs _type="text" />
               <Selectbox
@@ -288,7 +288,7 @@ const selectOption = [
               width:32px;
               height:32px;
               margin-right:16px;
-              background:url('/_nuxt/assets/images/common/icon_split.png') no-repeat 0 -330px;
+              background:url('~/assets/images/common/icon_split.png') no-repeat 0 -330px;
               background-size:250px auto;
               vertical-align:middle;
               display:inline-block;
@@ -296,17 +296,17 @@ const selectOption = [
             &.kakao {
               &:before {
                 background-position:-40px -330px;
-              } 
+              }
             }
             &.naver {
               &:before {
                 background-position:0 -365px;
-              } 
+              }
             }
             &.apple {
               &:before {
                 background-position:-40px -365px;
-              } 
+              }
             }
           }
         }

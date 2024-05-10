@@ -416,7 +416,7 @@ header {
                     &:after {
                         width:16px;
                         height:16px;
-                        background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+                        background-image:url('~/assets/mo_images/common/icon_split.png');
                         background-position:-80px 0;
                         background-repeat:no-repeat;
                         background-size:250px auto;
@@ -490,7 +490,7 @@ header {
                                     width:16px;
                                     height:16px;
                                     margin-left:10px;
-                                    background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+                                    background-image:url('~/assets/mo_images/common/icon_split.png');
                                     background-position:-100px 0;
                                     background-repeat:no-repeat;
                                     background-size:250px auto;
@@ -682,7 +682,7 @@ header {
                 height:16px;
                 color:transparent;
                 font-size:0;
-                background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+                background-image:url('~/assets/mo_images/common/icon_split.png');
                 background-repeat:no-repeat;
                 background-position:-80px -70px;
                 background-size:250px auto;
