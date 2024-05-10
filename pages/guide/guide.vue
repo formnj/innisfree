@@ -45,6 +45,15 @@
     </section>
 
     <section>
+        <h2>Images path</h2>
+        <ul class="explain">
+          <li>사용 이미지와 더미 이미지의 경로 선언에 차별을 둠</li>
+        </ul>
+        <pre class="code_box"><code>사용 이미지 : ~/assets/images
+더미 이미지 : /_nuxt/public/images/sam</code></pre>
+    </section>
+
+    <section>
       <h2>media query</h2>
       <ul class="explain">
         <li>break point : mo_749, mo_639, mo_519, mo_413, mo_410, mo_374, mo_359 (뒤의 숫자는 max-width)</li>
