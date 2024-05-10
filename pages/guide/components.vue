@@ -278,12 +278,13 @@
       <li>tabType : tab type 클래스 지정</li>
       <li>default : 탭 요소의 넓이가 갯수에 대한 비율로 늘어남.</li>
       <li>tabType="type_01" = 상품상세 정보 탭 / type_02 = 베스트 카테고리 탭</li>
+      <li>카운트(숫자)가 들어가는 경우 데이터에 Cnt 항목 필요</li>
     </ul>
     <div class="design_box">
       <ul class="form_group">
         <li>
           <p class="form_tit">[Default]</p>
-          <Tabs tabType="" :item="[{txt:'tab01'},{txt:'tab02'}]" :tabidx="0" />
+          <Tabs tabType="" :item="[{txt:'tab01', Cnt:999},{txt:'tab02'}]" :tabidx="0" />
         </li>
         <li>
           <p class="form_tit">[type_01]</p>
@@ -302,7 +303,7 @@
       </ul>
     </div>
     <pre
-      class="code_box"><code>&lt;Tabs tabType="" :item="[{txt:'tab01'},{txt:'tab02'}]"  :tabidx="0" /&gt;</code></pre>
+      class="code_box"><code>&lt;Tabs tabType="" :item="[{txt:'tab01', Cnt:999},{txt:'tab02'}]"  :tabidx="0" /&gt;</code></pre>
   </section>
 
   <section>

@@ -1,5 +1,5 @@
 <template>
-  <Tabs tabType="type_01 product_tab" :item="[{ txt: '상세정보' }, { txt: '리뷰', reviewCnt:299 }, { txt: '유의사항' }, { txt: '문의' }]" :tabidx="0" @click="tabContShow" />
+  <Tabs tabType="type_01 product_tab" :item="[{ txt: '상세정보' }, { txt: '리뷰', Cnt:299 }, { txt: '유의사항' }, { txt: '문의' }]" :tabidx="0" @click="tabContShow" />
 </template>
 <script setup>
 import { modal } from '~/assets/js/common-ui'

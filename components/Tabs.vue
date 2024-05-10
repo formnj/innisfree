@@ -3,8 +3,8 @@
         <ul :class="tabType">
             <li v-for="(item, idx) in item" :key="idx" :class="{ current: tabidx == idx }" >
                 <button type="button" @click="tabidx = idx">
-                  <em>{{ item.txt }}</em>
-                  <span v-if="item.reviewCnt">{{ item.reviewCnt }}</span>
+                  {{ item.txt }}
+                  <span v-if="item.Cnt">{{ item.Cnt }}</span>
                 </button>
             </li>
         </ul>
