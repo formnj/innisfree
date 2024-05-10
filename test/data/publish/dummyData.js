@@ -10,77 +10,89 @@ export const etc_info = [
     input_id:'etcdList1',
     label_for:'etcdList1',
     text:'네이버페이',
+    checked:'checked',
     discont_txt:'',
+    class:'naver'
   },
     {
     li_id:'etcdList_2',
     input_id:'etcdList2',
     label_for:'etcdList2',
     text:'카카오페이',
-    discont_txt:'5,000원 할인'
+    discont_txt:'5,000원 할인',
+    class:'kakao'
   },
     {
     li_id:'etcdList_3',
     input_id:'etcdList3',
     label_for:'etcdList3',
     text:'페이코',
-    discont_txt:''
+    discont_txt:'',
+    class:'payco'
   },
     {
     li_id:'etcdList_4',
     input_id:'etcdList4',
     label_for:'etcdList4',
     text:'토스페이',
-    discont_txt:'생애 첫 2천원 적립'
+    discont_txt:'생애 첫 2천원 적립',
+    class:'toss'
   },
     {
     li_id:'etcdList_5',
     input_id:'etcdList5',
     label_for:'etcdList5',
     text:'KB페이',
-    discont_txt:'5,000원 할인'
+    discont_txt:'5,000원 할인',
+    class:'kb'
   },
     {
     li_id:'etcdList_6',
     input_id:'etcdList6',
     label_for:'etcdList6',
     text:'삼성페이',
-    discont_txt:''
+    discont_txt:'',
+    class:'sam'
   },
     {
     li_id:'etcdList_7',
     input_id:'etcdList7',
     label_for:'etcdList7',
     text:'하나페이',
-    discont_txt:''
+    discont_txt:'',
+    class:'hana'
   },
     {
     li_id:'etcdList_8',
     input_id:'etcdList8',
     label_for:'etcdList8',
     text:'실시간 계좌이체',
-    discont_txt:''
+    discont_txt:'',
+    class:'account'
   },
     {
     li_id:'etcdList_9',
     input_id:'etcdList9',
     label_for:'etcdList9',
     text:'무통장입금',
-    discont_txt:''
+    discont_txt:'',
+    class:'bankbook'
   },
     {
     li_id:'etcdList_10',
     input_id:'etcdList10',
     label_for:'etcdList10',
     text:'휴대폰결제',
-    discont_txt:''
+    discont_txt:'',
+    class:'phone'
   },
     {
     li_id:'etcdList_11',
     input_id:'etcdList11',
     label_for:'etcdList11',
     text:'(구) 제휴카드',
-    discont_txt:''
+    discont_txt:'',
+    class:'old_card'
   },
 ]
 

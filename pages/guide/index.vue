@@ -175,9 +175,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['주문서','','',''],
-        id:'IN_PC_ORD_01_01', status:'ing',
+        id:'IN_PC_ORD_01_01', status:'com',
         type:'', note:'결제하기페이지',
-        sDate:'', eDate:'2024-05-24/2024-05-07', worker:'김희경'
+        sDate:'2024-05-07', eDate:'2024-05-24/2024-05-10', worker:'김희경'
     }, {
         depth:['','배송지 등록/변경','',''],
         id:'IN_PC_ORD_01_02', status:'com',
