@@ -1,22 +1,25 @@
 <template>
-  <div v-if="isModal == false" class="review" @click="modal.open('modal_review','full')">
-    <p v-if="item.option.is" class="option_name">옵션) {{ item.option.name }}</p>
-    <ul class="review_photo_list">
-      <li v-for="(img, idx) in item.imgs" :key="idx" :class="idx == 5 ? 'last' : '' ">
-        <a href="#none"><img :src="img" :class="item.user" alt=""></a>
-      </li>
-    </ul>
+  <!-- 리뷰 일반 -->
+  <div v-if="isModal == false" class="review" @click="modal.open('modal_review','full');">
+    <p v-if="item.option.is" class="option_name">옵션<span v-if="isMo == false">)</span> {{ item.option.name }}</p>
+    <div class="review_photo_list_wrap">
+      <ul class="review_photo_list">
+        <li v-for="(img, idx) in item.imgs" :key="idx" :class="idx == 5 ? 'last' : '' ">
+          <a href="#none"><img :src="img" :class="item.user" alt=""></a>
+        </li>
+      </ul>
+    </div>
     <p class="txt">
       <span v-if="item.usedAmonth" class="mark_month">한달사용</span>{{ item.txt }}
     </p>
   </div>
 
+  <!-- 리뷰 모달일 경우 -->
   <div v-if="isModal == true" class="review">
     <p v-if="item.option.is" class="option_name">옵션 <em>{{ item.option.name }}</em></p>
 
-    <div class="review_photo_swiper">
-      <swiper
-        :slides-per-view="1" :navigation="navigation">
+    <div v-if="!isMo" class="review_photo_swiper">  <!-- PC일 경우 -->
+      <swiper v-bind="swiper_options" @swiper="onSwiper">
         <swiper-slide v-for="(img, idx) in item.imgs" :key="idx">
           <img :src="img" :class="item.user" alt="">
         </swiper-slide>
@@ -25,6 +28,14 @@
         <button type="button" class="nav_prev">prev</button>
         <button type="button" class="nav_next">next</button>
       </div>
+    </div>
+
+    <div v-if="isMo" class="review_photo_list_wrap">
+      <ul class="review_photo_list">
+        <li v-for="(img, idx) in item.imgs" :key="idx" :class="idx == 5 ? 'last' : '' ">
+          <a href="#none"><img :src="img" :class="item.user" alt=""></a>
+        </li>
+      </ul>
     </div>
 
     <p class="txt">
@@ -47,13 +58,25 @@ const props = defineProps({
   isModal: {  //리뷰 모달 여부
     type: Boolean,
     default: false
+  },
+  isMo: {
+    type: Boolean,
+    default: false
   }
 })
 
-const navigation = {
-  prevEl: ".nav_prev",
-  nextEl: ".nav_next",
-  type: "custom",
+const setSwiper = ref(null);
+const onSwiper = (swiper) => setSwiper.value = swiper;
+const swiper_options = {
+  slidesPerView: 1,
+  navigation : {
+    prevEl: ".nav_prev",
+    nextEl: ".nav_next",
+    type: "custom",
+  },
+  speed:1000,
+  observer:true,
+  observeParents:true,
 }
 </script>
 <style lang="scss" scoped>
@@ -64,7 +87,7 @@ const navigation = {
     color: #333;
   }
 
-
+.review_photo_list_wrap {
   .review_photo_list {
     display: flex;
     gap: 3px;
@@ -80,6 +103,10 @@ const navigation = {
         height: 100%;
         display: block;
         position: relative;
+
+        img {
+          vertical-align: middle;
+        }
       }
 
       &.last {
@@ -113,6 +140,7 @@ const navigation = {
       }
     }
   }
+}
 
   .txt {
     line-height: 24px;

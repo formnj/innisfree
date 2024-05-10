@@ -1,9 +1,11 @@
 <template>
-    <div class="tab_wrap" :class="isProduct?'product':''">
+    <div class="tab_wrap">
         <ul :class="tabType">
             <li v-for="(item, idx) in item" :key="idx" :class="{ current: tabidx == idx }" >
-                <Button :txt="item.txt" @click="tabidx = idx" />
-                <span v-if="isProduct && item.txt =='리뷰'">{{ reviewCnt }}</span>
+                <button type="button" @click="tabidx = idx">
+                  {{ item.txt }}
+                  <span v-if="item.Cnt">{{ item.Cnt }}</span>
+                </button>
             </li>
         </ul>
     </div>
@@ -29,18 +31,24 @@ const props = defineProps({
     li {
         margin-left:-1px;
         flex:1;
-        &:deep(> button) {
+        button {
             width:100%;
             height:51px;
+            color:#666;
             font-size:16px;
             background-color:transparent;
             border:1px solid #eee;
             position:relative;
-            display:block;
+            display:flex;
+            align-items:center;
+            justify-content:center;
             transition:border 0.25s;
-            em {
-                color:#666;
-                transition:color 0.25s;
+            transition:color 0.25s;
+            span {
+              margin-left:5px;
+              font-size: 10px;
+              color: #888;
+              vertical-align: top;
             }
         }
         &:hover > button {
@@ -53,15 +61,13 @@ const props = defineProps({
         &.current > button {
             border-color:#000;
             z-index:1;
-            :deep(em) {
-                color:#000;
-                font-weight:600;
-            }
+            color:#000;
+            font-weight:600;
         }
     }
     &.type_01 {
         li {
-        &:deep(> button) {
+        button {
             height:60px;
             font-size:14px;
             border:0;
@@ -74,19 +80,15 @@ const props = defineProps({
               bottom:0;
               left:0;
             }
-            em {
-                color:#888;
-                transition:initial;
-            }
+            color:#888;
+            transition:initial;
         }
         &.current {
-          :deep(> button) {
+          button {
+            color:#000;
+            font-weight:700;
             &:after {
               border-bottom:2px solid #000;
-            }
-            em {
-              color:#000;
-              font-weight:700;
             }
           }
         }
@@ -99,25 +101,21 @@ const props = defineProps({
         padding-top:10px;
         padding-left:10px;
         flex:0 auto;
-        &:deep(> button) {
+        button {
           height:auto;
           font-size:14px;
           background-color:#f5f5f5;
           border-color:#f5f5f5;
           border-radius:999px;
-          em {
-            padding:6px 20px;
-            color:#999e9c;
-            white-space:nowrap;
-          }
+          padding:6px 20px;
+          color:#999e9c;
+          white-space:nowrap;
         }
         &.current {
-          &:deep(> button) {
+          button {
             background-color:#fff;
             border-color:#000;
-            em {
-              color:#000;
-            }
+            color:#000;
           }
         }
       }
@@ -127,16 +125,12 @@ const props = defineProps({
         :deep(button) {
           height:62px;
           border-color:#a7a7a7;
-          em {
-            color:#666;
-          }
+          color:#666;
         }
         &.current {
           background:#000;
           :deep(button) {
-            em {
-              color:#fff;
-            }
+            color:#fff;
           }
         }
       }
@@ -154,31 +148,27 @@ const props = defineProps({
       }
       li {
         flex:0 auto;
-        &:deep(> button) {
+        button {
           height:auto;
           padding:0 30px;
           border:0;
-          em {
-            padding:0 0 19px 0;
-            color:#999;
-            font-size:16px;
-            font-weight:400;
-            position:relative;
-          }
+          padding:0 0 19px 0;
+          color:#999;
+          font-size:16px;
+          font-weight:400;
+          position:relative;
         }
         &.current {
-          :deep(> button) {
-            em {
-              color:#000;
-              font-weight:600;
-              &:after {
-                border-bottom:2px solid #000;
-                content:'';
-                position:absolute;
-                right:0;
-                bottom:0;
-                left:0;
-              }
+          button {
+            color:#000;
+            font-weight:600;
+            &:after {
+              border-bottom:2px solid #000;
+              content:'';
+              position:absolute;
+              right:0;
+              bottom:0;
+              left:0;
             }
           }
         }
@@ -189,7 +179,7 @@ const props = defineProps({
       li {
         margin-left:-1px;
         flex:1;
-        &:deep(> button) {
+        button {
             width:100%;
             height:64px;
             font-size:16px;
@@ -198,33 +188,16 @@ const props = defineProps({
             position:relative;
             display:block;
             transition:border 0.25s;
-            em {
-                color:#666;
-                transition:color 0.25s;
-            }
+            color:#666;
+            transition:color 0.25s;
         }
         &.current > button {
             border-color:#000;
             background: #000 !important;
             z-index:1;
-            :deep(em) {
-                color:#fff;
-                font-weight:600;
-            }
+            color:#fff;
+            font-weight:600;
         }
-      }
-    }
-  }
-  &.product {
-    li {
-      position: relative;
-      span {
-        font-size: 10px;
-        color: #888;
-        position: absolute;
-        left: 50%;
-        top: 22px;
-        transform: translateX(15px)
       }
     }
   }

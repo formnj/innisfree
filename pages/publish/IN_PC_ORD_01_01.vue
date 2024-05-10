@@ -171,6 +171,7 @@
                           { val: 'value', txt: '배송전에 연락주세요.' },
                           { val: 'value', txt: '메시지 직접 입력' },
                       ]" />
+                      <Inputs _type="text" _placeholder="배송 요청사항을 입력해주세요. (최대 45자까지 입력가능)" />
                     </td>
                 </tr>
             </tbody>
@@ -184,117 +185,139 @@
           <h3>주문 상품 정보</h3>
         </div>
       </div>
-      <div class="table_wrap">
-        <table>
-            <caption>주문 상품 정보</caption>
-            <colgroup>
-                <col style="width:100%;">
-            </colgroup>
-            <tbody>
-                <tr>
-                  <td>
+      <div class="list_wrap">
+        <ul class="cart_list type_default">
+          <li>
+            <div class="row">
+              <div class="order_goods">
+                <div class="cell pdt_img">
+                  <a href="#none">
+                    <span class="thumb">
+                      <em><img src="/_nuxt/public/images/sam/order_list_01.png" alt="" /></em>
+                    </span>
+                  </a>
+                </div>
+                <div class="cell pdt_info">
+                  <em>5/2~15, 기간내 5개</em>
+                  <a href="#none" class="name">
+                    <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
+                    <span>1개</span>
+                  </a>
+                </div>
+                <div class="cell price">
+                  <p>
+                    <strong>52,000</strong>원
+                  </p>
+                  <em class="point">+529P</em><!-- point -->
+                </div>
+              </div>
+              <div class="gifts">
+                <dl class="board_type_toggle single">
+                  <dt>
                     <a href="#none">
-                      <img src="/_nuxt/public/images/sam/order_sam_01.png" alt="">
-                      <div>
-                        <em>5/2~15, 기간내 5개</em>
-                        <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
-                        <span>1개</span>
-                      </div>
+                      그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
+                      <em></em>
                     </a>
-                    <p>
-                      <strong>67,600 <em>원</em></strong>
-                      <i>+964 P</i>
-                    </p>
-                  </td>
-                </tr>
-                <tr class="col_tr">
-                  <td>
+                  </dt>
+                  <dd>
+                    <div>
+                      <img src="/_nuxt/public/images/sam/order_list_01.png" alt="">
+                      <p>
+                        레티놀 시카 흔적 앰플 1mL
+                        <em>6개</em>
+                      </p>
+                    </div>
+                    <div>
+                      <img src="/_nuxt/public/images/sam/order_list_02.png" alt="">
+                      <p>
+                        레티놀 시카 흔적 앰플 1mL
+                        <em>6개</em>
+                      </p>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="order_goods">
+                <div class="cell pdt_img">
+                  <a href="#none">
+                    <span class="thumb">
+                      <em><img src="/_nuxt/public/images/sam/order_list_01.png" alt="" /></em>
+                    </span>
+                  </a>
+                </div>
+                <div class="cell pdt_info">
+                  <em>5/2~15, 기간내 5개</em>
+                  <a href="#none" class="name">
+                    <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
+                    <span>1개</span>
+                  </a>
+                </div>
+                <div class="cell price">
+                  <p>
+                    <strong>52,000</strong>원
+                  </p>
+                  <em class="point">+529P</em><!-- point -->
+                </div>
+              </div>
+              <div class="gifts">
+                <dl class="board_type_toggle single">
+                  <dt>
                     <a href="#none">
-                      <img src="/_nuxt/public/images/sam/order_sam_01.png" alt="">
-                      <div>
-                        <em>5/2~15, 기간내 5개</em>
-                        <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
-                        <span>1개</span>
-                      </div>
+                      그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
+                      <em></em>
                     </a>
-                    <p>
-                      <strong>67,600 <em>원</em></strong>
-                      <i>+964 P</i>
-                    </p>
-                  </td>
-                  <td class="gifts">
-                    <dl class="board_type_toggle single">
-                      <dt>
-                        <a href="#none">
-                          그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
-                          <em>버튼</em>
-                        </a>
-                      </dt>
-                      <dd>
-                        <div>
-                          <img src="/_nuxt/public/images/sam/order_list_01.png" alt="">
-                          <p>
-                            레티놀 시카 흔적 앰플 1mL
-                            <em>6개</em>
-                          </p>
-                        </div>
-                        <div>
-                          <img src="/_nuxt/public/images/sam/order_list_02.png" alt="">
-                          <p>
-                            레티놀 시카 흔적 앰플 1mL
-                            <em>6개</em>
-                          </p>
-                        </div>
-                      </dd>
-                    </dl>
-
-                  </td>
-                </tr>
-                <tr class="col_tr">
-                  <td>
-                    <a href="#none">
-                      <img src="/_nuxt/public/images/sam/order_sam_01.png" alt="">
-                      <div>
-                        <em>5/2~15, 기간내 5개</em>
-                        <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
-                        <span>1개</span>
-                      </div>
-                    </a>
-                    <p>
-                      <strong>67,600 <em>원</em></strong>
-                      <i>+964 P</i>
-                    </p>
-                  </td>
-                  <td class="gifts">
-                    <dl class="board_type_toggle single">
-                      <dt>
-                        <a href="#none">
-                          그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
-                          <em>버튼</em>
-                        </a>
-                      </dt>
-                      <dd>
-                        <div>
-                          <img src="/_nuxt/public/images/sam/order_list_01.png" alt="">
-                          <p>
-                            레티놀 시카 흔적 앰플 1mL
-                            <em>6개</em>
-                          </p>
-                        </div>
-                        <div>
-                          <img src="/_nuxt/public/images/sam/order_list_02.png" alt="">
-                          <p>
-                            레티놀 시카 흔적 앰플 1mL
-                            <em>6개</em>
-                          </p>
-                        </div>
-                      </dd>
-                    </dl>
-
-                  </td>
-                </tr>
-            </tbody>
-        </table>
+                  </dt>
+                  <dd>
+                    <div>
+                      <img src="/_nuxt/public/images/sam/order_list_01.png" alt="">
+                      <p>
+                        레티놀 시카 흔적 앰플 1mL
+                        <em>6개</em>
+                      </p>
+                    </div>
+                    <div>
+                      <img src="/_nuxt/public/images/sam/order_list_02.png" alt="">
+                      <p>
+                        레티놀 시카 흔적 앰플 1mL
+                        <em>6개</em>
+                      </p>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="order_goods">
+                <div class="cell pdt_img">
+                  <a href="#none">
+                    <span class="thumb">
+                      <em><img src="/_nuxt/public/images/sam/order_sam_01.png" alt="" /></em>
+                    </span>
+                  </a>
+                </div>
+                <div class="cell pdt_info">
+                  <em>5/2~15, 기간내 5개</em>
+                  <a href="#none" class="name">
+                    <p>블랙티 앰플 50mL[대용량] 스페셜 세트 + 블랙티 에센스 145mL</p>
+                    <span>1개</span>
+                  </a>
+                </div>
+                <div class="cell price">
+                  <p>
+                    <strong>52,000</strong>원
+                  </p>
+                  <em class="point">+529P</em><!-- point -->
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
       <article>
         <em>친환경 종이 완충재로 포장하여 안전하게 보내드립니다.</em>
@@ -371,40 +394,78 @@
       </div>
     </section>
 
+    <section class="odgift">
+      <div class="sub_title_wrap">
+        <div>
+          <h3>증정품</h3>
+        </div>
+      </div>
+      <div class="list_wrap">
+        <dl class="cart_list">
+          <dt>
+            <strong>함께 드리는 증정품</strong>
+          </dt>
+          <dd>
+            <div class="cell pdt_img">
+              <span class="thumb">
+                <em><img src="https://images.innisfree.co.kr/upload/product/36116_l_S_140.jpg?T202404300927" alt="" /></em>
+              </span>
+            </div>
+            <div class="wrap">
+              <div>
+                <span>[특별증정품]</span>
+                <p>[슈퍼 빅세일] 매쉬 썸머 파우치</p>
+              </div>
+              <div class="cell count">
+                <div class="count_wrap">
+                  <Button txt="-" />
+                  <Inputs />
+                  <Button txt="+" />
+                </div>
+              </div>
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <ul class="bullistType_02">
+        <li>스페셜 기프트 또는 원하시는 구매 금액 증정품을 선택하셔야 증정품 증정이 가능합니다.</li>
+        <li>구매 금액대별로 선택 가능한 개수만큼 중복 또는 여러 증정품의 선택이 가능합니다.</li>
+        <li>선택하신 증정품은 배송기간 중 품절이나 소진 시 동일 수준 혹은 더 좋은 증정품으로 변경될 수 있습니다.</li>
+      </ul>
+
+    </section>
+
     <section class="pay_method">
       <div class="sub_title_wrap">
         <div>
           <h3>결제수단 선택</h3>
         </div>
       </div>
-      <div class="table_wrap">
-        <table>
-            <caption>결제수단 선택</caption>
-            <colgroup>
-                <col style="">
-            </colgroup>
-            <tbody>
-                <tr>
-                  <td>
-                    <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" />
-                    <Inputs _type="radio" _text="원클릭 결제" _name="pay_method"/>
-                    <Inputs _type="radio" _text="다른 결제 수단" _name="pay_method"/>
-                  </td>
-                </tr>
-            </tbody>
-        </table>
-      </div>
-      <article class="method_card">
-        <ul>
-          <li></li>
+      <div class="list_wrap">
+        <ul class="cart_list type_default">
+          <li>
+            <div class="row">
+              <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" @change="radioChk = 'card'" _checked/><!-- [Tip] change되었을 때, 변수값을 지정해준 값으로 변경해준다. -->
+              <Inputs _type="radio" _text="원클릭 결제" _name="pay_method" @change="radioChk = 'onclick'"/>
+              <Inputs _type="radio" _text="다른 결제 수단" _name="pay_method" @change="radioChk = 'other'"/>
+            </div>
+          </li>
         </ul>
-        <a href="#none">무이자할부</a>
+      </div>
+      <article class="method_card" :class="{ active: radioChk == 'card' }"><!-- 활성화된 article에 active 클래스 추가 --><!-- [Tip] 라디오버튼이 change되어 변경된 변수값을 확인하여 해당 article에 active 클래스를 활성화 시킴 -->
+        <ul>
+          <li v-for="(item, idx) in bank_info" :key="idx" :id="item.li_id">
+            <input type="radio" name="cardList" :id="item.input_id">
+            <label :for="item.label_for">{{ item.name }}</label>
+				  </li>
+        </ul>
+        <a href="#none">무이자 할부 안내</a>
         <p class="tosspay">
           <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
-          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" />
+          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
         </p>
       </article>
-      <article class="method_onclick">
+      <article class="method_onclick" :class="{ active: radioChk == 'onclick' }">
         <div>
           <button>
             <span>대표카드를 등록해 주세요</span>
@@ -412,29 +473,122 @@
         </div>
         <p class="tosspay">
           <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
-          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" />
+          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
         </p>
       </article>
-      <article class="method_other">
+      <article class="method_other" :class="{ active: radioChk == 'other' }">
         <ul>
-          <li></li>
-        </ul>
+          <li v-for="(item, idx) in etc_info" :key="idx" :id="item.li_id" @change="orderChk = item.class">
+            <input type="radio" name="etcList" :id="item.input_id" :checked="item.checked">
+            <label :for="item.label_for"><span>{{item.text}}</span></label>
 
-        <div class="paycont">
-          <p>
-            <strong></strong>
-            <ul>
-              <li></li>
-            </ul>
-          </p>
-          <dl>
-            <dt>유의사항</dt>
-            <dd></dd>
-          </dl>
+            <div class="discount_txt" v-if="item.discont_txt">{{ item.discont_txt }}</div>
+          </li>
+        </ul>
+        <div class="other_cont">
+          <div class="kakao" :class="{ active: orderChk == 'kakao' }">
+            <div class="discount_info">
+              <h4>카카오페이 결제 혜택</h4>
+              <ul class="bullistType_01">
+                <li>카카오페이 머니로 결제 시에만 적용 가능(신용카드 제외)</li>
+                <li>기간 : 5/9(목) - 5/13(월)</li>
+                <li>카카오페이 머니로 3만원 이상 결제 시 5,000원 즉시할인</li>
+                <li>공식온라인몰 / 오프라인매장 기간 내 각 1회 할인가능</li>
+              </ul>
+            </div>
+            <div class="notice">
+              <h5>유의사항</h5>
+              <ul class="bulListType_02">
+                <li>카카오톡안에서 개인 신용카드(체크카드포함)를 등록하여 카카오페이 비밀번호로 결제할 수 있는 간편결제입니다.</li>
+                <li>본인명의 스마트폰에서 본인명의 카드 등록 후 사용 가능합니다.(카드등록 : 카카오톡 > 더 보기 > 카카오페이 > 카드)</li>
+                <li>카드사별 무이자 할부 행사는 카카오페이 결제 창에서 확인 가능합니다.</li>
+                <li>결제메시지 요청 시 입력하신 휴대폰 번호로 카카오페이로부터 메시지가 발송됩니다.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="toss" :class="{ active: orderChk == 'toss' }">
+            <div class="discount_info">
+              <h4>토스페이 결제 혜택</h4>
+              <ul class="bullistType_01">
+                <li>토스 페이로 생애 첫 결제 시 2천원 적립!</li>
+                <li>토스 페이로 결제 시(토스로 등록된 신용카드 결제 시 제외</li>
+                <li>토스 전체 가맹점에서 결제 이력이 없는 경우 적용됩니다.(토스 ID당 1회)</li>
+                <li>토스페이 결제 화면에서 생애 첫 결제 혜택이 보이지 않을 경우 대상이 아닙니다.</li>
+                <li>생애 첫 결제 프로모션은 기타 할인 및 적립 프로모션과 중복으로 적용이 가능합니다.</li>
+                <li>관련 문의는 토스 고객센터(1599-4905)로 문의 부탁드립니다.</li>
+              </ul>
+            </div>
+            <div class="notice">
+              <h5>유의사항</h5>
+              <ul class="bulListType_02">
+                <li>토스페이 결제시 토스페이 또는 등록된 카드로 결제가 가능합니다.</li>
+                <li>토스페이로 결제한 경우 환불(또는 부분환불)시 토스페이로 환불됩니다.</li>
+                <li>토스페이 앱을 최신 버전으로 업데이트 해주세요. 최신 버전이 아닌 경우 결제가 원활하지 않을 수 있습니다.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="kb" :class="{ active: orderChk == 'kb' }" >
+            <div class="discount_info">
+              <h4>KB페이 결제 혜택</h4>
+              <ul class="bullistType_01">
+                <li>KB Pay 결제 시 적용 (국민카드>KB Pay 선택시에도 적용)</li>
+                <li>기간 : 5/9(목) - 5/13(월)</li>
+                <li>KB국민카드로 3만원 이상 결제 시 5,000원 즉시할인</li>
+                <li>공식온라인몰에서만 진행됩니다.</li>
+              </ul>
+            </div>
+            <div class="notice">
+              <h5>유의사항</h5>
+              <ul class="bulListType_02">
+                <li>이벤트 페이지 참조</li>
+              </ul>
+            </div>
+          </div>
+          <div class="sam" :class="{ active: orderChk == 'sam' }">
+            <div class="notice">
+              <h5>유의사항</h5>
+              <ul class="bulListType_02">
+                <li>스마트폰 명의자와 카드명의자가 동일한 경우에만 삼성페이 서비스에 카드등록이 가능합니다.</li>
+                <li>삼성페이 지원 가능한 단말기는 아래 삼성페이 홈페이지에서 확인 가능합니다. (www.samsungpay.com/sec/Samsung-pay)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="bankbook" :class="{ active: orderChk == 'bankbook' }">
+            <div class="notice">
+              <h5>유의사항</h5>
+              <ul class="bulListType_02">
+                <li>무통장 입금의 경우 주문접수 후 입금이 되지 않고 3일이 지나면 자동 취소됩니다.</li>
+                <li>현금영수증 신청은 주문 시, 각 결제수단(실시간계좌이체, 무통장입금)의 인증 페이지에서 신청 가능합니다.</li>
+                <li>추후 신청은 '회원로그인 > 마이페이지 > 증빙서류 발급'에서 가능합니다.</li>
+                <li>(비회원은 '비회원 로그인(주문조회) > 증빙서류 발급')</li>
+                <li><em>사업자증빙의 경우 반드시 주문 시 신청하여야 합니다.</em></li>
+                <li><em>세금계산서는 고객상담실과 상담 후 발급이 가능합니다.</em></li>
+              </ul>
+            </div>
+          </div>
+          <div class="old_card" :class="{ active: orderChk == 'old_card' }">
+            <dl>
+              <dt>카드 선택</dt>
+              <dd>
+                <Selectbox
+                    :options="[
+                    { val: 'value', txt: '선택' },
+                    { val: 'value', txt: '국민' },
+                    { val: 'value', txt: '신한' },
+                    { val: 'value', txt: '삼성' },
+                    { val: 'value', txt: '롯데' },
+                    { val: 'value', txt: 'KEB하나' },
+                ]" />
+                <a href="#none">무이자 할부 안내</a>
+              </dd>
+            </dl>
+          </div>
         </div>
+
+
         <p class="tosspay">
           <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
-          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" />
+          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
         </p>
       </article>
     </section>
@@ -445,20 +599,14 @@
           <h3>품절 시 환불 방법</h3>
         </div>
       </div>
-      <div class="table_wrap">
-        <table>
-            <caption>품절 시 환불 방법</caption>
-            <colgroup>
-                <col style="">
-            </colgroup>
-            <tbody>
-                <tr>
-                  <td>
-                    <Inputs _type="radio" _text="결제 수단으로 환불 받기" />
-                  </td>
-                </tr>
-            </tbody>
-        </table>
+      <div class="list_wrap">
+        <ul class="cart_list type_default">
+          <li>
+            <div class="row">
+              <Inputs _type="radio" _text="결제 수단으로 환불 받기" />
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
   </div>
@@ -466,7 +614,6 @@
 
 
   <!-- modal -->
-
   <div class="modal_wrap" id="delete_modal">
     <div class="modal_container">
         <div class="modal_header">
@@ -699,24 +846,25 @@
         </div>
     </div>
   </div>
-
-
-
-
-
-
   <!-- //modal -->
 
 </template>
 
 <script setup>
 import { modal } from '~/assets/js/common-ui.js'
-import {Delivery_data} from '../../test/data/publish/dummyData'
+import {Delivery_data, bank_info, etc_info} from '../../test/data/publish/dummyData'
+
 
 definePageMeta({
 layout:'pc-ord'
 });
 
+const radioChk = ref('card');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
+const orderChk = ref('naver');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
+
+const toss_info = () => {
+  window.open("https://consumer.tosspayments.com/escrow/detail?mertid=innisfree", "_blank");
+}
 
 const ord_addr_more = (event) => {
   document.querySelector('.modal_wrap#add_list_modal').classList.remove('active')
@@ -747,10 +895,9 @@ const change_res = (event) => {
   document.querySelector('.deliveryList').classList.remove('hide')
 }
 
-
-
 onMounted(() => {
   let target = document.querySelectorAll('.board_type_toggle dt a');
+  console.log(target)
   let rotate = document.querySelectorAll('.board_type_toggle dt a em');
   let i
   target.forEach((a,i)=>{
@@ -857,6 +1004,10 @@ onMounted(() => {
                       label.select {
                           width:75% !important;
                           display:inline-block;
+                        }
+                        .input_wrap {
+                          width:75% !important;
+                          margin-top:12px;
                         }
                     }
                     > div {
@@ -1392,23 +1543,6 @@ div.list {
 
 }
 
-.bullistType_01 {
-  margin-left:8px;
-  li {
-    color:#888;
-    position:relative;
-    &::after {
-      content: "";
-      width: 3px;
-      height: 3px;
-      background: #999E9C;
-      position: absolute;
-      top: 8px;
-      left: -8px;
-    }
-  }
-}
-
 .point {
   .table_wrap {
     table {
@@ -1458,152 +1592,160 @@ div.list {
   }
 }
 
-.order_info {
- .table_wrap {
-  table {
-    tbody {
-      tr {
-        display:flex;
-        align-items:center;
-        justify-content: space-between;
-        td {
-          width:100%;
-          padding:40px 0;
-          display:flex;
-          align-items:center;
-            a {
-            display: flex;
-            align-items:flex-start;
-            gap:20px;
-            img {
-              width: 100px;
-              height: 133px;
-            }
-            > div {
-              em {
-                padding:2px 5px;
-                color:#00BC70;
-                font-size:12px;
-                background:#E0FBF0
-              }
-              p {
-                margin:10px 0;
-                font-size:16px;
-                font-weight:400;
-              }
-              span {
-                color:#888;
-                font-size:14px;
-              }
-            }
-          }
-          > p {
-            margin-left:auto;
-            margin-right:0;
-            text-align:right;
-            display:flex;
-            flex-direction:column;
-            strong {
-              font-size:18px;;
-              em {
-                font-size:14px;;
-                font-weight:normal;
-              }
-            }
-            i {
-              margin-top: 5px;
-              color: #009D5E;
-              font-size: 13px;
-              font-style:normal;
-              line-height: 1.23;
-              display: block;
-            }
-          }
+.odgift {
+  strong {
+    font-weight:600;
+  }
+  dl {
+    border: 1px solid #EEEEEE;
+    border-radius: 3px;
+    background: #FCFCFD;
+    dt {
+      padding: 22px 19px;
+      color: #333;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    dd {
+      padding: 25px 19px;
+      border-top: 1px solid #eee;
+      background: #fff;
+      display:flex;
+      align-items:center;
+      .pdt_img {
+        width: 68px;
+        height: 90px;
+      }
+      .wrap {
+        font-weight:400;
+        p {
+          margin-bottom:10px;
         }
-        &.col_tr {
-          flex-direction:column;
-        }
-        td {
-          &:first-of-type {
-            border-bottom:0;
-          }
-          &.gifts {
-            width:100%;
-            dl {
-              width:100%;
-              dt {
-                height:69px;
-                padding:0 20px;
-                color: #333;
-                font-weight:600;
-                font-size:16px;
-                border:1px solid #eee;
-                border-radius: 3px;
-                background:#FCFCFD;
-                position:relative;
-                display:flex;
-                align-items: center;
-                a {
-                  width:100%;
-                }
-                em {
-                  width:40px;
-                  height:40px;
-                  background-image: url('~/assets/images/common/icon_split.png');
-                  background-repeat: no-repeat;
-                  background-size: 250px;
-                  background-position: -200px -60px;
-                  text-indent: -9999px;
-                  position:absolute;
-                  top:15%;
-                  right:10px;
-                  transform:rotate(180deg);
-                  transition:all 0.5s;
-                  &.active {
-                    transform:translateY(40%) rotate(0deg);
-                  }
-                }
-              }
-              dd {
-                width:100%;
-                padding: 25px 19px;
-                border:1px solid #eee;
-                border-top:0;
-                display:none;
-                align-items:center;
-                gap:25px;
-                overflow:hidden;
-                transition:height 0.2s ease-out;
-                div {
-                  width:390px;
-                  display:flex;
-                  align-items:center;
-                  img {
-                    width:68px;
-                    height:90px;
-                    margin-right:15px;
-                  }
-                  p {
-                    font-size:14px;
-                    font-weight:400;
-                    display:flex;
-                    flex-direction:column;
-                    gap:10px;
-                    em {
-                      color:#666;
-                      font-size:13px;;
-                    }
-                  }
-                }
 
-              }
-            }
-          }
-        }
       }
     }
   }
+  .bullistType_02 {
+    margin-top:20px !important;
+  }
+}
+.order_info {
+
+ .row {
+  flex-direction:column;
+  .order_goods {
+    display:flex;
+    .cell {
+
+      &.pdt_info{
+        margin-left:20px;
+        em {
+          padding:2px 5px;
+          color:#00BC70;
+          font-size:12px;
+          background:#E0FBF0;
+          display:inline-block;
+        }
+        p {
+          margin:10px 0;
+          font-size:16px;
+          font-weight:400;
+        }
+        span {
+          color: #888;
+          font-size: 14px;
+        }
+      }
+      &.price {
+        p {
+          display:flex;
+          flex-direction:row;
+          align-items:center;
+          strong {
+            margin-right:5px;
+          }
+        }
+      }
+
+    }
+  }
  }
+  .gifts {
+    width:100%;
+    dl {
+      width:100%;
+      dt {
+        height:69px;
+        padding:0 20px;
+        color: #333;
+        font-weight:600;
+        font-size:16px;
+        border:1px solid #eee;
+        border-radius: 3px;
+        background:#FCFCFD;
+        position:relative;
+        display:flex;
+        align-items: center;
+        a {
+          width:100%;
+        }
+        em {
+          width:40px;
+          height:40px;
+          background-image: url('~/assets/images/common/icon_split.png');
+          background-repeat: no-repeat;
+          background-size: 250px;
+          background-position: -200px -60px;
+          text-indent: -9999px;
+          position:absolute;
+          top:15%;
+          right:10px;
+          transform:rotate(180deg);
+          transition:all 0.5s;
+          &.active {
+            transform:translateY(40%) rotate(0deg);
+          }
+        }
+      }
+      dd {
+        width:100%;
+        padding: 25px 19px;
+        border:1px solid #eee;
+        border-top:0;
+        display:none;
+        align-items:center;
+        gap:25px;
+        overflow:hidden;
+        transition:height 0.2s ease-out;
+        div {
+          width:390px;
+          display:flex;
+          align-items:center;
+          img {
+            width:68px;
+            height:90px;
+            margin-right:15px;
+          }
+          p {
+            font-size:14px;
+            font-weight:400;
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+            em {
+              color:#666;
+              font-size:13px;;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+
+
+
  > article {
     position: relative;
     margin-top:20px;
@@ -1629,23 +1771,229 @@ button.tooltip {
 }
 
 .pay_method {
-  .table_wrap {
-    table {
-      tbody {
-        tr {
-          td {
-            display:flex;
-            .input_wrap {
-              width:18%;
+  .list_wrap {
+    .row {
+      gap:30px;
+    }
+  }
+  article {
+    padding:20px 0 0;
+    display:none;
+    &.active {
+      display:block;
+    }
+    &.method_card {
+      ul {
+        display:flex;
+        flex-wrap:wrap;
+        li {
+          width:106px;
+          height:95px;
+          position:relative;
+          input {
+            position:absolute;
+            z-index:-1;
+            opacity:0;
+            &[type="radio"]:checked {
+              + label {
+                border:1px solid #333;
+              }
+            }
+          }
+          label {
+            font-size:12px;
+            border:1px solid transparent;
+            text-align:center;
+            cursor:pointer;
+            position:absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            &::before {
+              content:"";
+              height:50px;
+              margin-bottom:15px;;
+              padding:10px 0 0;
+              background-image: url('/_nuxt/assets/images/common/icon_bank.png');
+              background-repeat:no-repeat;
+              background-size:250px;
+              background-position:4px 0px;
+              display:block;
+            }
+          }
+          &#cardList_1 {
+            label {
+              &::before {
+                background-position:4px -60px;
+              }
+            }
+          }
+          &#cardList_3 {
+            label {
+              &::before {
+                background-position:-100px -3px;
+              }
+            }
+          }
+          &#cardList_4 {
+            label {
+              &::before {
+                background-position:-96px -60px;
+              }
+            }
+          }
+          &#cardList_5 {
+            label {
+              &::before {
+                background-position:4px -120px;
+              }
+            }
+          }
+          &#cardList_6 {
+            label {
+              &::before {
+                background-position:-96px -120px;
+              }
+            }
+          }
+          &#cardList_7 {
+            label {
+              &::before {
+                background-position:4px -174px;
+              }
+            }
+          }
+          &#cardList_8 {
+            label {
+              &::before {
+                background-position:-96px -174px;
+              }
+            }
+          }
+          &#cardList_9 {
+            label {
+              &::before {
+                background-position:4px -225px;
+              }
+            }
+          }
+          &#cardList_10 {
+            label {
+              &::before {
+                background-position:-96px -225px;
+              }
+            }
+          }
+          &#cardList_11 {
+            label {
+              &::before {
+                background-position:4px -280px;
+              }
+            }
+          }
+          &#cardList_12 {
+            label {
+              &::before {
+                background-position:-96px -280px;
+              }
+            }
+          }
+          &#cardList_13 {
+            label {
+              &::before {
+                background-position:4px -335px
+              }
+            }
+          }
+          &#cardList_14 {
+            label {
+              &::before {
+                background-position:-96px -335px
+              }
+            }
+          }
+          &#cardList_15 {
+            label {
+              &::before {
+                background-position:4px -390px
+              }
+            }
+          }
+          &#cardList_16 {
+            label {
+              &::before {
+                background-position:-96px -390px
+              }
+            }
+          }
+          &#cardList_17 {
+            label {
+              &::before {
+                background-position:4px -444px
+              }
+            }
+          }
+          &#cardList_18 {
+            label {
+              &::before {
+                background-position:-96px -444px
+              }
+            }
+          }
+          &#cardList_19 {
+            label {
+              &::before {
+                background-position:4px -498px
+              }
+            }
+          }
+          &#cardList_20 {
+            label {
+              &::before {
+                background-position:-96px -498px
+              }
+            }
+          }
+          &#cardList_21 {
+            label {
+              &::before {
+                background-position:4px -554px
+              }
+            }
+          }
+          &#cardList_22 {
+            label {
+              &::before {
+                background-position:-96px -554px
+              }
+            }
+          }
+          &#cardList_23 {
+            label {
+              &::before {
+                background-position:4px -608px
+
+              }
+            }
+          }
+          &#cardList_24 {
+            label {
+              &::before {
+                background-position:-96px -608px
+              }
             }
           }
         }
       }
+      > a {
+        margin-top:21px;
+        color:#666;
+        font-size:13px;
+        text-decoration:underline;
+        display:block;
+      }
     }
-  }
-  article {
-    padding:40px 0 0;
-    &.method_card {}
     &.method_onclick{
       > div {
         width:100%;
@@ -1665,24 +2013,294 @@ button.tooltip {
               content:'';
               width:24px;
               height:25px;
-              margin:0 auto;
-              border:1px solid red;
+              margin:0 auto 10px auto ;
               background-image: url('/_nuxt/assets/images/common/icon_split.png');
               background-repeat:no-repeat;
               background-size:250px;
-              background-position:0px 0px;
+              background-position:-9px -138px;
               display:block;
             }
           }
         }
       }
     }
-    &.method_other{}
+    &.method_other{
+      ul {
+        display:flex;
+        flex-wrap:wrap;
+        gap:5px;
+        li {
+          width:174px;
+          height:83px;
+          position: relative;
+          &#etcdList_1 {
+            span {
+              &::before {
+                background-position:-66px -695px;
+              }
+            }
+          }
+          &#etcdList_2 {
+            span {
+              &::before {
+                background-position:-130px -670px;
+              }
+            }
+          }
+          &#etcdList_3 {
+            span {
+              &::before {
+                background-position:-65px -670px;
+              }
+            }
+          }
+          &#etcdList_4 {
+            span {
+              &::before {
+                background-position:0px -720px;
+              }
+            }
+          }
+          &#etcdList_5 {
+            span {
+              &::before {
+                background-position:0px -695px;
+              }
+            }
+          }
+          &#etcdList_6 {
+            span {
+              &::before {
+                background-position:-129px -695px;
+              }
+            }
+          }
+          input {
+            position:absolute;
+            z-index: -1;
+            opacity: 0;
+            &[type="radio"]:checked {
+              + label {
+                border:3px solid #009D5E;
+              }
+            }
+          }
+          label {
+            color:#222;
+            font-size:14px;
+            border:1px solid #ddd;
+            text-align:center;
+            line-height:22px;
+            position:absolute;
+            top:-1px;
+            right:0;
+            bottom:0;
+            left:-1px;
+            z-index:1;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            cursor:pointer;
+            span {
+              display:flex;
+              flex-direction:column;
+              align-items:center;
+              &::before {
+                content:'';
+                width:60px;
+                height:20px;
+                background-image: url('/_nuxt/assets/images/common/icon_bank.png');
+                background-repeat:no-repeat;
+                background-size:250px;
+                background-position:-2px -672px;
+                text-align:center;
+                display:inline-block;
+              }
+            }
+          }
+          .discount_txt {
+            padding:3px 8px 4px;
+            color:#fff;
+            font-size:10px;
+            font-weight:700;
+            background:#1A90FB;
+            text-align:center;
+            position:absolute;
+            left:5px;
+            top:-10px;
+            z-index:10;
+            display: block;
+            &::after {
+              content: "";
+              border-top:6px solid #1B8DF7;
+              border-left:6px solid transparent;
+              border-right:6px solid transparent;
+              border-bottom:none;
+              position:absolute;
+              left:6px;
+              bottom:-4px;
+              display:inline-block;
+            }
+          }
+          &#etcdList_8, &#etcdList_9, &#etcdList_10, &#etcdList_11 {
+            label {
+              span {
+                &::before {
+                  display:none;
+                }
+              }
+            }
+          }
+        }
+      }
+      > div {
+        > div {
+          display:none;
+            &.active {
+              display:block;
+            }
+          &.old_card {
+              dl {
+                padding:30px 0 20px;
+                border-bottom:1px solid #f5f5f5;
+                display:flex;
+                align-items:flex-start;
+                dt {
+                  width:210px;
+                  color:#333;
+                }
+                dd {
+                  width:100%;
+                  display:flex;
+                  align-items:flex-end;
+                  gap:30px;
+                  :deep(label.select) {
+                    width:45%;
+                  }
+                  a {
+                    color:#222;
+                    text-decoration:underline;
+                  }
+                }
+              }
+            }
+          > div {
+              ul {
+                margin-top:10px;
+                flex-direction:column;
+                > * + * {
+                  margin-top:5px;
+                }
+                li {
+                  width:100%;
+                  height:100%;
+                }
+              }
+              &.discount_info {
+                margin-top:25px;
+                padding:30px;
+                border:1px solid #eee;
+                background:#fcfcfd;
+                h4 {
+                  color: #333;
+                  font-weight: 600;
+                }
+                ul {
+                  li {
+                    color:#666;
+                    font-size:14px;
+                }
+              }
+            }
+            &.notice {
+              margin-top:30px;
+              h5 {
+                color: #666;
+                font-size: 16px;
+                font-weight: 600;
+              }
+              ul {
+                li {
+                  color: #888;
+                  font-size: 13px;
+                  &::before {
+                  content: "※";
+                  margin-right: 10px;
+                  display: inline-block;
+                  }
+                  em {
+                    color:#d72137 !important;
+                  }
+                }
+              }
+            }
+          }
+
+        }
+      }
+
+    }
   }
-  .tosspay {
-    margin:40px 0 0;
-    padding:20px 0 0;
-    border-top:1px solid #eee;
+}
+.tosspay {
+  margin:40px 0 0;
+  padding:20px 0 0;
+  border-top:1px solid #eee;
+    button.btn_min_outline {
+      margin-top:15px;
+      :deep(em) {
+        font-size:12px;
+        font-weight:600;
+      }
+    }
+  }
+
+.bullistType_01 {
+margin-left:8px;
+li {
+  color:#888;
+  position:relative;
+  &::after {
+    content: "";
+    width: 3px;
+    height: 3px;
+    background: #999E9C;
+    position: absolute;
+    top: 8px;
+    left: -8px;
+  }
+}
+}
+
+.bullistType_02 {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  li {
+    color: #888;
+    font-size: 13px;
+    &::before {
+    content: "※";
+    margin-right: 10px;
+    display: inline-block;
+    }
+  }
+}
+
+div.list_wrap {
+  ul.cart_list {
+    li {
+      div.row {
+        .input_wrap {
+          flex:0 auto !important;
+          :deep(label.check) {
+            > * {
+              font-size:16px !important;
+            }
+          }
+        }
+      }
+    }
   }
 }
 

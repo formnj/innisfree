@@ -1,10 +1,11 @@
 <template>
-  <div class="main_swiper">
+  <div class="prod_swiper">
     <swiper
       :slides-per-view="'1'" :loop="loopYN" :pagination="pagination" :autoplay="autoplayYN" :speed="500" :navigation="navigation" :thumbs="{ swiper: thumbsSwiper }">
       <swiper-slide v-for="(item, idx) in prodImgData" :key="idx">
         <img :src="item.img">
       </swiper-slide>
+      <div v-if="isMo" class="custom_pagination"></div>
     </swiper>
   </div>
 
@@ -45,14 +46,30 @@ const props = defineProps({
   thumbYN: { //loop 여부
     type: Boolean,
     default: true
+  },
+  pagiYN: { //loop 여부
+    type: Boolean,
+    default: false
+  },
+  isMo: {
+    type: Boolean,
+    default: false
   }
 });
 
+const pagination = {
+  el: ".custom_pagination",
+  type: "custom",
+  renderCustom: function(swiper, current, total) {
+    return "<span class='pagination-current'>0" + current + "</span><span class='pagination-total'>0" + total + "</span>";
+  }
+}
 const navigation = {
   prevEl: ".nav_prev",
   nextEl: ".nav_next",
   type: "custom",
 }
+
 
 const thumbsSwiper = ref(null);
 const setThumbsSwiper = (swiper) => {
@@ -69,7 +86,38 @@ const setThumbsSwiper = (swiper) => {
       vertical-align: top;
     }
   }
+
+  .custom_pagination {
+    width: 70px;
+    height: 30px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: unset;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+
+    .pagination_total {
+      opacity: .5;
+
+      &::before {
+        content: '';
+        width: 0.1rem;
+        height: 0.8rem;
+        margin: 0 0.8rem;
+        background-color: rgba(255, 255, 255, 0.2);
+        display: inline-flex;
+      }
+    }
+  }
 }
+
 
 .thumb_swiper {
   margin: 30px 0;

@@ -226,12 +226,10 @@
               <button type="button" @click="setFilter">평점순</button>
               <div class="dropdown">
                 <button type="button" class="btn_dropdown" @click="DropDown()">옵션별</button>
-                <ul class="prod_select_list">
-                  <li>
-                    <input id="rv_op00" type="radio" name="v_op"><label for="rv_op00">전체</label>
-                    <input id="rv_op01" type="radio" name="v_op"><label for="rv_op01">1호 샐먼 베이지</label>
-                    <input id="rv_op02" type="radio" name="v_op"><label for="rv_op02">2호 피치 베이지</label>
-                  </li>
+                <ul>
+                  <li><input id="rv_op00" type="radio" name="v_op"><label for="rv_op00">전체</label></li>
+                  <li><input id="rv_op01" type="radio" name="v_op"><label for="rv_op01">1호 샐먼 베이지</label></li>
+                  <li><input id="rv_op02" type="radio" name="v_op"><label for="rv_op02">2호 피치 베이지</label></li>
                 </ul>
               </div>
             </div>
@@ -493,7 +491,7 @@ onMounted(()=>{
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .prod_detail_wrap {
   width: 1320px;
   margin: -60px auto 0;
@@ -761,9 +759,9 @@ onMounted(()=>{
       }
 
       .dropdown {
-        display: flex;
         align-items: center;
         position: relative;
+        display: flex;
 
         &>button {
           display: flex;
@@ -782,11 +780,12 @@ onMounted(()=>{
           }
         }
 
-        .prod_select_list {
+        ul {
           width: 170px;
           height: 0px;
           padding: 10px 0;
           background: #fff;
+          border: 1px solid #AAA;
           box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.05);
           position: absolute;
           left: -85px;
@@ -803,6 +802,18 @@ onMounted(()=>{
 
           li {
             input {
+              position: absolute;
+              z-index: -1;
+              opacity: 0;
+
+              &+label {
+                display: block;
+                padding: 10px 15px;
+                color: #888;
+                line-height: 1.43em;
+                cursor: pointer;
+              }
+
               &:checked {
                 &+label {
                   background: #fff;
@@ -1072,43 +1083,6 @@ button.tooltip {
   background: url('~/assets/images/common/icon_split.png') 0px -260px / 250px auto no-repeat;
   vertical-align: middle;
   display: inline-block;
-}
-
-.prod_select_list {
-  width: 100%;
-  max-height: 286px;
-  height: 0;
-  border: 1px solid #AAA;
-  background: #fff;
-  overflow-y: auto;
-  opacity: 0;
-  position: absolute;
-  top: 41px;
-  left: 0;
-  z-index: 1;
-  transition: all .2s;
-
-  li {
-    &+li {
-      border-top: 1px solid #f5f5f5;
-    }
-
-    input {
-      display: none;
-
-      &:checked+label {
-        background: #f3f3f3;
-      }
-    }
-
-    label {
-      width: 100%;
-      font-size: 13px;
-      padding: 14px 20px;
-      display: block;
-      cursor: pointer;
-    }
-  }
 }
 
 .review_list_wrap {

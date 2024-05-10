@@ -150,9 +150,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-24/2024-04-09', worker:'김희경'
     }, {
         depth:['','상세','',''],
-        id:'IN_PC_PRD_01_09', status:'ing',
-        type:'', note:'',
-        sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/', worker:'김나람'
+        id:'IN_PC_PRD_01_09', status:'com',
+        type:'', note:'디자인 고도화 필요',
+        sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/2024-05-09', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_PC_CAR_01_01', status:'com',
@@ -175,9 +175,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['주문서','','',''],
-        id:'IN_PC_ORD_01_01', status:'ing',
+        id:'IN_PC_ORD_01_01', status:'com',
         type:'', note:'결제하기페이지',
-        sDate:'', eDate:'2024-05-24/2024-05-07', worker:'김희경'
+        sDate:'2024-05-07', eDate:'2024-05-24/2024-05-10', worker:'김희경'
     }, {
         depth:['','배송지 등록/변경','',''],
         id:'IN_PC_ORD_01_02', status:'com',
@@ -415,7 +415,7 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','마이샵 관리','',''],
-        id:'IN_PC_MYP_01_85', status:'',
+        id:'IN_PC_MYP_01_85', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-10', worker:'김나람'
     }, {
@@ -638,6 +638,16 @@ const MO_arry = ([
         type:'', note:'goods_item > btnIconBox > btn_heart 노출',
         sDate:'', eDate:'2024-04-23/2024-04-23', worker:'이종환'
     }, {
+        depth:['샘플마켓','목록','',''],
+        id:'IN_MO_APP_01_06_01', status:'',
+        type:'', note:'앱에서만 노출되는 페이지',
+        sDate:'', eDate:'2024-05-24', worker:'김나람'
+    }, {
+        depth:['','신청완료','',''],
+        id:'IN_MO_APP_01_06_07', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-05-24', worker:'김나람'
+    }, {
         depth:['검색','검색','',''],
         id:'IN_MO_SRC_01_01', status:'com',
         type:'', note:'모바일 검색 페이지 분리',
@@ -654,9 +664,9 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-24/2024-04-11', worker:'김희경'
     }, {
         depth:['','상세','',''],
-        id:'IN_MO_PRD_01_09', status:'ing',
-        type:'', note:'',
-        sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/', worker:'김나람'
+        id:'IN_MO_PRD_01_09', status:'com',
+        type:'', note:'디자인 고도화 필요',
+        sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/2024-05-09', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_MO_CAR_01_01', status:'com',
@@ -930,7 +940,7 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','마이샵 관리','',''],
-        id:'IN_MO_MYP_01_85', status:'',
+        id:'IN_MO_MYP_01_85', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-10', worker:'김나람'
     }, {
@@ -1056,7 +1066,7 @@ const MO_arry = ([
     }
 ])
 
-var row_chk,
+let row_chk,
     path,
     link;
 
@@ -1076,7 +1086,7 @@ const change_device = () => {
         device.value=MO_arry;
     }
 
-    for (var j=0; j<comm_arry.length; j++){
+    for (let j=0; j<comm_arry.length; j++){
         document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'
         +   '<th>'+comm_arry[j].depth[0]+'</th>'
         +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[1]+'</td>'
@@ -1090,7 +1100,7 @@ const change_device = () => {
         +'</tr>');
     }
 
-    for (var i=0; i<device.value.length;i++) {
+    for (let i=0; i<device.value.length;i++) {
         /* row 시작 체크 */
         if(device.value[i].depth[0].length != 0){
             row_chk = 'row';
@@ -1142,7 +1152,7 @@ onMounted(() => {
         device.value = MO_arry;
     }
 
-    for (var j=0; j<comm_arry.length; j++){
+    for (let j=0; j<comm_arry.length; j++){
         document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'
         +   '<th>'+comm_arry[j].depth[0]+'</th>'
         +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[1]+'</td>'
@@ -1156,7 +1166,7 @@ onMounted(() => {
         +'</tr>');
     }
 
-    for (var i=0; i<device.value.length;i++) {
+    for (let i=0; i<device.value.length;i++) {
         /* row 시작 체크 */
         if(device.value[i].depth[0].length != 0){
             row_chk = 'row';

@@ -218,6 +218,7 @@ onMounted(()=>{
   }
   .payment {
     width:360px;
+    height:100%;
     margin-top:165px;
     margin-left:30px;
     position:sticky;
