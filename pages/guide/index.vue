@@ -1066,7 +1066,7 @@ const MO_arry = ([
     }
 ])
 
-var row_chk,
+let row_chk,
     path,
     link;
 
@@ -1086,7 +1086,7 @@ const change_device = () => {
         device.value=MO_arry;
     }
 
-    for (var j=0; j<comm_arry.length; j++){
+    for (let j=0; j<comm_arry.length; j++){
         document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'
         +   '<th>'+comm_arry[j].depth[0]+'</th>'
         +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[1]+'</td>'
@@ -1100,7 +1100,7 @@ const change_device = () => {
         +'</tr>');
     }
 
-    for (var i=0; i<device.value.length;i++) {
+    for (let i=0; i<device.value.length;i++) {
         /* row 시작 체크 */
         if(device.value[i].depth[0].length != 0){
             row_chk = 'row';
@@ -1152,7 +1152,7 @@ onMounted(() => {
         device.value = MO_arry;
     }
 
-    for (var j=0; j<comm_arry.length; j++){
+    for (let j=0; j<comm_arry.length; j++){
         document.querySelector('tbody').insertAdjacentHTML('beforeend', '<tr class="'+row_chk+'">'
         +   '<th>'+comm_arry[j].depth[0]+'</th>'
         +   '<td class="'+comm_arry[j].status+'">'+comm_arry[j].depth[1]+'</td>'
@@ -1166,7 +1166,7 @@ onMounted(() => {
         +'</tr>');
     }
 
-    for (var i=0; i<device.value.length;i++) {
+    for (let i=0; i<device.value.length;i++) {
         /* row 시작 체크 */
         if(device.value[i].depth[0].length != 0){
             row_chk = 'row';
