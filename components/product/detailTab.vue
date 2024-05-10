@@ -1,5 +1,5 @@
 <template>
-  <Tabs tabType="type_01" :item="[{ txt: '상세정보' }, { txt: '리뷰' }, { txt: '유의사항' }, { txt: '문의' }]" :tabidx="0" :isProduct="true" :reviewCnt="999" @click="tabContShow" />
+  <Tabs tabType="type_01 product_tab" :item="[{ txt: '상세정보' }, { txt: '리뷰', Cnt:299 }, { txt: '유의사항' }, { txt: '문의' }]" :tabidx="0" @click="tabContShow" />
 </template>
 <script setup>
 import { modal } from '~/assets/js/common-ui'
@@ -13,7 +13,7 @@ const props = defineProps({
 onMounted(() => {
   let gnbH, contTop
   if(!props.isMo) { gnbH = document.getElementsByClassName('gnb_wrap')[0].offsetHeight; }
-  const target = document.querySelector('.tab_wrap.product');
+  const target = document.querySelector('.product_tab').parentElement;
   window.addEventListener('scroll', () => {
     if(!props.isMo ?  contTop = document.getElementsByClassName('tab_contents')[0].getBoundingClientRect().y - gnbH - target.offsetHeight : contTop = document.getElementsByClassName('tab_contents')[0].getBoundingClientRect().y - target.offsetHeight );
     if (contTop < 0) {

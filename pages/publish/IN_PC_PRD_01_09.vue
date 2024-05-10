@@ -856,7 +856,7 @@ onMounted(()=>{
           width: 16px;
           height: 16px;
           margin-left: 10px;
-          background: url(/_nuxt/assets/images/common/icon_split.png) -130px -60px / 250px auto no-repeat;
+          background: url(~/assets/images/common/icon_split.png) -130px -60px / 250px auto no-repeat;
           vertical-align: middle;
           display: inline-block;
         }

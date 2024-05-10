@@ -87,12 +87,12 @@ import { modal } from '~/assets/js/common-ui.js'
         }
         &.sold_out {
             .img_wrap:before {
-                background-image:url('/_nuxt/assets/images/ui/overlay_soldout.png');
+                background-image:url('~/assets/images/ui/overlay_soldout.png');
             }
         }
         &.coming_soon {
             .img_wrap:before {
-                background-image:url('/_nuxt/assets/images/ui/overlay_comingsoon.png');
+                background-image:url('~/assets/images/ui/overlay_comingsoon.png');
             }
         }
     }
@@ -173,7 +173,7 @@ import { modal } from '~/assets/js/common-ui.js'
                     width:32px;
                     height:32px;
                     padding:0;
-                    background-image:url('/_nuxt/assets/images/common/icon_split.png');
+                    background-image:url('~/assets/images/common/icon_split.png');
                     background-repeat:no-repeat;
                 }
                 &.btn_heart {
@@ -264,7 +264,7 @@ import { modal } from '~/assets/js/common-ui.js'
                 width:12px;
                 height:12px;
                 margin-right:2px;
-                background-image:url('/_nuxt/assets/images/common/icon_split.png');
+                background-image:url('~/assets/images/common/icon_split.png');
                 background-position:-400px 0;
                 background-repeat:no-repeat;
                 content:'';

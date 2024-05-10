@@ -45,13 +45,13 @@
           </div>
       </div>
     </section>
-  
+
     <section>
       <div class="no_content">
         일치하는 결과가 없습니다.
       </div>
     </section>
-  
+
     <section>
       <!-- title washed -->
       <div class="sub_title_wrap">
@@ -66,7 +66,7 @@
         </div>
       </div>
       <!-- //title washed -->
-  
+
       <div class="list_wrap">
         <ul class="goods_list">
           <li v-for="(item, idx) in sample_goods" :key="idx">
@@ -75,7 +75,7 @@
         </ul>
       </div>
     </section>
-  
+
     <section>
       <!-- title washed -->
       <div class="sub_title_wrap">
@@ -84,7 +84,7 @@
         </h3>
       </div>
       <!-- //title washed -->
-  
+
       <div class="event_wrap">
         <swiper
           v-bind="swieprOpt.events"
@@ -95,7 +95,7 @@
         </swiper>
       </div>
     </section>
-  
+
     <section>
       <div class="list_wrap">
         <ul class="goods_list">
@@ -105,7 +105,7 @@
         </ul>
       </div>
     </section>
-  
+
     <section>
         <!-- title washed -->
         <div class="sub_title_wrap">
@@ -427,7 +427,7 @@ section {
                   content:'';
                   width:1.2rem;
                   height:1.2rem;
-                  background: url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -1.5rem -13rem;
+                  background: url('~/assets/mo_images/common/icon_split.png') no-repeat -1.5rem -13rem;
                   background-size:25rem auto;
                   position:absolute;
                   top:50%;

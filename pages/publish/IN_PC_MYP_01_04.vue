@@ -622,7 +622,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
         width:40px;
         height:40px;
         margin-bottom:20px;
-        background:url('/_nuxt/assets/images/common/icon_split.png') no-repeat;
+        background:url('~/assets/images/common/icon_split.png') no-repeat;
         background-size:250px auto;
         display:block;
       }
@@ -634,7 +634,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
           width:16px;
           height:16px;
           margin-left:6px;
-          background-image:url('/_nuxt/assets/mo_images/common/icon_split.png');
+          background-image:url('~/assets/mo_images/common/icon_split.png');
           background-position:-230px -20px;
         }
       }

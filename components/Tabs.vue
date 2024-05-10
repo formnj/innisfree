@@ -1,10 +1,10 @@
 <template>
-    <div class="tab_wrap" :class="isProduct?'product':''">
+    <div class="tab_wrap">
         <ul :class="tabType">
             <li v-for="(item, idx) in item" :key="idx" :class="{ current: tabidx == idx }" >
                 <button type="button" @click="tabidx = idx">
                   {{ item.txt }}
-                  <span v-if="isProduct && item.txt =='리뷰'">{{ reviewCnt }}</span>
+                  <span v-if="item.Cnt">{{ item.Cnt }}</span>
                 </button>
             </li>
         </ul>
@@ -34,14 +34,22 @@ const props = defineProps({
         button {
             width:100%;
             height:51px;
+            color:#666;
             font-size:16px;
             background-color:transparent;
             border:1px solid #eee;
             position:relative;
-            display:block;
+            display:flex;
+            align-items:center;
+            justify-content:center;
             transition:border 0.25s;
-            color:#666;
             transition:color 0.25s;
+            span {
+              margin-left:5px;
+              font-size: 10px;
+              color: #888;
+              vertical-align: top;
+            }
         }
         &:hover > button {
             border-color:#00BC70;
@@ -191,13 +199,6 @@ const props = defineProps({
             font-weight:600;
         }
       }
-    }
-  }
-  &.product {
-    span {
-      font-size: 10px;
-      color: #888;
-      vertical-align: top;
     }
   }
 }

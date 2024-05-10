@@ -75,7 +75,7 @@
             <th>이메일</th>
             <td>
               <div class="email">
-                <Inputs _type="text" /> 
+                <Inputs _type="text" />
                 <span>@</span>
                 <Inputs _type="text" />
                 <Selectbox
@@ -295,7 +295,7 @@
       </ul>
     </div>
   </section>
-  
+
 </template>
 <script setup>
 import { modal } from '~/assets/js/common-ui'
@@ -520,17 +520,17 @@ section {
             &.kakao {
               &:before {
                 background-position:-40px -330px;
-              } 
+              }
             }
             &.naver {
               &:before {
                 background-position:0 -365px;
-              } 
+              }
             }
             &.apple {
               &:before {
                 background-position:-40px -365px;
-              } 
+              }
             }
           }
         }

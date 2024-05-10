@@ -557,7 +557,7 @@ const toggle_btn = (e) => {
         width:2rem;
         height:2rem;
         margin-bottom:0.3rem;
-        background:url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat;
+        background:url('~/assets/mo_images/common/icon_split.png') no-repeat;
         background-size:25rem auto;
         display:block;
       }

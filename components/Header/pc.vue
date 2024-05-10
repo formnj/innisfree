@@ -385,19 +385,19 @@ onMounted(() => {
 
         if (rect.top <= 0) {
             document.querySelector('#wrap').classList.add('fixed');
-            document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree_bk.png';
+            document.querySelector('header h1 img').src = '~/assets/images/common/logo_innisfree_bk.png';
             document.querySelector('.keyword_wrap').classList.remove('active');
         }
         else {
             document.querySelector('#wrap').classList.remove('fixed');
-            document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree.png';
+            document.querySelector('header h1 img').src = '~/assets/images/common/logo_innisfree.png';
         }
     })
 
     const rect = document.querySelector('.gnb_wrap').getBoundingClientRect();
     if (rect.top <= 0) {
         document.querySelector('#wrap').classList.add('fixed');
-        document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree_bk.png';
+        document.querySelector('header h1 img').src = '~/assets/images/common/logo_innisfree_bk.png';
     }
 
     document.querySelector('.search_layer .input input').addEventListener('input', auto_complete);
@@ -552,7 +552,7 @@ header {
                     height:24px;
                     font-size:0;
                     background-color:transparent;
-                    background-image:url('/_nuxt/assets/images/common/icon_split.png');
+                    background-image:url('~/assets/images/common/icon_split.png');
                     background-position:0 -30px;
                     background-repeat:no-repeat;
                     background-size:250px auto;
@@ -782,7 +782,7 @@ header {
                     width:12px;
                     height:12px;
                     margin-left:10px;
-                    background-image:url('/_nuxt/assets/images/common/icon_split.png');
+                    background-image:url('~/assets/images/common/icon_split.png');
                     background-position:-20px -60px;
                     background-repeat:no-repeat;
                     background-size:250px auto;
@@ -885,7 +885,7 @@ header {
                     li > * {
                         width:24px;
                         height:24px;
-                        background-image:url('/_nuxt/assets/images/common/icon_split.png');
+                        background-image:url('~/assets/images/common/icon_split.png');
                         background-repeat:no-repeat;
                         background-size:250px auto;
                         position:relative;
