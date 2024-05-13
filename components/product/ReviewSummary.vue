@@ -4,10 +4,7 @@
     <div class="summary">
       <div class="total_point">
         <div class="rate">
-          <span class="star_rate">
-            <span class="star_wrap"><span class="star" style="width:50%;">별점</span></span><!-- 별점 : .star의 width에 퍼센테이지로 입력 -->
-            4.9
-          </span>
+          <Reviewpoint width="90" rate="4.7" class="type_big" />
         </div>
         <div class="emoji_txt"><p class="emoji01">최고! 평생쓸래요</p></div>
       </div>
@@ -61,32 +58,6 @@ const props = defineProps({
       flex-shrink: 0;
       align-items: flex-start;
       justify-content: space-evenly;
-
-      .star_rate {
-        font-size: 24px;
-        line-height: 32px;
-        letter-spacing: -0.24px;
-
-        .star_wrap {
-          padding-left: 150px;
-          position: relative;
-
-          &:before {
-            content: '';
-            width: 140px;
-            height: 32px;
-            font-size: 0;
-            background: url('/assets/images/common/icon_star.png') 0 0 no-repeat;
-          }
-
-          .star {
-            width: 140px;
-            height: 32px;
-            font-size: 0;
-            background: url('/assets/images/common/icon_star.png') 0 -32px no-repeat;
-          }
-        }
-      }
 
       .emoji_txt {
         height: 28px;
