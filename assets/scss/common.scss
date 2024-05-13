@@ -1126,6 +1126,19 @@ ul.bullet_list {
       top: 0;
     }
   }
+
+  &.ref {
+    li{
+      padding-left: 16px;
+
+      &:before {
+        content: "※";
+        width: 0;
+        height: 0;
+        top: 0;
+      }
+    }
+  }
 }
 
 

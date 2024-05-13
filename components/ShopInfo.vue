@@ -1,4 +1,5 @@
 <template>
+<div class="shop_wrap">
   <div class="shop">
     <div class="info">
       <div class="tit"><em>{{ item.branch }}</em><span>{{ item.distance }}</span></div>
@@ -6,8 +7,8 @@
       <div class="phone">{{ item.phone }}</div>
     </div>
     <div class="btn_wrap">
-      <a href="tel:000-0000-0000" class="call">전화걸기</a>
-      <button type="button" class="map" @click="open_map">위치보기</button>
+      <a href="tel:000-0000-0000" class="btn_call">전화걸기</a>
+      <button type="button" class="btn_map" @click="open_map">위치보기</button>
     </div>
   </div>
   <div class="map">
@@ -17,6 +18,7 @@
         <span class="pointer">위치</span>
       </div>
   </div>
+</div>
 </template>
 
 <script setup>
@@ -26,141 +28,145 @@ const props = defineProps({
 
 const open_map = () => {
   const el = event.target;
-  const map = el.parentElement.parentElement.nextSibling;
+  const map = el.parentElement.parentElement.parentElement;
   map.classList.toggle('open');
 }
 </script>
 
 <style lang="scss" scoped>
-.shop {
-  padding: 3rem 2.1rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.shop_wrap {
 
-  .info {
-    .tit {
-      color: #000;
-      vertical-align: middle;
+  &.open {
+    .map {
+      height: 22.4rem;
+    }
+  }
 
-      em {
-        font-size: 1.6rem;
-        font-weight: 500;
-        line-height: 2.4rem;
+  .shop {
+    padding: 3rem 2.1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .info {
+      .tit {
+        color: #000;
+        vertical-align: middle;
+
+        em {
+          font-size: 1.6rem;
+          font-weight: 500;
+          line-height: 2.4rem;
+        }
+
+        span {
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-left: 1rem;
+
+          &:before {
+            content: '';
+            width: .1rem;
+            height: 1.2rem;
+            margin-right: 1rem;
+            background-color: #eee;
+            display: inline-block;
+          }
+        }
       }
 
-      span {
+      .add {
+        margin-top: .5rem;
         font-size: 1.3rem;
-        font-weight: 600;
-        margin-left: 1rem;
+        line-height: 2rem;
+        color: #999;
+      }
 
-        &:before {
-          content: '';
-          width: .1rem;
-          height: 1.2rem;
-          margin-right: 1rem;
-          background-color: #eee;
-          display: inline-block;
+      .phone {
+        margin-top: .3rem;
+        font-size: 1.3rem;
+        line-height: 2rem;
+        color: #666;
+      }
+    }
+
+    .btn_wrap {
+      display: flex;
+      gap: 1.5rem;
+      flex: 1;
+
+      button,
+      a {
+        width: 2.4rem;
+        height: 2.4rem;
+        font-size: 0;
+        display: inline-block;
+
+        &.btn_call {
+          background: url("~/assets/mo_images/common/icon_split.png") 0 -28rem / 25rem auto no-repeat;
+        }
+
+        &.btn_map {
+          background: url("~/assets/mo_images/common/icon_split.png") -3rem -28rem / 25rem auto no-repeat;
         }
       }
     }
-
-    .add {
-      margin-top: .5rem;
-      font-size: 1.3rem;
-      line-height: 2rem;
-      color: #999;
-    }
-
-    .phone {
-      margin-top: .3rem;
-      font-size: 1.3rem;
-      line-height: 2rem;
-      color: #666;
-    }
   }
 
-  .btn_wrap {
-    display: flex;
-    gap: 1.5rem;
-    flex: 1;
+  .map {
+   height: 0;
+   background-color: #eee;
+   overflow: hidden;
 
-    button,
-    a {
-      width: 2.4rem;
-      height: 2.4rem;
-      font-size: 0;
-      display: inline-block;
+    .map_pointer {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .8rem;
 
-      &.call {
-        background: url("~/assets/mo_images/common/icon_split.png") 0 -28rem / 25rem auto no-repeat;
-      }
-
-      &.map {
-        background: url("~/assets/mo_images/common/icon_split.png") -3rem -28rem / 25rem auto no-repeat;
-      }
-    }
-  }
-}
-
-.map {
- height: 0;
- background-color: #eee;
- overflow: hidden;
- transition: height .3s;
-
- &.open {
-  height: 22.4rem;
- }
-
-  .map_pointer {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: .8rem;
-
-    & > span {
-      display: inline-block;
-    }
-
-    .name {
-      height: 3.2rem;
-      padding: 0 1.5rem 0 2rem;
-      border-radius: 1.6rem;
-      color: #fff;
-      line-height: 3.2rem;
-      background: #00BC70;
-      position: relative;
-
-      &:after {
-        content: "";
-        width: 1.15rem;
-        height: 1.4rem;
-        margin-left: .5rem;
-        vertical-align: middle;
-        background: url("~/assets/mo_images/common/icon_split.png") -9rem -28rem / 25rem auto no-repeat;
+      & > span {
         display: inline-block;
       }
 
-      &:before {
-        content: "";
-        position: absolute;
-        display: block;
-        width: 0.75rem;
-        height: 0.9rem;
+      .name {
+        height: 3.2rem;
+        padding: 0 1.5rem 0 2rem;
+        border-radius: 1.6rem;
+        color: #fff;
+        line-height: 3.2rem;
         background: #00BC70;
-        top: calc(100% - 1px);
-        left: 50%;
-        box-sizing: border-box;
-        clip-path: polygon(0 0, 3% 100%, 100% -5%, calc(100% - 15px) 0, 1px calc(100% - 2px), 1px 0);
-      }
-    }
+        position: relative;
 
-    .pointer {
-      font-size: 0;
-      width: 2.7rem;
-      height: 3.5rem;
-      background: url("~/assets/mo_images/common/icon_split.png") -6rem -28rem / 25rem auto no-repeat;
+        &:after {
+          content: "";
+          width: 1.15rem;
+          height: 1.4rem;
+          margin-left: .5rem;
+          vertical-align: middle;
+          background: url("~/assets/mo_images/common/icon_split.png") -9rem -28rem / 25rem auto no-repeat;
+          display: inline-block;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          display: block;
+          width: 0.75rem;
+          height: 0.9rem;
+          background: #00BC70;
+          top: calc(100% - 1px);
+          left: 50%;
+          box-sizing: border-box;
+          clip-path: polygon(0 0, 3% 100%, 100% -5%, calc(100% - 15px) 0, 1px calc(100% - 2px), 1px 0);
+        }
+      }
+
+      .pointer {
+        font-size: 0;
+        width: 2.7rem;
+        height: 3.5rem;
+        background: url("~/assets/mo_images/common/icon_split.png") -6rem -28rem / 25rem auto no-repeat;
+      }
     }
   }
 }
