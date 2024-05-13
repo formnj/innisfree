@@ -1007,6 +1007,46 @@ ul.bullet_list {
     align-items: center;
   }
 
+  .star_rate {
+    display: flex;
+    align-items: center;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25em;
+    letter-spacing: -0.01em;
+    color: #000;
+
+    .star_wrap {
+      padding-left: 77px;
+      position: relative;
+
+      &:before {
+        content: '';
+        width: 72px;
+        height: 16px;
+        font-size: 0;
+        background: url('/assets/images/common/icon_star.png') 0 0 / auto 32px no-repeat;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+
+      .star {
+        width: 72px;
+        height: 16px;
+        font-size: 0;
+        background: url('/assets/images/common/icon_star.png') 0 -16px / auto 32px no-repeat;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        z-index: 1;
+      }
+    }
+  }
+
   .review_cnt {
     display: inline-block;
     margin-left: 15px;
@@ -1097,84 +1137,79 @@ ul.bullet_list {
         height: 0;
         top: 0;
       }
-    }
+
+    letter-spacing: -0.01em;
+    text-decoration: underline;
+    color: #666;
   }
 }
 
+.benefit_list {
+  padding: 30px 0;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 0;
 
-/* cart list */
-.cart_list {
-  .cell {
-    &.count, &.price {
-      display:flex;
-      align-items:center;
+  dt {
+    width: 100px;
+    margin-right: 20px;
+    color: #999;
+  }
+
+  dd {
+    width: calc(100% - 120px);
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    color: #000;
+
+    ul {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
     }
   }
-  .pdt_img {
-    width:100px;
-  }
-  .pdt_info {
-    margin-right:50px;
-    flex:1;
-    .name {
-      a {
-        font-size:16px;
-      }
-      .alt {
-        margin-top:15px;
-        color:#EB5B54;
-      }
+}
+/* //상품 상세 */
+
+
+/* 리스트 */
+.bul_list {
+  li {
+    position: relative;
+    padding-left: 11px;
+    line-height: 20px;
+
+    & + li {
+      margin: 5px 0 0;
     }
-    .select {
-      margin-top:20px;
-      display:block;
-    }
-  }
-  .count {
-    width:116px;
-    .count_wrap {
-      border:1px solid #eee;
-      display:flex;
-      button {
-        width:45px;
-        background-color:#fff;
-        em {
-          padding:0;
-          color:#000;
-        }
-        &.icon_del {
-          display:none !important;
-        }
-      }
-      input {
-        padding:0;
-        border:0;
-        text-align:center;
-      }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 3px;
+      height: 3px;
+      background: #999E9C;
     }
   }
-  .price {
-    flex-direction:column;
-    justify-content:center;
-    p, .point {
-      width:100%;
-      text-align:right;
+
+  &.dot {
+    li:before {
+      border-radius: 50%;
+      background: #999E9C;
     }
-    p {
-      display:flex;
-      flex-direction:column;
-      strong {
-        font-size:18px;
-      }
-      em {
-        font-size:14px;
-        font-weight:500;
-      }
-    }
-    .point {
-      margin-top:5px;
-      color:#009D5E;
-      font-size:13px;
+  }
+
+  &.dash {
+    li:before {
+      content: "-";
+      width: 0;
+      height: 0;
+      top: 0;
+
     }
     span {
       margin-bottom:10px;
