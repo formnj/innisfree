@@ -59,6 +59,11 @@ const comm_arry = ([
         id:'', status:'ing',
         type:'component', note:'/component/Tabs',
         sDate:'', eDate:'/ 2024-04-09', worker:'이종환'
+    }, {
+        depth:['','Review header','',''],
+        id:'', status:'',
+        type:'component', note:'guide > layout에서 확인 가능<br/> 소스 가이드(0) 콤포넌트 제작(X)<br/> 상품상세, 작성한 리뷰 등의 리뷰 상단 정보 영역',
+        sDate:'', eDate:'/ 2024-05-16', worker:'이종환'
     }
 ])
 
