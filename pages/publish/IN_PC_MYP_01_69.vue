@@ -456,37 +456,6 @@ section {
   }
 }
 
-:deep(.input_wrap) {
-  .check {
-    input[type="radio"] + .label {
-      &:before {
-        background-color:#DDD;
-        transition:all .2s;
-      }
-      &:after {
-        width:8px;
-        height:8px;
-        border-radius:50%;
-        background-color:#fff;
-        top:6px;
-        left:6px;
-      }
-    }
-    input[type="radio"]:checked + .label {
-      &:before {
-        background-color:#00BC70
-      }
-      &:after {
-        width:8px;
-        height:8px;
-        background-color:#fff;
-        top:6px;
-        left:6px;
-      }
-    }
-  }
-}
-
 .table {
   margin-top:-1px;
   border-top:2px solid #000;
