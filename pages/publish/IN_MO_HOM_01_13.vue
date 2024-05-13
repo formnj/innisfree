@@ -44,7 +44,7 @@ definePageMeta({
     display:inline-block;
     width:1.2rem;
     height:1.2rem;
-    background:url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -23rem -10rem;
+    background:url('~/assets/mo_images/common/icon_split.png') no-repeat -23rem -10rem;
     background-size:25rem auto;
   }
 }

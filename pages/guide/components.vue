@@ -27,13 +27,18 @@
 
   <section>
     <h2>Select</h2>
+    <ul class="explain">
+      <li>Error 처리 : isError="true"</li>
+      <li>Error 문구 : _err_text</li>
+    </ul>
     <div class="design_box">
-      <Selectbox :options="[
+      <Selectbox :isError="true" _err_text="Error" :options="[
                     { val: 'value', txt: '옵션01' },
                     { val: 'value', txt: '옵션02' }
                 ]" />
     </div>
     <pre class="code_box"><code>&lt;Selectbox
+    :isError="true" _err_text="에러문구"
     :options="{{ select_opt }}" /&gt;</code></pre>
   </section>
 
@@ -299,6 +304,10 @@
         <li>
           <p class="form_tit">[type_03]</p>
           <Tabs tabType="type_03" :item="[{txt:'tab01'},{txt:'tab02'}]" :tabidx="0" />
+        </li>
+        <li>
+          <p class="form_tit">[type_04]</p>
+          <Tabs tabType="type_04" :item="[{txt:'tab01'},{txt:'tab02'}]" :tabidx="0" />
         </li>
       </ul>
     </div>

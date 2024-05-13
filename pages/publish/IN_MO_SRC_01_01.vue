@@ -337,7 +337,7 @@ const auto_complete = (e) => {
                                 content:'';
                                 width:1.2rem;
                                 height:1.2rem;
-                                background: url('/_nuxt/assets/mo_images/common/icon_split.png') no-repeat -1.5rem -13rem;
+                                background: url('~/assets/mo_images/common/icon_split.png') no-repeat -1.5rem -13rem;
                                 background-size:25rem auto;
                                 position:absolute;
                                 top:50%;

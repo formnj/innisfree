@@ -200,6 +200,42 @@ const props = defineProps({
         }
       }
     }
+    &.type_04 {
+      border-bottom: 1px solid #eee;
+      gap: 60px;
+      li {
+        margin-left:-1px;
+        flex:0 auto;
+        button {
+            width:100%;
+            height:64px;
+            font-size:16px;
+            background-color:transparent;
+            border:0;
+            position:relative;
+            display:block;
+            transition:border 0.25s;
+            color:#666;
+            transition:color 0.25s;
+        }
+        &.current > button {
+            z-index:1;
+            color:#00BC70;
+            font-weight:600;
+            position:relative;
+
+            &:after {
+              content: "";
+              height: 2px;
+              background: #009D5E;
+              position: absolute;
+              bottom: -1px;
+              right: 0;
+              left: 0;
+            }
+        }
+      }
+    }
   }
 }
 </style>

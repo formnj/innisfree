@@ -552,7 +552,7 @@ header {
                     height:24px;
                     font-size:0;
                     background-color:transparent;
-                    background-image:url('/_nuxt/assets/images/common/icon_split.png');
+                    background-image:url('~/assets/images/common/icon_split.png');
                     background-position:0 -30px;
                     background-repeat:no-repeat;
                     background-size:250px auto;
@@ -782,7 +782,7 @@ header {
                     width:12px;
                     height:12px;
                     margin-left:10px;
-                    background-image:url('/_nuxt/assets/images/common/icon_split.png');
+                    background-image:url('~/assets/images/common/icon_split.png');
                     background-position:-20px -60px;
                     background-repeat:no-repeat;
                     background-size:250px auto;
@@ -885,7 +885,7 @@ header {
                     li > * {
                         width:24px;
                         height:24px;
-                        background-image:url('/_nuxt/assets/images/common/icon_split.png');
+                        background-image:url('~/assets/images/common/icon_split.png');
                         background-repeat:no-repeat;
                         background-size:250px auto;
                         position:relative;

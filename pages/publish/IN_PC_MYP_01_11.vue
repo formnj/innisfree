@@ -232,7 +232,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                 content:'';
                 width:80px;
                 height:80px;
-                background-image: url('~/assets/images/common/icon_split.png');
+                background-image: url('/_nuxt/assets/images/common/icon_split.png');
                 background-repeat:no-repeat;
                 background-size:500px;
                 background-position:-247px -399px;

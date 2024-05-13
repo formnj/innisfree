@@ -75,7 +75,7 @@
             <th>이메일</th>
             <td>
               <div class="email">
-                <Inputs _type="text" /> 
+                <Inputs _type="text" />
                 <span>@</span>
                 <Inputs _type="text" />
                 <Selectbox
@@ -295,7 +295,7 @@
       </ul>
     </div>
   </section>
-  
+
   <div id="modal_phone" class="modal_wrap">
     <div class="modal_container">
         <div class="modal_header">
@@ -563,17 +563,17 @@ section {
             &.kakao {
               &:before {
                 background-position:-40px -330px;
-              } 
+              }
             }
             &.naver {
               &:before {
                 background-position:0 -365px;
-              } 
+              }
             }
             &.apple {
               &:before {
                 background-position:-40px -365px;
-              } 
+              }
             }
           }
         }
