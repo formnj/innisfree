@@ -130,21 +130,23 @@
     input[type='radio'], input[type='radio'] + .label:before {
       width:20px;
       height:20px;
-      background-color:#fff;
-      border:1px solid #ccc;
+      background-color:#DDD;
       border-radius:50%;
       box-sizing:border-box;
       top:0;
       left:0;
     }
-    input[type='radio']:checked + .label:after {
-      width:14px;
-      height:14px;
-      background-color:#333;
+    input[type='radio']:checked + .label:before {
+      background-color:#00BC70;
+    }
+    input[type='radio'] + .label:after, input[type='radio']:checked + .label:after {
+      width:8px;
+      height:8px;
+      background-color:#FFF;
       border-radius:50%;
       box-sizing:border-box;
-      top:3px;
-      left:3px;
+      top:6px;
+      left:6px;
     }
     input[type='checkbox'], input[type='checkbox'] + .label:before {
       width:20px;
