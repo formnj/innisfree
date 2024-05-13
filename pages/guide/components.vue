@@ -426,6 +426,26 @@ const onSlideChange = () => {
 &lt;/label&gt;</code></pre>
   </section>
 
+  <section>
+    <h2>별점</h2>
+    <ul class="explain">
+      <li>class="type_big" : 상품상세 리뷰 편점 등 큰 사이즈에 사용</li>
+    </ul>
+    <div class="design_box">
+      <ul class="form_group">
+        <li>
+          <p class="form_tit">Default</p>
+          <Reviewpoint width="90" rate="4.7" />
+        </li>
+        <li>
+          <p class="form_tit">type_big</p>
+          <Reviewpoint width="90" rate="4.7" class="type_big" />
+        </li>
+      </ul>
+    </div>
+    <pre class="code_box"><code>&lt;Reviewpoint width="퍼센트(숫자)" rate="평점(숫자)" /&gt;</code></pre>
+  </section>
+
   <!-- modal -->
   <div id="sample_modal" class="modal_wrap">
     <div class="modal_container">

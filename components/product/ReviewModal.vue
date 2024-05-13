@@ -11,9 +11,7 @@
             <div class="user_info">
               <span class="name">{{ item.user }}</span>
               <div class="rate">
-                <span class="star_rate">
-                  <span class="star_wrap"><span class="star" :style="'width:' + item.rate + '%'">별점</span></span><!-- 별점 : .star의 width에 퍼센테이지로 입력 -->
-                </span>
+                <Reviewpoint :width="item.rate" />
               </div>
               <span class="date">{{ item.date }}</span>
             </div>
