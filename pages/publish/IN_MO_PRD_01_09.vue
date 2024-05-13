@@ -253,8 +253,13 @@
             <li v-for="(item, idx) in sample_review" :key="idx">
               <div class="review_header">
                 <div class="rate">
-                  <Reviewpoint width="90" />
+                  <Reviewpoint width="90%" />
+                  <!-- 콤포넌트 대체로 삭제 예정 -->
+                  <span class="star_rate">
+                    <span class="star_wrap"><span class="star" :style="'width:' + item.rate + '%'">별점</span></span><!-- 별점 : .star의 width에 퍼센테이지로 입력 -->
+                  </span>
                 </div>
+                <!-- //콤포넌트 대체로 삭제 예정 -->
                 <div class="user_info">
                   <span class="user">
                     <span class="name">{{ item.user }}</span>
