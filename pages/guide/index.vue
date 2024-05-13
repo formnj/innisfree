@@ -415,9 +415,9 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','마이샵 관리','',''],
-        id:'IN_PC_MYP_01_85', status:'ing',
-        type:'', note:'',
-        sDate:'', eDate:'2024-05-10', worker:'김나람'
+        id:'IN_PC_MYP_01_85', status:'com',
+        type:'', note:'디자인 고도화 필요',
+        sDate:'', eDate:'2024-05-10/2024-01-13', worker:'김나람'
     }, {
         depth:['','FAQ','',''],
         id:'<del>IN_PC_MYP_01_87</del>', status:'',
@@ -940,9 +940,14 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','마이샵 관리','',''],
-        id:'IN_MO_MYP_01_85', status:'ing',
-        type:'', note:'',
-        sDate:'', eDate:'2024-05-10', worker:'김나람'
+        id:'IN_MO_MYP_01_85', status:'com',
+        type:'', note:'IN_MO_MYP_01_86 팝업 포함',
+        sDate:'', eDate:'2024-05-10/2024-05-13', worker:'김나람'
+    },{
+        depth:['','마이샵 등록하기 팝업','',''],
+        id:'IN_MO_MYP_01_86', status:'com',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-05-10/2024-05-13', worker:'김나람'
     }, {
         depth:['','FAQ','',''],
         id:'<del>IN_MO_MYP_01_87</del>', status:'',

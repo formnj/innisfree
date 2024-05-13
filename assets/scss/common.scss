@@ -280,42 +280,51 @@ html {
     flex-direction: column;
     transform: translate(-50%, -50%);
 
+    .btn_close {
+      width: 20px;
+      height: 20px;
+      font-size: 0;
+      background-color: transparent;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+
+      &:before,
+      &:after {
+        width: 100%;
+        border-top: 1px solid #222;
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        display: block;
+      }
+
+      &:before {
+        transform: rotate(45deg);
+      }
+
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+
     .modal_header {
       padding: 20px;
       border-bottom: 1px solid #eee;
+
+      .btn_close {
+        width: 24px;
+        height: 24px;
+        top: 20px;
+        right: 20px;
+      }
 
       .tooltip {
         vertical-align:middle;
       }
 
-      .btn_close {
-        width: 24px;
-        height: 24px;
-        font-size: 0;
-        background-color: transparent;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-
-        &:before,
-        &:after {
-          width: 100%;
-          border-top: 1px solid #222;
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 0;
-          display: block;
-        }
-
-        &:before {
-          transform: rotate(45deg);
-        }
-
-        &:after {
-          transform: rotate(-45deg);
-        }
-      }
 
       .explain {
         margin-top:5px;

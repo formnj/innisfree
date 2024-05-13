@@ -1,11 +1,22 @@
 <template>
 <div class="shop_wrap">
   <div class="shop">
-    <div class="info">
+    <label v-if="useRadio" :for="_id" @click="addSelecUI"> <!-- 라디오 버튼이 있을 경우 -->
+      <input :id="_id" :name="_name" type="radio">
+      <div class="info">
+        <div class="tit"><em>{{ item.branch }}</em><span>{{ item.distance }}</span></div>
+        <div class="add">{{ item.add }}</div>
+        <div class="phone">{{ item.phone }}</div>
+      </div>
+    </label>
+
+
+    <div v-if="!useRadio" class="info"> <!-- 라디오 버튼이 없을 경우 -->
       <div class="tit"><em>{{ item.branch }}</em><span>{{ item.distance }}</span></div>
       <div class="add">{{ item.add }}</div>
       <div class="phone">{{ item.phone }}</div>
     </div>
+
     <div class="btn_wrap">
       <a href="tel:000-0000-0000" class="btn_call">전화걸기</a>
       <button type="button" class="btn_map" @click="openMap">위치보기</button>
@@ -22,8 +33,22 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
+
 const props = defineProps({
   item: {},
+  _id: {
+    default: null
+  },
+  _name: String,
+  useRadio: { //라디오버튼 유무
+    type: Boolean,
+    default: false
+  },
+})
+
+onMounted(()=> {
+  console.log(props.id);
 })
 
 const openMap = () => {
@@ -32,6 +57,9 @@ const openMap = () => {
   map.classList.toggle('open');
 }
 
+const addSelecUI = (e) => {
+  e.target.closest('label').parentElement.parentElement.classList.add('selected');
+}
 </script>
 
 <style lang="scss" scoped>
@@ -44,6 +72,44 @@ const openMap = () => {
   &.open {
     .map {
       height: 22.4rem;
+    }
+  }
+
+  label {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    input[type='radio'] {
+      position: relative;
+      width:0;
+      height:0;
+      margin: 20px 20px 0 0;
+
+      &:before {
+        content:'';
+        width:20px;
+        height:20px;
+        background-color:#fff;
+        border:1px solid #ccc;
+        border-radius:50%;
+        box-sizing:border-box;
+        top:-20px;
+        left:0;
+        position: absolute;
+      }
+
+      &:checked:after {
+        content:'';
+        width:14px;
+        height:14px;
+        background-color:#333;
+        border-radius:50%;
+        box-sizing:border-box;
+        top:-17px;
+        left:3px;
+        position: absolute;
+      }
     }
   }
 
