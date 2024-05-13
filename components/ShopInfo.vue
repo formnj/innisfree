@@ -8,7 +8,7 @@
     </div>
     <div class="btn_wrap">
       <a href="tel:000-0000-0000" class="btn_call">전화걸기</a>
-      <button type="button" class="btn_map" @click="open_map">위치보기</button>
+      <button type="button" class="btn_map" @click="openMap">위치보기</button>
     </div>
   </div>
   <div class="map">
@@ -26,15 +26,20 @@ const props = defineProps({
   item: {},
 })
 
-const open_map = () => {
+const openMap = () => {
   const el = event.target;
   const map = el.parentElement.parentElement.parentElement;
   map.classList.toggle('open');
 }
+
 </script>
 
 <style lang="scss" scoped>
 .shop_wrap {
+
+  &.selected {
+    background-color: #F7FAFA;
+  }
 
   &.open {
     .map {

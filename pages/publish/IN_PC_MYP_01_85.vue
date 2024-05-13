@@ -118,17 +118,60 @@
                 <td>{{ item.branch }}</td>
                 <td class="ta_l">{{ item.add }}</td>
                 <td>{{ item.phone }}</td>
-                <td><button type="button" class="btn_link_arrw">지도보기</button></td>
+                <td><button type="button" class="btn_link_arrw" @click="modal.open('modal_map','full')">지도보기</button></td>
                 <td><Inputs _type="radio" _text="선택" _name="map" /></td>
               </tr>
             </tbody>
           </table>
+
+          <div class="btn_wrap">
+            <Button txt="등록하기" />
+          </div>
+
+          <div class="paging">
+            <div>
+              <a href="#none" class="first">처음으로</a>
+              <a href="#none">1</a>
+              <a href="#none">2</a>
+              <a href="#none" class="active">3</a>
+              <a href="#none">4</a>
+              <a href="#none">5</a>
+              <a href="#none" class="last">마지막으로</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- 지도보기 -->
+  <div id="modal_map" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_header">
+        <h2>이마트_IF화정점</h2>
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+      </div>
+      <div class="modal_content">
+        <div class="map">
+          <p style="text-align:center;">지도영역</p>
+          <div class="map_pointer" style="left:120px; top:100px;">
+            <div class="shop">
+              <div class="name">이마트_IF화정점</div>
+              <div class="addr">경기도 고양시 덕양구 백양로 79화정점 이니스프리 (화정동,이마트)</div>
+              <div class="phone">031-970-7139</div>
+              <button type="button">로드뷰</button>
+            </div>
+            <span class="pointer">위치</span>
+          </div>
+      </div>
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //지도보기 -->
 </template>
 <script setup>
+import { modal } from '~/assets/js/common-ui.js'
 import { shop_list } from '~/test/data/publish/dummyData'
 definePageMeta({
   layout:'pc-category'
@@ -272,9 +315,6 @@ const tabContShow = (e) => {
     }
   }
 }
-
-
-
 .table {
   border-top:2px solid #000;
   position:relative;
@@ -332,9 +372,88 @@ const tabContShow = (e) => {
       color: #666;
     }
   }
-}
 
+  .btn_wrap {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
 .ta_l {
   text-align: left !important;
+}
+#modal_map {
+  .modal_container {
+    width: 960px;
+
+    .map {
+      height: 587px;
+      background-color: #eee;
+      position: relative;
+
+      .map_pointer {
+        width: 320px;
+        position: absolute;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+
+        & > * {
+          display: inline-block;
+        }
+
+        .shop {
+          padding: 28px 30px;
+          border: 1px solid #222;
+          background: #fff;
+          position: relative;
+
+          .name {
+            font-size: 16px;
+          }
+
+          .addr {
+            margin-top: 12px;
+            font-size: 14px;
+          }
+
+          .phone {
+            margin-top: 25px;
+            font-size: 18px;
+          }
+
+          &:before {
+            content: "";
+            width: 28px;
+            height: 23px;
+            background: url("~/assets/images/common/icon_split.png") -430px -560px no-repeat;
+            position: absolute;
+            left: 50%;
+            bottom: -22px;
+            display: block;
+          }
+
+          button {
+            padding: 0 16px;
+            line-height: 24px;
+            color: #fff;
+            border-radius: 12px;
+            background-color: #000;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+          }
+        }
+
+        .pointer {
+          font-size: 0;
+          width: 28px;
+          height: 37px;
+          background: url("~/assets/images/common/icon_split.png") -470px -550px no-repeat;
+        }
+      }
+    }
+  }
 }
 </style>
