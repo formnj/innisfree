@@ -217,6 +217,24 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
         <!-- //right -->
       </div>
     </div>
+    <pre class="code_box"><code>&lt;div class="review_header"&gt;
+&lt;!-- left --&gt;
+&lt;div class="user_info"&gt;
+  &lt;span class="name"&gt;user&lt;/span&gt;
+  &lt;span class="age"&gt;age&lt;/span&gt;
+  &lt;span class="type"&gt;type&lt;/span&gt;
+  &lt;div class="rate"&gt;
+    &lt;Reviewpoint width="90" /&gt;
+  &lt;/div&gt;
+  &lt;span class="date"&gt;2024.00.00&lt;/span&gt;
+&lt;/div&gt;
+&lt;!-- //left --&gt;
+&lt;!-- right --&gt;
+&lt;div class="btn_wrap ar"&gt;
+  &lt;button type="button"&gt;신고&lt;/button&gt;
+  &lt;button type="button"&gt;차단하기&lt;/button&gt;
+&lt;/div&gt;
+&lt;!-- //right --&gt;</code></pre>
   </section>
 
 </template>
