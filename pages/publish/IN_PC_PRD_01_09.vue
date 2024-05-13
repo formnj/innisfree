@@ -259,7 +259,7 @@
                     </div>
                     <span class="date">{{ item.date }}</span>
                   </div>
-                  <div class="btn_wrap">
+                  <div class="btn_wrap ar">
                     <button type="button">신고</button>
                     <button type="button">차단하기</button>
                   </div>
@@ -1088,64 +1088,6 @@ button.tooltip {
     &>li {
       padding: 40px 0;
       border-bottom: 1px solid #eee;
-
-      .review_header {
-        margin-bottom: 30px;
-        display: flex;
-        justify-content: space-between;
-
-        .user_info {
-          display: flex;
-          align-items: center;
-
-          &>span {
-            color: #888;
-            display: inline-block;
-
-            &+*:before {
-              content: '';
-              width: 1px;
-              height: 10px;
-              margin: 0 10px;
-              background-color: #EEE;
-              display: inline-block;
-            }
-
-            &.name {
-              font-weight: 600;
-              color: #000;
-            }
-
-            &.age {
-              color: #000;
-            }
-
-            &.date {
-              font-weight: 300;
-            }
-          }
-        }
-
-        .btn_wrap {
-          display: flex;
-
-          button {
-            font-size: 13px;
-            color: #999;
-
-            &+button {
-              &:before {
-                content: '';
-                width: 1px;
-                height: 10px;
-                margin: 0 10px;
-                background-color: #EEE;
-                display: inline-block;
-              }
-            }
-          }
-        }
-      }
     }
   }
 

@@ -1227,7 +1227,79 @@ ul.bullet_list {
   }
 }
 
-/* review header */
 .review_header {
+  margin-bottom:30px;
   display:flex;
+  align-items:center;
+  & + .review_header {
+    margin-top:-20px;
+  }
+  .user_info {
+    display:flex;
+    align-items:center;
+    flex:1;
+    > * {
+      display:flex;
+      align-items:center;
+      & + *:before {
+        height:10px;
+        margin:0 10px;
+        border-left:1px solid #eee;
+        content:'';
+        display:block;
+      }
+    }
+    span {
+      color:#888;
+      &.name {
+        color: #000;
+        font-weight: 600;
+      }
+      &.age {
+        color: #000;
+      }
+      &.date {
+        font-weight: 300;
+      }
+    }
+  }
+  .btn_wrap {
+    background-color:transparent;
+    display: flex;
+    button {
+      color:#999;
+      font-size: 13px;
+      font-weight: 400;
+      position:relative;
+      display:flex;
+      align-items:center;
+      & + *:before {
+        height:10px;
+        margin:0 10px;
+        border-left:1px solid #eee;
+        content:'';
+        display:block;
+      }
+    }
+    .share_wrap {
+      position: relative;
+    }
+    .btn_share {
+      width:32px;
+      height:32px;
+      font-size:0;
+      &:before {
+        background: url('~/assets/images/common/icon_split.png') -180px -60px no-repeat;
+      }
+    }
+    .btn_like:before {
+      background: url('~/assets/images/common/icon_split.png') -140px -60px no-repeat;
+    }
+    .btn_big.buy {
+      background-color: #00BC70;
+    }
+  }
+  .ar {
+    margin-left:auto;
+  }
 }
