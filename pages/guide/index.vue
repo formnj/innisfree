@@ -135,7 +135,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-23/2024-04-25', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
-        id:'IN_PC_HOM_01_15', status:'',
+        id:'IN_PC_HOM_01_15', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-16/', worker:'김나람'
     }, {
