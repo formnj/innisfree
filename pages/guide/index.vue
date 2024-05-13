@@ -63,7 +63,7 @@ const comm_arry = ([
         depth:['','Title wrap','',''],
         id:'', status:'',
         type:'component', note:'공통 타이틀 관련 가이드<br/> guide > layout에서 확인 가능',
-        sDate:'', eDate:'/ 2024-04-09', worker:'이종환'
+        sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','Review header','',''],
         id:'', status:'',
