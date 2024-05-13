@@ -1285,15 +1285,10 @@ ul.bullet_list {
       position: relative;
     }
     .btn_share {
-      width:32px;
-      height:32px;
+      width:24px;
+      height:24px;
       font-size:0;
-      &:before {
-        background: url('~/assets/images/common/icon_split.png') -180px -60px no-repeat;
-      }
-    }
-    .btn_like:before {
-      background: url('~/assets/images/common/icon_split.png') -140px -60px no-repeat;
+      background:url("/_nuxt/assets/images/common/icon_split.png") -470px -140px no-repeat;
     }
     .btn_big.buy {
       background-color: #00BC70;
