@@ -53,8 +53,8 @@
     </div>
     </div>
     <section class="delivery active">
-      <Tabs tabType="type_01" :item="[{txt:'전체주문체결내역'},{txt:'주문취소내역'},{txt:'반품처리내역'},{txt:'교환처리내역'}]" :tabidx="0" />
-      <article>
+      <Tabs tabType="type_04" :item="[{txt:'전체주문체결내역'},{txt:'주문취소내역'},{txt:'반품처리내역'},{txt:'교환처리내역'}]" :tabidx="0" />
+      <article class="active">
         <span>총<em>1</em>건</span>
         <div class="table_wrap">
           <table>
@@ -71,7 +71,7 @@
             <thead>
                 <tr>
                     <th>주문일자</th>
-                    <th>주문번호	</th>
+                    <th>주문번호</th>
                     <th>대표제품 명</th>
                     <th>결제금액</th>
                     <th>처리현황</th>
@@ -84,7 +84,7 @@
                   <td>2024.05.03	</td>
                   <td>21288166</td>
                   <td class="goods_name">
-                    <a href="#none">비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
+                    <a @click="$router.push('/publish/IN_PC_MYP_01_11')">비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
                   </td>
                   <td>2,500원</td>
                   <td>배송완료</td>
@@ -146,38 +146,255 @@
           </li>
         </ol>
       </article>
-      <article>
-        주문취소내역
+      <article class="delivery_cancel">
+        <span>총<em>0</em>건</span>
+        <div class="table_wrap">
+          <table>
+            <caption>주문내역</caption>
+            <colgroup>
+                <col style="width:120px;">
+                <col style="width:115px;">
+                <col style="">
+                <col style="width:110px;">
+                <col style="width:110px;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>주문일자</th>
+                    <th>주문번호</th>
+                    <th>대표제품 명</th>
+                    <th>결제금액</th>
+                    <th>처리현황</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>2024.05.03	</td>
+                  <td>21288166</td>
+                  <td @click="$router.push('/publish/IN_PC_MYP_01_11')" class="goods_name">
+                    <a href="#none" >비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
+                  </td>
+                  <td>2,500원</td>
+                  <td>배송완료</td>
+                </tr>
+                <tr>
+                  <td colspan="5">주문취소 내역이 없습니다.</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="paging">
+          <div>
+              <a href="#none" class="first">처음으로</a>
+              <a href="#none">1</a>
+              <a href="#none">2</a>
+              <a href="#none" class="active">3</a>
+              <a href="#none">4</a>
+              <a href="#none">5</a>
+              <a href="#none" class="last">마지막으로</a>
+          </div>
+        </div>
+        <ul class="bullistType_02">
+          <li>주문번호나 제품명을 클릭 하시면 주문 상세 내역을 보실 수 있습니다.</li>
+          <li>취소가 완료된 경우 취소완료로 상태가 표시됩니다.</li>
+        </ul>
+        <ol>
+          <li>
+            <strong class="icon icon_1">취소접수</strong>
+            <span>
+              취소일과 결제일의 해당 월이<br>
+              다른 휴대폰결제와 가상계좌<br>
+              결제인 경우 환불이<br>
+              완료되기 전까지<br>
+              취소접수로 표시 됩니다.
+            </span>
+          </li>
+          <li>
+            <strong class="icon icon_2">취소완료</strong>
+            <span>
+              관리자가 취소 접수내역을<br>
+              확인 후 환불해 드리고<br>
+              취소 승인 시<br>
+              취소 완료 상태가 됩니다.
+            </span>
+          </li>
+        </ol>
       </article>
-      <article>
-        반품처리내역
+      <article class="delivery_return">
+        <span>총<em>0</em>건</span>
+        <div class="table_wrap">
+          <table>
+            <caption>반품처리내역</caption>
+            <colgroup>
+                <col style="width:120px;">
+                <col style="width:115px;">
+                <col style="">
+                <col style="width:110px;">
+                <col style="width:110px;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>주문일자</th>
+                    <th>반품번호</th>
+                    <th>대표제품 명</th>
+                    <th>결제금액</th>
+                    <th>처리현황</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>2024.05.03	</td>
+                  <td>21288166</td>
+                  <td @click="$router.push('/publish/IN_PC_MYP_01_11')" class="goods_name">
+                    <a href="#none">비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
+                  </td>
+                  <td>2,500원</td>
+                  <td>배송완료</td>
+                </tr>
+                <tr>
+                  <td colspan="5">반품내역이 없습니다.</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="paging">
+          <div>
+              <a href="#none" class="first">처음으로</a>
+              <a href="#none">1</a>
+              <a href="#none">2</a>
+              <a href="#none" class="active">3</a>
+              <a href="#none">4</a>
+              <a href="#none">5</a>
+              <a href="#none" class="last">마지막으로</a>
+          </div>
+        </div>
+        <ul class="bullistType_02">
+          <li>주문번호나 제품명을 클릭 하시면 주문 상세 내역을 보실 수 있습니다.</li>
+          <li>취소가 완료된 경우 취소완료로 상태가 표시됩니다.</li>
+        </ul>
+        <ol>
+          <li>
+            <strong class="icon icon_1">반품접수</strong>
+            <span>
+              반품신청을 한 상태입니다.
+            </span>
+          </li>
+          <li>
+            <strong class="icon icon_2">반품불가</strong>
+            <span>
+              반품 사유 분석 및 통화 후,<br>
+              반품 불가로 승인 날 경우 입니다.
+            </span>
+          </li>
+          <li>
+            <strong class="icon icon_3">반품중</strong>
+            <span>
+              모든 결제방법 공통으로<br>
+              반품승인 후 제품을 수령 해<br>
+              올 때 까지의 단계 입니다.
+            </span>
+          </li>
+          <li>
+            <strong class="icon icon_4">환불진행</strong>
+            <span>
+              무통장입금 결제의 경우만<br>
+              존재하는 단계로 반품제품 수량<br>
+              확인 후 관리자가 환불<br>
+              계좌로 입금하는 단계입니다.
+            </span>
+          </li>
+          <li>
+            <strong class="icon icon_5">반품완료</strong>
+            <span>
+              환불이 완료된 상태입니다.<br>
+              (입금확인에는 반품 완료 후<br>
+              2,3일의 시간이 소요될 수<br>
+              있습니다.)
+            </span>
+          </li>
+        </ol>
       </article>
-      <article>
-        교환처리내역
+      <article class="delivery_exchange">
+        <span>총<em>0</em>건</span>
+        <div class="table_wrap">
+          <table>
+            <caption>교환처리내역</caption>
+            <colgroup>
+                <col style="width:120px;">
+                <col style="width:115px;">
+                <col style="">
+                <col style="width:110px;">
+                <col style="width:110px;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>주문일자</th>
+                    <th>교환번호</th>
+                    <th>대표제품 명</th>
+                    <th>결제금액</th>
+                    <th>처리현황</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>2024.05.03	</td>
+                  <td>21288166</td>
+                  <td @click="$router.push('/publish/IN_PC_MYP_01_11')" class="goods_name">
+                    <a href="#none">비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
+                  </td>
+                  <td>2,500원</td>
+                  <td>배송완료</td>
+                </tr>
+                <tr>
+                  <td colspan="5">교환 내역이 없습니다.</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="paging">
+          <div>
+              <a href="#none" class="first">처음으로</a>
+              <a href="#none">1</a>
+              <a href="#none">2</a>
+              <a href="#none" class="active">3</a>
+              <a href="#none">4</a>
+              <a href="#none">5</a>
+              <a href="#none" class="last">마지막으로</a>
+          </div>
+        </div>
+        <ul class="bullistType_02">
+          <li>씨드 내역 반영 시 씨드 쿠폰 발급, 등급산정에 대한 씨드 차감개수는 제외 됩니다.</li>
+        </ul>
+        <ol>
+          <li>
+            <strong class="icon icon_1">교환접수</strong>
+            <span>
+              교환을 신청하신<br>
+              상태 입니다.
+            </span>
+          </li>
+          <li>
+            <strong class="icon icon_2">교환불가</strong>
+            <span>
+              교환이 불가능한 제품인 경우<br>
+              교환불가상태로 변경됩니다.<br>
+              상담은 고객센터를<br>
+              이용해 주시기 바랍니다.
+            </span>
+          </li>
+          <li>
+            <strong class="icon icon_3">교환안내</strong>
+            <span>
+              반품하신 제품이<br>
+              확인된 상태입니다.
+            </span>
+          </li>
+        </ol>
       </article>
-
-    </section>
-
-
-
-
-    <section class="cancel">
-      취소신청
-    </section>
-    <section class="Returned product">
-      반품신청
-    </section>
-    <section class="exchange">
-      교환신청
-    </section>
-    <section class="proof">
-      증빙서류발급
-    </section>
-    <section class="buy">
-      구매내역
     </section>
 	</div>
 
+  <!-- modal -->
   <div class="modal_wrap" id="my_delivery">
     <div class="modal_container">
         <div class="modal_header">
@@ -248,11 +465,38 @@ onMounted(() => {
     })
   }
   main_tab ()
+
+  function sub_tab (){
+    let sub_tab= document.querySelectorAll('section.active .tab_wrap .type_04 li')
+    let sub_cont = document.querySelectorAll('.inner section article')
+    console.log(sub_tab)
+    console.log(sub_cont)
+    var idx
+    sub_tab.forEach((a,idx)=>{
+      a.addEventListener('click',()=>{
+        sub_cont.forEach((b)=>{
+          b.classList.remove('active')
+        })
+        sub_cont[idx].classList.add('active')
+      } )
+    })
+  }
+  sub_tab ()
+
 })
 
 </script>
 
 <style lang="scss" scoped>
+.tab_wrap {
+  :deep(.type_03) {
+    li {
+      button {
+        font-size:18px !important;
+      }
+    }
+  }
+}
 
 .bullistType_02 {
   display:flex;
@@ -425,40 +669,37 @@ section {
   &.active {
     display:block;
   }
-  :deep(.tab_wrap) {
-    ul.type_01 {
-      width:100%;
-      border-bottom:1px solid #eee;
-      gap:60px;
+  .sub_title_wrap {
+      margin: 60px auto 20px;
+      padding:0 !important;
+    }
+    .cart_list {
       li {
-        border-bottom:0;
-        flex:0 auto !important;
-        > button {
-          padding:0 5px;
-          color:#666;
-          font-size:16px;
-          font-weight:600;
-          &::after {
-          border-bottom:0;
-          }
-        }
-        &.current {
-          button {
-            color:#00BC70;
+        .pdt_info {
+          strong {
+            margin-bottom:8px;
             font-size:16px;
-            &::after {
-              color:#00BC70;
-              font-size:16px;
-              border-bottom:2px solid #00BC70;
-              }
+            font-weight:600;
+            display:inline-block;
+          }
+          p {
+            color: #999;
+            line-height: 1.71em;
           }
         }
       }
     }
-  }
+    .btn_min_outline {
+      margin:0 auto !important;
+    }
+
   article {
     > * + * {
       margin-top:30px;
+    }
+    display:none;
+    &.active {
+      display:block;
     }
     ol {
       margin-top:60px;
@@ -523,7 +764,88 @@ section {
     }
     > span {
       margin:36px 0 20px;
+      font-weight:400;
       display:block;
+      em {
+        margin:0 5px;
+        color:#12B560 !important;
+        font-weight:500;
+        display:inline-block;
+      }
+    }
+    &.delivery_cancel {
+      ol {
+        li {
+          strong {
+            &.icon_1 {
+              &::after {
+                background-position:-70px -70px;
+              }
+            }
+            &.icon_2 {
+              &::after {
+                background-position:-140px -70px;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.delivery_return {
+      ol {
+        li {
+          strong {
+            &.icon_1 {
+              &::after {
+                background-position:-70px -70px;
+              }
+            }
+            &.icon_2 {
+              &::after {
+                background-position:-210px -70px;
+              }
+            }
+            &.icon_3 {
+              &::after {
+                background-position:-210px 0px;
+              }
+            }
+            &.icon_4 {
+              &::after {
+                background-position:0px -140px;
+              }
+            }
+            &.icon_5 {
+              &::after {
+                background-position:-70px -140px;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.delivery_exchange {
+      ol {
+        li {
+          strong {
+            &.icon_1 {
+              &::after {
+                background-position:-70px -70px;
+              }
+            }
+            &.icon_2 {
+              &::after {
+                background-position:-140px -140px;
+              }
+            }
+            &.icon_3 {
+              &::after {
+                background-position:-210px -140px;
+              }
+            }
+          }
+        }
+      }
     }
     .table_wrap {
       table {
@@ -538,6 +860,9 @@ section {
               }
               &.goods_name {
                 text-align:left;
+                a {
+                  cursor:pointer;
+                }
               }
               :deep(.btn_min_outline) {
                 em {

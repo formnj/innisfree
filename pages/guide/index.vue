@@ -270,14 +270,14 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-03/2024-05-02', worker:'형민우'
     }, {
         depth:['','주문내역','목록',''],
-        id:'IN_PC_MYP_01_08', status:'ing',
+        id:'IN_PC_MYP_01_08', status:'com',
         type:'', note:'',
-        sDate:'2024-05-10', eDate:'2024-05-24', worker:'김희경'
+        sDate:'2024-05-10', eDate:'2024-05-24/2024-05-14', worker:'김희경'
     }, {
         depth:['','','상세',''],
-        id:'IN_PC_MYP_01_11', status:'ing',
+        id:'IN_PC_MYP_01_11', status:'com',
         type:'', note:'',
-        sDate:'2024-05-10', eDate:'2024-05-24', worker:'김희경'
+        sDate:'2024-05-14', eDate:'2024-05-24/2024-05-14', worker:'김희경'
     }, {
         depth:['','배송내역','목록',''],
         id:'IN_PC_MYP_01_00-1', status:'',
