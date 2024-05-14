@@ -73,6 +73,14 @@ const swiper_nav = {
       width: 240px;
       padding-bottom: 61px;
     }
+
+    .swiper-pagination-progressbar {
+      height: 1px;
+      .swiper-pagination-progressbar-fill {
+        height: 2px;
+        top: -1px;
+      }
+    }
   }
 
   .navigation {
