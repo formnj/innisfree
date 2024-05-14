@@ -1,190 +1,286 @@
-	<template>
-    <!-- title washed -->
-    <div class="title_wrap" :data-layout="props.layoutType">
+<template>
+  <!-- title washed -->
+  <div class="title_wrap" :data-layout="props.layoutType">
+    <div>
+      <h2>주문/배송현황</h2>
+    </div>
+  </div>
+  <!-- //title washed -->
+
+  <div class="inner">
+    <Tabs tabType="type_03" :item="[{txt:'주문배송내역'},{txt:'취소신청'},{txt:'반품신청'},{txt:'교환신청'},{txt:'증빙서류발급'},{txt:'구매내역'}]" :tabidx="0" />
+    <div class="sub_title_wrap">
       <div>
-        <h2>1:1 문의</h2>
+        <h3>주문정보</h3>
       </div>
     </div>
-    <!-- //title washed -->
+    <div class="table_wrap">
+      <table>
+        <caption>주문/배송현황</caption>
+        <colgroup>
+          <col style="width:15%;">
+          <col style="width:35%;">
+          <col style="width:15%;">
+          <col style="width:35%;">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th>주문번호</th>
+            <td>21288166</td>
+            <th>주문자(아이디)</th>
+            <td>김이나(rianag)</td>
+          </tr>
+          <tr>
+            <th>이메일</th>
+            <td>rianag@rianag.com</td>
+            <th>회원등급</th>
+            <td>WELCOME</td>
+          </tr>
+          <tr>
+            <th>주문일</th>
+            <td>2024.05.03 17:41:36</td>
+            <th>결제완료일</th>
+            <td>2024.05.03 17:41:36</td>
+          </tr>
+          <tr>
+            <th>결제방법</th>
+            <td>네이버페이</td>
+            <th>영수증여부</th>
+            <td>N</td>
+          </tr>
+          <tr>
+            <th>주문상태</th>
+            <td>배송완료</td>
+            <th>송장번호</th>
+            <td>
+              <Button class="btn_min_outline" txt="배송조회" @click="modal.open('my_delivery', 'alert')" />
+            </td>
+          </tr>
+          <tr>
+            <th>배송완료일</th>
+            <td colspan="3">2024.05.09 00:40:01</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-	  <div class="inner">
-        <Tabs tabType="type_03" :item="[{txt:'1&#58;1 문의하기'},{txt:'답변확인'}]" :tabidx="0" />
-        <section>
-            <div class="info">
-                <strong>1:1 문의전에 꼭! 확인해주세요</strong>
-                <p>1:1 고객문의 처리시간은 09:00 ~18:00 입니다. (문의는 24시간 언제나 가능합니다.)</p>
-                <p>최단시간 내에 접수사항을 조치하여 해결해 드리도록 하겠습니다.</p>
-                <p>피해 발생시에는 공정거래위원회 소비자분쟁해결기준에 의거해서 처리됩니다.</p>
-                <em>상담내용 본문에는 개인정보를 입력하지 말아주세요. 고객정보 보호를 위해 마스킹 처리될 수 있습니다.<br>
-                    (예: 성명, 연락처, 이메일주소, 계좌번호 등)</em>
-            </div>
-            <div class="table_wrap">
-                <table>
-                    <caption>1:1 문의작성</caption>
-                    <colgroup>
-                        <col style="width:170px;">
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                            <th>이름</th>
-                            <td>김이나</td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <em>*</em>
-                                <span>상담구분</span>
-                            </th>
-                            <td>
-                                <Selectbox
-                                    :options="[
-                                    { val: 'value', txt: '옵션01' },
-                                    { val: 'value', txt: '옵션02' }
-                                ]" />
-                                <span class="error">상품구분을 선택해 주세요.</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <em>*</em>
-                                <span>문의유형</span>
-                            </th>
-                            <td>
-                                <Selectbox
-                                    :options="[
-                                    { val: 'value', txt: '옵션01' },
-                                    { val: 'value', txt: '옵션02' }
-                                ]" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <span>문의제품</span>
-                            </th>
-                            <td>
-                                <Button class="btn_outline" txt="주문상품찾기" @click="modal.open('choice_modal', 'full');"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <span>제목</span>
-                            </th>
-                            <td>
-                                <Inputs _type="text" _placeholder="최대 30자 이내" />
-                                <span class="error">제목을 입력해 주세요.</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>내용</th>
-                            <td>
-                                <Textarea _placeholder="상담내용 본문에는 개인정보를 입력하지 말아주세요. 고객정보보호를 위해 마스킹 처리될 수 있습니다.
-                                (예 : 성명, 연락처, 이메일주소, 계좌번호 등)" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>첨부파일</th>
-                            <td>
-                                <Button class="btn_outline" txt="사진첨부(최대5개)"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>답변 받으실 이메일</th>
-                            <td class="qa_email">
-                                <div>
-                                    <Inputs _type="text" _placeholder="" value="rianag" />
-                                    <span>@</span>
-                                    <Inputs _type="text" _placeholder="" value="nave.com"/>
-                                </div>
-                                <dl>
-                                    <dt>답변 결과를 이메일로 받으시겠습니까?</dt>
-                                    <dd>
-                                        <Inputs _type="radio" _text="예" _name="email" value="yes"/>
-                                        <Inputs _type="radio" _text="아니요" _name="email" value="no"/>
-                                    </dd>
-                                </dl>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>휴대전화 번호</th>
-                            <td class="qa_sms">
-                                <div>
-                                    <Inputs _type="text" _placeholder="" value="010" />
-                                    <span>~</span>
-                                    <Inputs _type="text" _placeholder="" value="1234"/>
-                                    <span>~</span>
-                                    <Inputs _type="text" _placeholder="" value="5678"/>
-                                </div>
-                                <dl>
-                                    <dt>답변등록 여부를 SMS로 받으시겠습니까?</dt>
-                                    <dd>
-                                        <Inputs _type="radio" _text="예" _name="email" value="yes"/>
-                                        <Inputs _type="radio" _text="아니요" _name="email" value="no"/>
-                                    </dd>
-                                </dl>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <em>
-                    *이메일, 휴대전화번호 정보 수정을 원하시는 경우
-                    회원정보 수정을 통해 변경해주시기 바랍니다.
-                </em>
-            </div>
-            <div class="btn_wrap">
-                <Button txt="문의하기" class="btn_mid" />
-                <Button txt="취소" class="btn_mid_outline active" />
-            </div>
-		</section>
+    <div class="sub_title_wrap">
+      <div>
+        <h3>내 주문상품정보</h3>
+      </div>
+    </div>
+    <div class="table_wrap goods_info">
+      <table>
+        <caption>주문내역</caption>
+        <colgroup>
+          <col style="width:100px;">
+          <col>
+          <col style="width:5%;">
+          <col style="width:8%;">
+          <col style="width:8%;">
+          <col style="width:8%;">
+          <col style="width:8%;">
+          <col style="width:10%;">
+          <col style="width:10%;">
+          <col style="width:8%;">
+          <col style="width:10%;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th colspan="2">제품명</th>
+                <th>수량</th>
+                <th>판매가</th>
+                <th>판매단가</th>
+                <th>일반결제</th>
+                <th>할인금액</th>
+                <th>뷰티포인트 사용</th>
+                <th>적립포인트</th>
+                <th>상태</th>
+                <th>구매후기</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td colspan="2">
+                <a href="#none">
+                  <img src="" alt="">
+                  <p>
+                    <span>비타C 그린티 엔자임 잡티 토닝 세럼 체험단7ml</span>
+                    <em>제품코드: 36804</em>
+                  </p>
+                </a>
+              </td>
+              <td>1</td>
+              <td>0원</td>
+              <td>0원</td>
+              <td>0원</td>
+              <td>0원</td>
+              <td>0P</td>
+              <td>0P<br>
+                (기본 : 0P<br>
+                , 추가 : 0P)
+              </td>
+              <td>배송완료</td>
+              <td></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="myord_price">
+      <li>
+        <p>총 주문 금액</p>
+        <span><em>0</em>원</span>
+      </li>
+      <li>
+        <p>할인 및 차감금액</p>
+        <span><em>- 0</em>원</span>
+      </li>
+      <li>
+        <p>배송비</p>
+        <span><em>2,500</em>원</span>
+      </li>
+      <li>
+        <p>적립 뷰티포인트</p>
+        <span><em>+0</em>P
+          <br>(기본 : 0P , 추가 : 0P)</span>
+      </li>
+      <li>
+        <dl>
+          <dt>최종 결제 금액</dt>
+          <dd>
+            <strong>2,500원</strong>
+          </dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="bullistType_02">
+      <li>뷰티포인트는 배송완료(또는 수취확인) 후 15일째 되는 날 적립됩니다.</li>
+      <li>주문접수 상태의 주문은 주문일에서 3일간 보관되며, 이후 자동 취소처리 됩니다.</li>
+      <li>결제완료 후 배송지 변경은 어렵습니다. 취소 후 변경 주소로 재 주문하여 주세요.</li>
+      <li>상태에 따른 주문 취소 방법
+        <p>[결제완료]: 마이페이지에서 취소신청이 가능합니다.</p>
+        <p>[상품준비중]: 고객상담실을 통해 문의 시, 출고 확정 전인 경우만 취소가 가능합니다.</p>
+      </li>
+      <li>샘플마켓 제품은 고객센터(080-380-0114)문의를 통해 교환/반품이 가능합니다.</li>
+    </ul>
 	</div>
 
-  <div class="modal_wrap" id="choice_modal">
-      <div class="modal_container">
-          <div class="modal_header">
-              <h2>주문제품 선택</h2>
-              <button class="btn_close" @click="modal.close(this);">닫기</button>
-          </div>
-          <div class="modal_content">
-              <div class="inner">
-                  <Tabs tabType="type_01" :item="[{txt:'1개월'},{txt:'2개월'},{txt:'3개월'},{txt:'6개월'}]"  :tabidx="0" />
-                  <div class="date_wrap">
-                      <div class="date">
-                          <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
-                          <div class="dataValue">
-                              2024-03-24
-                          </div>
-                      </div>
-                      <div>~</div>
-                      <div class="date">
-                          <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
-                          <div class="dataValue">
-                              2024-03-24
-                          </div>
-                      </div>
-                      <Button class="btn_outline" txt="검색"/>
-                  </div>
-              </div>
-              <p class="alt">최근 <span>1년 내역만 검색</span>이 가능합니다.</p>
-              <div class="table_wrap">
-                  <table>
-                      <caption>주문내역</caption>
-                      <thead>
-                          <tr>
-                              <th>주문번호</th>
-                              <th>주문제품</th>
-                              <th>주문일자</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <td colspan="3">검색된 주문정보가 없습니다.</td>
-                          </tr>
-                      </tbody>
-                  </table>
-
-              </div>
-          </div>
-      </div>
-      <div class="overlay" @click="modal.close(this);"></div>
+  <div class="sub_title_wrap">
+    <div>
+      <h3>결제정보</h3>
+    </div>
   </div>
+  <div class="list_wrap">
+    <ul class="cart_list type_default">
+      <li>
+        <div class="row">
+          <p>결제방법</p>
+          <em>네이버페이</em>
+        </div>
+      </li>
+      <li>
+        <div class="row">
+          <p>결제금액</p>
+          <em>2,500원</em>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sub_title_wrap">
+    <div>
+      <h3>내 배송지 정보</h3>
+    </div>
+  </div>
+  <div class="table_wrap myaddr_info">
+    <table>
+        <caption>내 배송지 정보</caption>
+        <colgroup>
+            <col style="width:170px;">
+        </colgroup>
+        <tbody>
+            <tr>
+              <th>받으실 분</th>
+              <td class="my_name">
+                <Inputs _type="text" _value="김이나" _disable/>
+              </td>
+            </tr>
+            <tr class="my_addr">
+              <th>
+                  <span>주소</span>
+              </th>
+              <td>
+                <Inputs _type="text" _placeholder="" _value="012345"/>
+                <Inputs _type="text" _placeholder="" _value="서울특별시"/>
+                <Inputs _type="text" _placeholder="" _value="한화비즈"/>
+              </td>
+            </tr>
+            <tr class="my_phone">
+                <th>
+                    <span>휴대폰 번호</span>
+                </th>
+                <td>
+                    <div>
+                      <Selectbox
+                        :options="[
+                        { val: 'value', txt: '010' },
+                        { val: 'value', txt: '012' }
+                        ]" />
+                        <span>-</span>
+                        <Inputs _type="text" _placeholder="" value="1234"/>
+                        <span>-</span>
+                        <Inputs _type="text" _placeholder="" value="5678"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <span>배송 시 요청사항</span>
+                </th>
+                <td class="shippingMsg">
+                  <Inputs _type="text" _placeholder="" _value="부재시 문앞에 놓아주세요."/>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+
+
+  <!-- modal -->
+  <div class="modal_wrap" id="my_delivery">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>배송조회</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <dl>
+            <dt>CJ대한통운</dt>
+            <dd>운송장 번호 540189756906</dd>
+          </dl>
+          <ul>
+            <li class="current">
+              <span>배송완료</span>
+              <em>인천</em>
+              <i>2024-05-07 13:19:49</i>
+            </li>
+            <li>
+              <span>배송출발</span>
+              <em>부평A</em>
+              <i>2024-05-07 13:19:49</i>
+            </li>
+            <li>
+              <span>집화처리</span>
+              <em>옥천HUB</em>
+              <i>2024-05-07 13:19:49</i>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+</div>
+
 </template>
 
 <script setup>
@@ -192,6 +288,7 @@ definePageMeta({
 layout:'pc-mypage'
 });
 
+import { main } from '@popperjs/core';
 import { modal } from '~/assets/js/common-ui.js'
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
@@ -200,18 +297,104 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
     default:'default'
   }
 });
+
+const sub_erChk = ref(0);//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
 /* //component sample data */
+
+onMounted(() => {
+
+})
+
 </script>
 
 <style lang="scss" scoped>
-.tab_wrap {
-  ul {
-    li {
-      &.current {
-        button {
-          background:#000 !important;
-          em {
-            color:#fff !important;;
+.sub_title_wrap {
+  margin: 60px auto 20px;
+  padding:0 !important;
+}
+
+.myord_price {
+  margin:20px 0 15px;
+  padding:30px;
+  border:1px solid #eee;
+  background-color: #fafafa;
+  li {
+    padding:25px 0;
+    color:#333;
+    font-size:16px;
+    font-weight:500;
+    border-bottom:1px solid #eee;
+    display:flex;
+    justify-content:space-between;
+    p {
+      font-weight:500;
+    }
+    span {
+      text-align:right;
+    }
+    &:first-of-type {
+      padding-top:0;
+    }
+    &:last-of-type {
+      padding-bottom:0;
+      border-bottom:0;
+    }
+    dl {
+      width:100%;;
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      dt {
+        margin-right:10px;
+      }
+      dd {
+        display: flex;
+        align-items: center;
+        strong {
+          font-size:28px;
+          font-weight:700;
+        }
+      }
+    }
+  }
+}
+.myaddr_info {
+  tbody {
+    tr {
+      td {
+      display:flex;
+      :deep(.input_wrap){
+          width:90%;
+          flex:0 auto;
+        }
+        &.my_name {
+          :deep(.input_wrap){
+            width:21%;
+          }
+        }
+      }
+      &.my_addr {
+        td {
+          flex-direction:column;
+          > * + * {
+            margin-top:8px;
+          }
+          :deep(.input_wrap){
+            &:first-of-type {
+              width:13%;
+            }
+          }
+        }
+      }
+      &.my_phone {
+        td {
+          > div {
+          display:flex;
+          align-items:center;
+            span {
+              margin:0 5px;
+              display:block;
+            }
           }
         }
       }
@@ -219,330 +402,224 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   }
 }
 
+.list_wrap {
+  .cart_list {
+    li {
+      .row {
+        padding:24px 20px;
+        gap:0;
+        p {
+          width:175px;
+          font-weight:400;
+        }
+        em {
+          font-size:16px;
+          font-weight:500;
+        }
+      }
+    }
+  }
+}
 
-.inner {
-    section {
-        position: relative;
-        .info {
-            margin:80px 0px 50px;
-            padding:100px 0 0;
-            color: #666;
-            text-align:center;
-            &::before {
-                content:'';
-                width:80px;
-                height:80px;
-                background-image: url('/_nuxt/assets/images/common/icon_split.png');
-                background-repeat:no-repeat;
-                background-size:500px;
-                background-position:-247px -399px;
-                position:absolute;
-                top:-15px;
-                left:50%;
-                display:block;
-                transform:translateX(-50%);
+.bullistType_02 {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  li {
+    color: #888;
+    font-size: 13px;
+    &::before {
+    content: "※";
+    margin-right: 10px;
+    display: inline-block;
+    }
+    > * {
+      margin-top:5px;
+    }
+    p {
+      margin-left:20px;
+    }
+  }
+}
+.table_wrap {
+  border-top: 2px solid #000;
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 0;
+      table-layout: fixed;
+      caption {
+        display:none;
+      }
+      thead {
+        tr {
+            th {
+                padding: 15px 20px 15px;
+                color: #000;
+                font-size: 14px;
+                font-weight: 500;
+                border-bottom: 1px solid #eee;
+                border-left: 1px solid #eee;
+                background: #F5F5F5;
+                text-align: center;
+                &:first-of-type {
+                    border-left:0;
+                }
             }
-            strong {
-            font-size:24px;
-            margin-bottom: 15px;
-            display:block;
+        }
+      }
+      tbody {
+          tr {
+              th {
+                  padding:15px 20px;
+                  font-weight:400;
+                  border-bottom:1px solid #f5f5f5;
+                  text-align:left;
+              }
+              td {
+                  padding:21px 20px;
+                  font-size:16px;
+                  font-weight:500;
+                  border-bottom:1px solid #f5f5f5;
+                  :deep(button.btn_min_outline) {
+                      em {
+                          padding:0 16px;
+                          font-size:12px;
+                          font-weight:600;
+                      }
+                  }
+                  label.select {
+                      width:100%;
+                      display:block !important;
+                  }
+              }
+          }
+      }
+  }
+  > em {
+      width:100%;
+      margin-top:10px;
+      font-size:16px;
+      color:#d72137 !important;
+      display:block;
+  }
+
+}
+
+.goods_info {
+  table {
+   thead {
+    tr {
+      text-align:center;
+      th {
+        padding:15px 0 !important;
+      }
+    }
+   }
+   tbody {
+    tr {
+      text-align:center;
+      td {
+        padding:15px 0 !important;
+        font-weight:normal;
+        border-left:1px solid #eee;
+        &:first-of-type {
+          border-left:0;
+        }
+        a {
+          p {
+            padding:0 15px;
+          }
+        }
+      }
+    }
+   }
+  }
+}
+
+.modal_wrap {
+  &#my_delivery{
+    .modal_container {
+      width:540px !important;
+      .modal_content {
+        dl {
+          height:60px;
+          margin:0 20px;
+          padding:20px;
+          background-color: #F5F5F5;
+          display:flex;
+          align-items:center;
+          dt {
+            height:100%;
+            margin-right:20px;
+            padding-right:21px;
+            font-size:16px;
+            font-weight:600;
+            position: relative;
+            &::after {
+              content:'';
+              width:1px;
+              height:100%;
+              background: #ddd;
+              position:absolute;
+              top:0;
+              right:0;
+              display:inline-block;
+            }
+          }
+          dd {
+            color: #999;
+            font-size: 16px;
+          }
+        }
+        ul {
+          margin-top:10px;
+          li {
+            padding:20px 0 18px;
+            border-bottom:1px solid #ccc;
+            position:relative;
+            span {
+              font-weight:600;
             }
             em {
-            margin-top:10px;
-            color:#d72137 !important;
-            display:block;
+              margin-left:20px;
+              padding-left:21px;
+              color: #666;
+              font-weight:400;
+              position:relative;
+              &::before {
+                content:'';
+                width:1px;
+                height:100%;
+                background-color: #ddd;
+                position:absolute;
+                top:0;
+                left:0;
+                display:inline-block;
+              }
             }
-        }
-        .btn_wrap {
-            margin-top:60px;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            gap:0 10px;
-            :deep(button) {
-                &.btn_mid {
-                    padding:0 30px;
-                    font-size:16px;
-                    font-weight:600;
-                    background:#00BC70;
-                }
-                &.btn_mid_outline {
-                    padding:0 30px;
-                    font-size:16px;
-                    font-weight:600;
-                }
+            i {
+              color: #999;
+              font:inherit;
+              position:absolute;
+              top:50%;
+              right:4px;
+              transform:translateY(-50%);
             }
+            &.current {
+              span,em {
+                color: #00BC70;
+              }
+            }
+            &:last-of-type {
+              border-bottom:0;
+            }
+          }
+
         }
+      }
     }
+  }
 }
 
-
-.table_wrap {
-    border-top: 2px solid #000;
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        border: 0;
-        table-layout: fixed;
-        caption {
-            display:none;
-        }
-        tbody {
-            tr {
-                th {
-                    padding:24px 30px;
-                    color:#333;
-                    font-size:14px;
-                    border-bottom:1px solid #f5f5f5;
-                    text-align:left;
-                    vertical-align:top;
-                    em {
-                        margin-left:-10px;
-                        margin-right:3px;
-                        color:#FF0000;
-                    }
-                }
-                td {
-                    padding:20px 0;
-                    font-size:16px;
-                    font-weight:500;
-                    border-bottom:1px solid #f5f5f5;
-                    :deep(button.btn_outline) {
-                        em {
-                            font-weight:600;
-                        }
-                    }
-                    label.select {
-                        width:30%;
-                        display:block !important;
-                    }
-                    .label_wrap {
-                        :deep(label.input) {
-                            input {
-                                width:600px !important;
-                            }
-                            textarea {
-                                width:600px;
-                                height:200px !important;
-                            }
-                        }
-                    }
-                    > div {
-                        display:flex;
-                        align-items:center;
-                    }
-                    > dl {
-                        margin-top:16px;
-                        display:flex;
-                        align-items:center;
-                        dt {
-                            margin-right:30px;
-                            font-size:14px
-                        }
-                        dd {
-                            display:flex;
-                            gap:15px;
-                        }
-                    }
-
-                    &.qa_sms {
-                        > div {
-                            gap:6px;
-                            :deep(.input_wrap) {
-                              flex:0 auto !important;
-                              .label_wrap {
-                              flex:0 !important;
-                                  label.input {
-                                      width:150px !important;
-                                      input[type='text'] {
-                                          width:150px !important;
-                                      }
-                                  }
-                              }
-                            }
-                        }
-                        dl {
-                          dd {
-                            :deep(.input_wrap) {
-                              flex:0 auto;
-                            }
-                          }
-                        }
-                    }
-                    &.qa_email {
-                        > div {
-                            gap:6px;
-
-                            :deep(.input_wrap) {
-                              flex:0 auto !important;
-                              .label_wrap {
-                              flex:0 !important;
-                                  label.input {
-                                      width:150px !important;
-                                      input[type='text'] {
-                                          width:150px !important;
-                                      }
-                                  }
-                              }
-                            }
-                        }
-                        dl {
-                          dd {
-                            :deep(.input_wrap) {
-                              flex:0 auto;
-                            }
-                          }
-                        }
-                    }
-                    .error {
-                        margin-top:10px;
-                        color:#FF0000;
-                        font-size:12px;
-                        display:block;
-                    }
-
-                }
-
-            }
-        }
-    }
-    > em {
-        width:100%;
-        margin-top:10px;
-        font-size:16px;
-        color:#d72137 !important;
-        display:block;
-    }
-
-}
-
-#choice_modal {
-    .modal_container {
-        width:720px;
-        font-size:16px !important;
-        .modal_header {
-            padding:30px 20px;
-            h2 {
-                font-size: 20px;
-                font-weight: 600;
-                line-height: 1.33rem;
-            }
-        }
-        .modal_content {
-            padding: 0px 30px 30px 30px;
-            .inner {
-                padding:0;
-
-                :deep(.tab_wrap) {
-                    ul {
-                        border-bottom:1px solid #eee;
-                        gap:50px;
-                        li {
-                            width:100%;
-                            flex:0 !important;
-                            > * {
-                                em {
-                                    width:50px;
-                                    padding: 0 !important;;
-                                    color:#666;
-
-                                    font-size:16px;
-                                    font-weight:600;
-                                }
-                            }
-                             &.current {
-                                > *  em{
-                                    color:#00BC70 !important;
-
-                                }
-                                > * {
-                                    &::after {
-                                        border-bottom:2px solid #00BC70 !important;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .date_wrap {
-                    margin:40px 0;
-                    overflow: hidden;
-                    display:flex;
-                    align-items: center;
-                    justify-content:center;
-                    gap:10px;
-                    .date {
-                        width: 160px;
-                        height: 4rem;
-                        padding: 0 1.5rem;
-                        border: 1px solid #DDD;
-                        background: #F5F5F5;
-                        position: relative;
-                        display: flex;
-                        align-items: center;
-                        input {
-                            position: absolute;
-                            top: 0;
-                            right: 0;
-                            bottom: 0;
-                            left: 0;
-                            z-index: 10;
-                            width: 100%;
-                            height: 100%;
-                            opacity: 0;
-                            color: #000;
-                        }
-                    }
-                    .btn_outline {
-                        font-weight:600;
-                    }
-                }
-            }
-            .alt {
-                    margin: 0 0 8px;
-                    color: #222;
-                    font-size: 16px;
-                    span {
-                        color:#00BC70;
-                    }
-            }
-            .table_wrap {
-                table {
-                    thead {
-                        tr {
-                            th {
-                                padding:20px 0;
-                                color:#666;
-                                font-size:13px;
-                                border-bottom:1px solid #eee;
-                                background:#F5F5F5;
-                                &:not(:first-of-type){
-                                    border-left:1px solid #eee;
-                                }
-                                &:nth-of-type(2){
-                                    width:60%;
-                                }
-                            }
-                        }
-                    }
-                    tbody {
-                        text-align:center;
-                        tr {
-                            td {
-                                font-size:13px;
-                            }
-                        }
-                    }
-                }
-            }
-            section {
-                div {
-                    padding: 10rem 0;
-                    text-align:center;
-                }
-            }
-        }
-    }
-}
 </style>
