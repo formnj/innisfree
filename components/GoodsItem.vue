@@ -27,7 +27,7 @@
                     <em>{{ item.cost }}</em>
                 </p>
                 <!-- sticker -->
-                <Sticker :item="item.sticker" />
+                <Sticker v-if="item.sticker" :item="item.sticker" />
                 <!-- //sticker -->
                 <!-- Hash -->
                 <Hash v-if="item.hash" :item="item.hash" />
@@ -240,7 +240,6 @@ import { modal } from '~/assets/js/common-ui.js'
             }
         }
         > button.giveaway {
-          width:100%;
           height:60px;
           padding:8px;
           margin-top:15px;
@@ -252,6 +251,7 @@ import { modal } from '~/assets/js/common-ui.js'
           img {
             width:32.3px;
             display:block;
+            flex:1;
           }
         }
         .review_score {
