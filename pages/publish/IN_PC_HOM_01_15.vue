@@ -4,11 +4,11 @@
       <div class="title_wrap" :data-layout="props.layoutType">
         <div class="prd_tit">
           <h2>FOR ME</h2>
-          <h3>추천해요<a class="btn_link_arrw">피부정보 등록</a></h3>
+          <h3>추천해요<a href="#피부정보설정페이지로이동" class="btn_link_arrw">피부정보 등록</a></h3>
           <p class="desc">가장 많이 등록된 피부정보 기준으로 보여드려요.</p>
           <div class="btn_wrap">
-            <Button txt="건성피부" class="btn_min gray" @click="modal.open('shopping_log', 'detailSearch')" />
-            <Button txt="모공 / 주름 / 탄력" class="btn_min gray" @click="modal.open('shopping_log', 'detailSearch')" />
+            <Button txt="건성피부" class="btn_min gray" @click="modal.open('피부타입설정모달', 'detailSearch')" />
+            <Button txt="모공 / 주름 / 탄력" class="btn_min gray" @click="modal.open('피부타입설정모달', 'detailSearch')" />
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
 
           <div class="rank_area">
             <ol class="rank_list">
-              <li class="active"><button type="button"><span class="num">1</span>레티놀</button></li> <!-- 활성화 탭에 active 클래스 추가-->
+              <li class="active"><button type="button" class="btn_rank"><span class="num">1</span>레티놀</button></li> <!-- 활성화 탭에 active 클래스 추가-->
               <li><button type="button" class="btn_rank"><span class="num">2</span>노세범</button></li>
               <li><button type="button" class="btn_rank"><span class="num">3</span>첫구매</button></li>
               <li><button type="button" class="btn_rank"><span class="num">4</span>클렌징</button></li>
@@ -251,30 +251,56 @@ const props = defineProps({
 });
 
 onMounted(() => {
-  rankingTabUI();
+
+  // rankingTabUI();
+
+  //쇼핑로그 영역 고정
+  const shopLog = document.getElementsByClassName("shoppinglog_area")[0];
+  const winH = window.innerHeight;
+  shopLog.style.cssText = "height:" + winH + "px";
+
+
+  const btnRank = document.querySelectorAll(".btn_rank");
+  btnRank.forEach((button, index)=> {
+    button.addEventListener("click", () => {
+      rankingTabUI(index);
+    })
+  })
 })
 
-const rankingTabUI = () => {
-    const activeTab = document.querySelector('.rank_list li.active');
-    const rankTab = [...activeTab.parentElement.children];
-    const tabIdx = rankTab.indexOf(activeTab);
-    const tabConts = [...activeTab.closest('ol').nextElementSibling.children];
-    let nextIdx = tabIdx;
-    setInterval(()=>{
-      if(nextIdx >= rankTab.length - 1){
-        rankTab[nextIdx].classList.remove('active');
-        tabConts[nextIdx].classList.remove('active');
-        nextIdx = 0;
-        rankTab[nextIdx].classList.add('active');
-        tabConts[nextIdx].classList.add('active');
-      }else {
-        rankTab[nextIdx].classList.remove('active');
-        rankTab[nextIdx+1].classList.add('active');
-        tabConts[nextIdx].classList.remove('active');
-        tabConts[nextIdx+1].classList.add('active');
-        nextIdx += 1;
-      }
-    }, 2000);
+//하단 랭킹 UI
+const rankingTabUI = (e) => {
+  const activeTab = document.querySelector('.rank_list li.active');
+  const rankTab = [...activeTab.parentElement.children];
+  const tabIdx = rankTab.indexOf(activeTab);
+  const tabConts = [...activeTab.closest('ol').nextElementSibling.children];
+  let nextIdx = tabIdx;
+  if(e == undefined){
+    nextIdx = tabIdx;
+  }else {
+    rankTab[nextIdx].classList.remove('active');
+    tabConts[nextIdx].classList.remove('active');
+    nextIdx = e;
+    rankTab[nextIdx].classList.add('active');
+    tabConts[nextIdx].classList.add('active');
+  }
+  //console.log(nextIdx);
+
+  setInterval(()=>{
+    if(nextIdx >= rankTab.length - 1){
+      rankTab[nextIdx].classList.remove('active');
+      tabConts[nextIdx].classList.remove('active');
+      nextIdx = 0;
+      rankTab[nextIdx].classList.add('active');
+      tabConts[nextIdx].classList.add('active');
+    }else {
+      rankTab[nextIdx].classList.remove('active');
+      tabConts[nextIdx].classList.remove('active');
+      rankTab[nextIdx+1].classList.add('active');
+      tabConts[nextIdx+1].classList.add('active');
+      nextIdx += 1;
+    }
+  }, 2000);
 }
 </script>
 
@@ -290,6 +316,7 @@ const rankingTabUI = () => {
     padding: 0 !important;
   }
 }
+
 .recommend_area {
   width: 800px;
 
@@ -506,32 +533,56 @@ const rankingTabUI = () => {
 }
 
 .shoppinglog_area {
- width: 480px;
- padding: 132px 0 0 40px;
- border: 1px solid #f5f5f5;
- border-width: 0 1px;
+  width: 480px;
+  padding: 132px 0 0 40px;
+  border: 1px solid #f5f5f5;
+  border-width: 0 1px;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
 
- h2 {
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.33em;
-  letter-spacing: -0.01em;
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.33em;
+    letter-spacing: -0.01em;
 
-  & + p {
-    margin-top: 5px;
-    color: #999;
+    & + p {
+      margin-top: 5px;
+      color: #999;
+    }
+
+    button.tooltip {
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+      background-position: 0 -260px;
+    }
   }
 
-  button.tooltip {
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    background-position: 0 -260px;
+  .inner {
+    height: 100%;
   }
- }
 }
 
 .shopping_log {
+  margin-top: 40px;
+  height: calc(100% - 100px);
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar{
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb{
+    background-color: #e2e2e2;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-track{
+    background-color: transparent;
+  }
+
   section {
     padding-top:40px;
     h4 {
