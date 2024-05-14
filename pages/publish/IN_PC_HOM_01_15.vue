@@ -59,14 +59,86 @@
           </div>
           <button type="button" class="btn_outline more refresh"><em>새로운 추천을 받고 싶어요</em> <span class="page">1/2</span></button>
         </section>
+
+        <section>
+          <h3><em>같은 연령대</em> 고객님들이 가장 많이 검색하고 있어요</h3>
+
+          <Tabs tabType="type_02" :item="[{txt:'전체'},{txt:'10대'},{txt:'20대'},{txt:'30대'},{txt:'40대'},{txt:'50대~'}]"  :tabidx="0" />
+
+          <div class="rank_area">
+            <ol class="rank_list">
+              <li class="active"><button type="button"><span class="num">1</span>레티놀</button></li> <!-- 활성화 탭에 active 클래스 추가-->
+              <li><button type="button" class="btn_rank"><span class="num">2</span>노세범</button></li>
+              <li><button type="button" class="btn_rank"><span class="num">3</span>첫구매</button></li>
+              <li><button type="button" class="btn_rank"><span class="num">4</span>클렌징</button></li>
+              <li><button type="button" class="btn_rank"><span class="num">5</span>그린티</button></li>
+              <li><button type="button" class="btn_rank"><span class="num">6</span>선크림</button></li>
+              <li><button type="button" class="btn_rank"><span class="num">7</span>블랙티</button></li>
+              <li><button type="button" class="btn_rank"><span class="num">8</span>앰플</button></li>
+              <li><button type="button" class="btn_rank"><span class="num">9</span>화산송이</button></li>
+              <li><button type="button" class="btn_rank"><span class="num">10</span>비자</button></li>
+            </ol>
+            <div class="tab_contents">
+              <ul class="tab_cont goods_list active"> <!-- 활성화 탭컨텐츠에 active 클래스 추가-->
+                <li v-for="(item, idx) in sample_goods.slice(0,3)" :key="idx">
+                  <GoodsItem :item="item" :link="item.link" />
+                </li>
+              </ul>
+              <ul class="tab_cont goods_list">
+                <li v-for="(item, idx) in sample_goods.slice(1,4)" :key="idx">
+                  <GoodsItem :item="item" :link="item.link" />
+                </li>
+              </ul>
+              <ul class="tab_cont goods_list">
+                <li v-for="(item, idx) in sample_goods.slice(2,5)" :key="idx">
+                  <GoodsItem :item="item" :link="item.link" />
+                </li>
+              </ul>
+              <ul class="tab_cont goods_list">
+                <li v-for="(item, idx) in sample_goods.slice(3,6)" :key="idx">
+                  <GoodsItem :item="item" :link="item.link" />
+                </li>
+              </ul>
+              <ul class="tab_cont goods_list">
+                <li v-for="(item, idx) in sample_goods.slice(4,7)" :key="idx">
+                  <GoodsItem :item="item" :link="item.link" />
+                </li>
+              </ul>
+              <ul class="tab_cont goods_list">
+                <li v-for="(item, idx) in sample_goods.slice(0,3)" :key="idx">
+                  <GoodsItem :item="item" :link="item.link" />
+                </li>
+              </ul>
+              <ul class="tab_cont goods_list">
+                <li v-for="(item, idx) in sample_goods.slice(1,4)" :key="idx">
+                  <GoodsItem :item="item" :link="item.link" />
+                </li>
+              </ul>
+              <ul class="tab_cont goods_list">
+                <li v-for="(item, idx) in sample_goods.slice(2,5)" :key="idx">
+                  <GoodsItem :item="item" :link="item.link" />
+                </li>
+              </ul>
+              <ul class="tab_cont goods_list">
+                <li v-for="(item, idx) in sample_goods.slice(3,6)" :key="idx">
+                  <GoodsItem :item="item" :link="item.link" />
+                </li>
+              </ul>
+              <ul class="tab_cont goods_list">
+                <li v-for="(item, idx) in sample_goods.slice(4,7)" :key="idx">
+                  <GoodsItem :item="item" :link="item.link" />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
 
     <div class="shoppinglog_area">
       <div class="inner">
         <h2>
-          <span><em>주소희</em> 님의 쇼핑로그 <Icons class="tooltip" txt="툴팁" @click="modal.open('log_info', 'alert')" /></span>
-          <a href="/publish/IN_MO_HOM_01_18" class="btn_link_arrw">전체보기</a>
+          <em>주소희</em> 님의 쇼핑로그 <Icons class="tooltip" txt="툴팁" @click="modal.open('log_info', 'alert')" />
         </h2>
         <p class="txt_desc">최근 본 제품, 이벤트, 검색어예요</p>
 
@@ -75,10 +147,11 @@
             <!-- <p v-if="sample_log.length < 1" class="no_data"> -->
             <p class="no_data">
               <strong>쇼핑로그가 없습니다.</strong>
+              <span>쇼핑로그는 7일 최대 50개까지 보관됩니다.</span>
             </p>
             <!-- list -->
             <ul class="goods_list type_column">
-              <li v-for="(item, idx) in sample_log.slice(0,3)" :key="idx">
+              <li v-for="(item, idx) in sample_log.slice(0,6)" :key="idx">
                 <GoodsItem v-if="item.type == 'goods'" :item="item.item[0]" :link="item.item.link" />
                 <EventItem v-if="item.type == 'event'" :item="item.item[0]" :link="item.link"/>
               </li>
@@ -86,7 +159,7 @@
             <!-- //list -->
           </div>
 
-          <div v-if="sample_log.length < 1">
+          <div class="keyword_list_wrap">
             <h2>
               <span>추천 키워드</span>
             </h2>
@@ -134,14 +207,37 @@
       </div>
     </div>
   </div>
+
+  <!-- 쇼핑로그 안내 모달 -->
+  <div id="log_info" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_header">
+          <h2>쇼핑로그 안내</h2>
+          <button class="btn_close" @click="modal.close(this);">닫기</button>
+      </div>
+      <div class="modal_content">
+        <ul class="bullet_list">
+          <li>로그인을 하신 고객님들은 30일동안 조회한 최대 100개까지의 쇼핑로그를 확인하실 수 있습니다.</li>
+          <li>판매 종료된 제품이나 종료된 이벤트는 쇼핑로그에서 자동으로 삭제됩니다.</li>
+        </ul>
+      </div>
+      <div class="modal_footer">
+          <Button class="btn_ confirm" txt="확인" @click="modal.close(this);" />
+      </div>
+  </div>
+  <div class="overlay" @click="modal.close(this);"></div>
+</div>
+<!-- //쇼핑로그 안내 모달 -->
 </template>
 <script setup>
+import { modal } from '~/assets/js/common-ui'
 import { sample_goods, sample_log } from '~/test/data/publish/dummyData'
 import SwiperCore, { Navigation, Pagination, A11y, Controller } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
+import { onMounted } from 'vue';
 SwiperCore.use([Navigation, Pagination, A11y, Controller]);
 
 definePageMeta({
@@ -153,6 +249,33 @@ const props = defineProps({
     default: 'default'
   }
 });
+
+onMounted(() => {
+  rankingTabUI();
+})
+
+const rankingTabUI = () => {
+    const activeTab = document.querySelector('.rank_list li.active');
+    const rankTab = [...activeTab.parentElement.children];
+    const tabIdx = rankTab.indexOf(activeTab);
+    const tabConts = [...activeTab.closest('ol').nextElementSibling.children];
+    let nextIdx = tabIdx;
+    setInterval(()=>{
+      if(nextIdx >= rankTab.length - 1){
+        rankTab[nextIdx].classList.remove('active');
+        tabConts[nextIdx].classList.remove('active');
+        nextIdx = 0;
+        rankTab[nextIdx].classList.add('active');
+        tabConts[nextIdx].classList.add('active');
+      }else {
+        rankTab[nextIdx].classList.remove('active');
+        rankTab[nextIdx+1].classList.add('active');
+        tabConts[nextIdx].classList.remove('active');
+        tabConts[nextIdx+1].classList.add('active');
+        nextIdx += 1;
+      }
+    }, 2000);
+}
 </script>
 
 <style lang="scss" scoped>
@@ -200,6 +323,7 @@ const props = defineProps({
 
       :deep(button) {
         background-color: #999;
+
         em {
           font-size: 12px;
           color: #fff;
@@ -230,7 +354,7 @@ const props = defineProps({
         color: #00BC70;
       }
 
-      & + * {
+      &+* {
         margin-top: 30px;
 
         &.desc {
@@ -262,12 +386,12 @@ const props = defineProps({
       border: 1px solid #eee;
       position: relative;
 
-      em{
+      em {
         display: inline-flex;
         align-items: center;
 
         &:before {
-          content:'';
+          content: '';
           width: 16px;
           height: 16px;
           margin-right: 10px;
@@ -292,6 +416,92 @@ const props = defineProps({
     .navigation {
       display: none;
     }
+
+    .swiper-container {
+      .swiper-pagination-progressbar {
+        width: 760px;
+      }
+    }
+  }
+
+  .rank_area {
+    margin-top: 25px;
+    display: flex;
+
+    .rank_list {
+      width: 170px;
+      margin-right: 40px;
+      border-top: 1px solid #F5F5F5;
+
+      li {
+        border-bottom: 1px solid #F5F5F5;
+
+        button {
+          width: 100%;
+          padding: 16px 0;
+          font-size: 14px;
+          line-height: 1.43;
+          color: #999;
+          text-align: left;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          word-wrap: break-word;
+
+          .num {
+            display: inline-block;
+            width: 32px;
+            margin-right: 5px;
+            ;
+            text-align: center;
+          }
+        }
+
+        &.active {
+          border-bottom: 1px solid #000;
+        }
+
+        &.active button {
+          font-weight: 600;
+          color: #000;
+        }
+      }
+    }
+
+    .tab_contents {
+      .tab_cont {
+        display: none;
+
+        &.active {
+          display: flex;
+        }
+      }
+
+      .goods_list li {
+        width: 170px;
+      }
+
+      :deep(.goods_item) {
+        .img_wrap {
+          .thumb {
+            height: 227px;
+          }
+        }
+        .cont {
+          & > .price {
+            strong {
+             font-size: 18px;
+            }
+            span {
+              font-size: 17px;
+            }
+            em {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -300,6 +510,25 @@ const props = defineProps({
  padding: 132px 0 0 40px;
  border: 1px solid #f5f5f5;
  border-width: 0 1px;
+
+ h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33em;
+  letter-spacing: -0.01em;
+
+  & + p {
+    margin-top: 5px;
+    color: #999;
+  }
+
+  button.tooltip {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    background-position: 0 -260px;
+  }
+ }
 }
 
 .shopping_log {
@@ -317,6 +546,15 @@ const props = defineProps({
   }
   .no_data {
     padding:50px 0 90px;
+
+    span {
+      margin-top: 10px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.43;
+      color: #999;
+      text-align: center;
+    }
   }
   .goods_list {
     margin:0;
@@ -397,17 +635,28 @@ const props = defineProps({
       }
     }
   }
-  .keyword_list {
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px 5px;
-    a {
-      padding:4px 10px;
-      color:#009d5e;
-      font-size:12px;
-      border:1px solid #009d5e;
-      border-radius:100px;
-      display:block;
+
+  .keyword_list_wrap {
+    margin: 0 40px;
+    border-top: 1px solid #eee;
+
+    h2 {
+      padding: 40px 0 20px;
+      font-size: 16px;
+    }
+
+    .keyword_list {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 5px;
+      a {
+        padding:4px 10px;
+        color:#009d5e;
+        font-size:12px;
+        border:1px solid #009d5e;
+        border-radius:100px;
+        display:block;
+      }
     }
   }
 }
