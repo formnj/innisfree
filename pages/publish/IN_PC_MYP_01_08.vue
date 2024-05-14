@@ -84,7 +84,7 @@
                   <td>2024.05.03	</td>
                   <td>21288166</td>
                   <td class="goods_name">
-                    <a href="#none">비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
+                    <a @click="$router.push('/publish/IN_PC_MYP_01_11')">비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
                   </td>
                   <td>2,500원</td>
                   <td>배송완료</td>
@@ -171,8 +171,8 @@
                 <tr>
                   <td>2024.05.03	</td>
                   <td>21288166</td>
-                  <td class="goods_name">
-                    <a href="#none">비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
+                  <td @click="$router.push('/publish/IN_PC_MYP_01_11')" class="goods_name">
+                    <a href="#none" >비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
                   </td>
                   <td>2,500원</td>
                   <td>배송완료</td>
@@ -245,7 +245,7 @@
                 <tr>
                   <td>2024.05.03	</td>
                   <td>21288166</td>
-                  <td class="goods_name">
+                  <td @click="$router.push('/publish/IN_PC_MYP_01_11')" class="goods_name">
                     <a href="#none">비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
                   </td>
                   <td>2,500원</td>
@@ -339,7 +339,7 @@
                 <tr>
                   <td>2024.05.03	</td>
                   <td>21288166</td>
-                  <td class="goods_name">
+                  <td @click="$router.push('/publish/IN_PC_MYP_01_11')" class="goods_name">
                     <a href="#none">비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
                   </td>
                   <td>2,500원</td>
@@ -488,6 +488,15 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.tab_wrap {
+  :deep(.type_03) {
+    li {
+      button {
+        font-size:18px !important;
+      }
+    }
+  }
+}
 
 .bullistType_02 {
   display:flex;
@@ -851,6 +860,9 @@ section {
               }
               &.goods_name {
                 text-align:left;
+                a {
+                  cursor:pointer;
+                }
               }
               :deep(.btn_min_outline) {
                 em {

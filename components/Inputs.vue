@@ -95,6 +95,10 @@
 <style lang="scss" scoped>
 .input_wrap {
   flex:1;
+  input[type='text']:disabled {
+    background-color:#eee !important;
+    border-color:#ddd !important;
+  }
   .err_txt {
     margin-top:5px;
     color:#12b560;

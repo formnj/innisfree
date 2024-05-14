@@ -103,7 +103,7 @@
             <tr>
               <td colspan="2">
                 <a href="#none">
-                  <img src="" alt="">
+                  <img src="/_nuxt/public/images/sam/36804_l_S_90.png" alt="">
                   <p>
                     <span>비타C 그린티 엔자임 잡티 토닝 세럼 체험단7ml</span>
                     <em>제품코드: 36804</em>
@@ -202,7 +202,7 @@
             <tr>
               <th>받으실 분</th>
               <td class="my_name">
-                <Inputs _type="text" _value="김이나" _disable/>
+                <Inputs _type="text" _value="김이나" isDisabled/>
               </td>
             </tr>
             <tr class="my_addr">
@@ -210,9 +210,9 @@
                   <span>주소</span>
               </th>
               <td>
-                <Inputs _type="text" _placeholder="" _value="012345"/>
-                <Inputs _type="text" _placeholder="" _value="서울특별시"/>
-                <Inputs _type="text" _placeholder="" _value="한화비즈"/>
+                <Inputs _type="text" _placeholder="" _value="012345" isDisabled />
+                <Inputs _type="text" _placeholder="" _value="서울특별시" isDisabled />
+                <Inputs _type="text" _placeholder="" _value="한화비즈" isDisabled />
               </td>
             </tr>
             <tr class="my_phone">
@@ -225,11 +225,11 @@
                         :options="[
                         { val: 'value', txt: '010' },
                         { val: 'value', txt: '012' }
-                        ]" />
+                        ]"  isDisabled/>
                         <span>-</span>
-                        <Inputs _type="text" _placeholder="" value="1234"/>
+                        <Inputs _type="text" _placeholder="" _value="1234" isDisabled/>
                         <span>-</span>
-                        <Inputs _type="text" _placeholder="" value="5678"/>
+                        <Inputs _type="text" _placeholder="" _value="5678" isDisabled/>
                     </div>
                 </td>
             </tr>
@@ -238,7 +238,7 @@
                     <span>배송 시 요청사항</span>
                 </th>
                 <td class="shippingMsg">
-                  <Inputs _type="text" _placeholder="" _value="부재시 문앞에 놓아주세요."/>
+                  <Inputs _type="text" _placeholder="" _value="부재시 문앞에 놓아주세요." isDisabled/>
                 </td>
             </tr>
         </tbody>
@@ -246,7 +246,7 @@
   </div>
 
 
-
+  <Button txt="목록" class="btn_mid confirm" @click="$router.push('/publish/IN_PC_MYP_01_08')" />
   <!-- modal -->
   <div class="modal_wrap" id="my_delivery">
     <div class="modal_container">
@@ -308,6 +308,26 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.tab_wrap {
+  :deep(.type_03) {
+    li {
+      button {
+        font-size:18px !important;
+      }
+    }
+  }
+}
+
+
+.btn_mid {
+  margin:60px auto 0 auto;
+  padding:0 62px;
+  :deep(em) {
+    padding:0;
+    font-size:16px !important;
+    font-weight:600;
+  }
+}
 .sub_title_wrap {
   margin: 60px auto 20px;
   padding:0 !important;
@@ -369,7 +389,7 @@ onMounted(() => {
         }
         &.my_name {
           :deep(.input_wrap){
-            width:21%;
+            width:28%;
           }
         }
       }
@@ -391,10 +411,17 @@ onMounted(() => {
           > div {
           display:flex;
           align-items:center;
+          :deep(.input_wrap) {
+            width:25%;
+          }
             span {
               margin:0 5px;
               display:block;
             }
+          }
+          label.select {
+              width:25%;
+              display:block !important;
           }
         }
       }
@@ -488,10 +515,6 @@ onMounted(() => {
                           font-weight:600;
                       }
                   }
-                  label.select {
-                      width:100%;
-                      display:block !important;
-                  }
               }
           }
       }
@@ -527,8 +550,24 @@ onMounted(() => {
           border-left:0;
         }
         a {
+          display:flex;
+          align-items:center;
+          img {
+            width:100px;
+          }
           p {
-            padding:0 15px;
+            padding:0 17px;
+            text-align:left;
+            display:flex;
+            flex-direction:column;
+            flex:1;
+            span {
+              margin-bottom:8px;
+            }
+            em {
+              color:#999;
+              font-size:13px;
+            }
           }
         }
       }
