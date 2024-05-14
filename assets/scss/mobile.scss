@@ -321,6 +321,15 @@
   }
 }
 
+.giveaway_list {
+  dd {
+    font-size:1.3rem;
+    em {
+      font-size:1.2rem;
+    }
+  }
+}
+
 
 /* 토픽 아이콘 스타일(조회수, 좋아요수, 댓글수, 시계(날짜)) */
 :deep(.post_icons) {

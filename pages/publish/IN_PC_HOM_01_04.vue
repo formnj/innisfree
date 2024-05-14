@@ -67,7 +67,7 @@
       <div class="list_wrap">
         <ul class="goods_list">
           <li v-for="(item, idx) in mo_benefit_goods" :key="idx" >
-              <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="alert"/>
+              <GoodsItem :item="item" :link="item.link" modal_type="alert"/>
           </li>
         </ul>
       </div>
@@ -101,36 +101,38 @@
             <button class="btn_close" @click="modal.close(this);">닫기</button>
         </div>
         <div class="modal_content">
-          <dl>
-            <dt>
-              <img src="/_nuxt/public/images/sam/giveaway_01.png">
-            </dt>
-            <dd>
-              <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
-              <em>24.3.25 ~ 24.3.31</em>
-              <span>1개 구매시 1개 증정</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>
-              <img src="/_nuxt/public/images/sam/giveaway_02.png">
-            </dt>
-            <dd>
-              <p>비타C 세럼 럭키 박스 (30ml + 랜덤기프트)</p>
-              <em>23.4.11</em>
-              <span>1개 구매시 n개 증정</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>
-              <img src="/_nuxt/public/images/sam/giveaway_03.png">
-            </dt>
-            <dd>
-              <p>레티놀 시카 앰플 포커싱 패치 1ea / 9patches</p>
-              <em>24.2.29 ~ 24.3.31</em>
-              <span>1개 구매시 n개 증정</span>
-            </dd>
-          </dl>
+          <div class="giveaway_list">
+            <dl>
+              <dt>
+                <img src="/_nuxt/public/images/sam/giveaway_01.png">
+              </dt>
+              <dd>
+                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+                <em>24.3.25 ~ 24.3.31</em>
+                <span>1개 구매시 1개 증정</span>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <img src="/_nuxt/public/images/sam/giveaway_02.png">
+              </dt>
+              <dd>
+                <p>비타C 세럼 럭키 박스 (30ml + 랜덤기프트)</p>
+                <em>23.4.11</em>
+                <span>1개 구매시 n개 증정</span>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <img src="/_nuxt/public/images/sam/giveaway_03.png">
+              </dt>
+              <dd>
+                <p>레티놀 시카 앰플 포커싱 패치 1ea / 9patches</p>
+                <em>24.2.29 ~ 24.3.31</em>
+                <span>1개 구매시 n개 증정</span>
+              </dd>
+            </dl>
+          </div>
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
