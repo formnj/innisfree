@@ -14,6 +14,7 @@
           <li><a href="#none">공지사항</a></li>
           <li><a href="#none">로그인 / 회원가입</a></li>
           <li><a href="#none">고객센터 : 080-380-0114 (수신자요금부담)</a></li>
+          <li><a href="#none">임직원인증</a></li>
         </ul>
       </div>
       <div class="footer_common">
@@ -96,7 +97,7 @@ footer {
       }
       > ul {
         color:#999;
-        font-size:12px;
+        font-size:10px;
         font-weight:600;
         display:flex;
         gap:10px;

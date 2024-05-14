@@ -1,6 +1,6 @@
 <template>
   <div class="staff_wrap">
-    <section class="staffVisual">
+    <section class="staff_visual">
       <span>임직원 전용</span>
       <div>
         이니스프리 임직원<br />
@@ -141,7 +141,7 @@ onMounted(() => {})
 <style lang="scss" scoped>
 .staff_wrap {
   margin: 0 -20px;
-  .staffVisual {
+  .staff_visual {
     height: 25rem;
     padding:4rem 0 0 2.1rem;
     letter-spacing: -0.01em;
