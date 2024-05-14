@@ -61,7 +61,7 @@
     <div class="list_wrap">
       <ul class="goods_list division_02">
           <li v-for="(item, idx) in mo_benefit_goods" :key="idx" >
-              <GoodsItem :item="item" :link="item.link" class="type_cart"/>
+              <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" />
           </li>
       </ul>
     </div>
@@ -90,6 +90,7 @@
   <!-- //tooltip modal -->
 
 
+  <!-- 증정품 모달 -->
   <div class="modal_wrap" id="giveaway_01">
     <div class="modal_container">
         <div class="modal_header">
@@ -131,6 +132,7 @@
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
+  <!-- //증정품 모달 -->
 
   <div class="modal_wrap" id="cart_alert_01">
       <div class="modal_container">

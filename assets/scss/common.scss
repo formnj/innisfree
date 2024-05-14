@@ -606,6 +606,77 @@ html {
       }
     }
   }
+
+  /* 증정 */
+  &#giveaway {
+    :deep(.modal_container) {
+      .modal_header {
+        .btn_close {
+          width: 24px;
+          height: 24px;
+          font-size: 0;
+          background-color: transparent;
+          position: absolute;
+          top: 20px !important;
+          left:90% !important;
+          transform: translate(0,0);
+          &::before, &::after{
+            width: 100%;
+            border-top: 1px solid #222;
+            border-radius:0;
+            background:none;
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: block;
+          }
+          &::before {
+            transform: rotate(45deg);
+          }
+          &::after {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+      .modal_content {
+        padding:2.0rem 2.1rem;
+        border-top:1px solid #eee;
+        > * + * {
+          margin-top:1.0rem;
+        }
+        dl {
+          border:1px solid #F5F5F5;
+          display:flex;
+          dt {
+            width:8.8rem;
+            height:11.7rem;
+
+          }
+          dd {
+            width:20.4rem;
+            padding:1.8rem 0 1.8rem 2.1rem;
+            display:flex;
+            flex-direction:column;
+            p {
+              font-size:1.3rem;
+            }
+            em {
+              margin-top:0.5rem;
+              color:#666;
+              font-size:1.2rem;
+            }
+            span {
+              margin-top:auto;
+              margin-bottom:0;
+              font-size:1.3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  /* //증정 */
 }
 
 /* tooltip */

@@ -66,9 +66,9 @@
 
       <div class="list_wrap">
         <ul class="goods_list">
-            <li v-for="(item, idx) in sample_goods" :key="idx">
-                <GoodsItem :item="item" :link="item.link" />
-            </li>
+          <li v-for="(item, idx) in mo_benefit_goods" :key="idx" >
+              <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="alert"/>
+          </li>
         </ul>
       </div>
     </div>
@@ -93,13 +93,56 @@
   </div>
   <!-- //tooltip modal -->
 
+  <!-- 증정품 모달 -->
+  <div class="modal_wrap" id="giveaway_01">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>증정품안내</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <dl>
+            <dt>
+              <img src="/_nuxt/public/images/sam/giveaway_01.png">
+            </dt>
+            <dd>
+              <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+              <em>24.3.25 ~ 24.3.31</em>
+              <span>1개 구매시 1개 증정</span>
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <img src="/_nuxt/public/images/sam/giveaway_02.png">
+            </dt>
+            <dd>
+              <p>비타C 세럼 럭키 박스 (30ml + 랜덤기프트)</p>
+              <em>23.4.11</em>
+              <span>1개 구매시 n개 증정</span>
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <img src="/_nuxt/public/images/sam/giveaway_03.png">
+            </dt>
+            <dd>
+              <p>레티놀 시카 앰플 포커싱 패치 1ea / 9patches</p>
+              <em>24.2.29 ~ 24.3.31</em>
+              <span>1개 구매시 n개 증정</span>
+            </dd>
+          </dl>
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //증정품 모달 -->
+
 </template>
 
 <script setup>
 import { setFilter } from '~/assets/js/common-ui.js'
 import { modal } from '~/assets/js/common-ui.js'
-import {sale_menu} from '~/test/data/publish/dummyData.js'
-import {sample_data} from '~/test/data/publish/dummyData.js'
+import {sale_menu, sample_data, mo_benefit_goods} from '~/test/data/publish/dummyData.js'
 
 definePageMeta({
 layout:'pc-category'
@@ -115,102 +158,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
       default: '#none'
   }
 });
-
-
-const sample_goods = [
-    {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'히알루론 수분 선크림 SPF 50+ PA++++',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
-    }, {
-        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
-        cate:'NEW',
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'~20%', cost:'56,000',
-        status:'coming_soon',
-        sticker:[
-            {txt:'1+1', type:'type02'},
-            {txt:'뷰티포인트전용', type:'type01'},
-            {txt:'첫구매전용', type:'type01'}
-        ]
-    }, {
-        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
-        cate:'NEW',
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'~20%', cost:'56,000',
-        status:'coming_soon',
-        sticker:[
-            {txt:'1+1', type:'type02'},
-            {txt:'뷰티포인트전용', type:'type01'},
-            {txt:'첫구매전용', type:'type01'}
-        ]
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
-        giveaway: {
-            modal_id:'giveaway_01',
-            img_01:("/_nuxt/public/images/sam/sam_pre_01.png"),
-            img_02:("/_nuxt/public/images/sam/sam_pre_02.png"),
-            img_03:("/_nuxt/public/images/sam/am_pre_03.png"),
-        }
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    },
-    {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        hash:['#스킨팩','#화장솜','#순면화장솜'],
-        giveaway: {
-            modal_id:'giveaway_02',
-            img_01:("/_nuxt/public/images/sam/sam_pre_01.png"),
-            img_02:("/_nuxt/public/images/sam/sam_pre_02.png"),
-            img_03:("/_nuxt/public/images/sam/am_pre_03.png"),
-        }
-    },
-    {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
-    },
-    {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
-    },
-    {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
-    },
-    {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
-    },{
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-    },
-    {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        giveaway: {
-            img_01:("/_nuxt/public/images/sam/sam_pre_01.png"),
-            img_02:("/_nuxt/public/images/sam/sam_pre_02.png"),
-            img_03:("/_nuxt/public/images/sam/am_pre_03.png"),
-        },
-    },
-]
-
-
-/* //component sample data */
 
 const tab_click = (event)=>{
     let tab_title = document.querySelectorAll('.tab_title')
