@@ -7,57 +7,96 @@
   <!-- FAQ 슬라이드 탭 -->
   <div class="slide_wrap">
     <ul>
-      <li class="active"><button>TOP10</button></li>
-      <li><button>제품관련</button></li>
-      <li><button>배송관련</button></li>
-      <li><button>환불/반품/교환관련</button></li>
-      <li><button>주문/결제관련</button></li>
-      <li><button>이벤트/쿠폰/포인트</button></li>
-      <li><button>사이트이용/기타</button></li>
-      <li><button>회원가입/정보변경</button></li>
+      <li v-for="(item,idx) in faq_tab" :key="idx">
+        <button type="button" @click="slide_tab($event, idx)">{{ item }}</button>
+      </li>
     </ul>
   </div>
   <!-- //FAQ 슬라이드 탭 -->
 
+  <!-- FAQ 컨텐츠 -->
   <div class="faq_wrap">
     <ul>
-      <li v-for="item in faq_data" :key="item">
+      <li v-for="item in faq_data[slide_idx]" :key="item">
         <button type="button" @click="accordion_tab">
           <span>{{ item.tit }}</span>
         </button>
         <div class="faq_cont">
           <h4>답변</h4>
-          <p>{{ item.text }}</p>
+          <p v-html="item.text"></p>
+          <div v-if="item.img" class="img"><img :src="item.img"></div>
         </div>
       </li>
     </ul>
   </div>
+  <!-- //FAQ 컨텐츠 -->
 </template>
 <script setup>
+import { faq_data } from '/_nuxt/test/data/publish/dummyData'
+
 definePageMeta({
   layout:'mo-sub'
 });
 
-const faq_data = [
-  {
-    tit: '주문건에 대해 결제 금액 영수증을 출력하고 싶어요.',
-    text: '공식 온라인몰 주문건에 대한 문의주신 결제 금액 영수증 출력은 [마이페이지 > 주문/배송현황 > 증빙서류 발급] 을 통해 영수증 출력 가능합니다.\n(PC접속을 통해서만 가능하며, 이니스프리 APP을 통해서는 서비스 이용 불가한 점 양해 부탁드립니다.)'
-  },
-  {
-    tit: '오프라인 매장 구매 내용을 확인하고 싶어요.',
-    text: '공식 온라인몰 주문건에 대한 문의주신 결제 금액 영수증 출력은 [마이페이지 > 주문/배송현황 > 증빙서류 발급] 을 통해 영수증 출력 가능합니다.\n(PC접속을 통해서만 가능하며, 이니스프리 APP을 통해서는 서비스 이용 불가한 점 양해 부탁드립니다.)'
-  },
-];
+onMounted(() => {
+  document.querySelector('.slide_wrap ul li').classList.add('active');
+});
+
+const faq_tab  = ['TOP10','제품관련','배송관련','환불/반품/교환관련','주문/결제관련','이벤트/쿠폰/포인트','사이트이용/기타','회원가입/정보변경'];
+
+const slide_idx = ref(0);
+const slide_tab = (e,i) => {
+  const tabs = document.querySelectorAll('.slide_wrap ul li');
+
+  slide_idx.value = i;
+  tabs.forEach(el => {
+    el.classList.remove('active');
+    e.target.closest('li').classList.add('active');
+  })
+};
 
 const accordion_tab = (e) => {
-  const tg = e.target.closest('li');
+  const tg_li = e.target.closest('li');
+  const tg_cont = e.target.nextElementSibling;
   const list = document.querySelectorAll('.faq_wrap ul li');
 
-  for (let i = 0; i < list.length; i++) {
-    list[i].classList.remove('active');
-  }
+  tg_cont.style.height = 'auto';
+  const height = +(tg_cont.clientHeight*0.1).toFixed(2) + 6;
+  tg_cont.style.height = '0';
 
-  tg.classList.add('active');
+  list.forEach(el => {
+    const el_cont = el.querySelector('.faq_cont');
+    
+    if (tg_li === el && !tg_li.classList.contains('active')) {
+      tg_li.classList.add('active');
+
+      setTimeout(() => {
+        tg_cont.style.height = height + 'rem'
+        tg_cont.style.paddingTop = '3rem';
+        tg_cont.style.paddingBottom = '3rem';
+      }, 0)
+    }
+    else if (tg_li === el && tg_li.classList.contains('active')) {
+      tg_li.classList.remove('active');
+
+      tg_cont.style.height = height + 'rem';
+      setTimeout(() => {
+        tg_cont.style.height = '0rem'
+        tg_cont.style.paddingTop = '0rem';
+        tg_cont.style.paddingBottom = '0rem';
+      }, 0)
+    }
+    else if (tg_li !== el && el.classList.contains('active')) {
+      el.classList.remove('active');
+      
+      el_cont.style.height = height + 'px';
+      setTimeout(() => {
+        el_cont.style.height = '0rem'
+        el_cont.style.paddingTop = '0rem';
+        el_cont.style.paddingBottom = '0rem';
+      }, 0)
+    }
+  });
 };
 
 </script>
@@ -163,10 +202,12 @@ const accordion_tab = (e) => {
             overflow: hidden;
             white-space: normal;
             text-overflow: ellipsis;
+            text-align:left;
             word-wrap: break-word;
             display: -webkit-box;
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
+            pointer-events:none;
           }
 
           &:after {
@@ -181,9 +222,11 @@ const accordion_tab = (e) => {
         }
 
         .faq_cont {
-          padding:3rem 2.6rem;
+          height:0;
+          padding:0rem 2.6rem;
           background:#F5F5F5;
           overflow:hidden;
+          transition: height 0.5s, padding 0.5s;
 
           h4 {
             margin-bottom:1rem;
@@ -198,6 +241,11 @@ const accordion_tab = (e) => {
             color:#666;
             font-size:1.3rem;
             line-height:2rem;
+            white-space:pre-line;
+
+            :deep(em) {
+              text-decoration:underline;
+            }
           }
         }
 
