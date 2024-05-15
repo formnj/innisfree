@@ -553,31 +553,35 @@ onMounted(()=>{
         position: absolute;
         width:0;
         height:0;
-        margin: 20px 20px 0 0;
+        margin: 2rem 2rem 0 0;
 
         &:before {
           content:'';
           width:20px;
           height:20px;
-          background-color:#fff;
-          border:1px solid #ccc;
+          background-color:#DDD;
           border-radius:50%;
           box-sizing:border-box;
+          position: absolute;
           top:1.35rem;
           left:2.1rem;
-          position: absolute;
         }
 
-        &:checked:after {
+        &:after {
           content:'';
-          width:14px;
-          height:14px;
-          background-color:#333;
+          width:8px;
+          height:8px;
+          background-color:#FFF;
           border-radius:50%;
           box-sizing:border-box;
-          top:1.6rem;
-          left:2.4rem;
-          position: absolute;
+          position:absolute;
+          top:1.9rem;
+          left:2.7rem;
+        }
+
+        &:checked:before {
+          content:'';
+          background-color:#00BC70;
         }
 
         &:checked + label {

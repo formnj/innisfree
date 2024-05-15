@@ -252,6 +252,10 @@ export const mo_benefit_goods = [
       name:'히알루론 수분 선크림 SPF 50+ PA++++',
       price:'11,000', sale:'~50%', cost:'26,000',
       status:'sold_out',
+      reviewScore:{
+        rate:4.5,
+        totalPoint:1254
+      },
       cart_alert: {
         modal_id:'cart_alert_01',
         modal_type:'alert',
@@ -264,12 +268,32 @@ export const mo_benefit_goods = [
     name:'블랙티 유스 인핸싱 앰플 50ml',
     price:'11,000', sale:'~50%', cost:'26,000',
     hash:['#스킨팩','#화장솜','#순면화장솜'],
+    reviewScore: {
+      rate: 4.5,
+      totalPoint: 1254
+    },
     giveaway: {
-        modal_id:'giveaway_01',
-        modal_type:'bottom',
-        img_01:("/_nuxt/public/images/sam/sam_pre_01.png"),
-        img_02:("/_nuxt/public/images/sam/sam_pre_02.png"),
-        img_03:("/_nuxt/public/images/sam/am_pre_03.png"),
+      modal_id: 'giveaway_01',
+      goods: [
+        {
+          img: ("/_nuxt/public/images/sam/sam_pre_01.png"),
+          name: '제주 루트 에너지 마스크[당근] 5매 세트',
+          date: '24.00.00 ~ 24.00.00',
+          txt: '1개 구매시 1개 증정'
+        },
+        {
+          img: ("/_nuxt/public/images/sam/sam_pre_02.png"),
+          name: '비타C 세럼 럭키 박스 (30ml + 랜덤기프트)',
+          date: '24.00.00',
+          txt: '1개 구매시 n개 증정'
+        },
+        {
+          img: ("/_nuxt/public/images/sam/am_pre_03.png"),
+          name: '레티놀 시카 앰플 포커싱 패치 1ea / 9patches',
+          date: '24.00.00 ~ 24.00.00',
+          txt: '1개 구매시 n개 증정'
+        }
+      ]
     },
     cart_alert: {
       modal_id:'cart_alert_02',
@@ -288,6 +312,10 @@ export const mo_benefit_goods = [
           {txt:'뷰티포인트전용', type:'type01'},
           {txt:'첫구매전용', type:'type01'}
       ],
+      reviewScore: {
+        rate: 4.5,
+        totalPoint: 1254
+      },
       cart_alert: {
         modal_id:'cart_alert_01',
         modal_type:'alert',
@@ -300,12 +328,26 @@ export const mo_benefit_goods = [
       name:'블랙티 유스 인핸싱 앰플 50ml',
       price:'11,000', sale:'~50%', cost:'26,000',
       status:'sold_out',
+      reviewScore: {
+        rate: 4.5,
+        totalPoint: 1254
+      },
       giveaway: {
-          modal_id:'giveaway_01',
-          modal_type:'bottom',
-          img_01:("/_nuxt/public/images/sam/sam_pre_01.png"),
-          img_02:("/_nuxt/public/images/sam/sam_pre_02.png"),
-          img_03:("/_nuxt/public/images/sam/am_pre_03.png"),
+        modal_id: 'giveaway_01',
+        goods: [
+          {
+            img: ("/_nuxt/public/images/sam/am_pre_03.png"),
+            name: '레티놀 시카 앰플 포커싱 패치 1ea / 9patches',
+            date: '24.00.00 ~ 24.00.00',
+            txt: '1개 구매시 n개 증정'
+          },
+          {
+            img: ("/_nuxt/public/images/sam/sam_pre_02.png"),
+            name: '비타C 세럼 럭키 박스 (30ml + 랜덤기프트)',
+            date: '24.00.00',
+            txt: '1개 구매시 n개 증정'
+          }
+        ]
       },
       cart_alert: {
         modal_id:'cart_alert_02',
@@ -679,6 +721,10 @@ export const sample_goods = [
             {txt:'type04', type:'type04'}
         ],
         hash:['#스킨팩','#화장솜','#순면화장솜'],
+        reviewScore: {
+          rate: 4.5,
+          totalPoint: 1254
+        },
         cart_alert: {
           modal_id:'cart_alert_01',
           modal_type:'alert',
@@ -695,6 +741,33 @@ export const sample_goods = [
             {txt:'뷰티포인트전용', type:'type01'},
             {txt:'첫구매전용', type:'type01'}
         ],
+        reviewScore: {
+          rate: 4.5,
+          totalPoint: 1254
+        },
+        giveaway: {
+          modal_id: 'giveaway_01',
+          goods: [
+            {
+              img: ("/_nuxt/public/images/sam/sam_pre_01.png"),
+              name: '제주 루트 에너지 마스크[당근] 5매 세트',
+              date: '24.00.00 ~ 24.00.00',
+              txt: '1개 구매시 1개 증정'
+            },
+            {
+              img: ("/_nuxt/public/images/sam/sam_pre_02.png"),
+              name: '비타C 세럼 럭키 박스 (30ml + 랜덤기프트)',
+              date: '24.00.00',
+              txt: '1개 구매시 n개 증정'
+            },
+            {
+              img: ("/_nuxt/public/images/sam/am_pre_03.png"),
+              name: '레티놀 시카 앰플 포커싱 패치 1ea / 9patches',
+              date: '24.00.00 ~ 24.00.00',
+              txt: '1개 구매시 n개 증정'
+            }
+          ]
+        },
         cart_alert: {
           modal_id:'cart_alert_02',
           modal_type:'alert',

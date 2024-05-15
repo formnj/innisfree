@@ -119,6 +119,7 @@
       <li>sold out, coming soon = status:'sold_out' or 'coming_soon'</li>
       <li>모바일에서 btn_cart 아이콘만 노출되게 하고 싶을 경우!
         &lt;GoodsItem :item="item" :link="item.link" class="type_cart"/&gt; class에 type_cart 추가</li>
+      <li>[증정품]이 있는 경우 평점은 [증정품] 하단에 위치한 평점이 노출</li>
     </ul>
     <div class="design_box">
       <div class="list_wrap">
@@ -464,6 +465,50 @@ const onSlideChange = () => {
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
   <!-- //modal -->
+
+  <!-- 증정품 모달 -->
+  <div class="modal_wrap" id="giveaway_01">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>증정품안내</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <dl>
+            <dt>
+              <img src="/_nuxt/public/images/sam/giveaway_01.png">
+            </dt>
+            <dd>
+              <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+              <em>24.3.25 ~ 24.3.31</em>
+              <span>1개 구매시 1개 증정</span>
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <img src="/_nuxt/public/images/sam/giveaway_02.png">
+            </dt>
+            <dd>
+              <p>비타C 세럼 럭키 박스 (30ml + 랜덤기프트)</p>
+              <em>23.4.11</em>
+              <span>1개 구매시 n개 증정</span>
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <img src="/_nuxt/public/images/sam/giveaway_03.png">
+            </dt>
+            <dd>
+              <p>레티놀 시카 앰플 포커싱 패치 1ea / 9patches</p>
+              <em>24.2.29 ~ 24.3.31</em>
+              <span>1개 구매시 n개 증정</span>
+            </dd>
+          </dl>
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //증정품 모달 -->
 
 </template>
 

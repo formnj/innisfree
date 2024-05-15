@@ -45,9 +45,7 @@
 
         <div class="review_header">
           <div class="user_info">
-            <span class="name">{{ item.user }}</span>
-            <span class="age">{{ item.age }}</span>
-            <span class="type">{{ item.gender }}</span>
+            <Reviewpoint :width="item.point" />
             <span class="date ar">{{ item.date }}</span>
           </div>
         </div>
