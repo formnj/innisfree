@@ -76,9 +76,7 @@
             <dt>
               <span class="name">수량</span>
               <div class="count">
-                <button type="button" class="dec">수량 빼기</button>
-                <input id="qty" type="text" value="1" class="ipt_qty">
-                <button type="button" class="inc">수량 더하기</button>
+                <Quantity _id="detail" quanity="3" />
               </div>
             </dt>
             <dd>
@@ -1013,21 +1011,17 @@ onMounted(()=>{
 
   .count {
     width: 180px;
-    border: 1px solid #eee;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
 
-    button {
-      width: 45px;
-      height: 38px;
-      background: #fff;
-      font-size: 0;
-      flex: none;
+    :deep(button) {
       position: relative;
-
+      em {
+        font-size:0;
+      }
       &:before,
-      &.inc:after {
+      &.btn_inc:after {
         content: '';
         width: 10px;
         height: 1px;
@@ -1038,7 +1032,7 @@ onMounted(()=>{
         transform: translate(-50%, -50%);
       }
 
-      &.inc:after {
+      &.btn_inc:after {
         width: 1px;
         height: 10px;
       }

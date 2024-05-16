@@ -12,9 +12,7 @@
         <div class="quantity_control">
           <span class="name">수량</span>
           <div class="count">
-            <button type="button" class="dec">수량 빼기</button>
-            <input id="qty" type="text" value="1" class="ipt_qty">
-            <button type="button" class="inc">수량 더하기</button>
+            <Quantity _id="detail_1" quanity="3" />
           </div>
         </div>
         <button type="button" class="btn_del">옵션 삭제</button>
@@ -23,9 +21,7 @@
         <div class="quantity_control">
           <span class="name">수량</span>
           <div class="count">
-            <button type="button" class="dec">수량 빼기</button>
-            <input id="qty" type="text" value="1" class="ipt_qty">
-            <button type="button" class="inc">수량 더하기</button>
+            <Quantity _id="detail_2" quanity="1" />
           </div>
         </div>
         <button type="button" class="btn_del">옵션 삭제</button>
@@ -183,12 +179,11 @@ onMounted(()=> {
 
         .count {
           width: 100px;
-          border: 1px solid #eee;
           display: inline-flex;
           align-items: center;
           justify-content: space-between;
 
-          button {
+          :deep(button) {
             width: 28px;
             height: 28px;
             background: #fff;
@@ -197,7 +192,7 @@ onMounted(()=> {
             position: relative;
 
             &:before,
-            &.inc:after {
+            &.btn_inc:after {
               content: '';
               width: 8px;
               height: 1px;
@@ -208,21 +203,22 @@ onMounted(()=> {
               transform: translate(-50%, -50%);
             }
 
-            &.inc:after {
+            &.btn_inc:after {
               width: 1px;
               height: 8px;
             }
           }
-
-          .ipt_qty {
-            width: 24px;
-            height: 20px;
-            padding: 0;
-            font-weight: 600;
-            font-size: 13px;
-            text-align: center;
-            color: #000;
-            border: none;
+          :deep(.count_wrap) {
+            flex:1;
+            input {
+              height: 28px;
+              padding: 0;
+              font-weight: 600;
+              font-size: 13px;
+              text-align: center;
+              color: #000;
+              border: none;
+            }
           }
         }
 

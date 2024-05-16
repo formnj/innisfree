@@ -1,8 +1,8 @@
 <template>
   <div class="count_wrap">
-    <Button txt="-" @click="decrease" />
+    <Button class="btn_dec" txt="-" @click="decrease" />
     <Inputs :_id="_id" :_value="quanity" />
-    <Button txt="+" @click="increase" />
+    <Button class="btn_inc" txt="+" @click="increase" />
   </div>
 </template>
 
