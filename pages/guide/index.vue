@@ -432,7 +432,7 @@ const PC_arry = ([
         depth:['','마이샵 관리','',''],
         id:'IN_PC_MYP_01_85', status:'com',
         type:'', note:'디자인 고도화 필요',
-        sDate:'', eDate:'2024-05-10/2024-01-13', worker:'김나람'
+        sDate:'', eDate:'2024-05-10/2024-05-13', worker:'김나람'
     }, {
         depth:['','FAQ','',''],
         id:'<del>IN_PC_MYP_01_87</del>', status:'',
