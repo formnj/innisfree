@@ -8,10 +8,10 @@
       <p>
         <strong>배송완료</strong>
         <em>21288166</em>
-        <button>상세보기</button>
+        <button @click="$router.push('/publish/IN_MO_MYP_01_11')">상세보기</button>
       </p>
       <dl>
-        <a href="#none">
+        <a @click="$router.push('/publish/IN_MO_MYP_01_11')">
           <dt>
             <p>
               <img src="/_nuxt/public/images/sam/36804_l_S_90.png" alt="">
@@ -19,7 +19,7 @@
           </dt>
         </a>
         <dd>
-          <a href="#none">
+          <a @click="$router.push('/publish/IN_MO_MYP_01_11')">
             <p>
               비타C 그린티 엔자임 잡티 토닝 세럼 체험단
             </p>
@@ -52,6 +52,13 @@
             <li>
               <div class="bold">
                 <strong>배송완료</strong>
+                <em>서울 용산</em>
+              </div>
+              <span>2024-05-07 12:22:24</span>
+            </li>
+            <li>
+              <div>
+                <strong>간선하차</strong>
                 <em>서울 용산</em>
               </div>
               <span>2024-05-07 12:22:24</span>
@@ -227,6 +234,9 @@ button {
     }
     > dl {
       display:flex;
+      a {
+        cursor:pointer;
+      }
       dt {
         p {
           width: 6.9rem;
@@ -340,18 +350,6 @@ button {
             div {
               color:#333;
               font-size:1.3rem;
-              &.bold {
-                color:#009D5E;
-                &::before {
-                  width:1.8rem;
-                  width:1.8rem;
-                  background-image: url('~/assets/mo_images/common/icon_split.png');
-                  background-repeat:no-repeat;
-                  background-size:250px;
-                  background-position:0rem 0rem;
-                  border:0.2rem solid #009D5E;
-                }
-              }
               &::before{
                 content: "";
                 width:1rem;
@@ -363,6 +361,21 @@ button {
                 position:absolute;
                 left:0.8rem;
                 top:0.1rem;
+              }
+              &.bold {
+                color:#009D5E;
+                &::before {
+                  width:1.8rem;
+                  height:1.8rem;
+                  background-image: url('~/assets/mo_images/common/icon_split.png');
+                  background-repeat:no-repeat;
+                  background-size:25rem;
+                  background-position:-0.4rem -30.6rem;
+                  background-color:#00BC70 ;
+                  border:0.1rem solid #00BC70;
+                  left:0.4rem;
+                  display:inline-block;
+                }
               }
 
               strong {
