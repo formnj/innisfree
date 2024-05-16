@@ -285,6 +285,40 @@
       content: none;
     }
   }
+
+  &.round_square {
+    .check {
+      padding: 0;
+    }
+    input[type='checkbox'], input[type='radio'] {
+      opacity: 0;
+    }
+    input[type='checkbox'] + .label,
+    input[type='radio'] + .label {
+      height: 30px;
+      padding: 0 20px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 29px;
+      color: #aaa;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+    }
+    input[type='checkbox']:checked + .label,
+    input[type='radio']:checked + .label {
+      color: #fff;
+      border-color: #12b560;
+      background-color: #12b560;
+    }
+    input[type='checkbox'] + .label:before,
+    input[type='radio'] + .label:before {
+      content: none;
+    }
+    input[type='checkbox'] + .label:after,
+    input[type='radio'] + .label:after {
+      content: none;
+    }
+  }
 }
 
 .label_wrap {

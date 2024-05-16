@@ -1,12 +1,16 @@
 <template>
   <section>
     <h2>Inputs</h2>
+    <ul class="explain">
+      <li>round_square : checkbox, radio 사용 가능</li>
+    </ul>
     <ul class="toolbar">
       <li><button class="current" @click="tool_select('text');">Text</button></li>
       <li><button @click="tool_select('error');">Error</button></li>
       <li><button @click="tool_select('pw');">Password</button></li>
       <li><button @click="tool_select('check');">Checkbox</button></li>
       <li><button @click="tool_select('check2');">Checkbox02</button></li>
+      <li><button @click="tool_select('check3');">Round_square</button></li>
       <li><button @click="tool_select('radio');">Radio</button></li>
       <li><button @click="tool_select('isswitch');">Switch</button></li>
     </ul>
@@ -564,6 +568,13 @@ const tool_select = (props) => {
             input_opt.type = 'checkbox',
             input_opt.opt = '_type="' + input_opt.type + '" _text="Label"' + ' class="checkbox02"'
             input_opt.class = 'checkbox02'
+            break;
+
+        case 'check3':
+            input_opt.isswitch = false,
+            input_opt.type = 'checkbox',
+            input_opt.opt = '_type="' + input_opt.type + '" _text="Label"' + ' class="round_square"'
+            input_opt.class = 'round_square'
             break;
 
         case 'radio':

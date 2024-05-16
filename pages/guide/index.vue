@@ -140,9 +140,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-23/2024-04-25', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
-        id:'IN_PC_HOM_01_15', status:'ing',
+        id:'IN_PC_HOM_01_15', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-16/', worker:'김나람'
+        sDate:'', eDate:'2024-05-16/2024-05-16', worker:'김나람'
     }, {
         depth:['','임직원샵','목록',''],
         id:'IN_PC_HOM_01_16', status:'com',
@@ -649,12 +649,12 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-23/2024-04-23', worker:'이종환'
     }, {
         depth:['샘플마켓','목록','',''],
-        id:'IN_MO_APP_01_06_01', status:'',
+        id:'IN_MO_APP_01_06_01', status:'ing',
         type:'', note:'앱에서만 노출되는 페이지',
         sDate:'', eDate:'2024-05-24', worker:'김나람'
     }, {
         depth:['','신청완료','',''],
-        id:'IN_MO_APP_01_06_07', status:'',
+        id:'IN_MO_APP_01_06_07', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-24', worker:'김나람'
     }, {
