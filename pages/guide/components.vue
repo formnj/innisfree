@@ -184,7 +184,7 @@
   </section>
 
   <section>
-    <h2>Quanity count</h2>
+    <h2>Quantity count</h2>
     <ul class="explain">
       <li>quanity : 초기 input 값</li>
     </ul>
