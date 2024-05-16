@@ -236,6 +236,37 @@ const props = defineProps({
         }
       }
     }
+    &.type_05 {
+      li {
+        margin-left:-1px;
+        flex:1;
+        button {
+            width:100%;
+            height:40px;
+            color:#999;
+            background:#f5f5f5;
+            font-size:14px;
+            font-weight:normal;
+            border:1px solid #ddd;
+            position:relative;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            span {
+              margin-left:5px;
+              font-size: 10px;
+              color: #888;
+              vertical-align: top;
+            }
+        }
+        &.current > button {
+            border-color:#000;
+            z-index:1;
+            color:#000;
+            background:transparent;
+        }
+      }
+    }
   }
 }
 </style>
