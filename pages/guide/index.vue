@@ -270,14 +270,14 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-03/2024-05-02', worker:'형민우'
     }, {
         depth:['','주문내역','목록',''],
-        id:'IN_PC_MYP_01_08', status:'ing',
+        id:'IN_PC_MYP_01_08', status:'com',
         type:'', note:'',
-        sDate:'2024-05-10', eDate:'2024-05-24', worker:'김희경'
+        sDate:'2024-05-10', eDate:'2024-05-24/2024-05-14', worker:'김희경'
     }, {
         depth:['','','상세',''],
-        id:'IN_PC_MYP_01_11', status:'ing',
+        id:'IN_PC_MYP_01_11', status:'com',
         type:'', note:'',
-        sDate:'2024-05-10', eDate:'2024-05-24', worker:'김희경'
+        sDate:'2024-05-14', eDate:'2024-05-24/2024-05-14', worker:'김희경'
     }, {
         depth:['','배송내역','목록',''],
         id:'IN_PC_MYP_01_00-1', status:'',
@@ -311,7 +311,7 @@ const PC_arry = ([
     }, {
         depth:['','임직원 인증/해제','',''],
         id:'IN_PC_MYP_01_28', status:'',
-        type:'', note:'',
+        type:'', note:'현행 사이트 확인 불가',
         sDate:'', eDate:'2024-05-17', worker:'형민우'
     }, {
         depth:['','참여한 이벤트 내역','체험단/키트 신청내역',''],
@@ -829,7 +829,7 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-03 / 2024-05-03', worker:'이종환'
     }, {
         depth:['','임직원 인증/해제','',''],
-        id:'IN_MO_MYP_01_28', status:'',
+        id:'IN_MO_MYP_01_28', status:'com',
         type:'', note:'',
         sDate:'', eDate:'2024-05-17', worker:'형민우'
     }, {
@@ -975,7 +975,7 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','FAQ','',''],
-        id:'IN_MO_MYP_01_91', status:'',
+        id:'IN_MO_MYP_01_91', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-17', worker:'형민우'
     }, {

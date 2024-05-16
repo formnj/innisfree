@@ -608,56 +608,6 @@ html {
   }
 }
 
-/* tooltip */
-.tooltip_wrap {
-  background:#fff;
-  box-shadow:5px 5px 20px rgba(0,0,0,0.15);
-  opacity:0;
-  visibility:hidden;
-  position:absolute;
-  top:0;
-  left:0;
-  .con {
-    padding:30px 20px;
-    h5 {
-      margin-bottom:10px;
-      color:#000;
-      font-size:18px;
-      font-weight:600;
-      line-height:1.33em;
-      letter-spacing:-0.01em;
-    }
-    p {
-      font-size:13px;
-      line-height:20px;
-      letter-spacing:-0.13px;
-      &.desc {
-        color:#666;
-      }
-      &.sub_desc {
-        margin-top:8px;
-        color:#777;
-        font-weight:600;
-      }
-    }
-  }
-  button {
-    width:24px;
-    height:24px;
-    background:url('~/assets/images/common/icon_split.png') no-repeat -55px -250px;
-    background-size:250px auto;
-    font-size:0;
-    text-indent:-99999px;
-    position:absolute;
-    top:10px;
-    right:10px;
-  }
-  &.active {
-    opacity:1;
-    visibility:visible;
-  }
-}
-
 /* layer type modal wrap */
 .layer_wrap {
   position:relative;
@@ -817,6 +767,44 @@ ul.select_list {
     width:33.3333%;
     padding-top:20px;
     padding-left:20px;
+  }
+}
+
+.giveaway_list {
+  dl {
+    border:1px solid #F5F5F5;
+    display:flex;
+    & + dl {
+      margin-top:15px;
+    }
+    dt {
+      width:100px;
+      height:133px;
+      img {
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+      }
+    }
+    dd {
+      padding:15px;
+      color:#000;
+      font-size:14px;
+      font-weight:400;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      span {
+        margin-top:auto;
+      }
+      em {
+        margin-top:5px;
+        color:#666;
+        font-size:12px;
+        font-weight:300;
+      }
+    }
   }
 }
 

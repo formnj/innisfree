@@ -42,7 +42,7 @@
       <div class="list_wrap">
         <ul class="goods_list">
             <li v-for="(item, idx) in sample_goods" :key="idx" >
-                <GoodsItem :item="item" :link="item.link" class="type_cart"/>
+                <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" />
             </li>
         </ul>
       </div>
@@ -61,7 +61,7 @@
     <div class="list_wrap">
       <ul class="goods_list division_02">
           <li v-for="(item, idx) in mo_benefit_goods" :key="idx" >
-              <GoodsItem :item="item" :link="item.link" class="type_cart"/>
+              <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" />
           </li>
       </ul>
     </div>
@@ -90,6 +90,7 @@
   <!-- //tooltip modal -->
 
 
+  <!-- 증정품 모달 -->
   <div class="modal_wrap" id="giveaway_01">
     <div class="modal_container">
         <div class="modal_header">
@@ -97,40 +98,43 @@
             <button class="btn_close" @click="modal.close(this);">닫기</button>
         </div>
         <div class="modal_content">
-          <dl>
-            <dt>
-              <img src="/_nuxt/public/images/sam/giveaway_01.png">
-            </dt>
-            <dd>
-              <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
-              <em>24.3.25 ~ 24.3.31</em>
-              <span>1개 구매시 1개 증정</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>
-              <img src="/_nuxt/public/images/sam/giveaway_02.png">
-            </dt>
-            <dd>
-              <p>비타C 세럼 럭키 박스 (30ml + 랜덤기프트)</p>
-              <em>23.4.11</em>
-              <span>1개 구매시 n개 증정</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>
-              <img src="/_nuxt/public/images/sam/giveaway_03.png">
-            </dt>
-            <dd>
-              <p>레티놀 시카 앰플 포커싱 패치 1ea / 9patches</p>
-              <em>24.2.29 ~ 24.3.31</em>
-              <span>1개 구매시 n개 증정</span>
-            </dd>
-          </dl>
+          <div class="giveaway_list">
+            <dl>
+              <dt>
+                <img src="/_nuxt/public/images/sam/giveaway_01.png">
+              </dt>
+              <dd>
+                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+                <em>24.3.25 ~ 24.3.31</em>
+                <span>1개 구매시 1개 증정</span>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <img src="/_nuxt/public/images/sam/giveaway_02.png">
+              </dt>
+              <dd>
+                <p>비타C 세럼 럭키 박스 (30ml + 랜덤기프트)</p>
+                <em>23.4.11</em>
+                <span>1개 구매시 n개 증정</span>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <img src="/_nuxt/public/images/sam/giveaway_03.png">
+              </dt>
+              <dd>
+                <p>레티놀 시카 앰플 포커싱 패치 1ea / 9patches</p>
+                <em>24.2.29 ~ 24.3.31</em>
+                <span>1개 구매시 n개 증정</span>
+              </dd>
+            </dl>
+          </div>
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
+  <!-- //증정품 모달 -->
 
   <div class="modal_wrap" id="cart_alert_01">
       <div class="modal_container">
@@ -443,76 +447,6 @@ hr {
 
 }
 
-.modal_wrap.bottom {
-  &#giveaway_01 {
-    :deep(.modal_container) {
-      .modal_header {
-        .btn_close {
-          width: 24px;
-          height: 24px;
-          font-size: 0;
-          background-color: transparent;
-          position: absolute;
-          top: 20px !important;
-          left:90% !important;
-          transform: translate(0,0);
-          &::before, &::after{
-            width: 100%;
-            border-top: 1px solid #222;
-            border-radius:0;
-            background:none;
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0;
-            display: block;
-          }
-          &::before {
-            transform: rotate(45deg);
-          }
-          &::after {
-            transform: rotate(-45deg);
-          }
-        }
-      }
-      .modal_content {
-        padding:2.0rem 2.1rem;
-        border-top:1px solid #eee;
-        > * + * {
-          margin-top:1.0rem;
-        }
-        dl {
-          border:1px solid #F5F5F5;
-          display:flex;
-          dt {
-            width:8.8rem;
-            height:11.7rem;
-
-          }
-          dd {
-            width:20.4rem;
-            padding:1.8rem 0 1.8rem 2.1rem;
-            display:flex;
-            flex-direction:column;
-            p {
-              font-size:1.3rem;
-            }
-            em {
-              margin-top:0.5rem;
-              color:#666;
-              font-size:1.2rem;
-            }
-            span {
-              margin-top:auto;
-              margin-bottom:0;
-              font-size:1.3rem;
-            }
-          }
-        }
-      }
-    }
-  }
-}
 .modal_wrap {
   &[id^="cart_alert_"]{
     .modal_container {
