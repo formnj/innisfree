@@ -50,11 +50,7 @@
               ]" />
             </div>
             <div class="cell count">
-              <div class="count_wrap">
-                <Button txt="-" @click="decrease" />
-                <Inputs _id="quanity" :_value="quanity" />
-                <Button txt="+" @click="increase" />
-              </div>
+              <Quantity _id="Quantity" quanity="32" />
             </div>
             <div class="cell price">
               <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
@@ -96,20 +92,8 @@ import { setFilter } from '~/assets/js/common-ui.js'
 import { modal } from '~/assets/js/common-ui.js'
 
 definePageMeta({
-layout:'pc-cart'
+  layout:'pc-cart'
 });
-
-const quanity = ref(1);
-
-const increase = () => {
-  quanity.value = Number(document.getElementById('quanity').value)+1;
-}
-
-const decrease = () => {
-  if(document.getElementById('quanity').value > 1) {
-    quanity.value = Number(document.getElementById('quanity').value)-1;
-  }
-}
 </script>
 
 <style lang="scss" scoped>

@@ -216,11 +216,7 @@
                 ]" />
               </div>
               <div class="cell count">
-                <div class="count_wrap">
-                  <Button txt="-" />
-                  <Inputs />
-                  <Button txt="+" />
-                </div>
+                <Quantity _id="sample" quanity="32" />
               </div>
               <div class="cell price">
                 <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
