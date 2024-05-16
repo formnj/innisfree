@@ -1,7 +1,7 @@
 <template>
   <div class="count_wrap">
     <Button class="btn_dec" txt="-" @click="decrease" />
-    <Inputs :_id="_id" :_value="quanity" />
+    <Inputs :_id="_id" :_value="quantity" />
     <Button class="btn_inc" txt="+" @click="increase" />
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script setup>
   const props = defineProps({
     _id: String,
-    quanity: {
+    quantity: {
       type: Number,
       default:0
     }

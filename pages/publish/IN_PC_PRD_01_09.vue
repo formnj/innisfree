@@ -76,7 +76,7 @@
             <dt>
               <span class="name">수량</span>
               <div class="count">
-                <Quantity _id="detail" quanity="3" />
+                <Quantity _id="detail" quantity="3" />
               </div>
             </dt>
             <dd>
@@ -444,6 +444,7 @@ import { sample_review } from '~/test/data/publish/dummyData'
 definePageMeta({
   layout:'pc-category'
 });
+
 const props = defineProps({
   layoutType: {
     type: String,

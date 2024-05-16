@@ -12,7 +12,7 @@
         <div class="quantity_control">
           <span class="name">수량</span>
           <div class="count">
-            <Quantity _id="detail_1" quanity="3" />
+            <Quantity _id="detail_1" quantity="3" />
           </div>
         </div>
         <button type="button" class="btn_del">옵션 삭제</button>
@@ -21,7 +21,7 @@
         <div class="quantity_control">
           <span class="name">수량</span>
           <div class="count">
-            <Quantity _id="detail_2" quanity="1" />
+            <Quantity _id="detail_2" quantity="1" />
           </div>
         </div>
         <button type="button" class="btn_del">옵션 삭제</button>
