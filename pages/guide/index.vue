@@ -445,7 +445,7 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','FAQ','',''],
-        id:'IN_PC_MYP_01_91', status:'',
+        id:'IN_PC_MYP_01_91', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-17', worker:'형민우'
     }, {
@@ -975,7 +975,7 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','FAQ','',''],
-        id:'IN_MO_MYP_01_91', status:'ing',
+        id:'IN_MO_MYP_01_91', status:'com',
         type:'', note:'',
         sDate:'', eDate:'2024-05-17', worker:'형민우'
     }, {

@@ -20,7 +20,7 @@ const props = defineProps({
         type: String,
         default: '#none'
     }
-})
+});
 </script>
 
 <style lang="scss" scoped>
