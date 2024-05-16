@@ -171,8 +171,8 @@
                 <tr>
                   <td>2024.05.03	</td>
                   <td>21288166</td>
-                  <td @click="$router.push('/publish/IN_PC_MYP_01_11')" class="goods_name">
-                    <a href="#none" >비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
+                  <td class="goods_name">
+                    <a @click="$router.push('/publish/IN_PC_MYP_01_11')">비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
                   </td>
                   <td>2,500원</td>
                   <td>배송완료</td>
@@ -245,8 +245,8 @@
                 <tr>
                   <td>2024.05.03	</td>
                   <td>21288166</td>
-                  <td @click="$router.push('/publish/IN_PC_MYP_01_11')" class="goods_name">
-                    <a href="#none">비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
+                  <td class="goods_name">
+                    <a @click="$router.push('/publish/IN_PC_MYP_01_11')">비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
                   </td>
                   <td>2,500원</td>
                   <td>배송완료</td>
@@ -339,8 +339,8 @@
                 <tr>
                   <td>2024.05.03	</td>
                   <td>21288166</td>
-                  <td @click="$router.push('/publish/IN_PC_MYP_01_11')" class="goods_name">
-                    <a href="#none">비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
+                  <td class="goods_name">
+                    <a @click="$router.push('/publish/IN_PC_MYP_01_11')">비타C 그린티 엔자임 잡티 토닝 세럼 체험단</a>
                   </td>
                   <td>2,500원</td>
                   <td>배송완료</td>
@@ -617,24 +617,24 @@ onMounted(() => {
 
               gap:10px;
               .date {
-                  width: 270px;
-                  height: 4rem;
-                  padding: 0 1.5rem;
-                  border: 1px solid #DDD;
-                  background: #F5F5F5;
-                  position: relative;
-                  display: flex;
-                  align-items: center;
+                  width:270px;
+                  height:40px;
+                  padding:0 1.5rem;
+                  border:1px solid #DDD;
+                  background:#F5F5F5;
+                  position:relative;
+                  display:flex;
+                  align-items:center;
                   input {
-                      position: absolute;
-                      top: 0;
-                      right: 0;
-                      bottom: 0;
-                      left: 0;
-                      z-index: 10;
-                      width: 100%;
-                      height: 100%;
-                      opacity: 0;
+                      position:absolute;
+                      top:0;
+                      right:0;
+                      bottom:0;
+                      left:0;
+                      z-index:10;
+                      width:100%;
+                      height:100%;
+                      opacity:0;
                       color: #000;
                   }
               }
