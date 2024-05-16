@@ -184,6 +184,19 @@
   </section>
 
   <section>
+    <h2>Quanity count</h2>
+    <ul class="explain">
+      <li>quanity : 초기 input 값</li>
+    </ul>
+    <div class="design_box">
+      <div style="width:160px;">
+        <Quantity _id="sample" quanity="32" />
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;Quantity _id="아이디" quanity="초기 input value" /&gt;</code></pre>
+  </section>
+
+  <section>
     <h2>Cart list</h2>
     <ul class="explain">
       <li>장바구니 리스트 등 ul, li를 이용한 table Row 형태의 리스트</li>

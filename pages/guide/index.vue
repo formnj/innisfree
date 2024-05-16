@@ -60,6 +60,11 @@ const comm_arry = ([
         type:'component', note:'/component/Tabs',
         sDate:'', eDate:'/ 2024-04-09', worker:'이종환'
     }, {
+        depth:['','Quantity','',''],
+        id:'', status:'ing',
+        type:'component', note:'/component/Quantity<br/> 선택 수량 변경 기능',
+        sDate:'', eDate:'/ 2024-05-16', worker:'이종환'
+    }, {
         depth:['','Title wrap','',''],
         id:'', status:'',
         type:'component', note:'공통 타이틀 관련 가이드<br/> guide > layout에서 확인 가능',
