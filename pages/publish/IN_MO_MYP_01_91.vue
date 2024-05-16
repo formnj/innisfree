@@ -7,8 +7,8 @@
   <!-- FAQ 슬라이드 탭 -->
   <div class="slide_wrap">
     <ul>
-      <li v-for="(item,idx) in faq_tab" :key="idx">
-        <button type="button" @click="slide_tab($event, idx)">{{ item }}</button>
+      <li v-for="(item,idx) in faq_data" :key="idx">
+        <button type="button" @click="slide_tab($event, idx)">{{ item.sub_txt }}</button>
       </li>
     </ul>
   </div>
@@ -17,7 +17,7 @@
   <!-- FAQ 컨텐츠 -->
   <div class="faq_wrap">
     <ul>
-      <li v-for="item in faq_data[slide_idx]" :key="item">
+      <li v-for="item in faq_data[faq_idx].list" :key="item">
         <button type="button" @click="accordion_tab">
           <span>{{ item.tit }}</span>
         </button>
@@ -42,13 +42,11 @@ onMounted(() => {
   document.querySelector('.slide_wrap ul li').classList.add('active');
 });
 
-const faq_tab  = ['TOP10','제품관련','배송관련','환불/반품/교환관련','주문/결제관련','이벤트/쿠폰/포인트','사이트이용/기타','회원가입/정보변경'];
-
-const slide_idx = ref(0);
+const faq_idx = ref(0);
 const slide_tab = (e,i) => {
   const tabs = document.querySelectorAll('.slide_wrap ul li');
 
-  slide_idx.value = i;
+  faq_idx.value = i;
   tabs.forEach(el => {
     el.classList.remove('active');
     e.target.closest('li').classList.add('active');
@@ -145,6 +143,12 @@ const accordion_tab = (e) => {
   .slide_wrap {
     height:5rem;
     border-bottom:0.1rem solid #F5F5F5;
+    background:#fff;
+    position:sticky;
+    top:15px;
+    left:0;
+    right:0;
+    z-index: 10;
 
     ul {
       height:100%;

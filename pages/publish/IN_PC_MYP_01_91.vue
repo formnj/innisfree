@@ -24,7 +24,7 @@
     <!-- FAQ 컨텐츠 -->
     <div class="faq_wrap">
       <div class="sub_title_wrap">
-        <h3>{{ faq_data[faq_idx].txt }}</h3>
+        <h3>{{ faq_data[faq_idx].sub_txt }}</h3>
         <Tabs v-if="faq_data[faq_idx].tabs !== undefined" tabType="type_02" :item="faq_data[faq_idx].tabs" />
       </div>
       <ul>
@@ -63,6 +63,11 @@ onMounted(() => {
   tabs.forEach((el,idx) => {
     el.querySelector('button').addEventListener('click', (e) => {
       if (e.target.closest('li') === el) faq_idx.value = idx;
+      document.querySelectorAll('.faq_wrap > ul li').forEach(el => {
+        el.classList.remove('active');
+        el.querySelector('.faq_cont').style.transition = 'none';
+        el.querySelector('.faq_cont').style.height = '0';
+      });
     });
   })
 });
@@ -75,8 +80,9 @@ const accordion_tab = (e) => {
   const list = document.querySelectorAll('.faq_wrap ul li');
 
   tg_cont.style.height = 'auto';
-  const height = +(tg_cont.clientHeight*0.1).toFixed(2) + 6;
+  const height = tg_cont.clientHeight;
   tg_cont.style.height = '0';
+  tg_cont.style.transition = 'height 0.5s';
 
   list.forEach(el => {
     const el_cont = el.querySelector('.faq_cont');
@@ -85,30 +91,21 @@ const accordion_tab = (e) => {
       tg_li.classList.add('active');
 
       setTimeout(() => {
-        tg_cont.style.height = height + 'rem'
-        tg_cont.style.paddingTop = '3rem';
-        tg_cont.style.paddingBottom = '3rem';
-      }, 0)
+        tg_cont.style.height = height + 'px'
+      }, 10)
     }
     else if (tg_li === el && tg_li.classList.contains('active')) {
       tg_li.classList.remove('active');
 
-      tg_cont.style.height = height + 'rem';
-      setTimeout(() => {
-        tg_cont.style.height = '0rem'
-        tg_cont.style.paddingTop = '0rem';
-        tg_cont.style.paddingBottom = '0rem';
-      }, 0)
+      tg_cont.style.height = height + 'px';
+      setTimeout(() => tg_cont.style.height = '0px', 0)
     }
     else if (tg_li !== el && el.classList.contains('active')) {
       el.classList.remove('active');
+      console.log(el_cont)
       
       el_cont.style.height = height + 'px';
-      setTimeout(() => {
-        el_cont.style.height = '0rem'
-        el_cont.style.paddingTop = '0rem';
-        el_cont.style.paddingBottom = '0rem';
-      }, 0)
+      setTimeout(() => el_cont.style.height = '0px', 0)
     }
   });
 };
@@ -195,7 +192,7 @@ const accordion_tab = (e) => {
           }
         }
   
-        :deep(button) {
+        >:deep(button) {
           width:100px;
   
           em {
@@ -254,11 +251,15 @@ const accordion_tab = (e) => {
           min-height:75px;
           padding:25px 30px;
           color:#222;
-          font-size:1.4rem;
-          line-height:1.8rem;
+          font-size:14px;
+          line-height:1.5;
           display:flex;
           align-items:center;
           justify-content:space-between;
+
+          > * {
+            pointer-events:none;
+          }
 
           >p {
             min-width:125px;
@@ -290,10 +291,10 @@ const accordion_tab = (e) => {
 
           &:after {
             content:'';
-            width:2.4rem;
-            height:2.4rem;
-            background:url('~/assets/mo_images/common/icon_split.png') no-repeat -0.5rem -21.4rem;
-            background-size:25rem auto;
+            width:24px;
+            height:24px;
+            background:url('~/assets/images/common/icon_split.png') no-repeat -180px -60px;
+            background-size:250px auto;
             display:block;
             transition:all 0.2s;
           }
@@ -303,14 +304,6 @@ const accordion_tab = (e) => {
           height:0;
           overflow:hidden;
           transition: height 0.5s, padding 0.5s;
-
-          h4 {
-            color:#333;
-            font-size:1.3rem;
-            font-weight:600;
-            line-height:1.6rem;
-            letter-spacing:-0.01em;
-          }
 
           p {
             color:#666;
