@@ -293,9 +293,10 @@
 <script setup>
 import { modal } from '~/assets/js/common-ui'
 import { sample_review } from '~/test/data/publish/dummyData'
+
 definePageMeta({
   layout:'mo-product'
-})
+});
 </script>
 <style lang="scss" scoped>
 .prod_swiper_wrap {

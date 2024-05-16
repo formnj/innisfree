@@ -186,14 +186,14 @@
   <section>
     <h2>Quantity count</h2>
     <ul class="explain">
-      <li>quanity : 초기 input 값</li>
+      <li>quantity : 초기 input 값</li>
     </ul>
     <div class="design_box">
       <div style="width:160px;">
-        <Quantity _id="sample" quanity="32" />
+        <Quantity _id="sample" quantity="32" />
       </div>
     </div>
-    <pre class="code_box"><code>&lt;Quantity _id="아이디" quanity="초기 input value" /&gt;</code></pre>
+    <pre class="code_box"><code>&lt;Quantity _id="아이디" quantity="초기 input value" /&gt;</code></pre>
   </section>
 
   <section>
@@ -229,7 +229,7 @@
                 ]" />
               </div>
               <div class="cell count">
-                <Quantity _id="sample" quanity="32" />
+                <Quantity _id="sample" quantity="32" />
               </div>
               <div class="cell price">
                 <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->

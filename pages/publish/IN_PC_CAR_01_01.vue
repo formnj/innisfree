@@ -50,7 +50,7 @@
               ]" />
             </div>
             <div class="cell count">
-              <Quantity _id="Quantity" quanity="32" />
+              <Quantity _id="Quantity" quantity="32" />
             </div>
             <div class="cell price">
               <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->

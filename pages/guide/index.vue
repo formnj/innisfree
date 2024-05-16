@@ -166,12 +166,12 @@ const PC_arry = ([
     }, {
         depth:['','상세','',''],
         id:'IN_PC_PRD_01_09', status:'com',
-        type:'', note:'디자인 고도화 필요',
+        type:'', note:'디자인 고도화 필요<br/> 갯수 증/차감 콤포넌트 추가',
         sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/2024-05-09', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_PC_CAR_01_01', status:'com',
-        type:'', note:'한페이지에 모두 배치<br/> 갯수 증/차감 기능 추가',
+        type:'', note:'한페이지에 모두 배치<br/> 갯수 증/차감 콤포넌트 추가',
         sDate:'', eDate:'2024-05-10/2024-04-30', worker:'이종환'
     }, {
         depth:['','상품 있음','',''],
@@ -685,7 +685,7 @@ const MO_arry = ([
     }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_MO_CAR_01_01', status:'com',
-        type:'', note:'한페이지 모두 배치',
+        type:'', note:'한페이지 모두 배치<br/> 갯수 증/차감 콤포넌트 추가',
         sDate:'', eDate:'2024-05-10/2024-04-30', worker:'이종환'
     }, {
         depth:['','상품 있음','',''],
