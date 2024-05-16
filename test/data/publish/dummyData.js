@@ -252,6 +252,10 @@ export const mo_benefit_goods = [
       name:'히알루론 수분 선크림 SPF 50+ PA++++',
       price:'11,000', sale:'~50%', cost:'26,000',
       status:'sold_out',
+      reviewScore:{
+        rate:4.5,
+        totalPoint:1254
+      },
       cart_alert: {
         modal_id:'cart_alert_01',
         modal_type:'alert',
@@ -264,12 +268,32 @@ export const mo_benefit_goods = [
     name:'블랙티 유스 인핸싱 앰플 50ml',
     price:'11,000', sale:'~50%', cost:'26,000',
     hash:['#스킨팩','#화장솜','#순면화장솜'],
+    reviewScore: {
+      rate: 4.5,
+      totalPoint: 1254
+    },
     giveaway: {
-        modal_id:'giveaway_01',
-        modal_type:'bottom',
-        img_01:("/_nuxt/public/images/sam/sam_pre_01.png"),
-        img_02:("/_nuxt/public/images/sam/sam_pre_02.png"),
-        img_03:("/_nuxt/public/images/sam/am_pre_03.png"),
+      modal_id: 'giveaway_01',
+      goods: [
+        {
+          img: ("/_nuxt/public/images/sam/sam_pre_01.png"),
+          name: '제주 루트 에너지 마스크[당근] 5매 세트',
+          date: '24.00.00 ~ 24.00.00',
+          txt: '1개 구매시 1개 증정'
+        },
+        {
+          img: ("/_nuxt/public/images/sam/sam_pre_02.png"),
+          name: '비타C 세럼 럭키 박스 (30ml + 랜덤기프트)',
+          date: '24.00.00',
+          txt: '1개 구매시 n개 증정'
+        },
+        {
+          img: ("/_nuxt/public/images/sam/am_pre_03.png"),
+          name: '레티놀 시카 앰플 포커싱 패치 1ea / 9patches',
+          date: '24.00.00 ~ 24.00.00',
+          txt: '1개 구매시 n개 증정'
+        }
+      ]
     },
     cart_alert: {
       modal_id:'cart_alert_02',
@@ -288,6 +312,10 @@ export const mo_benefit_goods = [
           {txt:'뷰티포인트전용', type:'type01'},
           {txt:'첫구매전용', type:'type01'}
       ],
+      reviewScore: {
+        rate: 4.5,
+        totalPoint: 1254
+      },
       cart_alert: {
         modal_id:'cart_alert_01',
         modal_type:'alert',
@@ -300,12 +328,26 @@ export const mo_benefit_goods = [
       name:'블랙티 유스 인핸싱 앰플 50ml',
       price:'11,000', sale:'~50%', cost:'26,000',
       status:'sold_out',
+      reviewScore: {
+        rate: 4.5,
+        totalPoint: 1254
+      },
       giveaway: {
-          modal_id:'giveaway_01',
-          modal_type:'bottom',
-          img_01:("/_nuxt/public/images/sam/sam_pre_01.png"),
-          img_02:("/_nuxt/public/images/sam/sam_pre_02.png"),
-          img_03:("/_nuxt/public/images/sam/am_pre_03.png"),
+        modal_id: 'giveaway_01',
+        goods: [
+          {
+            img: ("/_nuxt/public/images/sam/am_pre_03.png"),
+            name: '레티놀 시카 앰플 포커싱 패치 1ea / 9patches',
+            date: '24.00.00 ~ 24.00.00',
+            txt: '1개 구매시 n개 증정'
+          },
+          {
+            img: ("/_nuxt/public/images/sam/sam_pre_02.png"),
+            name: '비타C 세럼 럭키 박스 (30ml + 랜덤기프트)',
+            date: '24.00.00',
+            txt: '1개 구매시 n개 증정'
+          }
+        ]
       },
       cart_alert: {
         modal_id:'cart_alert_02',
@@ -679,6 +721,10 @@ export const sample_goods = [
             {txt:'type04', type:'type04'}
         ],
         hash:['#스킨팩','#화장솜','#순면화장솜'],
+        reviewScore: {
+          rate: 4.5,
+          totalPoint: 1254
+        },
         cart_alert: {
           modal_id:'cart_alert_01',
           modal_type:'alert',
@@ -695,6 +741,33 @@ export const sample_goods = [
             {txt:'뷰티포인트전용', type:'type01'},
             {txt:'첫구매전용', type:'type01'}
         ],
+        reviewScore: {
+          rate: 4.5,
+          totalPoint: 1254
+        },
+        giveaway: {
+          modal_id: 'giveaway_01',
+          goods: [
+            {
+              img: ("/_nuxt/public/images/sam/sam_pre_01.png"),
+              name: '제주 루트 에너지 마스크[당근] 5매 세트',
+              date: '24.00.00 ~ 24.00.00',
+              txt: '1개 구매시 1개 증정'
+            },
+            {
+              img: ("/_nuxt/public/images/sam/sam_pre_02.png"),
+              name: '비타C 세럼 럭키 박스 (30ml + 랜덤기프트)',
+              date: '24.00.00',
+              txt: '1개 구매시 n개 증정'
+            },
+            {
+              img: ("/_nuxt/public/images/sam/am_pre_03.png"),
+              name: '레티놀 시카 앰플 포커싱 패치 1ea / 9patches',
+              date: '24.00.00 ~ 24.00.00',
+              txt: '1개 구매시 n개 증정'
+            }
+          ]
+        },
         cart_alert: {
           modal_id:'cart_alert_02',
           modal_type:'alert',
@@ -1538,7 +1611,7 @@ export const review = [
     user: 'kimi***',
     age: '40',
     gender: '남성',
-    point: '90%',
+    point: 90,
     date: '2024.00.00',
     review: '오 이거 제가 늘 원하던 제형의 수분자차예요!!!<br/> 화장 바로 하고 나서 30분 정도만 빼고 늘 번들거리는 기름으로 가득한 수부지 피부라 화장품 매장 가면 무조건 보송하고 매트한 제품만 골라서 권해주시던데, 그건 정말 선입견이거든요.<br/> 지성, 수부지야말로 매 단계마다 수분감 터지는 제품을 발라야 기름이 덜 생성되더라구요.<br/> 8가지 히알루론산 함유로 수분로션 바르듯 가볍고 산뜻하게 발려서 자차 발랐다는 느낌이 전혀 없이 피부와 모공들이 굉장히 편안해요.<br/> 그럼에도 자차 기능이나 기능성은 완벽하게 갖추고 있다는.<br/> 완전 촉촉해서 자차만 바르고도 수분광이 생겨서 대만족입니다!!!',
     goods: {
@@ -1552,7 +1625,7 @@ export const review = [
     user: 'amo***',
     age: '20',
     gender: '여성',
-    point: '80%',
+    point: 80,
     date: '2024.00.00',
     review: '이름이 모든 걸 다 말해주네요!<br/> 트루 히알루론👍<br/> 이니스프리 선크림은 대체로 만족하면서 쓰는 편이었지만, 이거 아니면 안돼! 까지는 아니라 진짜 다양한 제품들 써보는 유목민이었는데, 이제 트루 히알루론에 안착합니다.<br/> 우선 저는 민감하고 유수분 밸런스 맞추기 어려운 피부라 피곤하거나 너무 건조하거나 너무 유분기가 많거나, 암튼간에 조금만 어디로 기운다 싶으면 무조건 붉은 트러블이 올라옵니다🥲<br/> 트루 히알루론은 일반 크림 바르는 것처럼 가볍게 발리고 무거운 느낌도 전혀 없어요.<br/> 백탁도 없어서 남자들도 쓰기 너무 좋구요.<br/> 무엇보다 얼굴 당김이나 과한 유분기도 안 느껴져서 대만족입니다!',
     goods: {

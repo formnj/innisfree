@@ -59,6 +59,16 @@ const comm_arry = ([
         id:'', status:'ing',
         type:'component', note:'/component/Tabs',
         sDate:'', eDate:'/ 2024-04-09', worker:'이종환'
+    }, {
+        depth:['','Title wrap','',''],
+        id:'', status:'',
+        type:'component', note:'공통 타이틀 관련 가이드<br/> guide > layout에서 확인 가능',
+        sDate:'', eDate:'', worker:'이종환'
+    }, {
+        depth:['','Review header','',''],
+        id:'', status:'',
+        type:'component', note:'소스 가이드(0) 콤포넌트 제작(X)<br/> guide > layout에서 확인 가능<br/> ※상품상세, 작성한 리뷰 등의 리뷰 상단 정보 영역',
+        sDate:'', eDate:'/ 2024-05-16', worker:'이종환'
     }
 ])
 
@@ -130,7 +140,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-23/2024-04-25', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
-        id:'IN_PC_HOM_01_15', status:'',
+        id:'IN_PC_HOM_01_15', status:'ing',
         type:'', note:'',
         sDate:'', eDate:'2024-05-16/', worker:'김나람'
     }, {
@@ -260,14 +270,14 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-03/2024-05-02', worker:'형민우'
     }, {
         depth:['','주문내역','목록',''],
-        id:'IN_PC_MYP_01_08', status:'ing',
+        id:'IN_PC_MYP_01_08', status:'com',
         type:'', note:'',
-        sDate:'2024-05-10', eDate:'2024-05-24', worker:'김희경'
+        sDate:'2024-05-10', eDate:'2024-05-24/2024-05-14', worker:'김희경'
     }, {
         depth:['','','상세',''],
-        id:'IN_PC_MYP_01_11', status:'ing',
+        id:'IN_PC_MYP_01_11', status:'com',
         type:'', note:'',
-        sDate:'2024-05-10', eDate:'2024-05-24', worker:'김희경'
+        sDate:'2024-05-14', eDate:'2024-05-24/2024-05-14', worker:'김희경'
     }, {
         depth:['','배송내역','목록',''],
         id:'IN_PC_MYP_01_00-1', status:'',
@@ -415,9 +425,9 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','마이샵 관리','',''],
-        id:'IN_PC_MYP_01_85', status:'ing',
-        type:'', note:'',
-        sDate:'', eDate:'2024-05-10', worker:'김나람'
+        id:'IN_PC_MYP_01_85', status:'com',
+        type:'', note:'디자인 고도화 필요',
+        sDate:'', eDate:'2024-05-10/2024-01-13', worker:'김나람'
     }, {
         depth:['','FAQ','',''],
         id:'<del>IN_PC_MYP_01_87</del>', status:'',
@@ -940,9 +950,14 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','마이샵 관리','',''],
-        id:'IN_MO_MYP_01_85', status:'ing',
-        type:'', note:'',
-        sDate:'', eDate:'2024-05-10', worker:'김나람'
+        id:'IN_MO_MYP_01_85', status:'com',
+        type:'', note:'IN_MO_MYP_01_86 팝업 포함',
+        sDate:'', eDate:'2024-05-10/2024-05-13', worker:'김나람'
+    },{
+        depth:['','마이샵 등록하기 팝업','',''],
+        id:'IN_MO_MYP_01_86', status:'com',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-05-10/2024-05-13', worker:'김나람'
     }, {
         depth:['','FAQ','',''],
         id:'<del>IN_MO_MYP_01_87</del>', status:'',

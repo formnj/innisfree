@@ -42,11 +42,11 @@ export const toast_pop = (_time) => { //시간 지정해서 사라지게 처리
   allmodal.forEach((el) => {
     el.classList.remove('active')
   });
-  let tostmessage = document.querySelector('.modal_wrap.toast')
+  let tostmessage = document.querySelector('.modal_wrap')
   tostmessage.classList.add('active')
   let body = document.querySelector("body");
   setTimeout(function(){
-    tostmessage.classList.remove('active');
+    tostmessage.classList.remove('active','toast');
     body.classList.remove('lockbody');
   },_time);
 }

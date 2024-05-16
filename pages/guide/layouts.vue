@@ -194,6 +194,49 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 &lt;/div&gt;</code></pre>
   </section>
 
+  <section>
+    <h2>Review header</h2>
+    <div class="design_box">
+      <div class="review_header">
+        <!-- left -->
+        <div class="user_info">
+          <span class="name">user</span>
+          <span class="age">age</span>
+          <span class="type">type</span>
+          <div class="rate">
+            <Reviewpoint width="90" />
+          </div>
+          <span class="date">2024.00.00</span>
+        </div>
+        <!-- //left -->
+        <!-- right -->
+        <div class="btn_wrap ar">
+          <button type="button">신고</button>
+          <button type="button">차단하기</button>
+        </div>
+        <!-- //right -->
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="review_header"&gt;
+&lt;!-- left --&gt;
+&lt;div class="user_info"&gt;
+  &lt;span class="name"&gt;user&lt;/span&gt;
+  &lt;span class="age"&gt;age&lt;/span&gt;
+  &lt;span class="type"&gt;type&lt;/span&gt;
+  &lt;div class="rate"&gt;
+    &lt;Reviewpoint width="90" /&gt;
+  &lt;/div&gt;
+  &lt;span class="date"&gt;2024.00.00&lt;/span&gt;
+&lt;/div&gt;
+&lt;!-- //left --&gt;
+&lt;!-- right --&gt;
+&lt;div class="btn_wrap ar"&gt;
+  &lt;button type="button"&gt;신고&lt;/button&gt;
+  &lt;button type="button"&gt;차단하기&lt;/button&gt;
+&lt;/div&gt;
+&lt;!-- //right --&gt;</code></pre>
+  </section>
+
 </template>
 
 <script setup>

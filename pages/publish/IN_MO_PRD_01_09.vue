@@ -253,17 +253,16 @@
             <li v-for="(item, idx) in sample_review" :key="idx">
               <div class="review_header">
                 <div class="rate">
-                  <span class="star_rate">
-                    <span class="star_wrap"><span class="star" :style="'width:' + item.rate + '%'">별점</span></span><!-- 별점 : .star의 width에 퍼센테이지로 입력 -->
-                  </span>
+                  <Reviewpoint width="90" />
                 </div>
+              </div>
+
+              <div class="review_header">
                 <div class="user_info">
-                  <span class="user">
-                    <span class="name">{{ item.user }}</span>
-                    <span class="age">{{ item.age }}</span>
-                    <span class="type">{{ item.type }}</span>
-                  </span>
-                  <span class="date">{{ item.date }}</span>
+                  <span class="name">{{ item.user }}</span>
+                  <span class="age">{{ item.age }}</span>
+                  <span class="type">{{ item.type }}</span>
+                  <span class="date ar">{{ item.date }}</span>
                 </div>
               </div>
               <ProductReview :item="item" :isMo="true" /> <!-- 리뷰 -->
@@ -498,55 +497,9 @@ section {
       padding: 3rem 0;
 
       .review_header {
-        margin-bottom: 0;
-        flex-direction: column;
-        gap: 1rem;
-
         .user_info {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-
-          .user {
-            display: flex;
-          }
-
-          span {
-            font-size: 1.2rem;
-            color: #888;
-            display: inline-block;
-
-            &+*:before {
-              content: '';
-              width: .1rem;
-              height: .1rem;
-              margin: 0 .1rem;
-              background-color: #EEE;
-              display: inline-block;
-            }
-
-            &.name {
-              font-weight: 600;
-              color: #000;
-            }
-
-            &.age {
-              color: #000;
-            }
-
-            &.type {
-              overflow: hidden;
-              white-space: normal;
-              text-overflow: ellipsis;
-              word-wrap: break-word;
-              display: -webkit-box;
-              -webkit-line-clamp: 1;
-              -webkit-box-orient: vertical;
-            }
-
-            &.date {
-              font-weight: 300;
-            }
+          .date:before {
+            display:none;
           }
         }
       }

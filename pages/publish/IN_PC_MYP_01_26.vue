@@ -34,16 +34,17 @@
 
       <ul class="review_list">
         <li v-for="(item, idx) in review" :key="idx">
-          <div class="user_info">
-            <strong>{{item.user}}**</strong>
-            <span>{{item.age}}대</span>
-            <em>{{item.gender}}</em>
-            <Reviewpoint :width="item.point" />
-            <em class="date">{{item.date}}</em>
-
-            <div class="btnSection">
-              <Button class="btn_txt" txt="수정" />
-              <Button class="btn_txt" txt="삭제" />
+          <div class="review_header">
+            <div class="user_info">
+              <span class="name">{{ item.user }}</span>
+              <span>{{item.age}}대</span>
+              <em>{{item.gender}}</em>
+              <Reviewpoint :width="item.point" />
+              <em class="date">{{item.date}}</em>
+            </div>
+            <div class="btn_wrap ar">
+              <button type="button">수정</button>
+              <button type="button">삭제</button>
             </div>
           </div>
 
@@ -104,43 +105,6 @@ import { modal } from '~/assets/js/common-ui.js'
       em {
         color:#00BC70;
       }
-    }
-  }
-}
-
-.user_info {
-  margin-bottom:60px;
-  display:flex;
-  align-items:center;
-  > * {
-    display:flex;
-    align-items:center;
-    & + *:before {
-      height:10px;
-      margin:0 10px;
-      border-left:1px solid #eee;
-      content:'';
-      display:block;
-    }
-  }
-  .btnSection {
-    margin-left:auto;
-    display:flex;
-    &:before {
-      display:none;
-    }
-    :deep(button) {
-      em {
-        padding:0 15px;
-        color:#999;
-        font-size:13px;
-      }
-    }
-    button + button:before {
-      height:10px;
-      border-left:1px solid #eee;
-      content:'';
-      display:block;
     }
   }
 }

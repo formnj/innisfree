@@ -280,42 +280,51 @@ html {
     flex-direction: column;
     transform: translate(-50%, -50%);
 
+    .btn_close {
+      width: 20px;
+      height: 20px;
+      font-size: 0;
+      background-color: transparent;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+
+      &:before,
+      &:after {
+        width: 100%;
+        border-top: 1px solid #222;
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        display: block;
+      }
+
+      &:before {
+        transform: rotate(45deg);
+      }
+
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+
     .modal_header {
       padding: 20px;
       border-bottom: 1px solid #eee;
+
+      .btn_close {
+        width: 24px;
+        height: 24px;
+        top: 20px;
+        right: 20px;
+      }
 
       .tooltip {
         vertical-align:middle;
       }
 
-      .btn_close {
-        width: 24px;
-        height: 24px;
-        font-size: 0;
-        background-color: transparent;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-
-        &:before,
-        &:after {
-          width: 100%;
-          border-top: 1px solid #222;
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 0;
-          display: block;
-        }
-
-        &:before {
-          transform: rotate(45deg);
-        }
-
-        &:after {
-          transform: rotate(-45deg);
-        }
-      }
 
       .explain {
         margin-top:5px;
@@ -599,56 +608,6 @@ html {
   }
 }
 
-/* tooltip */
-.tooltip_wrap {
-  background:#fff;
-  box-shadow:5px 5px 20px rgba(0,0,0,0.15);
-  opacity:0;
-  visibility:hidden;
-  position:absolute;
-  top:0;
-  left:0;
-  .con {
-    padding:30px 20px;
-    h5 {
-      margin-bottom:10px;
-      color:#000;
-      font-size:18px;
-      font-weight:600;
-      line-height:1.33em;
-      letter-spacing:-0.01em;
-    }
-    p {
-      font-size:13px;
-      line-height:20px;
-      letter-spacing:-0.13px;
-      &.desc {
-        color:#666;
-      }
-      &.sub_desc {
-        margin-top:8px;
-        color:#777;
-        font-weight:600;
-      }
-    }
-  }
-  button {
-    width:24px;
-    height:24px;
-    background:url('~/assets/images/common/icon_split.png') no-repeat -55px -250px;
-    background-size:250px auto;
-    font-size:0;
-    text-indent:-99999px;
-    position:absolute;
-    top:10px;
-    right:10px;
-  }
-  &.active {
-    opacity:1;
-    visibility:visible;
-  }
-}
-
 /* layer type modal wrap */
 .layer_wrap {
   position:relative;
@@ -808,6 +767,44 @@ ul.select_list {
     width:33.3333%;
     padding-top:20px;
     padding-left:20px;
+  }
+}
+
+.giveaway_list {
+  dl {
+    border:1px solid #F5F5F5;
+    display:flex;
+    & + dl {
+      margin-top:15px;
+    }
+    dt {
+      width:100px;
+      height:133px;
+      img {
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+      }
+    }
+    dd {
+      padding:15px;
+      color:#000;
+      font-size:14px;
+      font-weight:400;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      span {
+        margin-top:auto;
+      }
+      em {
+        margin-top:5px;
+        color:#666;
+        font-size:12px;
+        font-weight:300;
+      }
+    }
   }
 }
 
@@ -1007,46 +1004,6 @@ ul.bullet_list {
     align-items: center;
   }
 
-  .star_rate {
-    display: flex;
-    align-items: center;
-    display: inline-block;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 1.25em;
-    letter-spacing: -0.01em;
-    color: #000;
-
-    .star_wrap {
-      padding-left: 77px;
-      position: relative;
-
-      &:before {
-        content: '';
-        width: 72px;
-        height: 16px;
-        font-size: 0;
-        background: url('/assets/images/common/icon_star.png') 0 0 / auto 32px no-repeat;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-      }
-
-      .star {
-        width: 72px;
-        height: 16px;
-        font-size: 0;
-        background: url('/assets/images/common/icon_star.png') 0 -16px / auto 32px no-repeat;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        z-index: 1;
-      }
-    }
-  }
-
   .review_cnt {
     display: inline-block;
     margin-left: 15px;
@@ -1124,6 +1081,19 @@ ul.bullet_list {
       width: 0;
       height: 0;
       top: 0;
+    }
+  }
+
+  &.ref {
+    li{
+      padding-left: 16px;
+
+      &:before {
+        content: "※";
+        width: 0;
+        height: 0;
+        top: 0;
+      }
     }
   }
 }
@@ -1251,5 +1221,77 @@ ul.bullet_list {
     height: 24px;
     font-size: 0;
     position: absolute;
+  }
+}
+
+.review_header {
+  margin-bottom:30px;
+  display:flex;
+  align-items:center;
+  & + .review_header {
+    margin-top:-20px;
+  }
+  .user_info {
+    display:flex;
+    align-items:center;
+    flex:1;
+    > * {
+      display:flex;
+      align-items:center;
+      & + *:before {
+        height:10px;
+        margin:0 10px;
+        border-left:1px solid #eee;
+        content:'';
+        display:block;
+      }
+    }
+    span {
+      color:#888;
+      &.name {
+        color: #000;
+        font-weight: 600;
+      }
+      &.age {
+        color: #000;
+      }
+      &.date {
+        font-weight: 300;
+      }
+    }
+  }
+  .btn_wrap {
+    background-color:transparent;
+    display: flex;
+    button {
+      color:#999;
+      font-size: 13px;
+      font-weight: 400;
+      position:relative;
+      display:flex;
+      align-items:center;
+      & + *:before {
+        height:10px;
+        margin:0 10px;
+        border-left:1px solid #eee;
+        content:'';
+        display:block;
+      }
+    }
+    .share_wrap {
+      position: relative;
+    }
+    .btn_share {
+      width:24px;
+      height:24px;
+      font-size:0;
+      background:url("/_nuxt/assets/images/common/icon_split.png") -470px -140px no-repeat;
+    }
+    .btn_big.buy {
+      background-color: #00BC70;
+    }
+  }
+  .ar {
+    margin-left:auto;
   }
 }

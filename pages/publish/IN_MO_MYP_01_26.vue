@@ -32,10 +32,10 @@
 
     <ul class="review_list">
       <li v-for="(item, idx) in review" :key="idx">
-        <div class="user_info">
-          <div class="btnSection">
-            <Button class="btn_txt" txt="수정" />
-            <Button class="btn_txt" txt="삭제" />
+        <div class="review_header">
+          <div class="btn_wrap ar">
+            <button type="button">신고</button>
+            <button type="button">차단</button>
           </div>
         </div>
 
@@ -43,12 +43,11 @@
           <p v-html="item.review"></p>
         </div>
 
-        <div class="user_info">
-          <strong>{{item.user}}**</strong>
-          <span>{{item.age}}대</span>
-          <em>{{item.gender}}</em>
-          <Reviewpoint :width="item.point" />
-          <em class="date">{{item.date}}</em>
+        <div class="review_header">
+          <div class="user_info">
+            <Reviewpoint :width="item.point" />
+            <span class="date ar">{{ item.date }}</span>
+          </div>
         </div>
 
         <GoodsItem :item="item.goods" />
@@ -221,50 +220,15 @@ import { modal } from '~/assets/js/common-ui.js'
   }
 }
 
-.user_info {
-  position:relative;
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-
-  > * {
+.review_header {
+  margin-bottom:0;
+  .ar:before {
     display:none;
-    &.review_point, &.date {
-      display:block;
-    }
-    &.date {
-      margin-left:auto;
-      color:#888;
-      font-size:1.2rem;
-      font-weight:300;
-    }
-  }
-  .btnSection {
-    width:100%;
-    margin-top:2rem;
-    display:flex;
-    justify-content:flex-end;
-    &:before {
-      display:none;
-    }
-    :deep(button) {
-      em {
-        padding:0 1.5rem;
-        color:#999;
-        font-size:13px;
-      }
-    }
-    button + button:before {
-      height:1rem;
-      border-left:1px solid #eee;
-      content:'';
-      display:block;
-    }
   }
 }
 
 .review_cont {
-  margin-top:2rem;
+  margin:2rem 0;
 }
 
 :deep(.goods_item) {
