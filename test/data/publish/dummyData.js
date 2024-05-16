@@ -1803,7 +1803,8 @@ export const shop_list = [
 
 export const faq_data = [
   {
-    txt:'TOP 10',
+    txt:'TOP10',
+    sub_txt:'TOP10',
     list: [
       {
         cate: `주문문의`,
@@ -1821,6 +1822,7 @@ export const faq_data = [
   },
   {
     txt:'제품',
+    sub_txt:'제품관련',
     tabs: [
       {txt:'제품상세문의'},
       {txt:'제품판매관련'},
@@ -1851,6 +1853,7 @@ export const faq_data = [
   },
   {
     txt:'배송',
+    sub_txt:'배송관련',
     tabs: [
       {txt:'배송문의'},
       {txt:'배송오류/지연'},
@@ -1889,6 +1892,7 @@ export const faq_data = [
   },
   {
     txt: '환불/반품/교환',
+    sub_txt:'환불/반품/교환관련',
     tabs: [
       {txt:'반품문의'},
       {txt:'교환문의'},
@@ -1921,6 +1925,7 @@ export const faq_data = [
   },
   {
     txt:'주문/결제',
+    sub_txt:'주문/결제관련',
     tabs: [
       {txt:'결제문의'},
       {txt:'주문문의'},
@@ -1942,6 +1947,7 @@ export const faq_data = [
   },
   {
     txt:'이벤트/쿠폰/포인트',
+    sub_txt:'이벤트/쿠폰/포인트',
     tabs: [
       {txt:'이벤트'},
       {txt:'쿠폰'},
@@ -1973,6 +1979,7 @@ export const faq_data = [
   },
   {
     txt:'사이트이용/기타',
+    sub_txt:'사이트이용/기타',
     tabs: [
       {txt:'사이트이용'},
       {txt:'기타문의'},
@@ -2002,6 +2009,7 @@ export const faq_data = [
   },
   {
     txt:'회원가입/정보변경',
+    sub_txt:'회원가입/정보변경',
     tabs: [
       {txt:'ID/PW관련'},
       {txt:'회원가입/탈퇴'},
