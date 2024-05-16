@@ -1129,26 +1129,6 @@ ul.bullet_list {
   }
   .count {
     width:116px;
-    .count_wrap {
-      border:1px solid #eee;
-      display:flex;
-      button {
-        width:45px;
-        background-color:#fff;
-        em {
-          padding:0;
-          color:#000;
-        }
-        &.icon_del {
-          display:none !important;
-        }
-      }
-      input {
-        padding:0;
-        border:0;
-        text-align:center;
-      }
-    }
   }
   .price {
     flex-direction:column;
