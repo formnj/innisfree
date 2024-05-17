@@ -704,9 +704,9 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['주문서','','',''],
-        id:'IN_MO_ORD_01_01', status:'',
+        id:'IN_MO_ORD_01_01', status:'ing',
         type:'', note:'결제하기페이지<br/> 장바구니 참고',
-        sDate:'', eDate:'2024-05-24/', worker:'김희경'
+        sDate:'2024-05-17', eDate:'2024-05-24/', worker:'김희경'
     }, {
         depth:['','배송지 등록/변경','',''],
         id:'IN_MO_ORD_01_02', status:'com',
@@ -725,37 +725,37 @@ const MO_arry = ([
     }, {
         depth:['','안심번호 서비스 안내','',''],
         id:'IN_MO_ORD_01_08', status:'',
-        type:'', note:'',
+        type:'', note:'IN_MO_ORD_01_01에서 확인가능',
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','배송 포장재 안내','',''],
         id:'IN_MO_ORD_01_09', status:'',
-        type:'', note:'',
+        type:'', note:'IN_MO_ORD_01_01에서 확인가능',
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','사용 가능한 쿠폰 안내','',''],
         id:'IN_MO_ORD_01_10', status:'',
-        type:'', note:'',
+        type:'', note:'IN_MO_ORD_01_01에서 확인가능',
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','뷰티포인트 적립 혜택 안내','',''],
         id:'IN_MO_ORD_01_11', status:'',
-        type:'', note:'',
+        type:'', note:'IN_MO_ORD_01_01에서 확인가능',
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','유의사항 안내','',''],
         id:'IN_MO_ORD_01_12', status:'',
-        type:'', note:'',
+        type:'', note:'IN_MO_ORD_01_01에서 확인가능',
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','원클릭 결제(T)','',''],
         id:'IN_MO_ORD_01_14', status:'',
-        type:'', note:'',
+        type:'', note:'IN_MO_ORD_01_01에서 확인가능',
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','신용카드(T)','',''],
         id:'IN_MO_ORD_01_16', status:'',
-        type:'', note:'',
+        type:'', note:'IN_MO_ORD_01_01에서 확인가능',
         sDate:'', eDate:'', worker:''
     }, {
         depth:['마이페이지','로그인 전','',''],
