@@ -2,7 +2,7 @@
   <!-- title washed -->
   <div class="title_wrap">
     <div>
-      <h2>장바구니</h2>
+      <h2>결제하기</h2>
     </div>
   </div>
   <!-- //title washed -->
