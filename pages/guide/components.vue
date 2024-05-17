@@ -323,6 +323,10 @@
           <p class="form_tit">[type_04]</p>
           <Tabs tabType="type_04" :item="[{txt:'tab01'},{txt:'tab02'}]" :tabidx="0" />
         </li>
+        <li>
+          <p class="form_tit">[type_05]</p>
+          <Tabs tabType="type_05" :item="[{txt:'tab01'},{txt:'tab02'},{txt:'tab03'}]" :tabidx="0" />
+        </li>
       </ul>
     </div>
     <pre
