@@ -654,14 +654,14 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-23/2024-04-23', worker:'이종환'
     }, {
         depth:['샘플마켓','목록','',''],
-        id:'IN_MO_APP_01_06_01', status:'ing',
+        id:'IN_MO_APP_01_06_01', status:'com',
         type:'', note:'앱에서만 노출되는 페이지',
-        sDate:'', eDate:'2024-05-24', worker:'김나람'
+        sDate:'', eDate:'2024-05-24/2024-05-17', worker:'김나람'
     }, {
         depth:['','신청완료','',''],
-        id:'IN_MO_APP_01_06_07', status:'ing',
+        id:'IN_MO_APP_01_06_07', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-24', worker:'김나람'
+        sDate:'', eDate:'2024-05-24/2024-05-17', worker:'김나람'
     }, {
         depth:['검색','검색','',''],
         id:'IN_MO_SRC_01_01', status:'com',
