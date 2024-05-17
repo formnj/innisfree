@@ -16,14 +16,14 @@
         <li>
           <span>주문자</span>
           <p>
-            <span>김이안</span>
+            <span class="name">김이안</span>
             <em>010-2315-5704</em>
           </p>
         </li>
         <li>
           <span>배송지</span>
           <div>
-            <span>김이안</span>
+            <span class="name">김이안</span>
             <em>010-2315-5704</em>
             <p>
 							(22819) 인천광역시 서구 원적로7번길 20 하이팰리스 3차 302호
@@ -45,31 +45,29 @@
         </div>
         <em>총 1건</em>
       </div>
-      <dl>
+      <dl class="active">
         <dt>
-          <div>
-            <p>
-              <strong>배송완료</strong>
-            </p>
-            <dl>
+          <p>
+            <strong>배송완료</strong>
+          </p>
+          <dl>
+            <dt>
               <a @click="$router.push('/publish/IN_MO_MYP_01_11')">
-                <dt>
-                  <p>
-                    <img src="/_nuxt/public/images/sam/36804_l_S_90.png" alt="">
-                  </p>
-                </dt>
+                <p>
+                  <img src="/_nuxt/public/images/sam/36804_l_S_90.png" alt="">
+                </p>
               </a>
-              <dd>
-                <a @click="$router.push('/publish/IN_MO_MYP_01_11')">
-                  <p>
-                    비타C 그린티 엔자임 잡티 토닝 세럼 체험단
-                    <em>1개</em>
-                  </p>
-                  <span>0</span>
-                </a>
-              </dd>
-            </dl>
-          </div>
+            </dt>
+            <dd>
+              <a @click="$router.push('/publish/IN_MO_MYP_01_11')">
+                <p>
+                  비타C 그린티 엔자임 잡티 토닝 세럼 체험단
+                  <em>1개</em>
+                </p>
+                <span>0</span>
+              </a>
+            </dd>
+          </dl>
         </dt>
         <dd>
           <ul>
@@ -88,7 +86,7 @@
             <li>
               <p>뷰티포인트 사용</p>
               <span>
-                <em>-0</em>P
+                <i>-0</i>P
               </span>
             </li>
             <li>
@@ -100,10 +98,16 @@
           </ul>
         </dd>
       </dl>
-      <Button txt="전체보기" />
-      <Button txt="닫기" />
+      <div class="more_btns">
+         <button class="more_list active" @click="show($event)">
+          <span>전체보기</span>
+         </button>
+         <button class="more_close" @click="hide($event)">
+          <span>닫기</span>
+         </button>
+      </div>
       <div class="btn_wrap">
-        <Button txt="배송 조회" class="btn_outline" />
+        <Button txt="배송 조회" class="btn_outline" @click="modal.open('my_delivery', 'fullMo')" />
         <Button txt="교환 신청" class="btn_outline" />
         <Button txt="반품 신청" class="btn_outline" />
       </div>
@@ -126,14 +130,14 @@
           <h3>결제 금액</h3>
         </div>
       </div>
-      <ul class="myord_price">
+      <ul>
         <li>
           <p>총 주문 금액</p>
           <span><em>0</em>원</span>
         </li>
         <li>
           <p>할인 금액</p>
-          <span><em>- 0</em>원</span>
+          <span><i>- 0원</i></span>
         </li>
         <li>
           <p>배송비</p>
@@ -143,7 +147,7 @@
           <dl>
             <dt>최종 결제 금액</dt>
             <dd>
-              <strong>2,500원</strong>
+              <strong><em>2,500</em>원</strong>
               <p>
                 <span>적립 예정 뷰티포인트</span>
                 <em><i>0</i>P</em>
@@ -152,7 +156,7 @@
           </dl>
         </li>
       </ul>
-      <ol class="bullistType_02">
+      <ol class="bul_list dot">
         <li>뷰티포인트는 배송완료(또는 수취확인) 후 15일째 되는 날 적립됩니다.</li>
         <li>주문접수 상태의 주문은 주문일에서 3일간 보관되며, 이후 자동 취소처리 됩니다.</li>
         <li>결제완료 후 배송지 변경은 어렵습니다. 취소 후 변경 주소로 재 주문하여 주세요.</li>
@@ -235,8 +239,34 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   }
 });
 
+const show = (event) => {
+  console.log(event)
+  let list = document.querySelector('.ord_goods_info > dl')
+  let close_btn = document.querySelector('.more_btns .more_close')
+  let more_list = document.querySelector('.more_btns .more_list')
+  list.classList.remove('active')
+  more_list.classList.remove('active')
+  close_btn.classList.add('active')
+}
+
+const hide = (event) => {
+  let list = document.querySelector('.ord_goods_info > dl')
+  let more_list = document.querySelector('.more_btns .more_list')
+  let close_btn = document.querySelector('.more_btns .more_close')
+  close_btn.classList.remove('active')
+  more_list.classList.add('active')
+  list.classList.add('active')
+}
+
+
 
 onMounted(() => {
+
+/**
+ * 전체보기버튼을 누르면, dl의 active가 사라진고, 전체보기버튼이 none, 닫기버튼에 active가 추가된다
+ * 닫기버튼을 누르면 닫기버튼에 active가 사라지고 전체보기버튼의 active가 추가, dl의 active가 추가된다.
+ */
+
 
 })
 
@@ -249,7 +279,7 @@ onMounted(() => {
     margin-right:-2.1rem;
     padding-left:2rem;
     padding-right:2rem;
-    padding-bottom:3rem;
+    padding-bottom:2rem;
     border-bottom:0.5rem solid #F5F5F5;
     &:last-of-type {
       border-bottom:0;
@@ -261,7 +291,7 @@ onMounted(() => {
         font-weight:400;
       }
     }
-    > ul {
+    ul {
       display:flex;
       flex-direction:column;
         li {
@@ -283,6 +313,13 @@ onMounted(() => {
             word-break:break-all;
             flex:1;
           }
+          .name {
+            &::after {
+              content: '·';
+              margin: 0 0.5rem;
+            }
+
+          }
         }
       }
     }
@@ -299,10 +336,354 @@ onMounted(() => {
           font-weight:600;
         }
       }
+      > dl {
+        margin-left: -2.1rem;
+        margin-right: -2.1rem;
+        padding-right: 2rem;
+        padding-left: 2rem;
+        padding-bottom:4rem;
+        border-bottom:0.1rem solid #F5F5F5;
+        position:relative;
+        &.active {
+          max-height: 20rem;
+          overflow: hidden;
+          border-bottom:0;
+        }
+        &::after {
+          content: '';
+          width:100%;
+          height:4rem;
+          background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
+          position: absolute;
+          left:0;
+          bottom:0;
+          display:block;
+        }
+        dt {
+          > p {
+            margin-bottom: 1.0rem;
+            color: #00BC70;
+            font-size: 1.3rem;
+            strong {
+              font-weight:400;
+            }
+          }
+          dl {
+            display:flex;
+            dt {
+              a {
+                p {
+                  width:6.9rem;
+                  height:9.2rem;
+                  position:relative;
+                  &::after {
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 0.5rem;
+                    background-color: rgba(34, 34, 34, 0.02);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    overflow: hidden;
+                  }
+                }
+              }
+            }
+            dd {
+              margin-left:1.5rem;
+              flex:1;
+              a {
+                height:100%;
+                display:flex;
+                flex-direction:column;
+                 p {
+                  display:flex;
+                  flex-direction:column;
+                  em {
+                    margin-top:0.5rem;
+                    color: rgb(153, 153, 153);
+                    font-size: 1.2rem;
+                    display:inline-block;
+                  }
+                 }
+                 span {
+                  margin-top:1.5rem;
+                  margin-left:auto;
+                  margin-right:0;
+                  font-size:1.6rem;
+                  font-weight:600;
+                 }
+              }
+            }
+          }
+        }
+        dd {
+          ul {
+            > * + * {
+              margin-top:0.8rem;
+            }
+            margin-top:1.0rem;
+            padding:1.5rem;
+            font-size:1.2rem;
+            background:#F5F5F5;
+            border:1px solid #EEEEEE;
+            li {
+              p {color: #888888;}
+            }
+          }
+        }
+      }
+      .more_btns {
+        margin-top:2rem;
+        margin-left:-2.1rem;
+        margin-right:-2.1rem;
+        padding-right:2rem;
+        padding-left:2rem;
+        border-top:0.1rem solid #EEEEEE;
+        border-bottom:0.1rem solid #EEEEEE;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        button {
+          padding:2rem;
+          color: #999999;
+          span {
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            &::after {
+              content:'';
+              width:1.6rem;
+              height:1.6rem;
+              margin-left:0.5rem;
+              background-image: url('~/assets/mo_images/common/icon_split.png');
+              background-repeat:no-repeat;
+              background-size:25rem;
+              display:inline-block;
+            }
+          }
+          &.more_list {
+            display:none;
+            span {
+              &::after {
+                background-position:-5px -328px;
+              }
+            }
+            &.active {
+              display:block;
+            }
+          }
+          &.more_close {
+            display:none;
+            &.active {
+              display:block;
+            }
+            span {
+                &::after {
+                background-position:-5px -328px;
+                transform:rotate(180deg);
+                }
+              }
+            }
+        }
+      }
+      .btn_wrap {
+        width:100%;
+        margin-top:2rem;
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:1.0rem 0.4rem;
+        .btn_outline {
+          flex:1;
+        }
+      }
     }
-    &.ord_methodpay {}
-    &.ord_price {}
+    &.ord_methodpay {
+      > dl {
+        margin-bottom:3rem;
+        color:#333;
+        font-weight:500;
+        display:flex;
+        justify-content:space-between;
+        dd {
+          color:#222
+        }
+      }
+    }
+    &.ord_price {
+      > ul {
+        > * + * {
+          margin-top:1.5rem;
+        }
+        li {
+          width:100%;
+          span {
+            i {
+              color:#ff0000;
+              font-style:normal;
+            }
+          }
+          dl {
+            width:100%;
+            margin-top:2.0rem;
+            padding-top:2.0rem;
+            border-top:0.1rem solid #EEEEEE;
+            display:flex;
+            justify-content:space-between;
+            dt {
+              color:#333;
+              font-weight: 600;
+            }
+            dd {
+              text-align:right;
+              strong {
+                em {
+                  font-size:2.0rem;
+                  font-weight:600;
+                }
+              }
+              p {
+                margin-top:0.4rem;
+                color: #999999;
+                font-size: 1.2rem;
+                em {
+                  color:#009D5E;
+                  font-weight:400;
+                  font-size:1.2rem;
+                  i {
+                    margin:0 0.3rem;
+                    font-style:normal;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      ol {
+        margin-top:3rem;
+        padding:1.9rem;
+        color: #888888;
+        font-size:1.2rem;
+        background-color:#F5F5F5;
+        border:0.1rem solid #EEEEEE;
+        li {
+          line-height:1.33em;
+        }
+
+      }
+
+    }
   }
 }
+
+
+.modal_wrap {
+  &#my_delivery {
+    .modal_container {
+      .modal_content {
+        padding-top:2rem;
+        dl {
+          margin:0 2rem;
+          padding:1.5rem;
+          color:#333;
+          font-size:1.3rem;
+          background-color:#F7F9FA;
+          display:flex;
+          align-items:center;
+          dt {
+            height:100%;
+            margin-right:0.5rem;
+          }
+        }
+        ul {
+          margin: 3rem 2.8rem 0;
+          overflow-y:hidden;
+          position:relative;
+          &::before {
+              content:'';
+              width:0.2rem;
+              height:auto;
+              background:#eee;
+              position:absolute;
+              top:0;
+              left:1.2rem;
+              bottom:5.0rem;
+            }
+          li {
+            padding:0 0 2.5rem 3.3rem;
+            position:relative;
+            &:last-of-type {
+              margin-bottom:0;
+            }
+            > * + * {
+              margin-top: 0.5rem;
+            }
+            div {
+              color:#333;
+              font-size:1.3rem;
+              &::before{
+                content: "";
+                width:1rem;
+                height:1rem;
+                border:0.2rem solid #ddd;
+                border-radius:50%;
+                background:#fff;
+                box-sizing:border-box;
+                position:absolute;
+                left:0.8rem;
+                top:0.1rem;
+              }
+              &.bold {
+                color:#009D5E;
+                &::before {
+                  width:1.8rem;
+                  height:1.8rem;
+                  background-image: url('~/assets/mo_images/common/icon_split.png');
+                  background-repeat:no-repeat;
+                  background-size:25rem;
+                  background-position:-0.4rem -30.6rem;
+                  background-color:#00BC70 ;
+                  border:0.1rem solid #00BC70;
+                  left:0.4rem;
+                  display:inline-block;
+                }
+              }
+
+              strong {
+                font-weight:600;
+              }
+              em {
+                margin: 0 0 0 0.5rem;
+                padding: 0 0 0 0.6rem;
+                font-weight: 400;
+                position: relative;
+                &::before {
+                  content:'';
+                  width:0.1rem;
+                  height:1rem;
+                  background:#ddd;
+                  position:absolute;
+                  top:50%;
+                  left:0;
+                  transform:translateY(-50%);
+                }
+              }
+            }
+            span {
+              color: #aaa;
+              display:block;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
 
 </style>
