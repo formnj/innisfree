@@ -799,9 +799,9 @@ const MO_arry = ([
         sDate:'2024-05-14', eDate:'2024-05-24/2024-05-16', worker:'김희경'
     }, {
         depth:['','','상세',''],
-        id:'IN_MO_MYP_01_11', status:'ing',
+        id:'IN_MO_MYP_01_11', status:'com',
         type:'', note:'',
-        sDate:'2024-05-16', eDate:'2024-05-24', worker:'김희경'
+        sDate:'2024-05-16', eDate:'2024-05-24/2024-05-17', worker:'김희경'
     }, {
         depth:['','배송내역','목록',''],
         id:'IN_MO_MYP_01_00-1', status:'',

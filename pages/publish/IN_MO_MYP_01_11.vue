@@ -45,7 +45,7 @@
         </div>
         <em>총 1건</em>
       </div>
-      <dl>
+      <dl class="active">
         <dt>
           <p>
             <strong>배송완료</strong>
@@ -86,7 +86,7 @@
             <li>
               <p>뷰티포인트 사용</p>
               <span>
-                <em>-0</em>P
+                <i>-0</i>P
               </span>
             </li>
             <li>
@@ -99,15 +99,15 @@
         </dd>
       </dl>
       <div class="more_btns">
-         <button class="more_list">
+         <button class="more_list active" @click="show($event)">
           <span>전체보기</span>
          </button>
-         <button class="more_close">
+         <button class="more_close" @click="hide($event)">
           <span>닫기</span>
          </button>
       </div>
       <div class="btn_wrap">
-        <Button txt="배송 조회" class="btn_outline" />
+        <Button txt="배송 조회" class="btn_outline" @click="modal.open('my_delivery', 'fullMo')" />
         <Button txt="교환 신청" class="btn_outline" />
         <Button txt="반품 신청" class="btn_outline" />
       </div>
@@ -137,7 +137,7 @@
         </li>
         <li>
           <p>할인 금액</p>
-          <span><em>- 0</em>원</span>
+          <span><i>- 0원</i></span>
         </li>
         <li>
           <p>배송비</p>
@@ -239,8 +239,34 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   }
 });
 
+const show = (event) => {
+  console.log(event)
+  let list = document.querySelector('.ord_goods_info > dl')
+  let close_btn = document.querySelector('.more_btns .more_close')
+  let more_list = document.querySelector('.more_btns .more_list')
+  list.classList.remove('active')
+  more_list.classList.remove('active')
+  close_btn.classList.add('active')
+}
+
+const hide = (event) => {
+  let list = document.querySelector('.ord_goods_info > dl')
+  let more_list = document.querySelector('.more_btns .more_list')
+  let close_btn = document.querySelector('.more_btns .more_close')
+  close_btn.classList.remove('active')
+  more_list.classList.add('active')
+  list.classList.add('active')
+}
+
+
 
 onMounted(() => {
+
+/**
+ * 전체보기버튼을 누르면, dl의 active가 사라진고, 전체보기버튼이 none, 닫기버튼에 active가 추가된다
+ * 닫기버튼을 누르면 닫기버튼에 active가 사라지고 전체보기버튼의 active가 추가, dl의 active가 추가된다.
+ */
+
 
 })
 
@@ -317,6 +343,22 @@ onMounted(() => {
         padding-left: 2rem;
         padding-bottom:4rem;
         border-bottom:0.1rem solid #F5F5F5;
+        position:relative;
+        &.active {
+          max-height: 20rem;
+          overflow: hidden;
+          border-bottom:0;
+        }
+        &::after {
+          content: '';
+          width:100%;
+          height:4rem;
+          background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
+          position: absolute;
+          left:0;
+          bottom:0;
+          display:block;
+        }
         dt {
           > p {
             margin-bottom: 1.0rem;
@@ -389,7 +431,6 @@ onMounted(() => {
             border:1px solid #EEEEEE;
             li {
               p {color: #888888;}
-              span {}
             }
           }
         }
@@ -416,7 +457,7 @@ onMounted(() => {
               content:'';
               width:1.6rem;
               height:1.6rem;
-              border:1px solid red;
+              margin-left:0.5rem;
               background-image: url('~/assets/mo_images/common/icon_split.png');
               background-repeat:no-repeat;
               background-size:25rem;
@@ -424,16 +465,25 @@ onMounted(() => {
             }
           }
           &.more_list {
+            display:none;
             span {
               &::after {
-                background-position:-101px 0px
+                background-position:-5px -328px;
               }
+            }
+            &.active {
+              display:block;
             }
           }
           &.more_close {
+            display:none;
+            &.active {
+              display:block;
+            }
             span {
                 &::after {
-                background-position:-101px 0px
+                background-position:-5px -328px;
+                transform:rotate(180deg);
                 }
               }
             }
@@ -470,6 +520,12 @@ onMounted(() => {
         }
         li {
           width:100%;
+          span {
+            i {
+              color:#ff0000;
+              font-style:normal;
+            }
+          }
           dl {
             width:100%;
             margin-top:2.0rem;
@@ -511,14 +567,123 @@ onMounted(() => {
         margin-top:3rem;
         padding:1.9rem;
         color: #888888;
-        font-size: 1.2rem;
-        background-color: #F5F5F5;
-        border: 0.1rem solid #EEEEEE;
+        font-size:1.2rem;
+        background-color:#F5F5F5;
+        border:0.1rem solid #EEEEEE;
+        li {
+          line-height:1.33em;
+        }
 
       }
 
     }
   }
 }
+
+
+.modal_wrap {
+  &#my_delivery {
+    .modal_container {
+      .modal_content {
+        padding-top:2rem;
+        dl {
+          margin:0 2rem;
+          padding:1.5rem;
+          color:#333;
+          font-size:1.3rem;
+          background-color:#F7F9FA;
+          display:flex;
+          align-items:center;
+          dt {
+            height:100%;
+            margin-right:0.5rem;
+          }
+        }
+        ul {
+          margin: 3rem 2.8rem 0;
+          overflow-y:hidden;
+          position:relative;
+          &::before {
+              content:'';
+              width:0.2rem;
+              height:auto;
+              background:#eee;
+              position:absolute;
+              top:0;
+              left:1.2rem;
+              bottom:5.0rem;
+            }
+          li {
+            padding:0 0 2.5rem 3.3rem;
+            position:relative;
+            &:last-of-type {
+              margin-bottom:0;
+            }
+            > * + * {
+              margin-top: 0.5rem;
+            }
+            div {
+              color:#333;
+              font-size:1.3rem;
+              &::before{
+                content: "";
+                width:1rem;
+                height:1rem;
+                border:0.2rem solid #ddd;
+                border-radius:50%;
+                background:#fff;
+                box-sizing:border-box;
+                position:absolute;
+                left:0.8rem;
+                top:0.1rem;
+              }
+              &.bold {
+                color:#009D5E;
+                &::before {
+                  width:1.8rem;
+                  height:1.8rem;
+                  background-image: url('~/assets/mo_images/common/icon_split.png');
+                  background-repeat:no-repeat;
+                  background-size:25rem;
+                  background-position:-0.4rem -30.6rem;
+                  background-color:#00BC70 ;
+                  border:0.1rem solid #00BC70;
+                  left:0.4rem;
+                  display:inline-block;
+                }
+              }
+
+              strong {
+                font-weight:600;
+              }
+              em {
+                margin: 0 0 0 0.5rem;
+                padding: 0 0 0 0.6rem;
+                font-weight: 400;
+                position: relative;
+                &::before {
+                  content:'';
+                  width:0.1rem;
+                  height:1rem;
+                  background:#ddd;
+                  position:absolute;
+                  top:50%;
+                  left:0;
+                  transform:translateY(-50%);
+                }
+              }
+            }
+            span {
+              color: #aaa;
+              display:block;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
 
 </style>
