@@ -365,6 +365,10 @@
       background-position: -2rem -10.5rem;
     }
 
+    &.like.active:before {
+      background: url(/_nuxt/assets/mo_images/common/icon_split.png) -12rem -4.67rem / 16.5rem auto repeat;
+    }
+
     &.cmnt:before {
       background-position: -4rem -10.5rem;
     }
@@ -426,6 +430,7 @@
       font-size: 1.4rem;
       left: 2.1rem;
       top: 50%;
+      transform: translateY(-50%);
     }
   }
 
