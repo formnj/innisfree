@@ -9,7 +9,7 @@
             <div class="icon_menu">
                 <Icons class="home" txt="홈" />
                 <Icons class="share" txt="공유" />
-                <a href="/publish/IN_MO_SRC_01_01">
+                <a :href="path+'IN_MO_SRC_01_01'">
                   <Icons class="btn_search" txt="검색" />
                 </a>
                 <Icons class="cart" txt="50" />
@@ -134,6 +134,9 @@ import {
     global_menu,
     gnb_list
 } from '~/test/data/publish/dummyData'
+
+/* path */
+const path = '/publish/';
 
 /* sample data */
 const nav_goods = [

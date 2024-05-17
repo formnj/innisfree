@@ -2,9 +2,9 @@
     <DocTopBanner />
     <header>
         <div class="inner">
-            <h1><a href="/publish/IN_MO_HOM_01_01"><img src="/assets/images/common/logo_innisfree.png"></a></h1>
+            <h1><a :href="path+'IN_MO_HOM_01_01'"><img src="/assets/images/common/logo_innisfree.png"></a></h1>
             <div class="icon_menu">
-              <a href="/publish/IN_MO_SRC_01_01">
+              <a :href="path+'IN_MO_SRC_01_01'">
                 <Icons class="btn_search" txt="검색" />
               </a>
               <Icons class="cart" txt="50" />
@@ -108,6 +108,9 @@ import {
     global_menu,
     gnb_list
 } from '~/test/data/publish/dummyData'
+
+/* path */
+const path = '/publish/';
 
 /* sample data */
 

@@ -5,7 +5,7 @@
     </div>
     <header>
         <div class="inner">
-            <h1><a href="/publish/IN_PC_HOM_01_01"><img src="/assets/images/common/logo_innisfree.png"></a></h1>
+            <h1><a :href="path+'IN_PC_HOM_01_01'"><img src="/assets/images/common/logo_innisfree.png"></a></h1>
             <div class="search_wrap">
                 <div class="search">
                     <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
@@ -142,13 +142,13 @@
                         <a href="#none" class="wish">관심상품</a>
                     </li>
                     <li>
-                        <a href="/publish/IN_PC_MYP_01_04" class="mypage">마이페이지</a>
+                        <a :href="path+'IN_PC_MYP_01_04'" class="mypage">마이페이지</a>
                     </li>
                     <li>
                         <a href="#none" class="delivery">배송조회</a>
                     </li>
                     <li>
-                        <a href="/publish/IN_PC_CAR_01_01" class="cart">장바구니
+                        <a :href="path+'IN_PC_CAR_01_01'" class="cart">장바구니
                             <em>5</em>
                         </a>
                     </li>
@@ -161,28 +161,28 @@
                 <nav class="navGnb">
                     <ul>
                         <li>
-                            <a href="/publish/IN_PC_HOM_01_05"><em>이벤트</em></a>
+                            <a :href="path+'IN_PC_HOM_01_05'"><em>이벤트</em></a>
                         </li>
                         <li>
-                            <a href="/publish/IN_PC_HOM_01_04" class="point"><em>특가</em></a>
+                            <a :href="path+'IN_PC_HOM_01_04'" class="point"><em>특가</em></a>
                         </li>
                         <li class="active">
-                            <a href="/publish/IN_PC_HOM_01_00-1"><em>베스트</em></a>
+                            <a :href="path+'IN_PC_HOM_01_00-1'"><em>베스트</em></a>
                         </li>
                         <li>
                             <a href="#none"><em>쿠폰존</em></a>
                         </li>
                         <li>
-                            <a href="/publish/IN_PC_HOM_01_12"><em>쇼케이스</em></a>
+                            <a :href="path+'IN_PC_HOM_01_12'"><em>쇼케이스</em></a>
                         </li>
                         <li>
-                            <a href="/publish/IN_PC_HOM_01_14"><em>라이브</em></a>
+                            <a :href="path+'IN_PC_HOM_01_14'"><em>라이브</em></a>
                         </li>
                         <li>
-                            <a href="/publish/IN_PC_HOM_01_15"><em>FOR ME</em></a>
+                            <a :href="path+'IN_PC_HOM_01_15'"><em>FOR ME</em></a>
                         </li>
                         <li>
-                            <a href="/publish/IN_PC_HOM_01_16"><em>임직원샵</em></a>
+                            <a :href="path+'IN_PC_HOM_01_16'"><em>임직원샵</em></a>
                         </li>
                     </ul>
                 </nav>
@@ -235,6 +235,9 @@ import {
   sample_goods,
   latestSearchWordData
 } from '~/test/data/publish/dummyData'
+
+/* path */
+const path = '/publish/';
 
 
 /* sample data */
