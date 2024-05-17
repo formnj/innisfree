@@ -16,14 +16,14 @@
         <li>
           <span>주문자</span>
           <p>
-            <span>김이안</span>
+            <span class="name">김이안</span>
             <em>010-2315-5704</em>
           </p>
         </li>
         <li>
           <span>배송지</span>
           <div>
-            <span>김이안</span>
+            <span class="name">김이안</span>
             <em>010-2315-5704</em>
             <p>
 							(22819) 인천광역시 서구 원적로7번길 20 하이팰리스 3차 302호
@@ -47,29 +47,27 @@
       </div>
       <dl>
         <dt>
-          <div>
-            <p>
-              <strong>배송완료</strong>
-            </p>
-            <dl>
+          <p>
+            <strong>배송완료</strong>
+          </p>
+          <dl>
+            <dt>
               <a @click="$router.push('/publish/IN_MO_MYP_01_11')">
-                <dt>
-                  <p>
-                    <img src="/_nuxt/public/images/sam/36804_l_S_90.png" alt="">
-                  </p>
-                </dt>
+                <p>
+                  <img src="/_nuxt/public/images/sam/36804_l_S_90.png" alt="">
+                </p>
               </a>
-              <dd>
-                <a @click="$router.push('/publish/IN_MO_MYP_01_11')">
-                  <p>
-                    비타C 그린티 엔자임 잡티 토닝 세럼 체험단
-                    <em>1개</em>
-                  </p>
-                  <span>0</span>
-                </a>
-              </dd>
-            </dl>
-          </div>
+            </dt>
+            <dd>
+              <a @click="$router.push('/publish/IN_MO_MYP_01_11')">
+                <p>
+                  비타C 그린티 엔자임 잡티 토닝 세럼 체험단
+                  <em>1개</em>
+                </p>
+                <span>0</span>
+              </a>
+            </dd>
+          </dl>
         </dt>
         <dd>
           <ul>
@@ -100,8 +98,14 @@
           </ul>
         </dd>
       </dl>
-      <Button txt="전체보기" />
-      <Button txt="닫기" />
+      <div class="more_btns">
+         <button class="more_list">
+          <span>전체보기</span>
+         </button>
+         <button class="more_close">
+          <span>닫기</span>
+         </button>
+      </div>
       <div class="btn_wrap">
         <Button txt="배송 조회" class="btn_outline" />
         <Button txt="교환 신청" class="btn_outline" />
@@ -126,7 +130,7 @@
           <h3>결제 금액</h3>
         </div>
       </div>
-      <ul class="myord_price">
+      <ul>
         <li>
           <p>총 주문 금액</p>
           <span><em>0</em>원</span>
@@ -143,7 +147,7 @@
           <dl>
             <dt>최종 결제 금액</dt>
             <dd>
-              <strong>2,500원</strong>
+              <strong><em>2,500</em>원</strong>
               <p>
                 <span>적립 예정 뷰티포인트</span>
                 <em><i>0</i>P</em>
@@ -152,7 +156,7 @@
           </dl>
         </li>
       </ul>
-      <ol class="bullistType_02">
+      <ol class="bul_list dot">
         <li>뷰티포인트는 배송완료(또는 수취확인) 후 15일째 되는 날 적립됩니다.</li>
         <li>주문접수 상태의 주문은 주문일에서 3일간 보관되며, 이후 자동 취소처리 됩니다.</li>
         <li>결제완료 후 배송지 변경은 어렵습니다. 취소 후 변경 주소로 재 주문하여 주세요.</li>
@@ -249,7 +253,7 @@ onMounted(() => {
     margin-right:-2.1rem;
     padding-left:2rem;
     padding-right:2rem;
-    padding-bottom:3rem;
+    padding-bottom:2rem;
     border-bottom:0.5rem solid #F5F5F5;
     &:last-of-type {
       border-bottom:0;
@@ -261,7 +265,7 @@ onMounted(() => {
         font-weight:400;
       }
     }
-    > ul {
+    ul {
       display:flex;
       flex-direction:column;
         li {
@@ -283,6 +287,13 @@ onMounted(() => {
             word-break:break-all;
             flex:1;
           }
+          .name {
+            &::after {
+              content: '·';
+              margin: 0 0.5rem;
+            }
+
+          }
         }
       }
     }
@@ -299,9 +310,214 @@ onMounted(() => {
           font-weight:600;
         }
       }
+      > dl {
+        margin-left: -2.1rem;
+        margin-right: -2.1rem;
+        padding-right: 2rem;
+        padding-left: 2rem;
+        padding-bottom:4rem;
+        border-bottom:0.1rem solid #F5F5F5;
+        dt {
+          > p {
+            margin-bottom: 1.0rem;
+            color: #00BC70;
+            font-size: 1.3rem;
+            strong {
+              font-weight:400;
+            }
+          }
+          dl {
+            display:flex;
+            dt {
+              a {
+                p {
+                  width:6.9rem;
+                  height:9.2rem;
+                  position:relative;
+                  &::after {
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 0.5rem;
+                    background-color: rgba(34, 34, 34, 0.02);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    overflow: hidden;
+                  }
+                }
+              }
+            }
+            dd {
+              margin-left:1.5rem;
+              flex:1;
+              a {
+                height:100%;
+                display:flex;
+                flex-direction:column;
+                 p {
+                  display:flex;
+                  flex-direction:column;
+                  em {
+                    margin-top:0.5rem;
+                    color: rgb(153, 153, 153);
+                    font-size: 1.2rem;
+                    display:inline-block;
+                  }
+                 }
+                 span {
+                  margin-top:1.5rem;
+                  margin-left:auto;
+                  margin-right:0;
+                  font-size:1.6rem;
+                  font-weight:600;
+                 }
+              }
+            }
+          }
+        }
+        dd {
+          ul {
+            > * + * {
+              margin-top:0.8rem;
+            }
+            margin-top:1.0rem;
+            padding:1.5rem;
+            font-size:1.2rem;
+            background:#F5F5F5;
+            border:1px solid #EEEEEE;
+            li {
+              p {color: #888888;}
+              span {}
+            }
+          }
+        }
+      }
+      .more_btns {
+        margin-top:2rem;
+        margin-left:-2.1rem;
+        margin-right:-2.1rem;
+        padding-right:2rem;
+        padding-left:2rem;
+        border-top:0.1rem solid #EEEEEE;
+        border-bottom:0.1rem solid #EEEEEE;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        button {
+          padding:2rem;
+          color: #999999;
+          span {
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            &::after {
+              content:'';
+              width:1.6rem;
+              height:1.6rem;
+              border:1px solid red;
+              background-image: url('~/assets/mo_images/common/icon_split.png');
+              background-repeat:no-repeat;
+              background-size:25rem;
+              display:inline-block;
+            }
+          }
+          &.more_list {
+            span {
+              &::after {
+                background-position:-101px 0px
+              }
+            }
+          }
+          &.more_close {
+            span {
+                &::after {
+                background-position:-101px 0px
+                }
+              }
+            }
+        }
+      }
+      .btn_wrap {
+        width:100%;
+        margin-top:2rem;
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:1.0rem 0.4rem;
+        .btn_outline {
+          flex:1;
+        }
+      }
     }
-    &.ord_methodpay {}
-    &.ord_price {}
+    &.ord_methodpay {
+      > dl {
+        margin-bottom:3rem;
+        color:#333;
+        font-weight:500;
+        display:flex;
+        justify-content:space-between;
+        dd {
+          color:#222
+        }
+      }
+    }
+    &.ord_price {
+      > ul {
+        > * + * {
+          margin-top:1.5rem;
+        }
+        li {
+          width:100%;
+          dl {
+            width:100%;
+            margin-top:2.0rem;
+            padding-top:2.0rem;
+            border-top:0.1rem solid #EEEEEE;
+            display:flex;
+            justify-content:space-between;
+            dt {
+              color:#333;
+              font-weight: 600;
+            }
+            dd {
+              text-align:right;
+              strong {
+                em {
+                  font-size:2.0rem;
+                  font-weight:600;
+                }
+              }
+              p {
+                margin-top:0.4rem;
+                color: #999999;
+                font-size: 1.2rem;
+                em {
+                  color:#009D5E;
+                  font-weight:400;
+                  font-size:1.2rem;
+                  i {
+                    margin:0 0.3rem;
+                    font-style:normal;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      ol {
+        margin-top:3rem;
+        padding:1.9rem;
+        color: #888888;
+        font-size: 1.2rem;
+        background-color: #F5F5F5;
+        border: 0.1rem solid #EEEEEE;
+
+      }
+
+    }
   }
 }
 
