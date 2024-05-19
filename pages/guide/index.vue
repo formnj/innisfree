@@ -605,17 +605,17 @@ const MO_arry = ([
     }, {
         depth:['','에디터(T)','목록',''],
         id:'IN_MO_HOM_01_08', status:'com',
-        type:'', note:'',
+        type:'', note:'05-17 디자인 반영 완료',
         sDate:'', eDate:'2024-04-19/2024-04-19', worker:'김나람'
     }, {
         depth:['','','상세',''],
         id:'IN_MO_HOM_01_09', status:'com',
-        type:'', note:'',
+        type:'', note:'05-17 디자인 반영 완료',
         sDate:'', eDate:'2024-05-03/2024-04-26', worker:'김나람'
     }, {
         depth:['','','에디터별 보기',''],
         id:'IN_MO_HOM_01_10', status:'com',
-        type:'', note:'',
+        type:'', note:'05-17 디자인 반영 완료',
         sDate:'', eDate:'2024-05-03/2024-04-29', worker:'김나람'
     }, {
         depth:['','베스트','',''],

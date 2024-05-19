@@ -78,6 +78,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .modal_wrap.bottom .modal_container {
   padding-bottom: 10.6rem;
+  max-height: 76rem;
 
   .modal_header {
     padding-bottom: 0;

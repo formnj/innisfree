@@ -9,7 +9,7 @@
     </span>
 
     <div class="post_editor">
-      <a href="#none">
+      <a href="IN_MO_HOM_01_10">
         <span v-for="(item, idx) in samplePost.slice(0, 1)" :key="idx" class="info">
           <EditorProfile :item="item" />
         </span>
