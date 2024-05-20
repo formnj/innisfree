@@ -20,131 +20,189 @@
           <li><a href="#none">판매금액순</a></li>
         </ul>
       </div>
-      <button>상세검색</button>
+      <button @click="modal.open('modal_filter', 'detailSearch')">상세검색</button>
     </div>
   </div>
   <!-- //title washed -->
 
 
-    <div class="list_wrap">
-        <ul class="goods_list">
-            <li v-for="(item, idx) in sample_goods" :key="idx">
-                <GoodsItem :item="item" :link="item.link" />
-            </li>
+  <div class="list_wrap">
+    <ul class="goods_list">
+      <li v-for="(item, idx) in sample_goods" :key="idx">
+        <GoodsItem :item="item" :link="item.link" />
+      </li>
+    </ul>
+  </div>
+  <div class="paging">
+    <div>
+      <a href="#none" class="first">처음으로</a>
+      <a href="#none">1</a>
+      <a href="#none">2</a>
+      <a href="#none" class="active">3</a>
+      <a href="#none">4</a>
+      <a href="#none">5</a>
+      <a href="#none" class="last">마지막으로</a>
+    </div>
+  </div>
+
+  <!-- 필터 모달 -->
+  <div id="modal_filter" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_header">
+        <h2>상세검색</h2>
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+      </div>
+      <div class="modal_content">
+        <p>혜택별</p>
+        <ul>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a00" _text="증정" class="round_square" />
+          </li>
         </ul>
+
+        <p>고민별</p>
+        <ul>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a01" _text="각질/피부결" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a02" _text="미백" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a03" _text="비건인증" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a04" _text="수분/보습/속건조" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a05" _text="영양/토탈안티에이징" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a06" _text="잡티/피부톤" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a07" _text="주름/탄력" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a08" _text="주름개선" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a09" _text="트러블/리페어" class="round_square" />
+          </li>
+        </ul>
+
+        <p>유형별</p>
+        <ul>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a10" _text="스킨케어" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a11" _text="메이크업" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a12" _text="남성" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a13" _text="헤어/바디/펫" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a14" _text="미용소품" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a15" _text="기획세트" class="round_square" />
+          </li>
+        </ul>
+
+        <p>기능성</p>
+        <ul>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a16" _text="자외선차단" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a17" _text="주름개선" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a18" _text="미백" class="round_square" />
+          </li>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a19" _text="비건인증" class="round_square" />
+          </li>
+        </ul>
+
+        <p>공병수거</p>
+        <ul>
+          <li>
+            <Inputs _type="checkbox" _name="filter" _id="a20" _text="공병수거 가능" class="round_square" />
+          </li>
+        </ul>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_big btn_reset" txt="초기화" />
+        <Button class="btn_big confirm" txt="99개 제품보기" />
+      </div>
     </div>
-    <div class="paging">
-        <div>
-            <a href="#none" class="first">처음으로</a>
-            <a href="#none">1</a>
-            <a href="#none">2</a>
-            <a href="#none" class="active">3</a>
-            <a href="#none">4</a>
-            <a href="#none">5</a>
-            <a href="#none" class="last">마지막으로</a>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //필터 모달 -->
+
+  <!-- 장바구니 -->
+  <div  id="modal_cart" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_header">
+        <h2>장바구니</h2>
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+      </div>
+      <div class="modal_content">
+        <div class="cart_box">
+          <div class="row">
+            <div class="pdt_img">
+              <span class="thumb">
+                <em><img src="https://images.innisfree.co.kr/upload/product/36116_l_S_140.jpg?T202404300927" alt="" /></em>
+              </span>
+            </div>
+            <div class="pdt_info">
+              <div class="name">제품명은 최대 두줄까지 노출됩니다. 말줄임 표시 됩니다.상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명</div>
+              <p class="price">
+                <strong>1,800원</strong>
+                <em>3,000원</em>
+              </p>
+            </div>
+          </div>
+          <Inputs _type="checkbox" _text="품절상품 제외" />
+          <ProdSelectbox
+            :options="[
+              { val: 'op1', name: 'op', txt: '1호 샐먼 베이지' },
+              { val: 'op2', name: 'op', txt: '2호 피치 베이지' }
+          ]" />
+          <!-- <div class="cell count">
+            <Quantity _id="Quantity" quantity="32" />
+          </div>
+          <div class="cell price">
+            <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 --
+            <Button class="btn_min_outline" txt="입고알림신청" />
+            <p>
+              <strong>52,000 <em>원</em></strong>
+              <span class="point">+529P</span><!-- point --
+            </p>
+          </div>
+          <div class="cell del">
+            <Icons class="del" />
+          </div> -->
         </div>
+      </div>
+      <div class="modal_footer">
+        <Button txt="장바구니" />
+        <Button class="btn_ confirm" txt="바로구매" />
+      </div>
     </div>
-    <div class="modal_wrap" id="detailSearch">
-        <div class="modal_container">
-            <div class="modal_header">
-                <h2>상세검색</h2>
-                <button class="btn_close" @click="modal.close(this);">닫기</button>
-            </div>
-            <div class="modal_content">
-                <dl class="sortList">
-                  <dt>혜택별</dt>
-                  <dd>
-                    <ul>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">증정</span>
-                        </label>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-                <dl class="sortList">
-                  <dt>고민별</dt>
-                  <dd>
-                    <ul>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">트러블/리페어</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">영양/토탈안티에이징</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">잡티/피부톤</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">주름/탄력</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">수분/보습/속건조</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">각질/피부결</span>
-                        </label>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-                <dl class="sortList">
-                  <dt>기능성</dt>
-                  <dd>
-                    <ul>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">미백</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">주름개선</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">비건인증</span>
-                        </label>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-                <dl class="sortList">
-                  <dt>공병수거</dt>
-                  <dd>
-                    <ul>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox" name="srchP_typeArr" id="benefit1" value="N" alt="증정"><span @click="setFilter($event)">공병수거 가능</span>
-                        </label>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-            </div>
-            <div class="modal_footer">
-                <Button class="btn_big btn_reset" txt="초기화" />
-                <Button class="btn_big btn_type_02" txt="검색" />
-            </div>
-        </div>
-        <div class="overlay" @click="modal.close(this);"></div>
-    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //장바구니 -->
 </template>
 
 <script setup>
+import { sample_goods } from '~/test/data/publish/dummyData'
+import { modal, Drop_Down } from '~/assets/js/common-ui'
 definePageMeta({
 	layout:'pc-category'
 });
@@ -155,195 +213,137 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
       default:'default'
     }
 });
-const sample_goods = [
-    {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'히알루론 수분 선크림 SPF 50+ PA++++',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
-        sticker:[
-            {txt:'type01', type:'type01'},
-            {txt:'type02', type:'type02'},
-            {txt:'type03', type:'type03'},
-            {txt:'type04', type:'type04'}
-        ],
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    }, {
-        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
-        cate:'NEW',
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'~20%', cost:'56,000',
-        status:'coming_soon',
-        sticker:[
-            {txt:'1+1', type:'type02'},
-            {txt:'뷰티포인트전용', type:'type01'},
-            {txt:'첫구매전용', type:'type01'}
-        ]
-    }, {
-        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
-        cate:'NEW',
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'~20%', cost:'56,000',
-        status:'coming_soon',
-        sticker:[
-            {txt:'1+1', type:'type02'},
-            {txt:'뷰티포인트전용', type:'type01'},
-            {txt:'첫구매전용', type:'type01'}
-        ]
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    },
-    {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    },
-    {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
-    },
-    {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
-    },
-    {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
-    },
-    {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
-    },{
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-    },
-    {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-    },
-]
-/* //component sample data */
-
-const modal = {
-    open: (_target, _type) => {
-        document.getElementById(_target).classList.add('active', _type);
-        const body = document.querySelector("body");
-        const pageY = document.body.scrollTop || document.documentElement.scrollTop;
-
-        if (!body.hasAttribute("scrollY")) {
-            body.setAttribute("scrollY", String(pageY));
-            body.classList.add("lockbody");
-        }
-        body.addEventListener("touchmove", modal.lockScrollHandle, { passive: false });
-    }, close: (_target) => {
-        event.target.closest('.modal_wrap').setAttribute('class','modal_wrap');
-        const body = document.querySelector("body");
-
-        if (body.hasAttribute("scrollY")) {
-            body.classList.remove("lockbody");
-            body.scrollTop = Number(body.getAttribute("scrollY"));
-            body.removeAttribute("scrollY");
-        }
-
-        body.removeEventListener("touchmove", modal.lockScrollHandle, { passive: true });
-    }, lockScrollHandle(event) {
-        const e = event || window.event;
-
-        // 멀티 터치는 터치 되게 한다
-        if (e.touches.length > 1) return;
-
-        // event 초기화 속성이 있음 초기화
-        e.preventDefault();
-    }
-}
-
-const Drop_Down = () => {
-    let selet = document.querySelector('.pdtSortTab_wrap ul');
-    selet.classList.toggle('active')
-    if(selet.classList.contains('active')){
-        console.log(selet.clientHeight)
-        selet.style.height = '270px';
-        selet.style.border="1px solid #888";
-
-        // console.log(selet.clientHeight) + 'px'
-    }else {
-        selet.style.border = 'none'
-        selet.style.height = '0px'
-    }
-}
-
-const setFilter = (event) =>{
-  const target = event.currentTarget;
-  target.classList.toggle('active')
-}
 </script>
 
 <style lang="scss">
-
 .goods_list {
-  > li {
-      width:25%;
+  >li {
+    width: 25%;
   }
 }
-    .sortList {
-      margin-bottom:30px;
-      dt {
-        margin-bottom: 10px;
-        color: #999999;
-        font-size: 12px;
-        line-height: 1.32em;
-        letter-spacing: -0.01em;
 
-      }
-      dd {
-        ul {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          li {
-            label {
-              padding-left: 0;
-              input {
-                position: absolute;
-                z-indeX: -1;
-                opacity: 0;
-              }
-              span {
-                height: 30px;
-                padding: 0 20px;
-                color: #AAAAAA;
-                font-weight: 600;
-                font-size: 14px;
-                border-radius: 5px;
-                background-color: #F5F5F5;
-                line-height: 1.29em;
-                letter-spacing: -0.01em;
-                display: flex;
-                align-items: center;
-                &.active {
-                  color: #FFFFFF;
-                  background:#00BC70;
-                }
-              }
+.sortList {
+  margin-bottom: 30px;
+
+  dt {
+    margin-bottom: 10px;
+    color: #999999;
+    font-size: 12px;
+    line-height: 1.32em;
+    letter-spacing: -0.01em;
+
+  }
+
+  dd {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      li {
+        label {
+          padding-left: 0;
+
+          input {
+            position: absolute;
+            z-indeX: -1;
+            opacity: 0;
+          }
+
+          span {
+            height: 30px;
+            padding: 0 20px;
+            color: #AAAAAA;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 5px;
+            background-color: #F5F5F5;
+            line-height: 1.29em;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+
+            &.active {
+              color: #FFFFFF;
+              background: #00BC70;
             }
           }
         }
       }
     }
+  }
+}
 
+#modal_filter {
+  .modal_content {
+    p {
+      margin-bottom: 10px;
+      font-size: 12px;
+      line-height: 1.32em;
+      letter-spacing: -0.01em;
+      color: #999;
+    }
+
+    ul {
+      margin-bottom: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  }
+
+  .modal_footer {
+    padding: 0 40px;
+
+    .confirm {
+      flex: 1;
+    }
+  }
+}
+
+.cart_box {
+  .row {
+    display: flex;
+    gap: 20px;
+
+    .pdt_img {
+      width: 60px;
+      flex-shrink: 0;
+    }
+
+    .pdt_info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .name {
+        font-size: 16px;
+        line-height: 20px;
+        text-overflow: ellipsis;
+        white-space: normal;
+        word-wrap: break-word;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+
+      .price {
+        em {
+          font-weight: 300;
+          font-size: 13px;
+          line-height: 1;
+          color: #999E9C;
+          text-decoration: line-through;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  .input_wrap {
+    text-align: right;
+    margin-bottom: 30px;
+  }
+}
 </style>
