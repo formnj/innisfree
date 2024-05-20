@@ -3,11 +3,241 @@
     <section>
       <div class="sub_title_wrap">
         <div>
-          <h3>주문/배송 정보
+          <h3>주문자 정보
           </h3>
         </div>
-        <p class="explain">2024-05-03 17:41:36</p>
+        <div class="btn_wrap">
+          <Button txt="변경" />
+          <Button txt="닫기" />
+        </div>
       </div>
+      <span class="name">김이안</span>
+      <em>000-0000-5000</em>
+      <ul>
+        <li>
+          <Inputs _type="text" _placeholder="문구를 입력해주세요" />
+        </li>
+        <li>
+          <Inputs _type="text" _placeholder="문구를 입력해주세요" />
+        </li>
+        <li>
+          <Button txt="변경완료" class="btn_outline"/>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <div class="sub_title_wrap">
+        <div>
+          <h3>배송지 정보
+          </h3>
+        </div>
+        <div class="btn_wrap">
+          <Button txt="등록/변경" />
+        </div>
+      </div>
+      <div>
+        <dl>
+          <dt>
+            <em>기본 배송지</em>
+            <span class="name">김이안</span>
+            <i>010-0000-5000</i>
+          </dt>
+          <dd></dd>
+        </dl>
+        <p></p>
+      </div>
+    </section>
+
+    <section class="order_info">
+      <div class="sub_title_wrap">
+        <div>
+          <h3>주문 제품
+          </h3>
+        </div>
+        <p class="explain">설명글설명글설명글설명글설명글</p>
+      </div>
+      <ul>
+        <li>
+          <p>총 상품 금액</p>
+          <span><em>0</em>원</span>
+        </li>
+        <li>
+          <p>할인 금액</p>
+          <span><i>- 0원</i></span>
+        </li>
+        <li>
+          <p>배송비</p>
+          <span><em>2,500</em>원</span>
+        </li>
+        <li>
+          <dl>
+            <dt>최종 결제 금액</dt>
+            <dd>
+              <strong><Icons class="tooltip" /><em>2,500</em>원</strong>
+              <p>
+                <span>적립 예정 뷰티포인트</span>
+                <em><i>0</i>P</em>
+              </p>
+            </dd>
+          </dl>
+        </li>
+      </ul>
+    </section>
+
+
+    <section class="point">
+      <div class="sub_title_wrap">
+        <div>
+          <h3>쿠폰/포인트
+          </h3>
+        </div>
+        <p class="explain">설명글설명글설명글설명글설명글</p>
+      </div>
+      <ul>
+        <li>
+          <p>총 상품 금액</p>
+          <span><em>0</em>원</span>
+        </li>
+        <li>
+          <p>할인 금액</p>
+          <span><i>- 0원</i></span>
+        </li>
+        <li>
+          <p>배송비</p>
+          <span><em>2,500</em>원</span>
+        </li>
+        <li>
+          <dl>
+            <dt>최종 결제 금액</dt>
+            <dd>
+              <strong><Icons class="tooltip" /><em>2,500</em>원</strong>
+              <p>
+                <span>적립 예정 뷰티포인트</span>
+                <em><i>0</i>P</em>
+              </p>
+            </dd>
+          </dl>
+        </li>
+      </ul>
+    </section>
+
+    <section class="odgift">
+      <div class="sub_title_wrap">
+        <div>
+          <h3>구매금액대 증정품
+          </h3>
+        </div>
+        <p class="explain">설명글설명글설명글설명글설명글</p>
+      </div>
+      <ul>
+        <li>
+          <p>총 상품 금액</p>
+          <span><em>0</em>원</span>
+        </li>
+        <li>
+          <p>할인 금액</p>
+          <span><i>- 0원</i></span>
+        </li>
+        <li>
+          <p>배송비</p>
+          <span><em>2,500</em>원</span>
+        </li>
+        <li>
+          <dl>
+            <dt>최종 결제 금액</dt>
+            <dd>
+              <strong><Icons class="tooltip" /><em>2,500</em>원</strong>
+              <p>
+                <span>적립 예정 뷰티포인트</span>
+                <em><i>0</i>P</em>
+              </p>
+            </dd>
+          </dl>
+        </li>
+      </ul>
+    </section>
+
+    <section class="pay_method">
+      <div class="sub_title_wrap">
+        <div>
+          <h3>결제수단
+          </h3>
+        </div>
+        <p class="explain">설명글설명글설명글설명글설명글</p>
+      </div>
+      <ul>
+        <li>
+          <p>총 상품 금액</p>
+          <span><em>0</em>원</span>
+        </li>
+        <li>
+          <p>할인 금액</p>
+          <span><i>- 0원</i></span>
+        </li>
+        <li>
+          <p>배송비</p>
+          <span><em>2,500</em>원</span>
+        </li>
+        <li>
+          <dl>
+            <dt>최종 결제 금액</dt>
+            <dd>
+              <strong><Icons class="tooltip" /><em>2,500</em>원</strong>
+              <p>
+                <span>적립 예정 뷰티포인트</span>
+                <em><i>0</i>P</em>
+              </p>
+            </dd>
+          </dl>
+        </li>
+      </ul>
+    </section>
+
+    <section class="payment">
+      <div class="sub_title_wrap">
+        <div>
+          <h3>결제 예정 금액
+          </h3>
+        </div>
+      </div>
+      <ul>
+        <li>
+          <p>총 상품 금액</p>
+          <span><em>0</em>원</span>
+        </li>
+        <li>
+          <p>할인 금액</p>
+          <span><i>- 0원</i></span>
+        </li>
+        <li>
+          <p>배송비</p>
+          <span><em>2,500</em>원</span>
+        </li>
+        <li>
+          <dl>
+            <dt>최종 결제 금액</dt>
+            <dd>
+              <strong><Icons class="tooltip" /><em>2,500</em>원</strong>
+              <p>
+                <span>적립 예정 뷰티포인트</span>
+                <em><i>0</i>P</em>
+              </p>
+            </dd>
+          </dl>
+        </li>
+      </ul>
+    </section>
+
+    <section class="ord_agree">
+      <Inputs _type="checkbox" _text="구매 조건 및 결제 진행 동의" />
+      <ul class="bul_list dot">
+        <li>
+          주문할 제품의 제품명, 제품가격, 배송정보를 확인하였으며, 구매 진행에 동의합니다.(전자상거래법 제8조 제2항)
+        </li>
+        <li>
+          미성년자가 체결한 계약은 법정대리인이 동의하지 않는 경우, 본인 또는 법정대리인이 취소할 수 있습니다.
+        </li>
+      </ul>
     </section>
   </div>
 
@@ -97,6 +327,9 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .inner {
+  i {
+    font-style:normal;
+  }
   section {
     margin-left:-2.1rem;
     margin-right:-2.1rem;
@@ -112,6 +345,21 @@ onMounted(() => {
         margin-top:0;
         font-size:13px;
         font-weight:400;
+      }
+    }
+    &.ord_agree {
+      padding-top:3rem;
+      :deep(.input_wrap) {
+        .check {
+          em {
+            font-weight:300;
+          }
+        }
+      }
+      ul {
+        margin-top:2rem;
+        color:#888;
+        font-size:1.2rem;
       }
     }
   }

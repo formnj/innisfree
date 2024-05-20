@@ -240,7 +240,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 });
 
 const show = (event) => {
-  console.log(event)
   let list = document.querySelector('.ord_goods_info > dl')
   let close_btn = document.querySelector('.more_btns .more_close')
   let more_list = document.querySelector('.more_btns .more_list')
