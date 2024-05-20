@@ -22,9 +22,9 @@
           </strong>
         </p>
         <p class="price" v-if="item.price">
-          <strong>{{ item.price }}</strong>
+          <strong>{{ item.price }}원</strong>
           <span>{{ item.sale }}</span>
-          <em>{{ item.cost }}</em>
+          <em>{{ item.cost }}원</em>
         </p>
         <!-- sticker -->
         <Sticker v-if="item.sticker" :item="item.sticker" />

@@ -13,15 +13,15 @@
   <div class="inner">
     <div class="list_wrap">
       <ul class="goods_list">
-        <li v-for="(item, idx) in sample_goods.slice(1,2)" :key="idx">
+        <li v-for="(item, idx) in sample_goods.slice(1, 2)" :key="idx">
           <div class="goods_item checked" :class="item.status"> <!-- 선택된 샘플일 경우 checked 클래스 추가 -->
             <div class="img_wrap">
               <span class="point">1 P</span>
-              <a :href="props.link">
+              <span class="thumb_wrap">
                 <span class="thumb">
                   <em><img :src="item.img" /></em>
                 </span>
-              </a>
+              </span>
             </div>
             <div class="cont">
               <Hash v-if="item.hash" :item="item.hash" />
@@ -34,15 +34,15 @@
           </div>
         </li>
 
-        <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx"> <!-- 품절일 경우(.sold_out)-->
+        <li v-for="(item, idx) in sample_goods.slice(0, 1)" :key="idx"> <!-- 품절일 경우(.sold_out)-->
           <div class="goods_item" :class="item.status">
             <div class="img_wrap">
               <span class="point">1 P</span>
-              <a :href="props.link">
+              <span class="thumb_wrap">
                 <span class="thumb">
                   <em><img :src="item.img" /></em>
                 </span>
-              </a>
+              </span>
             </div>
             <div class="cont">
               <Hash v-if="item.hash" :item="item.hash" />
@@ -55,15 +55,15 @@
           </div>
         </li>
 
-        <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
+        <li v-for="(item, idx) in sample_goods.slice(0, 6)" :key="idx">
           <div class="goods_item" :class="item.status">
             <div class="img_wrap">
               <span class="point">3 P</span>
-              <a :href="props.link">
+              <span class="thumb_wrap">
                 <span class="thumb">
                   <em><img :src="item.img" /></em>
                 </span>
-              </a>
+              </span>
             </div>
             <div class="cont">
               <Hash v-if="item.hash" :item="item.hash" />
@@ -98,23 +98,140 @@
   </section>
 
   <div class="btn_wrap">
-    <Button class="btn_big" txt="장바구니 담기" />
-    <Button class="btn_big confirm" txt="바로 신청하기" />
+    <Button class="btn_big" txt="장바구니 담기" @click="modal.open('alert_into_cart', 'alert')" />
+    <Button class="btn_big confirm" txt="바로 신청하기" @click="modal.open('alert_sample_apply', 'alert')" />
   </div>
+
+  <!-- 신청하기 모달 -->
+  <div id="alert_sample_apply" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_content">
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <p>샘플바로신청하기</p>
+        <p>
+          샘플만 바로 신청할 경우 배송비 <em>2,500원</em>이 발생 합니다.<br>
+          뷰티포인트 2,500P 이상 보유시 뷰티포인트로 배송비 결제가 가능합니다.<br>
+        </p>
+
+        <div class="point_info">
+          <p>ooo님의 보유샘플포인트</p>
+          <em>5,300P</em>
+        </div>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_big confirm" txt="바로 신청하기" />
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //신청하기 동의 -->
+
+  <!-- 장바구니 담기 완료 -->
+  <div id="alert_into_cart" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_content">
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <span>장바구니 담기가 완료 되었습니다.</span>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_big" txt="화면유지하기" />
+        <Button class="btn_big confirm" txt="장바구니가기" />
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //장바구니 담기 완료 -->
+
+  <!-- 선택한 샘플 없음 -->
+  <div id="alert_into_cart2" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_content">
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <span>선택한 샘플이 없습니다.<br>샘플을 선택해주세요.</span>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_big confirm" txt="확인" />
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //선택한 샘플 없음 -->
+
+  <!-- 선택한 샘플 없음 -->
+  <div id="alert_sample_apply2" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_content">
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <p>샘플신청안내</p>
+        <p>보유 샘플을 모두 사용하지 않았습니다.<br>이대로 신청하시겠습니까?</p>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_big" txt="샘플더담기" />
+        <Button class="btn_big confirm" txt="신청하기" />
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //선택한 샘플 없음 -->
+
+  <!-- 신청 갯수 초과 -->
+  <div id="alert_into_cart3" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_content">
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <span>해당 샘플은 <strong>최대 9개</strong>까지만 신청 가능합니다.</span>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_big confirm" txt="확인" />
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //신청 갯수 초과 -->
+
+  <!-- 포인트 부족 -->
+  <div id="alert_into_cart4" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_content">
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <span>보유 샘플포인트가 부족합니다.</span>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_big confirm" txt="확인" />
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //포인트 부족 -->
 </template>
 
 <script setup>
+import { modal } from '~/assets/js/common-ui.js'
 import { sample_goods } from '~/test/data/publish/dummyData'
 definePageMeta({
-  layout:'mo-default'
+  layout:'mo-noactionbar'
 });
 const props = defineProps({
-    link: {
-        type: String,
-        default: '#none'
-    }
+  link: {
+    type: String,
+    default: '#none'
+  }
 })
 
+
+onMounted(() => {
+  const list = document.querySelector('.sample_market_top + .inner');
+  const topBox = document.getElementsByClassName('sample_market_top')[0];
+  const gnbH = document.getElementsByClassName('gnb_wrap')[0].offsetHeight;
+  window.addEventListener('scroll', () => {
+    const boxTop = list.getBoundingClientRect().y - gnbH;
+    if (!topBox.classList.contains('sticky') && boxTop <= 0) {
+      topBox.classList.add('sticky');
+    } else if (topBox.classList.contains('sticky') && boxTop > 0) {
+      topBox.classList.remove('sticky');
+    }
+  })
+})
 </script>
 
 <style lang="scss" scoped>
@@ -123,6 +240,29 @@ const props = defineProps({
   background: url("~/assets/mo_images/common/bg_top_sample_market.png");
   background-size: cover;
   letter-spacing: -.1rem;
+
+  &.sticky {
+    .date {
+      margin-bottom: 92px;
+    }
+
+    .point_box {
+      width: 100%;
+      position: fixed;
+      top: 48px;
+      left: 0;
+      z-index: 3;
+      margin: 0;
+      border-radius: 0;
+      background-color: #00BC70;
+
+      .point {
+        background-color: #fff;
+        color: #00BC70;
+        font-weight: 600;
+      }
+    }
+  }
 
   h2 {
     margin-bottom: 1.2rem;
@@ -155,10 +295,10 @@ const props = defineProps({
     color: #fff;
     display: flex;
 
-    & > div {
+    &>div {
       flex: 1;
 
-      & + div {
+      &+div {
         margin-left: 2.5rem;
         padding-left: 2.5rem;
         border-left: .1rem solid #fff;
@@ -168,6 +308,7 @@ const props = defineProps({
         width: 2.4rem;
         height: 2.4rem;
         margin-left: .8rem;
+        font-size: 1.2rem;
         text-align: center;
         line-height: 2.4rem;
         background-color: #00BC70;
@@ -179,7 +320,7 @@ const props = defineProps({
 }
 
 .inner {
-  padding:3rem 2.1rem;
+  padding: 3rem 2.1rem;
 
   .list_wrap {
     .goods_list {
@@ -192,7 +333,7 @@ const props = defineProps({
         padding: 0;
 
         :deep(.goods_item) {
-          &.sold_out  {
+          &.sold_out {
             .count_wrap {
               display: none;
             }
@@ -200,20 +341,57 @@ const props = defineProps({
 
           &.checked {
             .img_wrap {
-              a {
-                position:relative;
+              position: relative;
+
+              &:before {
+                content: '';
+                background: url('~/assets/images/ui/overlay_checked.png') center / 10rem 10rem no-repeat;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+              }
+            }
+          }
+
+          &.sold_out,
+          &.coming_soon {
+            .img_wrap {
+              .thumb_wrap {
+                position: relative;
+
+                &:before,
+                &:after {
+                  content: '';
+                  display: block;
+                }
 
                 &:before {
-                  content:'';
-                  background:url('~/assets/images/ui/overlay_checked.png') center / 10rem 10rem no-repeat;
-                  position:absolute;
-                  top:0;
-                  right:0;
-                  bottom:0;
-                  left:0;
-                  z-index:1;
+                  background-color: rgba(0, 0, 0, 0.3);
+                  background-position: 50%;
+                  background-repeat: no-repeat;
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  bottom: 0;
+                  left: 0;
+                  z-index: 1;
                 }
               }
+            }
+          }
+
+          &.sold_out {
+            .img_wrap .thumb_wrap:before {
+              background-image: url('~/assets/images/ui/overlay_soldout.png');
+            }
+          }
+
+          &.coming_soon {
+            .img_wrap .thumb_wrap:before {
+              background-image: url('~/assets/images/ui/overlay_comingsoon.png');
             }
           }
 
@@ -248,7 +426,7 @@ const props = defineProps({
             .status_txt {
               margin: 1.5rem 0;
 
-              & > span {
+              &>span {
                 color: #999;
                 font-size: 1.2rem;
                 display: block;
@@ -256,7 +434,7 @@ const props = defineProps({
 
               .limit {
                 padding-left: 1.7rem;
-                position:relative;
+                position: relative;
 
                 &:before,
                 &:after {
@@ -300,6 +478,7 @@ const props = defineProps({
 
             .count_wrap {
               width: 10rem;
+
               button {
                 width: 3rem;
                 height: 3rem;
@@ -338,7 +517,7 @@ section {
         top: .23rem;
       }
 
-      & + li {
+      &+li {
         margin-top: 1rem;
       }
 
@@ -356,8 +535,56 @@ section {
   left: 0;
   bottom: 0;
   z-index: 9;
+
   button {
     flex: 1
+  }
+}
+
+/* alert 모달 스타일 */
+.modal_wrap.alert {
+  .modal_content {
+    padding: 3rem 2rem;
+
+    p {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #000;
+      line-height: 2.4rem;
+
+      &+p,
+      span {
+        margin-top: 1rem;
+        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: #666;
+        line-height: 2rem;
+        border-bottom: 1px solid #eee
+      }
+    }
+
+    em {
+      color: #00BC70;
+      font-weight: 600;
+    }
+
+    .point_info {
+      padding: 7.7rem 0 1.5rem;
+      text-align: center;
+      background: #f5f5f5 url("~/assets/images/common/img_beauty_logo_108.png") center 1.5rem / 5.4rem auto no-repeat;
+      border: 1px solid #eee;
+
+      p {
+        font-size: 1.4rem;
+        font-weight: 400;
+      }
+
+      em {
+        font-size: 1.8rem;
+      }
+    }
   }
 }
 </style>

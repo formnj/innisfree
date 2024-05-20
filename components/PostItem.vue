@@ -25,7 +25,7 @@ const props = defineProps({
     item: {},
     link: {
       type: String,
-      default: "#none",
+      default: "IN_MO_HOM_01_09",
     }
 })
 </script>

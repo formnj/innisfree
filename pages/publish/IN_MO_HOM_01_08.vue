@@ -13,7 +13,7 @@
 
     <div class="list_wrap">
       <ul class="post_list">
-        <li v-for="(item, idx) in samplePost" :key="idx" class="topic">
+        <li v-for="(item, idx) in samplePost" :key="idx" class="type_cart">
           <PostItem  :item="item" :link="link" />
         </li>
       </ul>
@@ -29,8 +29,11 @@
       <div class="modal_content">
         <div class="filter_wrap">
           <Tabs tabType="type_02"
-            :item="[{ txt: '전체' }, { txt: '장원영피부되기' }, { txt: '왓츠인마이백' }, { txt: '인생탬' }, { txt: '인생탬' }, { txt: '메이크업대결' }, { txt: '갈웜뉴트럴추천' }, { txt: '장원영피부되기' }, { txt: '왓츠인마이백' }, { txt: '인생탬' }, { txt: '인생탬' }, { txt: '메이크업대결' }, { txt: '갈웜뉴트럴추천' }]"
+            :item="[{ txt: '장원영피부되기' }, { txt: '왓츠인마이백' }, { txt: '인생탬' }, { txt: '인생탬' }, { txt: '메이크업대결' }, { txt: '갈웜뉴트럴추천' }, { txt: '장원영피부되기' }, { txt: '왓츠인마이백' }, { txt: '인생탬' }, { txt: '인생탬' }, { txt: '메이크업대결' }, { txt: '갈웜뉴트럴추천' }]"
             :tabidx="0" />
+        </div>
+        <div class="btn_wrap">
+          <button type="button">토픽 <em>20개</em> <span>더보기</span></button>
         </div>
       </div>
     </div>
@@ -46,7 +49,6 @@
       <div class="modal_content">
         <ul class="select_list">
           <li class="active"><a href="#none" class="active">최신순</a></li>
-          <li><a href="#none">베스트순</a></li>
           <li><a href="#none">좋아요순</a></li>
           <li><a href="#none">조회수순</a></li>
         </ul>
@@ -133,7 +135,28 @@ definePageMeta({
   }
 }
 
-.modal_wrap {
+
+.list_header {
+  padding: 2.2rem 0;
+  .btn_dropdown {
+    padding: 0 1ren;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+
+    &:after {
+      content: "";
+      width: 1.6rem;
+      height: 1.6rem;
+      margin-left: .5rem;
+      background: url(~/assets/images/common/icon_split.png) -11rem -6rem / 25rem auto no-repeat;
+      display: inline-block;
+    }
+  }
+}
+
+#modal_topic.modal_wrap {
   .filter_wrap {
     padding: 0 2.6rem;
     border-bottom: 0;
@@ -152,24 +175,36 @@ definePageMeta({
       }
     }
   }
-}
 
-.list_header {
-  padding: 2.2rem 0;
-  .btn_dropdown {
-    padding: 0 1ren;
-    font-size: 1.2rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
+  .btn_wrap {
+    margin: 2rem 2.6rem 0;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
 
-    &:after {
-      content: "";
-      width: 1.6rem;
-      height: 1.6rem;
-      margin-left: .5rem;
-      background: url(~/assets/images/common/icon_split.png) -11rem -6rem / 25rem auto no-repeat;
-      display: inline-block;
+    button {
+      font-weight: 600;
+
+      em {
+        color: #00BC70;
+      }
+
+      span {
+        font-size: 1.2rem;
+        display: inline-block;
+
+        &:after {
+         content: '';
+         width: .7rem;
+         height: .7rem;
+         margin-left: .8rem;
+         border-left: 1px solid #000;
+         border-bottom: 1px solid #000;
+         transform: rotate(-45deg);
+         display: inline-block;
+         position: relative;
+         top: -.2rem;
+        }
+      }
     }
   }
 }
