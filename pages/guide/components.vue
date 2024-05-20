@@ -539,15 +539,16 @@ import { sample_goods, sam_menu, sampleSlide, sample_event, sample_live } from '
 
 /* swiper */
 // import Swiper core and required components
-import SwiperCore, { Navigation, Pagination, A11y } from "swiper";
+import SwiperCore from "swiper";
+import { Navigation, Pagination, A11y } from "swiper/modules";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
 
 // Import Swiper styles
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
 
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, A11y]);
