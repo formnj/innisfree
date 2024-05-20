@@ -35,7 +35,7 @@
         <li class="point">
           <div>
             뷰티포인트
-            <Icons class="tooltip" @mouseenter="modal.open('modal_beauty_point_tip', 'layer'); modalPositioning();" />
+            <Icons class="tooltip" @mouseenter="modal.open('modal_beauty_point_tip', 'layer');" />
             <div id="modal_beauty_point_tip" class="modal_wrap"><!-- 뷰티포인트 적립안내 툴팁 -->
               <div class="modal_container">
                 <div class="modal_header">
@@ -147,7 +147,7 @@
           <span>
             아모레퍼시픽 전 매장&#40;온/오프라인&#41;에서 자유롭게 합산 및 사용하실 수 있습니다.
           </span>
-          <Button class="btn_outline btn_shop" txt="사용가능매장" @mouseenter="modal.open('modal_beauty_shop_tip', 'layer'); modalPositioning();" />
+          <Button class="btn_outline btn_shop" txt="사용가능매장" @mouseenter="modal.open('modal_beauty_shop_tip', 'layer');" />
           <div id="modal_beauty_shop_tip" class="modal_wrap"><!-- 뷰티포인트 사용가능매장 툴팁 -->
             <div class="modal_container">
               <div class="modal_header">
@@ -450,32 +450,6 @@ onMounted(() => {
 const toggle_btn = (e) => {
   e.target.closest('.detail_wrap').classList.toggle('active');
 };
-
-const modalPositioning = () => {
-  const el = event.currentTarget;
-  setTimeout(()=> {
-    const modalW = el.nextSibling.getElementsByClassName('modal_container')[0].offsetWidth;
-    const top = el.offsetTop + el.offsetHeight;
-    const left = el.offsetLeft - modalW;
-    el.nextSibling.style.cssText="top:"+top+"px; left:"+left+"px;";
-  }, 100)
-};
-
-const tooltip = {
-  open: (e,idx) => {
-    const tooltip_wrap = document.querySelector('.tooltip_wrap');
-    const top = e.target.offsetTop;
-    const left = e.target.offsetLeft - tooltip_wrap.clientWidth;
-
-    tooltip_wrap.classList.add('active');
-    tooltip_wrap.style.cssText=`top:${top+10}px;left:${left}px;`;
-    tool_idx.value = idx;
-  },
-  close: () => {
-    document.querySelector('.tooltip_wrap').classList.remove('active');
-  }
-};
-const tool_idx = ref(0);
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   layoutType: {

@@ -13,6 +13,25 @@ export const modal = {
       }
       body.addEventListener("touchmove", modal.lockScrollHandle, { passive: false });
     }
+
+    // layer modal 위치
+    if (_type.indexOf('layer') >= 0) {
+      const tg = event.target;
+      const rect = event.target.getBoundingClientRect();
+      const doc = document.documentElement.clientWidth / 2;
+
+      const top = tg.offsetTop + tg.offsetHeight;
+
+      if (rect.left < doc) {
+        const left = tg.offsetLeft + tg.offsetWidth;
+        tg.nextSibling.style.cssText = `top:${top}px; left:${left}px;`;
+      } else if (rect.left > doc) {
+        const modalW = tg.nextSibling.querySelector('.modal_container').offsetWidth;
+        const left = tg.offsetLeft - modalW;
+        tg.nextSibling.style.cssText = `top:${top}px; left:${left}px;`;
+      }
+    }
+
   }, close: (_target) => {
     event.target.closest('.modal_wrap').setAttribute('class', 'modal_wrap');
     event.target.closest('.modal_wrap').removeAttribute('style');
