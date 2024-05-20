@@ -53,11 +53,7 @@
                 <p class="title"> 1호 베이비 핑크</p>
                 <div class="opt_wrap">
                   <div class="count">
-                    <div class="count_wrap">
-                      <Button txt="-" />
-                      <Inputs />
-                      <Button txt="+" />
-                    </div>
+                    <Quantity quantity="32" />
                   </div>
                   <div class="cell price">
                     <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
@@ -72,11 +68,7 @@
               <li>
                 <div class="opt_wrap">
                   <div class="count">
-                    <div class="count_wrap">
-                      <Button txt="-" />
-                      <Inputs />
-                      <Button txt="+" />
-                    </div>
+                    <Quantity quantity="3" />
                   </div>
                   <div class="cell price">
                     <span>판매중지</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->

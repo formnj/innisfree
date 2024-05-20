@@ -417,11 +417,7 @@
                 <p>[슈퍼 빅세일] 매쉬 썸머 파우치</p>
               </div>
               <div class="cell count">
-                <div class="count_wrap">
-                  <Button txt="-" />
-                  <Inputs />
-                  <Button txt="+" />
-                </div>
+                <Quantity _id="order" quantity="3" />
               </div>
             </div>
           </dd>

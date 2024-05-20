@@ -1,12 +1,16 @@
 <template>
   <section>
     <h2>Inputs</h2>
+    <ul class="explain">
+      <li>round_square : checkbox, radio 사용 가능</li>
+    </ul>
     <ul class="toolbar">
       <li><button class="current" @click="tool_select('text');">Text</button></li>
       <li><button @click="tool_select('error');">Error</button></li>
       <li><button @click="tool_select('pw');">Password</button></li>
       <li><button @click="tool_select('check');">Checkbox</button></li>
       <li><button @click="tool_select('check2');">Checkbox02</button></li>
+      <li><button @click="tool_select('check3');">Round_square</button></li>
       <li><button @click="tool_select('radio');">Radio</button></li>
       <li><button @click="tool_select('isswitch');">Switch</button></li>
     </ul>
@@ -180,6 +184,19 @@
   </section>
 
   <section>
+    <h2>Quantity count</h2>
+    <ul class="explain">
+      <li>quantity : 초기 input 값</li>
+    </ul>
+    <div class="design_box">
+      <div style="width:160px;">
+        <Quantity _id="sample" quantity="32" />
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;Quantity _id="아이디" quantity="초기 input value" /&gt;</code></pre>
+  </section>
+
+  <section>
     <h2>Cart list</h2>
     <ul class="explain">
       <li>장바구니 리스트 등 ul, li를 이용한 table Row 형태의 리스트</li>
@@ -212,11 +229,7 @@
                 ]" />
               </div>
               <div class="cell count">
-                <div class="count_wrap">
-                  <Button txt="-" />
-                  <Inputs />
-                  <Button txt="+" />
-                </div>
+                <Quantity _id="sample" quantity="32" />
               </div>
               <div class="cell price">
                 <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
@@ -309,6 +322,10 @@
         <li>
           <p class="form_tit">[type_04]</p>
           <Tabs tabType="type_04" :item="[{txt:'tab01'},{txt:'tab02'}]" :tabidx="0" />
+        </li>
+        <li>
+          <p class="form_tit">[type_05]</p>
+          <Tabs tabType="type_05" :item="[{txt:'tab01'},{txt:'tab02'},{txt:'tab03'}]" :tabidx="0" />
         </li>
       </ul>
     </div>
@@ -609,6 +626,13 @@ const tool_select = (props) => {
             input_opt.type = 'checkbox',
             input_opt.opt = '_type="' + input_opt.type + '" _text="Label"' + ' class="checkbox02"'
             input_opt.class = 'checkbox02'
+            break;
+
+        case 'check3':
+            input_opt.isswitch = false,
+            input_opt.type = 'checkbox',
+            input_opt.opt = '_type="' + input_opt.type + '" _text="Label"' + ' class="round_square"'
+            input_opt.class = 'round_square'
             break;
 
         case 'radio':

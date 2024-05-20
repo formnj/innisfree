@@ -60,6 +60,11 @@ const comm_arry = ([
         type:'component', note:'/component/Tabs',
         sDate:'', eDate:'/ 2024-04-09', worker:'이종환'
     }, {
+        depth:['','Quantity','',''],
+        id:'', status:'ing',
+        type:'component', note:'/component/Quantity<br/> 선택 수량 변경 기능',
+        sDate:'', eDate:'/ 2024-05-16', worker:'이종환'
+    }, {
         depth:['','Title wrap','',''],
         id:'', status:'',
         type:'component', note:'공통 타이틀 관련 가이드<br/> guide > layout에서 확인 가능',
@@ -101,7 +106,7 @@ const PC_arry = ([
     }, {
         depth:['','특가(T)','',''],
         id:'IN_PC_HOM_01_04', status:'ing',
-        type:'', note:'디자인 고도화 / <del>sticky 시 해당영역 스크롤 바 없이는 좌우 스크롤 불가함</del><br/> [tooltip 버튼], [layout 모달]',
+        type:'', note:'디자인 고도화 / <del>sticky 시 해당영역 스크롤 바 없이는 좌우 스크롤 불가함</del><br/> [tooltip 버튼], [layout 모달]<br/> 증정품안내 모달 포함',
         sDate:'', eDate:'2024-04-19/2024-04-16', worker:'김희경'
     }, {
         depth:['','이벤트(T)','목록',''],
@@ -140,9 +145,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-23/2024-04-25', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
-        id:'IN_PC_HOM_01_15', status:'ing',
+        id:'IN_PC_HOM_01_15', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-16/', worker:'김나람'
+        sDate:'', eDate:'2024-05-16/2024-05-16', worker:'김나람'
     }, {
         depth:['','임직원샵','목록',''],
         id:'IN_PC_HOM_01_16', status:'com',
@@ -161,12 +166,12 @@ const PC_arry = ([
     }, {
         depth:['','상세','',''],
         id:'IN_PC_PRD_01_09', status:'com',
-        type:'', note:'디자인 고도화 필요',
+        type:'', note:'디자인 고도화 필요<br/> 갯수 증/차감 콤포넌트 추가',
         sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/2024-05-09', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_PC_CAR_01_01', status:'com',
-        type:'', note:'한페이지에 모두 배치<br/> 갯수 증/차감 기능 추가',
+        type:'', note:'한페이지에 모두 배치<br/> 갯수 증/차감 콤포넌트 추가',
         sDate:'', eDate:'2024-05-10/2024-04-30', worker:'이종환'
     }, {
         depth:['','상품 있음','',''],
@@ -427,7 +432,7 @@ const PC_arry = ([
         depth:['','마이샵 관리','',''],
         id:'IN_PC_MYP_01_85', status:'com',
         type:'', note:'디자인 고도화 필요',
-        sDate:'', eDate:'2024-05-10/2024-01-13', worker:'김나람'
+        sDate:'', eDate:'2024-05-10/2024-05-13', worker:'김나람'
     }, {
         depth:['','FAQ','',''],
         id:'<del>IN_PC_MYP_01_87</del>', status:'',
@@ -580,7 +585,7 @@ const MO_arry = ([
     }, {
         depth:['','특가(T)','',''],
         id:'IN_MO_HOM_01_04', status:'com',
-        type:'', note:'디자인 고도화',
+        type:'', note:'디자인 고도화<br/> 증정품안내 모달 포함',
         sDate:'', eDate:'2024-04-19/2024-05-03', worker:'김희경'
     }, {
         depth:['','이벤트(T)','목록',''],
@@ -600,17 +605,17 @@ const MO_arry = ([
     }, {
         depth:['','에디터(T)','목록',''],
         id:'IN_MO_HOM_01_08', status:'com',
-        type:'', note:'',
+        type:'', note:'05-17 디자인 반영 완료',
         sDate:'', eDate:'2024-04-19/2024-04-19', worker:'김나람'
     }, {
         depth:['','','상세',''],
         id:'IN_MO_HOM_01_09', status:'com',
-        type:'', note:'',
+        type:'', note:'05-17 디자인 반영 완료',
         sDate:'', eDate:'2024-05-03/2024-04-26', worker:'김나람'
     }, {
         depth:['','','에디터별 보기',''],
         id:'IN_MO_HOM_01_10', status:'com',
-        type:'', note:'',
+        type:'', note:'05-17 디자인 반영 완료',
         sDate:'', eDate:'2024-05-03/2024-04-29', worker:'김나람'
     }, {
         depth:['','베스트','',''],
@@ -649,14 +654,14 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-23/2024-04-23', worker:'이종환'
     }, {
         depth:['샘플마켓','목록','',''],
-        id:'IN_MO_APP_01_06_01', status:'',
+        id:'IN_MO_APP_01_06_01', status:'com',
         type:'', note:'앱에서만 노출되는 페이지',
-        sDate:'', eDate:'2024-05-24', worker:'김나람'
+        sDate:'', eDate:'2024-05-24/2024-05-17', worker:'김나람'
     }, {
         depth:['','신청완료','',''],
-        id:'IN_MO_APP_01_06_07', status:'',
+        id:'IN_MO_APP_01_06_07', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-24', worker:'김나람'
+        sDate:'', eDate:'2024-05-24/2024-05-17', worker:'김나람'
     }, {
         depth:['검색','검색','',''],
         id:'IN_MO_SRC_01_01', status:'com',
@@ -680,7 +685,7 @@ const MO_arry = ([
     }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_MO_CAR_01_01', status:'com',
-        type:'', note:'한페이지 모두 배치',
+        type:'', note:'한페이지 모두 배치<br/> 갯수 증/차감 콤포넌트 추가',
         sDate:'', eDate:'2024-05-10/2024-04-30', worker:'이종환'
     }, {
         depth:['','상품 있음','',''],
@@ -789,14 +794,14 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-03/2024-05-02', worker:'형민우'
     }, {
         depth:['','주문내역','목록',''],
-        id:'IN_MO_MYP_01_08', status:'',
+        id:'IN_MO_MYP_01_08', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-24', worker:'김희경'
+        sDate:'2024-05-14', eDate:'2024-05-24/2024-05-16', worker:'김희경'
     }, {
         depth:['','','상세',''],
-        id:'IN_MO_MYP_01_11', status:'',
+        id:'IN_MO_MYP_01_11', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-24', worker:'김희경'
+        sDate:'2024-05-16', eDate:'2024-05-24', worker:'김희경'
     }, {
         depth:['','배송내역','목록',''],
         id:'IN_MO_MYP_01_00-1', status:'',

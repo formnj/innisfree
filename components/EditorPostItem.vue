@@ -19,14 +19,15 @@
 
     <span class="post_icons">
       <span class="i view">{{ item.view.cnt }}</span>
-      <span class="i like">{{ item.view.like }}</span>
-      <span class="i cmnt">{{ item.view.cmnt }}</span>
+      <button type="button" class="i like" @click="setFilter">{{ item.view.like }}</button>
+      <a href="#none" class="i cmnt">{{ item.view.cmnt }}</a>
     </span>
   </div>
 </template>
 
 <script setup>
 import { sample_goods } from '~/test/data/publish/dummyData'
+import { setFilter } from '~/assets/js/common-ui'
 import SwiperCore, { A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";
@@ -37,7 +38,7 @@ const props = defineProps({
   item: {},
   link: {
     type: String,
-    default: "#none",
+    default: "IN_MO_HOM_01_09",
   }
 })
 </script>
@@ -160,7 +161,7 @@ const props = defineProps({
     gap: 1.2rem;
 
     .i {
-      flex: 0;
+      flex: none;
       gap: .2rem;
     }
   }
