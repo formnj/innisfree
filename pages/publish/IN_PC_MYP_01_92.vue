@@ -4,7 +4,7 @@
   </div>
 
   <div class="inner">
-    <Tabs tabType="type_03" :item="[{txt:'FAQ'},{txt:'공지사항'},{txt:'1:1상담'},{txt:'매장안내'},{txt:'창업안내'},{txt:'전자공고'}]"  :tabidx="1" />
+    <Tabs class="customer_tab" tabType="type_03" :item="[{txt:'FAQ'},{txt:'공지사항'},{txt:'1:1상담'},{txt:'매장안내'},{txt:'창업안내'},{txt:'전자공고'}]" :tabidx="1" />
 
     <div class="search_wrap">
       <div class="multi_form">
@@ -22,25 +22,81 @@
       <div class="sub_title_wrap">
         <h3>총&nbsp;<em>551</em>개</h3>
       </div>
-      <ul>
+      <ul class="noti_list">
         <li v-for="(item,idx) in noti_data.list" :key="idx">
-          <button type="button">
-            <p v-for="cate in item.cate" :key="cate">{{ cate.name }}</p>
-            <span>{{ item.tit }}</span>
-            <span>{{ item.date }}</span>
+          <span class="tit">{{ idx+1 }}</span>
+          <button class="cate" type="button">
+            <Sticker :item="item.cate" />
+            <span class="txt">{{ item.tit }}</span>
           </button>
+          <span class="date">{{ item.date }}</span>
         </li>
       </ul>
     </div>
     <!-- //공지사항 컨텐츠 -->
+
+    <!-- 공지사항 상세 컨텐츠 -->
+    <div class="noti_detail">
+      <div class="sub_title_wrap">
+        <div>
+          <Sticker :item="noti_data.list[0].cate" />
+          <h3>{{ noti_data.list[0].tit }}</h3>
+        </div>
+        <span>{{ noti_data.list[0].date }}</span>
+      </div>
+
+      <div class="desc">
+        <p>
+          보다 나은 서비스 제공을 위해 아래 일정으로 시스템을 점검할 예정입니다.<br><br>
+          점검시간 동안 이니스프리 공식 온라인몰 접속 및 서비스 이용이 어려운 점 양해 부탁드립니다.<br><br>
+          - 일시: 2024. 2. 19(월) AM 01:00 ~ 04:00(3시간 예정)<br>
+          - 목적: 시스템 작업<br>
+          - 범위: 이니스프리 공식 온라인몰 전체 서비스 이용 불가<br><br>
+          감사합니다.
+        </p>
+      </div>
+
+      <Button class="btn_mid confirm" txt="목록" />
+
+      <ul class="noti_list">
+        <li>
+          <span class="tit">이전</span>
+          <button class="cate" type="button">
+            <Sticker :item="[{txt:'이벤트 공지',type:'type02'}]" />
+            <span class="txt">[이니 라이브] 당첨자 안내 - 2/2(금) 다영x콜라겐 크림 라이브</span>
+          </button>
+          <span class="date">2024-02-13</span>
+        </li>
+        <li>
+          <span class="tit">현재</span>
+          <button class="cate" type="button">
+            <Sticker :item="[{txt:'고객 센터',type:'type02'},{txt:'쇼핑몰 공지',type:'type02'}]" />
+            <span class="txt">[이니 라이브] 당첨자 안내 - 2/2(금) 다영x콜라겐 크림 라이브</span>
+          </button>
+          <span class="date">2024-02-08</span>
+        </li>
+        <li>
+          <span class="tit">다음</span>
+          <button class="cate" type="button">
+            <Sticker :item="[{txt:'이벤트 공지',type:'type02'}]" />
+            <span class="txt">[이니 라이브] 당첨자 안내 - 1/25(목) 블랙티 특집 라이브</span>
+          </button>
+          <span class="date">2024-01-31</span>
+        </li>
+      </ul>
+    </div>
+    <!-- //공지사항 상세 컨텐츠 -->
   </div>
 </template>
 <script setup>
+import { useRouter } from 'vue-router';
 import { noti_data } from '/_nuxt/test/data/publish/dummyData'
 
 definePageMeta({
   layout:'pc-category'
 });
+
+const router = useRouter();
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   layoutType: {
@@ -50,49 +106,21 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 });
 
 onMounted(() => {
-  const tabs = document.querySelectorAll('.faq ul li');
-
-  tabs.forEach((el,idx) => {
-    el.querySelector('button').addEventListener('click', (e) => {
-      if (e.target.closest('li') === el) faq_idx.value = idx;
-      document.querySelectorAll('.faq_wrap > ul li').forEach(el => {
-        el.classList.remove('active');
-        el.querySelector('.faq_cont').style.transition = 'none';
-        el.querySelector('.faq_cont').style.height = '0';
-      });
-    });
-  })
+  // 메인 탭 이벤트
+  document.querySelectorAll('.customer_tab button').forEach((el) => {
+    el.addEventListener('click', customer);
+  });
 });
 
-const faq_idx = ref(0);
-
-const accordion_tab = (e) => {
-  const tg_li = e.target.closest('li');
-  const tg_cont = e.target.nextElementSibling;
-  const list = document.querySelectorAll('.faq_wrap ul li');
-
-  tg_cont.style.height = 'auto';
-  const height = tg_cont.clientHeight;
-  tg_cont.style.height = '0';
-
-  list.forEach(el => {
-    const el_cont = el.querySelector('.faq_cont');
-    
-    if (tg_li === el && !tg_li.classList.contains('active')) {
-      tg_li.classList.add('active');
-      setTimeout(() => tg_cont.style.height = height + 'px', 10);
-    }
-    else if (tg_li === el && tg_li.classList.contains('active')) {
-      tg_li.classList.remove('active');
-      tg_cont.style.height = height + 'px';
-      setTimeout(() => tg_cont.style.height = '0px', 0);
-    }
-    else if (tg_li !== el && el.classList.contains('active')) {
-      el.classList.remove('active');
-      el_cont.style.height = height + 'px';
-      setTimeout(() => el_cont.style.height = '0px', 0);
-    }
+const customer = () => {
+  const links = [ '/publish/IN_PC_MYP_01_91', '/publish/IN_PC_MYP_01_92', '#none', '#none', '#none', '#none' ];
+  const list = [...event.currentTarget.closest('ul').children];
+  const idx = ref(0);
+  list.forEach((el,i) => {
+    if (el === event.currentTarget.closest('li')) idx.value = i;
   });
+
+  router.push(links[idx.value]);
 };
 
 </script>
@@ -113,16 +141,6 @@ const accordion_tab = (e) => {
 
       em {
         font-weight:500;
-      }
-    }
-
-    :deep(.tab_wrap) {
-      ul.type_02 {
-        li {
-          button {
-            font-size:16px;
-          }
-        }
       }
     }
   }
@@ -152,155 +170,168 @@ const accordion_tab = (e) => {
   }
 
   .search_wrap {
-      margin-top:30px;
-      padding:35px 0;
-      border:1px solid #EEE;
-      background:#FCFCFD;
-      
-      .multi_form {
-        gap:5px;
-        align-items:center;
-        justify-content:center;
+    margin-top:30px;
+    padding:35px 0;
+    border:1px solid #EEE;
+    background:#FCFCFD;
+    
+    .multi_form {
+      gap:5px;
+      align-items:center;
+      justify-content:center;
 
-        :deep(.input_wrap) {
-          flex:0 0 400px;
-          .input {
-            i, input {
-              font-size:16px;
-              line-height:20px;
-            }
-            i {
-              top:50%;
-            }
-            input {
-              height:50px;
-              border-color:#DDD;
-            }
-          }
-        }
-  
-        >:deep(button) {
-          width:100px;
-  
-          em {
+      :deep(.input_wrap) {
+        flex:0 0 400px;
+        .input {
+          i, input {
             font-size:16px;
-            font-weight:600;
-            
+            line-height:20px;
+          }
+          i {
+            top:50%;
+          }
+          input {
+            height:50px;
+            border-color:#DDD;
           }
         }
-
       }
 
-      >p {
-        margin-top:20px;
-        color:#999;
-        font-size:14px;
+      >:deep(button) {
+        width:100px;
+
+        em {
+          font-size:16px;
+          font-weight:600;
+          
+        }
+      }
+
+    }
+  }
+
+  .noti_list {
+    border-top:2px solid #000;
+
+    >li {
+      width:100%;
+      padding:25px 0;
+      color:#000;
+      font-size:16px;
+      line-height:1.5;
+      border-bottom:1px solid #EEE;
+      display:flex;
+      align-items:center;
+
+      .tit {
+        min-width:80px;
         text-align:center;
+      }
+
+      .cate {
+        font-size:inherit;
         display:flex;
         align-items:center;
-        justify-content:center;
-        gap:40px;
 
-        a {
-          color:#000;
-          font-weight:600;
-          display:flex;
-          align-items:center;
-          gap:5px;
-
-          &:after {
-            content:'';
-            width:20px;
-            height:20px;
-            background:url('~/assets/images/common/icon_split.png') no-repeat -210px -60px;
-            background-size:250px auto;
-            display:inline-block;
-            transform:rotate(90deg);
+        &:hover {
+          .txt {
+            text-decoration:underline;
           }
         }
-      }  
+
+        .sticker {
+          margin-right:15px;
+        }
+      }
+
+      .date {
+        min-width:130px;
+        margin-left:auto;
+        color:#000;
+        text-align:center;
+      }
+    }
   }
 
-  .slide_wrap {
-    margin:60px 0 50px;
-    border-bottom:1px solid #EEE;
-  }
-
-  .faq_wrap {
-    ul {
+  .noti_detail {
+    .sub_title_wrap {
+      padding:30px;
       border-top:2px solid #000;
+      border-bottom:1px solid #EEE;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      .sticker {
+        margin-bottom:5px;
+      }
+
+      h3 {
+        font-size:24px;
+        font-weight:600;
+        line-height:1.33;
+      }
+
+      >span {
+        color:#888;
+        font-size:16px;
+        line-height:1.5;
+      }
+    }
+
+    .desc {
+      padding:30px 40px;
+      color:#333;
+      font-size:16px;
+      line-height:1.5;
+      border-bottom:1px solid #EEE;
+    }
+
+    >:deep(button) {
+      width:200px;
+      margin:40px auto 0;
+
+      em {
+        font-size:16px;
+        font-weight:600;
+      }
+    }
+
+    >ul {
+      margin-top:100px;
+      border-top:1px solid #EEE;
 
       li {
-        border-bottom:1px solid #EEE;
+        &:nth-child(2) {
+          background:#F8FBFA;
 
-        >button {
-          width:100%;
-          min-height:75px;
-          padding:25px 0;
-          color:#222;
-          font-size:14px;
-          line-height:1.5;
-          display:flex;
-          align-items:center;
-          justify-content:space-between;
+          .tit {
+            font-size:0;
 
-          > * {
-            pointer-events:none;
+            &:before {
+              content:'';
+              width:28px;
+              height:20px;
+              margin:0 auto;
+              background:url('~/assets/images/common/icon_split.png') no-repeat -220px -300px;
+              background-size:250px auto;
+              display:block;
+            }
           }
 
-          >p {
-            min-width:80px;
-            color:#000;
-            font-size:16px;
-            text-align:center;
-          }
-
-          span {
-            flex:1;
-            color:#000;
-            font-size:16px;
+          .txt {
             font-weight:600;
-            line-height:24px;
-            text-align:left;
-            position:relative;
-          }
-
-          &:after {
-            content:'';
-            width:24px;
-            height:24px;
-            background:url('~/assets/images/common/icon_split.png') no-repeat -180px -60px;
-            background-size:250px auto;
-            display:block;
-            transition:all 0.2s;
           }
         }
 
-        .faq_cont {
-          height:0;
-          overflow:hidden;
-          transition: height 0.5s, padding 0.5s;
-
-          p {
-            color:#666;
-            font-size:16px;
-            line-height:1.5;
-            white-space:pre-line;
-
-            :deep(em) {
-              text-decoration:underline;
-            }
-          }
-        }
-
-        &.active {
-          >button {
-            &:after {
-              transform:rotate(-180deg);
-            }
-          }
+        .date {
+          color:#888;
         }
       }
     }
+  }
+
+  .sticker {
+    gap:5px;
   }
 </style>

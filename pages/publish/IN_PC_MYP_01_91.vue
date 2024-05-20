@@ -4,7 +4,7 @@
   </div>
 
   <div class="inner">
-    <Tabs tabType="type_03" :item="[{txt:'FAQ'},{txt:'공지사항'},{txt:'1:1상담'},{txt:'매장안내'},{txt:'창업안내'},{txt:'전자공고'}]"  :tabidx="0" />
+    <Tabs class="customer_tab" tabType="type_03" :item="[{txt:'FAQ'},{txt:'공지사항'},{txt:'1:1상담'},{txt:'매장안내'},{txt:'창업안내'},{txt:'전자공고'}]"  :tabidx="0" />
 
     <div class="search_wrap">
       <div class="multi_form">
@@ -44,11 +44,14 @@
   </div>
 </template>
 <script setup>
+import { useRouter } from 'vue-router';
 import { faq_data } from '/_nuxt/test/data/publish/dummyData'
 
 definePageMeta({
   layout:'pc-category'
 });
+
+const router = useRouter();
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   layoutType: {
@@ -57,9 +60,15 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   }
 });
 
-onMounted(() => {
-  const tabs = document.querySelectorAll('.faq ul li');
+const faq_idx = ref(0);
 
+onMounted(() => {
+  // 메인 탭 이벤트
+  document.querySelectorAll('.customer_tab button').forEach((el) => {
+    el.addEventListener('click', customer);
+  });
+
+  const tabs = document.querySelectorAll('.faq ul li');
   tabs.forEach((el,idx) => {
     el.querySelector('button').addEventListener('click', (e) => {
       if (e.target.closest('li') === el) faq_idx.value = idx;
@@ -72,7 +81,16 @@ onMounted(() => {
   })
 });
 
-const faq_idx = ref(0);
+const customer = () => {
+  const links = [ '/publish/IN_PC_MYP_01_91', '/publish/IN_PC_MYP_01_92', '#none', '#none', '#none', '#none' ];
+  const list = [...event.currentTarget.closest('ul').children];
+  const idx = ref(0);
+  list.forEach((el,i) => {
+    if (el === event.currentTarget.closest('li')) idx.value = i;
+  });
+
+  router.push(links[idx.value]);
+};
 
 const accordion_tab = (e) => {
   const tg_li = e.target.closest('li');
