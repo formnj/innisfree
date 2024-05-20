@@ -235,7 +235,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 });
 
 const tab_click = (event)=>{
-    let tab_title = document.querySelectorAll('.inner .adress_wrap li')
+    let tab_title = document.querySelectorAll('.adress_wrap li')
     console.log(tab_title)
     tab_title.forEach((a)=>{
         a.classList.remove('active')
@@ -420,7 +420,6 @@ onMounted(() => {
                 flex:1;
               }
               .btn_outline {
-                min-height:48px;
                 display: block;
               }
               + .label_wrap{
