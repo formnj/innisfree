@@ -61,4 +61,11 @@ definePageMeta({
     margin-top: 4.8rem;
   }
 }
+
+:deep(.goods_item) {
+  .giveaway,
+  .review_score {
+    display: none;
+  }
+}
 </style>

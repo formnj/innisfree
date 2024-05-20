@@ -724,3 +724,40 @@
     }
   }
 }
+
+
+/* modal */
+:deep(.modal_wrap.bottom){
+  .modal_container {
+    .modal_footer {
+      padding: 0;
+      display: flex;
+      gap: 0;
+      justify-content: flex-start;
+
+      button {
+        &.btn_reset {
+          width: 13.5rem;
+          background-color: #EEEEEE !important;
+
+          em {
+            color: #666666 !important;
+            display: flex;
+            align-items: center;
+
+            &::before {
+              width: 24px;
+              height: 24px;
+              background-image: url('~/assets/images/common/icon_split.png');
+              background-repeat: no-repeat;
+              background-size: 250px auto;
+              background-position: -171px -95px;
+              content: '';
+              display: inline-flex;
+            }
+          }
+        }
+      }
+    }
+  }
+}

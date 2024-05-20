@@ -163,7 +163,7 @@
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
         <p>샘플신청안내</p>
-        <p>보유 샘플을 모두 사용하지 않았습니다.<br>이대로 신청하시겠습니까?</p>
+        <span>보유 샘플을 모두 사용하지 않았습니다.<br>이대로 신청하시겠습니까?</span>
       </div>
       <div class="modal_footer">
         <Button class="btn_big" txt="샘플더담기" />
@@ -561,7 +561,12 @@ section {
         font-weight: 400;
         color: #666;
         line-height: 2rem;
-        border-bottom: 1px solid #eee
+        border-bottom: 1px solid #eee;
+      }
+
+      &+ span {
+        margin-top: 1rem;
+        display: inline-block;
       }
     }
 
