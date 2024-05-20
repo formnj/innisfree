@@ -10,7 +10,7 @@
       }"
       @swiper="onSwiper"
     >
-      <swiper-slide v-for="(item, idx) in sample_goods.slice(0,5)" :key="idx">
+      <swiper-slide v-for="(item, idx) in sample_goods" :key="idx">
         <GoodsItem :item="item" :link="item.link" />
       </swiper-slide>
     </swiper>
@@ -23,11 +23,13 @@
 
 <script setup>
 import { sample_goods } from '~/test/data/publish/dummyData'
-import SwiperCore, { Navigation, Pagination, A11y, Controller } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import SwiperCore from 'swiper'
+import { Navigation, Pagination, A11y, Controller } from 'swiper/modules'
+
 SwiperCore.use([Navigation, Pagination, A11y, Controller]);
 
 /* swiper custom navigation */
@@ -50,37 +52,24 @@ const swiper_nav = {
   margin: 0 auto;
   position: relative;
 
-  :deep(.swiper-container) {
-    .swiper-pagination {
-      height: 2px;
-      bottom: 0;
-      top: unset;
-      background: #DDDDDD;
-
-      span {
-        background: #000000;
-      }
-    }
-
-    div[role="button"] {
-      &:after {
-        color: #000000;
-        font-size: 24px;
-      }
-    }
-
-    .swiper-slide {
-      width: 240px;
-      padding-bottom: 61px;
-    }
-
-    .swiper-pagination-progressbar {
+  :deep(.swiper-horizontal) {
+    .swiper-pagination-progressbar{
       height: 1px;
+      background-color: #ddd;
+      top: auto;
+      bottom: 0;
+
       .swiper-pagination-progressbar-fill {
         height: 2px;
+        background-color: #000;
         top: -1px;
       }
     }
+  }
+
+  .swiper-slide {
+    width: 240px;
+    padding-bottom: 61px;
   }
 
   .navigation {
@@ -119,5 +108,6 @@ const swiper_nav = {
       }
     }
   }
+
 }
 </style>

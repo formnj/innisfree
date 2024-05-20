@@ -160,8 +160,8 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-29/2024-04-23', worker:'이종환'
     }, {
         depth:['상품','목록','',''],
-        id:'IN_PC_PRD_01_01', status:'com',
-        type:'', note:'',
+        id:'IN_PC_PRD_01_01', status:'ing',
+        type:'', note:'2024-05-20 워싱 작업 중(장바구니 모달 포함 예정)-김나람',
         sDate:'', eDate:'2024-04-24/2024-04-09', worker:'김희경'
     }, {
         depth:['','상세','',''],
@@ -455,7 +455,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-17', worker:'형민우'
     }, {
         depth:['','공지사항','',''],
-        id:'IN_PC_MYP_01_92', status:'',
+        id:'IN_PC_MYP_01_92', status:'ing',
         type:'', note:'목록/상세',
         sDate:'', eDate:'2024-05-24', worker:'형민우'
     }, {
@@ -674,8 +674,8 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-24/2024-05-08', worker:'형민우'
     }, {
         depth:['상품','목록','',''],
-        id:'IN_MO_PRD_01_01', status:'com',
-        type:'', note:'',
+        id:'IN_MO_PRD_01_01', status:'ing',
+        type:'', note:'2024-05-20 워싱 작업 중(장바구니 모달 포함 예정)-김나람',
         sDate:'', eDate:'2024-04-24/2024-04-11', worker:'김희경'
     }, {
         depth:['','상세','',''],
@@ -985,7 +985,7 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-17', worker:'형민우'
     }, {
         depth:['','공지사항','',''],
-        id:'IN_MO_MYP_01_92', status:'',
+        id:'IN_MO_MYP_01_92', status:'com',
         type:'', note:'목록/상세',
         sDate:'', eDate:'2024-05-24', worker:'형민우'
     }, {

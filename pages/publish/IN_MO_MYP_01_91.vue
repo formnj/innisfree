@@ -59,7 +59,7 @@ const accordion_tab = (e) => {
   const list = document.querySelectorAll('.faq_wrap ul li');
 
   tg_cont.style.height = 'auto';
-  const height = +(tg_cont.clientHeight*0.1).toFixed(2) + 6;
+  const height = tg_cont.clientHeight*0.1;
   tg_cont.style.height = '0';
 
   list.forEach(el => {
@@ -69,7 +69,7 @@ const accordion_tab = (e) => {
       tg_li.classList.add('active');
 
       setTimeout(() => {
-        tg_cont.style.height = height + 'rem'
+        tg_cont.style.height = (height + 6) + 'rem';
         tg_cont.style.paddingTop = '3rem';
         tg_cont.style.paddingBottom = '3rem';
       }, 0)
@@ -87,7 +87,7 @@ const accordion_tab = (e) => {
     else if (tg_li !== el && el.classList.contains('active')) {
       el.classList.remove('active');
       
-      el_cont.style.height = height + 'px';
+      el_cont.style.height = height + 'rem';
       setTimeout(() => {
         el_cont.style.height = '0rem'
         el_cont.style.paddingTop = '0rem';
@@ -130,13 +130,6 @@ const accordion_tab = (e) => {
           margin-right:0.8rem;
           background-color:transparent;
           background-position:0 -4rem;
-      }
-      .back {
-          margin-right:1rem;
-      }
-      .barcode, .cart {
-          margin-left:1rem;
-          display:none;
       }
   }
 
