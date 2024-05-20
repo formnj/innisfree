@@ -255,13 +255,13 @@ const swieprOpt = {
     // pagination: {
     //   type:'progressbar'
     // },
-    pagination: {
-      type:'fraction',
-      clickable: true,
-      renderCustom: function (index, className) {
-        return '<span class="' + className + '">' + (index + 2) + '</span>';
-      }
-    }
+    // pagination: {
+    //   type:'fraction',
+    //   clickable: true,
+    //   renderCustom: function (index, className) {
+    //     return '<span class="' + className + '">' + (index + 2) + '</span>';
+    //   }
+    // }
   },
   recommend04: {
     slidesPerView:6,
@@ -826,7 +826,7 @@ const rankingTabs = [
                 }
               }
             }
-            .swiper-container {
+            .swiper {
               padding-left:22px;
               flex:1;
             }
