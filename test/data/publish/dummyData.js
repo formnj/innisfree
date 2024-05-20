@@ -4,6 +4,34 @@
  * jjy11@amorepacific.com
  */
 
+export const order_info_goods = [
+  {
+    img:("/_nuxt/public/images/sam/36804_l_S_90.png"),
+    title:'레티놀 시카 앰플 포커싱 패치 1ea/9 patches',
+    count:'1개',
+    date:'5/16 ~ 31, 기간내 5개',
+    point:'+102P',
+    price:'10,200'
+  },
+  {
+    img:("/_nuxt/public/images/sam/7046_1.png"),
+    title:'퍼펙트 9 인텐시브 스킨케어 세트 ',
+    count:'1개',
+    date:'',
+    point:'+102P',
+    price:'30,200'
+  },
+  {
+    img:("/_nuxt/public/images/sam/34721_l_S_90.jpg"),
+    title:'[2개패키지] 비타C 잡티 토닝 패드 (60매 x 2개)',
+    count:'1개',
+    date:'5/16 ~ 31, 기간내 5개',
+    point:'+102P',
+    price:'50,200'
+  }
+]
+
+
 export const etc_info = [
   {
     li_id:'etcdList_1',
