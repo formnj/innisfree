@@ -63,13 +63,14 @@
     <section class="order_info">
       <div class="sub_title_wrap">
         <div>
-          <h3>주문 제품
+          <h3>
+            주문 제품가격
+            <p>3개</p>
           </h3>
         </div>
-        <p>3개</p>
       </div>
       <ul>
-        <li v-for="(item, idx) in order_info_goods" :key="idx">
+        <li v-for="(item, idx) in order_info_goods" :key="idx" :class="item.class">
           <div>
             <a href="#none"><img src="/_nuxt/public/images/sam/36804_l_S_90.png" alt=""></a>
           </div>
@@ -88,8 +89,8 @@
       </ul>
       <article>
         <p>
-            친환경 종이 완충재로 포장하여 안전하게 보내드립니다.
-          <Icons class="tooltip" @click="modal.open('coupon_info', 'alert')" />
+          친환경 종이 완충재로 포장하여 안전하게 보내드립니다.
+          <Icons class="tooltip" @click="modal.open('packaging', 'alert')" />
         </p>
         <div class="more_btns">
           <button class="more_list active" @click="show($event)">
@@ -106,10 +107,11 @@
     <section class="point">
       <div class="sub_title_wrap">
         <div>
-          <h3>쿠폰/포인트
+          <h3>
+            쿠폰/포인트
+            <Icons class="tooltip" @click="modal.open('coupon_info', 'alert')" />
           </h3>
         </div>
-        <Icons class="tooltip" @click="modal.open('coupon_info', 'alert')" />
       </div>
       <dl>
         <dt>
@@ -141,37 +143,34 @@
     <section class="odgift">
       <div class="sub_title_wrap">
         <div>
-          <h3>구매금액대 증정품
+          <h3>
+            구매금액대 증정품
+            <p>1개</p>
           </h3>
         </div>
-        <p class="explain">설명글설명글설명글설명글설명글</p>
+        <button></button>
       </div>
-      <ul>
-        <li>
-          <p>총 상품 금액</p>
-          <span><em>0</em>원</span>
-        </li>
-        <li>
-          <p>할인 금액</p>
-          <span><i>- 0원</i></span>
-        </li>
-        <li>
-          <p>배송비</p>
-          <span><em>2,500</em>원</span>
-        </li>
-        <li>
-          <dl>
-            <dt>최종 결제 금액</dt>
-            <dd>
-              <strong><Icons class="tooltip" /><em>2,500</em>원</strong>
-              <p>
-                <span>적립 예정 뷰티포인트</span>
-                <em><i>0</i>P</em>
-              </p>
-            </dd>
-          </dl>
-        </li>
-      </ul>
+      <ul class="cart_list type_default">
+          <li>
+            <p>함께 드리는 증정품</p>
+            <div class="row">
+              <div class="cell pdt_img">
+                <a href="#none">
+                  <span class="thumb">
+                    <em><img src="https://images.innisfree.co.kr/upload/product/36116_l_S_140.jpg?T202404300927" alt="" /></em>
+                  </span>
+                </a>
+              </div>
+              <div class="cell pdt_info">
+                <em>[특별증정품]</em>
+                <h4>UV 액티브 포어리스 션스크린 1mL</h4>
+                <div class="cell count">
+                  <Quantity _id="sample" quantity="32" />
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
     </section>
 
     <section class="pay_method">
@@ -180,34 +179,98 @@
           <h3>결제수단
           </h3>
         </div>
-        <p class="explain">설명글설명글설명글설명글설명글</p>
+        <button>유의사항 안내</button>
       </div>
       <ul>
         <li>
-          <p>총 상품 금액</p>
-          <span><em>0</em>원</span>
+          <input type="radio" name="etcList" id="etcdList1" @change="radioChk = 'onclick'">
+          <label for="etcdList1"><span>원클릭결제</span></label>
         </li>
         <li>
-          <p>할인 금액</p>
-          <span><i>- 0원</i></span>
+          <input type="radio" name="etcList" id="etcdList2"  @change="radioChk = 'card'">
+          <label for="etcdList2"><span>신용카드</span></label>
         </li>
         <li>
-          <p>배송비</p>
-          <span><em>2,500</em>원</span>
-        </li>
-        <li>
-          <dl>
-            <dt>최종 결제 금액</dt>
-            <dd>
-              <strong><Icons class="tooltip" /><em>2,500</em>원</strong>
-              <p>
-                <span>적립 예정 뷰티포인트</span>
-                <em><i>0</i>P</em>
-              </p>
-            </dd>
-          </dl>
+          <input type="radio" name="etcList" id="etcdList3" @change="radioChk = 'other'">
+          <label for="etcdList3"><span>간편결제</span></label>
         </li>
       </ul>
+      <article class="method_card" :class="{ active: radioChk == 'card' }"><!-- 활성화된 article에 active 클래스 추가 --><!-- [Tip] 라디오버튼이 change되어 변경된 변수값을 확인하여 해당 article에 active 클래스를 활성화 시킴 -->
+        신용카드
+      </article>
+      <article class="method_onclick" :class="{ active: radioChk == 'onclick' }">
+        <div>
+          <button>
+            <span>대표카드를 등록해 주세요</span>
+          </button>
+        </div>
+        <p class="tosspay">
+          <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
+          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
+        </p>
+      </article>
+      <article class="method_other" :class="{ active: radioChk == 'other' }">
+        <ul>
+          <li v-for="(item, idx) in etc_info" :key="idx" :id="item.li_id" @change="orderChk = item.class">
+            <input type="radio" name="etcList" :id="item.input_id" :checked="item.checked">
+            <label :for="item.label_for"><span>{{item.text}}</span></label>
+
+            <div class="discount_txt" v-if="item.discont_txt">{{ item.discont_txt }}</div>
+          </li>
+        </ul>
+        <div class="other_cont">
+          <div class="toss" :class="{ active: orderChk == 'toss' }">
+            <div class="discount_info">
+              <h4>토스페이 결제 혜택</h4>
+              <ul class="bullistType_01">
+                <li>토스 페이로 생애 첫 결제 시 2천원 적립!</li>
+                <li>토스 페이로 결제 시(토스로 등록된 신용카드 결제 시 제외</li>
+                <li>토스 전체 가맹점에서 결제 이력이 없는 경우 적용됩니다.(토스 ID당 1회)</li>
+                <li>토스페이 결제 화면에서 생애 첫 결제 혜택이 보이지 않을 경우 대상이 아닙니다.</li>
+                <li>생애 첫 결제 프로모션은 기타 할인 및 적립 프로모션과 중복으로 적용이 가능합니다.</li>
+                <li>관련 문의는 토스 고객센터(1599-4905)로 문의 부탁드립니다.</li>
+              </ul>
+            </div>
+            <div class="notice">
+              <h5>유의사항</h5>
+              <ul class="bulListType_02">
+                <li>토스페이 결제시 토스페이 또는 등록된 카드로 결제가 가능합니다.</li>
+                <li>토스페이로 결제한 경우 환불(또는 부분환불)시 토스페이로 환불됩니다.</li>
+                <li>토스페이 앱을 최신 버전으로 업데이트 해주세요. 최신 버전이 아닌 경우 결제가 원활하지 않을 수 있습니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        <p class="tosspay">
+          <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
+          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
+        </p>
+      </article>
+      <ul>
+        <li>
+          <input type="radio" name="etcList" id="etcdList4">
+          <label for="etcdList4"><span>N페이</span></label>
+        </li>
+        <li>
+          <input type="radio" name="etcList" id="etcdList5">
+          <label for="etcdList5"><span>실시간 계좌이체</span></label>
+        </li>
+        <li>
+          <input type="radio" name="etcList" id="etcdList6">
+          <label for="etcdList6"><span>무통장입금</span></label>
+        </li>
+        <li>
+          <input type="radio" name="etcList" id="etcdList7">
+          <label for="etcdList7"><span>휴대폰결제</span></label>
+        </li>
+        <li>
+          <input type="radio" name="etcList" id="etcdList8">
+          <label for="etcdList8"><span>(구)제휴카드</span></label>
+        </li>
+      </ul>
+      <article></article>
     </section>
 
     <section class="payment">
@@ -548,6 +611,28 @@
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
 
+
+  <div class="modal_wrap" id="packaging">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>배송 포장재 안내</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <p>이니스프리는 환경을 생각하는 마음으로,</p>
+          <p>일반 플라스틱 완충제(에어캡) 대신 친환경 종이</p>
+          <p>완충제(FSC인증)로 제품을 보호하고 있습니다.</p>
+          <div>
+            <img src="~/assets/mo_images/common/packing_img.jpg" alt="">
+          </div>
+          <ul class="bul_list dot">
+            <li>업체 배송 및 일부 제품 제외</li>
+          </ul>
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+
 </template>
 
 <script setup>
@@ -556,7 +641,10 @@ layout:'mo-category'
 });
 import { modal, setFilter } from '~/assets/js/common-ui.js'
 import Button from '../../components/Button.vue';
-import {adress_list, order_info_goods} from '~/test/data/publish/dummyData.js'
+import {adress_list, order_info_goods, etc_info} from '~/test/data/publish/dummyData.js'
+
+const radioChk = ref('card');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
+const orderChk = ref('naver');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   link: {
@@ -582,21 +670,26 @@ const show_hide = ()=>{
 
 
 const show = (event) => {
-  let list = document.querySelector('.ord_goods_info > dl')
+  let list = document.querySelectorAll('.order_info > ul > li')
   let close_btn = document.querySelector('.more_btns .more_close')
   let more_list = document.querySelector('.more_btns .more_list')
-  list.classList.remove('active')
+  list.forEach((a,i)=>{
+    a.classList.add('active')
+  })
   more_list.classList.remove('active')
   close_btn.classList.add('active')
 }
 
 const hide = (event) => {
-  let list = document.querySelector('.ord_goods_info > dl')
+  let list = document.querySelectorAll('.order_info > ul > li')
   let more_list = document.querySelector('.more_btns .more_list')
   let close_btn = document.querySelector('.more_btns .more_close')
   close_btn.classList.remove('active')
   more_list.classList.add('active')
-  list.classList.add('active')
+  list.forEach((a,i)=>{
+    a.classList.remove('active')
+    list[0].classList.add('active')
+  })
 }
 
 onMounted(() => {
@@ -689,6 +782,17 @@ onMounted(() => {
       border-bottom:0;
     }
     .sub_title_wrap {
+      align-items:center;
+      h3 {
+        display:flex;
+        align-items:center;
+        p {
+          margin-left:0.5rem;
+          color:#00BC70;
+          font-size:1.6rem;
+          font-weight:600;
+        }
+      }
       .explain {
         margin-top:0;
         font-size:13px;
@@ -792,15 +896,6 @@ onMounted(() => {
     }
     &.order_info {
       padding-bottom:0;
-      .sub_title_wrap {
-        justify-content:flex-start;
-        gap:0.5rem;
-        p {
-          font-size:1.6rem;
-          font-weight:600;
-          color:#00BC70;
-        }
-      }
       > ul {
         li {
           display:flex;
@@ -914,6 +1009,82 @@ onMounted(() => {
         }
         dd {
           margin-top:1.0rem;
+        }
+      }
+    }
+    &.odgift {
+      .sub_title_wrap {
+        > button {
+          width:1.6rem;
+          height:1.6rem;
+          background-image:url('~/assets/mo_images/common/icon_split.png');
+          background-repeat:no-repeat;
+          background-size:25rem;
+          background-position:0px -70px;
+          display:inline-block;
+          transform:rotate(180deg);
+          transition:all 0.5s;
+          &.active {
+            transform:rotate(0);
+          }
+        }
+      }
+      > ul {
+        padding:1.5rem;
+        border:0.1rem solid #EEEEEE;
+        > li {
+          > p {
+            color: #999999;
+            font-size: 1.2rem;
+          }
+          .row {
+            margin-top:1rem;
+            display:flex;
+            .pdt_img {
+              width:3.6rem;
+              height:4.8rem;
+              background-color:#F5F5F5;
+            }
+            .pdt_info {
+              padding-left: 1.0rem;
+              flex:1 auto;
+              > * + * {
+                margin-top:0.5rem;
+              }
+              em {
+                color:#999;
+                font-size:1.2rem;
+              }
+              h4 {
+                font-size:1.3rem;
+                font-weight:normal;
+              }
+              .count {
+              flex-direction:row;
+            }
+            }
+          }
+        }
+      }
+    }
+    &.pay_method {
+      .sub_title_wrap {
+        button {
+          font-size:1.2rem;
+          display:flex;
+          align-items:center;
+          &::after {
+            content:'';
+            width:1.6rem;
+            height:1.6rem;
+            margin-left:0.5rem;
+            background-image:url('~/assets/mo_images/common/icon_split.png');
+            background-repeat:no-repeat;
+            background-size:25rem;
+            background-position:0px -70px;
+            display:inline-block;
+            transform:rotate(270deg);
+          }
         }
       }
     }
@@ -1464,7 +1635,9 @@ onMounted(() => {
       }
     }
   }
-  &#relief_num, &#coupon_info, &#beauty_point {
+  &#relief_num, &#coupon_info, &#beauty_point,
+  &#packaging
+  {
     .modal_container {
       width: 32.3rem;
       .modal_header {
@@ -1484,8 +1657,12 @@ onMounted(() => {
           margin-top:1rem;
           font-size: 1.2rem;
           li {
-            line-height: 1.6rem;
+            line-height:1.6rem;
           }
+        }
+        div {
+          width:24rem;
+          margin:0 auto;
         }
       }
     }

@@ -11,7 +11,8 @@ export const order_info_goods = [
     count:'1개',
     date:'5/16 ~ 31, 기간내 5개',
     point:'+102P',
-    price:'10,200'
+    price:'10,200',
+    class:'active'
   },
   {
     img:("/_nuxt/public/images/sam/7046_1.png"),
@@ -19,7 +20,8 @@ export const order_info_goods = [
     count:'1개',
     date:'',
     point:'+102P',
-    price:'30,200'
+    price:'30,200',
+    class:''
   },
   {
     img:("/_nuxt/public/images/sam/34721_l_S_90.jpg"),
@@ -27,7 +29,8 @@ export const order_info_goods = [
     count:'1개',
     date:'5/16 ~ 31, 기간내 5개',
     point:'+102P',
-    price:'50,200'
+    price:'50,200',
+    class:''
   }
 ]
 
