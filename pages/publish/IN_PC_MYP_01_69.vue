@@ -135,7 +135,7 @@
         </li>
         <li>
             <Inputs class="pet_box" _type="checkbox" _text="반려동물 정보 수집 및 이용 동의(선택)" />
-            <button type="button" @click="modal.open('modal_pets_info_tip', 'layer'); modalPositioning();">자세히 보기</button>
+            <button type="button" @click="modal.open('modal_pets_info_tip', 'layer');">자세히 보기</button>
             <div id="modal_pets_info_tip" class="modal_wrap"><!-- 반려동물 정보 수집 툴팁 -->
               <div class="modal_container">
                 <div class="modal_header">
@@ -396,15 +396,6 @@ const selectOption = [
   { val: 'value', txt: '야후'},
 ];
 
-const modalPositioning = () => {
-  const el = event.currentTarget;
-  setTimeout(()=> {
-    const modalW = el.nextSibling.getElementsByClassName('modal_container')[0].offsetWidth;
-    const top = el.offsetTop + el.offsetHeight;
-    const left = el.offsetLeft - modalW;
-    el.nextSibling.style.cssText="top:"+top+"px; left:"+left+"px;";
-  }, 100)
-};
 </script>
 <style lang="scss" scoped>
 section {

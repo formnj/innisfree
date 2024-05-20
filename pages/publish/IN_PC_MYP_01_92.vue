@@ -4,47 +4,39 @@
   </div>
 
   <div class="inner">
-    <Tabs tabType="type_03" :item="[{txt:'FAQ'},{txt:'공지사항'},{txt:'1:1상담'},{txt:'매장안내'},{txt:'창업안내'},{txt:'전자공고'}]"  :tabidx="0" />
+    <Tabs tabType="type_03" :item="[{txt:'FAQ'},{txt:'공지사항'},{txt:'1:1상담'},{txt:'매장안내'},{txt:'창업안내'},{txt:'전자공고'}]"  :tabidx="1" />
 
     <div class="search_wrap">
       <div class="multi_form">
-        <Inputs _type="text" _placeholder="궁금하신 내용을 입력해주세요" />
+        <Inputs _type="text" _placeholder="검색어를 입력하세요." />
         <Button class="btn_mid confirm" txt="검색" />
       </div>
-      <p>
-        찾으시는 질문이 없나요? 이니스프리 상담원에게 문의해 주세요.
-        <a href="#none">1:1상담하기</a>
-      </p>
     </div>
   
-    <!-- FAQ 슬라이드 탭 -->
-    <Tabs class="faq" tabType="type_04" :item="faq_data" :tabidx="0" />
-    <!-- //FAQ 슬라이드 탭 -->
+    <!-- 공지사항 슬라이드 탭 -->
+    <Tabs class="noti" tabType="type_04" :item="noti_data.tabs" :tabidx="0" />
+    <!-- //공지사항 슬라이드 탭 -->
   
-    <!-- FAQ 컨텐츠 -->
-    <div class="faq_wrap">
+    <!-- 공지사항 컨텐츠 -->
+    <div class="noti_wrap">
       <div class="sub_title_wrap">
-        <h3>{{ faq_data[faq_idx].sub_txt }}</h3>
-        <Tabs v-if="faq_data[faq_idx].tabs !== undefined" tabType="type_02" :item="faq_data[faq_idx].tabs" />
+        <h3>총&nbsp;<em>551</em>개</h3>
       </div>
       <ul>
-        <li v-for="(item,idx) in faq_data[faq_idx].list" :key="idx">
-          <button type="button" @click="accordion_tab">
-            <p>{{ item.cate }}</p>
+        <li v-for="(item,idx) in noti_data.list" :key="idx">
+          <button type="button">
+            <p v-for="cate in item.cate" :key="cate">{{ cate.name }}</p>
             <span>{{ item.tit }}</span>
+            <span>{{ item.date }}</span>
           </button>
-          <div class="faq_cont">
-            <p v-html="item.text"></p>
-            <div v-if="item.img" class="img"><img :src="item.img"></div>
-          </div>
         </li>
       </ul>
     </div>
-    <!-- //FAQ 컨텐츠 -->
+    <!-- //공지사항 컨텐츠 -->
   </div>
 </template>
 <script setup>
-import { faq_data } from '/_nuxt/test/data/publish/dummyData'
+import { noti_data } from '/_nuxt/test/data/publish/dummyData'
 
 definePageMeta({
   layout:'pc-category'
@@ -111,15 +103,17 @@ const accordion_tab = (e) => {
 
   .sub_title_wrap {
     padding-left:0;
-    margin-bottom:30px;
-    display:flex;
-    gap:40px;
+    margin-bottom:20px;
 
     h3 {
       color:#000;
-      font-size:22px;
-      font-weight:600;
+      font-size:14px;
+      font-weight:400;
       line-height:1.5;
+
+      em {
+        font-weight:500;
+      }
     }
 
     :deep(.tab_wrap) {
@@ -242,7 +236,7 @@ const accordion_tab = (e) => {
         >button {
           width:100%;
           min-height:75px;
-          padding:25px 30px;
+          padding:25px 0;
           color:#222;
           font-size:14px;
           line-height:1.5;
@@ -255,31 +249,20 @@ const accordion_tab = (e) => {
           }
 
           >p {
-            min-width:125px;
-            color:#888;
+            min-width:80px;
+            color:#000;
             font-size:16px;
-            text-align:left;
+            text-align:center;
           }
 
           span {
             flex:1;
-            padding-left:30px;
             color:#000;
             font-size:16px;
             font-weight:600;
             line-height:24px;
             text-align:left;
             position:relative;
-
-            &:before {
-              content:'Q.';
-              font-size:18px;
-              font-weight:500;
-              line-height:24px;
-              position:absolute;
-              top:0;
-              left:0;
-            }
           }
 
           &:after {
