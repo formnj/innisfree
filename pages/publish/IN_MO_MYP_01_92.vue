@@ -23,7 +23,7 @@
       <ul class="noti_list">
         <li v-for="(item,idx) in noti_data.list" :key="idx">
           <button type="button" @click="accordion_tab">
-            <div class="cate"><span v-for="sub_item in item.cate" :key="sub_item">{{ sub_item.name }}</span></div>
+            <Sticker :item="noti_data.list[idx].cate" />
             <div class="tit">{{ item.tit }}</div>
             <div class="date">{{ item.date }}</div>
           </button>
@@ -147,25 +147,21 @@ const accordion_tab = (e) => {
     
     if (tg_li === el && !tg_li.classList.contains('active')) {
       tg_li.classList.add('active');
-
-      slides.down(tg_cont)
-
+      slides.down(tg_cont);
+      
       setTimeout(() => {
         const top = tg_li.offsetTop;
         window.scroll({
           top:top - header.offsetHeight,
           left:0,
-          behavior:'smooth',
         });
-      }, 600)
+      }, 500);
 
     } else if (tg_li === el && tg_li.classList.contains('active')) {
       tg_li.classList.remove('active');
-
       slides.up(tg_cont,height);
     } else if (tg_li !== el && el.classList.contains('active')) {
       el.classList.remove('active');
-      
       slides.up(el_cont,height);
     }
   });
@@ -231,11 +227,6 @@ const slides = {
     height:5rem;
     border-bottom:0.1rem solid #F5F5F5;
     background:#fff;
-    position:sticky;
-    top:15px;
-    left:0;
-    right:0;
-    z-index: 10;
 
     ul {
       height:100%;
@@ -316,20 +307,13 @@ const slides = {
             pointer-events:none;
           }
 
-          .cate {
+          :deep(.sticker) {
             margin-bottom:1rem;
-            display:flex;
             gap:0.3rem;
 
-            span {
-              height:1.8rem;
-              padding:0 0.5rem;
-              color:#00BC70;
+            em {
               font-size:1rem;
               line-height:1.4em;
-              background:#E0FBF0;
-              display:inline-flex;
-              align-items:center;
             }
           }
 
