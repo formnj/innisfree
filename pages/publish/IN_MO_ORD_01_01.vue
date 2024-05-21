@@ -406,7 +406,7 @@
               </p>
               <p>
                 <span class="flag">지번</span>
-                서울특별시 강서구 가양동 449-4
+                서울특별시 강서구 가양동 449-4ddd
               </p>
               <a href="#none"></a>
             </div>
