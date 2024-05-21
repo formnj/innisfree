@@ -283,12 +283,14 @@
 <script setup>
 import { modal } from '~/assets/js/common-ui'
 import { sample_goods, sample_log } from '~/test/data/publish/dummyData'
-import SwiperCore, { Navigation, Pagination, A11y, Controller } from "swiper";
+import SwiperCore from "swiper";
+import { Navigation, Pagination, A11y, Controller } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
 import { onMounted } from 'vue';
+
 SwiperCore.use([Navigation, Pagination, A11y, Controller]);
 
 definePageMeta({

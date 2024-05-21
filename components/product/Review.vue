@@ -45,11 +45,12 @@
 </template>
 <script setup>
 import { modal } from '~/assets/js/common-ui'
-import SwiperCore, { Autoplay, Pagination, A11y, Navigation, Thumbs } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper.scss";
-import "swiper/components/pagination/pagination.scss";
-import "swiper/components/navigation/navigation.scss";
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import SwiperCore from 'swiper'
+import { Autoplay, Pagination, A11y, Navigation, Thumbs } from 'swiper/modules'
 
 SwiperCore.use([Autoplay, Pagination, A11y, Navigation, Thumbs]);
 

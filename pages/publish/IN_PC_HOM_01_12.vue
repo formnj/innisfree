@@ -44,26 +44,7 @@
       </div>
     </div>
 
-    <div class="swiper_wrap">
-      <swiper
-        :slides-per-view="'auto'"
-        :space-between="20"
-        :loop="true"
-        :auto-height="true"
-        :pagination="{
-          type:'progressbar'
-        }"
-        @swiper="onSwiper"
-      >
-        <swiper-slide v-for="(item, idx) in sample_goods" :key="idx">
-          <GoodsItem :item="item" :link="item.link" />
-        </swiper-slide>
-      </swiper>
-      <div class="navigation">
-        <button class="swiper-button-prev" @click="swiper_nav.prev"></button>
-        <button class="swiper-button-next" @click="swiper_nav.next">Next</button>
-      </div>
-    </div>
+    <ProductDetailSwiperProgressBar />
 
     <div class="banner_wrap">
       <ul>
@@ -72,7 +53,7 @@
             <div class="img">
               <img :src="item.img">
             </div>
-            <span>{{ item.text }}</span>
+            <span>{{ item.title }}</span>
           </a>
         </li>
       </ul>
@@ -105,17 +86,8 @@
   <!-- //콘텐츠 우선순위에 맞는 배치 변경 -->
 </template>
 <script setup>
-import { sample_goods } from '~/test/data/publish/dummyData'
+import { banner_list } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui'
-import SwiperCore, { Navigation, Pagination, A11y, Controller } from "swiper";
-
-import { Swiper, SwiperSlide } from "swiper/vue";
-
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
-
-SwiperCore.use([Navigation, Pagination, A11y, Controller]);
 
 definePageMeta({
 	layout:'pc-category'
@@ -133,33 +105,6 @@ const props = defineProps({
       default:'default'
     }
 });
-
-const banner_list = [
-  {img: '/_nuxt/public/images/sam/banner01.jpg', text: '4월은 지구의 달\n공병수거하며 지구를 지켜요!'},
-  {img: '/_nuxt/public/images/sam/banner02.jpg', text: '꾸준히 사랑받는 한란 라인\n활용TIP!'},
-  {img: '/_nuxt/public/images/sam/banner03.jpg', text: '지구 환경도 챙기고\n뷰티포인트도 챙기자!'},
-  {img: '/_nuxt/public/images/sam/banner04.jpg', text: '추운 겨울 내 파우치 속 필수템\n취향따라 골라쓰는 퍼퓸드 핸드크림!'},
-  {img: '/_nuxt/public/images/sam/banner05.jpg', text: '겨울철 가려움, 각질 고민\n완벽 케어 솔루션!'},
-  {img: '/_nuxt/public/images/sam/banner06.jpg', text: '새해맞이!\n안티에이징 홈 케어 제품 추천!'},
-  {img: '/_nuxt/public/images/sam/banner07.jpg', text: '돌아온 보습 레전드\n올리브 라인'},
-  {img: '/_nuxt/public/images/sam/banner08.jpg', text: '이니스프리 직원 추천템\n#이니찐템'},
-  {img: '/_nuxt/public/images/sam/banner09.jpg', text: '반려견들을 위한 산책 뷰티템\n이니스프리 그린펫클럽'},
-  {img: '/_nuxt/public/images/sam/banner10.jpg', text: '이니스프리 FOAM 미쳤다!\n이니스프리 클렌징폼'},
-  {img: '/_nuxt/public/images/sam/banner11.jpg', text: '눈여겨봐야 할\n신상 아이템! UTILITY BAG'},
-]
-
-/* swiper custom navigation */
-const setSwiper = ref(null);
-const onSwiper = (swiper) => setSwiper.value = swiper;
-const swiper_nav = {
-  prev: () => {
-    setSwiper.value.slidePrev();
-  },
-  next: () => {
-    setSwiper.value.slideNext();
-  },
-};
-/* swiper custom navigation */
 
 const qr_menu = (e) => {
   e.target.closest('.floating_wrap').classList.toggle('close');
@@ -233,62 +178,11 @@ const qr_menu = (e) => {
   }
 }
 
-.swiper_wrap {
+.swiper_progressbar_wrap {
   width:1280px;
   padding:100px 0;
   margin:0 auto;
   position:relative;
-  :deep(.swiper-container) {
-    padding-bottom:61px;
-    .swiper-pagination {
-      height:2px;
-      bottom:0;
-      top:unset;
-      background:#DDDDDD;
-      span {
-        background:#000000;
-      }
-    }
-    div[role="button"] {
-      &:after {
-        color:#000000;
-        font-size:24px;
-      }
-    }
-    .swiper-slide {
-      width:240px;
-    }
-  }
-  .navigation {
-    width:100%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    position:absolute;
-    top:50%;
-    left:0;
-    transform:translateY(-50%);
-    button {
-      color:#000;
-      font-size:0;
-      position:absolute;
-      &:after {
-        font-size:22px;
-      }
-      &.swiper-button-prev {
-        left:-65px;
-        &:after {
-          content:'prev';
-        }
-      }
-      &.swiper-button-next {
-        right:-65px;
-        &:after {
-          content:'next';
-        }
-      }
-    }
-  }
 }
 
 .banner_wrap {

@@ -445,12 +445,16 @@ html {
         border-bottom: 0;
         position: relative;
 
+        h2 {
+          font-size: 16px;
+        }
+
         .btn_close {
           width: 61px;
           height: 5px;
-          top: 50%;
+          top: 16px;
           left: 50%;
-          transform: translate(-50%, -50%);
+          transform: translateX(-50%);
 
           &::before {
             width: 61px;
@@ -464,6 +468,35 @@ html {
 
           &::after {
             display: none;
+          }
+        }
+        .btn_close_x {
+          width: 20px;
+          height: 20px;
+          font-size: 0;
+          background-color: transparent;
+          position: absolute;
+          top: 20px;
+          right: 22px;
+
+
+          &:before,
+          &:after {
+            width: 100%;
+            border-top: 1px solid #222;
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: block;
+          }
+
+          &:before {
+            transform: rotate(45deg);
+          }
+
+          &:after {
+            transform: rotate(-45deg);
           }
         }
       }

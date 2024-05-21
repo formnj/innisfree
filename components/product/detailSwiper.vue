@@ -24,11 +24,12 @@
 </template>
 
 <script setup>
-import SwiperCore, { Autoplay, Pagination, A11y, Navigation, Thumbs } from "swiper";
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper.scss";
-import "swiper/components/pagination/pagination.scss";
-import "swiper/components/navigation/navigation.scss";
+import SwiperCore from "swiper";
+import { Autoplay, Pagination, A11y, Navigation, Thumbs } from "swiper/modules";
 import { prodImgData } from '~/test/data/publish/dummyData';
 
 SwiperCore.use([Autoplay, Pagination, A11y, Navigation, Thumbs]);

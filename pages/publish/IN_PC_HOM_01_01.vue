@@ -206,18 +206,19 @@
 </template>
 <script setup>
 // import Swiper core and required components
-import SwiperCore, { Autoplay, Navigation, Pagination, A11y } from "swiper";
+import SwiperCore from "swiper";
+import { Navigation, Pagination, A11y } from "swiper/modules";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
 
 // Import Swiper styles
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
 
 // install Swiper components
-SwiperCore.use([Autoplay, Navigation, Pagination, A11y]);
+SwiperCore.use([Navigation, Pagination, A11y]);
 
 /* swiper options */
 const swieprOpt = {
@@ -254,13 +255,13 @@ const swieprOpt = {
     // pagination: {
     //   type:'progressbar'
     // },
-    pagination: {
-      type:'fraction',
-      clickable: true,
-      renderCustom: function (index, className) {
-        return '<span class="' + className + '">' + (index + 2) + '</span>';
-      }
-    }
+    // pagination: {
+    //   type:'fraction',
+    //   clickable: true,
+    //   renderCustom: function (index, className) {
+    //     return '<span class="' + className + '">' + (index + 2) + '</span>';
+    //   }
+    // }
   },
   recommend04: {
     slidesPerView:6,
@@ -295,51 +296,51 @@ const navigation = {
 }
 /* //swiper options */
 
-const onSwiper = (swiper) => {
-  const total = swiper.loopedSlides,
-  current = swiper.realIndex+1;
+// const onSwiper = (swiper) => {
+//   const total = swiper.loopedSlides,
+//   current = swiper.realIndex+1;
 
-  if(total < 10) {
-    document.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
+//   if(total < 10) {
+//     document.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
 
-    if((current+1) > total) {
-      document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+((total - current)+1);
-    } else {
-      document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+(current+1);
-    }
+//     if((current+1) > total) {
+//       document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+((total - current)+1);
+//     } else {
+//       document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+(current+1);
+//     }
 
-    document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
-  }
+//     document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
+//   }
 
-  if(swiper_status.value == 'pause') {
-    swiper.autoplay.stop();
-  } else {
-    swiper.autoplay.start();
-  }
-};
+//   if(swiper_status.value == 'pause') {
+//     swiper.autoplay.stop();
+//   } else {
+//     swiper.autoplay.start();
+//   }
+// };
 
-const onSlideChange = (swiper) => {
-  const total = swiper.loopedSlides,
-  current = swiper.realIndex+1;
+// const onSlideChange = (swiper) => {
+//   const total = swiper.loopedSlides,
+//   current = swiper.realIndex+1;
 
-  if(total < 10) {
-    document.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
+//   if(total < 10) {
+//     document.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
 
-    if((current+1) > total) {
-      document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+((total - current)+1);
-    } else {
-      document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+(current+1);
-    }
+//     if((current+1) > total) {
+//       document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+((total - current)+1);
+//     } else {
+//       document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+(current+1);
+//     }
 
-    document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
-  }
+//     document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
+//   }
 
-  if(swiper_status.value == 'pause') {
-    swiper.autoplay.stop();
-  } else {
-    swiper.autoplay.start();
-  }
-};
+//   if(swiper_status.value == 'pause') {
+//     swiper.autoplay.stop();
+//   } else {
+//     swiper.autoplay.start();
+//   }
+// };
 
 const swiper_status = ref('play');
 const swiper_control = (e) => {
@@ -825,7 +826,7 @@ const rankingTabs = [
                 }
               }
             }
-            .swiper-container {
+            .swiper {
               padding-left:22px;
               flex:1;
             }
