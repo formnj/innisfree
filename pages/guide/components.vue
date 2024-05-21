@@ -259,6 +259,7 @@
     <ul class="explain">
       <li>import { modal } from '~/assets/js/common-ui.js' 선언 후 필요한 스타일만 페이지 하단에 적용</li>
       <li>Open : modal.open(오픈할 모달아이디, 타입);<br /> 타입 = full / alert / bottom : mobile 하단에서 올라오는 팝업 / layer : [tooltip, 공유하기] 등 position absolute 모달</li>
+      <li>특정 스타일이 필요하여 클래스를 추가할 경우, 특정클래스 추가 가능: ex) Open : modal.open(오픈할 모달아이디, 타입 특정클래스);</li>
       <li>Close : modal.close(); /* 다중팝업 노출 시 바디스크롤 풀림 처리 예정 */</li>
       <li>toast 모달의 경우 import { toast_pop } from '~/assets/js/common-ui.js' 선언 후, 파라미터로 시간 추가하여 진행</li>
     </ul>
