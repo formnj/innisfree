@@ -138,7 +138,7 @@ const modalPositioning = () => {
     background: url('~/assets/mo_images/common/icon_split.png') -21rem -7rem / 25rem auto no-repeat;
     position: absolute;
     top: 2rem;
-    right: 1.6rem;
+    right: .4rem;
   }
 }
 </style>

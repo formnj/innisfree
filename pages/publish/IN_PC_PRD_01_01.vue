@@ -145,59 +145,7 @@
   </div>
   <!-- //필터 모달 -->
 
-  <!-- 장바구니 -->
-  <div  id="modal_cart" class="modal_wrap">
-    <div class="modal_container">
-      <div class="modal_header">
-        <h2>장바구니</h2>
-        <button class="btn_close" @click="modal.close(this);">닫기</button>
-      </div>
-      <div class="modal_content">
-        <div class="cart_box">
-          <div class="row">
-            <div class="pdt_img">
-              <span class="thumb">
-                <em><img src="https://images.innisfree.co.kr/upload/product/36116_l_S_140.jpg?T202404300927" alt="" /></em>
-              </span>
-            </div>
-            <div class="pdt_info">
-              <div class="name">제품명은 최대 두줄까지 노출됩니다. 말줄임 표시 됩니다.상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명</div>
-              <p class="price">
-                <strong>1,800원</strong>
-                <em>3,000원</em>
-              </p>
-            </div>
-          </div>
-          <Inputs _type="checkbox" _text="품절상품 제외" />
-          <ProdSelectbox
-            :options="[
-              { val: 'op1', name: 'op', txt: '1호 샐먼 베이지' },
-              { val: 'op2', name: 'op', txt: '2호 피치 베이지' }
-          ]" />
-          <!-- <div class="cell count">
-            <Quantity _id="Quantity" quantity="32" />
-          </div>
-          <div class="cell price">
-            <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 --
-            <Button class="btn_min_outline" txt="입고알림신청" />
-            <p>
-              <strong>52,000 <em>원</em></strong>
-              <span class="point">+529P</span><!-- point --
-            </p>
-          </div>
-          <div class="cell del">
-            <Icons class="del" />
-          </div> -->
-        </div>
-      </div>
-      <div class="modal_footer">
-        <Button txt="장바구니" />
-        <Button class="btn_ confirm" txt="바로구매" />
-      </div>
-    </div>
-    <div class="overlay" @click="modal.close(this);"></div>
-  </div>
-  <!-- //장바구니 -->
+  <ProductListCartModal /><!-- 장바구니/바로구매 모달 -->
 </template>
 
 <script setup>
@@ -215,7 +163,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .goods_list {
   >li {
     width: 25%;
@@ -298,52 +246,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
     .confirm {
       flex: 1;
     }
-  }
-}
-
-.cart_box {
-  .row {
-    display: flex;
-    gap: 20px;
-
-    .pdt_img {
-      width: 60px;
-      flex-shrink: 0;
-    }
-
-    .pdt_info {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      .name {
-        font-size: 16px;
-        line-height: 20px;
-        text-overflow: ellipsis;
-        white-space: normal;
-        word-wrap: break-word;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-      }
-
-      .price {
-        em {
-          font-weight: 300;
-          font-size: 13px;
-          line-height: 1;
-          color: #999E9C;
-          text-decoration: line-through;
-          margin-left: 10px;
-        }
-      }
-    }
-  }
-
-  .input_wrap {
-    text-align: right;
-    margin-bottom: 30px;
   }
 }
 </style>
