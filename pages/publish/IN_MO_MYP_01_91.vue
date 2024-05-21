@@ -138,10 +138,8 @@ const accordion_tab = (e) => {
     border-bottom:0.1rem solid #F5F5F5;
     background:#fff;
     position:sticky;
-    top:15px;
-    left:0;
-    right:0;
-    z-index: 10;
+    top:0.8rem;
+    z-index: 99;
 
     ul {
       height:100%;

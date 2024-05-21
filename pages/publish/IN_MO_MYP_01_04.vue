@@ -3,7 +3,7 @@
   <div class="inner">
     <div class="user_wrap">
       <div class="user_grade">
-        <h3>형민우님은<br>웰컴 고객 입니다.</h3>
+        <h3>김이니님은<br>웰컴 고객 입니다.</h3>
         <ul class="user_list">
           <li>
             <span>VIP 승급까지</span>
@@ -41,7 +41,7 @@
       </ul>
     </div>
 
-    <section class="con member_grade show">
+    <section class="member_grade show">
       <div class="benefit">
         <div class="sub_tit">
           <h3>전 등급 공통 혜택</h3>
@@ -108,7 +108,7 @@
       </div>
     </section>
 
-    <section class="con beauty_point">
+    <section class="beauty_point">
       <Tabs id="beauty_tab" :item="[{txt:'뷰티포인트'},{txt:'VIP등급안내'}]" :tabidx="0" />
       <div class="con beauty_wrap show">
         <div class="header">
@@ -331,7 +331,7 @@
       </div>
     </section>
 
-    <section class="con mobile_app">
+    <section class="mobile_app">
       <div class="img"><img src="/_nuxt/public/images/sam/appdown_img.png" alt=""></div>
       <div class="download">
         <h4>모바일 APP으로<br>더 간편하게! 더 특별하게!</h4>
@@ -371,7 +371,7 @@ const tb_list = [
 onMounted(() => {
   document.querySelectorAll('#membership_tab li').forEach((item,idx) => {
     item.addEventListener('click', () => {
-      const section = document.querySelectorAll('section.con');
+      const section = document.querySelectorAll('.inner > section');
       section.forEach((item) => item.classList.remove('show'));
       section[idx].classList.add('show');
 
@@ -616,6 +616,7 @@ section {
     .benefit_con {
       .benefit_list {
         padding:3rem 0;
+        border-top:0;
         display:flex;
         flex-direction:column;
         gap:2rem 0;
@@ -770,11 +771,12 @@ section {
               margin-top:0;
             }
             &:before {
-              content:'·';
+              width:0.2rem;
+              height:0.2rem;
               color:#666;
-              position:absolute;
-              top:0;
+              top:50%;
               left:0;
+              transform:translateY(-50%);
             }
           }
         }
@@ -838,15 +840,10 @@ section {
         button {
           width:100%;
           height:100%;
+          font-size:1.4rem;
           font-family:inherit;
           border:0;
           border-bottom:0.1rem solid #fff;
-          em {
-            padding:0;
-            color:#888;
-            font-size:1.4rem;
-            font-weight:600;
-          }
         }
       }
       &#point_tab,&#guide_tab {
@@ -870,13 +867,11 @@ section {
             button {
               color:#000;
               border-bottom:0;
-              em {
-                color:inherit;
-                font-size:1.3rem;
-                font-weight:400;
-                line-height:1.6rem;
-                white-space:pre-line;
-              }
+              color:inherit;
+              font-size:1.3rem;
+              font-weight:400;
+              line-height:1.6rem;
+              white-space:pre-line;
             }
           }
         }

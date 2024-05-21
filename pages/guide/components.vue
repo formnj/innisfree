@@ -262,6 +262,7 @@
       <li>특정 스타일이 필요하여 클래스를 추가할 경우, 특정클래스 추가 가능: ex) Open : modal.open(오픈할 모달아이디, 타입 특정클래스);</li>
       <li>Close : modal.close(); /* 다중팝업 노출 시 바디스크롤 풀림 처리 예정 */</li>
       <li>toast 모달의 경우 import { toast_pop } from '~/assets/js/common-ui.js' 선언 후, 파라미터로 시간 추가하여 진행</li>
+      <li>layer 모달의 경우 modal open 버튼과 동일한 위치에 modal_wrap 선언</li>
     </ul>
     <div class="design_box">
       <div class="multi_form">
@@ -289,7 +290,17 @@
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="overlay" @click="modal.close(this);"&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code>
+<code>
+// Modal layer type
+&lt;button @click="modal.open('모달_아이디', 'layer')" &gt;버튼&lt;/button&gt;
+&lt;div id="모달_아이디" class="modal_wrap"&gt;
+  &lt;div class="modal_container"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
   </section>
 
   <section>

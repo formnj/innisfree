@@ -622,7 +622,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
           background-position:-210px -210px;
         }
       }
-      > p {
+      > p, > div {
         font-size:14px;
         font-weight:500;
         line-height:1.29em;

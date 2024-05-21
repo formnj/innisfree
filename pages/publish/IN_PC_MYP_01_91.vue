@@ -74,8 +74,8 @@ onMounted(() => {
       if (e.target.closest('li') === el) faq_idx.value = idx;
       document.querySelectorAll('.faq_wrap > ul li').forEach(el => {
         el.classList.remove('active');
-        el.querySelector('.faq_cont').style.transition = 'none';
-        el.querySelector('.faq_cont').style.height = '0';
+        el.querySelector('.faq_cont').style.cssText = 'transition:none; height:0;';
+        setTimeout(() => el.querySelector('.faq_cont').style.cssText = '', 100);
       });
     });
   })
@@ -97,28 +97,45 @@ const accordion_tab = (e) => {
   const tg_cont = e.target.nextElementSibling;
   const list = document.querySelectorAll('.faq_wrap ul li');
 
-  tg_cont.style.height = 'auto';
   const height = tg_cont.clientHeight;
-  tg_cont.style.height = '0';
 
   list.forEach(el => {
     const el_cont = el.querySelector('.faq_cont');
     
     if (tg_li === el && !tg_li.classList.contains('active')) {
       tg_li.classList.add('active');
-      setTimeout(() => tg_cont.style.height = height + 'px', 10);
+      slides.down(tg_cont);
     }
     else if (tg_li === el && tg_li.classList.contains('active')) {
       tg_li.classList.remove('active');
-      tg_cont.style.height = height + 'px';
-      setTimeout(() => tg_cont.style.height = '0px', 0);
+      slides.up(tg_cont, height);
     }
     else if (tg_li !== el && el.classList.contains('active')) {
       el.classList.remove('active');
-      el_cont.style.height = height + 'px';
-      setTimeout(() => el_cont.style.height = '0px', 0);
+      slides.up(el_cont, height);
     }
   });
+};
+
+const slides = {
+  up: (el, height) => {
+    el.style.height = height + 'px';
+    setTimeout(() => {
+      el.style.height = '0px'
+      el.style.paddingTop = '0px';
+      el.style.paddingBottom = '0px';
+    }, 0)
+  },
+  down: (el) => {
+    el.style.height = 'auto';
+    const height = el.clientHeight;
+    el.style.height = '0';
+    setTimeout(() => {
+      el.style.height = (height + 60) + 'px'
+      el.style.paddingTop = '30px';
+      el.style.paddingBottom = '30px';
+    }, 0);
+  },
 };
 
 </script>
@@ -313,6 +330,7 @@ const accordion_tab = (e) => {
 
         .faq_cont {
           height:0;
+          padding:0 30px;
           overflow:hidden;
           transition: height 0.5s, padding 0.5s;
 
