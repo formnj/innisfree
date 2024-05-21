@@ -182,95 +182,97 @@
         <button>유의사항 안내</button>
       </div>
       <ul>
-        <li>
-          <input type="radio" name="etcList" id="etcdList1" @change="radioChk = 'onclick'">
-          <label for="etcdList1"><span>원클릭결제</span></label>
-        </li>
-        <li>
-          <input type="radio" name="etcList" id="etcdList2"  @change="radioChk = 'card'">
-          <label for="etcdList2"><span>신용카드</span></label>
-        </li>
-        <li>
-          <input type="radio" name="etcList" id="etcdList3" @change="radioChk = 'other'">
-          <label for="etcdList3"><span>간편결제</span></label>
+        <li v-for="(item, idx) in mo_payment_01" :key="idx" >
+          <input type="radio" :name=item.name :id=item.input_id @change="radioChk = item.change">
+          <label :for=item.label_for>
+            <span>{{item.title}}</span>
+            <em v-if="item.benefit" class="method_benefit">{{ item.benefit }}</em>
+          </label>
         </li>
       </ul>
-      <article class="method_card" :class="{ active: radioChk == 'card' }"><!-- 활성화된 article에 active 클래스 추가 --><!-- [Tip] 라디오버튼이 change되어 변경된 변수값을 확인하여 해당 article에 active 클래스를 활성화 시킴 -->
-        신용카드
-      </article>
       <article class="method_onclick" :class="{ active: radioChk == 'onclick' }">
         <div>
           <button>
-            <span>대표카드를 등록해 주세요</span>
+            <span>원클릭 결제 카드등록</span>
           </button>
         </div>
-        <p class="tosspay">
-          <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
-          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
-        </p>
+      </article>
+      <article class="method_card" :class="{ active: radioChk == 'card' }"><!-- 활성화된 article에 active 클래스 추가 --><!-- [Tip] 라디오버튼이 change되어 변경된 변수값을 확인하여 해당 article에 active 클래스를 활성화 시킴 -->
+        <Selectbox
+              :options="[
+              { val: 'value', txt: '카드사 선택' },
+              { val: 'value', txt: '국민' },
+              { val: 'value', txt: '하나' }
+          ]" />
+          <button>무이자 할부/카드혜택 안내</button>
+          <div>
+            <h4>신용카드 결제 혜택</h4>
+            <ul class="bul_list dot">
+              <li>
+                롯데카드 TOUCH 3만원 결제 시, 5,000원 결제일 할인 (5/9 목 - 5/24 금)
+              </li>
+            </ul>
+          </div>
       </article>
       <article class="method_other" :class="{ active: radioChk == 'other' }">
         <ul>
-          <li v-for="(item, idx) in etc_info" :key="idx" :id="item.li_id" @change="orderChk = item.class">
-            <input type="radio" name="etcList" :id="item.input_id" :checked="item.checked">
-            <label :for="item.label_for"><span>{{item.text}}</span></label>
-
-            <div class="discount_txt" v-if="item.discont_txt">{{ item.discont_txt }}</div>
+          <li v-for="(item, idx) in mo_etc_info" :key="idx" :id="item.li_id" @change="orderChk = item.class">
+            <input type="radio" name="etc" :id="item.input_id" :checked="item.checked">
+            <label :for="item.label_for">
+              <span>
+                {{item.text}}
+                <em class="discount_txt" v-if="item.discont_txt">{{ item.discont_txt }}</em>
+              </span>
+            </label>
+            <i v-if="item.benefit" class="method_benefit">{{ item.benefit }}</i>
           </li>
         </ul>
         <div class="other_cont">
           <div class="toss" :class="{ active: orderChk == 'toss' }">
             <div class="discount_info">
               <h4>토스페이 결제 혜택</h4>
-              <ul class="bullistType_01">
+              <ul class="bul_list dot">
                 <li>토스 페이로 생애 첫 결제 시 2천원 적립!</li>
-                <li>토스 페이로 결제 시(토스로 등록된 신용카드 결제 시 제외</li>
+                <li>토스 페이로 결제 시(토스로 등록된 신용카드 결제 시 제외)</li>
                 <li>토스 전체 가맹점에서 결제 이력이 없는 경우 적용됩니다.(토스 ID당 1회)</li>
                 <li>토스페이 결제 화면에서 생애 첫 결제 혜택이 보이지 않을 경우 대상이 아닙니다.</li>
                 <li>생애 첫 결제 프로모션은 기타 할인 및 적립 프로모션과 중복으로 적용이 가능합니다.</li>
                 <li>관련 문의는 토스 고객센터(1599-4905)로 문의 부탁드립니다.</li>
               </ul>
             </div>
-            <div class="notice">
-              <h5>유의사항</h5>
-              <ul class="bulListType_02">
-                <li>토스페이 결제시 토스페이 또는 등록된 카드로 결제가 가능합니다.</li>
-                <li>토스페이로 결제한 경우 환불(또는 부분환불)시 토스페이로 환불됩니다.</li>
-                <li>토스페이 앱을 최신 버전으로 업데이트 해주세요. 최신 버전이 아닌 경우 결제가 원활하지 않을 수 있습니다.</li>
-              </ul>
-            </div>
           </div>
         </div>
-
-
-        <p class="tosspay">
-          <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
-          <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
-        </p>
       </article>
+
+
       <ul>
-        <li>
-          <input type="radio" name="etcList" id="etcdList4">
-          <label for="etcdList4"><span>N페이</span></label>
-        </li>
-        <li>
-          <input type="radio" name="etcList" id="etcdList5">
-          <label for="etcdList5"><span>실시간 계좌이체</span></label>
-        </li>
-        <li>
-          <input type="radio" name="etcList" id="etcdList6">
-          <label for="etcdList6"><span>무통장입금</span></label>
-        </li>
-        <li>
-          <input type="radio" name="etcList" id="etcdList7">
-          <label for="etcdList7"><span>휴대폰결제</span></label>
-        </li>
-        <li>
-          <input type="radio" name="etcList" id="etcdList8">
-          <label for="etcdList8"><span>(구)제휴카드</span></label>
+        <li v-for="(item, idx) in mo_payment_02" :key="idx" >
+          <input type="radio" :name=item.name :id=item.input_id @change="radioChk = item.change">
+          <label :for=item.label_for>
+            <span>{{item.title}}</span>
+          </label>
+          <i v-if="item.benefit" class="method_benefit">{{item.benefit}}</i>
         </li>
       </ul>
-      <article></article>
+      <article class="old_card" :class="{ active: radioChk == 'oldcard' }">
+        <Selectbox
+              :options="[
+              { val: 'value', txt: '카드사 선택' },
+              { val: 'value', txt: '국민' },
+              { val: 'value', txt: '하나' }
+          ]" />
+          <button>무이자 할부/카드혜택 안내</button>
+          <div>
+            <h4>(구)제휴카드 결제 혜택</h4>
+            <ul class="bul_list dot">
+              <li>[롯데카드] </li>
+              <li>기간 : 5/9(목) - 5/24(금)</li>
+              <li>TOUCH 후 3만원 이상 결제 시, 5,000원 결제일 할인</li>
+            </ul>
+          </div>
+      </article>
+
+      <Inputs _type="checkbox" _text="선택한 결제수단 다음에도 사용" />
     </section>
 
     <section class="payment">
@@ -641,9 +643,9 @@ layout:'mo-category'
 });
 import { modal, setFilter } from '~/assets/js/common-ui.js'
 import Button from '../../components/Button.vue';
-import {adress_list, order_info_goods, etc_info} from '~/test/data/publish/dummyData.js'
+import {adress_list, order_info_goods, mo_etc_info, mo_payment_01, mo_payment_02} from '~/test/data/publish/dummyData.js'
 
-const radioChk = ref('card');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
+const radioChk = ref('');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
 const orderChk = ref('naver');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
@@ -755,6 +757,35 @@ onMounted(() => {
           }
         }
       }
+  }
+}
+
+.method_benefit {
+  width:2.6rem;
+  height:1.6rem;
+  color:#fff;
+  font-size:1.0rem;
+  background-color:#000000;
+  text-align:center;
+  position:absolute;
+  top:0;
+  left:0;
+  display:block;
+}
+
+.other_cont {
+  h4 {
+    margin-bottom:1rem;
+  }
+  > div {
+    margin-top:1rem;
+    padding:1.5rem;
+    font-size:1.2rem;
+    background-color:#F5F5F5;
+    display:none;
+    &.active {
+      display:block;
+    }
   }
 }
 
@@ -1087,6 +1118,229 @@ onMounted(() => {
           }
         }
       }
+      > ul {
+        &:first-of-type {
+          margin-bottom:0.5rem;
+        }
+        display:flex;
+        flex-wrap:wrap;
+        gap:0.5rem;
+        li {
+          width:32.333%;
+          position:relative;
+
+          input {
+            position:absolute;
+            z-index:-1;
+            opacity:0;
+            &[type="radio"]:checked {
+              + label {
+                color:#fff;
+                background-color:#00BC70;
+                border:0;
+              }
+            }
+          }
+          label {
+            width:100%;
+            height:6.0rem;
+            color:#333333;
+            font-size:1.3rem;
+            border:0.1rem solid #EEEEEE;
+            background:#fff;
+            box-sizing:border-box;
+            position:relative;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+          }
+        }
+      }
+      article {
+        margin:0.5rem 0;
+        display:none;
+        &.active {
+          display:block
+        }
+        &.method_onclick{
+          margin-top:1rem;
+          > div {
+            width:100%;
+            button {
+              width:27.3rem;
+              height:14.8rem;
+              margin:0 auto;
+              color:#000;
+              font-size:1.4rem;
+              line-height:1.25;
+              border:0.1rem dashed #DDDDDD;
+              border-radius:0.5rem;
+              background: #F5F5F5;
+              display:block;
+              span {
+                &::before {
+                  content:'';
+                  width:2.4rem;
+                  height:2.5rem;
+                  margin:0 auto 1rem auto ;
+                  background-image: url('~/assets/images/common/icon_split.png');
+                  background-repeat:no-repeat;
+                  background-size:25rem;
+                  background-position:-0.9rem -13.8rem;
+                  display:block;
+                }
+              }
+            }
+          }
+        }
+        &.method_card, &.old_card {
+          > * + * {
+            margin-top:1rem;
+          }
+          button {
+            width:100%;
+            color:#999;
+            font-size:1.2rem;
+            display:flex;
+            justify-content:flex-end;
+            gap:0.5rem;
+            &::after {
+              content:'';
+              width:1.6rem;
+              height:1.6rem;
+              background-image: url('~/assets/mo_images/common/icon_split.png');;
+              background-repeat:no-repeat;
+              background-size:25rem;
+              background-position:-23rem 0rem;
+              display:block;
+
+            }
+          }
+          > div {
+            padding:1.5rem;
+            font-size:1.2rem;
+            background:#f5f5f5;
+            h4 {
+              margin-bottom:1.0rem;
+              color:#333333;
+              font-weight:600;
+            }
+          }
+        }
+        &.method_other {
+        > ul {
+            display:flex;
+            flex-wrap:wrap;
+            gap:0.5rem;
+            li {
+              width:calc(50% - 0.3rem);
+              height:6rem;
+              padding:1rem;
+              position:relative;
+              &#etc_1 {
+                span {
+                  &::before {
+                    background-position:-66px -695px;
+                  }
+                }
+              }
+              &#etc_2 {
+                span {
+                  &::before {
+                    background-position:-130px -670px;
+                  }
+                }
+              }
+              &#etc_3 {
+                span {
+                  &::before {
+                    background-position:-65px -670px;
+                  }
+                }
+              }
+              &#etc_4 {
+                span {
+                  &::before {
+                    background-position:0px -720px;
+                  }
+                }
+              }
+              &#etc_5 {
+                span {
+                  &::before {
+                    background-position:0px -695px;
+                  }
+                }
+              }
+              &#etc_6 {
+                span {
+                  &::before {
+                    background-position:-129px -695px;
+                  }
+                }
+              }
+              input {
+                position:absolute;
+                z-index: -1;
+                opacity: 0;
+                &[type="radio"]:checked {
+                  + label {
+                    border:3px solid #009D5E;
+                  }
+                }
+              }
+              label {
+                color:#222;
+                font-size:14px;
+                border:1px solid #ddd;
+                text-align:center;
+                line-height:22px;
+                position:absolute;
+                top:-1px;
+                right:0;
+                bottom:0;
+                left:-1px;
+                z-index:1;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                cursor:pointer;
+                span {
+                  margin-left:-1rem;
+                  position:relative;
+                  display:flex;
+                  align-items:center;
+                  gap:1rem;
+                  &::before {
+                    content:'';
+                    width:60px;
+                    height:20px;
+                    background-image: url('~/assets/images/common/icon_bank.png');
+                    background-repeat:no-repeat;
+                    background-size:250px;
+                    background-position:-2px -672px;
+                    text-align:center;
+                    display:inline-block;
+                  }
+                em {
+                    color: #009D5E;
+                    font-size: 1.0rem;
+                    position: absolute;
+                    bottom: -12px;
+                    right: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+        &.old_card {
+          + div {
+            margin-top:2rem;
+          }
+        }
+      }
+
     }
     &.payment {
       > ul {
