@@ -7,7 +7,7 @@
           </h3>
         </div>
         <div class="btn_wrap">
-          <Button txt="변경" class="btn_ change"/>
+          <Button txt="변경" class="btn_ change active"/>
           <Button txt="닫기" class="btn_ close"/>
         </div>
       </div>
@@ -148,7 +148,7 @@
             <p>1개</p>
           </h3>
         </div>
-        <button></button>
+        <button class="active"></button>
       </div>
       <ul class="cart_list type_default">
           <li>
@@ -179,7 +179,7 @@
           <h3>결제수단
           </h3>
         </div>
-        <button>유의사항 안내</button>
+        <button @click="modal.open('notice_modal', 'fullMo notice_modal')">유의사항 안내</button>
       </div>
       <ul>
         <li v-for="(item, idx) in mo_payment_01" :key="idx" >
@@ -635,6 +635,59 @@
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
 
+  <div class="modal_wrap notice_modal" id="notice_modal">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>결제수단 유의사항 안내</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <section>
+            <Selectbox
+              :options="[
+              { val: 'all', txt: '전체' },
+              { val: 'n_credit', txt: '신용카드' },
+              { val: 'n_oneClick', txt: '원클릭' },
+              { val: 'n_applepay', txt: '애플페이' },
+              { val: 'n_naver', txt: '네이버페이' },
+              { val: 'n_kakao', txt: '카카오페이' },
+              { val: 'n_toss', txt: '토스페이' },
+              { val: 'n_hanapay', txt: '하나페이' },
+              { val: 'n_payco', txt: '페이코' },
+              { val: 'n_sampay', txt: '삼성페이' },
+              { val: 'n_directBank', txt: '실시간계좌이체' },
+              { val: 'n_vBank', txt: '무통장입금' },
+              { val: 'n_mobile', txt: '휴대폰결제' },
+              { val: 'n_cardKb', txt: '제휴카드(KB,신한,삼성,롯데)' },
+              { val: 'n_kbpay', txt: 'KB페이' }
+            ]" />
+            <p>
+            저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌
+						이체 거래에 대해 구매안전서비스를 적용하고 있습니다. (결제
+						금액 5만원 이상 적용)
+            </p>
+            <button>
+              토스페이먼츠 구매안전 서비스 가입확인
+            </button>
+          </section>
+          <article>
+            <div v-for="(item, idx) in mo_ord_notice" :key="idx" :class="item.class">
+              <h5>{{ item.title }}</h5>
+              <ul class="bul_list dot" v-if="item.desc">
+                <li v-for="(a, idx) in mo_ord_notice[idx].desc" :key="idx">
+                  {{a}}
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <div class="modal_footer">
+            <Button class="btn_big confirm" txt="확인" />
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+
 </template>
 
 <script setup>
@@ -643,7 +696,7 @@ layout:'mo-category'
 });
 import { modal, setFilter } from '~/assets/js/common-ui.js'
 import Button from '../../components/Button.vue';
-import {adress_list, order_info_goods, mo_etc_info, mo_payment_01, mo_payment_02} from '~/test/data/publish/dummyData.js'
+import {adress_list, order_info_goods, mo_etc_info, mo_payment_01, mo_payment_02, mo_ord_notice} from '~/test/data/publish/dummyData.js'
 
 const radioChk = ref('');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
 const orderChk = ref('naver');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
@@ -696,11 +749,28 @@ const hide = (event) => {
 
 onMounted(() => {
 
-/**
- * 전체보기버튼을 누르면, dl의 active가 사라진고, 전체보기버튼이 none, 닫기버튼에 active가 추가된다
- * 닫기버튼을 누르면 닫기버튼에 active가 사라지고 전체보기버튼의 active가 추가, dl의 active가 추가된다.
- */
-
+ function toggle_btn (target){
+  var acc = document.querySelector(target)
+  console.log(acc)
+  acc.addEventListener('click', function() {
+    this.classList.toggle('active');
+    var panel = this.parentNode.nextElementSibling
+    console.log(panel)
+    if(!this.classList.contains("active")){
+      panel.style.height = '0px';
+      panel.classList.add('hide')
+    }else {
+      panel.style.height = 'auto'
+      panel.classList.remove('hide')
+      var height = panel.offsetHeight + 'px';
+      console.log(height)
+      setTimeout(() => {
+        panel.style.height = height
+      });
+    }
+  });
+ }
+ toggle_btn('.odgift > div > button')
 
 })
 
@@ -789,6 +859,16 @@ onMounted(() => {
   }
 }
 
+:deep(label) {
+  &.select {
+    div {
+      select {
+        border-color:#e8e5e2 !important;
+      }
+    }
+  }
+}
+
 .inner {
   .name {
     color:#333;
@@ -848,17 +928,13 @@ onMounted(() => {
       .sub_title_wrap {
         .btn_wrap {
           :deep(.btn_) {
-            &.change {
-              &.hide {
-                display:none;
-              }
+            display:none;
+            &.active {
+              display:block;
             }
+
             &.close {
               background-color:#000000;
-              display:none;
-              &.active {
-                display:block;
-              }
             }
           }
         }
@@ -1040,6 +1116,19 @@ onMounted(() => {
         }
         dd {
           margin-top:1.0rem;
+          .multi_form {
+            :deep(.input_wrap) {
+              .label_wrap {
+                label {
+                  color:#999;
+                  font-weight:600;
+                  input {
+                    text-align:right;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -1053,16 +1142,18 @@ onMounted(() => {
           background-size:25rem;
           background-position:0px -70px;
           display:inline-block;
-          transform:rotate(180deg);
+          transform:rotate(0deg);
           transition:all 0.5s;
           &.active {
-            transform:rotate(0);
+            transform:rotate(180deg);
           }
         }
       }
       > ul {
         padding:1.5rem;
         border:0.1rem solid #EEEEEE;
+        transition: height 0.3s ease-out;
+        overflow:hidden;
         > li {
           > p {
             color: #999999;
@@ -1138,6 +1229,26 @@ onMounted(() => {
                 color:#fff;
                 background-color:#00BC70;
                 border:0;
+              }
+            }
+            &#etcdList4 {
+              + label {
+                span {
+                  display:flex;
+                  align-items:center;
+                  &::before {
+                    content:'';
+                    width:5.2rem;
+                    height:2.6rem;
+                    margin-right:0.5rem;
+                    background-image:url(/_nuxt/assets/images/common/icon_bank.png);
+                    background-repeat:no-repeat;
+                    background-size:25rem;
+                    background-position:-7rem -69rem;
+                    display:inline-block;
+
+                  }
+                }
               }
             }
           }
@@ -1425,6 +1536,10 @@ onMounted(() => {
   }
 }
 
+.hide {
+  transition: height 0.35s ease-in;
+  display:none !important;
+}
 
 .modal_wrap {
   top: -1px;
@@ -1890,8 +2005,7 @@ onMounted(() => {
     }
   }
   &#relief_num, &#coupon_info, &#beauty_point,
-  &#packaging
-  {
+  &#packaging {
     .modal_container {
       width: 32.3rem;
       .modal_header {
@@ -1917,6 +2031,75 @@ onMounted(() => {
         div {
           width:24rem;
           margin:0 auto;
+        }
+      }
+    }
+  }
+  &.notice_modal {
+    .modal_container {
+      .modal_header {}
+      .modal_content {
+        padding:2.1rem;
+        section {
+          margin-left:-2.1rem;
+          margin-right:-2.1rem;
+          padding:0 2.1rem 2.5rem;
+          border-bottom:0.5rem solid #F5F5F5;
+          :deep(label) {
+              &.select {
+                div {
+                  select {
+                    border-color:#000 !important;
+                  }
+                }
+              }
+            }
+          p {
+            margin:2rem 0 1rem;
+            color:#333;
+            font-size:1.3rem;
+            line-height:1.35;
+          }
+          button {
+            color: #AAAAAA;
+            font-size:1.2rem;
+            display:flex;
+            align-items:center;
+            gap:0.5rem;
+            &::after {
+              content:'';
+              width:1.6rem;
+              height:1.6rem;
+              background-image:url('~/assets/mo_images/common/icon_split.png');
+              background-repeat:no-repeat;
+              background-size:25rem;
+              background-position:-23rem 0.1rem
+
+            }
+          }
+        }
+        article {
+          padding:3rem 0;
+          h5 {
+            margin-bottom:1.5rem;
+            padding-bottom:1.0rem;
+            color:#000000;
+            font-size:1.6rem;
+            font-weight:600;
+            border-bottom:0.1rem solid #000000;
+          }
+          ul {
+            margin-bottom:1.5rem;
+            color:#666;
+            font-size:1.3rem;
+            li {}
+          }
+        }
+      }
+      .modal_footer {
+        padding:0;
+        button {
+          width:100%;
         }
       }
     }
