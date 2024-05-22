@@ -760,4 +760,27 @@
       }
     }
   }
+
+  &.filter {
+    .modal_content {
+      margin: 0 2.6rem;
+      padding: 2rem 0 4rem;
+      border-top: 0.1rem solid #EEE;
+
+      p {
+        margin-bottom:1rem;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        letter-spacing: -0.01em;
+
+        & ~ p {
+          margin-top:3rem;
+        }
+      }
+    }
+
+    .modal_footer {
+      position:unset;
+    }
+  }
 }

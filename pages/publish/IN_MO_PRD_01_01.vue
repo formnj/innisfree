@@ -10,7 +10,7 @@
       <div class="sortTab">
         <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom');">추천순</button>
       </div>
-      <button @click="modal.open('modal_filter', 'bottom');">필터</button>
+      <button @click="modal.open('modal_filter', 'bottom filter');">필터</button>
     </div>
   </div>
 
@@ -62,14 +62,14 @@
       </div>
       <div class="modal_content">
         <p>혜택별</p>
-        <ul>
+        <ul class="pick_list">
           <li>
             <Inputs _type="checkbox" _name="filter" _id="a00" _text="증정" class="round_square" />
           </li>
         </ul>
 
         <p>고민별</p>
-        <ul>
+        <ul class="pick_list">
           <li>
             <Inputs _type="checkbox" _name="filter" _id="a01" _text="각질/피부결" class="round_square" />
           </li>
@@ -100,7 +100,7 @@
         </ul>
 
         <p>유형별</p>
-        <ul>
+        <ul class="pick_list">
           <li>
             <Inputs _type="checkbox" _name="filter" _id="a10" _text="스킨케어" class="round_square" />
           </li>
@@ -122,7 +122,7 @@
         </ul>
 
         <p>기능성</p>
-        <ul>
+        <ul class="pick_list">
           <li>
             <Inputs _type="checkbox" _name="filter" _id="a16" _text="자외선차단" class="round_square" />
           </li>
@@ -138,7 +138,7 @@
         </ul>
 
         <p>공병수거</p>
-        <ul>
+        <ul class="pick_list">
           <li>
             <Inputs _type="checkbox" _name="filter" _id="a20" _text="공병수거 가능" class="round_square" />
           </li>
@@ -146,7 +146,7 @@
       </div>
       <div class="modal_footer">
         <Button class="btn_big btn_reset" txt="초기화" />
-        <Button class="btn_big confirm" txt="99개 제품보기" />
+        <Button class="btn_big btn_type_02" txt="99개 제품보기" />
       </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -193,40 +193,6 @@ definePageMeta({
         .btnIconBox {
           left: 0;
         }
-      }
-    }
-  }
-}
-
-#modal_filter {
-  .modal_container {
-    .modal_content {
-      margin: 0 2.6rem;
-      padding: 2rem 0 4rem;
-      border-top: 1px solid #eee;
-
-      p {
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-        line-height: 1.32em;
-        letter-spacing: -0.01em;
-        color: #999;
-      }
-
-      ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-
-        &+p {
-          margin-top: 3rem;
-        }
-      }
-    }
-
-    .modal_footer {
-      .confirm {
-        flex: 1;
       }
     }
   }

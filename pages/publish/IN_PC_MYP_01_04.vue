@@ -397,15 +397,20 @@ definePageMeta({
 
 import { sampleSlide } from '~/test/data/publish/dummyData.js'
 
-import SwiperCore, { Navigation, Pagination, A11y, Autoplay } from "swiper";
+// import Swiper core and required components
+import SwiperCore from "swiper";
+import { Navigation, Pagination, A11y } from "swiper/modules";
 
+// Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
+// Import Swiper styles
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
 
-SwiperCore.use([Navigation, Pagination, A11y, Autoplay]);
+// install Swiper components
+SwiperCore.use([Navigation, Pagination, A11y]);
 
 /* swiper option */
 const setSwiper = ref(null);

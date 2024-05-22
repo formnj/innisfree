@@ -28,12 +28,22 @@
 <script setup>
 import { sample_goods } from '~/test/data/publish/dummyData'
 import { setFilter } from '~/assets/js/common-ui'
-import SwiperCore, { A11y } from "swiper";
+
+// import Swiper core and required components
+import SwiperCore from "swiper";
+import { Navigation, Pagination, A11y } from "swiper/modules";
+
+// Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
-SwiperCore.use([A11y]);
+
+// Import Swiper styles
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
+
+// install Swiper components
+SwiperCore.use([Navigation, Pagination, A11y]);
+
 const props = defineProps({
   item: {},
   link: {

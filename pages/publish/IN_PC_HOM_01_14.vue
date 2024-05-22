@@ -126,15 +126,20 @@
 <script setup>
 import { sample_live } from '~/test/data/publish/dummyData'
 
-import SwiperCore, { Navigation, Pagination, A11y, Controller } from "swiper";
+// import Swiper core and required components
+import SwiperCore from "swiper";
+import { Navigation, Pagination, A11y } from "swiper/modules";
 
+// Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
+// Import Swiper styles
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
 
-SwiperCore.use([Navigation, Pagination, A11y, Controller]);
+// install Swiper components
+SwiperCore.use([Navigation, Pagination, A11y]);
 
 /* swiper custom navigation */
 const setSwiper = ref(null);

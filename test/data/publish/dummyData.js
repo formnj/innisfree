@@ -4,6 +4,75 @@
  * jjy11@amorepacific.com
  */
 
+export const mo_payment_01 = [
+ {
+  name:'etcList',
+  input_id:'etcdList1',
+  change:'onclick',
+  label_for:'etcdList1',
+  title:'원클릭결제',
+  benefit:''
+  },
+ {
+  name:'etcList',
+  input_id:'etcdList2',
+  change:'card',
+  label_for:'etcdList2',
+  title:'신용카드',
+  benefit:'혜택'
+ },
+ {
+  name:'etcList',
+  input_id:'etcdList3',
+  change:'other',
+  label_for:'etcdList3',
+  title:'간편결제',
+  benefit:'혜택'
+ }
+]
+export const mo_payment_02 = [
+    {
+    name:'etcList',
+    input_id:'etcdList4',
+    change:'',
+    label_for:'etcdList4',
+    title:'N페이',
+    benefit:''
+  },
+  {
+    name:'etcList',
+    input_id:'etcdList5',
+    change:'',
+    label_for:'etcdList5',
+    title:'실시간 계좌이체',
+    benefit:''
+  },
+  {
+    name:'etcList',
+    input_id:'etcdList6',
+    change:'',
+    label_for:'etcdList6',
+    title:'무통장입금',
+    benefit:''
+  },
+  {
+    name:'etcList',
+    input_id:'etcdList7',
+    change:'',
+    label_for:'etcdList7',
+    title:'휴대폰결제',
+    benefit:''
+  },
+  {
+    name:'etcList',
+    input_id:'etcdList8',
+    change:'oldcard',
+    label_for:'etcdList8',
+    title:'제휴카드',
+    benefit:'혜택'
+  },
+ ]
+
 export const order_info_goods = [
   {
     img:("/_nuxt/public/images/sam/36804_l_S_90.png"),
@@ -11,7 +80,8 @@ export const order_info_goods = [
     count:'1개',
     date:'5/16 ~ 31, 기간내 5개',
     point:'+102P',
-    price:'10,200'
+    price:'10,200',
+    class:'active'
   },
   {
     img:("/_nuxt/public/images/sam/7046_1.png"),
@@ -19,7 +89,8 @@ export const order_info_goods = [
     count:'1개',
     date:'',
     point:'+102P',
-    price:'30,200'
+    price:'30,200',
+    class:''
   },
   {
     img:("/_nuxt/public/images/sam/34721_l_S_90.jpg"),
@@ -27,8 +98,75 @@ export const order_info_goods = [
     count:'1개',
     date:'5/16 ~ 31, 기간내 5개',
     point:'+102P',
-    price:'50,200'
+    price:'50,200',
+    class:''
   }
+]
+export const mo_etc_info = [
+  {
+    li_id:'etc_1',
+    input_id:'etc1',
+    label_for:'etc1',
+    text:'네이버페이',
+    checked:'checked',
+    discont_txt:'',
+    class:'naver',
+    benefit:''
+  },
+    {
+    li_id:'etc_2',
+    input_id:'etc2',
+    label_for:'etc2',
+    text:'카카오페이',
+    discont_txt:'',
+    class:'kakao',
+    benefit:''
+  },
+    {
+    li_id:'etc_3',
+    input_id:'etc3',
+    label_for:'etc3',
+    text:'페이코',
+    discont_txt:'',
+    class:'payco',
+    benefit:''
+  },
+    {
+    li_id:'etc_4',
+    input_id:'etc4',
+    label_for:'etc4',
+    text:'토스페이',
+    discont_txt:'생애 첫 2천원 적립',
+    class:'toss',
+    benefit:'혜택'
+  },
+    {
+    li_id:'etc_5',
+    input_id:'etc5',
+    label_for:'etc5',
+    text:'KB페이',
+    discont_txt:'',
+    class:'kb',
+    benefit:''
+  },
+    {
+    li_id:'etc_6',
+    input_id:'etc6',
+    label_for:'etc6',
+    text:'삼성페이',
+    discont_txt:'',
+    class:'sam',
+    benefit:''
+  },
+    {
+    li_id:'etc_7',
+    input_id:'etc7',
+    label_for:'etc7',
+    text:'하나페이',
+    discont_txt:'5,000원적립',
+    class:'hana',
+    benefit:''
+  },
 ]
 
 

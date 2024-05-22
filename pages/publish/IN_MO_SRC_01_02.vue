@@ -62,7 +62,7 @@
           <div class="sortTab">
             <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom')">랭킹순</button>
           </div>
-          <button @click="modal.open('modal_search', 'bottom')">필터</button>
+          <button @click="modal.open('modal_filter', 'bottom filter')">필터</button>
         </div>
       </div>
       <!-- //title washed -->
@@ -153,120 +153,49 @@
     <div class="overlay" @click="modal.close(this)"></div>
   </div>
 
-  <div id="modal_search" class="modal_wrap">
+  <div id="modal_filter" class="modal_wrap">
         <div class="modal_container">
             <div class="modal_header">
                 <h2>필터</h2>
                 <button class="btn_close" @click="modal.close(this);">닫기</button>
             </div>
             <div class="modal_content">
-                <dl class="sortList">
-                  <dt>혜택별</dt>
-                  <dd>
-                    <ul>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox"><span @click="setFilter($event)">증정</span>
-                        </label>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-                <dl class="sortList">
-                  <dt>유형별</dt>
-                  <dd>
-                    <ul>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox"><span @click="setFilter($event)">스킨케어</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox"><span @click="setFilter($event)">메이크업</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox"><span @click="setFilter($event)">남성</span>
-                        </label>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-                <dl class="sortList">
-                  <dt>고민별</dt>
-                  <dd>
-                    <ul>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox"><span @click="setFilter($event)">수분/보습/속건조</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox"><span @click="setFilter($event)">잡티/피부톤</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox"><span @click="setFilter($event)">각질/피부결</span>
-                        </label>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-                <dl class="sortList">
-                  <dt>라인별</dt>
-                  <dd>
-                    <ul>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox"><span @click="setFilter($event)">비타C</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox"><span @click="setFilter($event)">레티놀 시카</span>
-                        </label>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-                <dl class="sortList">
-                  <dt>기능성</dt>
-                  <dd>
-                    <ul>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox"><span @click="setFilter($event)">자외선차단</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox"><span @click="setFilter($event)">주름개선</span>
-                        </label>
-                      </li>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox"><span @click="setFilter($event)">미백</span>
-                        </label>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-                <dl class="sortList">
-                  <dt>공병수거</dt>
-                  <dd>
-                    <ul>
-                      <li>
-                        <label for="benefit1" class="inputChk">
-                          <input type="checkbox"><span @click="setFilter($event)">공병수거</span>
-                        </label>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
+              <p>혜택별</p>
+              <ul class="pick_list">
+                <li><Inputs _type="checkbox" _name="filter" _id="a00" _text="증정" class="round_square" /></li>
+              </ul>
+
+              <p>유형별</p>
+              <ul class="pick_list">
+                <li><Inputs _type="checkbox" _name="filter" _id="a01" _text="스킨케어" class="round_square" /></li>
+                <li><Inputs _type="checkbox" _name="filter" _id="a02" _text="메이크업" class="round_square" /></li>
+                <li><Inputs _type="checkbox" _name="filter" _id="a03" _text="남성" class="round_square" /></li>
+              </ul>
+              
+              <p>고민별</p>
+              <ul class="pick_list">
+                <li><Inputs _type="checkbox" _name="filter" _id="a04" _text="수분/보습/속건조" class="round_square" /></li>
+                <li><Inputs _type="checkbox" _name="filter" _id="a05" _text="잡티/피부톤" class="round_square" /></li>
+                <li><Inputs _type="checkbox" _name="filter" _id="a06" _text="각질/피부결" class="round_square" /></li>
+              </ul>
+              
+              <p>라인별</p>
+              <ul class="pick_list">
+                <li><Inputs _type="checkbox" _name="filter" _id="a07" _text="비타C" class="round_square" /></li>
+                <li><Inputs _type="checkbox" _name="filter" _id="a08" _text="레티놀 시카" class="round_square" /></li>
+              </ul>
+
+              <p>기능성</p>
+              <ul class="pick_list">
+                <li><Inputs _type="checkbox" _name="filter" _id="a09" _text="자외선차단" class="round_square" /></li>
+                <li><Inputs _type="checkbox" _name="filter" _id="a10" _text="주름개선" class="round_square" /></li>
+                <li><Inputs _type="checkbox" _name="filter" _id="a11" _text="미백" class="round_square" /></li>
+              </ul>
+
+              <p>공병수거</p>
+              <ul class="pick_list">
+                <li><Inputs _type="checkbox" _name="filter" _id="a12" _text="공병수거" class="round_square" /></li>
+              </ul>
             </div>
             <div class="modal_footer">
                 <Button class="btn_big btn_reset" txt="초기화" />
@@ -282,15 +211,21 @@ import {
   sample_goods,
   sample_event,
 } from '~/test/data/publish/dummyData'
-import { modal, setFilter } from '~/assets/js/common-ui'
+import { modal } from '~/assets/js/common-ui'
 
-import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/vue';
+// import Swiper core and required components
+import SwiperCore from "swiper";
+import { Navigation, Pagination, A11y } from "swiper/modules";
 
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
 
+// Import Swiper styles
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
+
+// install Swiper components
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 const swieprOpt = {
@@ -624,52 +559,6 @@ section {
   &.type_01 {
     .swiper-slide {
       width:14rem;
-    }
-  }
-}
-
-.sortList {
-  margin-bottom:30px;
-  dt {
-    margin-bottom: 10px;
-    color: #999999;
-    font-size: 12px;
-    line-height: 1.32em;
-    letter-spacing: -0.01em;
-
-  }
-  dd {
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      li {
-        label {
-          padding-left: 0;
-          input {
-            position: absolute;
-            z-indeX: -1;
-            opacity: 0;
-          }
-          span {
-            height: 30px;
-            padding: 0 20px;
-            color: #AAAAAA;
-            font-weight: 600;
-            font-size: 14px;
-            border-radius: 5px;
-            background-color: #F5F5F5;
-            line-height: 1.29em;
-            letter-spacing: -0.01em;
-            display: flex;
-            align-items: center;
-            &.active {
-              color: #FFFFFF;
-              background:#00BC70;
-            }
-          }
-        }
-      }
     }
   }
 }
