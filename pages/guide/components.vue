@@ -263,6 +263,7 @@
       <li>Close : modal.close(); /* 다중팝업 노출 시 바디스크롤 풀림 처리 예정 */</li>
       <li>toast 모달의 경우 import { toast_pop } from '~/assets/js/common-ui.js' 선언 후, 파라미터로 시간 추가하여 진행</li>
       <li>layer 모달의 경우 modal open 버튼과 동일한 위치에 modal_wrap 선언(하단 Modal layer type 주석 참고)</li>
+      <li>tooltip 공통 스타일 추가 (하단 Modal tooltip 주석 참고)</li>
     </ul>
     <div class="design_box">
       <div class="multi_form">
@@ -270,7 +271,8 @@
         <Button txt="Modal alert" @click="modal.open('sample_modal', 'alert');" />
         <Button txt="Modal bottom" @click="modal.open('sample_modal', 'bottom');" />
         <Button txt="Modal detailSearch" @click="modal.open('sample_modal', 'detailSearch');" />
-        <Button txt="Modal layer" id="layer" @click="modal.open('sample_modal', 'layer');" />
+        <Button id="layer" txt="Modal layer" @click="modal.open('sample_modal', 'layer');" />
+        <Button id="tooltip" txt="Modal layer tooltip" @click="modal.open('sample_modal2', 'layer tooltip');" />
         <Button txt="Modal fullMo" @click="modal.open('sample_modal', 'fullMo');" />
         <Button txt="Modal toast" @click="modal.open('sample_modal', 'toast'), toast_pop(3000);" />
       </div>
@@ -298,6 +300,22 @@
   &lt;div class="modal_container"&gt;
     ...
   &lt;/div&gt;
+&lt;/div&gt;
+
+// Modal tooltip
+&lt;div id="sample_modal2" class="modal_wrap"&gt;
+  &lt;div class="modal_container"&gt;
+    &lt;button class="btn_close" @click="modal.close(this);"&gt;닫기&lt;/button&gt;
+    &lt;div class="modal_content"&gt;
+      &lt;h2&gt;Modal Title&lt;/h2&gt;
+      &lt;div&gt;Sample Modal&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="modal_footer"&gt;
+      &lt;Button class="btn_outline" txt="cancel" /&gt;
+      &lt;Button txt="OK" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="overlay" @click="modal.close(this);"&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code>
 </pre>
@@ -496,6 +514,19 @@ const onSlideChange = () => {
   </div>
   <!-- //modal -->
 
+  <!-- modal tooltip -->
+  <div id="sample_modal2" class="modal_wrap">
+    <div class="modal_container">
+      <button class="btn_close" @click="modal.close(this);">닫기</button>
+      <div class="modal_content">
+        <h2>Modal Title</h2>
+        <div>Sample Modal</div>
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //modal tooltip -->
+
   <!-- 증정품 모달 -->
   <div class="modal_wrap" id="giveaway_01">
     <div class="modal_container">
@@ -672,6 +703,10 @@ const tool_select = (props) => {
 onMounted(()=>{
   document.getElementById('layer').addEventListener('click', (event)=>{
     document.getElementById('sample_modal').style.cssText="top:"+event.currentTarget.offsetTop+"px; left:"+event.currentTarget.offsetLeft+"px;"
+  });
+
+  document.getElementById('tooltip').addEventListener('click', (event)=>{
+    document.getElementById('sample_modal2').style.cssText="top:"+event.currentTarget.offsetTop+"px; left:"+event.currentTarget.offsetLeft+"px;"
   });
 
 });
