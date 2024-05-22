@@ -148,9 +148,10 @@
             <p>1개</p>
           </h3>
         </div>
-        <button class="active"></button>
+        <button class="active" @click="toggle_btn"></button>
       </div>
-      <ul class="cart_list type_default">
+      <div class="list_wrap">
+        <ul class="cart_list type_default">
           <li>
             <p>함께 드리는 증정품</p>
             <div class="row">
@@ -171,6 +172,7 @@
             </div>
           </li>
         </ul>
+      </div>
     </section>
 
     <section class="pay_method">
@@ -747,33 +749,27 @@ const hide = (event) => {
   })
 }
 
-onMounted(() => {
+const toggle_btn = (event) => {
+  console.log(event.currentTarget)
+  event.currentTarget.classList.toggle('active');
+  const panel = event.currentTarget.parentNode.nextElementSibling;
+  const ori_H = panel.childNodes[0].offsetHeight;
 
- function toggle_btn (target){
-  var acc = document.querySelector(target)
-  console.log(acc)
-  acc.addEventListener('click', function() {
-    this.classList.toggle('active');
-    var panel = this.parentNode.nextElementSibling
-    console.log(panel)
-    if(!this.classList.contains("active")){
+  if(!event.currentTarget.classList.contains("active")){
+    panel.style.height = ori_H+'px';
+    setTimeout(() => {
       panel.style.height = '0px';
-      panel.classList.add('hide')
-    }else {
-      panel.style.height = 'auto'
-      panel.classList.remove('hide')
-      var height = panel.offsetHeight + 'px';
-      console.log(height)
-      setTimeout(() => {
-        panel.style.height = height
-      });
-    }
-  });
+      panel.classList.add('hide');
+    })
+  }else {
+    panel.style.height = 0;
+    panel.classList.remove('hide');
+    setTimeout(() => {
+      panel.style.height = ori_H+'px';
+    });
+  }
+
  }
- toggle_btn('.odgift > div > button')
-
-})
-
 </script>
 
 <style lang="scss" scoped>
@@ -1149,41 +1145,47 @@ onMounted(() => {
           }
         }
       }
-      > ul {
-        padding:1.5rem;
+      .list_wrap {
         border:0.1rem solid #EEEEEE;
         transition: height 0.3s ease-out;
         overflow:hidden;
-        > li {
-          > p {
-            color: #999999;
-            font-size: 1.2rem;
-          }
-          .row {
-            margin-top:1rem;
-            display:flex;
-            .pdt_img {
-              width:3.6rem;
-              height:4.8rem;
-              background-color:#F5F5F5;
+        &.hide {
+          border:0;
+        }
+        > ul {
+          padding:1.5rem;
+          border:0;
+          > li {
+            > p {
+              color: #999999;
+              font-size: 1.2rem;
             }
-            .pdt_info {
-              padding-left: 1.0rem;
-              flex:1 auto;
-              > * + * {
-                margin-top:0.5rem;
+            .row {
+              margin-top:1rem;
+              display:flex;
+              .pdt_img {
+                width:3.6rem;
+                height:4.8rem;
+                background-color:#F5F5F5;
               }
-              em {
-                color:#999;
-                font-size:1.2rem;
+              .pdt_info {
+                padding-left: 1.0rem;
+                flex:1 auto;
+                > * + * {
+                  margin-top:0.5rem;
+                }
+                em {
+                  color:#999;
+                  font-size:1.2rem;
+                }
+                h4 {
+                  font-size:1.3rem;
+                  font-weight:normal;
+                }
+                .count {
+                flex-direction:row;
               }
-              h4 {
-                font-size:1.3rem;
-                font-weight:normal;
               }
-              .count {
-              flex-direction:row;
-            }
             }
           }
         }
@@ -1536,10 +1538,10 @@ onMounted(() => {
   }
 }
 
-.hide {
-  transition: height 0.35s ease-in;
-  display:none !important;
-}
+// .hide {
+//   transition: height 0.35s ease-in;
+//   display:none !important; //height에 애니메이션을 주기 위해선 display로 컨트롤 되면 안됩니다. [Tip 확인 후 삭제해주세요]
+// }
 
 .modal_wrap {
   top: -1px;
