@@ -148,7 +148,9 @@
             <p>1개</p>
           </h3>
         </div>
+        <!-- Edit fnc toggle -->
         <button></button>
+        <!-- //Edit fnc toggle -->
       </div>
       <ul class="cart_list type_default">
           <li>
