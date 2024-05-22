@@ -1,5 +1,5 @@
 <template>
-    <div class="event_item">
+    <div class="event_item" :class="type">
       <a :href="props.link" class="item">
         <span class="thumb">
           <em><img :src="item.img"></em>
@@ -19,6 +19,10 @@ const props = defineProps({
     link: {
         type: String,
         default: '#none'
+    },
+    type: {
+        type: String,
+        default: ''
     }
 });
 </script>
@@ -86,6 +90,65 @@ const props = defineProps({
     .cont {
       strong, .date {
         color:#00BC70;
+      }
+    }
+  }
+
+  &.type_02 {
+    .thumb {
+      padding-top: 53.25%;
+    }
+
+    .cont {
+      height: auto;
+      margin-top: 0;
+      padding: 20px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column-reverse;
+
+      strong {
+        min-height: 56px;
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 20px;
+        line-height: 28px;
+      }
+    }
+  }
+
+  &.type_column {
+    .item {
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap: 1.6rem;
+      .thumb {
+        width: 16rem;
+        height: 8.5rem;
+        padding-top:0;
+      }
+      .cont {
+        height:auto;
+        margin-top:0;
+        display:flex;
+        flex:1;
+        flex-direction:column-reverse;
+        strong {
+          margin-top:0;
+          font-size:1.4rem;
+        }
+        .date {
+          margin-top: 0.8rem;
+          font-size: 1.2rem;
+          font-weight: 300;
+        }
+        .sticker {
+          padding:0.2rem 0.5rem;
+          font-size:1rem;
+          font-weight: 300;
+          line-height:1.4rem;
+        }
       }
     }
   }

@@ -11,7 +11,7 @@
       <div class="list_wrap">
           <ul class="event_list">
               <li v-for="(item, idx) in sample_event" :key="idx">
-                  <EventItem :item="item" :link="item.link" /> <!-- 이벤트 아이템 콤포넌트가 추가되어 변경하였습니다. -->
+                  <EventItem :item="item" :link="item.link" type="type_column" /> <!-- 이벤트 아이템 콤포넌트가 추가되어 변경하였습니다. -->
               </li>
           </ul>
       </div>

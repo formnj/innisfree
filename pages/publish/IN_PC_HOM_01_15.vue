@@ -153,7 +153,7 @@
             <ul class="goods_list type_column">
               <li v-for="(item, idx) in sample_log.slice(0,6)" :key="idx">
                 <GoodsItem v-if="item.type == 'goods'" :item="item.item[0]" :link="item.item.link" />
-                <EventItem v-if="item.type == 'event'" :item="item.item[0]" :link="item.link"/>
+                <EventItem v-if="item.type == 'event'" :item="item.item[0]" :link="item.link" type="type_column"/>
               </li>
             </ul>
             <!-- //list -->
@@ -714,18 +714,14 @@ const rankingTabUI = (e) => {
       }
       :deep(.event_item) {
         .item {
-          align-items:center;
+          gap:20px;
         }
         .thumb {
           height:60px;
-          margin-right:20px;
           padding-top:0;
         }
         .cont {
-          height:auto;
-          margin-top:0;
           strong {
-            margin-top:0;
             font-size:14px;
             font-weight:400;
             white-space: normal;
