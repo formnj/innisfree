@@ -149,7 +149,7 @@ onMounted(()=>{
   const body = document.querySelector('body');
   body.addEventListener('click', (event)=>{
     const target = event.target;
-    const replyMenuModal = document.getElementById('modal_reply_menu');
+    const replyMenuModal = document.getElementsByClassName('modal_reply_menu')[0];
     if (!target.classList.contains('btn_reply_menu') && replyMenuModal.classList.contains('active') && !target.classList.contains('btn_single_menu')){
       replyMenuModal.classList.remove('active')
     }
@@ -157,7 +157,7 @@ onMounted(()=>{
 })
 
 const openReplyModal = () => {
-  modal.open('modal_comment', 'bottom');
+  modal.open('modal_comment', 'bottom modal_comment');
 }
 </script>
 
@@ -432,7 +432,7 @@ section {
   }
 }
 
-#modal_reply_menu {
+.modal_reply_menu {
   z-index: 16;
 }
 </style>

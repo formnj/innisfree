@@ -12,7 +12,7 @@
           <div class="title">
             <h3><em>최근 방문한 매장</em></h3>
           </div>
-          <ul class="pick_list">
+          <ul class="pick_shop_list">
             <li v-for="(item, idx) in shop_list.slice(0, 1)" :key="idx">
               <input :id="'shop0'+idx" type="radio" name="shop0">
               <label :for="'shop0'+idx">
@@ -29,7 +29,7 @@
             <p>위치서비스를 이용할 수 없습니다.<br>앱관리 > 이니스프리 > 위치서비스 상태를 변경해주세요.</p>
             <Button class="btn_outline" txt="설정페이지로 이동" />
           </div>
-          <ul class="pick_list">
+          <ul class="pick_shop_list">
             <li v-for="(item, idx) in shop_list.slice(0, 2)" :key="idx">
               <input :id="'shop1'+idx" type="radio" name="shop1">
               <label :for="'shop1'+idx">
@@ -67,7 +67,7 @@
           <div class="no_content">
             검색된 매장이 없습니다.
           </div>
-          <ul class="pick_list">
+          <ul class="pick_shop_list">
             <li v-for="(item, idx) in shop_list.slice(0, 2)" :key="idx">
               <input :id="'shop3'+idx" type="radio" name="shop3">
               <label :for="'shop3'+idx">
@@ -91,14 +91,10 @@ import { shop_list } from '~/test/data/publish/dummyData'
 definePageMeta({
   layout: 'mo-sub'
 });
-
-const addSelecUI = (e) => {
-  e.target.closest('label').parentElement.parentElement.classList.add('selected');
-}
 </script>
 
 <style lang="scss" scoped>
-#modal_pick_my_shop {
+.modal_wrap {
   section {
     &+section {
       border-top: .5rem solid #F5F5F5;
@@ -160,7 +156,7 @@ const addSelecUI = (e) => {
     }
   }
 
-  .pick_list {
+  .pick_shop_list {
     li {
       display: flex;
       gap: 1rem;
@@ -199,14 +195,14 @@ const addSelecUI = (e) => {
 
         &:after {
           content:'';
-          width:8px;
-          height:8px;
+          width:1rem;
+          height:1rem;
           background-color:#FFF;
           border-radius:50%;
           box-sizing:border-box;
           position:absolute;
           top:1.9rem;
-          left:2.7rem;
+          left:2.6rem;
         }
 
         &:checked:before {

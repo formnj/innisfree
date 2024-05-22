@@ -8,7 +8,7 @@
 
     <div class="pdtSortTab_wrap">
       <div class="sortTab">
-        <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom');">추천순</button>
+        <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom modal_sort');">추천순</button>
       </div>
       <button @click="modal.open('modal_filter', 'bottom filter');">필터</button>
     </div>
@@ -200,7 +200,7 @@ definePageMeta({
   }
 }
 
-#modal_sort {
+.modal_sort {
   .modal_container {
     border-top-left-radius: 20px 20px;
     border-top-right-radius: 20px 20px;
@@ -315,29 +315,6 @@ definePageMeta({
         display: inline-block;
       }
     }
-  }
-}
-
-.modal_wrap.alert {
-  .modal_content {
-    padding: 30px 40px 30px 20px;
-
-    .tit {
-      font-size: 1.8rem;
-      font-weight: 600;
-      line-height: 2.4rem;
-
-      & + .txt {
-        margin-top: 1rem;
-      }
-    }
-
-    .txt {
-      font-size: 13px;
-      color: #666;
-      display: block;
-    }
-
   }
 }
 </style>

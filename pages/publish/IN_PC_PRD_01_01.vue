@@ -20,7 +20,7 @@
           <li><a href="#none">판매금액순</a></li>
         </ul>
       </div>
-      <button @click="modal.open('modal_filter', 'detailSearch')">상세검색</button>
+      <button @click="modal.open('modal_filter', 'detailSearch filter')">상세검색</button>
     </div>
   </div>
   <!-- //title washed -->
@@ -54,14 +54,14 @@
       </div>
       <div class="modal_content">
         <p>혜택별</p>
-        <ul>
+        <ul class="pick_list">
           <li>
             <Inputs _type="checkbox" _name="filter" _id="a00" _text="증정" class="round_square" />
           </li>
         </ul>
 
         <p>고민별</p>
-        <ul>
+        <ul class="pick_list">
           <li>
             <Inputs _type="checkbox" _name="filter" _id="a01" _text="각질/피부결" class="round_square" />
           </li>
@@ -92,7 +92,7 @@
         </ul>
 
         <p>유형별</p>
-        <ul>
+        <ul class="pick_list">
           <li>
             <Inputs _type="checkbox" _name="filter" _id="a10" _text="스킨케어" class="round_square" />
           </li>
@@ -114,7 +114,7 @@
         </ul>
 
         <p>기능성</p>
-        <ul>
+        <ul class="pick_list">
           <li>
             <Inputs _type="checkbox" _name="filter" _id="a16" _text="자외선차단" class="round_square" />
           </li>
@@ -218,33 +218,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
           }
         }
       }
-    }
-  }
-}
-
-#modal_filter {
-  .modal_content {
-    p {
-      margin-bottom: 10px;
-      font-size: 12px;
-      line-height: 1.32em;
-      letter-spacing: -0.01em;
-      color: #999;
-    }
-
-    ul {
-      margin-bottom: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-  }
-
-  .modal_footer {
-    padding: 0 40px;
-
-    .confirm {
-      flex: 1;
     }
   }
 }

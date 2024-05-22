@@ -7,7 +7,7 @@
   <a v-if="isAll == false && idx != limit" href="#none">
     <img class="" :src="item.img" alt="">
   </a>
-  <a v-if="isAll == false && idx == limit" href="javascript:;" @click="modal.open('modal_photo_review_all', 'full');"> <!-- 리뷰 10번째 사진일 경우 -->
+  <a v-if="isAll == false && idx == limit" href="javascript:;" @click="modal.open('modal_photo_review_all', 'full modal_photo_review_all');"> <!-- 리뷰 10번째 사진일 경우 -->
     <img class="" :src="item.img" alt="">
     <span v-if="idx == limit">99,999</span>
   </a>
