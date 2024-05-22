@@ -4,14 +4,12 @@
         <div class="inner">
             <div class="menu_wrap">
             <Icons class="back" txt="뒤로가기" />
-            <h2><Button txt="쇼케이스" @click="modal.open('modal_nav', 'bottom')" /></h2>
+            <h2><Button txt="쇼케이스" @click="modal.open('modal_nav', 'bottom nav')" /></h2>
             </div>
             <div class="icon_menu">
                 <Icons class="home" txt="홈" />
                 <Icons class="share" txt="공유" />
-                <a :href="path+'IN_MO_SRC_01_01'">
-                  <Icons class="btn_search" txt="검색" />
-                </a>
+                <a :href="path+'IN_MO_SRC_01_01'"><Icons class="btn_search" txt="검색" /></a>
                 <Icons class="cart" txt="50" />
             </div>
         </div>
@@ -86,19 +84,7 @@
                     <div class="list_wrap">
                         <ul class="event_list">
                             <li v-for="(item, idx) in nav_goods" :key="idx">
-                                <!-- <EventItem :item="item" :link="item.link" /> -->
-                                <a href="#none">
-                                    <div>
-                                        <img :src="item.img">
-                                        <em class="type04">{{ item.cate }}</em>
-                                    </div>
-                                    <dl>
-                                        <dt></dt>
-                                        <dd v-if="item.title_01">{{item.title_01}}</dd>
-                                        <dd v-if="item.title_02">{{item.title_02}}</dd>
-                                        <dd v-if="item.title_02">{{item.title_03}}</dd>
-                                    </dl>
-                                </a>
+                                <EventItem :item="item" :link="item.link" type="type_column" />
                             </li>
                         </ul>
                     </div>
@@ -132,77 +118,12 @@
 import { modal } from '~/assets/js/common-ui'
 import {
     global_menu,
-    gnb_list
+    gnb_list,
+    nav_goods
 } from '~/test/data/publish/dummyData'
 
 /* path */
 const path = '/publish/';
-
-/* sample data */
-const nav_goods = [
-    {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_01.png"),
-        cate:'제휴혜택',
-        title_01:'2024 새해',
-        title_02:'콜라겐크림 기획전',
-        title_03:'럭키박스 + 럭키드로우',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_02.png"),
-        cate:'체험리뷰',
-        title_01:'N페이 3만원 결제시',
-        title_02:'1만원 적립!',
-        title_03:'N페이 5천+뷰티5천',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_03.png"),
-        cate:'쇼핑혜택',
-        title_01:'N페이 3만원 결제시',
-        title_02:'1만원 적립!',
-        title_03:'N페이 5천+뷰티5천',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_04.png"),
-        cate:'쇼핑혜택',
-        title_01:'단, 8일',
-        title_02:'선물같은 혜택',
-        title_03:'콜라보 데님 인디고 BAG',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_05.png"),
-        cate:'체험리뷰',
-        title_01:'2023 디렉터파이',
-        title_02:'비타민C 앰플',
-        title_03:'TOP of TOP 선정!',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_01.png"),
-        cate:'제휴혜택',
-        title_01:'2024 새해',
-        title_02:'콜라겐크림 기획전',
-        title_03:'럭키박스 + 럭키드로우',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_02.png"),
-        cate:'체험리뷰',
-        title_01:'N페이 3만원 결제시',
-        title_02:'1만원 적립!',
-        title_03:'N페이 5천+뷰티5천',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_03.png"),
-        cate:'쇼핑혜택',
-        title_01:'N페이 3만원 결제시',
-        title_02:'1만원 적립!',
-        title_03:'N페이 5천+뷰티5천',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_04.png"),
-        cate:'쇼핑혜택',
-        title_01:'단, 8일',
-        title_02:'선물같은 혜택',
-        title_03:'콜라보 데님 인디고 BAG',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_05.png"),
-        cate:'체험리뷰',
-        title_01:'2023 디렉터파이',
-        title_02:'비타민C 앰플',
-        title_03:'TOP of TOP 선정!',
-    },
-]
-/* //sample data */
 
 onMounted(() => {
     const header = document.querySelector('header');
@@ -590,106 +511,33 @@ header {
                     }
                 }
                 .list_wrap {
-                    padding:40px 21px 60px;
+                    padding:4rem 2.1rem 6rem;
                     .event_list {
-                        display:flex;
-                        flex-wrap:wrap;
-                        gap:16px;
+                        margin: 0;
+                        gap:1.6rem;
                         li {
                             width:100%;
+                            padding:0;
                             padding-bottom:16px;
                             border-bottom:1px solid #eeeeee;
-                                &:last-child {
-                                padding-bottom:0;
+
+                            &:last-child {
                                 border-bottom:0;
-                                }
-                                a {
-                                height:100%;
-                                display:flex;
-                                align-items:center;
-                                justify-content:flex-start;
-                                gap:16px;
-                                    > div {
-                                        width:56%;
-                                        height:100%;
-                                        position:relative;
-                                        img {
-                                        width:100%;
-                                        height:100%;
-                                        }
-                                        em {
-                                        padding:2px 5px;
-                                        color:#fff;
-                                        font-size:10px;
-                                        font-weight:300;
-                                        background-color:#000;
-                                        position:absolute;
-                                        top:0;
-                                        left:0;
-                                        }
-                                    }
-                                    dl {
-                                        dd {
-                                        color:#000;
-                                        font-size:14px;
-                                        font-weight:600;
-                                        line-height:18px;
-                                        letter-spacing:-0.4px;
-                                        }
+                            }
+
+                            :deep(.event_item) {
+                                .item {
+                                    .thumb {
+                                        width: 18rem;
+                                        height: 9.6rem;
                                     }
                                 }
+                            }
                         }
                     }
                 }
             }
         }
     }
-}
-
-.modal_wrap {
-  &#modal_nav {
-    .modal_content {
-      padding:0;
-      ul {
-        li {
-          &:first-child {
-            a {
-              border-top:0;
-            }
-          }
-          &.active {
-            a {
-              color:#00bc70;
-              font-weight:700;
-              &::after {
-                content:'현재 선택';
-                width:16px;
-                height:16px;
-                color:transparent;
-                font-size:0;
-                background-image:url('~/assets/mo_images/common/icon_split.png');
-                background-repeat:no-repeat;
-                background-position:-80px -70px;
-                background-size:250px auto;
-                display:block;
-              }
-            }
-          }
-          a {
-            width:100%;
-            padding:15px 26px;
-            text-align:left;
-            border-top:1px solid #f5f5f5;
-            color:#000;
-            font-weight:300;
-            font-size:16px;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-          }
-        }
-      }
-    }
-  }
 }
 </style>

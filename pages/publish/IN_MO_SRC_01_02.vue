@@ -90,7 +90,7 @@
           v-bind="swieprOpt.events"
         >
           <swiper-slide v-for="(item, idx) in sample_event.slice(0,5)" :key="idx">
-            <EventItem :item="item" :link="item.link" />
+            <EventItem :item="item" :link="item.link" type="type_column" />
           </swiper-slide>
         </swiper>
       </div>
@@ -527,7 +527,7 @@ section {
     left:50%;
     transform:translateX(-50%);
   }
-  .swiper-container {
+  .swiper {
     padding-bottom:30px;
     :deep(.swiper-pagination) {
       bottom:0;
@@ -544,8 +544,9 @@ section {
   }
   :deep(.event_item){
     .item {
-      .date {
-        font-weight:300;
+      gap:2rem;
+      .thumb{
+        height: 10.6rem;
       }
     }
   }
@@ -553,7 +554,7 @@ section {
 
 .swiper_wrap {
   margin:0 -2.1rem;
-  .swiper-container{
+  .swiper{
     padding:0 2.1rem;
   }
   &.type_01 {

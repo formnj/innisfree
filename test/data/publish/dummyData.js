@@ -1219,6 +1219,8 @@ export const mainSam = {
       img: ("https://images.innisfree.co.kr/upload/event/3487_0.jpg?T202404030937"),
       date: '24.3.25(월) ~ 24.4.30(화)',
       title: '남성에게도 딱! 맞는 그린티 <br>씨드 세럼 대용량 출시',
+      sticker: true,
+      cate: '룰-렛 이벤트'
     },
     {
       img: ("https://images.innisfree.co.kr/upload/event/3502_0.jpg?T202404021757"),
@@ -2358,3 +2360,57 @@ export const noti_data = {
     },
   ],
 };
+
+export const nav_goods = [
+  {
+      img: ("/_nuxt/public/images/sam/category_sam_goods_list_01.png"),
+      title: '2024 새해<br>콜라겐크림 기획전<br>럭키박스 + 럭키드로우',
+      sticker: true,
+      cate: '제휴혜택',
+  }, {
+      img:("/_nuxt/public/images/sam/category_sam_goods_list_02.png"),
+      title: 'N페이 3만원 결제시<br>1만원 적립!<br>N페이 5천+뷰티5천',
+      sticker: true,
+      cate: '체험리뷰',
+  }, {
+      img:("/_nuxt/public/images/sam/category_sam_goods_list_03.png"),
+      title: 'N페이 3만원 결제시<br>1만원 적립!<br>N페이 5천+뷰티5천',
+      sticker: true,
+      cate:'쇼핑혜택',
+  }, {
+      img:("/_nuxt/public/images/sam/category_sam_goods_list_04.png"),
+      title: '단, 8일<br>선물같은 혜택<br>콜라보 데님 인디고 BAG',
+      sticker: true,
+      cate:'쇼핑혜택',
+  }, {
+      img:("/_nuxt/public/images/sam/category_sam_goods_list_05.png"),
+      title: '2023 디렉터파이<br>비타민C 앰플<br>TOP of TOP 선정!',
+      sticker: true,
+      cate:'체험리뷰',
+  }, {
+      img: ("/_nuxt/public/images/sam/category_sam_goods_list_01.png"),
+      title: '2024 새해<br>콜라겐크림 기획전<br>럭키박스 + 럭키드로우',
+      sticker: true,
+      cate: '제휴혜택',
+  }, {
+      img:("/_nuxt/public/images/sam/category_sam_goods_list_02.png"),
+      title: 'N페이 3만원 결제시<br>1만원 적립!<br>N페이 5천+뷰티5천',
+      sticker: true,
+      cate: '체험리뷰',
+  }, {
+      img:("/_nuxt/public/images/sam/category_sam_goods_list_03.png"),
+      title: 'N페이 3만원 결제시<br>1만원 적립!<br>N페이 5천+뷰티5천',
+      sticker: true,
+      cate:'쇼핑혜택',
+  }, {
+      img:("/_nuxt/public/images/sam/category_sam_goods_list_04.png"),
+      title: '단, 8일<br>선물같은 혜택<br>콜라보 데님 인디고 BAG',
+      sticker: true,
+      cate:'쇼핑혜택',
+  }, {
+      img:("/_nuxt/public/images/sam/category_sam_goods_list_05.png"),
+      title: '2023 디렉터파이<br>비타민C 앰플<br>TOP of TOP 선정!',
+      sticker: true,
+      cate:'체험리뷰',
+  }
+];

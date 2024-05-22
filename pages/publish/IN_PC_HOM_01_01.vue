@@ -66,7 +66,18 @@
     </section>
 
     <section class="narrow event">
-      <div class="swiper_wrap">Swiper</div>
+      <div class="swiper_wrap">
+        <swiper
+          v-bind="swieprOpt.recommend01"
+          :navigation="navigation"
+        >
+          <swiper-slide v-for="(item, idx) in sample_event" :key="idx">
+            <EventItem :item="item" />
+          </swiper-slide>
+          <button class="swiper-button-next">Next</button>
+          <button class="swiper-button-prev">Prev</button>
+        </swiper>
+      </div>
     </section>
 
     <section class="recommend">
@@ -106,7 +117,13 @@
 
     <!-- 혜택 -->
     <section class="benefit">
-      <div class="swiper_wrap">Swiper</div>
+      <swiper
+        v-bind="swieprOpt.benefit"
+      >
+        <swiper-slide v-for="(item, idx) in sample_event" :key="idx">
+          <EventItem :item="item" />
+        </swiper-slide>
+      </swiper>
     </section>
     <!-- //혜택 -->
 
@@ -186,7 +203,7 @@ const rankingTabs = [
       min-max-width:1320px;
       .visual {
         margin-top:40px;
-        .swiper-container {
+        .swiper {
           padding-bottom:40px;
           :deep(.swiper-pagination) {
             display:none;
@@ -388,7 +405,7 @@ const rankingTabs = [
           }
         }
         .swiper_wrap {
-          .swiper-container{
+          .swiper{
             max-width:1480px;
             padding:0 100px;
             &:before {
@@ -572,16 +589,13 @@ const rankingTabs = [
           }
         }
         &.event {
-          :deep(.thumb){
-            padding-top:53.225806%;
-          }
           :deep(.cont) {
-            height:auto;
             margin-top:40px;
-            display:flex;
-            flex-direction:column-reverse;
+            padding:0;
             strong {
-              margin-top:0;
+              margin-bottom:0;
+              font-size:24px;
+              line-height:32px;
               display:flex;
               align-items:center;
               justify-content:space-between;
@@ -646,20 +660,6 @@ const rankingTabs = [
             .event_item {
               .thumb {
                 padding-top:53.25%;
-              }
-              .cont {
-                height:auto;
-                margin-top:0;
-                padding:20px;
-                background-color:#fff;
-                display:flex;
-                flex-direction:column-reverse;
-                strong {
-                  height:48px;
-                  margin-top:0;
-                  margin-bottom:8px;
-                  font-size:20px;
-                }
               }
             }
           }

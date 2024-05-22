@@ -71,7 +71,7 @@
     <section>
       <ul class="list_wrap type_column">
         <li v-for="(item, idx) in mainSam.event_mo" :key="idx">
-          <EventItem :item="item" :link="item.link"/>
+          <EventItem :item="item" :link="item.link" type="type_02"/>
         </li>
       </ul>
     </section>
@@ -110,7 +110,7 @@
     <section class="event">
         <ul class="list_wrap type_column02">
           <li v-for="(item, idx) in mainSam.event_mo" :key="idx">
-            <EventItem :item="item" />
+            <EventItem :item="item" type="type_column" />
           </li>
         </ul>
     </section>
@@ -336,7 +336,7 @@ const rankingTabs = [
 <style lang="scss" scoped>
   .main {
     .visual {
-      .swiper-container {
+      .swiper {
         :deep(.swiper-pagination) {
           display:none;
         }
@@ -530,7 +530,7 @@ const rankingTabs = [
       }
       .swiper_wrap {
         margin:0 -2.1rem;
-        .swiper-container{
+        .swiper{
           padding:0 2.1rem;
         }
         &.type_01 {
@@ -701,7 +701,7 @@ const rankingTabs = [
         }
       }
       &.ranking {
-        .swiper-container {
+        .swiper {
           padding-bottom:30px;
           :deep(.swiper-pagination) {
             bottom:0;
@@ -816,31 +816,6 @@ const rankingTabs = [
                 left:0;
               }
             }
-            .cont {
-              height:auto;
-              margin-top:2rem;
-              margin-bottom:2rem;
-              display:flex;
-              flex-direction:column-reverse;
-              strong {
-                margin-top:0;
-                font-size:1.6rem;
-                display:flex;
-                align-items:center;
-                justify-content:space-between;
-                &:after {
-                  width:3.2rem;
-                  height:3.2rem;
-                  background:url('~/assets/images/common/icon_split.png') -6rem -20rem no-repeat;
-                  background-size:25rem auto;
-                  content:'';
-                  display:block;
-                }
-              }
-              .date {
-                margin-top:1.6rem;
-              }
-            }
           }
         }
       }
@@ -850,40 +825,6 @@ const rankingTabs = [
           margin-top:1.6rem;
           padding-top:1.6rem;
           border-top:1px solid #eee;
-        }
-        :deep(.event_item) {
-          .item {
-            .thumb {
-              width:16rem;
-              height:8.5rem;
-              margin-right:1.6rem;
-              em {
-                position:absolute;
-                top:0;
-                right:0;
-                bottom:0;
-                left:0;
-              }
-            }
-            .cont {
-              height:auto;
-              margin-top:0.035rem;
-              margin-bottom:0.035rem;
-              padding:0;
-              display:flex;
-              flex-direction:column-reverse;
-              strong {
-                margin-top:0;
-                font-size:1.4rem;
-                display:flex;
-                align-items:center;
-                justify-content:space-between;
-              }
-              .date {
-                margin-top:0.8rem;
-              }
-            }
-          }
         }
       }
 
