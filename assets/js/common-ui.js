@@ -21,13 +21,15 @@ export const modal = {
 
       const top = tg.offsetTop + tg.offsetHeight;
 
-      if (rect.left < doc) {
-        const left = tg.offsetLeft + tg.offsetWidth;
-        tg.nextSibling.style.cssText = `top:${top}px; left:${left}px;`;
-      } else if (rect.left > doc) {
-        const modalW = tg.nextSibling.querySelector('.modal_container').offsetWidth;
-        const left = tg.offsetLeft - modalW;
-        tg.nextSibling.style.cssText = `top:${top}px; left:${left}px;`;
+      if(tg.nextElementSibling != null && tg.nextElementSibling.classList.contains('modal_wrap')){
+        if (rect.left < doc) {
+          const left = tg.offsetLeft + tg.offsetWidth;
+          tg.nextSibling.style.cssText = `top:${top}px; left:${left}px;`;
+        } else if (rect.left > doc) {
+          const modalW = tg.nextSibling.querySelector('.modal_container').offsetWidth;
+          const left = tg.offsetLeft - modalW;
+          tg.nextSibling.style.cssText = `top:${top}px; left:${left}px;`;
+        }
       }
     }
 

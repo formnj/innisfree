@@ -153,13 +153,13 @@
   </div>
   <!-- //필터 모달 -->
 
-  <!-- 선택 가능 필터 없음 -->
+  <!-- 선택 가능 필터 없음 modal.open('alert_no_filter', 'alert') -->
   <div id="alert_no_filter" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
-        <p>알림</p>
-        <span>선택 가능한 필터가 없습니다.</span>
+        <p class="tit">알림</p>
+        <p class="txt">선택 가능한 필터가 없습니다.</p>
       </div>
       <div class="modal_footer">
         <Button class="btn_big confirm" txt="확인" />
@@ -168,6 +168,8 @@
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
   <!-- //선택 가능 필터 없음 -->
+
+  <ProductListCartModal /><!-- 장바구니/바로구매 모달 -->
 </template>
 
 <script setup>
@@ -318,28 +320,24 @@ definePageMeta({
 
 .modal_wrap.alert {
   .modal_content {
-    padding: 3rem 2rem;
+    padding: 30px 40px 30px 20px;
 
-    p {
+    .tit {
       font-size: 1.8rem;
       font-weight: 600;
-      color: #000;
       line-height: 2.4rem;
+
+      & + .txt {
+        margin-top: 1rem;
+      }
     }
 
-    span {
-      margin-top: 1rem;
-      font-size: 1.3rem;
-      font-weight: 400;
+    .txt {
+      font-size: 13px;
       color: #666;
-      line-height: 2rem;
       display: block;
     }
 
-    em {
-      color: #00BC70;
-      font-weight: 600;
-    }
   }
 }
 </style>

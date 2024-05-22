@@ -10,7 +10,17 @@
     <div class="my_shop"> <!-- 폐점일 경우 closed 클래스 추가-->
       <dl>
         <dt>등록된 마이샵
-          <button type="button" class="btn_dot_menu" @click="modal.open('modal_my_shop_menu','layer');modalPositioning();">마이샵 메뉴</button>
+          <button type="button" class="btn_dot_menu" @click="modal.open('modal_my_shop_menu','layer');">마이샵 메뉴</button>
+          <div id="modal_my_shop_menu" class="modal_wrap"><!-- 마이샵 메뉴 -->
+            <div class="modal_container">
+              <ul class="dot_menu">
+                <li><button type="button" class="btn_single_menu">변경</button></li>
+                <li><button type="button" class="btn_single_menu" @click="modal.open('alert_myshop_del', 'alert')">1개월 전(확인용)</button></li>
+                <li><button type="button" class="btn_single_menu" @click="modal.open('alert_myshop_del2', 'alert')">삭제</button></li>
+              </ul>
+            </div>
+            <div class="overlay" @click="modal.close(this);"></div>
+          </div><!-- //마이샵 메뉴 -->
         </dt>
         <dd class="no_shop">등록된 매장이 없습니다.</dd><!-- 등록된 매장이 없을 경우 -->
         <!-- 등록 매장-->
@@ -61,20 +71,6 @@
     </ul>
   </div>
 </div>
-
- <!-- 마이샵 메뉴 -->
- <div id="modal_my_shop_menu" class="modal_wrap">
-  <div class="modal_container">
-    <ul class="dot_menu">
-      <li><button type="button" class="btn_single_menu">변경</button></li>
-      <li><button type="button" class="btn_single_menu" @click="modal.open('alert_myshop_del', 'alert')">1개월 전(확인용)</button></li>
-      <li><button type="button" class="btn_single_menu" @click="modal.open('alert_myshop_del2', 'alert')">삭제</button></li>
-    </ul>
-  </div>
-  <div class="overlay" @click="modal.close(this);"></div>
-</div>
-<!-- //마이샵 메뉴 -->
-
 <!-- 마이샵 등록하기 -->
 <div id="modal_pick_my_shop" class="modal_wrap">
   <div class="modal_container">
@@ -272,11 +268,6 @@ import { shop_list } from '~/test/data/publish/dummyData'
 definePageMeta({
   layout:'mo-sub'
 });
-const modalPositioning = () => {
-  const top = window.scrollY + event.target.getBoundingClientRect().top;
-  const right = window.outerWidth - event.target.getBoundingClientRect().left + 80; //80은 modal_my_shop_menu 너비
-  document.getElementById('modal_my_shop_menu').style.cssText="top:" + top + "px;left:unset;right:" + right + "px;bottom:unset;"
-}
 
 onMounted(()=>{
   //마이샵 메뉴 외 영역 클릭 시 메뉴 닫힘
@@ -340,7 +331,7 @@ onMounted(()=>{
           background: url('~/assets/mo_images/common/icon_split.png') -21rem -7rem / 25rem auto no-repeat;
           position: absolute;
           bottom: 0;
-          right: -.8rem;
+          right: -2.2rem;
         }
 
       }

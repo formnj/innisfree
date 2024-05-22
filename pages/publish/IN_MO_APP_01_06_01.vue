@@ -5,8 +5,8 @@
     <p class="date">신청 가능 기간 : 24.03.01 (수) ~ 24.04.31 (수)</p>
 
     <div class="point_box">
-      <div>보유샘플포인트 <span class="point">10</span></div>
-      <div>차감샘플포인트 <span class="point">05</span></div>
+        <div>보유샘플포인트 <span class="point">10</span></div>
+        <div>차감샘플포인트 <span class="point">05</span></div>
     </div>
   </div>
 
