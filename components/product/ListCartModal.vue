@@ -173,7 +173,7 @@ import { modal } from '~/assets/js/common-ui'
 
   &.alert {
     .modal_content {
-      padding: 30px 40px 30px 20px;
+      padding: 30px 20px;
 
       .sub_tit {
         font-size: 13px;

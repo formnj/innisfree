@@ -7,8 +7,8 @@
           <h3>추천해요<a href="IN_PC_MYP_01_81" class="btn_link_arrw">피부정보 등록</a></h3>
           <p class="desc">가장 많이 등록된 피부정보 기준으로 보여드려요.</p>
           <div class="btn_wrap">
-            <Button txt="건성피부" class="btn_min gray" @click="modal.open('modal_set_skin_type', 'detailSearch')" />
-            <Button txt="모공 / 주름 / 탄력" class="btn_min gray" @click="modal.open('modal_set_skin_type', 'detailSearch')" />
+            <Button txt="건성피부" class="btn_min gray" @click="modal.open('modal_set_skin_type', 'detailSearch modal_set_skin_type')" />
+            <Button txt="모공 / 주름 / 탄력" class="btn_min gray" @click="modal.open('modal_set_skin_type', 'detailSearch modal_set_skin_type')" />
           </div>
         </div>
       </div>
@@ -763,7 +763,7 @@ const rankingTabUI = (e) => {
   }
 }
 
-#modal_set_skin_type {
+.modal_set_skin_type {
   .modal_content {
     p {
       margin-bottom: 10px;

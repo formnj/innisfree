@@ -118,7 +118,7 @@
                 <td>{{ item.branch }}</td>
                 <td class="ta_l">{{ item.add }}</td>
                 <td>{{ item.phone }}</td>
-                <td><button type="button" class="btn_link_arrw" @click="modal.open('modal_map','full')">지도보기</button></td>
+                <td><button type="button" class="btn_link_arrw" @click="modal.open('modal_map','full modal_map')">지도보기</button></td>
                 <td><Inputs _type="radio" _text="선택" _name="map" /></td>
               </tr>
             </tbody>
@@ -382,7 +382,7 @@ const tabContShow = (e) => {
 .ta_l {
   text-align: left !important;
 }
-#modal_map {
+.modal_map {
   .modal_container {
     width: 960px;
 

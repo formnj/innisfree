@@ -3,7 +3,7 @@
     <Tabs tabType="type_02"
       :item="[{ txt: '전체' }, { txt: '최대여덟글자입력' }, { txt: '장원영피부되기' }, { txt: '왓츠인마이백' }, { txt: '인생탬' }, { txt: '메이크업대결' }, { txt: '갈웜뉴트럴추천' }]"
       :tabidx="0" />
-    <button type="button" @click="modal.open('modal_topic', 'bottom');">토픽 모달 열기</button>
+    <button type="button" @click="modal.open('modal_topic', 'bottom modal_topic');">토픽 모달 열기</button>
   </div>
 
   <div class="inner-cont">
@@ -156,7 +156,7 @@ definePageMeta({
   }
 }
 
-#modal_topic.modal_wrap {
+.modal_topic {
   .filter_wrap {
     padding: 0 2.6rem;
     border-bottom: 0;

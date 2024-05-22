@@ -5,7 +5,7 @@
       <h3>마이샵이란?</h3>
       <p>내가 선택하는 ‘나의 단골매장’으로<br>내 단골 매장 서비스 소식을 받아보실 수 있습니다.</p>
       <Button class="btn_mid confirm" txt="위치기반 서비스 동의 모달(확인용)" @click="modal.open('alert_myshop_agree', 'alert');" />
-      <Button class="btn_mid confirm" txt="마이샵 등록하기" @click="modal.open('modal_pick_my_shop', 'fullMo');" />
+      <Button class="btn_mid confirm" txt="마이샵 등록하기" @click="modal.open('modal_pick_my_shop', 'fullMo modal_pick_my_shop');" />
     </div>
     <div class="my_shop"> <!-- 폐점일 경우 closed 클래스 추가-->
       <dl>
@@ -83,7 +83,7 @@
         <div class="title">
           <h3><em>최근 방문한 매장</em></h3>
         </div>
-        <ul class="pick_list">
+        <ul class="pick_shop_list">
           <li v-for="(item, idx) in shop_list.slice(0, 1)" :key="idx">
             <input :id="'shop0'+idx" type="radio" name="shop0">
             <label :for="'shop0'+idx">
@@ -100,7 +100,7 @@
           <p>위치서비스를 이용할 수 없습니다.<br>앱관리 > 이니스프리 > 위치서비스 상태를 변경해주세요.</p>
           <Button class="btn_outline" txt="설정페이지로 이동" />
         </div>
-        <ul class="pick_list">
+        <ul class="pick_shop_list">
           <li v-for="(item, idx) in shop_list.slice(0, 2)" :key="idx">
             <input :id="'shop1'+idx" type="radio" name="shop1">
             <label :for="'shop1'+idx">
@@ -138,7 +138,7 @@
         <div class="no_content">
           검색된 매장이 없습니다.
         </div>
-        <ul class="pick_list">
+        <ul class="pick_shop_list">
           <li v-for="(item, idx) in shop_list.slice(0, 2)" :key="idx">
             <input :id="'shop3'+idx" type="radio" name="shop3">
             <label :for="'shop3'+idx">
@@ -459,7 +459,7 @@ onMounted(()=>{
   }
 }
 
-#modal_pick_my_shop {
+.modal_pick_my_shop {
   section {
     &+section {
       border-top: .5rem solid #F5F5F5;
@@ -521,7 +521,7 @@ onMounted(()=>{
     }
   }
 
-  .pick_list {
+  .pick_shop_list {
     li {
       display: flex;
       gap: 1rem;
@@ -548,8 +548,8 @@ onMounted(()=>{
 
         &:before {
           content:'';
-          width:20px;
-          height:20px;
+          width:2rem;
+          height:2rem;
           background-color:#DDD;
           border-radius:50%;
           box-sizing:border-box;
@@ -560,14 +560,14 @@ onMounted(()=>{
 
         &:after {
           content:'';
-          width:8px;
-          height:8px;
+          width:1rem;
+          height:1rem;
           background-color:#FFF;
           border-radius:50%;
           box-sizing:border-box;
           position:absolute;
           top:1.9rem;
-          left:2.7rem;
+          left:2.6rem;
         }
 
         &:checked:before {

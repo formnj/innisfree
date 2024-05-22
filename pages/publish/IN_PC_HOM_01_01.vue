@@ -37,8 +37,6 @@
           </a>
         </swiper-slide>
 
-        <button class="swiper-button-next">Next</button>
-        <button class="swiper-button-prev">Prev</button>
         <!-- customer pagination -->
         <div class="custom_pagination">
           <div class="current">
@@ -46,10 +44,6 @@
             <em class="idx_02"></em>
           </div>
           <strong class="total"></strong>
-
-          <Button class="swiper-button-next" :data="swiper_status" :txt="swiper_status" @click="swiper_control" />
-
-          <!-- <button class="swiper-button-next" style="flex:1;" @click="swiper_control">Button</button> -->
         </div>
         <!-- //customer pagination -->
       </swiper>
@@ -341,19 +335,6 @@ const navigation = {
 //     swiper.autoplay.start();
 //   }
 // };
-
-const swiper_status = ref('play');
-const swiper_control = (e) => {
-  if(swiper_status.value == 'play'){
-    swiper_status.value='pause'
-  } else {
-    swiper_status.value='play';
-  }
-}
-
-const test = () => {
-  console.log('a');
-}
 
 import {
   sampleSlide,

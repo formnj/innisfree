@@ -520,6 +520,21 @@ html {
     .overlay {
       display:none;
     }
+
+    &.tooltip {
+      .modal_content {
+        padding: 30px 20px;
+        color: #666;
+        line-height: 1.5;
+
+        h2 {
+          margin-bottom: 10px;
+          font-weight: 600;
+          font-size: 18px;
+          color: #000;
+        }
+      }
+    }
   }
 
   &.fullMo {
