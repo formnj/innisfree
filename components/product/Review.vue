@@ -1,6 +1,6 @@
 <template>
   <!-- 리뷰 일반 -->
-  <div v-if="isModal == false" class="review" @click="modal.open('modal_review','full');">
+  <div v-if="isModal == false" class="review" @click="modal.open('modal_review','full modal_review');">
     <p v-if="item.option.is" class="option_name">옵션<span v-if="isMo == false">)</span> {{ item.option.name }}</p>
     <div class="review_photo_list_wrap">
       <ul class="review_photo_list">

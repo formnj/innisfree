@@ -734,18 +734,6 @@ export const adress_list = [
   }
 ]
 
-
-export const Delivery_data = [
-  {
-      modal_id:'adress_add_modal',
-      check:'yes'
-  },
-  {
-      modal_id:'adress_modify_modal',
-  }
-]
-
-
 export const mainTopBannerData = {
   bannerText: '하나Pay 3만원 결제 시, 하나머니 5천원 적립',
   url: 'https://www.innisfree.com/kr/ko'

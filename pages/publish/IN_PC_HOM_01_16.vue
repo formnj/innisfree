@@ -11,7 +11,7 @@
 
     <div class="pdtSortTab_wrap">
       <div class="sortTab">
-        <button @click="Drop_Down()" class="btn_dropdown">추천순</button>
+        <button class="btn_dropdown" @click="Drop_Down()">추천순</button>
         <ul>
           <li><a href="#none" class="active">추천순</a></li>
           <li><a href="#none">신제품순</a></li>
@@ -22,7 +22,7 @@
           <li><a href="#none">판매금액순</a></li>
         </ul>
       </div>
-      <button @click="modal.open('modal_search', 'detailSearch');">상세검색</button>
+      <button @click="modal.open('modal_filter', 'detailSearch filter');">상세검색</button>
     </div>
   </div>
   <!-- //title washed -->
@@ -47,84 +47,32 @@
         </div>
     </div>
   </div>
-  <div id="modal_search" class="modal_wrap">
+  <div id="modal_filter" class="modal_wrap">
       <div class="modal_container">
           <div class="modal_header">
               <h2>상세검색</h2>
               <button class="btn_close" @click="modal.close(this);">닫기</button>
           </div>
           <div class="modal_content">
-            <dl class="sortList">
-              <dt>고민별</dt>
-              <dd>
-                <ul>
-                  <li>
-                    <label for="skin1" class="inputChk">
-                      <input type="checkbox" alt="주름/탄력"><span @click="setFilter($event)">주름/탄력</span>
-                    </label>
-                  </li>
-                  <li>
-                    <label for="skin2" class="inputChk">
-                      <input type="checkbox" alt="모공/피지/블랙헤드"><span @click="setFilter($event)">모공/피지/블랙헤드</span>
-                    </label>
-                  </li>
-                  <li>
-                    <label for="skin3" class="inputChk">
-                      <input type="checkbox" alt="영양/토탈안티에이징"><span @click="setFilter($event)">영양/토탈안티에이징</span>
-                    </label>
-                  </li>
-                  <li>
-                    <label for="skin4" class="inputChk">
-                      <input type="checkbox" alt="트러블/리페어"><span @click="setFilter($event)">트러블/리페어</span>
-                    </label>
-                  </li>
-                  <li>
-                    <label for="skin5" class="inputChk">
-                      <input type="checkbox" alt="수분/보습/속건조"><span @click="setFilter($event)">수분/보습/속건조</span>
-                    </label>
-                  </li>
-                </ul>
-              </dd>
-            </dl>
-            <dl class="sortList">
-              <dt>기능성</dt>
-              <dd>
-                <ul>
-                  <li>
-                    <label for="fnc1" class="inputChk">
-                      <input type="checkbox" alt="미백"><span @click="setFilter($event)">미백</span>
-                    </label>
-                  </li>
-                  <li>
-                    <label for="fnc2" class="inputChk">
-                      <input type="checkbox" alt="주름개선"><span @click="setFilter($event)">주름개선</span>
-                    </label>
-                  </li>
-                  <li>
-                    <label for="fnc3" class="inputChk">
-                      <input type="checkbox" alt="자외선차단"><span @click="setFilter($event)">자외선차단</span>
-                    </label>
-                  </li>
-                  <li>
-                    <label for="fnc4" class="inputChk">
-                      <input type="checkbox" alt="비건인증"><span @click="setFilter($event)">비건인증</span>
-                    </label>
-                  </li>
-                </ul>
-              </dd>
-            </dl>
-            <dl class="sortList">
-              <dt>공병수거</dt>
-              <dd>
-                <ul>
-                  <li>
-                    <label for="Benefit3" class="inputChk">
-                      <input type="checkbox" alt="공병수거 가능"><span @click="setFilter($event)">공병수거 가능</span>
-                    </label>
-                  </li>
-                </ul>
-              </dd>
-            </dl>
+            <p>혜택별</p>
+            <ul class="pick_list">
+              <li><Inputs _type="checkbox" _name="filter" _id="a00" _text="주름/탄력" class="round_square" /></li>
+              <li><Inputs _type="checkbox" _name="filter" _id="a01" _text="모공/피지/블랙헤드" class="round_square" /></li>
+              <li><Inputs _type="checkbox" _name="filter" _id="a02" _text="영양/토탈안티에이징" class="round_square" /></li>
+              <li><Inputs _type="checkbox" _name="filter" _id="a03" _text="트러블/리페어" class="round_square" /></li>
+              <li><Inputs _type="checkbox" _name="filter" _id="a04" _text="수분/보습/속건조" class="round_square" /></li>
+            </ul>
+            <p>기능성</p>
+            <ul class="pick_list">
+              <li><Inputs _type="checkbox" _name="filter" _id="a05" _text="미백" class="round_square" /></li>
+              <li><Inputs _type="checkbox" _name="filter" _id="a06" _text="주름개선" class="round_square" /></li>
+              <li><Inputs _type="checkbox" _name="filter" _id="a07" _text="자외선차단" class="round_square" /></li>
+              <li><Inputs _type="checkbox" _name="filter" _id="a08" _text="비건인증" class="round_square" /></li>
+            </ul>
+            <p>공병수거</p>
+            <ul class="pick_list">
+              <li><Inputs _type="checkbox" _name="filter" _id="a09" _text="공병수거 가능" class="round_square" /></li>
+            </ul>
           </div>
           <div class="modal_footer">
               <Button class="btn_big btn_reset" txt="초기화" />
@@ -133,6 +81,7 @@
       </div>
       <div class="overlay" @click="modal.close(this);"></div>
   </div>
+
   <div id="modal_staff" class="modal_wrap">
       <div class="modal_container">
           <div class="modal_header">
@@ -208,61 +157,6 @@ const props = defineProps({
   > li {
       width:25%;
       padding-left:20px;
-  }
-}
-.sortList {
-  margin-bottom:30px;
-  dt {
-    margin-bottom: 10px;
-    color: #999999;
-    font-size: 12px;
-    line-height: 1.32em;
-    letter-spacing: -0.01em;
-
-  }
-  dd {
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      li {
-        label {
-          padding-left: 0;
-          cursor:pointer;
-          input {
-            position: absolute;
-            z-indeX: -1;
-            opacity: 0;
-          }
-          span {
-            height: 30px;
-            padding: 0 20px;
-            color: #AAAAAA;
-            font-weight: 600;
-            font-size: 14px;
-            border-radius: 5px;
-            background-color: #F5F5F5;
-            line-height: 1.29em;
-            letter-spacing: -0.01em;
-            display: flex;
-            align-items: center;
-            &.active {
-              color: #FFFFFF;
-              background:#00BC70;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-.modal_wrap#modal_search {
-  .modal_content {
-    padding-bottom:0;
-  }
-  .modal_footer {
-    padding-top: 0;
   }
 }
 

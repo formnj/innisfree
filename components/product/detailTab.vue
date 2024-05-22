@@ -60,7 +60,7 @@ const tabContShow = (e) => {
     const contsTop = tabConts[tabIdx].getBoundingClientRect().y + window.pageYOffset - contPadding;
     window.scrollTo({ top: contsTop, behavior: 'smooth' });
   } else if (tabIdx == 3) {
-    modal.open('prod_qna_wrap', 'full');
+    modal.open('prod_qna_wrap', 'full prod_qna_wrap');
   }
 }
 </script>

@@ -223,6 +223,7 @@
   </div>
   <!-- 쇼케이스 전체보기 모달 -->
 
+  <ProductListCartModal /><!-- 장바구니/바로구매 모달 -->
 </template>
 
 <script setup>

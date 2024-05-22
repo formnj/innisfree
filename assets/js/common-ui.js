@@ -2,7 +2,6 @@
 export const modal = {
   open: (_target, _type) => {
     document.getElementById(_target).className = 'modal_wrap active '+_type;
-    // document.getElementById(_target).classList.add('active');
     const body = document.querySelector("body");
     const pageY = document.body.scrollTop || document.documentElement.scrollTop;
 
