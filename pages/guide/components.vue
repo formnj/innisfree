@@ -365,6 +365,9 @@
 
   <section>
     <h2>swiper</h2>
+    <ul class="explain">
+      <li><NuxtLink :to="'https://swiperjs.com/vue'" target="_blank">[API] https://swiperjs.com/vue</NuxtLink></li>
+    </ul>
     <div class="design_box">
       <swiper :slides-per-view="'auto'" :space-between="40" :loop="true" navigation :pagination="pagination"
         @swiper="onSwiper" @slideChange="onSlideChange" :centered-slides="true" :slides-offset-before="-310">
