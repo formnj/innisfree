@@ -20,7 +20,7 @@
         <button type="button">답글 2개 더보기</button>
       </div>
     </div>
-    <button type="button" class="btn_reply_menu" @click="modal.open('modal_reply_menu', 'layer');modalPositioning();">답글 메뉴</button>
+    <button type="button" class="btn_reply_menu" @click="modal.open('modal_reply_menu', 'layer modal_reply_menu');modalPositioning();">답글 메뉴</button>
   </div>
 </template>
 <script setup>
@@ -31,7 +31,7 @@ const props = defineProps({
 const modalPositioning = () => {
   const top = window.scrollY + event.target.getBoundingClientRect().top;
   const right = window.outerWidth - event.target.getBoundingClientRect().left + 80; //80은 modal_reply_menu의 너비
-  document.getElementById('modal_reply_menu').style.cssText="top:" + top + "px;left:unset;right:" + right + "px;bottom:unset;"
+  document.getElementsByClassName('modal_reply_menu')[0].style.cssText="top:" + top + "px;left:unset;right:" + right + "px;bottom:unset;"
 }
 </script>
 <style lang="scss" scoped>
@@ -138,7 +138,7 @@ const modalPositioning = () => {
     background: url('~/assets/mo_images/common/icon_split.png') -21rem -7rem / 25rem auto no-repeat;
     position: absolute;
     top: 2rem;
-    right: 1.6rem;
+    right: .4rem;
   }
 }
 </style>

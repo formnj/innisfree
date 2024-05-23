@@ -5,12 +5,22 @@
       <h3>마이샵이란?</h3>
       <p>내가 선택하는 ‘나의 단골매장’으로<br>내 단골 매장 서비스 소식을 받아보실 수 있습니다.</p>
       <Button class="btn_mid confirm" txt="위치기반 서비스 동의 모달(확인용)" @click="modal.open('alert_myshop_agree', 'alert');" />
-      <Button class="btn_mid confirm" txt="마이샵 등록하기" @click="modal.open('modal_pick_my_shop', 'fullMo');" />
+      <Button class="btn_mid confirm" txt="마이샵 등록하기" @click="modal.open('modal_pick_my_shop', 'fullMo modal_pick_my_shop');" />
     </div>
     <div class="my_shop"> <!-- 폐점일 경우 closed 클래스 추가-->
       <dl>
         <dt>등록된 마이샵
-          <button type="button" class="btn_dot_menu" @click="modal.open('modal_my_shop_menu','layer');modalPositioning();">마이샵 메뉴</button>
+          <button type="button" class="btn_dot_menu" @click="modal.open('modal_my_shop_menu','layer');">마이샵 메뉴</button>
+          <div id="modal_my_shop_menu" class="modal_wrap"><!-- 마이샵 메뉴 -->
+            <div class="modal_container">
+              <ul class="dot_menu">
+                <li><button type="button" class="btn_single_menu">변경</button></li>
+                <li><button type="button" class="btn_single_menu" @click="modal.open('alert_myshop_del', 'alert')">1개월 전(확인용)</button></li>
+                <li><button type="button" class="btn_single_menu" @click="modal.open('alert_myshop_del2', 'alert')">삭제</button></li>
+              </ul>
+            </div>
+            <div class="overlay" @click="modal.close(this);"></div>
+          </div><!-- //마이샵 메뉴 -->
         </dt>
         <dd class="no_shop">등록된 매장이 없습니다.</dd><!-- 등록된 매장이 없을 경우 -->
         <!-- 등록 매장-->
@@ -61,20 +71,6 @@
     </ul>
   </div>
 </div>
-
- <!-- 마이샵 메뉴 -->
- <div id="modal_my_shop_menu" class="modal_wrap">
-  <div class="modal_container">
-    <ul class="dot_menu">
-      <li><button type="button" class="btn_single_menu">변경</button></li>
-      <li><button type="button" class="btn_single_menu" @click="modal.open('alert_myshop_del', 'alert')">1개월 전(확인용)</button></li>
-      <li><button type="button" class="btn_single_menu" @click="modal.open('alert_myshop_del2', 'alert')">삭제</button></li>
-    </ul>
-  </div>
-  <div class="overlay" @click="modal.close(this);"></div>
-</div>
-<!-- //마이샵 메뉴 -->
-
 <!-- 마이샵 등록하기 -->
 <div id="modal_pick_my_shop" class="modal_wrap">
   <div class="modal_container">
@@ -87,7 +83,7 @@
         <div class="title">
           <h3><em>최근 방문한 매장</em></h3>
         </div>
-        <ul class="pick_list">
+        <ul class="pick_shop_list">
           <li v-for="(item, idx) in shop_list.slice(0, 1)" :key="idx">
             <input :id="'shop0'+idx" type="radio" name="shop0">
             <label :for="'shop0'+idx">
@@ -104,7 +100,7 @@
           <p>위치서비스를 이용할 수 없습니다.<br>앱관리 > 이니스프리 > 위치서비스 상태를 변경해주세요.</p>
           <Button class="btn_outline" txt="설정페이지로 이동" />
         </div>
-        <ul class="pick_list">
+        <ul class="pick_shop_list">
           <li v-for="(item, idx) in shop_list.slice(0, 2)" :key="idx">
             <input :id="'shop1'+idx" type="radio" name="shop1">
             <label :for="'shop1'+idx">
@@ -142,7 +138,7 @@
         <div class="no_content">
           검색된 매장이 없습니다.
         </div>
-        <ul class="pick_list">
+        <ul class="pick_shop_list">
           <li v-for="(item, idx) in shop_list.slice(0, 2)" :key="idx">
             <input :id="'shop3'+idx" type="radio" name="shop3">
             <label :for="'shop3'+idx">
@@ -272,11 +268,6 @@ import { shop_list } from '~/test/data/publish/dummyData'
 definePageMeta({
   layout:'mo-sub'
 });
-const modalPositioning = () => {
-  const top = window.scrollY + event.target.getBoundingClientRect().top;
-  const right = window.outerWidth - event.target.getBoundingClientRect().left + 80; //80은 modal_my_shop_menu 너비
-  document.getElementById('modal_my_shop_menu').style.cssText="top:" + top + "px;left:unset;right:" + right + "px;bottom:unset;"
-}
 
 onMounted(()=>{
   //마이샵 메뉴 외 영역 클릭 시 메뉴 닫힘
@@ -340,7 +331,7 @@ onMounted(()=>{
           background: url('~/assets/mo_images/common/icon_split.png') -21rem -7rem / 25rem auto no-repeat;
           position: absolute;
           bottom: 0;
-          right: -.8rem;
+          right: -2.2rem;
         }
 
       }
@@ -468,7 +459,7 @@ onMounted(()=>{
   }
 }
 
-#modal_pick_my_shop {
+.modal_pick_my_shop {
   section {
     &+section {
       border-top: .5rem solid #F5F5F5;
@@ -530,7 +521,7 @@ onMounted(()=>{
     }
   }
 
-  .pick_list {
+  .pick_shop_list {
     li {
       display: flex;
       gap: 1rem;
@@ -557,8 +548,8 @@ onMounted(()=>{
 
         &:before {
           content:'';
-          width:20px;
-          height:20px;
+          width:2rem;
+          height:2rem;
           background-color:#DDD;
           border-radius:50%;
           box-sizing:border-box;
@@ -569,14 +560,14 @@ onMounted(()=>{
 
         &:after {
           content:'';
-          width:8px;
-          height:8px;
+          width:1rem;
+          height:1rem;
           background-color:#FFF;
           border-radius:50%;
           box-sizing:border-box;
           position:absolute;
           top:1.9rem;
-          left:2.7rem;
+          left:2.6rem;
         }
 
         &:checked:before {

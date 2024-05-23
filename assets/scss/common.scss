@@ -520,6 +520,21 @@ html {
     .overlay {
       display:none;
     }
+
+    &.tooltip {
+      .modal_content {
+        padding: 30px 20px;
+        color: #666;
+        line-height: 1.5;
+
+        h2 {
+          margin-bottom: 10px;
+          font-weight: 600;
+          font-size: 18px;
+          color: #000;
+        }
+      }
+    }
   }
 
   &.fullMo {
@@ -615,9 +630,32 @@ html {
         padding: 40px;
         flex: 0 auto;
       }
+    }
+  }
+
+  &.filter {
+    .modal_container {
+      .modal_content {
+        p {
+          margin-bottom: 10px;
+          font-size: 12px;
+          line-height: 1.32em;
+          letter-spacing: -0.01em;
+          color: #999;
+
+          &~p {
+            margin-top:30px;
+          }
+        }
+      }
 
       .modal_footer {
-        gap: 0px !important;
+        width: 100%;
+        padding: 0;
+        gap: 0px;
+        position: absolute;
+        bottom: 10px;
+        left: 0;
       }
     }
   }
@@ -1320,4 +1358,11 @@ ul.bullet_list {
   .ar {
     margin-left:auto;
   }
+}
+
+// 체크박스 리스트 공통 스타일
+ul.pick_list {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
 }

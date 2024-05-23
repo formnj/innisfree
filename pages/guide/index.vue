@@ -160,8 +160,8 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-29/2024-04-23', worker:'이종환'
     }, {
         depth:['상품','목록','',''],
-        id:'IN_PC_PRD_01_01', status:'ing',
-        type:'', note:'2024-05-20 워싱 작업 중(장바구니 모달 포함 예정)-김나람',
+        id:'IN_PC_PRD_01_01', status:'com',
+        type:'', note:'2024-05-21 장바구니 모달 포함, 이후 디자인 확인 필요(김나람)',
         sDate:'', eDate:'2024-04-24/2024-04-09', worker:'김희경'
     }, {
         depth:['','상세','',''],
@@ -452,12 +452,12 @@ const PC_arry = ([
         depth:['','FAQ','',''],
         id:'IN_PC_MYP_01_91', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-17', worker:'형민우'
+        sDate:'', eDate:'2024-05-17/2024-05-16', worker:'형민우'
     }, {
         depth:['','공지사항','',''],
-        id:'IN_PC_MYP_01_92', status:'ing',
+        id:'IN_PC_MYP_01_92', status:'com',
         type:'', note:'목록/상세',
-        sDate:'', eDate:'2024-05-24', worker:'형민우'
+        sDate:'', eDate:'2024-05-24/2024-05-21', worker:'형민우'
     }, {
         depth:['','전자공고','',''],
         id:'IN_PC_MYP_01_93', status:'',
@@ -674,8 +674,8 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-24/2024-05-08', worker:'형민우'
     }, {
         depth:['상품','목록','',''],
-        id:'IN_MO_PRD_01_01', status:'ing',
-        type:'', note:'2024-05-20 워싱 작업 중(장바구니 모달 포함 예정)-김나람',
+        id:'IN_MO_PRD_01_01', status:'com',
+        type:'', note:'2024-05-21 장바구니 모달 포함(김나람)',
         sDate:'', eDate:'2024-04-24/2024-04-11', worker:'김희경'
     }, {
         depth:['','상세','',''],
@@ -836,7 +836,7 @@ const MO_arry = ([
         depth:['','임직원 인증/해제','',''],
         id:'IN_MO_MYP_01_28', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-17', worker:'형민우'
+        sDate:'', eDate:'2024-05-17/2024-05-16', worker:'형민우'
     }, {
         depth:['','참여한 이벤트 내역','체험단/키트 신청내역',''],
         id:'IN_MO_MYP_01_29', status:'',
@@ -982,12 +982,12 @@ const MO_arry = ([
         depth:['','FAQ','',''],
         id:'IN_MO_MYP_01_91', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-17', worker:'형민우'
+        sDate:'', eDate:'2024-05-17/2024-05-16', worker:'형민우'
     }, {
         depth:['','공지사항','',''],
         id:'IN_MO_MYP_01_92', status:'com',
         type:'', note:'목록/상세',
-        sDate:'', eDate:'2024-05-24', worker:'형민우'
+        sDate:'', eDate:'2024-05-24/2024-05-21', worker:'형민우'
     }, {
         depth:['','전자공고','',''],
         id:'IN_MO_MYP_01_93', status:'',

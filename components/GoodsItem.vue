@@ -9,8 +9,8 @@
       </a>
       <ul class="btnIconBox">
         <li><Button class="btn_heart" /></li>
-        <li><Button class="btn_cart" @click="modal.open('modal_cart', 'alert');" /></li>
-        <li><Button class="btn_buy" /></li>
+        <li><Button class="btn_cart" @click="modal.open('modal_cart', 'alert modal_cart');" /></li>
+        <li><Button class="btn_buy" @click="modal.open('modal_cart', 'alert modal_cart');" /></li>
       </ul>
     </div>
     <a :href="props.link">
@@ -67,7 +67,7 @@ import { modal } from '~/assets/js/common-ui.js'
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .goods_item {
   a {
     display:block;
@@ -164,7 +164,7 @@ import { modal } from '~/assets/js/common-ui.js'
           justify-content:space-around;
           transform:translateY(100%);
           transition:transform 0.3s ease-out;
-          button {
+          :deep(button) {
               height:auto;
               padding:14px 5px;
               font-size:0;

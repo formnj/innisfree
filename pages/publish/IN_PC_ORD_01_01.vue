@@ -16,165 +16,154 @@
       </div>
       <div class="table_wrap">
         <table>
-            <caption>주문/배송정보</caption>
-            <colgroup>
-                <col style="width:170px;">
-            </colgroup>
-            <tbody>
-                <tr>
-                  <th><em>*</em>주문자</th>
-                  <td>
-                    <Inputs _type="text" />
-                  </td>
-                </tr>
-                <tr>
-                  <th><em>*</em>연락처</th>
-                  <td class="ord_sms">
-                      <div>
-                        <Selectbox
-                              :options="[
-                              { val: 'value', txt: '010' },
-                              { val: 'value', txt: '011' }
-                          ]" />
-                          <span>-</span>
-                          <Inputs _type="text" _placeholder="" value="1234"/>
-                          <span>-</span>
-                          <Inputs _type="text" _placeholder="" value="5678"/>
-                      </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th>
-                      <em>*</em>
-                      <span>이메일</span>
-                  </th>
-                  <td class="ord_email">
-                    <Inputs _type="text" _placeholder="aaa@rianag.com" />
-                  </td>
-                </tr>
-                <tr>
-                  <th>
-                      <span>배송지 작성</span>
-                  </th>
-                  <td>
-                    <div class="deliveryList">
-                      <p class="btn_wrap">
-                        <Button  class="btn_outline" txt="새로운 배송지" @click="change($event)" />
-                        <Button  class="btn_outline" txt="배송지 관리" @click="modal.open('add_list_modal', 'alert');" />
-                      </p>
-                      <div class="list">
-                        <dl>
-                          <dt>
-                            <Inputs _type="radio" _text="" />
-                          </dt>
-                          <dd>
-                            <span>
-                              김이나 010-1234-5678
-                              <em>기본배송지</em>
-                            </span>
-                            서울특별시 리앙에이지
-                          </dd>
-                        </dl>
-                      </div>
-                      <Inputs _type="checkbox" _text="안심번호 서비스 사용" />
-                    </div>
-                    <div class="new_address">
+          <caption>주문/배송정보</caption>
+          <colgroup>
+            <col style="width:170px;">
+          </colgroup>
+          <tbody>
+            <tr>
+              <th><em>*</em>주문자</th>
+              <td>
+                <Inputs _type="text" />
+              </td>
+            </tr>
+            <tr>
+              <th><em>*</em>연락처</th>
+              <td class="ord_sms">
+                <div>
+                  <Selectbox
+                  :options="[
+                      { val: 'value', txt: '010' },
+                      { val: 'value', txt: '011' }
+                  ]" />
+                  <span>-</span>
+                  <Inputs _type="text" _placeholder="" value="1234" />
+                  <span>-</span>
+                  <Inputs _type="text" _placeholder="" value="5678" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <em>*</em>
+                <span>이메일</span>
+              </th>
+              <td class="ord_email">
+                <Inputs _type="text" _placeholder="aaa@rianag.com" />
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <span>배송지 작성</span>
+              </th>
+              <td>
+                <div class="deliveryList">
+                  <p class="btn_wrap">
+                    <Button class="btn_outline" txt="새로운 배송지" @click="change($event)" />
+                    <Button class="btn_outline" txt="배송지 관리" @click="modal.open('add_list_modal', 'alert add_list_modal');" />
+                  </p>
+                  <div class="list">
+                    <dl>
+                      <dt>
+                        <Inputs _type="radio" _text="" />
+                      </dt>
+                      <dd>
+                        <span>
+                          김이나 010-1234-5678
+                          <em>기본배송지</em>
+                        </span>
+                        서울특별시 리앙에이지
+                      </dd>
+                    </dl>
+                  </div>
+                  <Inputs _type="checkbox" _text="안심번호 서비스 사용" />
+                </div>
+                <div class="new_address">
+                  <p>
+                    <Inputs _type="checkbox" _text="배송지 목록에 추가" />
+                    <Inputs _type="checkbox" _text="기본 배송지로 등록" />
+                    <Button class="btn_min_outline" txt="입력취소" @click="change_res($event)" />
+                  </p>
+                  <ul>
+                    <li>
+                      <span>배송지명</span>
                       <p>
-                        <Inputs _type="checkbox" _text="배송지 목록에 추가" />
-                        <Inputs _type="checkbox" _text="기본 배송지로 등록" />
-                        <Button class="btn_min_outline" txt="입력취소" @click="change_res($event)" />
+                        <Inputs _type="text" _placeholder="최대 10자까지 입력가능" />
                       </p>
-                      <ul>
-                        <li>
-                          <span>배송지</span>
-                          <p>
-                            <Inputs _type="text" _placeholder="최대 10자까지 입력가능" />
-                          </p>
-                        </li>
-                        <li>
-                          <span>받으실분</span>
-                          <p>
-                            <Inputs _type="text" _placeholder="최대 10자까지 입력가능" />
-                          </p>
-                          <Inputs _type="checkbox" _text="주문자 정보와 동일" />
-                        </li>
-                        <li>
-                          <span>주소</span>
-                          <div class="multi_form">
-                            <Inputs _type="text" _placeholder="문구를 입력해주세요" />
-                            <Button  class="btn_outline" txt="우편번호 검색"/>
-                            <Button  class="btn_outline" txt="CU 편의점 찾기"/>
-                            <Button  class="btn_outline" txt="GS 편의점 찾기"/>
-                          </div>
-                          <Inputs _type="text" _placeholder="" />
-                          <Inputs _type="text" _placeholder="" />
-                          <a href="#none" @mouseover="[modal.open('shippingArmyInfo','layer'),]" >군부대 배송안내</a>
-                        </li>
-                        <li>
-                          <span>휴대폰 번호</span>
-                          <div class="phone_wrap">
-                            <Selectbox
-                                  :options="[
-                                  { val: 'value', txt: '010' },
-                                  { val: 'value', txt: '011' }
-                              ]" />
-                              <em>-</em>
-                              <Inputs _type="text" _placeholder="" value="1234"/>
-                              <em>-</em>
-                              <Inputs _type="text" _placeholder="" value="5678"/>
-                          </div>
-                          <div class="checkbox_wrap">
-                            <Inputs _type="checkbox" _text="안심번호 서비스 사용" /><Icons class="tooltip" @click="modal.open('layerTooltip', 'layer');"/>
-                            <div class="modal_wrap" id="layerTooltip">
-                              <div class="modal_container">
-                                  <div class="modal_header">
-                                      <h2>안심번호 서비스 안내</h2>
-                                      <button class="btn_close" @click="modal.close(this);">닫기</button>
-                                  </div>
-                                  <div class="modal_content">
-                                    <span>
-                                      고객님의 실제 휴대폰번호와 연락처가 노출되지<br>
-                                      않도록 1회성 임시번호(050-000-0000)를 제공하는<br>
-                                      서비스 입니다.
-                                    </span>
-                                    <ul class="bullistType_01">
-                                      <li>
-                                        판매자/택배사에 안심번호로 전달되므로 개인정보
-                                        유출을 사전에 방지할 수 있습니다.
-                                        (택배상자에 안심번호 표시)
-                                      </li>
-                                      <li>배송완료 후 일정시간이 지나면 안심번호는 자동으로
-                                          해제됩니다.
-                                      </li>
-                                      <li>안심번호 서비스는 LMS/MMS 사용이 불가합니다.</li>
-                                    </ul>
-                                  </div>
-                              </div>
+                    </li>
+                    <li>
+                      <span>받으실분</span>
+                      <p>
+                        <Inputs _type="text" _placeholder="최대 10자까지 입력가능" />
+                      </p>
+                      <Inputs _type="checkbox" _text="주문자 정보와 동일" />
+                    </li>
+                    <li>
+                      <span>주소</span>
+                      <div class="multi_form">
+                        <Inputs _type="text" _placeholder="문구를 입력해주세요" />
+                        <Button class="btn_outline" txt="우편번호 검색" />
+                        <Button class="btn_outline" txt="CU 편의점 찾기" />
+                        <Button class="btn_outline" txt="GS 편의점 찾기" />
+                      </div>
+                      <Inputs _type="text" _placeholder="" />
+                      <Inputs _type="text" _placeholder="" />
+                      <a href="#none" class="btn_link_arrw" @mouseover="modal.open('shippingArmyInfo','layer shippingArmyInfo tooltip');modalPositioning();">군부대 배송안내</a>
+                    </li>
+                    <li>
+                      <span>휴대폰 번호</span>
+                      <div class="phone_wrap">
+                        <Selectbox
+                        :options="[
+                            { val: 'value', txt: '010' },
+                            { val: 'value', txt: '011' }
+                        ]" />
+                        <em>-</em>
+                        <Inputs _type="text" _placeholder="" value="1234" />
+                        <em>-</em>
+                        <Inputs _type="text" _placeholder="" value="5678" />
+                      </div>
+                      <div class="checkbox_wrap">
+                        <Inputs _type="checkbox" _text="안심번호 서비스 사용" />
+                        <Icons class="tooltip" @click="modal.open('layer_safe_number', 'layer tooltip layer_safe_number');" />
+                        <div id="layer_safe_number" class="modal_wrap">
+                          <div class="modal_container">
+                            <button class="btn_close" @click="modal.close(this);">닫기</button>
+                            <div class="modal_content">
+                              <h2>안심번호 서비스 안내</h2>
+                              <p>고객님의 실제 휴대폰번호와 연락처가 노출되지<br>않도록 1회성 임시번호(050-000-0000)를 제공하는<br>서비스 입니다.</p>
+                              <ul class="bul_list">
+                                <li>판매자/택배사에 안심번호로 전달되므로 개인정보<br>유출을 사전에 방지할 수 있습니다.(택배상자에 안심번호 표시)</li>
+                                <li>배송완료 후 일정시간이 지나면 안심번호는 자동으로<br>해제됩니다.</li>
+                                <li>안심번호 서비스는 LMS/MMS 사용이 불가합니다.</li>
+                              </ul>
                             </div>
                           </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                    <th>
-                        <span>배송 요청사항</span>
-                    </th>
-                    <td class="shippingMsg">
-                      <Selectbox
-                          :options="[
-                          { val: 'value', txt: '배송 요청사항을 선택 해주세요.' },
-                          { val: 'value', txt: '부재시 경비(관리)실에 맡겨주세요.' },
-                          { val: 'value', txt: '부재시 문앞에 놓아주세요.' },
-                          { val: 'value', txt: '파손의 위험이 있는 상품이 있으니, 배송에 주의해주세요.' },
-                          { val: 'value', txt: '배송전에 연락주세요.' },
-                          { val: 'value', txt: '메시지 직접 입력' },
-                      ]" />
-                      <Inputs _type="text" _placeholder="배송 요청사항을 입력해주세요. (최대 45자까지 입력가능)" />
-                    </td>
-                </tr>
-            </tbody>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <span>배송 요청사항</span>
+              </th>
+              <td class="shippingMsg">
+                <Selectbox
+                :options="[
+                    { val: 'value', txt: '배송 요청사항을 선택 해주세요.' },
+                    { val: 'value', txt: '부재시 경비(관리)실에 맡겨주세요.' },
+                    { val: 'value', txt: '부재시 문앞에 놓아주세요.' },
+                    { val: 'value', txt: '파손의 위험이 있는 상품이 있으니, 배송에 주의해주세요.' },
+                    { val: 'value', txt: '배송전에 연락주세요.' },
+                    { val: 'value', txt: '메시지 직접 입력' },
+                ]" />
+                <Inputs _type="text" _placeholder="배송 요청사항을 입력해주세요. (최대 45자까지 입력가능)" />
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </section>
@@ -321,25 +310,21 @@
       </div>
       <article>
         <em>친환경 종이 완충재로 포장하여 안전하게 보내드립니다.</em>
-        <Icons class="tooltip" @click="modal.open('ecoTooltip', 'layer');"/>
-        <div class="modal_wrap" id="ecoTooltip">
+        <Icons class="tooltip" @click="modal.open('ecoTooltip', 'layer tooltip');" />
+        <div id="ecoTooltip" class="modal_wrap">
           <div class="modal_container">
-              <div class="modal_header">
-                  <h2>이니스프리 배송 포장재 안내</h2>
-                  <button class="btn_close" @click="modal.close(this);">닫기</button>
-              </div>
-              <div class="modal_content">
-                <span>
-                  이니스프리는 환경을 생각하는 마음으로,<br>
-                  일반 플라스틱 완충제(에어캡) 대신 친환경 종이<br>
-                  완충제(FSC인증)로 제품을 보호하고 있습니다.
-                </span>
-                <ul class="bullistType_01">
-                  <li>
-                    업체 배송 및 일부 제품 제외
-                  </li>
-                </ul>
-              </div>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+            <div class="modal_content">
+              <h2>이니스프리 배송 포장재 안내</h2>
+              <span>
+                이니스프리는 환경을 생각하는 마음으로,<br>
+                일반 플라스틱 완충제(에어캡) 대신 친환경 종이<br>
+                완충제(FSC인증)로 제품을 보호하고 있습니다.
+              </span>
+              <ul class="bul_list">
+                <li>업체 배송 및 일부 제품 제외</li>
+              </ul>
+            </div>
           </div>
         </div>
       </article>
@@ -353,43 +338,44 @@
       </div>
       <div class="table_wrap">
         <table>
-            <caption>쿠폰/포인트 적용</caption>
-            <colgroup>
-                <col style="width:214px;">
-                <col style="">
-            </colgroup>
-            <tbody>
-                <tr>
-                    <th>
-                      쿠폰 (<span>사용 가능한 쿠폰</span><em>0장</em>)
-                    </th>
-                    <td>
-                      <Selectbox
-                            :options="[
-                            { val: 'value', txt: '적용 가능한 쿠폰이 없습니다.' },
-                            { val: 'value', txt: '옵션02' }
-                        ]" />
-                      <Selectbox
-                            :options="[
-                            { val: 'value', txt: '적용 가능한 더블쿠폰이 없습니다.' },
-                            { val: 'value', txt: '옵션02' }
-                        ]" />
-                      <ul class="bullistType_01">
-                        <li>쿠폰은 조건에 따라 적용이 되지 않을 수 있습니다.</li>
-                        <li>쿠폰 사용 후, 최종 결제 금액에 대하여 뷰티포인트가 산정/적립 됩니다. (뷰티포인트 사용분 및 배송비제외)</li>
-                        <li>쿠폰 사용 요건에 따라 사은품이 지급되지 않을 수 있습니다. 최종 주문 완료 후, &lt;마이페이지-주문내역-사은품 목록&gt; 에서사은품 내역을 반드시 확인해주세요.</li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>뷰티포인트</th>
-                    <td>
-                      <div>
-                        사용가능 <strong>0</strong>P / 보유 <strong>0</strong> P <Inputs _type="text" _placeholder="" value="0" /> P <Button txt="모두사용" class="btn_outline" />
-                      </div>
-                    </td>
-                  </tr>
-            </tbody>
+          <caption>쿠폰/포인트 적용</caption>
+          <colgroup>
+            <col style="width:214px;">
+            <col style="">
+          </colgroup>
+          <tbody>
+            <tr>
+              <th>
+                쿠폰 (<span>사용 가능한 쿠폰</span><em>0장</em>)
+              </th>
+              <td>
+                <Selectbox
+                :options="[
+                  { val: 'value', txt: '적용 가능한 쿠폰이 없습니다.' },
+                  { val: 'value', txt: '옵션02' }
+                ]" />
+                <Selectbox
+                :options="[
+                  { val: 'value', txt: '적용 가능한 더블쿠폰이 없습니다.' },
+                  { val: 'value', txt: '옵션02' }
+                ]" />
+                <ul class="bullistType_01">
+                  <li>쿠폰은 조건에 따라 적용이 되지 않을 수 있습니다.</li>
+                  <li>쿠폰 사용 후, 최종 결제 금액에 대하여 뷰티포인트가 산정/적립 됩니다. (뷰티포인트 사용분 및 배송비제외)</li>
+                  <li>쿠폰 사용 요건에 따라 사은품이 지급되지 않을 수 있습니다. 최종 주문 완료 후, &lt;마이페이지-주문내역-사은품 목록&gt; 에서사은품 내역을 반드시 확인해주세요.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>뷰티포인트</th>
+              <td>
+                <div>
+                  사용가능 <strong>0</strong>P / 보유 <strong>0</strong> P
+                  <Inputs _type="text" _placeholder="" value="0" /> P <Button txt="모두사용" class="btn_outline" />
+                </div>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </section>
@@ -441,19 +427,21 @@
         <ul class="cart_list type_default">
           <li>
             <div class="row">
-              <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" @change="radioChk = 'card'" _checked/><!-- [Tip] change되었을 때, 변수값을 지정해준 값으로 변경해준다. -->
-              <Inputs _type="radio" _text="원클릭 결제" _name="pay_method" @change="radioChk = 'onclick'"/>
-              <Inputs _type="radio" _text="다른 결제 수단" _name="pay_method" @change="radioChk = 'other'"/>
+              <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" _checked @change="radioChk = 'card'" />
+              <!-- [Tip] change되었을 때, 변수값을 지정해준 값으로 변경해준다. -->
+              <Inputs _type="radio" _text="원클릭 결제" _name="pay_method" @change="radioChk = 'onclick'" />
+              <Inputs _type="radio" _text="다른 결제 수단" _name="pay_method" @change="radioChk = 'other'" />
             </div>
           </li>
         </ul>
       </div>
-      <article class="method_card" :class="{ active: radioChk == 'card' }"><!-- 활성화된 article에 active 클래스 추가 --><!-- [Tip] 라디오버튼이 change되어 변경된 변수값을 확인하여 해당 article에 active 클래스를 활성화 시킴 -->
+      <article class="method_card" :class="{ active: radioChk == 'card' }">
+        <!-- 활성화된 article에 active 클래스 추가 --><!-- [Tip] 라디오버튼이 change되어 변경된 변수값을 확인하여 해당 article에 active 클래스를 활성화 시킴 -->
         <ul>
-          <li v-for="(item, idx) in bank_info" :key="idx" :id="item.li_id">
-            <input type="radio" name="cardList" :id="item.input_id">
+          <li v-for="(item, idx) in bank_info" :id="item.li_id" :key="idx">
+            <input :id="item.input_id" type="radio" name="cardList">
             <label :for="item.label_for">{{ item.name }}</label>
-				  </li>
+          </li>
         </ul>
         <a href="#none">무이자 할부 안내</a>
         <p class="tosspay">
@@ -474,11 +462,11 @@
       </article>
       <article class="method_other" :class="{ active: radioChk == 'other' }">
         <ul>
-          <li v-for="(item, idx) in etc_info" :key="idx" :id="item.li_id" @change="orderChk = item.class">
-            <input type="radio" name="etcList" :id="item.input_id" :checked="item.checked">
+          <li v-for="(item, idx) in etc_info" :id="item.li_id" :key="idx" @change="orderChk = item.class">
+            <input :id="item.input_id" type="radio" name="etcList" :checked="item.checked">
             <label :for="item.label_for"><span>{{item.text}}</span></label>
 
-            <div class="discount_txt" v-if="item.discont_txt">{{ item.discont_txt }}</div>
+            <div v-if="item.discont_txt" class="discount_txt">{{ item.discont_txt }}</div>
           </li>
         </ul>
         <div class="other_cont">
@@ -523,7 +511,7 @@
               </ul>
             </div>
           </div>
-          <div class="kb" :class="{ active: orderChk == 'kb' }" >
+          <div class="kb" :class="{ active: orderChk == 'kb' }">
             <div class="discount_info">
               <h4>KB페이 결제 혜택</h4>
               <ul class="bullistType_01">
@@ -567,13 +555,13 @@
               <dt>카드 선택</dt>
               <dd>
                 <Selectbox
-                    :options="[
-                    { val: 'value', txt: '선택' },
-                    { val: 'value', txt: '국민' },
-                    { val: 'value', txt: '신한' },
-                    { val: 'value', txt: '삼성' },
-                    { val: 'value', txt: '롯데' },
-                    { val: 'value', txt: 'KEB하나' },
+                :options="[
+                  { val: 'value', txt: '선택' },
+                  { val: 'value', txt: '국민' },
+                  { val: 'value', txt: '신한' },
+                  { val: 'value', txt: '삼성' },
+                  { val: 'value', txt: '롯데' },
+                  { val: 'value', txt: 'KEB하나' },
                 ]" />
                 <a href="#none">무이자 할부 안내</a>
               </dd>
@@ -610,236 +598,229 @@
 
 
   <!-- modal -->
-  <div class="modal_wrap" id="delete_modal">
+  <div id="delete_modal" class="modal_wrap">
     <div class="modal_container">
-        <div class="modal_header">
-            <h2>배송지 관리</h2>
-            <button class="btn_close" @click="modal.close(this);">닫기</button>
-        </div>
-        <div class="modal_content">
-            <div>배송지를 삭제 하시겠습니까?</div>
-        </div>
-        <div class="modal_footer">
-            <Button class="btn_ confirm" txt="확인" @click="close($event);"/>
-            <Button txt="취소" @click="[modal.close(this), close($event)];"/>
-        </div>
+      <div class="modal_header">
+        <h2>배송지 관리</h2>
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+      </div>
+      <div class="modal_content">
+        <div>배송지를 삭제 하시겠습니까?</div>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_ confirm" txt="확인" @click="close($event);" />
+        <Button txt="취소" @click="[modal.close(this), close($event)];" />
+      </div>
     </div>
     <div class="overlay" @click="[modal.close(this)], close($event);"></div>
   </div>
 
-  <div class="modal_wrap" id="add_list_modal">
+  <div id="add_list_modal" class="modal_wrap">
     <div class="modal_container">
-        <div class="modal_header">
-            <h2>배송지 목록</h2>
-            <button class="btn_close" @click="modal.close(this);">닫기</button>
+      <div class="modal_header">
+        <h2>배송지 목록</h2>
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+      </div>
+      <div class="modal_content">
+        <div class="list">
+          <dl>
+            <dt>
+              <Inputs _type="radio" _text="" _name="address" />
+            </dt>
+            <dd>
+              <span>
+                김이나 010-1234-5678
+                <em>기본배송지</em>
+              </span>
+              서울특별시 리앙에이지
+            </dd>
+            <dd class="btn_wrap">
+              <Button class="btn_outline" txt="수정" @click="[modal.open('adress_manage', 'alert adress_manage'), ord_addr_more($event)]" />
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <Inputs _type="radio" _text="" _name="address" />
+            </dt>
+            <dd>
+              <span>
+                김이나 010-1234-5678
+                <em>기본배송지</em>
+              </span>
+              서울특별시 리앙에이지
+            </dd>
+            <dd class="btn_wrap">
+              <Button class='btn_outline' txt="수정" @click="[modal.open('adress_manage', 'alert adress_manage'), ord_addr_more($event)]" />
+              <Button class='btn_outline' txt="삭제" @click="[modal.open('delete_modal', 'alert'), ord_addr_more($event)]" />
+            </dd>
+          </dl>
         </div>
-        <div class="modal_content">
-          <div class="list">
-            <dl>
-              <dt>
-                <Inputs _type="radio" _text="" _name="address"/>
-              </dt>
-              <dd>
-                <span>
-                  김이나 010-1234-5678
-                  <em>기본배송지</em>
-                </span>
-                서울특별시 리앙에이지
-              </dd>
-              <dd class="btn_wrap">
-                <Button class='btn_outline' txt="수정" @click="[modal.open('adress_modify_modal', 'alert'), ord_addr_more($event)]"/>
-              </dd>
-            </dl>
-            <dl>
-              <dt>
-                <Inputs _type="radio" _text="" _name="address" />
-              </dt>
-              <dd>
-                <span>
-                  김이나 010-1234-5678
-                  <em>기본배송지</em>
-                </span>
-                서울특별시 리앙에이지
-              </dd>
-              <dd class="btn_wrap">
-                <Button class='btn_outline' txt="수정" @click="[modal.open('adress_modify_modal', 'alert'), ord_addr_more($event)]"/>
-                <Button class='btn_outline' txt="삭제" @click="[modal.open('delete_modal', 'alert'), ord_addr_more($event)]"/>
-              </dd>
-            </dl>
-          </div>
-        </div>
-        <div class="modal_footer">
-            <Button class="btn_ bg_type_02" txt="이번만 배송지 변경" />
-            <Button txt="배송지 추가" @click="[modal.open('adress_add_modal', 'alert'), ord_addr_more($event) ]" />
-            <Button class="btn_ confirm" txt="기본 배송지로 설정" />
-        </div>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_ bg_type_02" txt="이번만 배송지 변경" />
+        <Button txt="배송지 추가" @click="modal.open('adress_manage', 'alert adress_manage');" />
+        <Button class="btn_ confirm" txt="기본 배송지로 설정" />
+      </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
 
-  <div class="modal_wrap" :id="item.modal_id" v-for="(item, idx) in Delivery_data" :key="idx">
+  <div id="adress_manage" class="modal_wrap">
     <div class="modal_container">
-        <div class="modal_header">
-            <h2>배송지 관리</h2>
-            <button class="btn_close" @click="[modal.close(this), close($event)];">닫기</button>
+      <div class="modal_header">
+        <h2>배송지 관리</h2>
+        <button class="btn_close" @click="[modal.close(this), close($event)];">닫기</button>
+      </div>
+      <div class="modal_content">
+        <Inputs _type="checkbox" _text="내 우편수신처 불러오기(선택)" />  <!-- 배송지 관리 > 배송지 추가일 때만 노출 -->
+        <div class="table_wrap">
+          <table>
+            <caption>배송지 관리</caption>
+            <colgroup>
+              <col style="width:170px;">
+            </colgroup>
+            <tbody>
+              <tr>
+                <th>
+                  <em>*</em>
+                  <span>배송지명</span>
+                </th>
+                <td>
+                  <Inputs _type="text" />
+                  <span class="error">배송지명을 입력해주세요</span>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <em>*</em>
+                  <span>받으실 분</span>
+                </th>
+                <td>
+                  <Inputs _type="text" />
+                  <span class="error">받으실 분을 입력해 주세요.</span>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <em>*</em>
+                  <span>주소</span>
+                </th>
+                <td class="adress">
+                  <div class="multi_form">
+                    <Inputs _type="text" _placeholder="" />
+                    <Button txt="우편번호 검색" class="btn_outline" />
+                  </div>
+                  <Inputs _type="text" _placeholder="" />
+                  <Inputs _type="text" _placeholder="" />
+                  <a href="#none" class="btn_link_arrw" @mouseover="modal.open('shippingArmyInfo','layer shippingArmyInfo');modalPositioning();">군부대 배송안내</a>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <em>*</em>
+                  <span>휴대폰번호</span>
+                </th>
+                <td class="ord_sms">
+                  <div>
+                    <Selectbox
+                    :options="[
+                      { val: 'value', txt: '010' },
+                      { val: 'value', txt: '012' }
+                    ]" />
+                    <span>-</span>
+                    <Inputs _type="text" _placeholder="" value="1234" />
+                    <span>-</span>
+                    <Inputs _type="text" _placeholder="" value="5678" />
+                  </div>
+                  <span class="error">휴대폰번호를 입력해 주세요.</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="checkbox_wrap">
+            <Inputs _type="checkbox" _text="개인정보 수집 동의" />
+            <a class="info_more" href="#none" @click="[modal.open('personalinfo','layer personalinfo'), adress_more($event)]">자세히보기</a>
+          </div>
+          <span class="error">개인정보 수집에 동의해주셔야 배송지 저장 가능합니다.</span>
         </div>
-        <div class="modal_content">
-          <Inputs _type="checkbox" _text="내 우편수신처 불러오기(선택)" v-if="item.check"/>
-          <div class="table_wrap">
-                <table>
-                    <caption>1:1 문의작성</caption>
-                    <colgroup>
-                        <col style="width:170px;">
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                          <th>
-                            <em>*</em>
-                            <span>배송지명</span>
-                          </th>
-                          <td>
-                            <Inputs _type="text" />
-                            <span class="error">배송지명을 입력해주세요</span>
-                          </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <em>*</em>
-                                <span>받으실 분</span>
-                            </th>
-                            <td>
-                              <Inputs _type="text" />
-                              <span class="error">받으실 분을 입력해 주세요.</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <em>*</em>
-                                <span>주소</span>
-                            </th>
-                            <td class="adress">
-                              <div class="multi_form">
-                                <Inputs _type="text" _placeholder="" />
-                                <Button txt="우편번호 검색" class="btn_outline" />
-                              </div>
-                              <Inputs _type="text" _placeholder="" />
-                              <Inputs _type="text" _placeholder="" />
-                              <a href="#none" @mouseover="[modal.open('shippingArmyInfo','layer'),]" >군부대 배송안내
-                              </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                              <em>*</em>
-                              <span>휴대폰번호</span>
-                            </th>
-                            <td class="ord_sms">
-                                <div>
-                                  <Selectbox
-                                    :options="[
-                                    { val: 'value', txt: '010' },
-                                    { val: 'value', txt: '012' }
-                                    ]" />
-                                    <span>-</span>
-                                    <Inputs _type="text" _placeholder="" value="1234"/>
-                                    <span>-</span>
-                                    <Inputs _type="text" _placeholder="" value="5678"/>
-                                </div>
-                                <span class="error">휴대폰번호를 입력해 주세요.</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <ul>
-                  <li>
-                    <Inputs _type="checkbox" _text="개인정보 수집 동의" />
-                    <a class="info_more" href="#none" @click="[modal.open('personalinfo','layer'), adress_more($event)]">자세히보기</a>
-                  </li>
-                  <li>
-                    <span class="error">개인정보 수집에 동의해주셔야 배송지 저장 가능합니다.</span>
-                  </li>
-                </ul>
-            </div>
-        </div>
-        <div class="modal_footer">
-            <Button txt="저장" class="btn_ confirm" />
-        </div>
+      </div>
+      <div class="modal_footer">
+        <Button txt="저장" class="btn_ confirm" />
+      </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
 
-  <div class="modal_wrap" id="shippingArmyInfo">
+  <div id="shippingArmyInfo" class="modal_wrap">
     <div class="modal_container">
-        <div class="modal_header">
-            <h2>군부대 배송 안내</h2>
-            <button class="btn_close" @click="modal.close(this);">닫기</button>
-        </div>
-        <div class="modal_content">
-          <p>
-            <strong>- 사서함 주소</strong>
-            <strong>- 배송지 명이 ‘부대’일 시 우체국 택배로 배송되며, 그 외에는 CJ택배로 배송됩니다.</strong>
-          </p>
-          <ol>
-            <li>우체국 택배 서비스는 군부대 배송의 경우에만 가능합니다.</li>
-            <li>수신인의 군 부대명 / 사서함 번호를 정확하게 기재하셔야 배송됩니다.</li>
-            <li><em>군 부대 발송 택배는 우체국 택배만 가능하기 때문에, 1차 CJ 택배 출고 → 2차 우체국 택배 이관 출고하여
-                최종 발송</em> 됩니다. 택배 송장 번호 확인 시, CJ 택배 송장으로 표기되며 최종 우체국 송장 번호는
-                고객 상담실로 문의 시 확인 <br>가능합니다. (1:1 상담 혹은 080 유선상담)
-                위의 특수한 배송 절차로 인해 일반 배송보다 배송일이 2~3일 정도 더 <br>소요될 수 있음을 안내 드립니다.
-            </li>
-            <li>
-              <em>군부대 배송안내에 따른 기재를 정확하게 하지 않으실 경우, 이니스프리 물류 쪽으로 다시 반입</em>되기 때문에 배송 <br>지연,
-              <em>왕복 배송비 5,000원을 입금</em>해 주셔야 합니다. '사서함 주소' 또는 '부대'를 입력해 주세요!
-            </li>
-            <li>군부대 배송건은 교환/반품접수시 부대 내 택배기사님 방문이 불가하여 직접 반품처리 해주셔야 합니다.<br>
-                이점 양해 부탁드립니다.
-            </li>
-          </ol>
-        </div>
+      <button class="btn_close" @click="modal.close(this);">닫기</button>
+      <div class="modal_content">
+        <h2>군부대 배송 안내</h2>
+        <p>
+          <strong>- 사서함 주소</strong>
+          <strong>- 배송지 명이 ‘부대’일 시 우체국 택배로 배송되며, 그 외에는 CJ택배로 배송됩니다.</strong>
+        </p>
+        <ol>
+          <li>우체국 택배 서비스는 군부대 배송의 경우에만 가능합니다.</li>
+          <li>수신인의 군 부대명 / 사서함 번호를 정확하게 기재하셔야 배송됩니다.</li>
+          <li><em>군 부대 발송 택배는 우체국 택배만 가능하기 때문에, 1차 CJ 택배 출고 → 2차 우체국 택배 이관 출고하여
+              최종 발송</em> 됩니다. 택배 송장 번호 확인 시, CJ 택배 송장으로 표기되며 최종 우체국 송장 번호는
+            고객 상담실로 문의 시 확인 <br>가능합니다. (1:1 상담 혹은 080 유선상담)
+            위의 특수한 배송 절차로 인해 일반 배송보다 배송일이 2~3일 정도 더 <br>소요될 수 있음을 안내 드립니다.
+          </li>
+          <li>
+            <em>군부대 배송안내에 따른 기재를 정확하게 하지 않으실 경우, 이니스프리 물류 쪽으로 다시 반입</em>되기 때문에 배송 <br>지연,
+            <em>왕복 배송비 5,000원을 입금</em>해 주셔야 합니다. '사서함 주소' 또는 '부대'를 입력해 주세요!
+          </li>
+          <li>군부대 배송건은 교환/반품접수시 부대 내 택배기사님 방문이 불가하여 직접 반품처리 해주셔야 합니다.<br>
+            이점 양해 부탁드립니다.
+          </li>
+        </ol>
+      </div>
     </div>
   </div>
 
-  <div class="modal_wrap" id="personalinfo">
+  <div id="personalinfo" class="modal_wrap">
     <div class="modal_container">
-        <div class="modal_header">
-            <h2>개인정보 수집동의</h2>
-            <button class="btn_close" @click="[modal.close(this), reset($event)];">닫기</button>
+      <div class="modal_header">
+        <h2>개인정보 수집동의</h2>
+        <button class="btn_close" @click="[modal.close(this), reset($event)];">닫기</button>
+      </div>
+      <div class="modal_content">
+        <p>㈜이니스프리는 다음과 같이 서비스 제공을 위한 최소한의 이용자의 개인정보를 수집 및 이용하고 있습니다.</p>
+        <div class="table_wrap">
+          <table>
+            <caption>개인정보 수집동의</caption>
+            <colgroup>
+              <col style="">
+              <col style="width:145px;">
+              <col style="width:184px">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>수집항목</th>
+                <th>수집이용/목적</th>
+                <th>이용/보유기간</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  [필수] 이름(상품수령인), 주소(상품수령지), 휴대폰번호
+                </td>
+                <td>배송지 등록 및<br>주문 편의 목적</td>
+                <td>
+                  <strong>
+                    회원탈퇴 또는<br>
+                    배송지 정보 삭제 시까지
+                  </strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="modal_content">
-          <p>㈜이니스프리는 다음과 같이 서비스 제공을 위한 최소한의 이용자의 개인정보를 수집 및 이용하고 있습니다.</p>
-          <div class="table_wrap">
-            <table>
-                <caption>개인정보 수집동의</caption>
-                <colgroup>
-                    <col style="">
-                    <col style="width:145px;">
-                    <col style="width:184px">
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th>수집항목</th>
-                        <th>수집이용/목적</th>
-                        <th>이용/보유기간</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                          [필수] 이름(상품수령인), 주소(상품수령지), 휴대폰번호
-                        </td>
-                        <td>배송지 등록 및<br>주문 편의 목적</td>
-                        <td>
-                          <strong>
-                            회원탈퇴 또는<br>
-                            배송지 정보 삭제 시까지
-                          </strong>
-                        </td>
-                      </tr>
-                </tbody>
-            </table>
-          </div>
-          <p>※ 귀하는 개인정보 수집 및 이용에 거부할 수 있습니다. 단, 거부하는 경우 제품을 구매 하실 수 없습니다.</p>
-        </div>
+        <p>※ 귀하는 개인정보 수집 및 이용에 거부할 수 있습니다. 단, 거부하는 경우 제품을 구매 하실 수 없습니다.</p>
+      </div>
     </div>
   </div>
   <!-- //modal -->
@@ -848,7 +829,7 @@
 
 <script setup>
 import { modal } from '~/assets/js/common-ui.js'
-import {Delivery_data, bank_info, etc_info} from '../../test/data/publish/dummyData'
+import { bank_info, etc_info } from '~/test/data/publish/dummyData'
 
 
 definePageMeta({
@@ -862,40 +843,36 @@ const toss_info = () => {
   window.open("https://consumer.tosspayments.com/escrow/detail?mertid=innisfree", "_blank");
 }
 
-const ord_addr_more = (event) => {
-  document.querySelector('.modal_wrap#add_list_modal').classList.remove('active')
-  document.querySelector('.modal_wrap#shippingArmyInfo').classList.remove('active')
+const ord_addr_more = () => {
+  document.querySelector('.modal_wrap.add_list_modal').classList.remove('active')
+  document.querySelector('.modal_wrap.shippingArmyInfo').classList.remove('active')
 }
-const adress_more = (event) => {
-  document.querySelector('#adress_add_modal .modal_container').style.display="none"
-  document.querySelector('#adress_modify_modal .modal_container').style.display="none"
-  document.querySelector('.modal_wrap#shippingArmyInfo').classList.remove('active')
+const adress_more = () => {
+  document.querySelector('.adress_manage .modal_container').style.display="none"
+  document.querySelector('.modal_wrap.shippingArmyInfo').classList.remove('active')
 }
-const close = (event) =>{
-  document.querySelector('.modal_wrap#add_list_modal').classList.add('active')
-}
-
-const reset = (event) => {
-  document.querySelector('#adress_add_modal .modal_container').style.display="block"
-  document.querySelector('#adress_modify_modal .modal_container').style.display="block"
-  document.querySelector('.modal_wrap#shippingArmyInfo').classList.remove('active')
+const close = () =>{
+  document.querySelector('.modal_wrap.add_list_modal').classList.add('active')
 }
 
-const change = (event) => {
+const reset = () => {
+  document.querySelector('.adress_manage .modal_container').style.display="block"
+  document.querySelector('.modal_wrap.shippingArmyInfo').classList.remove('active')
+}
+
+const change = () => {
   document.querySelector('.deliveryList').classList.add('hide')
   document.querySelector('.new_address').classList.add('active')
 }
 
-const change_res = (event) => {
+const change_res = () => {
   document.querySelector('.new_address').classList.remove('active')
   document.querySelector('.deliveryList').classList.remove('hide')
 }
 
 onMounted(() => {
-  let target = document.querySelectorAll('.board_type_toggle dt a');
-  console.log(target)
-  let rotate = document.querySelectorAll('.board_type_toggle dt a em');
-  let i
+  const target = document.querySelectorAll('.board_type_toggle dt a');
+  const rotate = document.querySelectorAll('.board_type_toggle dt a em');
   target.forEach((a,i)=>{
     a.addEventListener('click', function(){
 
@@ -910,7 +887,7 @@ onMounted(() => {
         a.parentNode.nextElementSibling.classList.add('show');
         rotate[i].classList.add('active')
         a.parentNode.nextElementSibling.style.height = 'auto'
-        var height = a.parentNode.nextElementSibling.clientHeight + 'px'
+        const height = a.parentNode.nextElementSibling.clientHeight + 'px'
         a.parentNode.nextElementSibling.style.height = '0px'
         setTimeout(() => {
           a.parentNode.nextElementSibling.style.height = height
@@ -918,8 +895,13 @@ onMounted(() => {
       }
     })
   })
-
 })
+
+const modalPositioning = () => {
+  const top = window.scrollY + event.target.getBoundingClientRect().top + event.target.getBoundingClientRect().height;
+  const left = event.target.getBoundingClientRect().left;
+  document.getElementsByClassName('shippingArmyInfo')[0].style.cssText="top:" + top + "px;left:unset;left:" + left + "px;bottom:unset;"
+}
 
 </script>
 
@@ -1065,7 +1047,7 @@ onMounted(() => {
                         display:block;
                       }
                     }
-                    ul {
+                    .new_address > ul {
                       padding:25px;
                       border:1px solid #EEE;
                       > * + * {
@@ -1107,26 +1089,13 @@ onMounted(() => {
                           }
                         }
                         a {
-                          margin-top:10px;
-                          padding: 4px 0;
                           color: #666;
                           font-size: 13px;
                           text-decoration: underline;
-                          position: relative;
-                          display: inline-block;
-                          &::after {
-                            content: "";
-                            width: 12px;
-                            height: 12px;
-                            background-image: url(~/assets/images/common/icon_split.png);
-                            background-repeat: no-repeat;
-                            background-size: 250px;
-                            background-position: -67px -146px;
-                            vertical-align: middle;
-                            position: absolute;
-                            top: 48%;
-                            right: -15px;
-                            transform: translateY(-50%) rotate(270deg) !important;
+                          &:after {
+                            width: 7px;
+                            height: 7px;
+                            border-color: #666;
                           }
                         }
                         > .phone_wrap {
@@ -1151,7 +1120,7 @@ onMounted(() => {
                           display:flex;
                           align-items:center;
                           .input_wrap {
-                            width:22% !important;
+                            width: auto;
                             margin-top:0;
                           }
                         }
@@ -1255,109 +1224,71 @@ div.list {
     }
   }
 
-
-  &#adress_add_modal{
+  &.adress_manage {
     .modal_container {
-      width:720px;
-      .modal_content {
-        .table_wrap {
-          margin-top:10px;
-          tbody {
-            tr {
-              td {
-                &.adress {
-                  > * + * {
-                    margin-top:8px;
+      width: 720px;
+
+      .input_wrap + .table_wrap {
+        margin-top: 20px;
+      }
+
+      .table_wrap {
+        tbody {
+          tr {
+            td {
+              &.adress {
+                >*+* {
+                  margin-top: 8px;
+                }
+
+                .multi_form {
+                  :deep(.input_wrap) {
+                    flex: 0 auto;
                   }
-                  .multi_form {
-                    :deep(.input_wrap) {
-                      flex:0 auto;
-                    }
-                  }
-                  > .input_wrap {
-                    width:100%;
-                  }
-                  > a {
-                    padding: 4px 0;
-                    color: #666;
-                    font-size: 13px;
-                    text-decoration: underline;
-                    position: relative;
-                    display: inline-block;
+                }
+
+                >.input_wrap {
+                  width: 100%;
+                }
+
+                >a {
+                  padding: 4px 0;
+                  color: #666;
+                  font-size: 13px;
+                  text-decoration: underline;
+                  &:after {
+                    border-color: #666;
                   }
                 }
               }
-            }
-          }
-        }
-        ul {
-          li {
-            :deep(.input_wrap){
-              flex:0 auto;
             }
           }
         }
       }
-    }
-  }
 
-  &#adress_modify_modal {
-    .modal_container {
-      width:720px;
-      .table_wrap {
-          tbody {
-            tr {
-              td {
-                &.adress {
-                  > * + * {
-                    margin-top:8px;
-                  }
-                  .multi_form {
-                    :deep(.input_wrap) {
-                      flex:0 auto;
-                    }
-                  }
-                  > .input_wrap {
-                    width:100%;
-                  }
-                  > a {
-                    padding: 4px 0;
-                    color: #666;
-                    font-size: 13px;
-                    text-decoration: underline;
-                    position: relative;
-                    display: inline-block;
-                  }
-                }
-              }
-            }
-          }
+      .checkbox_wrap {
+        margin-top: 20px;
+        display: flex;
+
+        .input_wrap {
+          flex: none;
         }
+        a {
+          margin-left:20px;
+          color:#666;
+          font-size:14px;
+          text-decoration:underline;
+        }
+      }
     }
   }
-  &#shippingArmyInfo{
+  &.shippingArmyInfo{
     z-index:15;
     &.active {
       display:block;
     }
     .modal_container {
-      max-width:640px;
-      left: 794px;
-      @media screen and (min-width:1921px) {
-        top:800px;
-      }
-      @media screen and (min-width:3840px) {
-        top:900px;
-      }
-      @media screen and (max-width:1920px) {
-        top:800px;
-      }
-      @media screen and (max-width:1280px) {
-        top:195px;
-      }
-      .modal_header {
-        border-bottom:0;
-      }
+      width:640px;
       .modal_content {
         padding:30px 20px;
         p {
@@ -1388,7 +1319,7 @@ div.list {
       }
     }
   }
-  &#personalinfo{
+  &.personalinfo{
     .modal_container {
       width:720px !important;
       position:fixed;
@@ -1445,19 +1376,6 @@ div.list {
             font-size:12px;
             display:block;
         }
-        ul {
-          margin-top:10px;
-          li {
-            display:flex;
-            align-items:center;
-            a {
-              margin-left:20px;
-              color:#666;
-              font-size:14px;
-              text-decoration:underline;
-            }
-          }
-        }
         :deep(button.btn_outline) {
           border:1px solid #000;
           box-sizing:border-box;
@@ -1471,7 +1389,7 @@ div.list {
     }
   }
 
-  &#add_list_modal {
+  &.add_list_modal {
     .modal_container {
       width:540px;
       .modal_header {
@@ -1492,51 +1410,6 @@ div.list {
       }
     }
   }
-  &#layerTooltip {
-    .modal_container {
-      width:330px;
-      top: 60%;
-      left: 35%;
-      .modal_header{
-        border-bottom:0;
-      }
-      .modal_content{
-        padding-top:0;
-        font-size: 13px;
-        line-height: 1.54em;
-        letter-spacing: -0.01em;
-        span {
-          color: #666666;
-          &::before {
-            content:none;
-          }
-        }
-        ul {
-          > * + * {
-            margin-top:5px;
-          }
-          margin-top:0;
-          padding:0;
-          border:0;
-          li {
-            color: #666666;
-          }
-        }
-      }
-    }
-  }
-  &#ecoTooltip{
-    left:315px;
-    .modal_header {
-      color:#000;
-      border-bottom:0;
-    }
-    .modal_content {
-      color:#666666;
-      padding-top:0;
-    }
-  }
-
 }
 
 .point {
@@ -2250,23 +2123,6 @@ button.tooltip {
       }
     }
   }
-
-.bullistType_01 {
-margin-left:8px;
-li {
-  color:#888;
-  position:relative;
-  &::after {
-    content: "";
-    width: 3px;
-    height: 3px;
-    background: #999E9C;
-    position: absolute;
-    top: 8px;
-    left: -8px;
-  }
-}
-}
 
 .bullistType_02 {
   display:flex;

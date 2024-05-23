@@ -5,8 +5,8 @@
     <p class="date">신청 가능 기간 : 24.03.01 (수) ~ 24.04.31 (수)</p>
 
     <div class="point_box">
-      <div>보유샘플포인트 <span class="point">10</span></div>
-      <div>차감샘플포인트 <span class="point">05</span></div>
+        <div>보유샘플포인트 <span class="point">10</span></div>
+        <div>차감샘플포인트 <span class="point">05</span></div>
     </div>
   </div>
 
@@ -19,7 +19,7 @@
               <span class="point">1 P</span>
               <span class="thumb_wrap">
                 <span class="thumb">
-                  <em><img :src="item.img" /></em>
+                  <img :src="item.img" />
                 </span>
               </span>
             </div>
@@ -40,7 +40,7 @@
               <span class="point">1 P</span>
               <span class="thumb_wrap">
                 <span class="thumb">
-                  <em><img :src="item.img" /></em>
+                  <img :src="item.img" />
                 </span>
               </span>
             </div>
@@ -61,7 +61,7 @@
               <span class="point">3 P</span>
               <span class="thumb_wrap">
                 <span class="thumb">
-                  <em><img :src="item.img" /></em>
+                  <img :src="item.img" />
                 </span>
               </span>
             </div>
@@ -107,7 +107,7 @@
     <div class="modal_container">
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
-        <p>샘플바로신청하기</p>
+        <p class="tit">샘플바로신청하기</p>
         <p>
           샘플만 바로 신청할 경우 배송비 <em>2,500원</em>이 발생 합니다.<br>
           뷰티포인트 2,500P 이상 보유시 뷰티포인트로 배송비 결제가 가능합니다.<br>
@@ -362,6 +362,10 @@ onMounted(() => {
               .thumb_wrap {
                 position: relative;
 
+                .thumb {
+                  display: block;
+                }
+
                 &:before,
                 &:after {
                   content: '';
@@ -546,7 +550,7 @@ section {
   .modal_content {
     padding: 3rem 2rem;
 
-    p {
+    .tit {
       font-size: 1.8rem;
       font-weight: 600;
       color: #000;

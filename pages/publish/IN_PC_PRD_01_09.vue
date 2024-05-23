@@ -46,14 +46,12 @@
             <dt>뷰티포인트</dt>
             <dd>
               결제 금액의 기본 1%, 추가 700원 적립
-              <button type="button" class="tooltip" @mouseover="modal.open('modal_beauty_point_tip', 'layer'); modalPositioning();">뷰티포인트 안내 자세히 보기</button>
+              <Icons class="tooltip" txt="뷰티포인트 안내 자세히 보기" @click="modal.open('modal_beauty_point_tip', 'layer tooltip')" />
               <div id="modal_beauty_point_tip" class="modal_wrap"><!-- 뷰티포인트 적립안내 툴팁 -->
                 <div class="modal_container">
-                  <div class="modal_header">
-                    <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
-                  </div>
+                  <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
                   <div class="modal_content">
-                    <h3>뷰티포인트 적립안내</h3>
+                    <h2>뷰티포인트 적립안내</h2>
                     <p>
                       아모레퍼시픽 뷰티포인트 통합회원은 회원 등급과 상관없이<br>(뷰티포인트 적립 대상상품에 한하여) 포인트가 적립됩니다.<br><br>
                       <em>포인트 적립률은 제품별, 브랜드별로 상이하며,<br>쿠폰/뷰티포인트 사용 조건과 금액에 따라 상이할 수 있습니다.</em>
@@ -91,7 +89,7 @@
             <div class="select_wrap">
               <ProdSelectbox
               :options="[
-                { val: 'op1', name: 'op', txt: '1호 샐먼 베이지' },
+                { val: 'op1', name: 'op', txt: '1호 샐먼 베이지', soldout: true, stockAlert: true },
                 { val: 'op2', name: 'op', txt: '2호 피치 베이지' }
               ]" />
             </div>
@@ -134,14 +132,12 @@
         <div class="naver_pay">
           <div class="txt_area">
             네이버페이 결제 시 회원혜택을 받으실 수 없습니다.
-            <button type="button" class="tooltip" @mouseover="modal.open('modal_naver_pay_tip', 'layer'); modalPositioning();">네이버페이 결제 안내 자세히 보기</button>
+            <Icons class="tooltip" txt="네이버페이 결제 안내 자세히 보기" @click="modal.open('modal_naver_pay_tip', 'layer tooltip')" />
             <div id="modal_naver_pay_tip" class="modal_wrap"><!-- 네이버 결제 안내 툴팁 -->
               <div class="modal_container">
-                <div class="modal_header">
-                  <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
-                </div>
+                <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
                 <div class="modal_content">
-                  <h3>네이버페이 결제 안내</h3>
+                  <h2>네이버페이 결제 안내</h2>
                   <ul class="bul_list">
                     <li>
                       네이버페이를 통해 구매하시면 쿠폰할인, <br>
@@ -187,7 +183,7 @@
         <!-- 리뷰 -->
         <div class="tab_cont tab_cont_review" style="display: block;">
 
-          <ProductReviewSummary /> <!-- 리뷰 요약 -->
+          <ProductReviewSummary limit="10" /> <!-- 리뷰 요약 -->
 
           <!-- 리뷰 옵션 선택 -->
           <div class="review_option">
@@ -201,20 +197,14 @@
 
             <div class="sort">
               <span>
-                <button type="button" @click="setFilter">추천순</button>
-                <button type="button" class="tooltip" @click="modal.open('modal_review_standard', 'layer'); modalPositioning();">추천순 리뷰 기준 자세히
-                  보기</button>
+                추천순
+                <Icons class="tooltip" txt="추천순 리뷰 기준 자세히 보기" @click="modal.open('modal_review_standard', 'layer tooltip')" />
                 <div id="modal_review_standard" class="modal_wrap"><!-- 추천순 리뷰 기준 툴팁 -->
                   <div class="modal_container">
-                    <div class="modal_header">
-                      <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
-                    </div>
+                    <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
                     <div class="modal_content">
-                      <h3>뷰티포인트 적립안내</h3>
-                      <p>
-                        아모레퍼시픽 뷰티포인트 통합회원은 회원 등급과 상관없이<br>(뷰티포인트 적립 대상상품에 한하여) 포인트가 적립됩니다.<br><br>
-                        <em>포인트 적립률은 제품별, 브랜드별로 상이하며,<br>쿠폰/뷰티포인트 사용 조건과 금액에 따라 상이할 수 있습니다.</em>
-                      </p>
+                      <h2>추천순 리뷰 기준</h2>
+                      <p>리뷰의 내용을 단위별로 분석해<br>AI가 부여한 점수 산정 기준에 따라<br>높은 점수순으로 리뷰를 정렬합니다.</p>
                     </div>
                   </div>
                   <div class="overlay" @click="modal.close(this);"></div>
@@ -238,7 +228,7 @@
               <Inputs _type="checkbox" :isswitch="true" _text="프로필 맞춤" /> <span class="txt" style="font-size: 14px; color: #999;">설정된 피부 프로필 없음</span>
             </div>
             <div class="filter">
-              <button type="button" @click="modal.open('modal_skin_type', 'full')">피부 속성 필터</button>
+              <button type="button" @click="modal.open('modal_skin_type', 'full modal_skin_type')">피부 속성 필터</button>
             </div>
           </div>
           <!-- //리뷰 옵션 선택 -->
@@ -452,16 +442,6 @@ const props = defineProps({
   }
 });
 
-const modalPositioning = () => {
-  const el = event.currentTarget;
-  setTimeout(()=> {
-    const modalW = el.nextSibling.getElementsByClassName('modal_container')[0].offsetWidth;
-    const top = el.offsetTop + el.offsetHeight;
-    const left = el.offsetLeft - modalW;
-    el.nextSibling.style.cssText="top:"+top+"px; left:"+left+"px;";
-  }, 100)
-}
-
 const DropDown = () => {
   const el = event.currentTarget;
   const list = el.nextElementSibling;
@@ -609,7 +589,7 @@ onMounted(()=>{
           position: relative;
         }
 
-        button {
+        & > button {
           font-size: 16px;
           font-weight: 600;
           flex: 1;
@@ -660,7 +640,7 @@ onMounted(()=>{
     }
   }
 
-  .modal_wrap.layer {
+  .modal_review_standard {
     .modal_container {
       .modal_header {
         padding: 0;
@@ -744,6 +724,7 @@ onMounted(()=>{
       align-items: center;
 
       &>* {
+        color: #666;
         &+*:before {
           content: '';
           width: 1px;
@@ -925,7 +906,7 @@ onMounted(()=>{
   }
 }
 
-#modal_skin_type.modal_wrap.full {
+.modal_skin_type {
   .modal_container {
     width: 804px;
   }

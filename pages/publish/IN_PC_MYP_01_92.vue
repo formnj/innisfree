@@ -6,86 +6,90 @@
   <div class="inner">
     <Tabs class="customer_tab" tabType="type_03" :item="[{txt:'FAQ'},{txt:'공지사항'},{txt:'1:1상담'},{txt:'매장안내'},{txt:'창업안내'},{txt:'전자공고'}]" :tabidx="1" />
 
-    <div class="search_wrap">
-      <div class="multi_form">
-        <Inputs _type="text" _placeholder="검색어를 입력하세요." />
-        <Button class="btn_mid confirm" txt="검색" />
-      </div>
-    </div>
-  
-    <!-- 공지사항 슬라이드 탭 -->
-    <Tabs class="noti" tabType="type_04" :item="noti_data.tabs" :tabidx="0" />
-    <!-- //공지사항 슬라이드 탭 -->
-  
-    <!-- 공지사항 컨텐츠 -->
-    <div class="noti_wrap">
-      <div class="sub_title_wrap">
-        <h3>총&nbsp;<em>551</em>개</h3>
-      </div>
-      <ul class="noti_list">
-        <li v-for="(item,idx) in noti_data.list" :key="idx">
-          <span class="tit">{{ idx+1 }}</span>
-          <button class="cate" type="button">
-            <Sticker :item="item.cate" />
-            <span class="txt">{{ item.tit }}</span>
-          </button>
-          <span class="date">{{ item.date }}</span>
-        </li>
-      </ul>
-    </div>
-    <!-- //공지사항 컨텐츠 -->
-
-    <!-- 공지사항 상세 컨텐츠 -->
-    <div class="noti_detail">
-      <div class="sub_title_wrap">
-        <div>
-          <Sticker :item="noti_data.list[0].cate" />
-          <h3>{{ noti_data.list[0].tit }}</h3>
+    <section v-if="!isValid">
+      <div class="search_wrap">
+        <div class="multi_form">
+          <Inputs _type="text" _placeholder="검색어를 입력하세요." />
+          <Button class="btn_mid confirm" txt="검색" />
         </div>
-        <span>{{ noti_data.list[0].date }}</span>
       </div>
-
-      <div class="desc">
-        <p>
-          보다 나은 서비스 제공을 위해 아래 일정으로 시스템을 점검할 예정입니다.<br><br>
-          점검시간 동안 이니스프리 공식 온라인몰 접속 및 서비스 이용이 어려운 점 양해 부탁드립니다.<br><br>
-          - 일시: 2024. 2. 19(월) AM 01:00 ~ 04:00(3시간 예정)<br>
-          - 목적: 시스템 작업<br>
-          - 범위: 이니스프리 공식 온라인몰 전체 서비스 이용 불가<br><br>
-          감사합니다.
-        </p>
+    
+      <!-- 공지사항 슬라이드 탭 -->
+      <Tabs tabType="type_04" :item="noti_data.tabs" :tabidx="0" />
+      <!-- //공지사항 슬라이드 탭 -->
+    
+      <!-- 공지사항 목록 -->
+      <div class="noti_wrap">
+        <div class="sub_title_wrap">
+          <h3>총&nbsp;<em>551</em>개</h3>
+        </div>
+        <ul class="noti_list">
+          <li v-for="(item,idx) in noti_data.list" :key="idx">
+            <span class="tit">{{ idx+1 }}</span>
+            <button class="cate" type="button" @click="noti_cont($event,idx)">
+              <Sticker :item="item.cate" />
+              <span class="txt">{{ item.tit }}</span>
+            </button>
+            <span class="date">{{ item.date }}</span>
+          </li>
+        </ul>
       </div>
+      <!-- //공지사항 목록 -->
+    </section>
 
-      <Button class="btn_mid confirm" txt="목록" />
-
-      <ul class="noti_list">
-        <li>
-          <span class="tit">이전</span>
-          <button class="cate" type="button">
-            <Sticker :item="[{txt:'이벤트 공지',type:'type02'}]" />
-            <span class="txt">[이니 라이브] 당첨자 안내 - 2/2(금) 다영x콜라겐 크림 라이브</span>
-          </button>
-          <span class="date">2024-02-13</span>
-        </li>
-        <li>
-          <span class="tit">현재</span>
-          <button class="cate" type="button">
-            <Sticker :item="[{txt:'고객 센터',type:'type02'},{txt:'쇼핑몰 공지',type:'type02'}]" />
-            <span class="txt">[이니 라이브] 당첨자 안내 - 2/2(금) 다영x콜라겐 크림 라이브</span>
-          </button>
-          <span class="date">2024-02-08</span>
-        </li>
-        <li>
-          <span class="tit">다음</span>
-          <button class="cate" type="button">
-            <Sticker :item="[{txt:'이벤트 공지',type:'type02'}]" />
-            <span class="txt">[이니 라이브] 당첨자 안내 - 1/25(목) 블랙티 특집 라이브</span>
-          </button>
-          <span class="date">2024-01-31</span>
-        </li>
-      </ul>
-    </div>
-    <!-- //공지사항 상세 컨텐츠 -->
+    <section v-if="isValid">
+      <!-- 공지사항 상세 컨텐츠 -->
+      <div class="noti_detail">
+        <div class="sub_title_wrap">
+          <div>
+            <Sticker :item="noti_lists.cate" />
+            <h3>{{ noti_lists.tit }}</h3>
+          </div>
+          <span>{{ noti_lists.date }}</span>
+        </div>
+  
+        <div class="desc">
+          <p>
+            보다 나은 서비스 제공을 위해 아래 일정으로 시스템을 점검할 예정입니다.<br><br>
+            점검시간 동안 이니스프리 공식 온라인몰 접속 및 서비스 이용이 어려운 점 양해 부탁드립니다.<br><br>
+            - 일시: 2024. 2. 19(월) AM 01:00 ~ 04:00(3시간 예정)<br>
+            - 목적: 시스템 작업<br>
+            - 범위: 이니스프리 공식 온라인몰 전체 서비스 이용 불가<br><br>
+            감사합니다.
+          </p>
+        </div>
+  
+        <Button class="btn_mid confirm" txt="목록" @click="noti_cont" />
+  
+        <ul class="noti_list">
+          <li>
+            <span class="tit">이전</span>
+            <button class="cate" type="button">
+              <Sticker :item="[{txt:'이벤트 공지',type:'type02'}]" />
+              <span class="txt">[이니 라이브] 당첨자 안내 - 2/2(금) 다영x콜라겐 크림 라이브</span>
+            </button>
+            <span class="date">2024-02-13</span>
+          </li>
+          <li>
+            <span class="tit">현재</span>
+            <button class="cate" type="button">
+              <Sticker :item="[{txt:'고객 센터',type:'type02'},{txt:'쇼핑몰 공지',type:'type02'}]" />
+              <span class="txt">[이니 라이브] 당첨자 안내 - 2/2(금) 다영x콜라겐 크림 라이브</span>
+            </button>
+            <span class="date">2024-02-08</span>
+          </li>
+          <li>
+            <span class="tit">다음</span>
+            <button class="cate" type="button">
+              <Sticker :item="[{txt:'이벤트 공지',type:'type02'}]" />
+              <span class="txt">[이니 라이브] 당첨자 안내 - 1/25(목) 블랙티 특집 라이브</span>
+            </button>
+            <span class="date">2024-01-31</span>
+          </li>
+        </ul>
+      </div>
+      <!-- //공지사항 상세 컨텐츠 -->
+    </section>
   </div>
 </template>
 <script setup>
@@ -104,6 +108,15 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
     default:'default'
   }
 });
+
+const isValid = ref(false);
+const noti_lists = ref(null);
+
+const noti_cont = (e,i) => {
+  isValid.value ? isValid.value = false : isValid.value = true;
+
+  noti_lists.value = noti_data.list.filter(el => el === noti_data.list[i])[0];
+};
 
 onMounted(() => {
   // 메인 탭 이벤트
@@ -318,9 +331,21 @@ const customer = () => {
               display:block;
             }
           }
+          
+          .cate {
+            pointer-events:none;
 
-          .txt {
-            font-weight:600;
+            .txt {
+              font-weight:600;
+            }
+          }
+        }
+
+        .cate {
+          &:hover {
+            .txt {
+              text-decoration:none;
+            }
           }
         }
 

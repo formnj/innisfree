@@ -26,9 +26,7 @@
           추천순
         </button>
       </div>
-      <button @click="modal.open('modal_search', 'bottom')">
-        상세검색
-      </button>
+      <button @click="modal.open('modal_filter', 'bottom filter')">상세검색</button>
     </div>
   </div>
   <!-- //title washed -->
@@ -65,17 +63,35 @@
     <div class="overlay" @click="modal.close(this)"></div>
   </div>
 
-  <div id="modal_search" class="modal_wrap">
+  <div id="modal_filter" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
         <h2>상세검색</h2>
-        <button class="btn_close" @click="modal.close(this)">닫기</button>
+        <button class="btn_close_x" @click="modal.close(this);">닫기</button>
       </div>
       <div class="modal_content">
-        <div>Sample Modal</div>
+        <p>혜택별</p>
+        <ul class="pick_list">
+          <li><Inputs _type="checkbox" _name="filter" _id="a00" _text="주름/탄력" class="round_square" /></li>
+          <li><Inputs _type="checkbox" _name="filter" _id="a01" _text="모공/피지/블랙헤드" class="round_square" /></li>
+          <li><Inputs _type="checkbox" _name="filter" _id="a02" _text="영양/토탈안티에이징" class="round_square" /></li>
+          <li><Inputs _type="checkbox" _name="filter" _id="a03" _text="트러블/리페어" class="round_square" /></li>
+          <li><Inputs _type="checkbox" _name="filter" _id="a04" _text="수분/보습/속건조" class="round_square" /></li>
+        </ul>
+        <p>기능성</p>
+        <ul class="pick_list">
+          <li><Inputs _type="checkbox" _name="filter" _id="a05" _text="미백" class="round_square" /></li>
+          <li><Inputs _type="checkbox" _name="filter" _id="a06" _text="주름개선" class="round_square" /></li>
+          <li><Inputs _type="checkbox" _name="filter" _id="a07" _text="자외선차단" class="round_square" /></li>
+          <li><Inputs _type="checkbox" _name="filter" _id="a08" _text="비건인증" class="round_square" /></li>
+        </ul>
+        <p>공병수거</p>
+        <ul class="pick_list">
+          <li><Inputs _type="checkbox" _name="filter" _id="a09" _text="공병수거 가능" class="round_square" /></li>
+        </ul>
       </div>
       <div class="modal_footer">
-        <Button class="btn_big btn_type_01" txt="초기화" />
+        <Button class="btn_big btn_reset" txt="초기화" />
         <Button class="btn_big btn_type_02" txt="검색" />
       </div>
     </div>
@@ -136,7 +152,7 @@ definePageMeta({
   layout:'mo-category'
 })
 
-onMounted(() => {})
+onMounted(() => {});
 </script>
 <style lang="scss" scoped>
 .staff_wrap {
@@ -281,18 +297,6 @@ onMounted(() => {})
             }
           }
         }
-      }
-      .modal_footer {
-      }
-    }
-  }
-  &#modal_search {
-    .modal_container {
-      .modal_header {
-      }
-      .modal_contnet {
-      }
-      .modal_footer {
       }
     }
   }

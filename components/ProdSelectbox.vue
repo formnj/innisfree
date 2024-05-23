@@ -3,12 +3,17 @@
     <button type="button" class="btn_select" @click="selectOpen">옵션을 선택하세요.</button>
     <ul class="op_list">
       <li v-for="(select, i) in options" :key="i">
-        <input :id="select.val" type="radio" :name="select.name"><label :for="select.val">{{ select.txt }}</label>
+        <input :id="select.val" type="radio" :name="select.name">
+        <label :for="select.val" :class="select.soldout ? 'soldout' : ''">
+          <em v-if="select.soldout">일시품절</em>
+          <span class="name">{{ select.txt }}</span>
+          <button v-if="select.stockAlert" type="button" class="btn_txt">입고알림 신청</button>
+        </label>
       </li>
     </ul>
 
     <ul class="selected_list">
-      <li><span class="name">1호 샐먼 베이지</span><span class="price">9,750원</span>
+      <li><span class="name">1호 샐먼 베이지</span><span v-if="selectedPriceShow" class="price">9,750원</span>
         <div class="quantity_control">
           <span class="name">수량</span>
           <div class="count">
@@ -17,7 +22,34 @@
         </div>
         <button type="button" class="btn_del">옵션 삭제</button>
       </li>
-      <li><span class="name">2호 피치 베이지</span><span class="price">9,750원</span>
+      <li><span class="name">2호 피치 베이지</span><span v-if="selectedPriceShow" class="price">9,750원</span>
+        <div class="quantity_control">
+          <span class="name">수량</span>
+          <div class="count">
+            <Quantity _id="detail_2" quantity="1" />
+          </div>
+        </div>
+        <button type="button" class="btn_del">옵션 삭제</button>
+      </li>
+      <li><span class="name">1호 샐먼 베이지</span><span v-if="selectedPriceShow" class="price">9,750원</span>
+        <div class="quantity_control">
+          <span class="name">수량</span>
+          <div class="count">
+            <Quantity _id="detail_1" quantity="3" />
+          </div>
+        </div>
+        <button type="button" class="btn_del">옵션 삭제</button>
+      </li>
+      <li><span class="name">2호 피치 베이지</span><span v-if="selectedPriceShow" class="price">9,750원</span>
+        <div class="quantity_control">
+          <span class="name">수량</span>
+          <div class="count">
+            <Quantity _id="detail_2" quantity="1" />
+          </div>
+        </div>
+        <button type="button" class="btn_del">옵션 삭제</button>
+      </li>
+      <li><span class="name">2호 피치 베이지</span><span v-if="selectedPriceShow" class="price">9,750원</span>
         <div class="quantity_control">
           <span class="name">수량</span>
           <div class="count">
@@ -34,7 +66,11 @@
 import { onMounted } from 'vue';
 
 const props = defineProps({
-  options: Array,
+  options: Array, //soldout : 일시품절 표시, stockAlert : 입고알림 신청 표시
+  selectedPriceShow: {
+    type: Boolean,
+    default: true
+  }
 });
 
 //옵션(버튼) 선택 시 open 클래스 추가
@@ -127,22 +163,70 @@ onMounted(()=> {
         width: 100%;
         font-size: 13px;
         padding: 14px 20px;
-        display: block;
+        display: flex;
+        align-items:center;
         cursor: pointer;
+
+        &.soldout {
+          color: #aaa;
+        }
+
+        .name {
+          flex: 1;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        em {
+          padding-right: 5px;
+          font-size: 12px;
+          color: #ff0000;
+        }
+
+        .btn_txt {
+          padding-left: 5px;
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 16px;
+          letter-spacing: -0.12px;
+          color: #000;
+          text-decoration: underline;
+          position: relative;
+          z-index:2;
+        }
       }
     }
   }
 
   .selected_list {
+    max-height: 230px;
     margin: 10px 0 0;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar{
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb{
+      background-color: #e2e2e2;
+      border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-track{
+      background-color: transparent;
+    }
 
     li {
-      margin-top: 3px;
       padding: 10px 15px;
       background-color: #F7FAFA;
       display: flex;
       align-items: center;
       justify-content: space-between;
+
+      & + li {
+        margin-top: 3px;
+      }
 
       & > * {
         flex-shrink: 0;

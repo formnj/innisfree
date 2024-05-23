@@ -29,28 +29,22 @@
                   </dl>
                   <dl>
                     <dt>적립 예정 뷰티포인트
-                        <Icons class="tooltip" txt="툴팁" @click="modal.open('accum_point', 'layer')" />
-                        <div class="layer_wrap">
-                          <!-- layer modal -->
-                          <div class="modal_wrap" id="accum_point">
-                              <div class="modal_container">
-                                  <div class="modal_header">
-                                      <h2>뷰티포인트 적립 혜택 안내</h2>
-                                      <button class="btn_close" @click="modal.close(this);">닫기</button>
-                                  </div>
-                                  <div class="modal_content">
-                                      <ul class="bullet_list">
-                                        <li>뷰티포인트는 수취확인 후 <strong>15일 이후</strong>에 적립됩니다.</li>
-                                        <li>아모레퍼시픽 뷰티포인트 비회원인 경우 적립되지 않습니다.</li>
-                                        <li>멤버십데이 쿠폰 사용 시 뷰티포인트는 적립되지 않습니다.</li>
-                                        <li>일부 쿠폰은 사용 시 뷰티포인트는 적립되지 않습니다.</li>
-                                      </ul>
-                                  </div>
-                              </div>
-                              <div class="overlay" @click="modal.close(this);"></div>
+                        <Icons class="tooltip" txt="툴팁" @click="modal.open('accum_point', 'layer tooltip')" />
+                        <div id="accum_point" class="modal_wrap"><!-- 뷰티포인트 적립안내 툴팁 -->
+                          <div class="modal_container">
+                            <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
+                            <div class="modal_content">
+                              <h2>뷰티포인트 적립 혜택 안내</h2>
+                              <ul class="bul_list">
+                                <li>뷰티포인트는 수취확인 후 <strong>15일 이후</strong>에 적립됩니다.</li>
+                                <li>아모레퍼시픽 뷰티포인트 비회원인 경우 적립되지 않습니다.</li>
+                                <li>멤버십데이 쿠폰 사용 시 뷰티포인트는 적립되지 않습니다.</li>
+                                <li>일부 쿠폰은 사용 시 뷰티포인트는 적립되지 않습니다.</li>
+                              </ul>
+                            </div>
                           </div>
-                          <!-- //layer modal -->
-                        </div>
+                          <div class="overlay" @click="modal.close(this);"></div>
+                        </div><!-- //뷰티포인트 적립안내 툴팁 -->
                     </dt>
                     <dd>
                       <strong>+2,030</strong> P
@@ -73,7 +67,7 @@
                         <em>
                           주문할 상품의 상품명, 상품가격, 배송정보를 확인하였으며, 구매 진행에 동의 하시겠습니까? (전자상거래법 제8조 제2항)
                         </em>
-                      <Button txt="주문제한알림 자세히보기" class="btn_min_outline" @click="modal.open('ord_limit', 'alert')" />
+                      <Button txt="주문제한알림 자세히보기" class="btn_min_outline" @click="modal.open('ord_limit', 'alert ord_limit')" />
                     </li>
                     <li>
                       <p>해당 상품 구매 계약자가 미성년자일 경우<br />
@@ -91,7 +85,7 @@
       </div>
 
       <!-- modal layer -->
-      <div class="modal_wrap" id="ord_limit">
+      <div id="ord_limit" class="modal_wrap">
         <div class="modal_container">
             <div class="modal_header">
                 <h2>주문제한 안내</h2>
@@ -129,17 +123,6 @@ import { modal } from '~/assets/js/common-ui.js'
 
 const layoutType = ref(true);
 
-let lnb_click = (event)=>{
-  const target = event.currentTarget;
-  let target_parent =target.parentNode;
-  let all_li = target_parent.querySelectorAll('li')
-  all_li.forEach((a)=>{
-    a.classList.remove('active');
-  })
-  target.classList.add('active')
-  // 전체 li에 active 클래스 제거
-  //클릭한 대상에게 active 클래스 추가
-}
 
 /* 개발에 맞게 수정해주세요 : 하위페이지의 data-layout 값이 default이면 lnb 비노출 */
 onMounted(()=>{
@@ -244,7 +227,7 @@ onMounted(()=>{
           dt {
             display:flex;
             align-items:center;
-            .tooltip {
+            button.tooltip {
               width:16px;
               height:16px;
               margin-left:6px;
@@ -260,12 +243,6 @@ onMounted(()=>{
               color:#00BC70;
               font-weight:600;
             }
-          }
-          .modal_container {
-            white-space:nowrap;
-            top:100%;
-            right:0;
-            left:initial;
           }
         }
         .total_price {
@@ -348,7 +325,7 @@ onMounted(()=>{
   }
 }
 
-#ord_limit {
+.ord_limit {
   .modal_container {
     .modal_header {
       h2 {

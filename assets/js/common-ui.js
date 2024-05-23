@@ -2,7 +2,6 @@
 export const modal = {
   open: (_target, _type) => {
     document.getElementById(_target).className = 'modal_wrap active '+_type;
-    // document.getElementById(_target).classList.add('active');
     const body = document.querySelector("body");
     const pageY = document.body.scrollTop || document.documentElement.scrollTop;
 
@@ -22,13 +21,15 @@ export const modal = {
 
       const top = tg.offsetTop + tg.offsetHeight;
 
-      if (rect.left < doc) {
-        const left = tg.offsetLeft + tg.offsetWidth;
-        tg.nextSibling.style.cssText = `top:${top}px; left:${left}px;`;
-      } else if (rect.left > doc) {
-        const modalW = tg.nextSibling.querySelector('.modal_container').offsetWidth;
-        const left = tg.offsetLeft - modalW;
-        tg.nextSibling.style.cssText = `top:${top}px; left:${left}px;`;
+      if(tg.nextElementSibling != null && tg.nextElementSibling.classList.contains('modal_wrap')){
+        if (rect.left < doc) {
+          const left = tg.offsetLeft + tg.offsetWidth;
+          tg.nextSibling.style.cssText = `top:${top}px; left:${left}px;`;
+        } else if (rect.left > doc) {
+          const modalW = tg.nextSibling.querySelector('.modal_container').offsetWidth;
+          const left = tg.offsetLeft - modalW;
+          tg.nextSibling.style.cssText = `top:${top}px; left:${left}px;`;
+        }
       }
     }
 

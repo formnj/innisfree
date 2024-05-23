@@ -8,9 +8,9 @@
 
     <div class="pdtSortTab_wrap">
       <div class="sortTab">
-        <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom');">추천순</button>
+        <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom modal_sort');">추천순</button>
       </div>
-      <button @click="modal.open('modal_filter', 'bottom');">필터</button>
+      <button @click="modal.open('modal_filter', 'bottom filter');">필터</button>
     </div>
   </div>
 
@@ -62,14 +62,14 @@
       </div>
       <div class="modal_content">
         <p>혜택별</p>
-        <ul>
+        <ul class="pick_list">
           <li>
             <Inputs _type="checkbox" _name="filter" _id="a00" _text="증정" class="round_square" />
           </li>
         </ul>
 
         <p>고민별</p>
-        <ul>
+        <ul class="pick_list">
           <li>
             <Inputs _type="checkbox" _name="filter" _id="a01" _text="각질/피부결" class="round_square" />
           </li>
@@ -100,7 +100,7 @@
         </ul>
 
         <p>유형별</p>
-        <ul>
+        <ul class="pick_list">
           <li>
             <Inputs _type="checkbox" _name="filter" _id="a10" _text="스킨케어" class="round_square" />
           </li>
@@ -122,7 +122,7 @@
         </ul>
 
         <p>기능성</p>
-        <ul>
+        <ul class="pick_list">
           <li>
             <Inputs _type="checkbox" _name="filter" _id="a16" _text="자외선차단" class="round_square" />
           </li>
@@ -138,7 +138,7 @@
         </ul>
 
         <p>공병수거</p>
-        <ul>
+        <ul class="pick_list">
           <li>
             <Inputs _type="checkbox" _name="filter" _id="a20" _text="공병수거 가능" class="round_square" />
           </li>
@@ -146,20 +146,20 @@
       </div>
       <div class="modal_footer">
         <Button class="btn_big btn_reset" txt="초기화" />
-        <Button class="btn_big confirm" txt="99개 제품보기" />
+        <Button class="btn_big btn_type_02" txt="99개 제품보기" />
       </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
   <!-- //필터 모달 -->
 
-  <!-- 선택 가능 필터 없음 -->
+  <!-- 선택 가능 필터 없음 modal.open('alert_no_filter', 'alert') -->
   <div id="alert_no_filter" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
-        <p>알림</p>
-        <span>선택 가능한 필터가 없습니다.</span>
+        <p class="tit">알림</p>
+        <p class="txt">선택 가능한 필터가 없습니다.</p>
       </div>
       <div class="modal_footer">
         <Button class="btn_big confirm" txt="확인" />
@@ -168,6 +168,8 @@
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
   <!-- //선택 가능 필터 없음 -->
+
+  <ProductListCartModal /><!-- 장바구니/바로구매 모달 -->
 </template>
 
 <script setup>
@@ -198,41 +200,7 @@ definePageMeta({
   }
 }
 
-#modal_filter {
-  .modal_container {
-    .modal_content {
-      margin: 0 2.6rem;
-      padding: 2rem 0 4rem;
-      border-top: 1px solid #eee;
-
-      p {
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-        line-height: 1.32em;
-        letter-spacing: -0.01em;
-        color: #999;
-      }
-
-      ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-
-        &+p {
-          margin-top: 3rem;
-        }
-      }
-    }
-
-    .modal_footer {
-      .confirm {
-        flex: 1;
-      }
-    }
-  }
-}
-
-#modal_sort {
+.modal_sort {
   .modal_container {
     border-top-left-radius: 20px 20px;
     border-top-right-radius: 20px 20px;
@@ -346,33 +314,6 @@ definePageMeta({
         background: url('~/assets/mo_images/common/icon_split.png') -23.5rem -13.5rem / 25rem auto no-repeat;
         display: inline-block;
       }
-    }
-  }
-}
-
-.modal_wrap.alert {
-  .modal_content {
-    padding: 3rem 2rem;
-
-    p {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #000;
-      line-height: 2.4rem;
-    }
-
-    span {
-      margin-top: 1rem;
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: #666;
-      line-height: 2rem;
-      display: block;
-    }
-
-    em {
-      color: #00BC70;
-      font-weight: 600;
     }
   }
 }
