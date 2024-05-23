@@ -1,5 +1,6 @@
 <template>
   <div class="inner">
+    <Button txt="126,000원 결제하기" class="btn_big confirm" />
     <section class="orderer_info">
       <div class="sub_title_wrap">
         <div>
@@ -772,6 +773,7 @@ const toggle_btn = (event) => {
   }
  }
 
+
  const toggle_btn_02 = (event) => {
   console.log(event.currentTarget)
   event.currentTarget.classList.toggle('active');
@@ -797,6 +799,11 @@ const toggle_btn = (event) => {
     });
   }
  }
+
+
+
+
+
 
 //  const getselect = (event) => {
 //     let select = document.querySelector('.adress_sl div select');
@@ -940,6 +947,15 @@ const input_change = (event) => {
 }
 
 .inner {
+  .btn_big {
+    font-size: 1.6rem;
+    font-weight: 600;
+    position:fixed;
+    bottom:0;
+    right:0;
+    left:0;
+    z-index:10;
+  }
   .name {
     color:#333;
     &::after {
@@ -1247,6 +1263,7 @@ const input_change = (event) => {
             }
             .row {
               margin-top:1rem;
+              margin-bottom:0 !important;
               display:flex;
               .pdt_img {
                 width:3.6rem;
