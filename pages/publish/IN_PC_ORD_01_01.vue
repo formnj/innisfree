@@ -925,33 +925,6 @@ const toggle_btn = (event) => {
  }
 
 
-// onMounted(() => {
-//   const target = document.querySelectorAll('.board_type_toggle dt a');
-//   const rotate = document.querySelectorAll('.board_type_toggle dt a em');
-//   target.forEach((a,i)=>{
-//     a.addEventListener('click', function(){
-
-//       if(a.parentNode.nextElementSibling.classList.contains('show')){
-//         a.parentNode.nextElementSibling.style.height = '0px'
-//         a.parentNode.nextElementSibling.addEventListener('transitionend', () => {
-//           a.parentNode.nextElementSibling.classList.remove('show');
-//           rotate[i].classList.remove('active')
-//         }, {once: true});
-//       }
-//       else{
-//         a.parentNode.nextElementSibling.classList.add('show');
-//         rotate[i].classList.add('active')
-//         a.parentNode.nextElementSibling.style.height = 'auto'
-//         const height = a.parentNode.nextElementSibling.clientHeight + 'px'
-//         a.parentNode.nextElementSibling.style.height = '0px'
-//         setTimeout(() => {
-//           a.parentNode.nextElementSibling.style.height = height
-//         });
-//       }
-//     })
-//   })
-// })
-
 const modalPositioning = () => {
   const top = window.scrollY + event.target.getBoundingClientRect().top + event.target.getBoundingClientRect().height;
   const left = event.target.getBoundingClientRect().left;
@@ -1623,22 +1596,24 @@ div.list {
         align-items: center;
         a {
           width:100%;
-        }
-        em {
-          width:40px;
-          height:40px;
-          background-image: url('~/assets/images/common/icon_split.png');
-          background-repeat: no-repeat;
-          background-size: 250px;
-          background-position: -200px -60px;
-          text-indent: -9999px;
-          position:absolute;
-          top:15%;
-          right:10px;
-          transform:rotate(180deg);
-          transition:all 0.5s;
           &.active {
-            transform:translateY(40%) rotate(0deg);
+            em {
+              transform:translateY(40%) rotate(0deg);
+            }
+          }
+            em {
+            width:36px;
+            height:40px;
+            background-image: url('~/assets/images/common/icon_split.png');
+            background-repeat: no-repeat;
+            background-size: 250px;
+            background-position: -200px -60px;
+            text-indent: -9999px;
+            position:absolute;
+            top:15%;
+            right:10px;
+            transform:rotate(180deg);
+            transition:all 0.3s;
           }
         }
       }
@@ -1650,9 +1625,12 @@ div.list {
         gap:25px;
         overflow:hidden;
         transition:height 0.2s ease-out;
+        &.hide {
+          border:0;
+        }
         div {
           width:390px;
-          padding: 25px 19px 0px;
+          padding:15px 19px 0px;
           display:flex;
           align-items:center;
           img {
