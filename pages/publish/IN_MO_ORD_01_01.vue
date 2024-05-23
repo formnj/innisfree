@@ -208,7 +208,7 @@
               { val: 'value', txt: '국민' },
               { val: 'value', txt: '하나' }
           ]" />
-          <button>무이자 할부/카드혜택 안내</button>
+          <a href="#none" @click="modal.open('install', 'fullMo install')">무이자 할부 안내</a>
           <div>
             <h4>신용카드 결제 혜택</h4>
             <ul class="bul_list dot">
@@ -800,49 +800,17 @@ const toggle_btn = (event) => {
   }
  }
 
-
-
-
-
-
-//  const getselect = (event) => {
-//     let select = document.querySelector('.adress_sl div select');
-//     var option = select.value
-//     console.log(option)
-//  }
-
-
 const input_change = (event) => {
-  // let input_box = document.querySelector('.addr_info article > .input_wrap')
-  let input_box = event.target.closest('.select').nextElementSibling.childNodes[0]; //[Tip 확인 후 삭제해주세요]확장성을 고려해서, 특정 타겟을 지정하기 보단, 유연한 타겟 설정이 가능하도록 처리. input_wrap에 active 클래스를 주었으나 style 상으로는 .label_wrap에 active가 붙었을 때, display:block 처리되어 있습니다.
+  let input_box = event.target.closest('.select').nextElementSibling.childNodes[0];
   const input_value = ref(event.target.value)
-  if(input_value.value == 5){ //[Tip 확인 후 삭제해주세요]변경된 값을 가져올땐 input_value.value 처럼 뒤에 .value로 가져옵니다.
+  if(input_value.value == 5){
     input_box.classList.add('active')
   }else {
     input_box.classList.remove('active')
   }
-
 }
 
-
  onMounted(() => {
-
-//   let input_box = document.querySelector('.addr_info article > .input_wrap')
-//   console.log(input_box)
-//   let selectElement = document.querySelector('.adress_sl div select');
-//   selectElement.addEventListener('change', (event) => {
-//   const selectedValue = event.target.value;
-//   console.log(selectedValue); // 선택된 옵션의 값 출력
-
-
-// });
-
-
-//   select.addEventListener('change', function(){
-//   document.getElementById('value').children[0].innerHTML =select.options[select.selectedIndex].value;
-
-//   document.getElementById('label').children[0].innerHTML =select.options[select.selectedIndex].label;
-// })
 
  })
 

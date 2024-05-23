@@ -151,16 +151,16 @@
                 <span>배송 요청사항</span>
               </th>
               <td class="shippingMsg">
-                <Selectbox
-                :options="[
-                    { val: 'value', txt: '배송 요청사항을 선택 해주세요.' },
-                    { val: 'value', txt: '부재시 경비(관리)실에 맡겨주세요.' },
-                    { val: 'value', txt: '부재시 문앞에 놓아주세요.' },
-                    { val: 'value', txt: '파손의 위험이 있는 상품이 있으니, 배송에 주의해주세요.' },
-                    { val: 'value', txt: '배송전에 연락주세요.' },
-                    { val: 'value', txt: '메시지 직접 입력' },
-                ]" />
-                <Inputs _type="text" _placeholder="배송 요청사항을 입력해주세요. (최대 45자까지 입력가능)" />
+                <Selectbox class="adress_sl"
+                  :options="[
+                  { val: 0, txt: '배송 요청사항을 선택해 주세요.' },
+                  { val: 1, txt: '부재 시 경비(관리)실에 맡겨주세요.' },
+                  { val: 2, txt: '부재 시 문 앞에 놓아주세요.' },
+                  { val: 3, txt: '파손의 위험이 있는 제품이 있으니, 배송에 주의해주세요.' },
+                  { val: 4, txt: '배송 전에 연락주세요.' },
+                  { val: 5, txt: '메세지 직접입력' },
+                ]"  @change="input_change($event)"/>
+                <Inputs _type="text" _placeholder="배송 메세지를 직업 앱력해주세요(최대 20자)" />
               </td>
             </tr>
           </tbody>
@@ -443,7 +443,7 @@
             <label :for="item.label_for">{{ item.name }}</label>
           </li>
         </ul>
-        <a href="#none">무이자 할부 안내</a>
+        <a href="#none" @click="modal.open('install', 'full install')">무이자 할부 안내</a>
         <p class="tosspay">
           <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
           <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
@@ -823,6 +823,21 @@
       </div>
     </div>
   </div>
+
+
+
+  <div class="modal_wrap install" id="install">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>무이자 할부 안내</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+</div>
   <!-- //modal -->
 
 </template>
@@ -868,6 +883,18 @@ const change = () => {
 const change_res = () => {
   document.querySelector('.new_address').classList.remove('active')
   document.querySelector('.deliveryList').classList.remove('hide')
+}
+
+const input_change = (event) => {
+  let input_box = event.target.closest('.select').nextElementSibling.childNodes[0];
+  const input_value = ref(event.target.value)
+  console.log(input_box)
+  console.log(input_value.value)
+  if(input_value.value == 5){
+    input_box.classList.add('active')
+  }else {
+    input_box.classList.remove('active')
+  }
 }
 
 onMounted(() => {
@@ -983,9 +1010,16 @@ const modalPositioning = () => {
                           width:75% !important;
                           display:inline-block;
                         }
-                        .input_wrap {
+                        :deep(.input_wrap) {
                           width:75% !important;
                           margin-top:12px;
+                          display:block;
+                          .label_wrap  {
+                            display:none;
+                            &.active {
+                              display:block;
+                            }
+                          }
                         }
                     }
                     > div {
