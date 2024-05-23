@@ -2,51 +2,42 @@
   <div class="main">
     <!-- visual -->
     <div class="visual">
-      <swiper
-        v-bind="swieprOpt.visual"
-        @swiper="onSwiper"
-        @slideChange="onSlideChange"
-        :navigation="navigation"
-      >
-        <swiper-slide v-for="(item, idx) in mainSam.visual" :key="idx">
-          <a href="#none" class="item">
-            <!-- visual tag -->
-            <div class="tag-card">
-              <span class="cardSt_1">{{item.tag[0]}}</span>
-              <span class="cardSt_2">{{item.tag[1]}}</span>
-            </div>
-            <!-- //visual tag -->
+      <div class="swiper_wrap">
+        <swiper style="padding-bottom:50px;"
+          v-bind="swiperOpt.visual"
+          @swiper="onSwiper"
+          @slideChange="onSlideChange"
+        >
+          <swiper-slide v-for="(item, idx) in mainSam.visual" :key="idx">
+            <a href="#none" class="item">
+              <!-- visual tag -->
+              <div class="tag-card">
+                <span class="cardSt_1">{{item.tag[0]}}</span>
+                <span class="cardSt_2">{{item.tag[1]}}</span>
+              </div>
+              <!-- //visual tag -->
 
-            <!-- item text content -->
-            <div class="cont">
-              <p class="name">
-                <strong>{{item.name[0]}}</strong>
-                <span>{{item.name[1]}}</span>
-              </p>
-              <p class="price">{{item.price[0]}}
-                <em>{{item.price[1]}}</em>
-              </p>
-            </div>
-            <!-- //item text content -->
+              <!-- item text content -->
+              <div class="cont">
+                <p class="name">
+                  <strong>{{item.name[0]}}</strong>
+                  <span>{{item.name[1]}}</span>
+                </p>
+                <p class="price">{{item.price[0]}}
+                  <em>{{item.price[1]}}</em>
+                </p>
+              </div>
+              <!-- //item text content -->
 
-            <!-- visual image -->
-            <span class="thumb">
-              <em><img :src="item.img"></em>
-            </span>
-            <!-- //visual image -->
-          </a>
-        </swiper-slide>
-
-        <!-- customer pagination -->
-        <div class="custom_pagination">
-          <div class="current">
-            <em class="idx_01"></em>
-            <em class="idx_02"></em>
-          </div>
-          <strong class="total"></strong>
-        </div>
-        <!-- //customer pagination -->
-      </swiper>
+              <!-- visual image -->
+              <span class="thumb">
+                <em><img :src="item.img"></em>
+              </span>
+              <!-- //visual image -->
+            </a>
+          </swiper-slide>
+        </swiper>
+      </div>
     </div>
     <!-- //visual -->
 
@@ -77,7 +68,7 @@
     <section class="narrow event">
       <div class="swiper_wrap">
         <swiper
-          v-bind="swieprOpt.recommend01"
+          v-bind="swiperOpt.recommend01"
           :navigation="navigation"
         >
           <swiper-slide v-for="(item, idx) in sample_event" :key="idx">
@@ -94,19 +85,7 @@
         <a href="#none">오늘의 추천 제품</a>
       </h2>
 
-      <div class="swiper_wrap">
-        <swiper class="module_02"
-          v-bind="swieprOpt.recommend02"
-          :navigation="navigation"
-        >
-          <swiper-slide v-for="(item, idx) in mainSam.recommend02" :key="idx">
-            <EventItem :item="item" />
-            <GoodsItem :item="item.goods" :link="item.link" />
-          </swiper-slide>
-          <button class="swiper-button-next">Next</button>
-          <button class="swiper-button-prev">Prev</button>
-        </swiper>
-      </div>
+      <div class="swiper_wrap">Swiper</div>
     </section>
 
     <section class="narrow combi">
@@ -122,18 +101,7 @@
             </div>
           </a>
         </div>
-        <swiper
-          v-bind="swieprOpt.recommend03"
-        >
-          <swiper-slide v-for="(item, idx) in sample_goods.slice(3,6)" :key="idx">
-            <a href="#none" class="item">
-              <GoodsItem :item="item" :link="item.link" />
-            </a>
-          </swiper-slide>
-          <!-- bar형태로 변경 예정 -->
-          <div class="custom-pagination"></div>
-          <!-- //bar형태로 변경 예정 -->
-        </swiper>
+        <div class="swiper_wrap">Swiper</div>
       </div>
     </section>
     <!-- //오늘의 추천 제품 -->
@@ -143,25 +111,14 @@
       <h2>
         <a href="#none"><strong>주소희</strong> 님, 이 제품 어때요?</a>
       </h2>
-      <div class="swiper_wrap">
-        <swiper
-          v-bind="swieprOpt.recommend04"
-          :navigation="navigation"
-        >
-          <swiper-slide v-for="(item, idx) in sample_goods" :key="idx">
-            <GoodsItem :item="item" />
-          </swiper-slide>
-          <button class="swiper-button-next">Next</button>
-          <button class="swiper-button-prev">Prev</button>
-        </swiper>
-      </div>
+      <div class="swiper_wrap">Swiper</div>
     </section>
     <!-- //이 제품 어때요 -->
 
     <!-- 혜택 -->
     <section class="benefit">
       <swiper
-        v-bind="swieprOpt.benefit"
+        v-bind="swiperOpt.benefit"
       >
         <swiper-slide v-for="(item, idx) in sample_event" :key="idx">
           <EventItem :item="item" />
@@ -182,18 +139,7 @@
         </div>
       </div>
 
-      <div class="swiper_wrap">
-        <swiper
-          v-bind="swieprOpt.ranking"
-          :navigation="navigation"
-        >
-          <swiper-slide v-for="(item, idx) in sample_goods" :key="idx">
-            <GoodsItem :item="item" />
-          </swiper-slide>
-          <button class="swiper-button-next">Next</button>
-          <button class="swiper-button-prev">Prev</button>
-        </swiper>
-      </div>
+      <div class="swiper_wrap">Swiper</div>
     </section>
     <!-- //랭킹 -->
   </div>
@@ -201,7 +147,7 @@
 <script setup>
 // import Swiper core and required components
 import SwiperCore from "swiper";
-import { Navigation, Pagination, A11y } from "swiper/modules";
+import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -212,25 +158,33 @@ import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y]);
+SwiperCore.use([Navigation, Pagination, A11y, Autoplay]);
 
 /* swiper options */
-const swieprOpt = {
+/* //swiper options */
+
+import {
+  sampleSlide,
+  mainSam,
+  sample_goods,
+  sample_event
+} from '~/test/data/publish/dummyData'
+
+definePageMeta({
+  layout:'pc-default'
+})
+
+/* swiper options */
+const swiperOpt = {
   visual:  {
-    slidesPerView: "auto",
-    slidesPerGroup: 2,
-    spaceBetween: 40,
-    loop: true,
-    // navigation,
-    pagination: {
-      type:'fraction'
-    },
+    slidesPerView:"auto",
+    slidesPerGroup:"2",
+    spaceBetween:"50",
+    loop:true,
     autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
+      delay: 200,
+      disableOnInteraction: true // 쓸어 넘기거나 버튼 클릭 시 자동 슬라이드 정지.
     },
-    centeredSlides: true,
-    slidesOffsetBefore: -330
   },
   recommend01: {
     slidesPerView:2,
@@ -284,69 +238,6 @@ const swieprOpt = {
   }
 }
 
-const navigation = {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-}
-/* //swiper options */
-
-// const onSwiper = (swiper) => {
-//   const total = swiper.loopedSlides,
-//   current = swiper.realIndex+1;
-
-//   if(total < 10) {
-//     document.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
-
-//     if((current+1) > total) {
-//       document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+((total - current)+1);
-//     } else {
-//       document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+(current+1);
-//     }
-
-//     document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
-//   }
-
-//   if(swiper_status.value == 'pause') {
-//     swiper.autoplay.stop();
-//   } else {
-//     swiper.autoplay.start();
-//   }
-// };
-
-// const onSlideChange = (swiper) => {
-//   const total = swiper.loopedSlides,
-//   current = swiper.realIndex+1;
-
-//   if(total < 10) {
-//     document.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
-
-//     if((current+1) > total) {
-//       document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+((total - current)+1);
-//     } else {
-//       document.querySelector('.custom_pagination .current .idx_02').textContent = '0'+(current+1);
-//     }
-
-//     document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
-//   }
-
-//   if(swiper_status.value == 'pause') {
-//     swiper.autoplay.stop();
-//   } else {
-//     swiper.autoplay.start();
-//   }
-// };
-
-import {
-  sampleSlide,
-  mainSam,
-  sample_goods,
-  sample_event
-} from '~/test/data/publish/dummyData'
-
-definePageMeta({
-  layout:'pc-default'
-})
-
 const rankingTabs = [
   {txt:'전체'},
   {txt:'스킨케어'},
@@ -362,7 +253,7 @@ const rankingTabs = [
       min-max-width:1320px;
       .visual {
         margin-top:40px;
-        .swiper-container {
+        .swiper {
           padding-bottom:40px;
           :deep(.swiper-pagination) {
             display:none;
@@ -458,6 +349,9 @@ const rankingTabs = [
               right:0;
               bottom:0;
               left:0;
+              display:block;
+            }
+            img {
               display:block;
             }
           }
@@ -561,7 +455,7 @@ const rankingTabs = [
           }
         }
         .swiper_wrap {
-          .swiper-container{
+          .swiper{
             max-width:1480px;
             padding:0 100px;
             &:before {
@@ -745,16 +639,13 @@ const rankingTabs = [
           }
         }
         &.event {
-          :deep(.thumb){
-            padding-top:53.225806%;
-          }
           :deep(.cont) {
-            height:auto;
             margin-top:40px;
-            display:flex;
-            flex-direction:column-reverse;
+            padding:0;
             strong {
-              margin-top:0;
+              margin-bottom:0;
+              font-size:24px;
+              line-height:32px;
               display:flex;
               align-items:center;
               justify-content:space-between;
@@ -820,20 +711,6 @@ const rankingTabs = [
               .thumb {
                 padding-top:53.25%;
               }
-              .cont {
-                height:auto;
-                margin-top:0;
-                padding:20px;
-                background-color:#fff;
-                display:flex;
-                flex-direction:column-reverse;
-                strong {
-                  height:48px;
-                  margin-top:0;
-                  margin-bottom:8px;
-                  font-size:20px;
-                }
-              }
             }
           }
         }
@@ -841,6 +718,14 @@ const rankingTabs = [
       .update_wrap {
         margin-bottom:40px;
         position:relative;
+        :deep(.tab_wrap) {
+          > ul {
+            margin-left:0;
+            li + li {
+              margin-left:60px;
+            }
+          }
+        }
         .date {
           color:#999;
           font-size:16px;

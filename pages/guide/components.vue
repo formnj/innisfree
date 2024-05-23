@@ -145,6 +145,9 @@
 
   <section>
     <h2>Event Item</h2>
+    <ul class="explain">
+      <li>event item type 추가 : default, type_02, type_column &lt;EventItem :item="item" type="타입입력 default는 제외" /&gt;</li>
+    </ul>
     <div class="design_box">
       <div class="list_wrap">
         <ul class="event_list">
@@ -157,7 +160,7 @@
     <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
     &lt;ul class="event_list"&gt;
         &lt;li v-for="(item, idx) in sample_event" :key="idx"&gt;
-            &lt;EventItem :item="item" :link="item.link" /&gt;
+            &lt;EventItem :item="item" :link="item.link" type="타입입력 default는 제외" /&gt;
         &lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;</code></pre>

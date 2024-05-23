@@ -7,23 +7,24 @@
           </h3>
         </div>
         <div class="btn_wrap">
-          <Button txt="변경" class="btn_ change active"/>
-          <Button txt="닫기" class="btn_ close"/>
+          <Button txt="변경" class="btn_ change" @click="toggle_btn_02"/>
         </div>
       </div>
       <span class="name">김이안</span>
       <em>000-0000-5000</em>
-      <ul>
-        <li>
-          <Inputs _type="text" _placeholder="주문자 이름을 입력해주세요." />
-        </li>
-        <li>
-          <Inputs _type="text" _placeholder='휴대폰번호 입력("-"제외)' />
-        </li>
-        <li>
-          <Button txt="변경완료" class="btn_outline"/>
-        </li>
-      </ul>
+      <div class="list_wrap">
+        <ul>
+          <li>
+            <Inputs _type="text" _placeholder="주문자 이름을 입력해주세요." :isError="false" _err_text="주문자 이름을 입력해주세요."/>
+          </li>
+          <li>
+            <Inputs _type="text" _placeholder='휴대폰번호 입력("-"제외)' :isError="false" _err_text="주문자 휴대폰번호를 확인해주세요"/>
+          </li>
+          <li>
+            <Button txt="변경완료" class="btn_outline"/>
+          </li>
+        </ul>
+      </div>
     </section>
     <section class="addr_info">
       <div class="sub_title_wrap">
@@ -47,15 +48,15 @@
         <div>
           <Inputs _type="checkbox" _text="안심번호 사용" /><Icons class="tooltip" @click="modal.open('relief_num', 'alert')" />
         </div>
-        <Selectbox
+        <Selectbox class="adress_sl"
           :options="[
-          { val: '', txt: '배송 요청사항을 선택해 주세요.' },
-          { val: '부재 시 경비(관리)실에 맡겨주세요.', txt: '부재 시 경비(관리)실에 맡겨주세요.' },
-          { val: '부재 시 문 앞에 놓아주세요.', txt: '부재 시 문 앞에 놓아주세요.' },
-          { val: '파손의 위험이 있는 제품이 있으니, 배송에 주의해주세요.', txt: '파손의 위험이 있는 제품이 있으니, 배송에 주의해주세요.' },
-          { val: '배송 전에 연락주세요.', txt: '배송 전에 연락주세요.' },
-          { val: 'directly', txt: '메세지 직접입력' },
-        ]" />
+          { val: 0, txt: '배송 요청사항을 선택해 주세요.' },
+          { val: 1, txt: '부재 시 경비(관리)실에 맡겨주세요.' },
+          { val: 2, txt: '부재 시 문 앞에 놓아주세요.' },
+          { val: 3, txt: '파손의 위험이 있는 제품이 있으니, 배송에 주의해주세요.' },
+          { val: 4, txt: '배송 전에 연락주세요.' },
+          { val: 5, txt: '메세지 직접입력' },
+        ]"  @change="input_change($event)"/>
         <Inputs _type="text" _placeholder="배송 메세지를 직업 앱력해주세요(최대 20자)" />
       </article>
     </section>
@@ -725,7 +726,6 @@ const show_hide = ()=>{
   target.parentElement.nextElementSibling.classList.toggle('show')
 }
 
-
 const show = (event) => {
   let list = document.querySelectorAll('.order_info > ul > li')
   let close_btn = document.querySelector('.more_btns .more_close')
@@ -753,7 +753,9 @@ const toggle_btn = (event) => {
   console.log(event.currentTarget)
   event.currentTarget.classList.toggle('active');
   const panel = event.currentTarget.parentNode.nextElementSibling;
+  console.log(panel)
   const ori_H = panel.childNodes[0].offsetHeight;
+  console.log(ori_H)
 
   if(!event.currentTarget.classList.contains("active")){
     panel.style.height = ori_H+'px';
@@ -768,8 +770,80 @@ const toggle_btn = (event) => {
       panel.style.height = ori_H+'px';
     });
   }
-
  }
+
+ const toggle_btn_02 = (event) => {
+  console.log(event.currentTarget)
+  event.currentTarget.classList.toggle('active');
+  const panel = event.currentTarget.parentNode.parentNode.nextElementSibling.nextElementSibling.nextElementSibling
+  // const panel = event.currentTarget.parentNode.nextElementSibling;
+  console.log(panel)
+  const ori_H = panel.childNodes[0].offsetHeight;
+  console.log(ori_H)
+
+  if(!event.currentTarget.classList.contains("active")){
+    panel.style.height = ori_H+'px';
+    event.currentTarget.innerText = "변경"
+    setTimeout(() => {
+      panel.style.height = '0px';
+      panel.classList.add('hide');
+    })
+  }else {
+    panel.style.height = 0;
+    event.currentTarget.innerText = "닫기"
+    panel.classList.remove('hide');
+    setTimeout(() => {
+      panel.style.height = ori_H+'px';
+    });
+  }
+ }
+
+//  const getselect = (event) => {
+//     let select = document.querySelector('.adress_sl div select');
+//     var option = select.value
+//     console.log(option)
+//  }
+
+
+const input_change = (event) => {
+  let input_box = document.querySelector('.addr_info article > .input_wrap')
+  console.log(event.target.value)
+  console.log(input_box)
+  const input_value = ref(event.target.value)
+  if(input_value == 5){
+    input_box.classList.add('active')
+  }else {
+    input_box.classList.remove('active')
+  }
+
+}
+
+
+ onMounted(() => {
+
+//   let input_box = document.querySelector('.addr_info article > .input_wrap')
+//   console.log(input_box)
+//   let selectElement = document.querySelector('.adress_sl div select');
+//   selectElement.addEventListener('change', (event) => {
+//   const selectedValue = event.target.value;
+//   console.log(selectedValue); // 선택된 옵션의 값 출력
+
+
+// });
+
+
+//   select.addEventListener('change', function(){
+//   document.getElementById('value').children[0].innerHTML =select.options[select.selectedIndex].value;
+
+//   document.getElementById('label').children[0].innerHTML =select.options[select.selectedIndex].label;
+// })
+
+ })
+
+
+
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -924,31 +998,36 @@ const toggle_btn = (event) => {
       .sub_title_wrap {
         .btn_wrap {
           :deep(.btn_) {
-            display:none;
+              color:#fff;
+              font-size: 1rem;
             &.active {
-              display:block;
-            }
-
-            &.close {
               background-color:#000000;
+              color:#fff;
+              font-size: 1rem;
             }
           }
         }
       }
-      ul {
+      .list_wrap {
+        height:0;
         margin-top:2rem;
-        margin-left:-2.1rem;
-        margin-right:-2.1rem;
-        padding:3.0rem 2.1rem;
-        background:#F5F5F5;
-        > * {
-          margin-bottom:1rem;
-          &:last-of-type {
-            margin-bottom:0;
-          }
-          & .btn_outline {
-            width:100%;
-            background:#fff !important;
+        margin-left: -2.1rem;
+        margin-right: -2.1rem;
+        border-top:2px solid #F5F5F5;
+        transition:all 0.3s;
+        overflow:hidden;
+        ul {
+          padding:3.0rem 2.1rem;
+          background:#F5F5F5;
+          > * {
+            margin-bottom:1rem;
+            &:last-of-type {
+              margin-bottom:0;
+            }
+            & .btn_outline {
+              width:100%;
+              background:#fff !important;
+            }
           }
         }
       }
@@ -993,6 +1072,12 @@ const toggle_btn = (event) => {
         :deep(label.select) {
          > div {
           margin-bottom:1rem;
+          }
+        }
+        :deep(.label_wrap){
+          display:none;
+          &.active {
+            display:block;
           }
         }
       }

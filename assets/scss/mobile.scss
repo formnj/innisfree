@@ -230,35 +230,37 @@
 
 /* eventitem */
 :deep(.event_item) {
-  .item {
-    display:flex;
-    align-items:center;
-    flex-wrap:wrap;
-    .thumb {
-      width:160px;
-      padding-top:0;
-      em {
-        position:static;
-      }
-    }
-    .cont {
-      height:auto;
-      margin-top:0;
-      padding:0 2rem;
-      display:flex;
-      flex:1;
-      flex-direction:column-reverse;
-      strong {
-        margin-top:0;
-        font-size:1.4rem;
-      }
-      .date {
-        margin-top:1.6rem;
-        font-size:1.2rem;
-      }
-      .sticker {
-        padding:0.2rem 0.5rem;
-        font-size:1rem;
+  &.type_02 {
+    .item {
+      .thumb {}
+      .cont {
+        padding: 2rem 2.1rem;
+
+        strong {
+          min-height:auto;
+          margin:0;
+          font-size:1.6rem;
+          line-height:2rem;
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+
+          &:after {
+            width:2.4rem;
+            height:2.4rem;
+            background:url('~/assets/mo_images/common/icon_split.png') -0.5rem -21.4rem no-repeat;
+            background-size:25rem auto;
+            content:'';
+            display:block;
+            transform: rotate(-90deg);
+          }
+        }
+
+        .date {
+          margin-top: 1rem;
+          font-size: 1.2rem;
+          line-height: 1.6rem;
+        }
       }
     }
   }
@@ -782,6 +784,56 @@
 
     .modal_footer {
       position:unset;
+    }
+  }
+
+  
+  &.nav {
+    .modal_content {
+      padding:0;
+
+      ul {
+        li {
+          &:first-child {
+            a {
+              border-top:0;
+            }
+          }
+
+          &.active {
+            a {
+              color:#00bc70;
+              font-weight:700;
+
+              &::after {
+                content:'현재 선택';
+                width:16px;
+                height:16px;
+                color:transparent;
+                font-size:0;
+                background-image:url('~/assets/mo_images/common/icon_split.png');
+                background-repeat:no-repeat;
+                background-position:-80px -70px;
+                background-size:250px auto;
+                display:block;
+              }
+            }
+          }
+
+          a {
+            width:100%;
+            padding:15px 26px;
+            text-align:left;
+            border-top:1px solid #f5f5f5;
+            color:#000;
+            font-weight:300;
+            font-size:16px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+          }
+        }
+      }
     }
   }
 }

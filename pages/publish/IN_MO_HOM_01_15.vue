@@ -23,7 +23,7 @@
           <ul class="goods_list type_column">
             <li v-for="(item, idx) in sample_log.slice(0,3)" :key="idx">
               <GoodsItem v-if="item.type == 'goods'" :item="item.item[0]" :link="item.item.link" />
-              <EventItem v-if="item.type == 'event'" :item="item.item[0]" :link="item.link"/>
+              <EventItem v-if="item.type == 'event'" :item="item.item[0]" :link="item.link" type="type_column"/>
             </li>
           </ul>
           <!-- //list -->
@@ -582,18 +582,13 @@ section {
         }
         .thumb {
           height:4rem;
-          margin-right:1.5rem;
           padding-top:0;
         }
         .cont {
-          height:auto;
-          margin-top:0;
-          padding:0;
           text-overflow: ellipsis;
           overflow: hidden;
           white-space: nowrap;
           strong {
-            margin-top:0;
             font-size:1.3rem;
             font-weight:400;
             white-space: nowrap;

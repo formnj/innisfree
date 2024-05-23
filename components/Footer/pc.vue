@@ -30,7 +30,7 @@
           </span>
           <a href="">토스페이먼츠 구매안전 서비스 가입확인</a>
         </div>
-        <p class="copyRight">Copyright ©2023 이니스프리. All Rights Reserved</p>
+        <p class="copyRight">Copyright ©2023 이니스프리. All Rights Reserved</p>
         <dl>
           <dt>
             <span>고객 서비스 센터 이용안내</span>
@@ -106,7 +106,7 @@
 
   <!-- 쇼핑로그 모달 -->
   <div class="modal_wrap" id="shopping_log">
-     <div class="modal_container">
+    <div class="modal_container">
         <div class="modal_header">
             <h2><strong>김이니</strong>님의 쇼핑로그
               <Icons class="tooltip" txt="툴팁" @click="modal.open('log_info', 'alert')" />
@@ -125,7 +125,7 @@
             <ul class="goods_list type_column">
               <li v-for="(item, idx) in sample_log" :key="idx">
                 <GoodsItem v-if="item.type == 'goods'" :item="item.item[0]" :link="item.item.link" />
-                <EventItem v-if="item.type == 'event'" :item="item.item[0]" :link="item.link"/>
+                <EventItem v-if="item.type == 'event'" :item="item.item[0]" :link="item.link" type="type_column"/>
               </li>
             </ul>
             <!-- //list -->
@@ -172,7 +172,6 @@
               </li>
             </ul>
           </section>
-
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -181,7 +180,7 @@
 
   <!-- 쇼핑로그 안내 모달 -->
   <div class="modal_wrap" id="log_info">
-     <div class="modal_container">
+    <div class="modal_container">
         <div class="modal_header">
             <h2>쇼핑로그 안내</h2>
             <button class="btn_close" @click="modal.close(this);">닫기</button>
@@ -513,14 +512,14 @@ footer {
       }
       :deep(.goods_item) {
         .img_wrap {
-           height:120px;
-           margin-right:20px;
-           .thumb {
+          height:120px;
+          margin-right:20px;
+          .thumb {
             height:100%;
-           }
-           .btnIconBox {
+          }
+          .btnIconBox {
             display:none;
-           }
+          }
         }
         .cont {
           margin-top:0;
@@ -536,18 +535,13 @@ footer {
       }
       :deep(.event_item) {
         .item {
-          align-items:center;
+          gap:20px;
         }
         .thumb {
           height:60px;
-          margin-right:20px;
-          padding-top:0;
         }
         .cont {
-          height:auto;
-          margin-top:0;
           strong {
-            margin-top:0;
             font-size:14px;
             font-weight:400;
             white-space: normal;
