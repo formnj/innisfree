@@ -68,7 +68,7 @@
     <section class="narrow event">
       <div class="swiper_wrap">
         <swiper
-          v-bind="swieprOpt.recommend01"
+          v-bind="swiperOpt.recommend01"
           :navigation="navigation"
         >
           <swiper-slide v-for="(item, idx) in sample_event" :key="idx">
@@ -118,7 +118,7 @@
     <!-- 혜택 -->
     <section class="benefit">
       <swiper
-        v-bind="swieprOpt.benefit"
+        v-bind="swiperOpt.benefit"
       >
         <swiper-slide v-for="(item, idx) in sample_event" :key="idx">
           <EventItem :item="item" />
@@ -186,6 +186,56 @@ const swiperOpt = {
       disableOnInteraction: true // 쓸어 넘기거나 버튼 클릭 시 자동 슬라이드 정지.
     },
   },
+  recommend01: {
+    slidesPerView:2,
+    spaceBetween: 40,
+    loop: true,
+  },
+  recommend02: {
+    slidesPerView:3,
+    spaceBetween: 40,
+    loop: true
+  },
+  recommend03: {
+    slidesPerView:3,
+    spaceBetween: 22,
+    loop: true,
+    // pagination: {
+    //   type:'progressbar'
+    // },
+    // pagination: {
+    //   type:'fraction',
+    //   clickable: true,
+    //   renderCustom: function (index, className) {
+    //     return '<span class="' + className + '">' + (index + 2) + '</span>';
+    //   }
+    // }
+  },
+  recommend04: {
+    slidesPerView:6,
+    spaceBetween:22,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+  },
+  benefit: {
+    slidesPerView: "auto",
+    slidesPerGroup: 1,
+    spaceBetween: 40,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    centeredSlides: true,
+    slidesOffsetBefore: -20
+  },
+  ranking: {
+    slidesPerView:5,
+    spaceBetween:20,
+  }
 }
 
 const rankingTabs = [

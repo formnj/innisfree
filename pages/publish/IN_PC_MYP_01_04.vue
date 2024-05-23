@@ -399,7 +399,7 @@ import { sampleSlide } from '~/test/data/publish/dummyData.js'
 
 // import Swiper core and required components
 import SwiperCore from "swiper";
-import { Navigation, Pagination, A11y } from "swiper/modules";
+import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -410,7 +410,7 @@ import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y]);
+SwiperCore.use([Navigation, Pagination, A11y, Autoplay]);
 
 /* swiper option */
 const setSwiper = ref(null);
@@ -419,13 +419,12 @@ const swiper_options = {
   slidesPerView: 'auto',
   spaceBetween: 15,
   loop: true,
+	loopedSlides: 1,
   autoplay: {
     delay:3000,
     disableOnInteraction:false,
   },
   speed:1000,
-  observer:true,
-  observeParents:true,
 }
 /* swiper option */
 
@@ -437,7 +436,7 @@ onMounted(() => {
       section[idx].classList.add('show');
 
       /* swiper 탭 이동시 autoplay 버그해결 */
-      idx === 0 ?setSwiper.value.autoplay.start() : setSwiper.value.autoplay.stop();
+      idx === 0 ? setSwiper.value.autoplay.start() : setSwiper.value.autoplay.stop();
       /* 모바일 앱 다운로드 탭 이동시 user_wrap 숨김처리 */
       idx === 2 ? document.querySelector('.user_wrap').classList.add('hide') : document.querySelector('.user_wrap').classList.remove('hide');
     })
@@ -686,6 +685,10 @@ section {
           display:flex;
           align-items:center;
           justify-content:space-between;
+          &:last-child {
+            border-bottom:0;
+          }
+
           &:after {
             content:'';
             width:48px;
@@ -826,10 +829,9 @@ section {
               margin-top:0;
             }
             &:before {
-              content:'·';
-              display:inline-block;
-              margin-right:5px;
-              color:#888;
+              width:2px;
+              height:2px;
+              border-radius:50%;
             }
           }
         }
@@ -839,7 +841,7 @@ section {
 
   .greentea {
     :deep(.swiper-slide) {
-      width:fit-content;
+      width: 370px;
       .item {
         img {
           width:370px;

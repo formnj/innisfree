@@ -813,11 +813,10 @@ const toggle_btn = (event) => {
 
 
 const input_change = (event) => {
-  let input_box = document.querySelector('.addr_info article > .input_wrap')
-  console.log(event.target.value)
-  console.log(input_box)
+  // let input_box = document.querySelector('.addr_info article > .input_wrap')
+  let input_box = event.target.closest('.select').nextElementSibling.childNodes[0]; //[Tip 확인 후 삭제해주세요]확장성을 고려해서, 특정 타겟을 지정하기 보단, 유연한 타겟 설정이 가능하도록 처리. input_wrap에 active 클래스를 주었으나 style 상으로는 .label_wrap에 active가 붙었을 때, display:block 처리되어 있습니다.
   const input_value = ref(event.target.value)
-  if(input_value == 5){
+  if(input_value.value == 5){ //[Tip 확인 후 삭제해주세요]변경된 값을 가져올땐 input_value.value 처럼 뒤에 .value로 가져옵니다.
     input_box.classList.add('active')
   }else {
     input_box.classList.remove('active')

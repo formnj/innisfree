@@ -970,18 +970,14 @@ export const sample_event = [
 
 //sample visual
 export const sampleSlide = [
-  {
-    img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
-  },
-  {
-    img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
-  },
-  {
-    img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
-  },
-  {
-    img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
-  }
+  { img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957") },
+  { img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957") },
+  { img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957") },
+  { img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957") },
+  { img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957") },
+  { img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957") },
+  { img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957") },
+  { img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957") },
 ]
 
 export const sample_goods = [
