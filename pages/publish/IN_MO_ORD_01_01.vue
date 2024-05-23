@@ -828,10 +828,13 @@ const input_change_cont = (event) => {
   const input_value = ref(event.target.value)
   console.log(input_value.value)
   input_box.forEach((a,i)=>{
-    if(input_value.value === 'n_oneClick') {
-      a.classList.add('notall')
-      }
-    })
+    console.log(a)
+  })
+
+  if(input_value.value === 'n_oneClick') {
+    console.log('hihi')
+    // a.classList.add('notall')
+    }
 
 }
 
