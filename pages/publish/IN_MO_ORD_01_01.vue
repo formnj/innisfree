@@ -208,7 +208,7 @@
               { val: 'value', txt: '국민' },
               { val: 'value', txt: '하나' }
           ]" />
-          <a href="#none" @click="modal.open('install', 'fullMo install')">무이자 할부 안내</a>
+          <button @click="modal.open('install', 'fullMo install')">무이자 할부 안내</button>
           <div>
             <h4>신용카드 결제 혜택</h4>
             <ul class="bul_list dot">
@@ -687,6 +687,19 @@
         </div>
         <div class="modal_footer">
             <Button class="btn_big confirm" txt="확인" />
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+
+  <div class="modal_wrap install" id="install">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>무이자 할부 안내</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <img src="/_nuxt/public/images/sam/P01_51_1.png">
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>

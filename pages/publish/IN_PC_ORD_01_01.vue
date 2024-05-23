@@ -203,7 +203,7 @@
               <div class="gifts">
                 <dl class="board_type_toggle single">
                   <dt>
-                    <a href="#none">
+                    <a href="#none" class="active" @click="toggle_btn">
                       그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
                       <em></em>
                     </a>
@@ -255,7 +255,7 @@
               <div class="gifts">
                 <dl class="board_type_toggle single">
                   <dt>
-                    <a href="#none">
+                    <a href="#none" class="active" @click="toggle_btn">
                       그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
                       <em></em>
                     </a>
@@ -833,11 +833,11 @@
             <button class="btn_close" @click="modal.close(this);">닫기</button>
         </div>
         <div class="modal_content">
-
+          <img src="/_nuxt/public/images/sam/P01_51_1.png">
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
-</div>
+  </div>
   <!-- //modal -->
 
 </template>
@@ -897,32 +897,60 @@ const input_change = (event) => {
   }
 }
 
-onMounted(() => {
-  const target = document.querySelectorAll('.board_type_toggle dt a');
-  const rotate = document.querySelectorAll('.board_type_toggle dt a em');
-  target.forEach((a,i)=>{
-    a.addEventListener('click', function(){
 
-      if(a.parentNode.nextElementSibling.classList.contains('show')){
-        a.parentNode.nextElementSibling.style.height = '0px'
-        a.parentNode.nextElementSibling.addEventListener('transitionend', () => {
-          a.parentNode.nextElementSibling.classList.remove('show');
-          rotate[i].classList.remove('active')
-        }, {once: true});
-      }
-      else{
-        a.parentNode.nextElementSibling.classList.add('show');
-        rotate[i].classList.add('active')
-        a.parentNode.nextElementSibling.style.height = 'auto'
-        const height = a.parentNode.nextElementSibling.clientHeight + 'px'
-        a.parentNode.nextElementSibling.style.height = '0px'
-        setTimeout(() => {
-          a.parentNode.nextElementSibling.style.height = height
-        });
-      }
+const toggle_btn = (event) => {
+  console.log(event.currentTarget)
+  event.currentTarget.classList.toggle('active');
+  const panel = event.currentTarget.parentNode.nextElementSibling;
+  console.log(panel)
+
+  const ori_H_1 = panel.childNodes[0].offsetHeight;
+  const ori_H_2 = panel.childNodes[1].offsetHeight;
+  console.log(ori_H_1+ori_H_2)
+
+  if(!event.currentTarget.classList.contains("active")){
+    panel.style.height = ori_H_1 + ori_H_2 + 'px';
+    setTimeout(() => {
+      panel.style.height = '0px';
+      panel.classList.add('hide');
     })
-  })
-})
+
+  }else {
+    panel.style.height = 0;
+    panel.classList.remove('hide');
+    setTimeout(() => {
+      panel.style.height = ori_H_1 + ori_H_2 +'px';
+    });
+  }
+ }
+
+
+// onMounted(() => {
+//   const target = document.querySelectorAll('.board_type_toggle dt a');
+//   const rotate = document.querySelectorAll('.board_type_toggle dt a em');
+//   target.forEach((a,i)=>{
+//     a.addEventListener('click', function(){
+
+//       if(a.parentNode.nextElementSibling.classList.contains('show')){
+//         a.parentNode.nextElementSibling.style.height = '0px'
+//         a.parentNode.nextElementSibling.addEventListener('transitionend', () => {
+//           a.parentNode.nextElementSibling.classList.remove('show');
+//           rotate[i].classList.remove('active')
+//         }, {once: true});
+//       }
+//       else{
+//         a.parentNode.nextElementSibling.classList.add('show');
+//         rotate[i].classList.add('active')
+//         a.parentNode.nextElementSibling.style.height = 'auto'
+//         const height = a.parentNode.nextElementSibling.clientHeight + 'px'
+//         a.parentNode.nextElementSibling.style.height = '0px'
+//         setTimeout(() => {
+//           a.parentNode.nextElementSibling.style.height = height
+//         });
+//       }
+//     })
+//   })
+// })
 
 const modalPositioning = () => {
   const top = window.scrollY + event.target.getBoundingClientRect().top + event.target.getBoundingClientRect().height;
@@ -1257,7 +1285,31 @@ div.list {
       }
     }
   }
-
+  .modal_container {
+    .modal_content {
+      > .check {
+        margin-bottom:20px;
+        color:#000;
+        font-weight:500;
+      }
+      .error {
+            margin:10px 0;
+            color:#FF0000;
+            font-size:12px;
+            display:block;
+        }
+        :deep(button.btn_outline) {
+          border:1px solid #000;
+          box-sizing:border-box;
+          em {
+              padding:0 20px;
+              color:#000;
+              font-size:12px;
+              font-weight:600;
+          }
+        }
+    }
+  }
   &.adress_manage {
     .modal_container {
       width: 720px;
@@ -1397,31 +1449,6 @@ div.list {
     }
   }
 
-  .modal_container {
-    .modal_content {
-      > .check {
-        margin-bottom:20px;
-        color:#000;
-        font-weight:500;
-      }
-      .error {
-            margin:10px 0;
-            color:#FF0000;
-            font-size:12px;
-            display:block;
-        }
-        :deep(button.btn_outline) {
-          border:1px solid #000;
-          box-sizing:border-box;
-          em {
-              padding:0 20px;
-              color:#000;
-              font-size:12px;
-              font-weight:600;
-          }
-        }
-    }
-  }
 
   &.add_list_modal {
     .modal_container {
@@ -1442,6 +1469,11 @@ div.list {
           background:#333;
         }
       }
+    }
+  }
+  &.install {
+    .modal_container {
+      width:720px;
     }
   }
 }
@@ -1612,16 +1644,15 @@ div.list {
       }
       dd {
         width:100%;
-        padding: 25px 19px;
         border:1px solid #eee;
         border-top:0;
-        display:none;
         align-items:center;
         gap:25px;
         overflow:hidden;
         transition:height 0.2s ease-out;
         div {
           width:390px;
+          padding: 25px 19px 0px;
           display:flex;
           align-items:center;
           img {
@@ -1645,10 +1676,6 @@ div.list {
       }
     }
   }
-
-
-
-
  > article {
     position: relative;
     margin-top:20px;
