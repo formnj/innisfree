@@ -1,5 +1,6 @@
 <template>
   <div class="inner">
+    <Button txt="126,000원 결제하기" class="btn_big confirm" />
     <section class="orderer_info">
       <div class="sub_title_wrap">
         <div>
@@ -207,7 +208,7 @@
               { val: 'value', txt: '국민' },
               { val: 'value', txt: '하나' }
           ]" />
-          <button>무이자 할부/카드혜택 안내</button>
+          <button @click="modal.open('install', 'fullMo install')">무이자 할부 안내</button>
           <div>
             <h4>신용카드 결제 혜택</h4>
             <ul class="bul_list dot">
@@ -648,7 +649,7 @@
           <section>
             <Selectbox
               :options="[
-              { val: 'all', txt: '전체' },
+              { val: 'all', txt: '전체'},
               { val: 'n_credit', txt: '신용카드' },
               { val: 'n_oneClick', txt: '원클릭' },
               { val: 'n_applepay', txt: '애플페이' },
@@ -663,7 +664,7 @@
               { val: 'n_mobile', txt: '휴대폰결제' },
               { val: 'n_cardKb', txt: '제휴카드(KB,신한,삼성,롯데)' },
               { val: 'n_kbpay', txt: 'KB페이' }
-            ]" />
+            ]" @change="input_change_cont($event)" />
             <p>
             저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌
 						이체 거래에 대해 구매안전서비스를 적용하고 있습니다. (결제
@@ -674,7 +675,7 @@
             </button>
           </section>
           <article>
-            <div v-for="(item, idx) in mo_ord_notice" :key="idx" :class="item.class">
+            <div v-for="(item, idx) in mo_ord_notice" :key="idx" :class="item.class" class="active">
               <h5>{{ item.title }}</h5>
               <ul class="bul_list dot" v-if="item.desc">
                 <li v-for="(a, idx) in mo_ord_notice[idx].desc" :key="idx">
@@ -686,6 +687,19 @@
         </div>
         <div class="modal_footer">
             <Button class="btn_big confirm" txt="확인" />
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+
+  <div class="modal_wrap install" id="install">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>무이자 할부 안내</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <img src="/_nuxt/public/images/sam/P01_51_1.png">
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -772,6 +786,7 @@ const toggle_btn = (event) => {
   }
  }
 
+
  const toggle_btn_02 = (event) => {
   console.log(event.currentTarget)
   event.currentTarget.classList.toggle('active');
@@ -798,46 +813,31 @@ const toggle_btn = (event) => {
   }
  }
 
-//  const getselect = (event) => {
-//     let select = document.querySelector('.adress_sl div select');
-//     var option = select.value
-//     console.log(option)
-//  }
-
-
 const input_change = (event) => {
-  // let input_box = document.querySelector('.addr_info article > .input_wrap')
-  let input_box = event.target.closest('.select').nextElementSibling.childNodes[0]; //[Tip 확인 후 삭제해주세요]확장성을 고려해서, 특정 타겟을 지정하기 보단, 유연한 타겟 설정이 가능하도록 처리. input_wrap에 active 클래스를 주었으나 style 상으로는 .label_wrap에 active가 붙었을 때, display:block 처리되어 있습니다.
+  let input_box = event.target.closest('.select').nextElementSibling.childNodes[0];
   const input_value = ref(event.target.value)
-  if(input_value.value == 5){ //[Tip 확인 후 삭제해주세요]변경된 값을 가져올땐 input_value.value 처럼 뒤에 .value로 가져옵니다.
+  if(input_value.value == 5){
     input_box.classList.add('active')
   }else {
     input_box.classList.remove('active')
   }
+}
+
+const input_change_cont = (event) => {
+  let input_box = event.currentTarget.parentNode.nextElementSibling.childNodes
+  const input_value = ref(event.target.value)
+  console.log(input_value.value)
+  input_box.forEach((a,i)=>{
+    console.log(a)
+  })
+
+  if(input_value.value === 'n_oneClick') {
+    console.log('hihi')
+    // a.classList.add('notall')
+    }
 
 }
 
-
- onMounted(() => {
-
-//   let input_box = document.querySelector('.addr_info article > .input_wrap')
-//   console.log(input_box)
-//   let selectElement = document.querySelector('.adress_sl div select');
-//   selectElement.addEventListener('change', (event) => {
-//   const selectedValue = event.target.value;
-//   console.log(selectedValue); // 선택된 옵션의 값 출력
-
-
-// });
-
-
-//   select.addEventListener('change', function(){
-//   document.getElementById('value').children[0].innerHTML =select.options[select.selectedIndex].value;
-
-//   document.getElementById('label').children[0].innerHTML =select.options[select.selectedIndex].label;
-// })
-
- })
 
 
 
@@ -939,6 +939,15 @@ const input_change = (event) => {
 }
 
 .inner {
+  .btn_big {
+    font-size: 1.6rem;
+    font-weight: 600;
+    position:fixed;
+    bottom:0;
+    right:0;
+    left:0;
+    z-index:10;
+  }
   .name {
     color:#333;
     &::after {
@@ -1246,6 +1255,7 @@ const input_change = (event) => {
             }
             .row {
               margin-top:1rem;
+              margin-bottom:0 !important;
               display:flex;
               .pdt_img {
                 width:3.6rem;
@@ -1622,10 +1632,7 @@ const input_change = (event) => {
   }
 }
 
-// .hide {
-//   transition: height 0.35s ease-in;
-//   display:none !important; //height에 애니메이션을 주기 위해선 display로 컨트롤 되면 안됩니다. [Tip 확인 후 삭제해주세요]
-// }
+
 
 .modal_wrap {
   top: -1px;
@@ -2166,20 +2173,29 @@ const input_change = (event) => {
         }
         article {
           padding:3rem 0;
-          h5 {
-            margin-bottom:1.5rem;
-            padding-bottom:1.0rem;
-            color:#000000;
-            font-size:1.6rem;
-            font-weight:600;
-            border-bottom:0.1rem solid #000000;
+          div {
+            display:none;
+              h5 {
+              margin-bottom:1.5rem;
+              padding-bottom:1.0rem;
+              color:#000000;
+              font-size:1.6rem;
+              font-weight:600;
+              border-bottom:0.1rem solid #000000;
+            }
+            ul {
+              margin-bottom:1.5rem;
+              color:#666;
+              font-size:1.3rem;
+            }
+            &.active {
+              display:block
+            }
+            &.notall {
+              display:none;
+            }
           }
-          ul {
-            margin-bottom:1.5rem;
-            color:#666;
-            font-size:1.3rem;
-            li {}
-          }
+
         }
       }
       .modal_footer {
