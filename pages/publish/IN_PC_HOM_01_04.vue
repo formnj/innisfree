@@ -67,7 +67,7 @@
       <div class="list_wrap">
         <ul class="goods_list">
           <li v-for="(item, idx) in mo_benefit_goods" :key="idx" >
-              <GoodsItem :item="item" :link="item.link" modal_type="alert"/>
+              <GoodsItem :item="item" :link="item.link"/>
           </li>
         </ul>
       </div>
@@ -225,8 +225,8 @@ onMounted(() => {
     let header = document.querySelector('header');
     let header_height = header.getBoundingClientRect().height;
     let breadcrumb_height = document.querySelector('.breadcrumb').getBoundingClientRect().height;
-    console.log('header_height',header_height)
-    console.log('breadcrumb_height',breadcrumb_height)
+    // console.log('header_height',header_height)
+    // console.log('breadcrumb_height',breadcrumb_height)
 })
 
 
