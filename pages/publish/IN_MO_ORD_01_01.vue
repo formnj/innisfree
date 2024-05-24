@@ -828,15 +828,15 @@ const input_change_cont = (event) => {
   let cont_box = event.currentTarget.parentNode.nextElementSibling.childNodes
   const input_value = ref(event.target.value)
 
-  for(let i=1; i<(cont_box.length-1); i++){
+  for(let i=1; i<(cont_box.length-1); i++){ //전체적으로 active 클래스를 제거하고
     cont_box[i].classList.remove('active');
   }
 
-  if(input_value.value == 0){
-    for(let i=1; i<(cont_box.length-1); i++){
+  if(input_value.value == 0){ //전체 선택이면
+    for(let i=1; i<(cont_box.length-1); i++){ //전체에 active 클래스를 추가합니다.
       cont_box[i].classList.add('active');
     }
-  } else {
+  } else { //아니면 해당 콘텐츠에만 active 클래스를 추가합니다.
     cont_box[input_value.value].classList.add('active');
   }
 }
