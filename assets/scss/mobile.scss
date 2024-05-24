@@ -115,6 +115,45 @@
   }
 }
 
+/* goods list */
+:deep(.goods_list) {
+  gap: 4rem .3rem;
+  > li {
+    width: 16.5rem;
+  }
+
+  &.col_3 {
+    > li {
+      width: 10.9rem;
+      .goods_item {
+        .img_wrap {
+          .thumb {
+            width: 10.9rem;
+            height: 14.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 증정품 리스트 */
+:deep(.giveaway_list) {
+  dl {
+    dt {
+      width: 8.8rem;
+    }
+    dd {
+      p {
+        font-size: 1.3rem;
+      }
+      span {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
 /* goodsItem */
 :deep(.goods_item) {
   padding-bottom:calc(24px + 1rem);
@@ -143,8 +182,15 @@
           background-image:url('~/assets/mo_images/common/icon_split.png');
           background-size:250px auto;
         }
-        &.btn_heart em {
-          background-position:-140px -40px;
+        &.btn_heart {
+          em {
+            background-position:-140px -40px;
+          }
+          &.on {
+            em {
+              background-position:-180px -70px;
+            }
+          }
         }
         &.btn_cart em {
           background-position:-170px -40px;
@@ -167,6 +213,7 @@
           background-color:rgba(0,0,0,0.3);
           background-position:50%;
           background-repeat:no-repeat;
+          background-size: 10rem;
           position:absolute;
           top:0;
           right:0;
@@ -212,10 +259,6 @@
       font-size:1.4rem;
       strong {
         color:#000;
-        overflow:hidden;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
         .cate {
           margin:0;
         }
@@ -1001,6 +1044,21 @@
 
 /* 쇼핑로그 */
 :deep(.shopping_log_wrap) {
+  .top_banner {
+    padding: 1.2rem 2.8rem;
+    background-position: center center;
+    p {
+      padding-left: 1rem;
+    }
+
+    .btn_ui_wrap {
+      span.btn {
+        width: 12rem;
+        font-size: 1.3rem;
+      }
+    }
+  }
+
   .shopping_log {
     h2 {
       display: flex;
@@ -1015,11 +1073,6 @@
         font-size: 1.2rem;
         color: #999;
       }
-    }
-
-    .top_banner {
-      padding: 1.2rem 2.8rem;
-      background-position: center center;
     }
 
     .no_data {
@@ -1044,8 +1097,10 @@
       }
 
       & > li {
+        width: 100%;
+
         & + li {
-          margin-top: 3rem;
+          margin-top: 0;
         }
 
         .search_item {
