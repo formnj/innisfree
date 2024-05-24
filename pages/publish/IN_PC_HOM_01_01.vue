@@ -130,7 +130,7 @@
           <swiper
             v-bind="swiperOpt.recommend03"
           >
-            <swiper-slide v-for="(item, idx) in sample_goods.slice(3,6)" :key="idx">
+            <swiper-slide v-for="(item, idx) in sample_goods.slice(3,8)" :key="idx">
               <a href="#none" class="item">
                 <GoodsItem :item="item" :link="item.link" />
               </a>
@@ -251,7 +251,7 @@ const swiperOpt = {
     slidesPerView:3,
     spaceBetween:22,
     loop: true,
-    // observer: true,
+    observer: true,
     autoplay: {
       delay: 300,
       disableOnInteraction: false,
@@ -625,12 +625,12 @@ const rankingTabs = [
       }
     }
     &.combi {
-      border:1px solid red;
       .inner {
         display:flex;
         flex-wrap:wrap;
         .main_thumb {
           width:628px;
+          margin-right:22px;
           a, .thumb {
             display:block;
           }
@@ -661,7 +661,6 @@ const rankingTabs = [
           }
         }
         .swiper {
-          padding-left:22px;
           flex:1;
         }
       }
