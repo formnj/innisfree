@@ -709,7 +709,7 @@
 
 <script setup>
 definePageMeta({
-layout:'mo-category'
+layout:'mo-noactionbar'
 });
 import { modal, setFilter } from '~/assets/js/common-ui.js'
 import Button from '../../components/Button.vue';
@@ -718,12 +718,12 @@ import {adress_list, order_info_goods, mo_etc_info, mo_payment_01, mo_payment_02
 const radioChk = ref('');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
 const orderChk = ref('naver');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
 
-const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
+const props = defineProps({
   link: {
-      type: String,
-      default: '#none'
+    type: String,
+    default: '#none'
   }
-});
+})
 
 const tab_click = (event)=>{
   let tab_title = document.querySelectorAll('.adress_wrap li')
@@ -828,49 +828,16 @@ const input_change_cont = (event) => {
   let cont_box = event.currentTarget.parentNode.nextElementSibling.childNodes
   const input_value = ref(event.target.value)
 
-  for(let i=1; i<(cont_box.length-1); i++){ //전체적으로 active 클래스를 제거하고
+  for(let i=1; i<(cont_box.length-1); i++){
     cont_box[i].classList.remove('active');
   }
 
   if(input_value.value == 0){ //전체 선택이면
-    for(let i=1; i<(cont_box.length-1); i++){ //전체에 active 클래스를 추가합니다.
+    for(let i=1; i<(cont_box.length-1); i++){
       cont_box[i].classList.add('active');
     }
-  } else { //아니면 해당 콘텐츠에만 active 클래스를 추가합니다.
+  } else {
     cont_box[input_value.value].classList.add('active');
-  }
-}
-
-const input_change_cont_02 = (event) => {
-  let cont_box = event.currentTarget.parentNode.nextElementSibling
-  const input_value = ref(event.target.value)
-  console.log(input_value.value)
-  console.log(cont_box)
-  if(input_value.value == 1){
-    cont_box.innerHTML = `
-    <div class="noti_onclick">
-      <h5>신용카드</h5>
-      <ul class="bul_list dot" >
-        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
-        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
-        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
-
-      </ul>
-    </div>
-    `
-  }
-  if(input_value.value == 2){
-    cont_box.innerHTML = `
-    <div class="noti_onclick">
-      <h5>원클릭</h5>
-      <ul class="bul_list dot" >
-        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
-        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
-        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
-
-      </ul>
-    </div>
-    `
   }
 }
 
@@ -975,6 +942,7 @@ const input_change_cont_02 = (event) => {
 }
 
 .inner {
+padding:0 2.1rem;
   .btn_big {
     font-size: 1.6rem;
     font-weight: 600;
