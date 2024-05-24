@@ -7,7 +7,6 @@
           v-bind="swiperOpt.visual"
           @swiper="onSwiper"
           @slideChange="onSlideChange"
-          :navigation="navigation"
         >
           <swiper-slide v-for="(item, idx) in mainSam.visual" :key="idx">
             <a href="#none" class="item">
@@ -37,18 +36,6 @@
               <!-- //visual image -->
             </a>
           </swiper-slide>
-
-          <!-- <button class="swiper-button-next">Next</button>
-          <button class="swiper-button-prev">Prev</button> -->
-          <!-- customer pagination -->
-          <div class="custom_pagination">
-            <div class="current">
-              <em class="idx_01"></em>
-              <em class="idx_02"></em>
-            </div>
-            <strong class="total"></strong>
-          </div>
-          <!-- //customer pagination -->
         </swiper>
       </div>
     </div>
@@ -82,13 +69,10 @@
       <div class="swiper_wrap">
         <swiper
           v-bind="swiperOpt.recommend01"
-          :navigation="navigation"
         >
           <swiper-slide v-for="(item, idx) in sample_event" :key="idx">
             <EventItem :item="item" />
           </swiper-slide>
-          <button class="swiper-button-next">Next</button>
-          <button class="swiper-button-prev">Prev</button>
         </swiper>
       </div>
     </section>
@@ -101,14 +85,11 @@
       <div class="swiper_wrap">
         <swiper class="module_02"
           v-bind="swiperOpt.recommend02"
-          :navigation="navigation"
         >
           <swiper-slide v-for="(item, idx) in mainSam.recommend02" :key="idx">
             <EventItem :item="item" />
             <GoodsItem :item="item.goods" :link="item.link" />
           </swiper-slide>
-          <button class="swiper-button-next">Next</button>
-          <button class="swiper-button-prev">Prev</button>
         </swiper>
       </div>
     </section>
@@ -149,13 +130,10 @@
       <div class="swiper_wrap">
         <swiper
           v-bind="swiperOpt.recommend04"
-          :navigation="navigation"
         >
           <swiper-slide v-for="(item, idx) in sample_goods" :key="idx">
             <GoodsItem :item="item" />
           </swiper-slide>
-          <button class="swiper-button-next">Next</button>
-          <button class="swiper-button-prev">Prev</button>
         </swiper>
       </div>
     </section>
@@ -190,13 +168,10 @@
       <div class="swiper_wrap">
         <swiper
           v-bind="swiperOpt.ranking"
-          :navigation="navigation"
         >
           <swiper-slide v-for="(item, idx) in sample_goods" :key="idx">
             <GoodsItem :item="item" />
           </swiper-slide>
-          <button class="swiper-button-next">Next</button>
-          <button class="swiper-button-prev">Prev</button>
         </swiper>
       </div>
     </section>
@@ -226,7 +201,6 @@ const swiperOpt = {
     slidesPerGroup: 2,
     spaceBetween: 40,
     loop: true,
-    // navigation,
     pagination: {
       type:'fraction'
     },
@@ -241,11 +215,19 @@ const swiperOpt = {
     slidesPerView:2,
     spaceBetween: 40,
     loop: true,
+    autoplay: {
+      delay: 300,
+      disableOnInteraction: false,
+    },
   },
   recommend02: {
     slidesPerView:3,
     spaceBetween: 40,
-    loop: true
+    loop: true,
+    autoplay: {
+      delay: 300,
+      disableOnInteraction: false,
+    },
   },
   recommend03: {
     slidesPerView:3,
@@ -262,6 +244,7 @@ const swiperOpt = {
     spaceBetween:22,
     loop: true,
     observer: true,
+    Navigation,
     autoplay: {
       delay: 300,
       disableOnInteraction: false,

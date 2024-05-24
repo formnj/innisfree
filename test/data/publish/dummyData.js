@@ -1168,6 +1168,24 @@ export const mainSam = {
         price: ['10,000','18,000']
       },
       {
+        img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
+        tag: ['25%','사은품'],
+        name: ['01-2-단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        price: ['10,000','18,000']
+      },
+      {
+        img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
+        tag: ['25%','체험단'],
+        name: ['02-1-단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        price: ['25,000','50,000']
+      },
+      {
+        img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
+        tag: ['25%','특가'],
+        name: ['01-1단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        price: ['25,000','30,700']
+      },
+      {
         img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
         tag: ['25%','체험단'],
         name: ['02-1-단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
