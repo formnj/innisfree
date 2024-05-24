@@ -675,7 +675,7 @@
             </button>
           </section>
           <article>
-            <div v-for="(item, idx) in mo_ord_notice" :key="idx" :class="item.class">
+            <div v-for="(item, idx) in mo_ord_notice" :key="idx" :class="item.class" class="active">
               <h5>{{ item.title }}</h5>
               <ul class="bul_list dot" v-if="item.desc">
                 <li v-for="(a, idx) in mo_ord_notice[idx].desc" :key="idx">
@@ -823,7 +823,23 @@ const input_change = (event) => {
   }
 }
 
+
+
 const input_change_cont = (event) => {
+  let cont_box = event.currentTarget.parentNode.nextElementSibling.childNodes
+  const input_value = ref(event.target.value)
+  console.log(input_value.value)
+  console.log(cont_box)
+  if(input_value.value == 1){
+    cont_box.forEach((a)=>{
+      a.classList.remove('active');
+      a[input_value.value].classList.add('active')
+    })
+  }
+
+}
+
+const input_change_cont_02 = (event) => {
   let cont_box = event.currentTarget.parentNode.nextElementSibling
   const input_value = ref(event.target.value)
   console.log(input_value.value)
