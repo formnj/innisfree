@@ -107,17 +107,19 @@
             </div>
           </a>
         </div>
-        <!-- <div class="swiper_wrap"> -->
+        <div class="swiper_wrap">
           <swiper
             v-bind="swiperOpt.recommend03"
+            @slideChange="scrollBar"
           >
-            <swiper-slide v-for="(item, idx) in sample_goods.slice(3,8)" :key="idx">
+            <swiper-slide v-for="(item, idx) in sample_goods.slice(3,8)" :key="idx" v-slot="{ isActive }">
+              {{isActive ? 'active'+idx : 'not active'}}
               <a href="#none" class="item">
                 <GoodsItem :item="item" :link="item.link" />
               </a>
             </swiper-slide>
           </swiper>
-        <!-- </div> -->
+        </div>
       </div>
     </section>
     <!-- //오늘의 추천 제품 -->
@@ -181,7 +183,7 @@
 <script setup>
 // import Swiper core and required components
 import SwiperCore from "swiper";
-import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
+import { Navigation, Pagination, A11y, Autoplay, Scrollbar } from "swiper/modules";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -192,7 +194,7 @@ import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y, Autoplay]);
+SwiperCore.use([Navigation, Pagination, A11y, Autoplay, Scrollbar]);
 
 /* swiper options */
 const swiperOpt = {
@@ -234,10 +236,13 @@ const swiperOpt = {
     spaceBetween:22,
     loop: true,
     observer: true,
-    autoplay: {
-      delay: 300,
-      disableOnInteraction: false,
+    scrollbar: {
+      draggable: false
     },
+    // autoplay: {
+    //   delay: 300,
+    //   disableOnInteraction: false,
+    // },
   },
   recommend04: {
     slidesPerView:6,
@@ -276,6 +281,11 @@ const swiperOpt = {
   }
 }
 /* //swiper options */
+
+const scrollBar = () => {
+  const isActive = ref(false);
+  console.log('slide change');
+};
 
 import {
   sampleSlide,
@@ -643,8 +653,32 @@ const rankingTabs = [
             }
           }
         }
-        .swiper {
+        .swiper_wrap {
+          width:calc(100% - 650px);
           flex:1;
+          :deep(.swiper) {
+            height:100%;
+            .swiper-scrollbar {
+              position:absolute;
+              right:0;
+              bottom:0;
+              left:0;
+              z-index:1;
+              &:after {
+                width:100%;
+                border-top:1px solid #ddd;
+                content:'';
+                position:absolute;
+                bottom:0;
+                left:0;
+                z-index:-1;
+                display:block;
+              }
+              .swiper-scrollbar-drag {
+                border-top:2px solid #000;
+              }
+            }
+          }
         }
       }
     }
