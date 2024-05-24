@@ -664,7 +664,7 @@
               { val: 'n_mobile', txt: '휴대폰결제' },
               { val: 'n_cardKb', txt: '제휴카드(KB,신한,삼성,롯데)' },
               { val: 'n_kbpay', txt: 'KB페이' }
-            ]" @change="input_change_cont($event)" />
+            ]"  @change="seletChk = mo_ord_notice.change"/>
             <p>
             저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌
 						이체 거래에 대해 구매안전서비스를 적용하고 있습니다. (결제
@@ -675,7 +675,7 @@
             </button>
           </section>
           <article>
-            <div v-for="(item, idx) in mo_ord_notice" :key="idx" :class="item.class" class="active">
+            <div v-for="(item, idx) in mo_ord_notice" :key="idx" :class="{ active: seletChk == item.class }">
               <h5>{{ item.title }}</h5>
               <ul class="bul_list dot" v-if="item.desc">
                 <li v-for="(a, idx) in mo_ord_notice[idx].desc" :key="idx">
@@ -717,6 +717,7 @@ import {adress_list, order_info_goods, mo_etc_info, mo_payment_01, mo_payment_02
 
 const radioChk = ref('');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
 const orderChk = ref('naver');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
+const seletChk = ref('');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   link: {
@@ -824,17 +825,11 @@ const input_change = (event) => {
 }
 
 const input_change_cont = (event) => {
-  let input_box = event.currentTarget.parentNode.nextElementSibling.childNodes
+  let cont_box = event.currentTarget.parentNode.nextElementSibling.childNodes
   const input_value = ref(event.target.value)
+  // console.log(cont_box)
   console.log(input_value.value)
-  input_box.forEach((a,i)=>{
-    console.log(a)
-  })
-
-  if(input_value.value === 'n_oneClick') {
-    console.log('hihi')
-    // a.classList.add('notall')
-    }
+  console.log(cont_box_02)
 
 }
 
@@ -1229,7 +1224,7 @@ const input_change_cont = (event) => {
           background-image:url('~/assets/mo_images/common/icon_split.png');
           background-repeat:no-repeat;
           background-size:25rem;
-          background-position:0px -70px;
+          background-position:0px -73px;
           display:inline-block;
           transform:rotate(0deg);
           transition:all 0.5s;
@@ -1299,7 +1294,7 @@ const input_change_cont = (event) => {
             background-image:url('~/assets/mo_images/common/icon_split.png');
             background-repeat:no-repeat;
             background-size:25rem;
-            background-position:0px -70px;
+            background-position:-1px -73px;
             display:inline-block;
             transform:rotate(270deg);
           }

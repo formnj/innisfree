@@ -427,7 +427,7 @@
         <ul class="cart_list type_default">
           <li>
             <div class="row">
-              <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" _checked @change="radioChk = 'card'" />
+              <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" _checked @change="radioChk = 'card'"/>
               <!-- [Tip] change되었을 때, 변수값을 지정해준 값으로 변경해준다. -->
               <Inputs _type="radio" _text="원클릭 결제" _name="pay_method" @change="radioChk = 'onclick'" />
               <Inputs _type="radio" _text="다른 결제 수단" _name="pay_method" @change="radioChk = 'other'" />
@@ -462,8 +462,8 @@
       </article>
       <article class="method_other" :class="{ active: radioChk == 'other' }">
         <ul>
-          <li v-for="(item, idx) in etc_info" :id="item.li_id" :key="idx" @change="orderChk = item.class">
-            <input :id="item.input_id" type="radio" name="etcList" :checked="item.checked">
+          <li v-for="(item, idx) in etc_info" :id="item.li_id" :key="idx" @change="[orderChk = item.class]">
+            <input :id="item.input_id" type="radio" name="etcList" :checked="item.checked" :value="item.value" @change="radio_change($event)">
             <label :for="item.label_for"><span>{{item.text}}</span></label>
 
             <div v-if="item.discont_txt" class="discount_txt">{{ item.discont_txt }}</div>
@@ -897,7 +897,6 @@ const input_change = (event) => {
   }
 }
 
-
 const toggle_btn = (event) => {
   console.log(event.currentTarget)
   event.currentTarget.classList.toggle('active');
@@ -930,6 +929,22 @@ const modalPositioning = () => {
   const left = event.target.getBoundingClientRect().left;
   document.getElementsByClassName('shippingArmyInfo')[0].style.cssText="top:" + top + "px;left:unset;left:" + left + "px;bottom:unset;"
 }
+
+const radio_change = (event) => {
+  const radio_value = ref(event.target.value)
+  let refund = document.querySelector('.payment > .inner > div  > ul > li.refund')
+  console.log(refund)
+  console.log(radio_value.value)
+    if(radio_value.value == 9){
+      refund.classList.add('active')
+    }else {
+      refund.classList.remove('active')
+    }
+}
+
+onMounted(() => {
+
+})
 
 </script>
 
