@@ -824,19 +824,21 @@ const input_change = (event) => {
 }
 
 
-
 const input_change_cont = (event) => {
   let cont_box = event.currentTarget.parentNode.nextElementSibling.childNodes
   const input_value = ref(event.target.value)
-  console.log(input_value.value)
-  console.log(cont_box)
-  if(input_value.value == 1){
-    cont_box.forEach((a)=>{
-      a.classList.remove('active');
-      a[input_value.value].classList.add('active')
-    })
+
+  for(let i=1; i<(cont_box.length-1); i++){
+    cont_box[i].classList.remove('active');
   }
 
+  if(input_value.value == 0){
+    for(let i=1; i<(cont_box.length-1); i++){
+      cont_box[i].classList.add('active');
+    }
+  } else {
+    cont_box[input_value.value].classList.add('active');
+  }
 }
 
 const input_change_cont_02 = (event) => {
@@ -2208,8 +2210,11 @@ const input_change_cont_02 = (event) => {
         article {
           padding:3rem 0;
           div {
-            display:block;
-              h5 {
+            display:none;
+            &.active {
+              display:block;
+            }
+            h5 {
               margin-bottom:1.5rem;
               padding-bottom:1.0rem;
               color:#000000;
