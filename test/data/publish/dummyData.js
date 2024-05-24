@@ -1090,6 +1090,7 @@ export const sample_goods = [
         cate:'BEST',
         name:'블랙티 유스 인핸싱 앰플 50ml',
         price:'11,000', sale:'~50%', cost:'26,000',
+        status:'end',
         hash:['#스킨팩','#화장솜','#순면화장솜']
     }, {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),

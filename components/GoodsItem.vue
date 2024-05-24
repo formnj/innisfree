@@ -21,7 +21,7 @@
             {{ item.name }}
           </strong>
         </p>
-        <p class="price" v-if="item.price">
+        <p v-if="item.price" class="price">
           <strong>{{ item.price }}원</strong>
           <span>{{ item.sale }}</span>
           <em>{{ item.cost }}원</em>
@@ -38,11 +38,13 @@
         </p>
       </div>
     </a>
+    <!-- 증정품 영역 : 특가 페이지에서만 노출 -->
     <button v-if="item.giveaway" class="giveaway" @click="modal.open(item.giveaway.modal_id, props.modal_type);">
       <template v-for="(item, idx) in item.giveaway.goods" :key="idx">
         <img :src="item.img">
       </template>
     </button>
+    <!-- //증정품 영역 -->
     <p v-if="item.giveaway && item.reviewScore" class="review_score">
       {{ item.reviewScore.rate }}
       <em>({{ item.reviewScore.totalPoint }})</em>
@@ -71,8 +73,9 @@ import { modal } from '~/assets/js/common-ui.js'
 .goods_item {
   a {
     display:block;
+    height:100%;
   }
-  &.sold_out, &.coming_soon {
+  &.sold_out, &.coming_soon, &.end {
       .img_wrap:before, .img_wrap:after {
           content:'';
           display:block;
@@ -96,6 +99,11 @@ import { modal } from '~/assets/js/common-ui.js'
       &.coming_soon {
           .img_wrap:before {
               background-image:url('~/assets/images/ui/overlay_comingsoon.png');
+          }
+      }
+      &.end {
+          .img_wrap:before {
+              background-image:url('~/assets/images/ui/overlay_end.png');
           }
       }
   }

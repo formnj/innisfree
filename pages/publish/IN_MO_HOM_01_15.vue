@@ -15,12 +15,32 @@
 
       <div class="shopping_log">
         <div class="list_wrap">
-          <!-- <p v-if="sample_log.length < 1" class="no_data"> -->
+          <!-- 신규 서비스 랜딩 -->
+          <a href="#none" class="top_banner">
+            <p>1분 피부 진단으로<br>꾸준하게 기록하고 관리하세요.</p>
+            <div class="btn_ui_wrap">
+              <span class="btn">AI 케어 진단 시작</span>
+              <span class="bubble">+ 1,000P</span>
+            </div>
+          </a>
+          <!-- //신규 서비스 랜딩 -->
+
           <p class="no_data">
             <strong>쇼핑로그가 없습니다.</strong>
           </p>
+
           <!-- list -->
           <ul class="goods_list type_column">
+            <!-- 검색어 -->
+            <li>
+              <div class="search_item">
+                <a href="#none">
+                  <span class="thumb"><em>검색어</em></span>
+                  <div class="cont"><p class="name">히알루론산</p></div>
+                </a>
+              </div>
+            </li>
+            <!-- //검색어 -->
             <li v-for="(item, idx) in sample_log.slice(0,3)" :key="idx">
               <GoodsItem v-if="item.type == 'goods'" :item="item.item[0]" :link="item.item.link" />
               <EventItem v-if="item.type == 'event'" :item="item.item[0]" :link="item.link" type="type_column"/>
@@ -193,7 +213,7 @@
             <button class="btn_close" @click="modal.close(this);">닫기</button>
         </div>
         <div class="modal_content">
-          <ul class="bullet_list">
+          <ul class="bul_list">
             <li>로그인을 하신 고객님들은 30일동안 조회한 최대 100개까지의 쇼핑로그를 확인하실 수 있습니다.</li>
             <li>판매 종료된 제품이나 종료된 이벤트는 쇼핑로그에서 자동으로 삭제됩니다.</li>
           </ul>
