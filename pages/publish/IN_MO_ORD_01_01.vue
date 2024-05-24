@@ -649,22 +649,22 @@
           <section>
             <Selectbox
               :options="[
-              { val: 'all', txt: '전체'},
-              { val: 'n_credit', txt: '신용카드' },
-              { val: 'n_oneClick', txt: '원클릭' },
-              { val: 'n_applepay', txt: '애플페이' },
-              { val: 'n_naver', txt: '네이버페이' },
-              { val: 'n_kakao', txt: '카카오페이' },
-              { val: 'n_toss', txt: '토스페이' },
-              { val: 'n_hanapay', txt: '하나페이' },
-              { val: 'n_payco', txt: '페이코' },
-              { val: 'n_sampay', txt: '삼성페이' },
-              { val: 'n_directBank', txt: '실시간계좌이체' },
-              { val: 'n_vBank', txt: '무통장입금' },
-              { val: 'n_mobile', txt: '휴대폰결제' },
-              { val: 'n_cardKb', txt: '제휴카드(KB,신한,삼성,롯데)' },
-              { val: 'n_kbpay', txt: 'KB페이' }
-            ]"  @change="seletChk = mo_ord_notice.change"/>
+              { val: 0, txt: '전체'},
+              { val: 1, txt: '신용카드' },
+              { val: 2, txt: '원클릭' },
+              { val: 3, txt: '애플페이' },
+              { val: 4, txt: '네이버페이' },
+              { val: 5, txt: '카카오페이' },
+              { val: 6, txt: '토스페이' },
+              { val: 7, txt: '하나페이' },
+              { val: 8, txt: '페이코' },
+              { val: 9, txt: '삼성페이' },
+              { val: 10, txt: '실시간계좌이체' },
+              { val: 11, txt: '무통장입금' },
+              { val: 12, txt: '휴대폰결제' },
+              { val: 13, txt: '제휴카드(KB,신한,삼성,롯데)' },
+              { val: 14, txt: 'KB페이' }
+            ]"  @change='input_change_cont($event)'/>
             <p>
             저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌
 						이체 거래에 대해 구매안전서비스를 적용하고 있습니다. (결제
@@ -675,7 +675,7 @@
             </button>
           </section>
           <article>
-            <div v-for="(item, idx) in mo_ord_notice" :key="idx" :class="{ active: seletChk == item.class }">
+            <div v-for="(item, idx) in mo_ord_notice" :key="idx" :class="item.class">
               <h5>{{ item.title }}</h5>
               <ul class="bul_list dot" v-if="item.desc">
                 <li v-for="(a, idx) in mo_ord_notice[idx].desc" :key="idx">
@@ -717,7 +717,6 @@ import {adress_list, order_info_goods, mo_etc_info, mo_payment_01, mo_payment_02
 
 const radioChk = ref('');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
 const orderChk = ref('naver');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
-const seletChk = ref('');//[Tip] 최초의 article에 active 클래스 조건을 맞춰 줄 변수 지정
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   link: {
@@ -825,12 +824,36 @@ const input_change = (event) => {
 }
 
 const input_change_cont = (event) => {
-  let cont_box = event.currentTarget.parentNode.nextElementSibling.childNodes
+  let cont_box = event.currentTarget.parentNode.nextElementSibling
   const input_value = ref(event.target.value)
-  // console.log(cont_box)
   console.log(input_value.value)
-  console.log(cont_box_02)
+  console.log(cont_box)
+  if(input_value.value == 1){
+    cont_box.innerHTML = `
+    <div class="noti_onclick">
+      <h5>신용카드</h5>
+      <ul class="bul_list dot" >
+        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
+        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
+        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
 
+      </ul>
+    </div>
+    `
+  }
+  if(input_value.value == 2){
+    cont_box.innerHTML = `
+    <div class="noti_onclick">
+      <h5>원클릭</h5>
+      <ul class="bul_list dot" >
+        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
+        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
+        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
+
+      </ul>
+    </div>
+    `
+  }
 }
 
 
@@ -2169,7 +2192,7 @@ const input_change_cont = (event) => {
         article {
           padding:3rem 0;
           div {
-            display:none;
+            display:block;
               h5 {
               margin-bottom:1.5rem;
               padding-bottom:1.0rem;
@@ -2185,9 +2208,6 @@ const input_change_cont = (event) => {
             }
             &.active {
               display:block
-            }
-            &.notall {
-              display:none;
             }
           }
 
