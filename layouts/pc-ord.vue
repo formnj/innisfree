@@ -69,6 +69,13 @@
                         </em>
                       <Button txt="주문제한알림 자세히보기" class="btn_min_outline" @click="modal.open('ord_limit', 'alert ord_limit')" />
                     </li>
+                    <li class="refund">
+                      <div>
+                        <span>[선택] 개인정보 수집/이용돈의<br>(환불계좌)</span>
+                        <Inputs _type="checkbox" _text="" />
+                      </div>
+                      <Button txt="개인정보 수집 자세히보기" class="btn_min_outline" @click="modal.open('refund_modal', 'alert refund_modal')" />
+                    </li>
                     <li>
                       <p>해당 상품 구매 계약자가 미성년자일 경우<br />
                         법정대리인이 동의하지 아니하면 미성년자 본인<br />
@@ -101,6 +108,31 @@
                 1인 고객으로 집계하여 해당 아이디에 대한<br>
                 주문이 제한될 수 있습니다
               </p>
+            </div>
+        </div>
+        <div class="overlay" @click="modal.close(this);"></div>
+      </div>
+
+      <div id="refund_modal" class="modal_wrap refund_modal">
+        <div class="modal_container">
+            <div class="modal_header">
+                <h2>개인정보 수집/이용동의 (환불계좌)</h2>
+                <button class="btn_close" @click="modal.close(this);">닫기</button>
+            </div>
+            <div class="modal_content">
+              <strong>
+                당사는 환불처리를 위해 필요한 계좌정보를 필요한 최소한의 범위 내에서 다음 목적으로 개인정보를 수집하고 있습니다.
+              </strong>
+              <ul class="bul_list star">
+                <li>수집항목 : 성명, 계좌정보(예금주명, 은행, 계좌번호)</li>
+                <li>수집.이용 목적 : 주문취소나 품절 시 환불목적</li>
+                <li>이용.보유기간</li>
+              </ul>
+              <ul class="bul_list dash">
+                <li>환불 진행 고객 : 환불 완료 후 즉시 삭제</li>
+                <li>미환불 고객 : 구매확정 시 즉시 삭제</li>
+                <li>미입금 고객 : 주문취소 시점 즉시 삭제</li>
+              </ul>
             </div>
         </div>
         <div class="overlay" @click="modal.close(this);"></div>
@@ -312,6 +344,12 @@ onMounted(()=>{
                 color: #333;
                 line-height: 1.57;
               }
+              &.refund {
+                display:none;
+                &.active {
+                  display:block;
+                }
+              }
           }
         }
       }
@@ -333,6 +371,7 @@ onMounted(()=>{
         font-weight:500
       }
     }
+
     .modal_content {
       strong {
         color:#666;
@@ -343,6 +382,45 @@ onMounted(()=>{
         color:#666;
         font-size:13px;
         line-height:1.5;
+      }
+    }
+  }
+}
+
+.modal_wrap {
+  &.refund_modal {
+    .modal_container {
+      .modal_header {
+        h2 {
+          font-size:20px;
+          font-weight:500
+        }
+      }
+      .modal_content {
+        strong {
+          font-size:16px !important;
+          font-weight:400;
+        }
+        ul {
+          &.star {
+            margin-top:20px;
+            color:#888;
+            font-size:13px;
+            li {
+              &:last-of-type {
+                font-size:16.8px;
+                font-weight:bold;
+              }
+            }
+          }
+          &.dash {
+            margin-top:5px;
+            padding-left: 12px;
+            color:#888;
+            font-size:13px;
+            font-weight:bold;
+          }
+        }
       }
     }
   }

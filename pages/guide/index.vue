@@ -706,7 +706,7 @@ const MO_arry = ([
         depth:['주문서','','',''],
         id:'IN_MO_ORD_01_01', status:'ing',
         type:'', note:'결제하기페이지<br/> 장바구니 참고',
-        sDate:'2024-05-17', eDate:'2024-05-24/', worker:'김희경'
+        sDate:'2024-05-17', eDate:'2024-05-24/2024-05-23', worker:'김희경'
     }, {
         depth:['','배송지 등록/변경','',''],
         id:'IN_MO_ORD_01_02', status:'com',

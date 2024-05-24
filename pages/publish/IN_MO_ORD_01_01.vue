@@ -1,5 +1,6 @@
 <template>
   <div class="inner">
+    <Button txt="126,000원 결제하기" class="btn_big confirm" />
     <section class="orderer_info">
       <div class="sub_title_wrap">
         <div>
@@ -207,7 +208,7 @@
               { val: 'value', txt: '국민' },
               { val: 'value', txt: '하나' }
           ]" />
-          <button>무이자 할부/카드혜택 안내</button>
+          <button @click="modal.open('install', 'fullMo install')">무이자 할부 안내</button>
           <div>
             <h4>신용카드 결제 혜택</h4>
             <ul class="bul_list dot">
@@ -648,22 +649,22 @@
           <section>
             <Selectbox
               :options="[
-              { val: 'all', txt: '전체' },
-              { val: 'n_credit', txt: '신용카드' },
-              { val: 'n_oneClick', txt: '원클릭' },
-              { val: 'n_applepay', txt: '애플페이' },
-              { val: 'n_naver', txt: '네이버페이' },
-              { val: 'n_kakao', txt: '카카오페이' },
-              { val: 'n_toss', txt: '토스페이' },
-              { val: 'n_hanapay', txt: '하나페이' },
-              { val: 'n_payco', txt: '페이코' },
-              { val: 'n_sampay', txt: '삼성페이' },
-              { val: 'n_directBank', txt: '실시간계좌이체' },
-              { val: 'n_vBank', txt: '무통장입금' },
-              { val: 'n_mobile', txt: '휴대폰결제' },
-              { val: 'n_cardKb', txt: '제휴카드(KB,신한,삼성,롯데)' },
-              { val: 'n_kbpay', txt: 'KB페이' }
-            ]" />
+              { val: 0, txt: '전체'},
+              { val: 1, txt: '신용카드' },
+              { val: 2, txt: '원클릭' },
+              { val: 3, txt: '애플페이' },
+              { val: 4, txt: '네이버페이' },
+              { val: 5, txt: '카카오페이' },
+              { val: 6, txt: '토스페이' },
+              { val: 7, txt: '하나페이' },
+              { val: 8, txt: '페이코' },
+              { val: 9, txt: '삼성페이' },
+              { val: 10, txt: '실시간계좌이체' },
+              { val: 11, txt: '무통장입금' },
+              { val: 12, txt: '휴대폰결제' },
+              { val: 13, txt: '제휴카드(KB,신한,삼성,롯데)' },
+              { val: 14, txt: 'KB페이' }
+            ]"  @change='input_change_cont($event)'/>
             <p>
             저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌
 						이체 거래에 대해 구매안전서비스를 적용하고 있습니다. (결제
@@ -674,7 +675,7 @@
             </button>
           </section>
           <article>
-            <div v-for="(item, idx) in mo_ord_notice" :key="idx" :class="item.class">
+            <div v-for="(item, idx) in mo_ord_notice" :key="idx" :class="item.class" class="active">
               <h5>{{ item.title }}</h5>
               <ul class="bul_list dot" v-if="item.desc">
                 <li v-for="(a, idx) in mo_ord_notice[idx].desc" :key="idx">
@@ -686,6 +687,19 @@
         </div>
         <div class="modal_footer">
             <Button class="btn_big confirm" txt="확인" />
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+
+  <div class="modal_wrap install" id="install">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>무이자 할부 안내</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <img src="/_nuxt/public/images/sam/P01_51_1.png">
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -772,6 +786,7 @@ const toggle_btn = (event) => {
   }
  }
 
+
  const toggle_btn_02 = (event) => {
   console.log(event.currentTarget)
   event.currentTarget.classList.toggle('active');
@@ -798,47 +813,67 @@ const toggle_btn = (event) => {
   }
  }
 
-//  const getselect = (event) => {
-//     let select = document.querySelector('.adress_sl div select');
-//     var option = select.value
-//     console.log(option)
-//  }
-
-
 const input_change = (event) => {
-  let input_box = document.querySelector('.addr_info article > .input_wrap')
-  console.log(event.target.value)
-  console.log(input_box)
+  let input_box = event.target.closest('.select').nextElementSibling.childNodes[0];
   const input_value = ref(event.target.value)
-  if(input_value == 5){
+  if(input_value.value == 5){
     input_box.classList.add('active')
   }else {
     input_box.classList.remove('active')
   }
-
 }
 
 
- onMounted(() => {
+const input_change_cont = (event) => {
+  let cont_box = event.currentTarget.parentNode.nextElementSibling.childNodes
+  const input_value = ref(event.target.value)
 
-//   let input_box = document.querySelector('.addr_info article > .input_wrap')
-//   console.log(input_box)
-//   let selectElement = document.querySelector('.adress_sl div select');
-//   selectElement.addEventListener('change', (event) => {
-//   const selectedValue = event.target.value;
-//   console.log(selectedValue); // 선택된 옵션의 값 출력
+  for(let i=1; i<(cont_box.length-1); i++){ //전체적으로 active 클래스를 제거하고
+    cont_box[i].classList.remove('active');
+  }
 
+  if(input_value.value == 0){ //전체 선택이면
+    for(let i=1; i<(cont_box.length-1); i++){ //전체에 active 클래스를 추가합니다.
+      cont_box[i].classList.add('active');
+    }
+  } else { //아니면 해당 콘텐츠에만 active 클래스를 추가합니다.
+    cont_box[input_value.value].classList.add('active');
+  }
+}
 
-// });
+const input_change_cont_02 = (event) => {
+  let cont_box = event.currentTarget.parentNode.nextElementSibling
+  const input_value = ref(event.target.value)
+  console.log(input_value.value)
+  console.log(cont_box)
+  if(input_value.value == 1){
+    cont_box.innerHTML = `
+    <div class="noti_onclick">
+      <h5>신용카드</h5>
+      <ul class="bul_list dot" >
+        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
+        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
+        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
 
+      </ul>
+    </div>
+    `
+  }
+  if(input_value.value == 2){
+    cont_box.innerHTML = `
+    <div class="noti_onclick">
+      <h5>원클릭</h5>
+      <ul class="bul_list dot" >
+        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
+        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
+        <li>'네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',</li>
 
-//   select.addEventListener('change', function(){
-//   document.getElementById('value').children[0].innerHTML =select.options[select.selectedIndex].value;
+      </ul>
+    </div>
+    `
+  }
+}
 
-//   document.getElementById('label').children[0].innerHTML =select.options[select.selectedIndex].label;
-// })
-
- })
 
 
 
@@ -940,6 +975,15 @@ const input_change = (event) => {
 }
 
 .inner {
+  .btn_big {
+    font-size: 1.6rem;
+    font-weight: 600;
+    position:fixed;
+    bottom:0;
+    right:0;
+    left:0;
+    z-index:10;
+  }
   .name {
     color:#333;
     &::after {
@@ -1221,7 +1265,7 @@ const input_change = (event) => {
           background-image:url('~/assets/mo_images/common/icon_split.png');
           background-repeat:no-repeat;
           background-size:25rem;
-          background-position:0px -70px;
+          background-position:0px -73px;
           display:inline-block;
           transform:rotate(0deg);
           transition:all 0.5s;
@@ -1247,6 +1291,7 @@ const input_change = (event) => {
             }
             .row {
               margin-top:1rem;
+              margin-bottom:0 !important;
               display:flex;
               .pdt_img {
                 width:3.6rem;
@@ -1290,7 +1335,7 @@ const input_change = (event) => {
             background-image:url('~/assets/mo_images/common/icon_split.png');
             background-repeat:no-repeat;
             background-size:25rem;
-            background-position:0px -70px;
+            background-position:-1px -73px;
             display:inline-block;
             transform:rotate(270deg);
           }
@@ -1623,10 +1668,7 @@ const input_change = (event) => {
   }
 }
 
-// .hide {
-//   transition: height 0.35s ease-in;
-//   display:none !important; //height에 애니메이션을 주기 위해선 display로 컨트롤 되면 안됩니다. [Tip 확인 후 삭제해주세요]
-// }
+
 
 .modal_wrap {
   top: -1px;
@@ -2167,20 +2209,29 @@ const input_change = (event) => {
         }
         article {
           padding:3rem 0;
-          h5 {
-            margin-bottom:1.5rem;
-            padding-bottom:1.0rem;
-            color:#000000;
-            font-size:1.6rem;
-            font-weight:600;
-            border-bottom:0.1rem solid #000000;
+          div {
+            display:none;
+            &.active {
+              display:block;
+            }
+            h5 {
+              margin-bottom:1.5rem;
+              padding-bottom:1.0rem;
+              color:#000000;
+              font-size:1.6rem;
+              font-weight:600;
+              border-bottom:0.1rem solid #000000;
+            }
+            ul {
+              margin-bottom:1.5rem;
+              color:#666;
+              font-size:1.3rem;
+            }
+            &.active {
+              display:block
+            }
           }
-          ul {
-            margin-bottom:1.5rem;
-            color:#666;
-            font-size:1.3rem;
-            li {}
-          }
+
         }
       }
       .modal_footer {

@@ -10,7 +10,8 @@ export const mo_ord_notice = [
     title:'신용카드',
     desc:[
 
-    ]
+    ],
+    change:'noti_card'
 
   },
   {
@@ -18,7 +19,8 @@ export const mo_ord_notice = [
     title:'원클릭',
     desc:[
 
-    ]
+    ],
+    change:'noti_onclick'
 
   },
   {
@@ -26,7 +28,8 @@ export const mo_ord_notice = [
     title:'애플페이',
     desc:[
 
-    ]
+    ],
+    change:'noti_apple'
 
   },
   {
@@ -36,7 +39,8 @@ export const mo_ord_notice = [
       '네이버페이는 네이버ID로 신용카드 또는 은행계좌 정보를 등록하여 결제할 수 있는 간편결제 서비스입니다.',
       '주문 변경 시 카드사 혜택 및 할부 적용 여부는 해당 카드사 정책에 따라 변경될 수 있습니다.',
       '지원 가능 결제수단 : 네이버페이 결제창 내 노출되는 모든 카드/계좌'
-    ]
+    ],
+    change:'noti_naver'
 
   },
   {
@@ -47,7 +51,8 @@ export const mo_ord_notice = [
       '본인명의 스마트폰에서 본인명의 카드 등록 후 사용 가능합니다.(카드등록 : 카카오톡 > 더 보기 > 카카오페이 > 카드)',
       '카드사별 무이자 할부 행사는 카카오페이 결제 창에서 확인 가능합니다.',
       '결제메시지 요청 시 입력하신 휴대폰 번호로 카카오페이로부터 메시지가 발송됩니다.'
-    ]
+    ],
+    change:'noti_kakao'
   },
   {
     class:'noti_toss',
@@ -56,7 +61,8 @@ export const mo_ord_notice = [
       '토스페이 결제시 토스페이 또는 등록된 카드로 결제가 가능합니다.',
       '토스페이로 결제한 경우 환불(또는 부분환불)시 토스페이로 환불됩니다.',
       '토스페이 앱을 최신 버전으로 업데이트 해주세요. 최신 버전이 아닌 경우 결제가 원활하지 않을 수 있습니다.'
-    ]
+    ],
+    change:'noti_toss'
   },
   {
     class:'noti_hana',
@@ -65,7 +71,8 @@ export const mo_ord_notice = [
       '하나 개인 신용/체크/하나머니/계좌결제로 3만원 이상 결제 고객',
       '(하나BC/토스/기업/기프트 카드 제외)',
       '본 이벤트는 통합 1인 1회 참여 가능합니다.'
-    ]
+    ],
+    change:'noti_hana'
   },
   {
     class:'noti_payco',
@@ -76,7 +83,8 @@ export const mo_ord_notice = [
       '무이자할부는 PAYCO 결제 창에서 확인하실 수 있습니다.',
       'PAYCO는 온/오프라인 쇼핑은 물론 송금, 멤버십 적립까지 가능한 통합 서비스입니다.',
       '휴대폰과 카드 명의자가 동일해야 결제 가능하며, 결제금액 제한은 없습니다.'
-    ]
+    ],
+    change:'noti_payco'
   },
   {
     class:'noti_sam',
@@ -84,14 +92,16 @@ export const mo_ord_notice = [
     desc:[
       '스마트폰 명의자와 카드명의자가 동일한 경우에만 삼성페이 서비스에 카드등록이 가능합니다.',
       '삼성페이 지원 가능한 단말기는 아래 삼성페이 홈페이지에서 확인 가능합니다. (www.samsungpay.com/sec/Samsung-pay)'
-    ]
+    ],
+    change:'noti_sam'
   },
   {
     class:'noti_account',
     title:'실시간계좌이체',
     desc:[
       ''
-    ]
+    ],
+    change:'noti_account'
   },
   {
     class:'noti_bank',
@@ -103,28 +113,32 @@ export const mo_ord_notice = [
       '(비회원은 "비회원 로그인(주문조회) > 증빙서류 발급")',
       '사업자증빙의 경우 반드시 주문 시 신청하여야 합니다.',
       '세금계산서는 고객상담실과 상담 후 발급이 가능합니다.'
-    ]
+    ],
+    change:'noti_bank'
   },
   {
     class:'noti_phone',
     title:'휴대폰결제',
     desc:[
       ''
-    ]
+    ],
+    change:'noti_bank'
   },
   {
     class:'noti_old_card',
     title:'제휴카드(KB,삼성,신한,롯데)',
     desc:[
       '이벤트 페이지 참조'
-    ]
+    ],
+    change:'noti_old_card'
   },
   {
     class:'noti_KB',
     title:'KB페이',
     desc:[
       '이벤트 페이지 참조'
-    ]
+    ],
+    change:'noti_KB'
   },
 ]
 
@@ -302,7 +316,8 @@ export const etc_info = [
     text:'네이버페이',
     checked:'checked',
     discont_txt:'',
-    class:'naver'
+    class:'naver',
+    value:0
   },
     {
     li_id:'etcdList_2',
@@ -310,7 +325,8 @@ export const etc_info = [
     label_for:'etcdList2',
     text:'카카오페이',
     discont_txt:'5,000원 할인',
-    class:'kakao'
+    class:'kakao',
+    value:1
   },
     {
     li_id:'etcdList_3',
@@ -318,7 +334,8 @@ export const etc_info = [
     label_for:'etcdList3',
     text:'페이코',
     discont_txt:'',
-    class:'payco'
+    class:'payco',
+    value:3
   },
     {
     li_id:'etcdList_4',
@@ -326,7 +343,8 @@ export const etc_info = [
     label_for:'etcdList4',
     text:'토스페이',
     discont_txt:'생애 첫 2천원 적립',
-    class:'toss'
+    class:'toss',
+    value:4
   },
     {
     li_id:'etcdList_5',
@@ -334,7 +352,8 @@ export const etc_info = [
     label_for:'etcdList5',
     text:'KB페이',
     discont_txt:'5,000원 할인',
-    class:'kb'
+    class:'kb',
+    value:5
   },
     {
     li_id:'etcdList_6',
@@ -342,7 +361,8 @@ export const etc_info = [
     label_for:'etcdList6',
     text:'삼성페이',
     discont_txt:'',
-    class:'sam'
+    class:'sam',
+    value:6
   },
     {
     li_id:'etcdList_7',
@@ -350,7 +370,9 @@ export const etc_info = [
     label_for:'etcdList7',
     text:'하나페이',
     discont_txt:'',
-    class:'hana'
+    class:'hana',
+    value:7
+
   },
     {
     li_id:'etcdList_8',
@@ -358,7 +380,8 @@ export const etc_info = [
     label_for:'etcdList8',
     text:'실시간 계좌이체',
     discont_txt:'',
-    class:'account'
+    class:'account',
+    value:8
   },
     {
     li_id:'etcdList_9',
@@ -366,7 +389,8 @@ export const etc_info = [
     label_for:'etcdList9',
     text:'무통장입금',
     discont_txt:'',
-    class:'bankbook'
+    class:'bankbook',
+    value:9
   },
     {
     li_id:'etcdList_10',
@@ -374,7 +398,8 @@ export const etc_info = [
     label_for:'etcdList10',
     text:'휴대폰결제',
     discont_txt:'',
-    class:'phone'
+    class:'phone',
+    value:10
   },
     {
     li_id:'etcdList_11',
@@ -382,7 +407,8 @@ export const etc_info = [
     label_for:'etcdList11',
     text:'(구) 제휴카드',
     discont_txt:'',
-    class:'old_card'
+    class:'old_card',
+    value:11
   },
 ]
 
@@ -1140,6 +1166,24 @@ export const mainSam = {
         tag: ['25%','사은품'],
         name: ['01-2-단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
         price: ['10,000','18,000']
+      },
+      {
+        img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
+        tag: ['25%','사은품'],
+        name: ['01-2-단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        price: ['10,000','18,000']
+      },
+      {
+        img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
+        tag: ['25%','체험단'],
+        name: ['02-1-단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        price: ['25,000','50,000']
+      },
+      {
+        img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
+        tag: ['25%','특가'],
+        name: ['01-1단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        price: ['25,000','30,700']
       },
       {
         img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
@@ -2411,4 +2455,3 @@ export const nav_goods = [
       cate:'체험리뷰',
   }
 ];
-
