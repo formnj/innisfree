@@ -68,9 +68,10 @@
                     <!-- //최근 검색어 : 검색어 입력시 -->
                     <!-- 관련상품 : 검색어 입력시 -->
                     <section v-if="isValid !== '' && !isBool">
-                        <ul class="key_item goods_list">
+                    <!-- <section> -->
+                        <ul class="goods_list">
                             <li v-for="(item,idx) in prd_list" :key="idx">
-                                <GoodsItem :item="item" :link="item.link" />
+                                <GoodsItem :item="item" :link="item.link" class="type_column" />
                             </li>
                         </ul>
                     </section>
@@ -325,11 +326,11 @@ const global_menu = [
 
 onMounted(() => {
     /* keyword rolling */
-    var keyword_pos = document.querySelector('.keyword_wrap ol'),
+    const keyword_pos = document.querySelector('.keyword_wrap ol'),
     roll_size = keyword_pos.querySelectorAll('li'),
     roll_timer = 3000;
 
-    var i = 1,
+    const i = 1,
     clone_roll = roll_size[0];
 
     keyword_pos.insertAdjacentHTML('beforeend', '<li>'+clone_roll.innerHTML+'</li>');
@@ -421,7 +422,7 @@ const auto_complete = (e) => {
 };
 
 /* 최근검색어 삭제 */
-let key_cnt = ref(latestSearchWordData.length);
+const key_cnt = ref(latestSearchWordData.length);
 const keyword_del = (e) => {
     e.target.closest('li').remove();
     key_cnt.value = document.querySelector('.latest').childElementCount;
@@ -611,6 +612,16 @@ header {
                     display:block;
                     transform:translateY(-28px);
                 }
+
+                ul.goods_list {
+                  display:flex;
+                  gap: 10px 0;
+
+                  li {
+                    width: 100%;
+                  }
+                }
+
                 ul {
                     display:flex;
                     flex-wrap:wrap;
@@ -698,60 +709,6 @@ header {
                           display:flex;
                           align-items:center;
                           justify-content:space-between;
-                        }
-                      }
-                    }
-                    &.key_item {
-                      flex-direction:column;
-                      gap:10px;
-                      &.goods_list {
-                        margin:0;
-                        li {
-                          width:100%;
-                          padding:0;
-                          :deep() .goods_item {
-                            display:flex;
-                            gap:20px;
-                            .img_wrap {
-                              overflow:visible;
-                              .btnIconBox {
-                                display:none;
-                              }
-                              .thumb {
-                                width:75px;
-                                height:100%;
-                              }
-                            }
-                            .cont {
-                              margin-top:0;
-                              .price {
-                                strong {
-                                  margin-right:5px;
-                                  font-size:14px;
-                                }
-                                span {
-                                  margin-right:10px;
-                                  font-size:14px;
-                                }
-                                em {
-                                  font-size:12px;
-                                }
-                              }
-                              .hash {
-                                flex-wrap:nowrap;
-                                li {
-                                  width:auto;
-                                  button {
-                                    padding:4px 8px;
-                                    font-family:'Pretendard';
-                                  }
-                                }
-                              }
-                              .review_score {
-                                display:none;
-                              }
-                            }
-                          }
                         }
                       }
                     }

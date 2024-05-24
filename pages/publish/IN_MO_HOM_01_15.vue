@@ -1,11 +1,6 @@
 <template>
-
-  <div>
-    <p style="text-align:center; background-color:#ddd; padding:2rem 0;">신규 서비스 랜딩 영역</p> <!-- 개발시 삭제 -->
-  </div>
-
-
-  <section>
+  <section class="shopping_log_wrap">
+    <ShoppingLogBanner /><!-- 쇼핑로그 상단 배너 -->
     <div class="inner">
       <h2>
         <span><em>주소희</em> 님의 쇼핑로그 <Icons class="tooltip" txt="툴팁" @click="modal.open('log_info', 'alert')" /></span>
@@ -14,85 +9,7 @@
       <p class="txt_desc">최근 본 제품, 이벤트, 검색어예요</p>
 
       <div class="shopping_log">
-        <div class="list_wrap">
-          <!-- 신규 서비스 랜딩 -->
-          <a href="#none" class="top_banner">
-            <p>1분 피부 진단으로<br>꾸준하게 기록하고 관리하세요.</p>
-            <div class="btn_ui_wrap">
-              <span class="btn">AI 케어 진단 시작</span>
-              <span class="bubble">+ 1,000P</span>
-            </div>
-          </a>
-          <!-- //신규 서비스 랜딩 -->
-
-          <p class="no_data">
-            <strong>쇼핑로그가 없습니다.</strong>
-          </p>
-
-          <!-- list -->
-          <ul class="goods_list type_column">
-            <!-- 검색어 -->
-            <li>
-              <div class="search_item">
-                <a href="#none">
-                  <span class="thumb"><em>검색어</em></span>
-                  <div class="cont"><p class="name">히알루론산</p></div>
-                </a>
-              </div>
-            </li>
-            <!-- //검색어 -->
-            <li v-for="(item, idx) in sample_log.slice(0,3)" :key="idx">
-              <GoodsItem v-if="item.type == 'goods'" :item="item.item[0]" :link="item.item.link" />
-              <EventItem v-if="item.type == 'event'" :item="item.item[0]" :link="item.link" type="type_column"/>
-            </li>
-          </ul>
-          <!-- //list -->
-        </div>
-
-        <div v-if="sample_log.length < 1">
-          <h2>
-            <span>추천 키워드</span>
-          </h2>
-          <ul class="keyword_list">
-            <li>
-              <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;비타C&quot;);">#비타C</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;노세범&quot;);">#노세범</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;모공&quot;);">#모공</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;화산송이&quot;);">#화산송이</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;로션&quot;);">#로션</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;스킨&quot;);">#스킨</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;브라이트닝&quot;);">#브라이트닝</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;히알루론산&quot;);">#히알루론산</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;블랙티&quot;);">#블랙티</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;콜라겐&quot;);">#콜라겐</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;레티놀&quot;);">#레티놀</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);" onclick="clickRcmdKey(&quot;씨드세럼&quot;);">#씨드세럼</a>
-            </li>
-          </ul>
-        </div>
-
+        <ShoppingLogList /><!-- 쇼핑로그 리스트 : FOR ME 쇼핑로그 최대 3개 노출 -->
       </div>
     </div>
   </section>
@@ -136,7 +53,7 @@
           :slides-per-view="'auto'"
         >
           <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
-            <GoodsItem :item="item" :link="item.link" />
+            <GoodsItem :item="item" :link="item.link"/>
           </swiper-slide>
         </swiper>
       </div>
@@ -147,10 +64,7 @@
   <section>
     <div class="inner no_r_pd">
       <h2>
-        <span>찜</span>
-        <!--찜 없을 경우
-          <span><em>메이크업</em> 카테고리 추천 제품이에요</span>
-        -->
+        <span><em>찜</em>한 제품들을 확인하세요</span>
       </h2>
       <div class="swiper_wrap">
         <swiper
@@ -170,10 +84,10 @@
       <h2>
         <span><em>왕 벚꽃 글로우 젤리 크림</em>과 잘 맞는 제품이에요</span>
       </h2>
-      <div class="list_wrap type_cart">
-        <ul class="goods_list">
+      <div class="list_wrap">
+        <ul class="goods_list col_3">
           <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
-            <GoodsItem :item="item" :link="item.link" />
+            <GoodsItem :item="item" :link="item.link" class="type_cart" />
           </li>
         </ul>
       </div>
@@ -309,7 +223,6 @@ section {
 
       em {
         color: #00BC70;
-        padding-right: .3rem;
       }
 
       button {
@@ -322,53 +235,6 @@ section {
     margin-top: .5rem;
     font-size: 1.2rem;
     color: #999;
-  }
-}
-
-.list_wrap {
-  :deep(.goods_list) {
-    margin: 0;
-    gap: 4rem 0.3rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    & > li {
-      width: 16.5rem;
-      padding: 0;
-    }
-  }
-
-  &.type_cart {
-    li {
-      width: 10.9rem;
-
-      :deep(.goods_item){
-        padding-bottom: 0;
-
-        .img_wrap {
-          position: relative;
-
-          .thumb {
-            width: auto;
-            height: 14.5rem;
-          }
-
-          .btnIconBox {
-            justify-content: end;
-
-            .btn_heart,
-            .btn_buy {
-              display: none;
-            }
-          }
-        }
-
-        .review_score {
-          display: none;
-        }
-      }
-    }
   }
 }
 
@@ -473,10 +339,16 @@ section {
         height: 18.6rem;
       }
 
-      .review_score{
+      .review_score {
         display: none;
       }
     }
+  }
+}
+
+:deep(.goods_list).col_3 {
+  .review_score {
+    display: none;
   }
 }
 
@@ -507,132 +379,6 @@ section {
         background: url('~/assets/mo_images/common/icon_split.png') -12.5rem -7rem / 25rem auto no-repeat;
         display: inline-block;
       }
-    }
-  }
-}
-
-/* 쇼핑로그 */
-.shopping_log {
-  margin-top:3rem;
-  .no_data {
-    padding:3rem 1rem;
-    background-color:#f5f5f5;
-    &:before {
-      display:none;
-    }
-    strong {
-      color:#000;
-      font-size:1.6rem;
-      font-weight:600;
-    }
-  }
-  .goods_list {
-    margin:0 0 3rem;
-    position:relative;
-    &:after {
-      border-left:1px solid #eee;
-      content:'';
-      position:absolute;
-      top:0;
-      bottom:0;
-      left:3rem;
-    }
-    > li {
-      padding:0;
-      position:relative;
-      z-index:1;
-      & + li {
-        margin-top:3rem;
-      }
-      :deep(.goods_item), :deep(.event_item .item) {
-        padding-bottom:0;
-        display:flex;
-        flex-wrap:wrap;
-        .img_wrap, .thumb {
-          width:6rem;
-        }
-        .cont {
-          flex:1;
-        }
-      }
-      :deep(.goods_item) {
-        .img_wrap {
-          margin-right:1.5rem;
-          & + a {
-            flex:1;
-          }
-          .thumb {
-            height:8rem;
-          }
-          .btnIconBox {
-            right:0;
-            bottom:0.5rem;
-            left:initial;
-            gap:0;
-            button {
-              display:none;
-              &.btn_heart {
-                display:block;
-              }
-            }
-          }
-        }
-        .cont {
-          margin-top:0;
-          padding-right:3rem;
-          .name {
-            strong {
-              font-size:1.3rem;
-            }
-          }
-          .price {
-            display:flex;
-            > * {
-              font-size:1.2rem;
-            }
-            em {
-              font-size:1rem;
-            }
-          }
-        }
-      }
-      :deep(.event_item) {
-        .item {
-          align-items:center;
-        }
-        .thumb {
-          height:4rem;
-          padding-top:0;
-        }
-        .cont {
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
-          strong {
-            font-size:1.3rem;
-            font-weight:400;
-            white-space: nowrap;
-            word-break: break-all;
-            word-wrap: break-word;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display:block;
-          }
-        }
-      }
-    }
-  }
-  .keyword_list {
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    a {
-      padding:0.8rem 1.5rem;
-      color:#009d5e;
-      font-size:1.3rem;
-      border:1px solid #009d5e;
-      border-radius:100px;
-      display:block;
     }
   }
 }

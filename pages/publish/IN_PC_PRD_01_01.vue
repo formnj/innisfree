@@ -164,12 +164,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 </script>
 
 <style lang="scss" scoped>
-.goods_list {
-  >li {
-    width: 25%;
-  }
-}
-
 .sortList {
   margin-bottom: 30px;
 

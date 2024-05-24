@@ -171,14 +171,14 @@
                 <li><Inputs _type="checkbox" _name="filter" _id="a02" _text="메이크업" class="round_square" /></li>
                 <li><Inputs _type="checkbox" _name="filter" _id="a03" _text="남성" class="round_square" /></li>
               </ul>
-              
+
               <p>고민별</p>
               <ul class="pick_list">
                 <li><Inputs _type="checkbox" _name="filter" _id="a04" _text="수분/보습/속건조" class="round_square" /></li>
                 <li><Inputs _type="checkbox" _name="filter" _id="a05" _text="잡티/피부톤" class="round_square" /></li>
                 <li><Inputs _type="checkbox" _name="filter" _id="a06" _text="각질/피부결" class="round_square" /></li>
               </ul>
-              
+
               <p>라인별</p>
               <ul class="pick_list">
                 <li><Inputs _type="checkbox" _name="filter" _id="a07" _text="비타C" class="round_square" /></li>
@@ -479,39 +479,6 @@ section {
     }
   }
 }
-
-:deep(.goods_item) {
-  &.type_cart {
-    .img_wrap {
-      position:relative;
-      .thumb {
-        width:100%;
-        height:auto;
-        padding-top:135%;
-      }
-      .btnIconBox {
-        right:0.8rem;
-        bottom:0.8rem;
-        left:initial;
-        gap:0;
-        button {
-          display:none;
-          &.btn_cart {
-            display:block;
-          }
-        }
-      }
-    }
-    .cont {
-      .name {
-        strong {
-          font-size:1.4rem;
-        }
-      }
-    }
-  }
-}
-
 
 .event_wrap {
   padding-bottom:30px;

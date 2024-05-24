@@ -222,9 +222,9 @@ onMounted(() => {
         }
     })
 
-    let header = document.querySelector('header');
-    let header_height = header.getBoundingClientRect().height;
-    let breadcrumb_height = document.querySelector('.breadcrumb').getBoundingClientRect().height;
+    const header = document.querySelector('header');
+    const header_height = header.getBoundingClientRect().height;
+    const breadcrumb_height = document.querySelector('.breadcrumb').getBoundingClientRect().height;
     // console.log('header_height',header_height)
     // console.log('breadcrumb_height',breadcrumb_height)
 })
@@ -289,7 +289,7 @@ onMounted(() => {
         background:#fff;
         position:sticky;
         top:79px;
-        z-index:3;
+        z-index:2;
         ul {
             display:flex;
             &.type_02 {
