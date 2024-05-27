@@ -34,7 +34,7 @@
           </div>
         </li>
 
-        <li v-for="(item, idx) in sample_goods.slice(0, 1)" :key="idx"> <!-- 품절일 경우(.sold_out)-->
+        <li v-for="(item, idx) in sample_goods.slice(3, 4)" :key="idx"> <!-- 품절일 경우(.sold_out)-->
           <div class="goods_item" :class="item.status">
             <div class="img_wrap">
               <span class="point">1 P</span>
@@ -343,15 +343,14 @@ onMounted(() => {
             .img_wrap {
               position: relative;
 
-              &:before {
+              &:after {
                 content: '';
+                width: 100%;
+                height: 100%;
                 background: url('~/assets/images/ui/overlay_checked.png') center / 10rem 10rem no-repeat;
                 position: absolute;
                 top: 0;
-                right: 0;
-                bottom: 0;
                 left: 0;
-                z-index: 1;
               }
             }
           }

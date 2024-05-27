@@ -761,21 +761,6 @@ ul.select_list {
 }
 
 .list_wrap {
-  .ranking {
-    width: 32px;
-    height: 32px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 32px;
-    text-align: center;
-    background-color: #000;
-    position: absolute;
-    top: 40px;
-    left: 20px;
-    z-index: 2;
-    display: block;
-  }
   .allChk_wrap {
     margin-bottom:20px;
     display:flex;
@@ -812,8 +797,23 @@ ul.select_list {
   gap: 40px 20px;
 
   >li {
-    width: 240px;
     position: relative;
+  }
+
+  .ranking {
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 32px;
+    text-align: center;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
   }
 }
 

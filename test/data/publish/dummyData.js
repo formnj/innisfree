@@ -705,12 +705,6 @@ export const sample_data = [
   {
       sub_title :'클렌징폼 3개 이상 구매시 30% 할인',
       desc:'클렌징폼 저렴하게 구할 수 있는 절호의 찬스!',
-      date:{
-          day:14,
-          hour:15,
-          min:59,
-          sec:60
-      },
       notice:{
           modal_id:'sample_02',
           title:'“클렌징오일/워터/크림” 기획전 제품 구매 시 유의사항',
@@ -1013,7 +1007,6 @@ export const sample_goods = [
         cate:'BEST',
         name:'히알루론 수분 선크림 SPF 50+ PA++++',
         price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
         sticker:[
             {txt:'type01', type:'type01'},
             {txt:'type02', type:'type02'},
@@ -1025,10 +1018,18 @@ export const sample_goods = [
           rate: 4.5,
           totalPoint: 1254
         },
-        cart_alert: {
-          modal_id:'cart_alert_01',
-          modal_type:'alert',
-        }
+        giveaway: {
+          modal_id: 'giveaway_01',
+          goods: [
+            {
+              img: ("/_nuxt/public/images/sam/sam_pre_01.png"),
+              name: '제주 루트 에너지 마스크[당근] 5매 세트',
+              date: '24.00.00 ~ 24.00.00',
+              txt: '1개 구매시 1개 증정'
+            },
+          ]
+        },
+        big: true
 
     }, {
         img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
@@ -1041,6 +1042,7 @@ export const sample_goods = [
             {txt:'뷰티포인트전용', type:'type01'},
             {txt:'첫구매전용', type:'type01'}
         ],
+        hash:['#주름개선기능성'],
         reviewScore: {
           rate: 4.5,
           totalPoint: 1254
@@ -1068,46 +1070,55 @@ export const sample_goods = [
             }
           ]
         },
-        cart_alert: {
-          modal_id:'cart_alert_02',
-          modal_type:'alert',
-        }
     }, {
         img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
         overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
         cate:'NEW',
         name:'그린티 씨드 히알루론산 세렘 80ml',
         price:'44,800', sale:'~20%', cost:'56,000',
-        status:'coming_soon',
         sticker:[
             {txt:'1+1', type:'type02'},
             {txt:'뷰티포인트전용', type:'type01'},
             {txt:'첫구매전용', type:'type01'}
-        ]
+        ],
+        reviewScore: {
+          rate: 4.5,
+          totalPoint: 1254
+        },
     }, {
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
         overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'end',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
         name:'블랙티 유스 인핸싱 앰플 50ml',
         price:'11,000', sale:'~50%', cost:'26,000',
         status:'sold_out',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
+        hash:['#스킨팩','#화장솜','#순면화장솜'],
+        reviewScore: {
+          rate: 4.5,
+          totalPoint: 1254
+        },
+    }, {
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+        name:'블랙티 유스 인핸싱 앰플 50ml',
+        price:'11,000', sale:'~50%', cost:'26,000',
+        status:'coming_soon',
+        hash:['#스킨팩','#화장솜','#순면화장솜'],
+        reviewScore: {
+          rate: 4.5,
+          totalPoint: 1254
+        },
     },
     {
         img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
         overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
         name:'블랙티 유스 인핸싱 앰플 50ml5',
         price:'11,000', sale:'~50%', cost:'26,000',
-        hash:['#스킨팩','#화장솜','#순면화장솜']
+        status:'end',
+        hash:['#스킨팩','#화장솜','#순면화장솜'],
+        reviewScore: {
+          rate: 4.5,
+          totalPoint: 1254
+        },
     },
     {
         img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),

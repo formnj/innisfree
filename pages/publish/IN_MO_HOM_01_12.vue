@@ -20,8 +20,8 @@
 
     <div class="list_wrap">
       <ul class="goods_list">
-        <li v-for="(item,idx) in sample_goods" :key="idx">
-          <GoodsItem :item="item" :link="item.link" />
+        <li v-for="(item,idx) in sample_goods.slice(0,5)" :key="idx">
+          <GoodsItem :item="item" :link="item.link" :useHash="false" />
         </li>
       </ul>
     </div>

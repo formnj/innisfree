@@ -38,7 +38,7 @@
           </li>
         </ul>
       </div>
-      <Button class="btn_outline more" txt="10개 더보기" />
+      <Button class="btn_outline btn_list_btm" txt="10개 더보기" />
     </div>
   </section>
 
@@ -87,11 +87,11 @@
       <div class="list_wrap">
         <ul class="goods_list col_3">
           <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
-            <GoodsItem :item="item" :link="item.link" class="type_cart" />
+            <GoodsItem :item="item" :link="item.link" class="type_cart" :useHash="true" />
           </li>
         </ul>
       </div>
-      <button type="button" class="btn_outline more refresh"><em>새로운 추천을 받고 싶어요</em> <span class="page">1/2</span></button>
+      <button type="button" class="btn_outline btn_list_btm refresh"><em>새로운 추천을 받고 싶어요</em> <span class="page">1/2</span></button>
     </div>
   </section>
 
@@ -238,7 +238,7 @@ section {
   }
 }
 
-:deep([class*=btn_][class*=_outline]).more {
+:deep([class*=btn_][class*=_outline]).btn_list_btm {
   width: 100%;
   margin-top: 3rem;
   font-size: 14px;
@@ -333,9 +333,9 @@ section {
 
     :deep(.goods_item) {
       position: relative;
+      width: 14rem;
 
       .thumb {
-        width: 14rem;
         height: 18.6rem;
       }
 

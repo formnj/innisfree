@@ -189,14 +189,6 @@ definePageMeta({
   >li {
     width: 16.5rem;
     padding: 0;
-
-    :deep(.goods_item) {
-      .img_wrap {
-        .btnIconBox {
-          left: 0;
-        }
-      }
-    }
   }
 }
 
