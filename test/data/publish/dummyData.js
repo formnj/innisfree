@@ -3,6 +3,65 @@
  * 테스트 용도이므로 TS 불필요
  * jjy11@amorepacific.com
  */
+export const public_ann = [
+  {
+   title:'이니스프리 2023년도 재무상태표',
+   url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_2023.pdf'
+  },
+  {
+    title:'자기주식 취득 안내 정정공고다운로드',
+    url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_treasury%20stock_2.pdf'
+   },
+   {
+    title:'자기주식 취득 안내 공고다운로드',
+    url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_treasury%20stock_1_vf.pdf'
+   },
+   {
+    title:'주주확정기준일 공고',
+    url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_treasury%20stock_0.pdf'
+   },
+   {
+    title:'이니스프리 2023년도 재무상태표',
+    url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_by_2022.pdf'
+   },
+   {
+    title:'기준일 및 주주명부 폐쇄기간 설정 공고',
+    url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_2022_2.pdf'
+   },
+   {
+    title:'이니스프리 2021년도 재무상태표',
+    url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_2021.pdf'
+   },
+   {
+    title:'이니스프리 2023년도 재무상태표',
+    url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_2023.pdf'
+   },
+   {
+     title:'자기주식 취득 안내 정정공고다운로드',
+     url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_treasury%20stock_2.pdf'
+    },
+    {
+     title:'자기주식 취득 안내 공고다운로드',
+     url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_treasury%20stock_1_vf.pdf'
+    },
+    {
+     title:'주주확정기준일 공고',
+     url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_treasury%20stock_0.pdf'
+    },
+    {
+     title:'이니스프리 2023년도 재무상태표',
+     url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_by_2022.pdf'
+    },
+    {
+     title:'기준일 및 주주명부 폐쇄기간 설정 공고',
+     url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_2022_2.pdf'
+    },
+    {
+     title:'이니스프리 2021년도 재무상태표',
+     url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_2021.pdf'
+    },
+]
+
 
 export const mo_ord_notice = [
   {

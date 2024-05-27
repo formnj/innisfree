@@ -460,9 +460,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-24/2024-05-21', worker:'형민우'
     }, {
         depth:['','전자공고','',''],
-        id:'IN_PC_MYP_01_93', status:'',
+        id:'IN_PC_MYP_01_93', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-31', worker:'김희경'
+        sDate:'2024-05-27', eDate:'2024-05-31/', worker:'김희경'
     }, {
         depth:['회원','회원가입','',''],
         id:'IN_PC_MYP_01_94', status:'',
