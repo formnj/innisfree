@@ -151,16 +151,16 @@
                 <span>배송 요청사항</span>
               </th>
               <td class="shippingMsg">
-                <Selectbox
-                :options="[
-                    { val: 'value', txt: '배송 요청사항을 선택 해주세요.' },
-                    { val: 'value', txt: '부재시 경비(관리)실에 맡겨주세요.' },
-                    { val: 'value', txt: '부재시 문앞에 놓아주세요.' },
-                    { val: 'value', txt: '파손의 위험이 있는 상품이 있으니, 배송에 주의해주세요.' },
-                    { val: 'value', txt: '배송전에 연락주세요.' },
-                    { val: 'value', txt: '메시지 직접 입력' },
-                ]" />
-                <Inputs _type="text" _placeholder="배송 요청사항을 입력해주세요. (최대 45자까지 입력가능)" />
+                <Selectbox class="adress_sl"
+                  :options="[
+                  { val: 0, txt: '배송 요청사항을 선택해 주세요.' },
+                  { val: 1, txt: '부재 시 경비(관리)실에 맡겨주세요.' },
+                  { val: 2, txt: '부재 시 문 앞에 놓아주세요.' },
+                  { val: 3, txt: '파손의 위험이 있는 제품이 있으니, 배송에 주의해주세요.' },
+                  { val: 4, txt: '배송 전에 연락주세요.' },
+                  { val: 5, txt: '메세지 직접입력' },
+                ]"  @change="input_change($event)"/>
+                <Inputs _type="text" _placeholder="배송 메세지를 직업 앱력해주세요(최대 20자)" />
               </td>
             </tr>
           </tbody>
@@ -203,7 +203,7 @@
               <div class="gifts">
                 <dl class="board_type_toggle single">
                   <dt>
-                    <a href="#none">
+                    <a href="#none" class="active" @click="toggle_btn">
                       그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
                       <em></em>
                     </a>
@@ -255,7 +255,7 @@
               <div class="gifts">
                 <dl class="board_type_toggle single">
                   <dt>
-                    <a href="#none">
+                    <a href="#none" class="active" @click="toggle_btn">
                       그린티 씨드 세럼 대용량 + 씨드크림 (130mL+50mL) 구매 시 드리는 사은품입니다.
                       <em></em>
                     </a>
@@ -427,7 +427,7 @@
         <ul class="cart_list type_default">
           <li>
             <div class="row">
-              <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" _checked @change="radioChk = 'card'" />
+              <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" _checked @change="radioChk = 'card'"/>
               <!-- [Tip] change되었을 때, 변수값을 지정해준 값으로 변경해준다. -->
               <Inputs _type="radio" _text="원클릭 결제" _name="pay_method" @change="radioChk = 'onclick'" />
               <Inputs _type="radio" _text="다른 결제 수단" _name="pay_method" @change="radioChk = 'other'" />
@@ -443,7 +443,7 @@
             <label :for="item.label_for">{{ item.name }}</label>
           </li>
         </ul>
-        <a href="#none">무이자 할부 안내</a>
+        <a href="#none" @click="modal.open('install', 'full install')">무이자 할부 안내</a>
         <p class="tosspay">
           <span>저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금/계좌이체 거래에 대해 구매안전서비스를 적용하고 있습니다.</span>
           <Button txt="토스페이먼츠 구매안전 서비스 가입확인" class="btn_min_outline" @click=toss_info() />
@@ -462,8 +462,8 @@
       </article>
       <article class="method_other" :class="{ active: radioChk == 'other' }">
         <ul>
-          <li v-for="(item, idx) in etc_info" :id="item.li_id" :key="idx" @change="orderChk = item.class">
-            <input :id="item.input_id" type="radio" name="etcList" :checked="item.checked">
+          <li v-for="(item, idx) in etc_info" :id="item.li_id" :key="idx" @change="[orderChk = item.class]">
+            <input :id="item.input_id" type="radio" name="etcList" :checked="item.checked" :value="item.value" @change="radio_change($event)">
             <label :for="item.label_for"><span>{{item.text}}</span></label>
 
             <div v-if="item.discont_txt" class="discount_txt">{{ item.discont_txt }}</div>
@@ -823,6 +823,21 @@
       </div>
     </div>
   </div>
+
+
+
+  <div class="modal_wrap install" id="install">
+    <div class="modal_container">
+        <div class="modal_header">
+            <h2>무이자 할부 안내</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <img src="/_nuxt/public/images/sam/P01_51_1.png">
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
   <!-- //modal -->
 
 </template>
@@ -870,38 +885,66 @@ const change_res = () => {
   document.querySelector('.deliveryList').classList.remove('hide')
 }
 
-onMounted(() => {
-  const target = document.querySelectorAll('.board_type_toggle dt a');
-  const rotate = document.querySelectorAll('.board_type_toggle dt a em');
-  target.forEach((a,i)=>{
-    a.addEventListener('click', function(){
+const input_change = (event) => {
+  let input_box = event.target.closest('.select').nextElementSibling.childNodes[0];
+  const input_value = ref(event.target.value)
+  console.log(input_box)
+  console.log(input_value.value)
+  if(input_value.value == 5){
+    input_box.classList.add('active')
+  }else {
+    input_box.classList.remove('active')
+  }
+}
 
-      if(a.parentNode.nextElementSibling.classList.contains('show')){
-        a.parentNode.nextElementSibling.style.height = '0px'
-        a.parentNode.nextElementSibling.addEventListener('transitionend', () => {
-          a.parentNode.nextElementSibling.classList.remove('show');
-          rotate[i].classList.remove('active')
-        }, {once: true});
-      }
-      else{
-        a.parentNode.nextElementSibling.classList.add('show');
-        rotate[i].classList.add('active')
-        a.parentNode.nextElementSibling.style.height = 'auto'
-        const height = a.parentNode.nextElementSibling.clientHeight + 'px'
-        a.parentNode.nextElementSibling.style.height = '0px'
-        setTimeout(() => {
-          a.parentNode.nextElementSibling.style.height = height
-        });
-      }
+const toggle_btn = (event) => {
+  console.log(event.currentTarget)
+  event.currentTarget.classList.toggle('active');
+  const panel = event.currentTarget.parentNode.nextElementSibling;
+  console.log(panel)
+
+  const ori_H_1 = panel.childNodes[0].offsetHeight;
+  const ori_H_2 = panel.childNodes[1].offsetHeight;
+  console.log(ori_H_1+ori_H_2)
+
+  if(!event.currentTarget.classList.contains("active")){
+    panel.style.height = ori_H_1 + ori_H_2 + 'px';
+    setTimeout(() => {
+      panel.style.height = '0px';
+      panel.classList.add('hide');
     })
-  })
-})
+
+  }else {
+    panel.style.height = 0;
+    panel.classList.remove('hide');
+    setTimeout(() => {
+      panel.style.height = ori_H_1 + ori_H_2 +'px';
+    });
+  }
+ }
+
 
 const modalPositioning = () => {
   const top = window.scrollY + event.target.getBoundingClientRect().top + event.target.getBoundingClientRect().height;
   const left = event.target.getBoundingClientRect().left;
   document.getElementsByClassName('shippingArmyInfo')[0].style.cssText="top:" + top + "px;left:unset;left:" + left + "px;bottom:unset;"
 }
+
+const radio_change = (event) => {
+  const radio_value = ref(event.target.value)
+  let refund = document.querySelector('.payment > .inner > div  > ul > li.refund')
+  console.log(refund)
+  console.log(radio_value.value)
+    if(radio_value.value == 9){
+      refund.classList.add('active')
+    }else {
+      refund.classList.remove('active')
+    }
+}
+
+onMounted(() => {
+
+})
 
 </script>
 
@@ -983,9 +1026,16 @@ const modalPositioning = () => {
                           width:75% !important;
                           display:inline-block;
                         }
-                        .input_wrap {
+                        :deep(.input_wrap) {
                           width:75% !important;
                           margin-top:12px;
+                          display:block;
+                          .label_wrap  {
+                            display:none;
+                            &.active {
+                              display:block;
+                            }
+                          }
                         }
                     }
                     > div {
@@ -1223,7 +1273,31 @@ div.list {
       }
     }
   }
-
+  .modal_container {
+    .modal_content {
+      > .check {
+        margin-bottom:20px;
+        color:#000;
+        font-weight:500;
+      }
+      .error {
+            margin:10px 0;
+            color:#FF0000;
+            font-size:12px;
+            display:block;
+        }
+        :deep(button.btn_outline) {
+          border:1px solid #000;
+          box-sizing:border-box;
+          em {
+              padding:0 20px;
+              color:#000;
+              font-size:12px;
+              font-weight:600;
+          }
+        }
+    }
+  }
   &.adress_manage {
     .modal_container {
       width: 720px;
@@ -1363,31 +1437,6 @@ div.list {
     }
   }
 
-  .modal_container {
-    .modal_content {
-      > .check {
-        margin-bottom:20px;
-        color:#000;
-        font-weight:500;
-      }
-      .error {
-            margin:10px 0;
-            color:#FF0000;
-            font-size:12px;
-            display:block;
-        }
-        :deep(button.btn_outline) {
-          border:1px solid #000;
-          box-sizing:border-box;
-          em {
-              padding:0 20px;
-              color:#000;
-              font-size:12px;
-              font-weight:600;
-          }
-        }
-    }
-  }
 
   &.add_list_modal {
     .modal_container {
@@ -1408,6 +1457,11 @@ div.list {
           background:#333;
         }
       }
+    }
+  }
+  &.install {
+    .modal_container {
+      width:720px;
     }
   }
 }
@@ -1557,37 +1611,41 @@ div.list {
         align-items: center;
         a {
           width:100%;
-        }
-        em {
-          width:40px;
-          height:40px;
-          background-image: url('~/assets/images/common/icon_split.png');
-          background-repeat: no-repeat;
-          background-size: 250px;
-          background-position: -200px -60px;
-          text-indent: -9999px;
-          position:absolute;
-          top:15%;
-          right:10px;
-          transform:rotate(180deg);
-          transition:all 0.5s;
           &.active {
-            transform:translateY(40%) rotate(0deg);
+            em {
+              transform:translateY(40%) rotate(0deg);
+            }
+          }
+            em {
+            width:36px;
+            height:40px;
+            background-image: url('~/assets/images/common/icon_split.png');
+            background-repeat: no-repeat;
+            background-size: 250px;
+            background-position: -200px -60px;
+            text-indent: -9999px;
+            position:absolute;
+            top:15%;
+            right:10px;
+            transform:rotate(180deg);
+            transition:all 0.3s;
           }
         }
       }
       dd {
         width:100%;
-        padding: 25px 19px;
         border:1px solid #eee;
         border-top:0;
-        display:none;
         align-items:center;
         gap:25px;
         overflow:hidden;
         transition:height 0.2s ease-out;
+        &.hide {
+          border:0;
+        }
         div {
           width:390px;
+          padding:15px 19px 0px;
           display:flex;
           align-items:center;
           img {
@@ -1611,10 +1669,6 @@ div.list {
       }
     }
   }
-
-
-
-
  > article {
     position: relative;
     margin-top:20px;

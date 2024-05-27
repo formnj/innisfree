@@ -91,7 +91,7 @@ const PC_arry = ([
     }, {
         depth:['','푸터','',''],
         id:'Footer', status:'com',
-        type:'component', note:'/component/Footer/pc<br/> 쇼핑로그 모달팝업 포함',
+        type:'component', note:'/component/Footer/pc<br/>쇼핑로그 모달팝업 포함<br/>쇼핑로그: 리스트, 상단 배너를 컴포넌트로 변환(ShoppingLogList.vue, ShoppingLogBanner.vue)-김나람',
         sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','브래드크럼','',''],
@@ -650,7 +650,7 @@ const MO_arry = ([
     }, {
         depth:['','쇼핑로그','',''],
         id:'IN_MO_HOM_01_18', status:'com',
-        type:'', note:'goods_item > btnIconBox > btn_heart 노출',
+        type:'', note:'goods_item > btnIconBox > btn_heart 노출<br>쇼핑로그: 리스트, 상단 배너를 컴포넌트로 변환(ShoppingLogList.vue, ShoppingLogBanner.vue)-김나람',
         sDate:'', eDate:'2024-04-23/2024-04-23', worker:'이종환'
     }, {
         depth:['샘플마켓','목록','',''],
@@ -704,9 +704,9 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['주문서','','',''],
-        id:'IN_MO_ORD_01_01', status:'ing',
+        id:'IN_MO_ORD_01_01', status:'com',
         type:'', note:'결제하기페이지<br/> 장바구니 참고',
-        sDate:'2024-05-17', eDate:'2024-05-24/', worker:'김희경'
+        sDate:'2024-05-17', eDate:'2024-05-24/2024-05-24', worker:'김희경'
     }, {
         depth:['','배송지 등록/변경','',''],
         id:'IN_MO_ORD_01_02', status:'com',

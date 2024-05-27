@@ -23,7 +23,7 @@
                     <td><Inputs _type="radio" _text="집(기본배송지)" _name="adrees"/></td>
                     <td><a href="#none">[22780] 서울특별시 강서구 양천로 551-17</a></td>
                     <td class="btn_wrap">
-                      <Button class="btn_outline" txt="수정"  @click="modal.open('adress_modify_modal', 'alert')" />
+                      <Button class="btn_outline" txt="수정"  @click="modal.open('adress_manage', 'alert')" />
                       <Button class="btn_outline" txt="삭제"  @click="modal.open('delete_modal', 'alert')" />
                     </td>
                   </tr>
@@ -31,7 +31,7 @@
                     <td><Inputs _type="radio" _text="회사" _name="adrees"/></td>
                     <td><a href="#none">[22780] 서울특별시 강서구 양천로 551-17</a></td>
                     <td class="btn_wrap">
-                      <Button class="btn_outline" txt="수정"  @click="modal.open('adress_modify_modal', 'alert')" />
+                      <Button class="btn_outline" txt="수정"  @click="modal.open('adress_manage', 'alert')" />
                       <Button class="btn_outline" txt="삭제"  @click="modal.open('delete_modal', 'alert')" />
                     </td>
                   </tr>
@@ -45,7 +45,7 @@
     <span>배송지를 선택하세요</span>
     <div class="btn_wrap">
       <Button txt="기본 배송지로 설정" class="btn_ confirm"/>
-      <Button txt="배송지 추가" class="btn_outline" @click="modal.open('adress_add_modal', 'alert')"/>
+      <Button txt="배송지 추가" class="btn_outline" @click="modal.open('adress_manage', 'alert')"/>
     </div>
   </div>
 
@@ -69,14 +69,14 @@
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
 
-  <div class="modal_wrap" :id="item.modal_id" v-for="(item, idx) in Delivery_data" :key="idx">
+  <div id="adress_manage" class="modal_wrap">
     <div class="modal_container">
         <div class="modal_header">
             <h2>배송지 관리</h2>
             <button class="btn_close" @click="modal.close(this);">닫기</button>
         </div>
         <div class="modal_content">
-          <Inputs _type="checkbox" _text="내 우편수신처 불러오기(선택)" v-if="item.check"/>
+          <Inputs _type="checkbox" _text="내 우편수신처 불러오기(선택)" />  <!-- 배송지 관리 > 배송지 추가일 때만 노출 -->
           <div class="table_wrap">
                 <table>
                     <caption>1:1 문의작성</caption>
@@ -251,7 +251,6 @@ layout:'pc-mypage'
 });
 
 import { modal } from '~/assets/js/common-ui.js'
-import {Delivery_data} from '~/test/data/publish/dummyData'
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   layoutType: {
@@ -261,13 +260,13 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 });
 
 const adress_more = (event) => {
-  document.querySelector('#adress_add_modal .modal_container').style.display="none"
-  document.querySelector('#adress_modify_modal .modal_container').style.display="none"
+  document.querySelector('#adress_manage .modal_container').style.display="none"
+  document.querySelector('#adress_manage .modal_container').style.display="none"
   document.querySelector('.modal_wrap#shippingArmyInfo').classList.remove('active')
 }
 const reset = (event) => {
-  document.querySelector('#adress_add_modal .modal_container').style.display="block"
-  document.querySelector('#adress_modify_modal .modal_container').style.display="block"
+  document.querySelector('#adress_manage .modal_container').style.display="block"
+  document.querySelector('#adress_manage .modal_container').style.display="block"
   document.querySelector('.modal_wrap#shippingArmyInfo').classList.remove('active')
 }
 
@@ -500,7 +499,7 @@ const reset = (event) => {
         }
       }
     }
-  &#adress_add_modal{
+  &#adress_manage{
     .modal_container {
       width:720px;
       .modal_content {
@@ -534,7 +533,7 @@ const reset = (event) => {
     }
   }
 
-  &#adress_modify_modal {
+  &#adress_manage {
     .modal_container {
       width:720px;
       .table_wrap {

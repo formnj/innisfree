@@ -36,8 +36,8 @@
       </h2>
       <div class="swiper_wrap horizontal">
         <swiper :slides-per-view="'auto'">
-          <swiper-slide v-for="(item, idx) in sample_goods" :key="idx" class="item type_cart">
-            <GoodsItem :item="item" :link="item.link" />
+          <swiper-slide v-for="(item, idx) in sample_goods" :key="idx" class="item">
+            <GoodsItem :item="item" :link="item.link" class="type_cart" />
           </swiper-slide>
         </swiper>
       </div>
@@ -334,31 +334,9 @@ section {
       }
     }
 
-    &.type_cart {
-      :deep(.goods_item) {
-        padding-bottom: 0;
-
-        .img_wrap {
-          position: relative;
-
-          .thumb {
-            width: auto;
-            height: 14.5rem;
-          }
-
-          .btnIconBox {
-            justify-content: end;
-
-            .btn_heart,
-            .btn_buy {
-              display: none;
-            }
-          }
-        }
-
-        .review_score {
-          display: none;
-        }
+    &.goods_list {
+      .review_score {
+        display: none;
       }
     }
   }

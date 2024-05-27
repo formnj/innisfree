@@ -13,7 +13,7 @@
 
     <div class="list_wrap">
       <ul class="post_list">
-        <li v-for="(item, idx) in samplePost" :key="idx" class="type_cart">
+        <li v-for="(item, idx) in samplePost" :key="idx">
           <PostItem  :item="item" :link="link" />
         </li>
       </ul>

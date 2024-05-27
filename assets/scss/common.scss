@@ -666,7 +666,7 @@ html {
     }
   }
 
-  //쇼핑로그 공통 스타일
+  //detailSearch 모달 공통 스타일
   &.detailSearch {
     .modal_container {
       width: 480px;
@@ -877,25 +877,14 @@ ul.select_list {
 
 /* goods list */
 .goods_list {
-  margin-top: -40px;
-  margin-left: -20px;
   display: flex;
   flex-wrap: wrap;
+  gap: 40px 20px;
 
   >li {
-    width: 20%;
-    padding-top: 40px;
-    padding-left: 20px;
+    width: 240px;
     position: relative;
   }
-
-  &.type_column {
-    display:block !important;
-    > li {
-      width:100% !important;
-    }
-  }
-
 }
 
 .event_list {
@@ -919,7 +908,7 @@ ul.select_list {
     }
     dt {
       width:100px;
-      height:133px;
+      height:auto;
       img {
         width:100%;
         height:100%;

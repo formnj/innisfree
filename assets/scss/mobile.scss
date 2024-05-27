@@ -141,6 +141,45 @@
   }
 }
 
+/* goods list */
+:deep(.goods_list) {
+  gap: 4rem .3rem;
+  > li {
+    width: 16.5rem;
+  }
+
+  &.col_3 {
+    > li {
+      width: 10.9rem;
+      .goods_item {
+        .img_wrap {
+          .thumb {
+            width: 10.9rem;
+            height: 14.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 증정품 리스트 */
+:deep(.giveaway_list) {
+  dl {
+    dt {
+      width: 8.8rem;
+    }
+    dd {
+      p {
+        font-size: 1.3rem;
+      }
+      span {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
 /* goodsItem */
 :deep(.goods_item) {
   padding-bottom:calc(24px + 1rem);
@@ -169,8 +208,15 @@
           background-image:url('~/assets/mo_images/common/icon_split.png');
           background-size:250px auto;
         }
-        &.btn_heart em {
-          background-position:-140px -40px;
+        &.btn_heart {
+          em {
+            background-position:-140px -40px;
+          }
+          &.on {
+            em {
+              background-position:-180px -70px;
+            }
+          }
         }
         &.btn_cart em {
           background-position:-170px -40px;
@@ -181,7 +227,7 @@
       }
     }
   }
-  &.sold_out, &.coming_soon {
+  &.sold_out, &.coming_soon, &.end {
     .img_wrap {
       a {
         position:relative;
@@ -193,6 +239,7 @@
           background-color:rgba(0,0,0,0.3);
           background-position:50%;
           background-repeat:no-repeat;
+          background-size: 10rem;
           position:absolute;
           top:0;
           right:0;
@@ -204,15 +251,20 @@
     }
   }
   &.sold_out {
-      .img_wrap a:before {
-          background-image:url('~/assets/images/ui/overlay_soldout.png');
-      }
+    .img_wrap a:before {
+        background-image:url('~/assets/images/ui/overlay_soldout.png');
     }
-    &.coming_soon {
-      .img_wrap a:before {
-          background-image:url('~/assets/images/ui/overlay_comingsoon.png');
-      }
+  }
+  &.coming_soon {
+    .img_wrap a:before {
+        background-image:url('~/assets/images/ui/overlay_comingsoon.png');
     }
+  }
+  &.end {
+    .img_wrap a:before {
+        background-image:url('~/assets/images/ui/overlay_end.png');
+    }
+  }
   .cont {
     > .price {
       margin-top:0.6rem;
@@ -233,10 +285,6 @@
       font-size:1.4rem;
       strong {
         color:#000;
-        overflow:hidden;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
         .cate {
           margin:0;
         }
@@ -813,7 +861,7 @@
     }
   }
 
-  
+
   &.nav {
     .modal_content {
       padding:0;
@@ -1047,6 +1095,138 @@
           }
         }
       }
+    }
+  }
+}
+
+
+/* 쇼핑로그 */
+:deep(.shopping_log_wrap) {
+  .top_banner {
+    padding: 1.2rem 2.8rem;
+    background-position: center center;
+    p {
+      padding-left: 1rem;
+    }
+
+    .btn_ui_wrap {
+      span.btn {
+        width: 12rem;
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  .shopping_log {
+    h2 {
+      display: flex;
+      align-items: center;
+
+      em {
+        color: #00BC70;
+      }
+
+      &+p {
+        margin-top: .5rem;
+        font-size: 1.2rem;
+        color: #999;
+      }
+    }
+
+    .no_data {
+      margin: 3rem 0 0;
+      padding: 3rem 0;
+      font-size: 1.6rem;
+      color: #000;
+      background-color: #f5f5f5;
+
+      &:before {
+        content: none;
+      }
+
+      span {
+        display: none;
+      }
+    }
+
+    .goods_list {
+      &:after {
+        left: 3rem;
+      }
+
+      & > li {
+        width: 100%;
+
+        & + li {
+          margin-top: 0;
+        }
+
+        .search_item {
+          a {
+            padding-left: 1rem;
+
+            .thumb {
+              width: 4rem;
+              height: 4rem;
+
+              em {
+                width: 1.5rem;
+                height: 1.5rem;
+                background: url("/_nuxt/assets/images/common/icon_split.png") -13.6rem -20.1rem / 18rem auto no-repeat
+              }
+            }
+          }
+        }
+
+        .goods_item {
+          padding-bottom: 0;
+
+          a {
+            width: 100%;
+          }
+
+          .img_wrap {
+            height: 8rem;
+            margin-right: 1.5rem;
+
+            .thumb {
+              width: 6rem;
+            }
+          }
+
+          .cont {
+            .price {
+              em {
+                display: inline-block;
+              }
+            }
+          }
+        }
+
+        .event_item {
+          .item {
+            .thumb {
+              width: 6rem;
+              height: 4rem;
+            }
+          }
+        }
+
+        .search_item,
+        .goods_item,
+        .event_item {
+          .cont {
+            strong {
+              font-size: 1.3rem;
+              -webkit-line-clamp: 1;
+            }
+          }
+        }
+      }
+    }
+
+    .keyword_wrap {
+      border-top: 0;
     }
   }
 }

@@ -8,9 +8,9 @@
         </span>
       </a>
       <ul class="btnIconBox">
-        <li><Button class="btn_heart" /></li>
-        <li><Button class="btn_cart" @click="modal.open('modal_cart', 'alert modal_cart');" /></li>
-        <li><Button class="btn_buy" @click="modal.open('modal_cart', 'alert modal_cart');" /></li>
+        <li><Button class="btn_heart" txt="찜" /></li> <!-- 찜 활성화 : 버튼에 on 클래스 추가-->
+        <li><Button class="btn_cart" txt="장바구니" @click="modal.open('modal_cart', 'alert modal_cart');" /></li>
+        <li><Button class="btn_buy" txt="결재" @click="modal.open('modal_cart', 'alert modal_cart');" /></li>
       </ul>
     </div>
     <a :href="props.link">
@@ -21,7 +21,7 @@
             {{ item.name }}
           </strong>
         </p>
-        <p class="price" v-if="item.price">
+        <p v-if="item.price" class="price">
           <strong>{{ item.price }}원</strong>
           <span>{{ item.sale }}</span>
           <em>{{ item.cost }}원</em>
@@ -38,11 +38,13 @@
         </p>
       </div>
     </a>
-    <button v-if="item.giveaway" class="giveaway" @click="modal.open(item.giveaway.modal_id, props.modal_type);">
+    <!-- 증정품 영역 : 특가 페이지에서만 노출 -->
+    <button v-if="item.giveaway" class="giveaway" @click="modal.open(item.giveaway.modal_id, props.modal_type+' modal_giveaway');">
       <template v-for="(item, idx) in item.giveaway.goods" :key="idx">
         <img :src="item.img">
       </template>
     </button>
+    <!-- //증정품 영역 -->
     <p v-if="item.giveaway && item.reviewScore" class="review_score">
       {{ item.reviewScore.rate }}
       <em>({{ item.reviewScore.totalPoint }})</em>
@@ -71,8 +73,9 @@ import { modal } from '~/assets/js/common-ui.js'
 .goods_item {
   a {
     display:block;
+    height:100%;
   }
-  &.sold_out, &.coming_soon {
+  &.sold_out, &.coming_soon, &.end {
       .img_wrap:before, .img_wrap:after {
           content:'';
           display:block;
@@ -98,29 +101,92 @@ import { modal } from '~/assets/js/common-ui.js'
               background-image:url('~/assets/images/ui/overlay_comingsoon.png');
           }
       }
-  }
-  &.type_cart {
-      padding-bottom: 0;
-      .img_wrap {
-        position: relative !important;
-        .thumb {
-          width:auto !important;
-          height:14.5rem !important;
-        }
-        .btnIconBox {
-          position:absolute;
-          bottom:8px !important;
-          right:0px;
-          justify-content:end !important;
-          .btn_heart,
-          .btn_buy {
-            display: none;
+      &.end {
+          .img_wrap:before {
+              background-image:url('~/assets/images/ui/overlay_end.png');
           }
-          .btn_cart {
-            position:relative;
+      }
+  }
+
+  &.type_cart {
+    padding-bottom: 0;
+    .img_wrap {
+      position: relative;
+      .btnIconBox {
+        position:absolute;
+        bottom:.5rem;
+        right:0px;
+        justify-content:end;
+        .btn_heart,
+        .btn_buy {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.type_column {
+    display:flex;
+    gap:20px;
+    .img_wrap {
+      overflow:visible;
+      .btnIconBox {
+        display:none;
+      }
+      .thumb {
+        width:75px;
+        height:100px;
+      }
+    }
+    .cont {
+      margin-top:0;
+      .price {
+        strong {
+          margin-right:5px;
+          font-size:14px;
+        }
+        span {
+          margin-right:10px;
+          font-size:14px;
+        }
+        em {
+          font-size:12px;
+        }
+      }
+      .hash {
+        flex-wrap:nowrap;
+        li {
+          width:auto;
+          button {
+            padding:4px 8px;
+            font-family:'Pretendard';
           }
         }
       }
+    }
+    .giveaway,
+    .sticker,
+    .review_score {
+      display:none;
+    }
+
+    // &.type_cart {
+    //   padding-bottom: 0;
+    //   .img_wrap {
+    //     position: relative;
+    //     .btnIconBox {
+    //       display:block;
+    //       position:absolute;
+    //       bottom:.5rem;
+    //       right:0px;
+    //       justify-content:end;
+    //       .btn_heart,
+    //       .btn_buy {
+    //         display: none;
+    //       }
+    //     }
+    //   }
+    // }
   }
 
 
@@ -177,9 +243,14 @@ import { modal } from '~/assets/js/common-ui.js'
                   background-repeat:no-repeat;
               }
               &.btn_heart {
+                em {
+                  background-position:-220px 0;
+                }
+                &.on {
                   em {
-                      background-position:-220px 0;
+                    background-position:-300px -120px;
                   }
+                }
               }
               &.btn_cart {
                   em {
@@ -217,6 +288,10 @@ import { modal } from '~/assets/js/common-ui.js'
               color:#666;
               font-size:14px;
               font-weight:400;
+              overflow:hidden;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
           }
       }
       > .price {
@@ -275,10 +350,5 @@ import { modal } from '~/assets/js/common-ui.js'
       flex:1;
     }
   }
-
-  &.type_row {
-    display:flex;
-  }
-
 }
 </style>
