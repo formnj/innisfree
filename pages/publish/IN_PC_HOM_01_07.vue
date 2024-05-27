@@ -12,11 +12,8 @@
 
   <div class="inner">
     <div class="sort_tab_wrap">
-      <Tabs :item="[{txt:'실시간 베스트'},{txt:'주간 베스트'},{txt:'월간 베스트'}]" :tabidx="0" />
-
       <div class="sub_tab">
-        <Tabs tabType="type_02" :item="[{txt:'전체'},{txt:'스킨케어'},{txt:'메이크업'},{txt:'남성'},{txt:'헤어/바디/펫'},{txt:'기획 세트'},{txt:'전체'},{txt:'스킨케어'},{txt:'메이크업'},{txt:'남성'},{txt:'헤어/바디/펫'},{txt:'기획 세트'},{txt:'미용소품'},{txt:'스킨케어'},{txt:'메이크업'},{txt:'남성'},{txt:'헤어/바디/펫'},{txt:'기획 세트'},{txt:'전체'},{txt:'스킨케어'},{txt:'메이크업'},{txt:'남성'},{txt:'헤어/바디/펫'},{txt:'기획 세트'}]" :tabidx="0" />
-        <span>2024.03.29 ~ 2024.04.04 기준</span>
+        <Tabs tabType="type_02" :item="[{txt:'전체'},{txt:'스킨케어'},{txt:'메이크업'},{txt:'남성'},{txt:'헤어/바디/펫'},{txt:'기획 세트'},{txt:'미용소품'}]" :tabidx="0" />
       </div>
     </div>
 

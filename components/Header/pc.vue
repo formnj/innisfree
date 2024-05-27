@@ -330,8 +330,8 @@ onMounted(() => {
     roll_size = keyword_pos.querySelectorAll('li'),
     roll_timer = 3000;
 
-    const i = 1,
-    clone_roll = roll_size[0];
+    let i = 1;
+    const clone_roll = roll_size[0];
 
     keyword_pos.insertAdjacentHTML('beforeend', '<li>'+clone_roll.innerHTML+'</li>');
 
