@@ -2,7 +2,10 @@
   <!-- title washed -->
   <div class="title_wrap" :data-layout="props.layoutType">
     <div>
-      <h2>베스트</h2>
+      <h2>
+        실시간 랭킹
+        <span class="renewal">3분전 갱신</span>
+      </h2>
     </div>
   </div>
   <!-- //title washed -->

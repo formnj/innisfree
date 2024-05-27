@@ -131,7 +131,7 @@
                         <a href="#none">회원가입</a>
                     </li>
                     <li>
-                        <a href="#none">고객센터</a>
+                        <a href="/publish/IN_PC_MYP_01_91">고객센터</a>
                     </li>
                     <li>
                         <a href="#none">ABOUT</a>
@@ -167,7 +167,7 @@
                             <a :href="path+'IN_PC_HOM_01_04'" class="point"><em>특가</em></a>
                         </li>
                         <li class="active">
-                            <a :href="path+'IN_PC_HOM_01_00-1'"><em>베스트</em></a>
+                            <a :href="path+'IN_PC_HOM_01_07'"><em>랭킹</em></a>
                         </li>
                         <li>
                             <a href="#none"><em>쿠폰존</em></a>

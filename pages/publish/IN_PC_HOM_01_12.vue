@@ -7,29 +7,14 @@
   </div>
 
   <div class="sub_title_wrap">
-    <h3>봄맞이 핑크템으로 생기를 더하세요!</h3>
-    <!-- 공유 레이어 -->
-    <div class="share_wrap">
-      <button class="btn_share" @click="modal.open('modal_share', 'layer')"></button>
-      <!-- 공유 모달 -->
-      <div id="modal_share" class="modal_wrap">
-        <div class="modal_container">
-            <div class="modal_header">
-                <h2>공유하기</h2>
-                <button class="btn_close" @click="modal.close(this);">닫기</button>
-            </div>
-            <div class="modal_content">
-              <div class="img">
-                <a href="#none"><img src="/_nuxt/public/images/sam/icon_sns_facebook.png"></a>
-                <a href="#none"><img src="/_nuxt/public/images/sam/icon_share_url.png"></a>
-              </div>
-            </div>
-        </div>
-        <div class="overlay" @click="modal.close(this);"></div>
+    <h3>
+      봄맞이 핑크템으로 생기를 더하세요!
+      <!-- 공유 레이어 -->
+      <div class="share_wrap">
+        <Button class="btn_outline btn_share" txt="공유하기" @click="modal.open('modal_share', 'toast'), toast_pop(3000);" />
       </div>
-      <!-- 공유 모달 -->
-    </div>
-    <!-- //공유 레이어 -->
+      <!-- //공유 레이어 -->
+    </h3>
   </div>
   <!-- //title washed -->
 
@@ -71,6 +56,15 @@
       </div>
   </div>
 
+  <!-- 공유 모달 -->
+  <div id="modal_share" class="modal_wrap">
+    <div class="modal_container">
+        <div class="modal_content">URL이 복사되었습니다.</div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- 공유 모달 -->
+
   <!-- 콘텐츠 우선순위에 맞는 배치 변경 -->
   <div class="floating_wrap">
     <div class="box off">
@@ -87,7 +81,7 @@
 </template>
 <script setup>
 import { banner_list } from '~/test/data/publish/dummyData'
-import { modal } from '~/assets/js/common-ui'
+import { modal, toast_pop } from '~/assets/js/common-ui'
 
 definePageMeta({
 	layout:'pc-category'

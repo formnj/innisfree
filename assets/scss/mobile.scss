@@ -36,8 +36,8 @@
   display:flex;
   justify-content:space-between;
   h3 {
-    font-size:1.6rem;
-    line-height:2rem;
+    font-size:1.8rem;
+    line-height:2.4rem;
     position:relative;
     flex:1;
     strong {
@@ -57,6 +57,32 @@
         font-weight:400;
       }
     }
+    button.tooltip {
+      margin-left: 0.8rem;
+    }
+  }
+  h4 {
+    font-size:1.6rem;
+    line-height:2rem;
+    
+    .explain {
+      margin-top: 0.5rem;
+      color: #AAA;
+      font-size: 1.3rem;
+      font-weight: 400;
+      line-height: 1.6rem;
+
+      em {
+        color: #00BC70;
+      }
+    }
+  }
+  .explain {
+    margin-top: 1rem;
+    color: #AAA;
+    font-size: 1.3rem;
+    font-weight: 400;
+    white-space: pre-line;
   }
   .btn_link_arrw {
     min-width:1.5rem;
@@ -935,6 +961,38 @@
           }
         }
       }
+    }
+  }
+}
+
+:deep(.modal_wrap.toast) {
+  .modal_container {
+    width:calc(100% - 60px);
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align:center;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+
+    .modal_header {
+      display:none;
+    }
+    .modal_content {
+      padding:1.0rem;
+      color:#fff;
+      font-size:1.3rem
+    }
+    .modal_footer {
+      display:none;
+    }
+  }
+  .overlay {
+    display:none;
+  }
+  &.active {
+    .modal_container {
+      animation-duration: 0.5s;
+      animation-name: toast_up;
     }
   }
 }

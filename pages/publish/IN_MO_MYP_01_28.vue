@@ -25,7 +25,7 @@
         <h3>임직원 인증 완료</h3>
       </div>
       <ul class="btn_list">
-        <li><Button class="btn_mid confirm" txt="임직원샵으로 이동" @click="console.log($router.push('/publish/IN_MO_HOM_01_16'))" /></li>
+        <li><Button class="btn_mid confirm" txt="임직원샵으로 이동" @click="page_link" /></li>
         <li><p class="explain">임직원 쿠폰은 오늘 오전 00시에 발급됩니다.</p></li>
         <li><button class="btn_unauth" type="button" @click="modal.open('modal_unauth','alert')">인증 해제</button></li>
       </ul>
@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="modal_footer">
-          <Button class="btn_big confirm" txt="확인" />
+          <Button class="btn_big confirm" txt="확인" @click="modal.close(this);" />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -62,7 +62,7 @@
           </div>
         </div>
         <div class="modal_footer">
-          <Button class="btn_big" txt="임직원샵으로 이동" />
+          <Button class="btn_big" txt="임직원샵으로 이동" @click="page_link" />
           <Button class="btn_big confirm" txt="확인" />
         </div>
     </div>
@@ -90,7 +90,10 @@
   </div>
 </template>
 <script setup>
+  import { useRouter } from 'vue-router';
   import { modal } from '~/assets/js/common-ui';
+
+  const router = useRouter();
 
   definePageMeta({
     layout:'mo-sub'
@@ -103,8 +106,8 @@
     const id = document.querySelector('.input_wrap.id .input input')
     const pwd = document.querySelector('.input_wrap.pwd .input input')
     
-    if (id.value === '' && pwd.value === '') modal_data.value = '아이디를 입력해주세요.';
-    if (id.value !== '' && pwd.value === '') modal_data.value = '비밀번호를 입력해주세요.';
+    if (id.value === '' && pwd.value === '') acc_data.value = '아이디를 입력해주세요.';
+    if (id.value !== '' && pwd.value === '') acc_data.value = '비밀번호를 입력해주세요.';
 
     if (id.value !== '' && pwd.value !== '') {
       acc_auth.value = true;
@@ -115,6 +118,11 @@
 
     modal.open('modal_account','alert')
   };
+
+  const page_link = () => {
+    router.push('/publish/IN_MO_HOM_01_16');
+    modal.close(event.target);
+  }
 
 </script>
 <style lang="scss" scoped>

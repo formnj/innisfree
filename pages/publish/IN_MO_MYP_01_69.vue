@@ -967,6 +967,13 @@ section {
                 font-size:1.3rem;
                 margin-bottom:1rem;
               }
+              .multi_form {
+                gap: 0.4rem;
+
+                :deep(button) {
+                  width: 9rem;
+                }
+              }
               :deep(.input_wrap) {
                 .input {
                   input {

@@ -63,7 +63,7 @@ export const toast_pop = (_time) => { //시간 지정해서 사라지게 처리
   allmodal.forEach((el) => {
     el.classList.remove('active')
   });
-  let tostmessage = document.querySelector('.modal_wrap')
+  let tostmessage = document.querySelector('.modal_wrap.toast')
   tostmessage.classList.add('active')
   let body = document.querySelector("body");
   setTimeout(function(){

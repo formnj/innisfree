@@ -136,7 +136,7 @@
   </div>
   <!-- //증정품 모달 -->
 
-  <div class="modal_wrap" id="cart_alert_01">
+  <div id="modal_cart" class="modal_wrap">
       <div class="modal_container">
           <div class="modal_header">
               <button class="btn_close" @click="modal.close(this);">닫기</button>
@@ -149,14 +149,14 @@
               </p>
           </div>
           <div class="modal_footer">
-              <Button txt="장바구니가기" @click="[modal.open('cart_toast', 'toast'), toast_pop(3000)];"/>
+              <Button txt="장바구니가기" @click="modal.open('cart_toast', 'toast'), toast_pop(3000);"/>
               <Button txt="제품 더 담기" class="btn_ confirm" />
           </div>
       </div>
       <div class="overlay" @click="modal.close(this);"></div>
   </div>
 
-  <div class="modal_wrap" id="cart_alert_02">
+  <div id="cart_alert_02" class="modal_wrap">
       <div class="modal_container">
           <div class="modal_header">
               <button class="btn_close" @click="modal.close(this);">닫기</button>
@@ -172,14 +172,14 @@
               </p>
           </div>
           <div class="modal_footer">
-              <Button txt="장바구니가기" @click="[modal.open('cart_toast', 'toast'), toast_pop(3000)];" />
+              <Button txt="장바구니가기" @click="modal.open('cart_toast', 'toast'), toast_pop(3000);" />
               <Button txt="제품 더 담기" class="btn_ confirm" />
           </div>
       </div>
       <div class="overlay" @click="modal.close(this);"></div>
   </div>
 
-  <div class="modal_wrap" id="option_pop">
+  <div id="option_pop" class="modal_wrap">
       <div class="modal_container">
           <div class="modal_header">
               <h2>알림</h2>
@@ -195,19 +195,9 @@
       <div class="overlay" @click="modal.close(this);"></div>
   </div>
 
-  <div class="modal_wrap" id="cart_toast">
+  <div id="cart_toast" class="modal_wrap">
     <div class="modal_container">
-        <div class="modal_header">
-            <h2>Modal Title</h2>
-            <button class="btn_close" @click="modal.close(this);">닫기</button>
-        </div>
-        <div class="modal_content">
-          장바구니 담기가 완료 되었습니다.
-        </div>
-        <div class="modal_footer">
-            <Button class="btn_outline" txt="cancel" />
-            <Button txt="OK" />
-        </div>
+        <div class="modal_content">장바구니 담기가 완료 되었습니다.</div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
@@ -236,7 +226,7 @@ onMounted(() => {
     console.log('header_height',header_height)
     let title_wrap_inner = document.querySelector('.title_wrap_inner')
     title_wrap_inner.style.top = header_height - 1 + 'px';
-})
+});
 
 
 </script>
@@ -247,18 +237,7 @@ hr {
   margin-right: -2.1rem;
   border: 2px solid #eee;
 }
-.sub_title_wrap {
-  > div {
-    h3 {
-      font-size:1.8rem;
-      font-weight:600;
-    }
-    p.explain {
-      font-size:1.3rem;
-      font-weight:400;
-    }
-  }
-}
+
 .inner {
   &.title_wrap_inner {
     height:100%;

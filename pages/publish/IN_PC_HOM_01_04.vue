@@ -2,7 +2,7 @@
   <!-- title washed -->
   <div class="title_wrap" :data-layout="props.layoutType">
     <div>
-      <h2>특가s</h2>
+      <h2>특가</h2>
     </div>
   </div>
   <!-- //title washed -->
@@ -227,7 +227,7 @@ onMounted(() => {
     let breadcrumb_height = document.querySelector('.breadcrumb').getBoundingClientRect().height;
     console.log('header_height',header_height)
     console.log('breadcrumb_height',breadcrumb_height)
-})
+});
 
 
 

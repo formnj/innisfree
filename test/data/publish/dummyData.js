@@ -649,7 +649,7 @@ export const mo_benefit_goods = [
 export const sample_data = [
   {
       sub_title :'립 2개 이상 50%',
-      desc:'립 카테고리 전 제품 1개 구매시 30% 2개 이상 구매시 50% 반값!!',
+      desc:'립 카테고리 전 제품 1개 구매시 30% 2개 이상\n구매시 50% 반값!!',
       notice:{
           modal_id:'sample_01',
           title:'“납작아이브로우/컨실러” 기획전 제품 구매 시 유의사항',
@@ -2061,7 +2061,7 @@ export const global_menu = [
 export const gnb_list = [
   { tit: '이벤트', url: '/publish/IN_MO_HOM_01_05' },
   { tit: '특가', url: '/publish/IN_MO_HOM_01_04', admChk: true },
-  { tit: '베스트', url: '/publish/IN_MO_HOM_01_00-1' },
+  { tit: '랭킹', url: '/publish/IN_MO_HOM_01_07' },
   { tit: '쿠폰존', url: '#none' },
   { tit: '에디터', url: '/publish/IN_MO_HOM_01_08', type: 'active' },
   { tit: '쇼케이스', url: '/publish/IN_MO_HOM_01_12' },
