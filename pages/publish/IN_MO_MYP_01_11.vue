@@ -272,6 +272,9 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+i {
+  font-style:normal;
+}
 .inner {
   article {
     margin-left:-2.1rem;
@@ -286,7 +289,7 @@ onMounted(() => {
     .sub_title_wrap {
       .explain {
         margin-top:0;
-        font-size:13px;
+        font-size:1.3rem;
         font-weight:400;
       }
     }
@@ -467,7 +470,7 @@ onMounted(() => {
             display:none;
             span {
               &::after {
-                background-position:-5px -328px;
+                background-position:-0.5rem -32.7rem;
               }
             }
             &.active {
@@ -481,7 +484,7 @@ onMounted(() => {
             }
             span {
                 &::after {
-                background-position:-5px -328px;
+                background-position:-0.5rem -32.7rem;
                 transform:rotate(180deg);
                 }
               }

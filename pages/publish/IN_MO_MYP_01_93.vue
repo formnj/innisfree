@@ -47,11 +47,9 @@ const link_click = ()=>{
   padding:1.2rem 2rem;
 }
 
-.list_wrap {
-  &.type_default {
-    border-top:2px solid #222
-  }
+:deep(.list_wrap) {
   .cart_list  {
+    border-top:2px solid #222 !important;
     > li + li {
       border-color:#dcdcdc !important;
     }
