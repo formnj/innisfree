@@ -68,6 +68,9 @@ onMounted(() => {
             span{
               text-decoration:underline;
             }
+            &::before {
+              background-position:-91px -371px;
+            }
           }
         }
       }
@@ -91,8 +94,7 @@ onMounted(() => {
             background-image:url('~/assets/images/common/icon_split.png');
             background-repeat:no-repeat;
             background-size:250px;
-            background-position:0px 0px;
-            border:1px solid red;
+            background-position:-91px -334px;
             display:inline-block;
           }
         }
