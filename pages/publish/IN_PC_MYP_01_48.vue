@@ -80,7 +80,7 @@
                     <td class="date">2024-04-25 08:42:20 </td>
                     <td class="btn">
                         <span>처리중</span>
-                        <Button class="btn_outline" txt="삭제"  @click="modal.open('delete_modal', 'alert')" />
+                        <Button class="btn_outline btn_min" txt="삭제"  @click="modal.open('delete_modal', 'alert')" />
                     </td>
                 </tr>
                 <tr class="questionCont">
@@ -113,7 +113,7 @@
                     <td class="date">2024-04-25 08:42:20 </td>
                     <td class="btn">
                         <span>처리중</span>
-                        <Button class="btn_outline" txt="삭제" @click="modal.open('delete_modal', 'alert')"/>
+                        <Button class="btn_outline btn_min" txt="삭제" @click="modal.open('delete_modal', 'alert')"/>
                     </td>
                 </tr>
                 <tr class="questionCont">
@@ -428,7 +428,6 @@ onMounted(() => {
                     gap:16px;
                     button {
                         &.btn_outline {
-                            height:30px !important;
                             padding:0 1px;
                             em {
                             color:#999;

@@ -59,8 +59,8 @@
               <td>
                 <div class="deliveryList">
                   <p class="btn_wrap">
-                    <Button class="btn_outline" txt="새로운 배송지" @click="change($event)" />
-                    <Button class="btn_outline" txt="배송지 관리" @click="modal.open('add_list_modal', 'alert add_list_modal');" />
+                    <Button class="btn_outline btn_min" txt="새로운 배송지" @click="change($event)" />
+                    <Button class="btn_outline btn_min" txt="배송지 관리" @click="modal.open('add_list_modal', 'alert add_list_modal');" />
                   </p>
                   <div class="list">
                     <dl>
@@ -635,7 +635,7 @@
               서울특별시 리앙에이지
             </dd>
             <dd class="btn_wrap">
-              <Button class="btn_outline" txt="수정" @click="[modal.open('adress_manage', 'alert adress_manage'), ord_addr_more($event)]" />
+              <Button class="btn_outline btn_min" txt="수정" @click="[modal.open('adress_manage', 'alert adress_manage'), ord_addr_more($event)]" />
             </dd>
           </dl>
           <dl>
@@ -650,8 +650,8 @@
               서울특별시 리앙에이지
             </dd>
             <dd class="btn_wrap">
-              <Button class='btn_outline' txt="수정" @click="[modal.open('adress_manage', 'alert adress_manage'), ord_addr_more($event)]" />
-              <Button class='btn_outline' txt="삭제" @click="[modal.open('delete_modal', 'alert'), ord_addr_more($event)]" />
+              <Button class='btn_outline btn_min' txt="수정" @click="[modal.open('adress_manage', 'alert adress_manage'), ord_addr_more($event)]" />
+              <Button class='btn_outline btn_min' txt="삭제" @click="[modal.open('delete_modal', 'alert'), ord_addr_more($event)]" />
             </dd>
           </dl>
         </div>
@@ -1051,7 +1051,7 @@ onMounted(() => {
                           display:flex;
                           gap:4px;
                           :deep(button.btn_outline) {
-                            height: 30px;
+                            border-radius:1;
                             em {
                               padding:0 16px;
                               color: #000;
@@ -1082,6 +1082,7 @@ onMounted(() => {
                         button.btn_min_outline {
                           margin-left:auto;
                           margin-right:0;
+                          border-radius:1;
                         }
                         :deep(.input_wrap) {
                           label.check {
@@ -1130,6 +1131,7 @@ onMounted(() => {
                           :deep(button.btn_outline) {
                             width:110px;
                             margin-right:5px;
+                            border-radius:1;
                             em {
                               padding:0 10px;
                               color:#333;
@@ -1230,7 +1232,7 @@ div.list {
         gap:5px;
         :deep(button.btn_outline) {
           width:34px;
-          height:24px;
+          border-radius:1;
           em {
             padding:0px !important;
             font-size:10px;
@@ -1288,6 +1290,7 @@ div.list {
         }
         :deep(button.btn_outline) {
           border:1px solid #000;
+          border-radius:1;
           box-sizing:border-box;
           em {
               padding:0 20px;
@@ -1449,6 +1452,7 @@ div.list {
           border:1px solid #eee;
           dl {
             border: 0 !important;;
+
           }
         }
       }

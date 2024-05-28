@@ -123,8 +123,8 @@
             </div>
           </div>
           <button type="button" class="btn_like">찜하기</button>
-          <Button class="btn_big" txt="장바구니" />
-          <Button class="btn_big buy" txt="바로구매" />
+          <Button class="btn_mid" txt="장바구니" />
+          <Button class="btn_mid buy" txt="바로구매" />
         </div>
         <!-- //구매 영역 -->
 
@@ -598,7 +598,7 @@ onMounted(()=>{
         .btn_share,
         .btn_like {
           width: 60px;
-          height: 60px;
+          height: 50px;
           font-size: 0;
           text-align: center;
           background: #333;
@@ -621,7 +621,7 @@ onMounted(()=>{
           background: url('~/assets/images/common/icon_split.png') -140px -60px no-repeat;
         }
 
-        .btn_big.buy {
+        .btn_mid.buy {
           background-color: #00BC70;
         }
       }

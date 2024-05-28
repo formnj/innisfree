@@ -359,7 +359,7 @@
           <Inputs _type="checkbox" _text="선택한 배송지를 다음에도 사용" />
         </div>
         <div class="modal_footer">
-            <Button txt="배송지 선택" class="btn_ confirm" />
+            <Button txt="배송지 선택" class="btn_big confirm" />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -441,7 +441,7 @@
             </ul>
         </div>
         <div class="modal_footer">
-            <Button txt="배송지 등록" class="btn_ confirm" />
+            <Button txt="배송지 등록" class="btn_big confirm" />
         </div>
     </div>
   </div>
@@ -559,7 +559,7 @@
           </ul>
         </div>
         <div class="modal_footer">
-            <Button txt="배송지 등록" class="btn_ confirm" />
+            <Button txt="배송지 등록" class="btn_big confirm" />
         </div>
     </div>
   </div>
@@ -1754,9 +1754,8 @@ padding:0 2.1rem;
       }
       .modal_footer {
         padding:0;
-        .btn_ {
+        .btn_big {
           width:100%;
-          height:6rem;
           background:#12b560;
           &.confirm {
             em {}
@@ -1840,9 +1839,8 @@ padding:0 2.1rem;
       }
       .modal_footer {
         padding:0;
-        button.btn_ {
+        .btn_big {
           width:100%;
-          height:6rem;
         }
       }
     }
@@ -1994,9 +1992,8 @@ padding:0 2.1rem;
       }
       .modal_footer {
         padding:0;
-        button.btn_ {
+        button.btn_big {
           width:100%;
-          height:6rem;
         }
       }
     }

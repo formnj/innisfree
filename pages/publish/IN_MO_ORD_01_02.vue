@@ -339,6 +339,7 @@ onMounted(() => {
                 :deep(button.btn_outline) {
                   height:2.4rem;
                   border:0.1rem solid #999 !important;
+                  border-radius:0.1rem;
                   em {
                     padding:0 1rem;
                     color:#999;
@@ -527,6 +528,7 @@ onMounted(() => {
                 font-size:1rem;
                 background:#eee;
                 text-align:center;
+                line-height:1.6rem;
                 display:inline-block;
               }
             }

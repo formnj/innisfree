@@ -44,8 +44,8 @@
     </div>
     <span>배송지를 선택하세요</span>
     <div class="btn_wrap">
-      <Button txt="기본 배송지로 설정" class="btn_ confirm"/>
-      <Button txt="배송지 추가" class="btn_outline" @click="modal.open('adress_manage', 'alert')"/>
+      <Button txt="기본 배송지로 설정" class="btn_mid confirm"/>
+      <Button txt="배송지 추가" class="btn_outline btn_mid" @click="modal.open('adress_manage', 'alert')"/>
     </div>
   </div>
 
@@ -62,8 +62,8 @@
             <div>배송지를 삭제 하시겠습니까?</div>
         </div>
         <div class="modal_footer">
-            <Button class="btn_ confirm" txt="확인" />
-            <Button txt="취소" @click="modal.close(this);"/>
+            <Button class="btn_ confirm btn_big" txt="확인" />
+            <Button class="btn_big" txt="취소" @click="modal.close(this);"/>
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -154,7 +154,7 @@
             </div>
         </div>
         <div class="modal_footer">
-            <Button txt="저장" class="btn_ confirm" />
+            <Button txt="저장" class="btn_ confirm btn_big" />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -275,6 +275,14 @@ const reset = (event) => {
 </script>
 
 <style lang="scss" scoped>
+
+
+:deep(.multi_form) {
+  .btn_outline {
+    border-radius:1 !important;
+  }
+}
+
 .title_wrap {
   margin-bottom:24px;
   padding:0px;
@@ -294,12 +302,12 @@ const reset = (event) => {
     display:block;
   }
    > .btn_wrap {
-      margin-top:60px;;
+      margin-top:60px;
       display:flex;
       justify-content:center;
       gap:10px;
       button[class*=btn_] {
-        padding:25px 30px;
+        padding:20px 30px;
         font-size:16px;
         font-weight:600;
         &.btn_outline {
