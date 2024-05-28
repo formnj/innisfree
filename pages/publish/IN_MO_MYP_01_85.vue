@@ -38,7 +38,9 @@
   </div>
 
   <section>
-    <h3>매장 안내</h3>
+    <div class="sub_title_wrap mt0">
+      <h4>매장 안내</h4>
+    </div>
     <div class="multi_form">
        <Selectbox
         :options="[
@@ -279,7 +281,7 @@ onMounted(()=>{
       dotMenuModal.classList.remove('active')
     }
   });
-})
+});
 </script>
 
 <style lang="scss" scoped>

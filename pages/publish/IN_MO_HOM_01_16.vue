@@ -13,11 +13,9 @@
 
   <!-- title washed -->
   <div class="title_wrap">
-    <div>
-      <h2>
-        <strong class="badge count">총 <em>32</em>건</strong>
-      </h2>
-    </div>
+    <h2>
+      <strong class="badge count">총 <em>32</em>건</strong>
+    </h2>
     <div class="pdtSortTab_wrap">
       <div class="sortTab">
         <button

@@ -1,5 +1,9 @@
 <template>
+  <div class="title_wrap">
+    <p class="renewal">8분전 갱신</p>
+  </div>
   <div class="inner">
+
     <div class="list_wrap">
       <ul class="goods_list">
           <li v-for="(item, idx) in sample_goods" :key="idx">
@@ -49,4 +53,11 @@ sample_goods
 </script>
 
 <style lang="scss">
+.title_wrap {
+  h2 {
+    .renewal {
+      position: unset;
+    }
+  }
+}
 </style>

@@ -1,17 +1,25 @@
 <template>
   <div class="content_inner">
     <div class="recommend_area">
+      <!-- 로그인 후 타이틀 -->
       <div class="title_wrap" :data-layout="props.layoutType">
         <div class="prd_tit">
           <h2>FOR ME</h2>
-          <h3>추천해요<a href="IN_PC_MYP_01_81" class="btn_link_arrw">피부정보 등록</a></h3>
-          <p class="desc">가장 많이 등록된 피부정보 기준으로 보여드려요.</p>
-          <div class="btn_wrap">
-            <Button txt="건성피부" class="btn_min gray" @click="modal.open('modal_set_skin_type', 'detailSearch modal_set_skin_type')" />
-            <Button txt="모공 / 주름 / 탄력" class="btn_min gray" @click="modal.open('modal_set_skin_type', 'detailSearch modal_set_skin_type')" />
-          </div>
+          <h3><strong>주소희</strong> 님께 추천해요</h3>
+          <p class="desc">이니스프리몰의 활동 데이터를 기반으로 제품을 추천드려요♥</p>
         </div>
       </div>
+      <!-- //로그인 후 타이틀 -->
+
+      <!-- 로그인 전 타이틀 -->
+      <div class="title_wrap" :data-layout="props.layoutType">
+        <div class="prd_tit login">
+          <h3>추천해요 <a href="#none" class="btn_link_arrw">로그인하기</a></h3>
+          <p class="desc">로그인 후 이니스프리몰의 활동 데이터가 좀 더 쌓이면 취향에 맞는 제품을 추천드려요♥</p>
+        </div>
+      </div>
+      <!-- //로그인 전 타이틀 -->
+
 
       <section>
         <h3><em>오후 3시</em>에 고객님들이 가장 많이 찾고 있어요.</h3>
@@ -307,120 +315,79 @@ const rankingTabUI = (e) => {
 .recommend_area {
   width: 800px;
 
-  .title_wrap {
-    .prd_tit {
-      width: 100%;
-      padding-bottom: 30px;
-      border-bottom: 1px solid #eee;
-
-      h2 {
-        margin-bottom: 30px;
-      }
-
-      h3 {
-        margin-bottom: 10px;
-        font-size: 22px;
-        line-height: 1.55;
-        position: relative;
-
-        .btn_link_arrw {
-          font-size: 14px;
-          font-weight: 400;
-        }
-      }
-    }
-
-    .btn_wrap {
-      margin-top: 10px;
-      display: flex;
-      gap: 5px;
-
-      :deep(button) {
-        background-color: #999;
-
-        em {
-          font-size: 12px;
-          color: #fff;
-        }
-      }
-    }
-  }
-
   .desc {
     font-size: 14px;
     color: #999;
   }
 
-  .inner {
-    section {
-      &:first-child {
-        h3 {
-          margin: 60px 0 0;
-        }
+  section {
+    &:first-child {
+      h3 {
+        margin: 60px 0 0;
+      }
+    }
+  }
+
+  h3 {
+    margin: 100px 0 0;
+    font-size: 24px;
+
+    em {
+      color: #00BC70;
+    }
+
+    &+* {
+      margin-top: 30px;
+
+      &.desc {
+        margin: 10px 0 30px;
+      }
+    }
+  }
+
+  .goods_list {
+    li {
+      width: 240px;
+    }
+  }
+
+  :deep([class*=btn_][class*=_outline]).more {
+    width: 340px;
+    margin: 30px auto 0;
+    font-size: 14px;
+    border-color: #eee;
+    display: block;
+
+    em {
+      color: #666;
+    }
+  }
+
+  .refresh {
+    height: 40px;
+    border: 1px solid #eee;
+    position: relative;
+
+    em {
+      display: inline-flex;
+      align-items: center;
+
+      &:before {
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+        background: url('~/assets/images/common/icon_split.png') -114px -63px / 167px auto no-repeat;
+        display: inline-block;
       }
     }
 
-    h3 {
-      margin: 100px 0 0;
-      font-size: 24px;
-
-      em {
-        color: #00BC70;
-      }
-
-      &+* {
-        margin-top: 30px;
-
-        &.desc {
-          margin: 10px 0 30px;
-        }
-      }
-    }
-
-    .goods_list {
-      li {
-        width: 240px;
-      }
-    }
-
-    :deep([class*=btn_][class*=_outline]).more {
-      width: 340px;
-      margin: 30px auto 0;
-      font-size: 14px;
-      border-color: #eee;
-      display: block;
-
-      em {
-        color: #666;
-      }
-    }
-
-    .refresh {
-      height: 40px;
-      border: 1px solid #eee;
-      position: relative;
-
-      em {
-        display: inline-flex;
-        align-items: center;
-
-        &:before {
-          content: '';
-          width: 16px;
-          height: 16px;
-          margin-right: 10px;
-          background: url('~/assets/images/common/icon_split.png') -114px -63px / 167px auto no-repeat;
-          display: inline-block;
-        }
-      }
-
-      .page {
-        font-size: 12px;
-        color: #999;
-        position: absolute;
-        top: 12px;
-        right: 21px;
-      }
+    .page {
+      font-size: 12px;
+      color: #999;
+      position: absolute;
+      top: 12px;
+      right: 21px;
     }
   }
 

@@ -55,9 +55,7 @@
     <section>
       <!-- title washed -->
       <div class="sub_title_wrap">
-        <h3>
-          <strong class="badge count">제품 <em>23</em></strong>
-        </h3>
+        <h3><p class="badge count">제품 <em>23</em></p></h3>
         <div class="pdtSortTab_wrap">
           <div class="sortTab">
             <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom')">랭킹순</button>
@@ -79,9 +77,7 @@
     <section>
       <!-- title washed -->
       <div class="sub_title_wrap">
-        <h3>연관이벤트
-          <strong>5</strong>
-        </h3>
+        <h4>연관이벤트 <em>5</em></h4>
       </div>
       <!-- //title washed -->
 
@@ -110,9 +106,7 @@
         <!-- title washed -->
         <div class="sub_title_wrap">
           <div>
-            <h3>
-              <strong>주소희</strong>님 이 제품은 어때요?
-            </h3>
+            <h4><em>주소희</em>님 이 제품은 어때요?</h4>
           </div>
           <a href="#none" class="btn_link_arrw"></a>
         </div>

@@ -586,7 +586,12 @@ onMounted(()=>{
         display: flex;
 
         .share_wrap {
-          position: relative;
+          .modal_wrap {
+            .modal_container {
+              top: 70px;
+              left: -150px;
+            }
+          }
         }
 
         & > button {

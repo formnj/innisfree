@@ -1,8 +1,6 @@
 <template>
   <div class="sub_title_wrap">
-    <div>
-      <h3>내 피부 정보</h3>
-    </div>
+    <h4>내 피부 정보</h4>
     <a href="#none" class="btn_text">수정하기</a>
   </div>
 

@@ -2,7 +2,7 @@
   <section>
     <div class="default">
       <div class="sub_title_wrap">
-        <h3>기본정보</h3>
+        <h4>기본정보</h4>
       </div>
       <ul>
         <li>
@@ -75,7 +75,7 @@
   <section>
     <div class="pet">
       <div class="sub_title_wrap">
-        <h3>※ 반려 정보</h3>
+        <h4>※ 반려 정보</h4>
       </div>
       <ul>
         <li>
@@ -120,7 +120,7 @@
   <section>
     <div class="ad">
       <div class="sub_title_wrap">
-        <h3>광고성정보 수신 여부</h3>
+        <h4>광고성정보 수신 여부</h4>
         <div class="explain">이니스프리의 쇼핑, 혜택, 이벤트 소식을 받아보세요.</div>
       </div>
       <div class="chk_privacy">
@@ -138,7 +138,7 @@
   <section>
     <div class="sns">
       <div class="sub_title_wrap">
-        <h3>SNS/Apple ID 계정 연동 관리</h3>
+        <h4>SNS/Apple ID 계정 연동 관리</h4>
       </div>
       <ul>
         <li class="facebook">
@@ -170,10 +170,10 @@
   <section>
     <div class="secession">
       <div class="sub_title_wrap">
-        <h3>
+        <h4>
           회원탈퇴
           <button type="button">탈퇴신청</button>
-        </h3>
+        </h4>
         <div class="explain">이니스프리 회원을 탈퇴하시겠습니까?</div>
       </div>
     </div>
@@ -387,10 +387,12 @@ section {
   .sub_title_wrap {
     margin:0 0 2rem;
     flex-wrap:wrap;
-    h3 {
-      width:100%;
-      flex:none;
-      color:#999;
+    h4 {
+      width: 100%;
+      color: #999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
       button {
         margin-left:auto;
@@ -966,6 +968,13 @@ section {
                 color:#666;
                 font-size:1.3rem;
                 margin-bottom:1rem;
+              }
+              .multi_form {
+                gap: 0.4rem;
+
+                :deep(button) {
+                  width: 9rem;
+                }
               }
               :deep(.input_wrap) {
                 .input {
