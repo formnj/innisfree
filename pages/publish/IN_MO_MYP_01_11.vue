@@ -286,8 +286,6 @@ i {
     .sub_title_wrap {
       .explain {
         margin-top:0;
-        font-size:1.3rem;
-        font-weight:400;
       }
     }
     ul {

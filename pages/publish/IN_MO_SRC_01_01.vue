@@ -91,9 +91,9 @@
                 </ul>
             </section>
             <section v-if="!isBool">
-                <ul class="key_item goods_list">
+                <ul class="goods_list">
                     <li v-for="(item,idx) in key_item_list" :key="idx">
-                        <GoodsItem :item="item" :link="item.link" />
+                        <GoodsItem :item="item" :link="item.link" class="type_column" :useHash="true" />
                     </li>
                 </ul>
             </section>
@@ -414,49 +414,14 @@ section {
                 }
             }
         }
-        .key_item {
-            margin:0;
-            gap:0.3rem;
-            li {
-                width:100%;
-                padding:0;
-                :deep(.goods_item) {
-                    padding:0;
-                    display:flex;
-                    align-items:center;
-                    gap:2rem;
-                    .img_wrap {
-                        width:9rem;
-                        .thumb {
-                            width:9rem;
-                            height:12rem;
-                        }
-                        .btnIconBox {
-                            display:none;
-                        }
-                    }
-                    >a {
-                        .cont {
-                            width:22rem;
-                            .review_score {
-                                display:none;
-                            }
-                            .price {
-                                strong {
-                                    margin-right:0.5rem;
-                                }
-                                span {
-                                    margin-right:1rem;
-                                }
-                                em {
-                                    display:inline-block;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+        :deep(.goods_item) {
+          .cont {
+              .price {
+                margin: 1.5rem 0;
+              }
+          }
         }
+
         .no_content {
             padding:0;
             &:after {

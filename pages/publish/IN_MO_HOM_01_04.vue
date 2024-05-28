@@ -42,11 +42,13 @@
 
       <div class="list_wrap">
         <ul class="goods_list col_3">
-          <li v-for="(item, idx) in sample_goods" :key="idx">
-            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" />
+          <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
+            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" :useMark="false" />
           </li>
         </ul>
       </div>
+
+      <Button class="btn_outline btn_list_btm" txt="전체제품보기" />
     </section>
   </template>
 
@@ -61,8 +63,8 @@
     <div class="inner">
       <div class="list_wrap">
         <ul class="goods_list">
-          <li v-for="(item, idx) in mo_benefit_goods" :key="idx">
-            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" />
+          <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
+            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" :useGiveaway="true" :useScore="false" />
           </li>
         </ul>
       </div>
@@ -143,7 +145,7 @@
 </template>
 
 <script setup>
-import { sample_goods, sample_data, mo_benefit_goods } from '~/test/data/publish/dummyData'
+import { sample_goods, sample_data } from '~/test/data/publish/dummyData'
 import { modal, setFilter, toast_pop } from '~/assets/js/common-ui'
 
 definePageMeta({
@@ -179,14 +181,6 @@ section {
 
   .sub_title_wrap {
     margin-top: 0;
-  }
-
-  .goods_list {
-    :deep(.goods_item) {
-      .review_score {
-        display: none;
-      }
-    }
   }
 }
 
@@ -353,6 +347,17 @@ section {
     .modal_content {
       padding: 2rem 2.1rem;
     }
+  }
+}
+
+:deep([class*=btn_][class*=_outline]).btn_list_btm {
+  width: 100%;
+  margin-top: 3rem;
+  font-size: 14px;
+  border-color: #eee;
+
+  em {
+    color: #666;
   }
 }
 </style>

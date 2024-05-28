@@ -19,141 +19,138 @@
         </div>
       </div>
       <!-- //로그인 전 타이틀 -->
-      
-      <div class="inner">
-        <section>
-          <h3><em>오후 3시</em>에 고객님들이 가장 많이 찾고 있어요.</h3>
-          <ProductDetailSwiperProgressBar />
-        </section>
 
-        <section>
-          <h3>고객님들이 가장 많이 찾으신<em>남성</em>에서 추천드려요</h3>
-          <p class="desc">최근 본 제품, 이벤트, 검색어예요</p>
-          <ProductDetailSwiperProgressBar />
-        </section>
 
-        <section>
-          <h3><em>모공</em>고민의 <em>건성피부</em> 고객님들이 가장 많이 구매했어요</h3>
-          <div class="list_wrap">
-            <ul class="goods_list">
-              <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
+      <section>
+        <h3><em>오후 3시</em>에 고객님들이 가장 많이 찾고 있어요.</h3>
+        <ProductDetailSwiperProgressBar />
+      </section>
+
+      <section>
+        <h3>고객님들이 가장 많이 찾으신<em>남성</em>에서 추천드려요</h3>
+        <p class="desc">최근 본 제품, 이벤트, 검색어예요</p>
+        <ProductDetailSwiperProgressBar />
+      </section>
+
+      <section>
+        <h3><em>모공</em>고민의 <em>건성피부</em> 고객님들이 가장 많이 구매했어요</h3>
+        <div class="list_wrap">
+          <ul class="goods_list">
+            <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
+              <GoodsItem :item="item" :link="item.link" />
+            </li>
+          </ul>
+        </div>
+        <button type="button" class="btn_outline more refresh"><em>새로운 추천을 받고 싶어요</em> <span class="page">1/2</span></button>
+      </section>
+
+      <section>
+        <h3><em>주름</em>고민의 <em>건성피부</em> 고객님들이 가장 많이 구매했어요</h3>
+        <div class="list_wrap">
+          <ul class="goods_list">
+            <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
+              <GoodsItem :item="item" :link="item.link" />
+            </li>
+          </ul>
+        </div>
+        <button type="button" class="btn_outline more refresh"><em>새로운 추천을 받고 싶어요</em> <span class="page">1/2</span></button>
+      </section>
+
+      <section>
+        <h3><em>탄력</em>고민의 <em>건성피부</em> 고객님들이 가장 많이 구매했어요</h3>
+        <div class="list_wrap">
+          <ul class="goods_list">
+            <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
+              <GoodsItem :item="item" :link="item.link" />
+            </li>
+          </ul>
+        </div>
+        <button type="button" class="btn_outline more refresh"><em>새로운 추천을 받고 싶어요</em> <span class="page">1/2</span></button>
+      </section>
+
+      <section>
+        <h3><em>같은 연령대</em> 고객님들이 가장 많이 검색하고 있어요</h3>
+
+        <Tabs tabType="type_02" :item="[{txt:'전체'},{txt:'10대'},{txt:'20대'},{txt:'30대'},{txt:'40대'},{txt:'50대~'}]"  :tabidx="0" />
+
+        <div class="rank_area">
+          <ol class="rank_list">
+            <li class="active"><button type="button" class="btn_rank"><span class="num">1</span>레티놀</button></li> <!-- 활성화 li에 active 클래스 추가-->
+            <li><button type="button" class="btn_rank"><span class="num">2</span>노세범</button></li>
+            <li><button type="button" class="btn_rank"><span class="num">3</span>첫구매</button></li>
+            <li><button type="button" class="btn_rank"><span class="num">4</span>클렌징</button></li>
+            <li><button type="button" class="btn_rank"><span class="num">5</span>그린티</button></li>
+            <li><button type="button" class="btn_rank"><span class="num">6</span>선크림</button></li>
+            <li><button type="button" class="btn_rank"><span class="num">7</span>블랙티</button></li>
+            <li><button type="button" class="btn_rank"><span class="num">8</span>앰플</button></li>
+            <li><button type="button" class="btn_rank"><span class="num">9</span>화산송이</button></li>
+            <li><button type="button" class="btn_rank"><span class="num">10</span>비자</button></li>
+          </ol>
+          <div class="tab_contents">
+            <ul class="tab_cont goods_list active"> <!-- 활성화 tab_cont에 active 클래스 추가-->
+              <li v-for="(item, idx) in sample_goods.slice(0,3)" :key="idx">
+                <GoodsItem :item="item" :link="item.link" />
+              </li>
+            </ul>
+            <ul class="tab_cont goods_list">
+              <li v-for="(item, idx) in sample_goods.slice(1,4)" :key="idx">
+                <GoodsItem :item="item" :link="item.link" />
+              </li>
+            </ul>
+            <ul class="tab_cont goods_list">
+              <li v-for="(item, idx) in sample_goods.slice(2,5)" :key="idx">
+                <GoodsItem :item="item" :link="item.link" />
+              </li>
+            </ul>
+            <ul class="tab_cont goods_list">
+              <li v-for="(item, idx) in sample_goods.slice(3,6)" :key="idx">
+                <GoodsItem :item="item" :link="item.link" />
+              </li>
+            </ul>
+            <ul class="tab_cont goods_list">
+              <li v-for="(item, idx) in sample_goods.slice(4,7)" :key="idx">
+                <GoodsItem :item="item" :link="item.link" />
+              </li>
+            </ul>
+            <ul class="tab_cont goods_list">
+              <li v-for="(item, idx) in sample_goods.slice(0,3)" :key="idx">
+                <GoodsItem :item="item" :link="item.link" />
+              </li>
+            </ul>
+            <ul class="tab_cont goods_list">
+              <li v-for="(item, idx) in sample_goods.slice(1,4)" :key="idx">
+                <GoodsItem :item="item" :link="item.link" />
+              </li>
+            </ul>
+            <ul class="tab_cont goods_list">
+              <li v-for="(item, idx) in sample_goods.slice(2,5)" :key="idx">
+                <GoodsItem :item="item" :link="item.link" />
+              </li>
+            </ul>
+            <ul class="tab_cont goods_list">
+              <li v-for="(item, idx) in sample_goods.slice(3,6)" :key="idx">
+                <GoodsItem :item="item" :link="item.link" />
+              </li>
+            </ul>
+            <ul class="tab_cont goods_list">
+              <li v-for="(item, idx) in sample_goods.slice(4,7)" :key="idx">
                 <GoodsItem :item="item" :link="item.link" />
               </li>
             </ul>
           </div>
-          <button type="button" class="btn_outline more refresh"><em>새로운 추천을 받고 싶어요</em> <span class="page">1/2</span></button>
-        </section>
-
-        <section>
-          <h3><em>주름</em>고민의 <em>건성피부</em> 고객님들이 가장 많이 구매했어요</h3>
-          <div class="list_wrap">
-            <ul class="goods_list">
-              <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
-                <GoodsItem :item="item" :link="item.link" />
-              </li>
-            </ul>
-          </div>
-          <button type="button" class="btn_outline more refresh"><em>새로운 추천을 받고 싶어요</em> <span class="page">1/2</span></button>
-        </section>
-
-        <section>
-          <h3><em>탄력</em>고민의 <em>건성피부</em> 고객님들이 가장 많이 구매했어요</h3>
-          <div class="list_wrap">
-            <ul class="goods_list">
-              <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
-                <GoodsItem :item="item" :link="item.link" />
-              </li>
-            </ul>
-          </div>
-          <button type="button" class="btn_outline more refresh"><em>새로운 추천을 받고 싶어요</em> <span class="page">1/2</span></button>
-        </section>
-
-        <section>
-          <h3><em>같은 연령대</em> 고객님들이 가장 많이 검색하고 있어요</h3>
-
-          <Tabs tabType="type_02" :item="[{txt:'전체'},{txt:'10대'},{txt:'20대'},{txt:'30대'},{txt:'40대'},{txt:'50대~'}]"  :tabidx="0" />
-
-          <div class="rank_area">
-            <ol class="rank_list">
-              <li class="active"><button type="button" class="btn_rank"><span class="num">1</span>레티놀</button></li> <!-- 활성화 li에 active 클래스 추가-->
-              <li><button type="button" class="btn_rank"><span class="num">2</span>노세범</button></li>
-              <li><button type="button" class="btn_rank"><span class="num">3</span>첫구매</button></li>
-              <li><button type="button" class="btn_rank"><span class="num">4</span>클렌징</button></li>
-              <li><button type="button" class="btn_rank"><span class="num">5</span>그린티</button></li>
-              <li><button type="button" class="btn_rank"><span class="num">6</span>선크림</button></li>
-              <li><button type="button" class="btn_rank"><span class="num">7</span>블랙티</button></li>
-              <li><button type="button" class="btn_rank"><span class="num">8</span>앰플</button></li>
-              <li><button type="button" class="btn_rank"><span class="num">9</span>화산송이</button></li>
-              <li><button type="button" class="btn_rank"><span class="num">10</span>비자</button></li>
-            </ol>
-            <div class="tab_contents">
-              <ul class="tab_cont goods_list active"> <!-- 활성화 tab_cont에 active 클래스 추가-->
-                <li v-for="(item, idx) in sample_goods.slice(0,3)" :key="idx">
-                  <GoodsItem :item="item" :link="item.link" />
-                </li>
-              </ul>
-              <ul class="tab_cont goods_list">
-                <li v-for="(item, idx) in sample_goods.slice(1,4)" :key="idx">
-                  <GoodsItem :item="item" :link="item.link" />
-                </li>
-              </ul>
-              <ul class="tab_cont goods_list">
-                <li v-for="(item, idx) in sample_goods.slice(2,5)" :key="idx">
-                  <GoodsItem :item="item" :link="item.link" />
-                </li>
-              </ul>
-              <ul class="tab_cont goods_list">
-                <li v-for="(item, idx) in sample_goods.slice(3,6)" :key="idx">
-                  <GoodsItem :item="item" :link="item.link" />
-                </li>
-              </ul>
-              <ul class="tab_cont goods_list">
-                <li v-for="(item, idx) in sample_goods.slice(4,7)" :key="idx">
-                  <GoodsItem :item="item" :link="item.link" />
-                </li>
-              </ul>
-              <ul class="tab_cont goods_list">
-                <li v-for="(item, idx) in sample_goods.slice(0,3)" :key="idx">
-                  <GoodsItem :item="item" :link="item.link" />
-                </li>
-              </ul>
-              <ul class="tab_cont goods_list">
-                <li v-for="(item, idx) in sample_goods.slice(1,4)" :key="idx">
-                  <GoodsItem :item="item" :link="item.link" />
-                </li>
-              </ul>
-              <ul class="tab_cont goods_list">
-                <li v-for="(item, idx) in sample_goods.slice(2,5)" :key="idx">
-                  <GoodsItem :item="item" :link="item.link" />
-                </li>
-              </ul>
-              <ul class="tab_cont goods_list">
-                <li v-for="(item, idx) in sample_goods.slice(3,6)" :key="idx">
-                  <GoodsItem :item="item" :link="item.link" />
-                </li>
-              </ul>
-              <ul class="tab_cont goods_list">
-                <li v-for="(item, idx) in sample_goods.slice(4,7)" :key="idx">
-                  <GoodsItem :item="item" :link="item.link" />
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
 
     <div class="shopping_log_wrap">
-      <div class="inner">
-        <ShoppingLogBanner /><!-- 쇼핑로그 상단 배너 -->
-        <h2>
-          <em>주소희</em>님의 쇼핑로그 <Icons class="tooltip" txt="툴팁" @click="modal.open('log_info', 'alert')" />
-        </h2>
-        <p class="txt_desc">최근 본 제품, 이벤트, 검색어예요</p>
+      <ShoppingLogBanner /><!-- 쇼핑로그 상단 배너 -->
+      <h2>
+        <em>주소희</em>님의 쇼핑로그 <Icons class="tooltip" txt="툴팁" @click="modal.open('log_info', 'alert')" />
+      </h2>
+      <p class="txt_desc">최근 본 제품, 이벤트, 검색어예요</p>
 
-        <div class="shopping_log">
-          <ShoppingLogList /><!-- 쇼핑로그 리스트 -->
-        </div>
+      <div class="shopping_log">
+        <ShoppingLogList /><!-- 쇼핑로그 리스트 -->
       </div>
     </div>
   </div>
@@ -307,9 +304,6 @@ const rankingTabUI = (e) => {
 
 <style lang="scss" scoped>
 .content_inner {
-  width: 1320px;
-  margin: 0 auto;
-  padding: 0 20px;
   display: flex;
   justify-content: space-between;
 
@@ -326,76 +320,74 @@ const rankingTabUI = (e) => {
     color: #999;
   }
 
-  .inner {
-    section {
-      &:first-child {
-        h3 {
-          margin: 60px 0 0;
-        }
+  section {
+    &:first-child {
+      h3 {
+        margin: 60px 0 0;
+      }
+    }
+  }
+
+  h3 {
+    margin: 100px 0 0;
+    font-size: 24px;
+
+    em {
+      color: #00BC70;
+    }
+
+    &+* {
+      margin-top: 30px;
+
+      &.desc {
+        margin: 10px 0 30px;
+      }
+    }
+  }
+
+  .goods_list {
+    li {
+      width: 240px;
+    }
+  }
+
+  :deep([class*=btn_][class*=_outline]).more {
+    width: 340px;
+    margin: 30px auto 0;
+    font-size: 14px;
+    border-color: #eee;
+    display: block;
+
+    em {
+      color: #666;
+    }
+  }
+
+  .refresh {
+    height: 40px;
+    border: 1px solid #eee;
+    position: relative;
+
+    em {
+      display: inline-flex;
+      align-items: center;
+
+      &:before {
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+        background: url('~/assets/images/common/icon_split.png') -114px -63px / 167px auto no-repeat;
+        display: inline-block;
       }
     }
 
-    h3 {
-      margin: 100px 0 0;
-      font-size: 24px;
-
-      em {
-        color: #00BC70;
-      }
-
-      &+* {
-        margin-top: 30px;
-
-        &.desc {
-          margin: 10px 0 30px;
-        }
-      }
-    }
-
-    .goods_list {
-      li {
-        width: 240px;
-      }
-    }
-
-    :deep([class*=btn_][class*=_outline]).more {
-      width: 340px;
-      margin: 30px auto 0;
-      font-size: 14px;
-      border-color: #eee;
-      display: block;
-
-      em {
-        color: #666;
-      }
-    }
-
-    .refresh {
-      height: 40px;
-      border: 1px solid #eee;
-      position: relative;
-
-      em {
-        display: inline-flex;
-        align-items: center;
-
-        &:before {
-          content: '';
-          width: 16px;
-          height: 16px;
-          margin-right: 10px;
-          background: url('~/assets/images/common/icon_split.png') -114px -63px / 167px auto no-repeat;
-          display: inline-block;
-        }
-      }
-
-      .page {
-        font-size: 12px;
-        color: #999;
-        position: absolute;
-        top: 12px;
-        right: 21px;
-      }
+    .page {
+      font-size: 12px;
+      color: #999;
+      position: absolute;
+      top: 12px;
+      right: 21px;
     }
   }
 
@@ -496,14 +488,19 @@ const rankingTabUI = (e) => {
 
 .shopping_log_wrap {
   width: 480px;
-  padding: 132px 30px 0 40px;
+  padding: 132px 40px 0 40px;
   border: 1px solid #f5f5f5;
   border-width: 0 1px;
   overflow: hidden;
   position: sticky;
   top: 0;
 
+  section {
+    width: auto;
+  }
+
   h2 {
+    margin-top: 40px;
     font-size: 24px;
     font-weight: 600;
     line-height: 1.33em;
@@ -523,14 +520,6 @@ const rankingTabUI = (e) => {
 
     em {
       color: #00BC70;
-    }
-  }
-
-  .inner {
-    height: 100%;
-
-    h2 {
-      margin-top: 40px;
     }
   }
 }

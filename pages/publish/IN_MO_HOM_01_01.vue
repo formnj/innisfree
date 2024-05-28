@@ -99,9 +99,9 @@
         </a>
         <span class="date">18:21:01</span>
       </h2>
-      <ul class="list_wrap type_grid">
-        <li v-for="(item, idx) in sample_goods" :key="idx">
-          <GoodsItem class="type_02" :item="item" :link="item.link" />
+      <ul class="goods_list col_3">
+        <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
+          <GoodsItem class="type_cart" :item="item" :link="item.link" :useScore="false" />
         </li>
       </ul>
     </section>
@@ -120,12 +120,12 @@
       <h2>
         <a href="#none"><strong>주소희</strong> 님,<br/> 이 제품 어때요?</a>
       </h2>
-      <div class="swiper_wrap type_01">
+      <div class="swiper_wrap">
         <swiper
           v-bind="swieprOpt.recommend04"
         >
-          <swiper-slide v-for="(item, idx) in sample_goods.slice(0,5)" :key="idx">
-            <GoodsItem class="type_02" :item="item" />
+          <swiper-slide v-for="(item, idx) in sample_goods.slice(0,5)" :key="idx" class="goods_slide">
+            <GoodsItem class="type_cart" :item="item" :useHash="true" />
           </swiper-slide>
         </swiper>
       </div>
@@ -151,7 +151,7 @@
           <ul class="list_wrap">
             <li v-for="(item, idx) in sample_goods.slice(0,5)" :key="idx">
               <span class="badge">{{idx+1}}</span>
-              <GoodsItem class="type_column" :item="item" :link="item.link" />
+              <GoodsItem class="type_column type_cart" :item="item" :link="item.link" />
             </li>
           </ul>
         </swiper-slide>
@@ -159,7 +159,7 @@
           <ul class="list_wrap">
             <li v-for="(item, idx) in sample_goods.slice(5,10)" :key="idx">
               <span class="badge">{{idx+6}}</span>
-              <GoodsItem :item="item" :link="item.link" />
+              <GoodsItem class="type_column" :item="item" :link="item.link" />
             </li>
           </ul>
         </swiper-slide>
@@ -199,6 +199,8 @@
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
 </div>
+
+<ProductListCartModal /><!-- 장바구니/바로구매 모달 -->
 </template>
 <script setup>
 import { modal } from '~/assets/js/common-ui.js'
@@ -533,11 +535,6 @@ const rankingTabs = [
         .swiper{
           padding:0 2.1rem;
         }
-        &.type_01 {
-          .swiper-slide {
-            width:14rem;
-          }
-        }
       }
       &.category {
         margin:3rem 0 2.4rem;
@@ -595,6 +592,7 @@ const rankingTabs = [
             }
           }
           :deep(.goods_item) {
+            width:100%;
             padding-top:1.5rem;
             border-top:1px solid #eee;
             position:relative;
@@ -659,6 +657,7 @@ const rankingTabs = [
                 }
                 em {
                   font-size:1rem;
+                  display: inline;
                 }
                 span {
                   margin-right:0.5rem;
@@ -670,6 +669,7 @@ const rankingTabs = [
       }
       &.combi {
         h2 {
+          justify-content: space-between;
           .date {
             color:#ddd;
             font-size:2.4rem;
@@ -711,27 +711,13 @@ const rankingTabs = [
           padding-bottom:0.3rem;
           position:relative;
           display:flex;
+          gap: 0 1.5rem;
           .img_wrap {
             width:6.9rem;
-            margin-right:1.5rem;
+            flex-shrink: 0;
             .thumb {
               width:100%;
               height:9.2rem;
-            }
-            .btnIconBox {
-              right:0;
-              bottom:3rem;
-              left:initial;
-              gap:0;
-              button {
-                display:none;
-                &.btn_cart {
-                  display:block;
-                }
-              }
-            }
-            & + * {
-              flex:1;
             }
           }
           .cont {
@@ -741,9 +727,6 @@ const rankingTabs = [
                 font-size:1.3rem;
               }
             }
-          }
-          .review_score {
-            display:none;
           }
         }
         .list_wrap {
@@ -848,38 +831,6 @@ const rankingTabs = [
                   font-size:1.2rem;
                 }
               }
-            }
-          }
-        }
-      }
-    }
-
-    :deep(.goods_item) {
-      &.type_02 {
-        .img_wrap {
-          position:relative;
-          .thumb {
-            width:100%;
-            height:auto;
-            padding-top:135%;
-          }
-          .btnIconBox {
-            right:0.8rem;
-            bottom:0.8rem;
-            left:initial;
-            gap:0;
-            button {
-              display:none;
-              &.btn_cart {
-                display:block;
-              }
-            }
-          }
-        }
-        .cont {
-          .name {
-            strong {
-              font-size:1.4rem;
             }
           }
         }
