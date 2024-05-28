@@ -71,7 +71,7 @@
           v-bind="swiperOpt.recommend01"
         >
           <swiper-slide v-for="(item, idx) in sample_event" :key="idx">
-            <EventItem :item="item" />
+            <EventItem :item="item" :type="item.type" />
           </swiper-slide>
         </swiper>
       </div>
@@ -206,10 +206,10 @@ const swiperOpt = {
     pagination: {
       type:'fraction'
     },
-    autoplay: {
-      delay: 300,
-      disableOnInteraction: false,
-    },
+    // autoplay: {
+    //   delay: 300,
+    //   disableOnInteraction: false,
+    // },
     centeredSlides: true,
     slidesOffsetBefore: -330
   },
@@ -217,19 +217,19 @@ const swiperOpt = {
     slidesPerView:2,
     spaceBetween: 40,
     loop: true,
-    autoplay: {
-      delay: 300,
-      disableOnInteraction: false,
-    },
+    // autoplay: {
+    //   delay: 3000,
+    //   disableOnInteraction: false,
+    // },
   },
   recommend02: {
     slidesPerView:3,
     spaceBetween: 40,
     loop: true,
-    autoplay: {
-      delay: 300,
-      disableOnInteraction: false,
-    },
+    // autoplay: {
+    //   delay: 300,
+    //   disableOnInteraction: false,
+    // },
   },
   recommend03: {
     slidesPerView:3,
@@ -250,20 +250,20 @@ const swiperOpt = {
     loop: true,
     observer: true,
     Navigation,
-    autoplay: {
-      delay: 300,
-      disableOnInteraction: false,
-    },
+    // autoplay: {
+    //   delay: 300,
+    //   disableOnInteraction: false,
+    // },
   },
   benefit: {
     slidesPerView: "auto",
     slidesPerGroup: 1,
     spaceBetween: 40,
     loop: true,
-    autoplay: {
-      delay: 300,
-      disableOnInteraction: false,
-    },
+    // autoplay: {
+    //   delay: 300,
+    //   disableOnInteraction: false,
+    // },
     centeredSlides: true,
     observer:true,
     slidesOffsetBefore: -20
@@ -272,10 +272,10 @@ const swiperOpt = {
     slidesPerView:5,
     spaceBetween:20,
     loop: true,
-    autoplay: {
-      delay: 300,
-      disableOnInteraction: false,
-    },
+    // autoplay: {
+    //   delay: 300,
+    //   disableOnInteraction: false,
+    // },
     centeredSlides: true,
     observer:true,
   }
@@ -306,7 +306,7 @@ const rankingTabs = [
   {txt:'헤어/바디'},
   {txt:'기획 세트'},
   {txt:'미용소품'}
-]
+];
 </script>
 <style lang="scss" scoped>
   .main {
@@ -600,6 +600,7 @@ const rankingTabs = [
         flex-direction:column-reverse;
         strong {
           margin-top:0;
+          font-size: 24px;
           display:flex;
           align-items:center;
           justify-content:space-between;

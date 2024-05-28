@@ -4,7 +4,22 @@
     <div>
       <h2>
         실시간 랭킹
-        <span class="renewal">3분전 갱신</span>
+        <div class="renewal">
+          3분전 갱신
+          <img src="/assets/images/common/icon_renewal.png" @click="modal.open('modal_renewal', 'layer tooltip')">
+          <div id="modal_renewal" class="modal_wrap">
+            <div class="modal_container">
+              <button class="btn_close" @click="modal.close(this);">닫기</button>
+              <div class="modal_content">
+                <h2>랭킹 기준 안내</h2>
+                <ul class="bul_list">
+                  <li>판매실적과 조회수에 가중치를 반영한 순위입니다.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="overlay" @click="modal.close(this);"></div>
+          </div>
+        </div>
       </h2>
     </div>
   </div>
@@ -31,11 +46,23 @@
   <!-- swiper -->
   <div class="best_banner">
     <div class="inner">
-      <swiper-container slides-per-view="2" autoplay-delay="3000">
-        <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx" class="item">
-          <img :src="item.img">
+      <swiper
+        :slides-per-view="3"
+        :space-between="20"
+        :pagination="{
+          type: 'progressbar'
+        }"
+        :navigation="{
+          prevEl: '.swiper-button-prev',
+          nextEl: '.swiper-button-next'
+        }"
+      >
+        <swiper-slide v-for="(item, idx) in sample_event" :key="idx" class="item">
+          <EventItem :item="item" />
         </swiper-slide>
-      </swiper-container>
+      </swiper>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   </div>
   <!-- //swiper -->
@@ -54,8 +81,29 @@
 </template>
 
 <script setup>
+import {
+  sample_goods,
+  sample_event
+} from '~/test/data/publish/dummyData';
+import { modal } from '~/assets/js/common-ui.js';
+
+// import Swiper core and required components
+import SwiperCore from "swiper";
+import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
+
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
+
+// install Swiper components
+SwiperCore.use([Navigation, Pagination, A11y, Autoplay]);
+
 definePageMeta({
-	layout:'pc-category'
+	layout:'pc-sub'
 });
 
 const props = defineProps({
@@ -65,18 +113,65 @@ const props = defineProps({
     }
 });
 
-import {
-  sample_goods,
-  sampleSlide
-} from '~/test/data/publish/dummyData'
-
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .best_banner {
   margin:100px 0;
   padding:100px 0;
-  background-color:#f5f5f5;
-  position:relative;
+}
+
+:deep(.swiper) {
+  .swiper-wrapper {
+    padding-bottom: 30px;
+  }
+
+  .swiper-pagination {
+    height: 1px;
+    background-color: #DDD;
+    top: unset;
+    bottom: 0;
+
+    span {
+      background-color: #000;
+    }
+  }
+}
+
+.sort_tab_wrap {
+  .sub_tab {
+    margin-top: 30px;
+  }
+}
+
+.inner {
+  position: relative;
+
+  .swiper-button-prev, .swiper-button-next {
+    &:after {
+      content: '';
+      width: 32px;
+      height: 32px;
+      background: url('~/assets/images/common/icon_split.png') no-repeat -60px -200px;
+      background-size: 250px auto;
+    }
+  }
+
+  .swiper-button-prev {
+    left: -48px;
+    transform: rotate(-180deg);
+  }
+
+  .swiper-button-next {
+    right: -48px;
+  }
+}
+
+.bul_list {
+  li {
+    &:before {
+      border-radius: 50%;
+    }
+  }
 }
 </style>

@@ -11,8 +11,8 @@
 
     <div class="swiper_wrap">
       <swiper :slides-per-view="'auto'" :space-between="16" :slides-offset-before="21">
-        <swiper-slide v-for="( goods, idx ) in  sample_goods.slice(0, 10) " :key="idx" class="swiper_item">
-          <GoodsItem :item="goods" :link="goods.link" />
+        <swiper-slide v-for="( goods, idx ) in  sample_goods" :key="idx" class="goods_slide">
+          <GoodsItem :item="goods" :link="goods.link" class="type_column type_cart" :useMark="false" />
         </swiper-slide>
       </swiper>
     </div>
@@ -23,11 +23,13 @@
       <a href="#none" class="i cmnt">{{ item.view.cmnt }}</a>
     </span>
   </div>
+
+  <ProductListCartModal /><!-- 장바구니/바로구매 모달 -->
 </template>
 
 <script setup>
 import { sample_goods } from '~/test/data/publish/dummyData'
-import { setFilter } from '~/assets/js/common-ui'
+import { setFilter, modal } from '~/assets/js/common-ui'
 
 // import Swiper core and required components
 import SwiperCore from "swiper";
@@ -110,36 +112,30 @@ const props = defineProps({
       padding: 1.5rem 0;
     }
 
-    .swiper-slide {
+    .goods_slide {
       width: 23.5rem;
-    }
+      padding: 1.6rem 0;
 
-    .swiper_item {
       :deep(.goods_item) {
+        width: 23.5rem;
+        height: 8rem;
         padding-bottom: 0;
         display: flex;
         gap: 1.5rem;
         position: relative;
 
         .img_wrap {
-          overflow: visible;
-
           .thumb {
             width: 6rem;
             height: 8rem;
           }
 
           .btnIconBox {
-            left: auto;
-            right: 0;
-
-            .btn_heart,
-            .btn_buy {
-              display: none;
-            }
+            top: auto;
+            transform: none;
+            bottom: .6rem;
           }
         }
-
 
         .cont {
           height: 100%;
@@ -150,15 +146,10 @@ const props = defineProps({
           justify-content: space-between;
 
           &>.price {
+            margin: 0;
             em {
               display: none;
             }
-          }
-
-          .sticker,
-          .hash,
-          .review_score {
-            display: none;
           }
         }
       }

@@ -91,9 +91,9 @@
                 </ul>
             </section>
             <section v-if="!isBool">
-                <ul class="key_item goods_list">
+                <ul class="goods_list">
                     <li v-for="(item,idx) in key_item_list" :key="idx">
-                        <GoodsItem :item="item" :link="item.link" />
+                        <GoodsItem :item="item" :link="item.link" class="type_column" :useHash="true" />
                     </li>
                 </ul>
             </section>
@@ -385,84 +385,84 @@ section {
         }
     }
     .auto_complete_wrap {
-        background:rgba(0,0,0,0.6);
-        display:none;
-        position:fixed;
-        top:60px;
-        right:0;
-        left:0;
-        bottom:0;
-        z-index:10;
-        &.active {
-            display:block;
+      background:rgba(0,0,0,0.6);
+      display:none;
+      position:fixed;
+      top:60px;
+      right:0;
+      left:0;
+      bottom:0;
+      z-index:10;
+      &.active {
+        display:block;
+      }
+      .auto {
+          gap:2.5rem;
+          li {
+              width:100%;
+              a {
+                  font-size:1.4rem;
+                  font-weight:400;
+                  display:flex;
+                  align-items:center;
+                  justify-content:space-between;
+                  span {
+                      color:#aaa;
+                      font-size:1.2rem;
+                      font-weight:400;
+                  }
+              }
+          }
+      }
+      .key_item {
+          margin:0;
+          gap:0.3rem;
+          li {
+              width:100%;
+              padding:0;
+              :deep(.goods_item) {
+                  padding:0;
+                  display:flex;
+                  align-items:center;
+                  gap:2rem;
+                  .img_wrap {
+                      width:9rem;
+                      .thumb {
+                          width:9rem;
+                          height:12rem;
+                      }
+                      .btnIconBox {
+                          display:none;
+                      }
+                  }
+                  >a {
+                      .cont {
+                          width:22rem;
+                          .review_score {
+                              display:none;
+                          }
+                          .price {
+                              strong {
+                                  margin-right:0.5rem;
+                              }
+                              span {
+                                  margin-right:1rem;
+                              }
+                              em {
+                                  display:inline-block;
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+      .no_content {
+        padding:0;
+        &:after {
+          content:unset;
         }
-        .auto {
-            gap:2.5rem;
-            li {
-                width:100%;
-                a {
-                    font-size:1.4rem;
-                    font-weight:400;
-                    display:flex;
-                    align-items:center;
-                    justify-content:space-between;
-                    span {
-                        color:#aaa;
-                        font-size:1.2rem;
-                        font-weight:400;
-                    }
-                }
-            }
-        }
-        .key_item {
-            margin:0;
-            gap:0.3rem;
-            li {
-                width:100%;
-                padding:0;
-                :deep(.goods_item) {
-                    padding:0;
-                    display:flex;
-                    align-items:center;
-                    gap:2rem;
-                    .img_wrap {
-                        width:9rem;
-                        .thumb {
-                            width:9rem;
-                            height:12rem;
-                        }
-                        .btnIconBox {
-                            display:none;
-                        }
-                    }
-                    >a {
-                        .cont {
-                            width:22rem;
-                            .review_score {
-                                display:none;
-                            }
-                            .price {
-                                strong {
-                                    margin-right:0.5rem;
-                                }
-                                span {
-                                    margin-right:1rem;
-                                }
-                                em {
-                                    display:inline-block;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .no_content {
-            padding:0;
-            &:after {
-            content:unset;
-            }
-        }
+      }
     }
 }
 </style>

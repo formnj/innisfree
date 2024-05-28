@@ -448,7 +448,6 @@ header {
                 .list_wrap {
                     padding:4rem 2.1rem 6rem;
                     .event_list {
-                        margin: 0;
                         gap:1.6rem;
                         li {
                             width:100%;

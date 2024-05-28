@@ -146,7 +146,7 @@
   <section>
     <h2>Event Item</h2>
     <ul class="explain">
-      <li>event item type 추가 : default, type_02, type_column &lt;EventItem :item="item" type="타입입력 default는 제외" /&gt;</li>
+      <li>event item type 추가 : default, type_02, type_column, type_down &lt;EventItem :item="item" type="타입입력 default는 제외" /&gt;</li>
     </ul>
     <div class="design_box">
       <div class="list_wrap">

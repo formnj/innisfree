@@ -80,7 +80,6 @@ html {
 .title_wrap {
   max-width:1320px;
   margin:60px auto 30px;
-  padding:0 20px;
   position:relative;
   z-index:2;
   display:flex;
@@ -121,13 +120,10 @@ html {
       left: 100%;
       transform: translateX(20px);
 
-      &:after {
-        content: '';
+      img {
         width: 10px;
         height: 10px;
-        background: url('~/assets/images/common/icon_split.png') no-repeat -190px -20px;
-        background-size: 250px auto;
-        display: inline-block;
+        cursor: pointer;
       }
     }
   }
@@ -832,21 +828,6 @@ ul.select_list {
 }
 
 .list_wrap {
-  .ranking {
-    width: 32px;
-    height: 32px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 32px;
-    text-align: center;
-    background-color: #000;
-    position: absolute;
-    top: 40px;
-    left: 20px;
-    z-index: 2;
-    display: block;
-  }
   .allChk_wrap {
     margin-bottom:20px;
     display:flex;
@@ -883,21 +864,30 @@ ul.select_list {
   gap: 40px 20px;
 
   >li {
-    width: 240px;
     position: relative;
+  }
+
+  .ranking {
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 32px;
+    text-align: center;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
   }
 }
 
 .event_list {
-  margin-top:-20px;
-  margin-left:-20px;
-  display:flex;
-  flex-wrap:wrap;
-  > li {
-    width:33.3333%;
-    padding-top:20px;
-    padding-left:20px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .giveaway_list {

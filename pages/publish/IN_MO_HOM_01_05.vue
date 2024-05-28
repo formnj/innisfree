@@ -49,7 +49,10 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
       }
   }
 }
-.event_list > li {
-  width:100% !important;
+.event_list {
+  gap: 0.3rem;
+  > li {
+    width:100% !important;
+  }
 }
 </style>

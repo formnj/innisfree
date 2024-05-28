@@ -35,9 +35,9 @@
         <span>에디터 PICK</span>
       </h2>
       <div class="swiper_wrap horizontal">
-        <swiper :slides-per-view="'auto'">
-          <swiper-slide v-for="(item, idx) in sample_goods" :key="idx" class="item">
-            <GoodsItem :item="item" :link="item.link" class="type_cart" />
+        <swiper :slides-per-view="'auto'" :space-between="3">
+          <swiper-slide v-for="(item, idx) in sample_goods" :key="idx" class="goods_slide">
+            <GoodsItem :item="item" :link="item.link" class="type_cart" :useHash="true" />
           </swiper-slide>
         </swiper>
       </div>
@@ -308,35 +308,6 @@ section {
       em {
         color: #00BC70;
         margin-left: .4rem;
-      }
-    }
-  }
-}
-
-.swiper_wrap {
-  .item {
-    width: 14rem;
-
-    &+.item {
-      margin-left: .3rem;
-    }
-
-    :deep(.goods_item) {
-      position: relative;
-
-      .thumb {
-        width: 14rem;
-        height: 18.6rem;
-      }
-
-      .review_score {
-        display: none;
-      }
-    }
-
-    &.goods_list {
-      .review_score {
-        display: none;
       }
     }
   }

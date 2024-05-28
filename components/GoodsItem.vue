@@ -2,6 +2,7 @@
   <div class="goods_item" :class="item.status">
     <div class="img_wrap">
       <a :href="props.link">
+        <span v-if="useBigmark && item.big" class="top_sticker">대용량</span><!-- top sticker(대용량) -->
         <span class="thumb">
           <em><img :src="item.img" /></em>
           <em v-if="item.overflip" class="overflip"><img :src="item.overflip" /></em>
@@ -27,28 +28,27 @@
           <em>{{ item.cost }}원</em>
         </p>
         <!-- sticker -->
-        <Sticker v-if="item.sticker" :item="item.sticker" />
+        <Sticker v-if="!useHash && useMark && item.sticker" :item="item.sticker" />
         <!-- //sticker -->
+
         <!-- Hash -->
-        <Hash v-if="item.hash" :item="item.hash" />
+        <Hash v-if="useHash && item.hash" :item="item.hash" />
         <!-- //Hash -->
-        <p v-if="!item.giveaway && item.reviewScore" class="review_score">
+
+        <!-- 증정품 영역 : 특가 페이지에서만 노출 -->
+        <button v-if="useGiveaway && item.giveaway" class="giveaway" @click="modal.open(item.giveaway.modal_id, props.modal_type+' modal_giveaway');">
+          <template v-for="(item, idx) in item.giveaway.goods" :key="idx">
+            <img :src="item.img">
+          </template>
+        </button>
+        <!-- //증정품 영역 -->
+
+        <p v-if="!useHash && useScore && item.reviewScore" class="review_score">
           {{ item.reviewScore.rate }}
           <em>({{ item.reviewScore.totalPoint }})</em>
         </p>
       </div>
     </a>
-    <!-- 증정품 영역 : 특가 페이지에서만 노출 -->
-    <button v-if="item.giveaway" class="giveaway" @click="modal.open(item.giveaway.modal_id, props.modal_type+' modal_giveaway');">
-      <template v-for="(item, idx) in item.giveaway.goods" :key="idx">
-        <img :src="item.img">
-      </template>
-    </button>
-    <!-- //증정품 영역 -->
-    <p v-if="item.giveaway && item.reviewScore" class="review_score">
-      {{ item.reviewScore.rate }}
-      <em>({{ item.reviewScore.totalPoint }})</em>
-    </p>
   </div>
 
 </template>
@@ -60,7 +60,27 @@ const props = defineProps({
         type: String,
         default: '#none'
     },
-    modal_type: String
+    modal_type: String,
+    useMark: { //마크 사용여부
+      type: Boolean,
+      default: true
+    },
+    useHash: { //해시태그 사용여부: true일 경우에 마크와 별점 미노출
+      type: Boolean,
+      default: false
+    },
+    useScore: { //별점 사용여부
+      type: Boolean,
+      default: true
+    },
+    useGiveaway: {  //증정품 사용여부
+      type: Boolean,
+      default: false
+    },
+    useBigmark: { //대용량 마크 사용여부
+      type: Boolean,
+      default: true
+    },
 })
 
 import { modal } from '~/assets/js/common-ui.js'
@@ -71,6 +91,8 @@ import { modal } from '~/assets/js/common-ui.js'
 
 <style lang="scss" scoped>
 .goods_item {
+  width:240px;
+
   a {
     display:block;
     height:100%;
@@ -126,10 +148,14 @@ import { modal } from '~/assets/js/common-ui.js'
   }
 
   &.type_column {
+    width:100%;
     display:flex;
     gap:20px;
     .img_wrap {
       overflow:visible;
+      .top_sticker {
+        display: none;
+      }
       .btnIconBox {
         display:none;
       }
@@ -164,35 +190,29 @@ import { modal } from '~/assets/js/common-ui.js'
         }
       }
     }
-    .giveaway,
-    .sticker,
     .review_score {
       display:none;
     }
-
-    // &.type_cart {
-    //   padding-bottom: 0;
-    //   .img_wrap {
-    //     position: relative;
-    //     .btnIconBox {
-    //       display:block;
-    //       position:absolute;
-    //       bottom:.5rem;
-    //       right:0px;
-    //       justify-content:end;
-    //       .btn_heart,
-    //       .btn_buy {
-    //         display: none;
-    //       }
-    //     }
-    //   }
-    // }
   }
 
 
   .img_wrap {
       position:relative;
       overflow:hidden;
+
+      .top_sticker {
+        height: 32px;
+        padding: 0 9px;
+        font-size: 12px;
+        line-height: 32px;
+        color: #fff;
+        background-color: rgba(0,0,0,0.6);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+      }
+
       .thumb {
           height:320px;
           position:relative;
