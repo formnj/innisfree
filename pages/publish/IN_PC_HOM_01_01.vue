@@ -118,6 +118,9 @@
                 <GoodsItem :item="item" :link="item.link" />
               </a>
             </swiper-slide>
+            <div class="swiper-scrollbar-wrap">
+              <p class="scrollbar">scroll bar</p>
+            </div>
           </swiper>
         </div>
       </div>
@@ -162,7 +165,7 @@
       </h2>
       <div class="inner">
         <div class="update_wrap">
-          <Tabs tabType="type_txt" :item="rankingTabs"  :tabidx="0" />
+          <Tabs tabType="type_txt" :item="rankingTabs" :tabidx="0" />
           <span class="date">03:00 기준</span>
         </div>
       </div>
@@ -236,20 +239,23 @@ const swiperOpt = {
     spaceBetween:22,
     loop: true,
     observer: true,
-    scrollbar: {
-      draggable: false
-    },
-    // autoplay: {
-    //   delay: 300,
-    //   disableOnInteraction: false,
+    // scrollbar: {
+    //   draggable: false
     // },
+    autoplay: {
+      delay: 30000,
+      disableOnInteraction: false,
+    },
   },
   recommend04: {
     slidesPerView:6,
     spaceBetween:22,
     loop: true,
     observer: true,
-    Navigation,
+    // Navigation,
+    scrollbar: {
+      draggable: false
+    },
     autoplay: {
       delay: 300,
       disableOnInteraction: false,
@@ -282,9 +288,11 @@ const swiperOpt = {
 }
 /* //swiper options */
 
-const scrollBar = () => {
+const scrollBar = (swiper) => {
   const isActive = ref(false);
-  console.log('slide change');
+
+  console.log('is : '+isActive.value,' / swiper : ',swiper,' / length : ',swiper.wrapperEl.querySelectorAll('.swiper-slide').length);
+  console.log('a : ',swiper.wrapperEl.children[3].getAttribute('class'),' / leng : ',swiper.wrapperEl.children.length);
 };
 
 import {
@@ -658,7 +666,7 @@ const rankingTabs = [
           flex:1;
           :deep(.swiper) {
             height:100%;
-            .swiper-scrollbar {
+            .swiper-scrollbar-wrap {
               position:absolute;
               right:0;
               bottom:0;
@@ -674,8 +682,12 @@ const rankingTabs = [
                 z-index:-1;
                 display:block;
               }
-              .swiper-scrollbar-drag {
-                border-top:2px solid #000;
+              .scrollbar {
+                border-bottom:2px solid #000;
+                position:absolute;
+                bottom:0;
+                left:0;
+                transition:width 0.25s;
               }
             }
           }
