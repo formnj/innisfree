@@ -164,26 +164,12 @@ onMounted(() => {
     // console.log('header_height',header_height)
     const title_wrap_inner = document.querySelector('.title_wrap_inner')
     title_wrap_inner.style.top = header_height - 1 + 'px';
-})
+});
 
 
 </script>
 
 <style lang="scss" scoped>
-.sub_title_wrap {
-  >div {
-    h3 {
-      font-size: 1.8rem;
-      font-weight: 600;
-    }
-
-    p.explain {
-      font-size: 1.3rem;
-      font-weight: 400;
-    }
-  }
-}
-
 section {
   padding: 3rem 2.1rem;
 

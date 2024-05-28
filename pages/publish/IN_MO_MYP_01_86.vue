@@ -40,7 +40,9 @@
         </section>
         <section>
           <div class="title">
-            <h3>매장 검색</h3>
+            <div class="sub_title_wrap mt0">
+              <h4>매장 검색</h4>
+            </div>
             <div class="multi_form">
               <Selectbox
               :options="[

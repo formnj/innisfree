@@ -97,7 +97,7 @@
       <h2>
         <a href="#none">23년 공식몰 어워즈<br/> 이 제품 아직 안샀눈사람~
         </a>
-        <span class="date">03:00 기준</span>
+        <span class="date">18:21:01</span>
       </h2>
       <ul class="list_wrap type_grid">
         <li v-for="(item, idx) in sample_goods" :key="idx">

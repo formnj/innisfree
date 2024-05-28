@@ -2,10 +2,7 @@
   <div class="inner">
     <article class="ord_addres_info">
       <div class="sub_title_wrap">
-        <div>
-          <h3>주문/배송 정보
-          </h3>
-        </div>
+        <h4>주문/배송 정보</h4>
         <p class="explain">2024-05-03 17:41:36</p>
       </div>
       <ul>
@@ -40,8 +37,9 @@
     <article class="ord_goods_info">
       <div class="sub_title_wrap">
         <div>
-          <h3>주문 제품
-          </h3>
+          <h4>
+            주문 제품
+          </h4>
         </div>
         <em>총 1건</em>
       </div>
@@ -115,8 +113,7 @@
     <article class="ord_methodpay">
       <div class="sub_title_wrap">
         <div>
-          <h3>결제수단
-          </h3>
+          <h4>결제수단</h4>
         </div>
       </div>
       <dl>
@@ -127,7 +124,7 @@
     <article class="ord_price">
       <div class="sub_title_wrap">
         <div>
-          <h3>결제 금액</h3>
+          <h4>결제 금액</h4>
         </div>
       </div>
       <ul>
@@ -329,7 +326,7 @@ i {
       .sub_title_wrap {
         justify-content:flex-start;
         align-items:center;
-        h3 {
+        h4 {
           margin-right:1rem;
         }
         em {
