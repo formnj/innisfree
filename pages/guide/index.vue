@@ -91,7 +91,7 @@ const PC_arry = ([
     }, {
         depth:['','푸터','',''],
         id:'Footer', status:'com',
-        type:'component', note:'/component/Footer/pc<br/>쇼핑로그 모달팝업 포함<br/>쇼핑로그: 리스트, 상단 배너를 컴포넌트로 변환(ShoppingLogList.vue, ShoppingLogBanner.vue)-김나람',
+        type:'component', note:'/component/Footer/pc<br/>쇼핑로그 모달팝업 포함<br/>쇼핑로그: 리스트, 신규 서비스 배너를 컴포넌트로 변환(ShoppingLogList.vue, <del>ShoppingLogBanner.vue</del>ServiceBanner.vue)-김나람',
         sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','브래드크럼','',''],
@@ -140,8 +140,8 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-26/2024-04-24', worker:'형민우'
     }, {
         depth:['','라이브(T)','',''],
-        id:'IN_PC_HOM_01_14', status:'com',
-        type:'', note:'',
+        id:'IN_PC_HOM_01_14', status:'ing',
+        type:'', note:'라이브 예고 노출 케이스, 라이브 알림 팝업 작업 필요(5/28)',
         sDate:'', eDate:'2024-05-23/2024-04-25', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
@@ -156,7 +156,7 @@ const PC_arry = ([
     }, {
         depth:['','쇼핑로그','',''],
         id:'IN_PC_HOM_01_18', status:'com',
-        type:'component', note:'footer에 모달, float_menu 삽입 [tooltip 버튼]',
+        type:'', note:'footer에 모달, float_menu 삽입 [tooltip 버튼]',
         sDate:'', eDate:'2024-05-29/2024-04-23', worker:'이종환'
     }, {
         depth:['상품','목록','',''],
@@ -168,6 +168,11 @@ const PC_arry = ([
         id:'IN_PC_PRD_01_09', status:'com',
         type:'', note:'디자인 고도화 필요<br/> 갯수 증/차감 콤포넌트 추가',
         sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/2024-05-09', worker:'김나람'
+    }, {
+        depth:['','리뷰보기 팝업','',''],
+        id:'IN_PC_PRD_01_15', status:'com',
+        type:'modal', note:'',
+        sDate:'', eDate:'', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_PC_CAR_01_01', status:'com',
@@ -308,6 +313,26 @@ const PC_arry = ([
         id:'IN_PC_MYP_01_20', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-05-10', worker:'이종환'
+    }, {
+        depth:['','','제품 리뷰 운영 정책 팝업',''],
+        id:'IN_PC_MYP_01_21', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'', worker:''
+    }, {
+        depth:['','','리뷰 작성',''],
+        id:'IN_PC_MYP_01_22', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'', worker:''
+      }, {
+        depth:['','','리뷰 포인트 혜택 안내 팝업',''],
+        id:'IN_PC_MYP_01_23', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'', worker:''
+    }, {
+        depth:['','','제품 리뷰 이용약관',''],
+        id:'IN_PC_MYP_01_25', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'', worker:''
     }, {
         depth:['','','작성한 리뷰(T)',''],
         id:'IN_PC_MYP_01_26', status:'com',
@@ -650,7 +675,7 @@ const MO_arry = ([
     }, {
         depth:['','쇼핑로그','',''],
         id:'IN_MO_HOM_01_18', status:'com',
-        type:'', note:'goods_item > btnIconBox > btn_heart 노출<br>쇼핑로그: 리스트, 상단 배너를 컴포넌트로 변환(ShoppingLogList.vue, ShoppingLogBanner.vue)-김나람',
+        type:'', note:'goods_item > btnIconBox > btn_heart 노출<br>쇼핑로그: 리스트, 신규 서비스 배너를 컴포넌트로 변환(ShoppingLogList.vue, <del>ShoppingLogBanner.vue</del>ServiceBanner.vue)-김나람',
         sDate:'', eDate:'2024-04-23/2024-04-23', worker:'이종환'
     }, {
         depth:['샘플마켓','목록','',''],
@@ -827,6 +852,26 @@ const MO_arry = ([
         id:'IN_MO_MYP_01_20', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-05-03', worker:'이종환'
+    }, {
+        depth:['','','제품 리뷰 운영 정책 팝업',''],
+        id:'IN_MO_MYP_01_21', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-05-03', worker:'이종환'
+    }, {
+        depth:['','','리뷰 작성',''],
+        id:'IN_MO_MYP_01_22', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'', worker:''
+    }, {
+        depth:['','','리뷰 포인트 혜택 안내 팝업',''],
+        id:'IN_MO_MYP_01_23', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'', worker:''
+    }, {
+        depth:['','','제품 리뷰 이용약관',''],
+        id:'IN_MO_MYP_01_25', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'', worker:''
     }, {
         depth:['','','작성한 리뷰(T)',''],
         id:'IN_MO_MYP_01_26', status:'com',

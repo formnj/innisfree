@@ -130,23 +130,6 @@ import { modal } from '~/assets/js/common-ui.js'
       }
   }
 
-  &.type_cart {
-    padding-bottom: 0;
-    .img_wrap {
-      position: relative;
-      .btnIconBox {
-        position:absolute;
-        bottom:.5rem;
-        right:0px;
-        justify-content:end;
-        .btn_heart,
-        .btn_buy {
-          display: none;
-        }
-      }
-    }
-  }
-
   &.type_column {
     width:100%;
     display:flex;
