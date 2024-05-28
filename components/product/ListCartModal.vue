@@ -46,13 +46,16 @@
     <div class="modal_container">
         <div class="modal_content">
           <button class="btn_close" @click="modal.close(this);">닫기</button>
-          <p class="sub_tit">장바구기담기가 완료 되었습니다.</p>
-          <p class="tit">프로모션 제품 입니다!!</p>
-          <p class="txt"><em>5개</em> 더 담으면 50%할인 (3/14 ~ 31 까지)</p>
-          <p class="txt">
-            <em>1개</em> 더 담으면 30%할인 or<br>
-            <em>2개</em> 더 담으면 50%할인 (3/14 ~ 31 까지)
-          </p>
+          <p class="tit">프로모션 혜택 안내</p>
+          <p class="txt">장바구니 담기가 완료되었습니다.</p>
+          <div class="gray_box">
+            <p class="tit">3/14 ~ 31까지</p>
+            <p class="txt"><em>5개</em> 더 담으면 50%할인</p>
+            <p class="txt">
+              <em>1개</em> 더 담으면 30%할인,<br>
+              <em>2개</em> 더 담으면 50%할인
+            </p>
+          </div>
         </div>
         <div class="modal_footer">
             <Button txt="장바구기가기" />
@@ -68,12 +71,16 @@
     <div class="modal_container">
         <div class="modal_content">
           <button class="btn_close" @click="modal.close(this);">닫기</button>
-          <p class="tit">프로모션 제품 입니다!!</p>
-          <p class="txt"><em>5개</em> 더 담으면 50%할인 (3/14 ~ 31 까지)</p>
-          <p class="txt">
-            <em>1개</em> 더 담으면 30%할인 or<br>
-            <em>2개</em> 더 담으면 50%할인 (3/14 ~ 31 까지)
-          </p>
+          <p class="tit">프로모션 혜택 안내</p>
+          <p class="txt">장바구니 담기가 완료되었습니다.</p>
+          <div class="gray_box">
+            <p class="tit">3/14 ~ 31까지</p>
+            <p class="txt"><em>5개</em> 더 담으면 50%할인</p>
+            <p class="txt">
+              <em>1개</em> 더 담으면 30%할인,<br>
+              <em>2개</em> 더 담으면 50%할인
+            </p>
+          </div>
         </div>
         <div class="modal_footer">
             <Button txt="바로구매" />
@@ -187,7 +194,7 @@ import { modal } from '~/assets/js/common-ui'
         line-height: 24px;
 
         & + .txt {
-          margin-top: 20px;
+          margin-top: 10px;
         }
       }
 
@@ -199,6 +206,18 @@ import { modal } from '~/assets/js/common-ui'
         em {
           color: #00BC70;
           font-weight: bold;
+        }
+      }
+
+      .gray_box {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #f5f5f5;
+
+        .tit {
+          font-size: 13px;
+          line-height: 20px;
+          font-weight: 600;
         }
       }
 
