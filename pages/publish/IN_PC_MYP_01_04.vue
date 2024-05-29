@@ -593,10 +593,10 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
         }
       }
     }
-    
+
     .modal_content {
       padding: 30px 20px;
-  
+
       h3 {
         margin-bottom: 10px;
         font-weight: 600;
@@ -604,13 +604,13 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
         line-height: 24px;
         color: #000;
       }
-  
+
       p {
         font-size: 13px;
         color: #666;
         line-height: 18px;
         white-space: nowrap;
-  
+
         em {
           font-weight: 600;
         }

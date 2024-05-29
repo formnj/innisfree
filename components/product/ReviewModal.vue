@@ -35,7 +35,7 @@
 
         <div v-if="!isMo">
           <div v-for="(item2, idx2) in sample_log.slice(0, 1)" :key="idx2" class="goods">
-            <GoodsItem :item="item2.item[0]" :link="item2.item.link" />
+            <GoodsItem :item="item2.item[0]" :link="item2.item.link" class="type_column"/>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="shopping_log_wrap">
     <div class="shopping_log">
-      <ShoppingLogBanner /><!-- 쇼핑로그 상단 배너 -->
+      <ServiceBanner /><!-- 쇼핑로그 상단 배너 -->
 
       <div class="inner">
         <div class="sub_title_wrap">
@@ -32,7 +32,7 @@
           </ul>
         </div>
         <div class="modal_footer">
-            <Button @click="modal.close(this);" class="btn_ confirm" txt="확인" />
+            <Button @click="modal.close(this);" class="btn_big confirm" txt="확인" />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -57,7 +57,7 @@ definePageMeta({
         line-height: 2.7rem;
       }
     }
-  
+
     .explain {
       margin-top: 0.5rem;
     }

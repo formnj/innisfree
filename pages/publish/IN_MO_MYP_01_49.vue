@@ -55,7 +55,7 @@
             <div>입고 알림 신청을 취소 하시겠습니까?</div>
         </div>
         <div class="modal_footer">
-          <Button class="btn_ confirm" txt="확인" @click="modal.close(this);" />
+          <Button class="btn_big confirm" txt="확인" @click="modal.close(this);" />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -240,9 +240,8 @@ onMounted(() => {
       }
       .modal_footer {
         padding:0;
-        button.btn_ {
+        button.btn_big {
           width:100%;
-          height:6rem;
         }
       }
     }

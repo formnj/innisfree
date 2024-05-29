@@ -37,8 +37,8 @@
                   </td>
                   <td class="btn">
                     <div class="btn_wrap">
-                      <Button class="btn_outline" txt="바로구매" />
-                      <Button class="btn_outline" txt="장바구니로 이동" />
+                      <Button class="btn_outline btn_min" txt="바로구매" />
+                      <Button class="btn_outline btn_min" txt="장바구니로 이동" />
                       <a href="#none" @click="modal.open('delete_modal', 'alert');"></a>
                     </div>
                   </td>
@@ -81,8 +81,8 @@
             <div>삭제하시겠습니까?</div>
         </div>
         <div class="modal_footer">
-            <Button class="btn_mid confirm" txt="확인" />
-            <Button txt="취소" @click="modal.close(this);"/>
+            <Button class="btn_big confirm" txt="확인" />
+            <Button class="btn_big" txt="취소" @click="modal.close(this);"/>
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -134,7 +134,8 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
       margin-top:-10px;
     }
     :deep(.btn_min_outline) {
-      width:84px !important;;
+      width:84px !important;
+      border-radius:1px;
       em {
         padding:0 14px;
         color:#999;
@@ -197,9 +198,9 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                       gap:8px;
                       :deep(button.btn_outline) {
                         width:120px;
-                        height:30px;
                         font :12px / 40px 'Pretendard', 'SDNeoL', 'notoR';
                         border:1px solid #000;
+                        border-radius:1px;
                         em {
                           color:#000;
                         }

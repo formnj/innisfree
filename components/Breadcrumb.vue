@@ -36,6 +36,8 @@
 .breadcrumb {
     border-bottom:1px solid #ddd;
     .inner {
+        width:1320px;
+        padding:0 20px;
         position:relative;
         display:flex;
         > a {

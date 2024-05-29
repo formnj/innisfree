@@ -164,6 +164,9 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 </script>
 
 <style lang="scss" scoped>
+.confirm {
+  flex:1 !important;
+}
 .sortList {
   margin-bottom: 30px;
 

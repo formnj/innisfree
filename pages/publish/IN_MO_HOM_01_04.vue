@@ -85,7 +85,7 @@
         </div>
       </div>
       <div class="modal_footer">
-        <Button txt="확인" class="btn_ confirm" />
+        <Button txt="확인" class="btn_big confirm" />
       </div>
 
     </div>

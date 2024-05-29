@@ -107,6 +107,9 @@ import { modal } from '~/assets/js/common-ui.js'
       }
     }
   }
+  .btn_outline {
+    border-radius:1px;
+  }
 }
 
 .review_cont {

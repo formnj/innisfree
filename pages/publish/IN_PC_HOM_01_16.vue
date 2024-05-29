@@ -156,14 +156,6 @@ const props = defineProps({
   margin-bottom: 60px;
 }
 
-.goods_list {
-  margin-left:-20px;
-  > li {
-      width:25%;
-      padding-left:20px;
-  }
-}
-
 .modal_wrap#modal_staff {
   .modal_container {
     width:764px;

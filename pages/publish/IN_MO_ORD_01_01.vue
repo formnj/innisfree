@@ -5,7 +5,7 @@
       <div class="sub_title_wrap">
         <h4>주문자 정보</h4>
         <div class="btn_wrap">
-          <Button txt="변경" class="btn_ change" @click="toggle_btn_02"/>
+          <Button txt="변경" class="btn_sm change" @click="toggle_btn_02"/>
         </div>
       </div>
       <span class="name">김이안</span>
@@ -28,7 +28,7 @@
       <div class="sub_title_wrap">
         <h4>배송지 정보</h4>
         <div class="btn_wrap">
-          <Button txt="등록/변경" @click="modal.open('ord_addr_change', 'fullMo')"/>
+          <Button class="btn_sm" txt="등록/변경" @click="modal.open('ord_addr_change', 'fullMo')"/>
         </div>
       </div>
       <article>
@@ -330,8 +330,8 @@
                   <em v-if="item.on">{{ item.on }}</em>
                 </dt>
                 <dd>
-                  <Button class="btn_outline" txt="수정" @click="modal.open('address_modify_modal', 'fullMo');"/>
-                  <Button class="btn_outline" txt="삭제" @click="modal.open('delete_modal', 'alert');"/>
+                  <Button class="btn_outline btn_sm" txt="수정" @click="modal.open('address_modify_modal', 'fullMo');"/>
+                  <Button class="btn_outline btn_sm" txt="삭제" @click="modal.open('delete_modal', 'alert');"/>
                 </dd>
               </dl>
               <p>{{item.tel}}</p>
@@ -341,7 +341,7 @@
           <Inputs _type="checkbox" _text="선택한 배송지를 다음에도 사용" />
         </div>
         <div class="modal_footer">
-            <Button txt="배송지 선택" class="btn_ confirm" />
+            <Button txt="배송지 선택" class="btn_big confirm" />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -356,8 +356,8 @@
             <div>등록된 배송지를 삭제 하시겠습니까?</div>
         </div>
         <div class="modal_footer">
-            <Button class="btn_ confirm" txt="확인" />
-            <Button txt="취소" @click="modal.close(this);"/>
+            <Button class="btn_big confirm" txt="확인" />
+            <Button class="btn_big" txt="취소" @click="modal.close(this);"/>
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -423,7 +423,7 @@
             </ul>
         </div>
         <div class="modal_footer">
-            <Button txt="배송지 등록" class="btn_ confirm" />
+            <Button txt="배송지 등록" class="btn_big confirm" />
         </div>
     </div>
   </div>
@@ -541,7 +541,7 @@
           </ul>
         </div>
         <div class="modal_footer">
-            <Button txt="배송지 등록" class="btn_ confirm" />
+            <Button txt="배송지 등록" class="btn_big confirm" />
         </div>
     </div>
   </div>
@@ -976,9 +976,8 @@ padding:0 2.1rem;
       }
       .btn_wrap {
         display:flex;
-        :deep(.btn_) {
+        :deep(.btn_sm) {
           min-width:3.4rem;
-          height:2.4rem;
           background-color:#999999;
           em {
             padding:0 0.8rem;
@@ -992,7 +991,7 @@ padding:0 2.1rem;
       border-bottom:0;
       .sub_title_wrap {
         .btn_wrap {
-          :deep(.btn_) {
+          :deep(.btn_sm) {
               color:#fff;
               font-size: 1rem;
             &.active {
@@ -1710,7 +1709,6 @@ padding:0 2.1rem;
                         display:flex;
                         gap:8px;
                         :deep(button.btn_outline) {
-                          height:2.4rem;
                           border:0.1rem solid #999 !important;
                           em {
                             padding:0 1rem;
@@ -1737,9 +1735,8 @@ padding:0 2.1rem;
       }
       .modal_footer {
         padding:0;
-        .btn_ {
+        .btn_big {
           width:100%;
-          height:6rem;
           background:#12b560;
           &.confirm {
             em {}
@@ -1823,9 +1820,8 @@ padding:0 2.1rem;
       }
       .modal_footer {
         padding:0;
-        button.btn_ {
+        .btn_big {
           width:100%;
-          height:6rem;
         }
       }
     }
@@ -1977,9 +1973,8 @@ padding:0 2.1rem;
       }
       .modal_footer {
         padding:0;
-        button.btn_ {
+        button.btn_big {
           width:100%;
-          height:6rem;
         }
       }
     }

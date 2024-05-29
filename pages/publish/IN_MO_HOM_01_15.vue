@@ -1,6 +1,6 @@
 <template>
   <section class="shopping_log_wrap">
-    <ShoppingLogBanner /><!-- 쇼핑로그 상단 배너 -->
+    <ServiceBanner /><!-- 쇼핑로그 상단 배너 -->
     <div class="inner">
       <div class="sub_title_wrap">
         <div>
@@ -135,7 +135,7 @@
           </ul>
         </div>
         <div class="modal_footer">
-            <Button class="btn_ confirm" txt="확인" @click="modal.close(this);" />
+            <Button class="btn_big confirm" txt="확인" @click="modal.close(this);" />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>

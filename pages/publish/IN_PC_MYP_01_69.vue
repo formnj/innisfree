@@ -597,6 +597,7 @@ section {
             }
             >button {
               margin-left:-15px;
+              border-radius:1px;
             }
             :deep(.select) {
               width:150px;
@@ -642,6 +643,7 @@ section {
           }
           :deep(button) {
             border-color:#000;
+            border-radius:1px;
             em {
               padding:0 16px;
               font-weight:600;
@@ -853,6 +855,7 @@ section {
     gap:30px;
     :deep(button) {
       border-color:#000 !important;
+      border-radius:1px;
       >em {
         padding:0 16px;
         color:#000 !important;
@@ -925,14 +928,14 @@ section {
       .modal_header {
         padding: 0;
         border-bottom: 0;
-  
+
         .btn_close {
           width: 18px;
           height: 18px;
           font-size:0;
           top: 10px;
           right: 10px;
-  
+
           &:before,
           &:after {
             border-top: 2px solid #000;
@@ -940,10 +943,10 @@ section {
         }
       }
     }
-  
+
     .modal_content {
       padding: 30px 20px;
-  
+
       h3 {
         margin-bottom: 10px;
         font-weight: 600;
@@ -951,19 +954,19 @@ section {
         line-height: 24px;
         color: #000;
       }
-  
+
       p {
         font-size: 13px;
         color: #666;
         line-height: 18px;
         white-space: nowrap;
-  
+
         strong {
           font-size:16px;
           font-weight:600;
           text-decoration:underline;
         }
-  
+
         em {
           font-weight: 600;
         }
@@ -1005,7 +1008,7 @@ section {
                 display:flex;
                 align-items:center;
                 gap:5px;
-    
+
                 .select, .input_wrap {
                   flex:0 0 150px;
                 }

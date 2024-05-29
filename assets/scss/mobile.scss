@@ -87,7 +87,7 @@
   h4 {
     font-size:1.6rem;
     line-height:2rem;
-    
+
     .explain {
       margin-top: 0.5rem;
       color: #AAA;
@@ -214,6 +214,8 @@
 :deep(.goods_item) {
   width: 16.5rem;
   padding-bottom:calc(24px + 1rem);
+  position: relative;
+
   .img_wrap {
     position:static;
     &:before {
@@ -336,7 +338,9 @@
   }
 
   &.type_column {
+    width: 100%;
     padding-bottom: 0;
+    align-items: center;
 
     .img_wrap {
       .thumb {
@@ -371,9 +375,22 @@
   }
 
   &.type_cart { /* .type_cart */
+    padding-bottom: 0;
+
     .img_wrap {
+      position: relative;
+
       .btnIconBox {
+        position: absolute;
+        bottom: .5rem;
+        right: 0px;
+        justify-content: end;
         gap: .5rem;
+
+        .btn_heart,
+        .btn_buy {
+          display: none;
+        }
       }
     }
   }
