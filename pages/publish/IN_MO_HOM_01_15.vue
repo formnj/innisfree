@@ -1,12 +1,14 @@
 <template>
   <section class="shopping_log_wrap">
-    <ShoppingLogBanner /><!-- 쇼핑로그 상단 배너 -->
+    <ServiceBanner /><!-- 쇼핑로그 상단 배너 -->
     <div class="inner">
-      <h2>
-        <span><em>주소희</em> 님의 쇼핑로그 <Icons class="tooltip" txt="툴팁" @click="modal.open('log_info', 'alert')" /></span>
-        <a href="/publish/IN_MO_HOM_01_18" class="btn_link_arrw">전체보기</a>
-      </h2>
-      <p class="txt_desc">최근 본 제품, 이벤트, 검색어예요</p>
+      <div class="sub_title_wrap">
+        <div>
+          <h4><em>주소희</em> 님의 쇼핑로그 <Icons class="tooltip" txt="툴팁" @click="modal.open('log_info', 'alert')" /></h4>
+          <a href="/publish/IN_MO_HOM_01_18" class="btn_link_arrw">전체보기</a>
+        </div>
+        <p class="explain">최근 본 제품, 이벤트, 검색어예요</p>
+      </div>
 
       <div class="shopping_log">
         <ShoppingLogList /><!-- 쇼핑로그 리스트 : FOR ME 쇼핑로그 최대 3개 노출 -->
@@ -17,9 +19,9 @@
 
   <section>
     <div class="inner">
-      <h2>
-        <span><em>주소희</em> 님께 추천해요</span>
-      </h2>
+      <div class="sub_title_wrap">
+        <h4><em>주소희</em> 님께 추천해요</h4>
+      </div>
       <div class="bubble_wrap">
         <div class="bubble">
           <p>이니스프리몰의 <em>활동 데이터를 기반으로</em> 제품을 추천드려요 ♥</p>
@@ -38,16 +40,16 @@
           </li>
         </ul>
       </div>
-      <Button class="btn_outline more" txt="10개 더보기" />
+      <Button class="btn_outline btn_list_btm" txt="10개 더보기" />
     </div>
   </section>
 
 
   <section>
     <div class="inner no_r_pd">
-      <h2>
-        <span><em>왕 벚꽃 글로우 젤리 크림</em>을<br>구매한 고객이 최근 구매한 제품이에요</span>
-      </h2>
+      <div class="sub_title_wrap">
+        <h4><em>왕 벚꽃 글로우 젤리 크림</em>을<br>구매한 고객이 최근 구매한 제품이에요</h4>
+      </div>
       <div class="swiper_wrap">
         <swiper
           :slides-per-view="'auto'"
@@ -63,9 +65,9 @@
 
   <section>
     <div class="inner no_r_pd">
-      <h2>
-        <span><em>찜</em>한 제품들을 확인하세요</span>
-      </h2>
+      <div class="sub_title_wrap">
+        <h4><em>찜</em>한 제품들을 확인하세요</h4>
+      </div>
       <div class="swiper_wrap">
         <swiper
           :slides-per-view="'auto'"
@@ -81,26 +83,26 @@
 
   <section>
     <div class="inner">
-      <h2>
-        <span><em>왕 벚꽃 글로우 젤리 크림</em>과 잘 맞는 제품이에요</span>
-      </h2>
+      <div class="sub_title_wrap">
+        <h4><em>왕 벚꽃 글로우 젤리 크림</em>과 잘 맞는 제품이에요</h4>
+      </div>
       <div class="list_wrap">
         <ul class="goods_list col_3">
           <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
-            <GoodsItem :item="item" :link="item.link" class="type_cart" />
+            <GoodsItem :item="item" :link="item.link" class="type_cart" :useHash="true" />
           </li>
         </ul>
       </div>
-      <button type="button" class="btn_outline more refresh"><em>새로운 추천을 받고 싶어요</em> <span class="page">1/2</span></button>
+      <button type="button" class="btn_outline btn_list_btm refresh"><em>새로운 추천을 받고 싶어요</em> <span class="page">1/2</span></button>
     </div>
   </section>
 
 
   <section>
     <div class="inner">
-      <h2>
-        <span><em>NEW</em> 포스트</span>
-      </h2>
+      <div class="sub_title_wrap">
+        <h4><em>NEW</em> 포스트</h4>
+      </div>
     </div>
 
     <div class="list_wrap">
@@ -202,43 +204,34 @@ section {
     }
   }
 
-  h2 {
-    font-size: 1.6rem;
-    font-weight: 600;
-    line-height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .sub_title_wrap {
+    display: block;
+    margin: 0 0 2rem;
 
-    .tooltip {
-      vertical-align:middle;
+    > div {
+      display: flex;
+      justify-content: space-between;
+
+      h4 {
+        > button {
+          line-height: 2.7rem;
+        }
+      }
     }
 
-    & + * {
-      margin-top: 2rem;
-    }
-
-    & > span {
-      display: inline-block;
-
-      em {
-        color: #00BC70;
-      }
-
-      button {
-        line-height: 2rem;
-      }
+    .explain {
+      margin-top: 0.5rem;
     }
   }
 
-  .txt_desc {
-    margin-top: .5rem;
-    font-size: 1.2rem;
-    color: #999;
+  &:nth-child(6) {
+    .sub_title_wrap {
+      margin: 0;
+    }
   }
 }
 
-:deep([class*=btn_][class*=_outline]).more {
+:deep([class*=btn_][class*=_outline]).btn_list_btm {
   width: 100%;
   margin-top: 3rem;
   font-size: 14px;
@@ -333,9 +326,9 @@ section {
 
     :deep(.goods_item) {
       position: relative;
+      width: 14rem;
 
       .thumb {
-        width: 14rem;
         height: 18.6rem;
       }
 

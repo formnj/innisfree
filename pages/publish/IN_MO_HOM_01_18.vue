@@ -1,13 +1,15 @@
 <template>
   <div class="shopping_log_wrap">
     <div class="shopping_log">
-      <ShoppingLogBanner /><!-- 쇼핑로그 상단 배너 -->
+      <ServiceBanner /><!-- 쇼핑로그 상단 배너 -->
 
       <div class="inner">
-        <h2>
-          <em>주소희</em>님의 쇼핑로그 <Icons class="tooltip" txt="툴팁" @click="modal.open('log_info', 'alert')" />
-        </h2>
-        <p class="txt_desc">최근 본 제품, 이벤트, 검색어예요</p>
+        <div class="sub_title_wrap">
+          <div>
+            <h4><em>주소희</em> 님의 쇼핑로그 <Icons class="tooltip" txt="툴팁" @click="modal.open('log_info', 'alert')" /></h4>
+            <p class="explain">최근 본 제품, 이벤트, 검색어예요</p>
+          </div>
+        </div>
 
         <ShoppingLogList /><!-- 쇼핑로그 리스트 -->
       </div>
@@ -16,7 +18,7 @@
 
   <!-- 쇼핑로그 안내 모달 -->
   <div id="log_info" class="modal_wrap">
-     <div class="modal_container">
+    <div class="modal_container">
         <div class="modal_header">
             <h2>쇼핑로그 안내
               <p class="explain">최근 본 제품, 이벤트, 검색어예요</p>
@@ -41,11 +43,25 @@
 import { modal } from '~/assets/js/common-ui'
 definePageMeta({
   layout:'mo-sub'
-})
+});
 </script>
-
 <style lang="scss" scoped>
 .inner {
   padding: 3rem 2.1rem;
+
+  .sub_title_wrap {
+    margin: 0;
+
+    h4 {
+      button {
+        line-height: 2.7rem;
+      }
+    }
+
+    .explain {
+      margin-top: 0.5rem;
+    }
+  }
 }
+
 </style>

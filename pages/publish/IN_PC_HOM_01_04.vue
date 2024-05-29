@@ -2,7 +2,7 @@
   <!-- title washed -->
   <div class="title_wrap" :data-layout="props.layoutType">
     <div>
-      <h2>특가s</h2>
+      <h2>특가</h2>
     </div>
   </div>
   <!-- //title washed -->
@@ -66,8 +66,8 @@
 
       <div class="list_wrap">
         <ul class="goods_list">
-          <li v-for="(item, idx) in mo_benefit_goods" :key="idx" >
-              <GoodsItem :item="item" :link="item.link"/>
+          <li v-for="(item, idx) in sample_goods.slice(0,9)" :key="idx" >
+              <GoodsItem :item="item" :link="item.link" :useMark="false" />
           </li>
         </ul>
       </div>
@@ -144,7 +144,7 @@
 <script setup>
 import { setFilter } from '~/assets/js/common-ui.js'
 import { modal } from '~/assets/js/common-ui.js'
-import {sale_menu, sample_data, mo_benefit_goods} from '~/test/data/publish/dummyData.js'
+import { sample_goods, sale_menu, sample_data } from '~/test/data/publish/dummyData.js'
 
 definePageMeta({
 layout:'pc-category'

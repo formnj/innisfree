@@ -6,7 +6,7 @@
         <em class="badge count">20</em>
       </h2>
       <p class="explain">이니스프리 및 AP 임직원 전용 이니스프리 제품 특가샵입니다. 구매 전 안내사항을 확인해주세요.</p>
-      <Button @click="modal.open('modal_staff', 'full');" class="btn_min_outline mt10" txt="구매 안내사항" />
+      <Button class="btn_min_outline mt10" txt="구매 안내사항" @click="modal.open('modal_staff', 'full');" />
     </div>
 
     <div class="pdtSortTab_wrap">
@@ -152,16 +152,8 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-
-.btn_min_outline {
-  border-radius:1px !important;
-}
-.goods_list {
-  margin-left:-20px;
-  > li {
-      width:25%;
-      padding-left:20px;
-  }
+.title_wrap {
+  margin-bottom: 60px;
 }
 
 .modal_wrap#modal_staff {

@@ -1,7 +1,7 @@
 <template>
   <Button class="btn_all btn_outline" txt="전체보기" @click="modal.open('modal_all', 'fullMo')" />
   <!-- 전체보기 모달 -->
-  <div id="modal_all" class="modal_wrap">
+  <div id="modal_all" class="modal_wrap active fullMo">
     <div class="modal_container">
         <div class="modal_header">
             <h2>전체보기</h2>

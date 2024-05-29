@@ -1,126 +1,127 @@
 <template>
-  <!-- 검색 전 영역 -->
-  <div class="search_wrap" data-search="before">
-    <section>
-        <strong>
-            인기검색
-            <span>3분전 갱신</span>
-        </strong>
-        <div class="keyword_wrap">
-            <div class="keyword">
-                <ol>
-                    <li>
-                        <a href="#none" class="up"><em>1</em><span>장원영 네컷</span></a>
-                    </li>
-                    <li>
-                        <a href="#none" class="up"><em>2</em><span>노세범</span></a>
-                    </li>
-                    <li>
-                        <a href="#none" class="down"><em>3</em><span>메이크업도구</span></a>
-                    </li>
-                    <li>
-                        <a href="#none"><em>4</em><span>그린티 신상</span></a>
-                    </li>
-                    <li>
-                        <a href="#none"><em>5</em><span>아이라이너</span></a>
-                    </li>
-                </ol>
-                <ol>
-                    <li>
-                        <a href="#none"><em>6</em><span>검색어 최대 9자까지 가능</span></a>
-                    </li>
-                    <li>
-                        <a href="#none" class="down"><em>7</em><span>바디로션</span></a>
-                    </li>
-                    <li>
-                        <a href="#none" class="new"><em>8</em><span>선크림</span></a>
-                    </li>
-                    <li>
-                        <a href="#none"><em>9</em><span>신규 구매 혜택</span></a>
-                    </li>
-                    <li>
-                        <a href="#none" class="up"><em>10</em>이벤트</a>
-                    </li>
-                </ol>
+    <!-- 검색 전 영역 -->
+    <div class="search_wrap" data-search="before">
+        <section>
+            <div class="sub_title_wrap">
+                <h4>인기검색</h4>
+                <p>3분전 갱신</p>
             </div>
-        </div>
-    </section>
-    <section>
-        <strong>최근검색어
-            <Button class="btn_txt" txt="전체삭제" @click="keyword_del_all" />
-        </strong>
-        <ul class="latest">
-            <template  v-if="key_cnt > 0">
-                <li v-for="(item, idx) in latestSearchWordData" :key="idx">
-                    <div v-if="key_cnt > 0">
-                        <a href="#none">{{ item.word }}</a>
-                        <Button class="btn_del" @click="keyword_del" />
-                    </div>
-                </li>
-            </template>
-            <template v-else>
-                <li class="no_content">최근 검색어가 없습니다.</li>
-            </template>
-        </ul>
-    </section>
-    <section>
-        <div class="cate_wrap">
-            <ul class="category">
-                <li v-for="item in categoryForSearchLayerData" :key="item" :class="item.type">
-                    <a href="#none">
-                        <span class="thumb">
-                            <em><img :src="item.imageUrl" /></em>
-                        </span>
-                        <p>{{ item.text }}</p>
-                    </a>
-                </li>
+            <div class="keyword_wrap">
+                <div class="keyword">
+                    <ol>
+                        <li>
+                            <a href="#none" class="up"><em>1</em><span>장원영 네컷</span></a>
+                        </li>
+                        <li>
+                            <a href="#none" class="up"><em>2</em><span>노세범</span></a>
+                        </li>
+                        <li>
+                            <a href="#none" class="down"><em>3</em><span>메이크업도구</span></a>
+                        </li>
+                        <li>
+                            <a href="#none"><em>4</em><span>그린티 신상</span></a>
+                        </li>
+                        <li>
+                            <a href="#none"><em>5</em><span>아이라이너</span></a>
+                        </li>
+                    </ol>
+                    <ol>
+                        <li>
+                            <a href="#none"><em>6</em><span>검색어 최대 9자까지 가능</span></a>
+                        </li>
+                        <li>
+                            <a href="#none" class="down"><em>7</em><span>바디로션</span></a>
+                        </li>
+                        <li>
+                            <a href="#none" class="new"><em>8</em><span>선크림</span></a>
+                        </li>
+                        <li>
+                            <a href="#none"><em>9</em><span>신규 구매 혜택</span></a>
+                        </li>
+                        <li>
+                            <a href="#none" class="up"><em>10</em>이벤트</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="sub_title_wrap">
+                <h4>최근검색어</h4>
+                <Button class="btn_txt" txt="전체삭제" @click="keyword_del_all" />
+            </div>
+            <ul class="latest">
+                <template  v-if="key_cnt > 0">
+                    <li v-for="(item, idx) in latestSearchWordData" :key="idx">
+                        <div v-if="key_cnt > 0">
+                            <a href="#none">{{ item.word }}</a>
+                            <Button class="btn_del" @click="keyword_del" />
+                        </div>
+                    </li>
+                </template>
+                <template v-else>
+                    <li class="no_content">최근 검색어가 없습니다.</li>
+                </template>
             </ul>
+        </section>
+        <section>
+            <div class="cate_wrap">
+                <ul class="category">
+                    <li v-for="item in categoryForSearchLayerData" :key="item" :class="item.type">
+                        <a href="#none">
+                            <span class="thumb">
+                                <em><img :src="item.imageUrl" /></em>
+                            </span>
+                            <p>{{ item.text }}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- 자동완성 영역 -->
+        <div class="auto_complete_wrap" :class="{ active:isValid !== '' }">
+            <section v-if="!isBool">
+                <ul class="auto">
+                    <li v-for="(item, idx) in auto_list" :key="idx">
+                        <a :href="item.url">
+                            {{ item.text }}
+                            <span>{{ item.latest }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section v-if="!isBool">
+                <ul class="goods_list">
+                    <li v-for="(item,idx) in key_item_list" :key="idx">
+                        <GoodsItem :item="item" :link="item.link" class="type_column" :useHash="true" />
+                    </li>
+                </ul>
+            </section>
+            <section v-if="isBool">
+                <div class="no_content">
+                    일치하는 결과가 없습니다.
+                </div>
+            </section>
         </div>
-    </section>
-    <!-- 자동완성 영역 -->
-    <div class="auto_complete_wrap" :class="{ active:isValid !== '' }">
-      <section v-if="!isBool">
-          <ul class="auto">
-              <li v-for="(item, idx) in auto_list" :key="idx">
-                  <a :href="item.url">
-                      {{ item.text }}
-                      <span>{{ item.latest }}</span>
-                  </a>
-              </li>
-          </ul>
-      </section>
-      <section v-if="!isBool">
-          <ul class="key_item goods_list">
-              <li v-for="(item,idx) in key_item_list" :key="idx">
-                  <GoodsItem :item="item" :link="item.link" />
-              </li>
-          </ul>
-      </section>
-      <section v-if="isBool">
-          <div class="no_content">
-              일치하는 결과가 없습니다.
-          </div>
-      </section>
+        <!-- //자동완성 영역 -->
     </div>
-    <!-- //자동완성 영역 -->
-  </div>
-  <!-- //검색 전 영역 -->
+    <!-- //검색 전 영역 -->
 
 </template>
 <script setup>
 import {
-  sample_goods,
-  sample_auto,
-  categoryForSearchLayerData,
-  latestSearchWordData,
+    sample_goods,
+    sample_auto,
+    categoryForSearchLayerData,
+    latestSearchWordData,
 } from '~/test/data/publish/dummyData'
 
 definePageMeta({
-  layout:'mo-search'
+    layout:'mo-search'
 });
 
 onMounted(() => {
-  document.querySelector('.search_header .input input').addEventListener('input', auto_complete);
+    document.querySelector('.search_header .input input').addEventListener('input', auto_complete);
 });
 
 const key_item_list = ref([]),
@@ -146,41 +147,47 @@ const keyword_del_all = (e) => {
 }
 
 const auto_complete = (e) => {
-  isValid.value = e.target.value;
+    isValid.value = e.target.value;
 
-  auto_list.value = sample_auto.filter(e => e.text.indexOf(isValid.value) >= 0);
-  key_item_list.value = sample_goods.filter(e => e.name !== undefined && e.name.indexOf(isValid.value) >= 0);
+    auto_list.value = sample_auto.filter(e => e.text.indexOf(isValid.value) >= 0);
+    key_item_list.value = sample_goods.filter(e => e.name !== undefined && e.name.indexOf(isValid.value) >= 0);
 
-  key_item_list.value.length <= 0 ? isBool.value = true : isBool.value = false;
+    key_item_list.value.length <= 0 ? isBool.value = true : isBool.value = false;
 };
 </script>
 <style lang="scss" scoped>
+section {
+    .sub_title_wrap {
+        margin: 0 0 3rem;
+        padding: 0 2.1rem;
+        align-items: center;
+
+        h4 {
+            & + * {
+                color: #999;
+                font-size: 1.2rem;
+            }
+
+            & + p {
+                font-weight: 300;
+            }
+
+            & + :deep(button) {
+                font-weight: 600;
+                text-decoration: underline;
+
+                em {
+                    color: #999 !important;
+                }
+            }
+        }
+
+    }
+}
+
 .search_wrap {
     &.active {
         display:block;
-    }
-    strong {
-        margin-bottom:2rem;
-        font-size:1.6rem;
-        font-weight:600;
-        position:relative;
-        display:flex;
-        justify-content:space-between;
-        :deep(.btn_txt) {
-            em {
-                color:#999;
-                font-size:1.2rem;
-                font-weight:600;
-                line-height:1.2rem;
-                border-bottom:0.1rem solid #999;
-            }
-        }
-        span {
-            color:#999999;
-            font-size:1.2rem;
-            font-weight:300;
-            line-height:1.6rem;
-        }
     }
     section {
         padding:3rem 0;
@@ -273,19 +280,19 @@ const auto_complete = (e) => {
                 }
                 li {
                     &.point {
-                      a {
+                        a {
                         position:relative;
-                        &:after {
-                          content:'';
-                          width:5px;
-                          height:5px;
-                          background:#00BC70;
-                          border-radius:100px;
-                          position:absolute;
-                          top:0.3rem;
-                          right:0.3rem;
+                            &:after {
+                                content:'';
+                                width:5px;
+                                height:5px;
+                                background:#00BC70;
+                                border-radius:100px;
+                                position:absolute;
+                                top:0.3rem;
+                                right:0.3rem;
+                            }
                         }
-                      }
                     }
                     .thumb {
                         width:5.7rem;
@@ -309,7 +316,7 @@ const auto_complete = (e) => {
             overflow:hidden;
         }
         .keyword_wrap {
-            padding:0 2.2rem 3.1rem;
+            padding:0 2.1rem 3.1rem;
             .keyword {
                 display:flex;
             }
@@ -378,84 +385,49 @@ const auto_complete = (e) => {
         }
     }
     .auto_complete_wrap {
-      background:rgba(0,0,0,0.6);
-      display:none;
-      position:fixed;
-      top:60px;
-      right:0;
-      left:0;
-      bottom:0;
-      z-index:10;
-      &.active {
-        display:block;
-      }
-      .auto {
-          gap:2.5rem;
-          li {
-              width:100%;
-              a {
-                  font-size:1.4rem;
-                  font-weight:400;
-                  display:flex;
-                  align-items:center;
-                  justify-content:space-between;
-                  span {
-                      color:#aaa;
-                      font-size:1.2rem;
-                      font-weight:400;
-                  }
-              }
-          }
-      }
-      .key_item {
-          margin:0;
-          gap:0.3rem;
-          li {
-              width:100%;
-              padding:0;
-              :deep(.goods_item) {
-                  padding:0;
-                  display:flex;
-                  align-items:center;
-                  gap:2rem;
-                  .img_wrap {
-                      width:9rem;
-                      .thumb {
-                          width:9rem;
-                          height:12rem;
-                      }
-                      .btnIconBox {
-                          display:none;
-                      }
-                  }
-                  >a {
-                      .cont {
-                          width:22rem;
-                          .review_score {
-                              display:none;
-                          }
-                          .price {
-                              strong {
-                                  margin-right:0.5rem;
-                              }
-                              span {
-                                  margin-right:1rem;
-                              }
-                              em {
-                                  display:inline-block;
-                              }
-                          }
-                      }
-                  }
-              }
-          }
-      }
-      .no_content {
-        padding:0;
-        &:after {
-          content:unset;
+        background:rgba(0,0,0,0.6);
+        display:none;
+        position:fixed;
+        top:60px;
+        right:0;
+        left:0;
+        bottom:0;
+        z-index:10;
+        &.active {
+            display:block;
         }
-      }
+        .auto {
+            gap:2.5rem;
+            li {
+                width:100%;
+                a {
+                    font-size:1.4rem;
+                    font-weight:400;
+                    display:flex;
+                    align-items:center;
+                    justify-content:space-between;
+                    span {
+                        color:#aaa;
+                        font-size:1.2rem;
+                        font-weight:400;
+                    }
+                }
+            }
+        }
+        :deep(.goods_item) {
+          .cont {
+              .price {
+                margin: 1.5rem 0;
+              }
+          }
+        }
+
+        .no_content {
+            padding:0;
+            &:after {
+            content:unset;
+            }
+        }
     }
 }
 </style>

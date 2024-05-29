@@ -79,21 +79,25 @@ html {
 
 .title_wrap {
   max-width:1320px;
-  margin:60px auto;
+  margin:60px auto 30px;
+  padding:0 20px;
   position:relative;
   z-index:2;
   display:flex;
   align-items:flex-start;
   justify-content:space-between;
+  align-items: center;
+
   h2 {
     font-size:38px;
     font-weight:300;
     position:relative;
     display:inline-block;
+
     .badge {
       position:absolute;
       top:0;
-      right:-10px;
+      right:-5px;
       transform:translateX(100%);
       &.count {
         padding:3px 6px;
@@ -104,23 +108,80 @@ html {
         border-radius:100px;
       }
     }
+
+    .renewal {
+      color: #999;
+      font-size: 14px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      position: absolute;
+      top: 11px;
+      left: 100%;
+      transform: translateX(20px);
+
+      &:after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background: url('~/assets/images/common/icon_split.png') no-repeat -190px -20px;
+        background-size: 250px auto;
+        display: inline-block;
+      }
+    }
   }
-  .btn_link_arrw {
-    position:absolute;
-    top:50%;
-    right:20px;
-    transform:translateY(-50%);
-  }
+
   .explain {
     margin-top:10px;
     margin-bottom:0;
     color:#999;
     font-size:12px;
   }
+
   .sortTab {
     ul {
       right:0;
       left:initial;
+      padding:0;
+    }
+  }
+
+  .desc {
+    color: #999;
+    font-size: 14px;
+  }
+
+  .prd_tit {
+    width: 100%;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    h3 {
+      font-size: 22px;
+      line-height: 1.55;
+      margin-bottom: 10px;
+
+      .btn_link_arrw {
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      strong {
+        color: #00BC70;
+      }
+    }
+
+    &.login {
+      h3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
     }
   }
 }
@@ -137,7 +198,27 @@ html {
     display:flex;
     align-items:center;
     button {
-      margin-left:12px;
+      &.tooltip {
+        margin-left: 12px;
+      }
+      &.btn_share {
+        margin-left: 20px;
+      }
+    }
+  }
+  h4 {
+    font-size:22px;
+    font-weight:600;
+    line-height:1.2em;
+    >p {
+      margin-top: 6px;
+      color:#666;
+      font-size:14px;
+      font-weight:400;
+
+      em {
+        color: #00BC70;
+      }
     }
   }
   .btn_link_arrw {
@@ -150,14 +231,15 @@ html {
     color:#999;
     font-size:16px;
   }
-  .share_wrap {
-    right:20px;
+  .sub {
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
   }
 }
 
 .pdtSortTab_wrap {
   margin-top: 16px;
-  margin-left: auto;
   position: relative;
   display: flex;
   align-items: center;
@@ -564,34 +646,24 @@ html {
       display:none;
     }
   }
+
   &.toast {
     .modal_container {
-      width:calc(100% - 60px);
+      width: 400px;
+      height: auto;
       background-color: rgba(0, 0, 0, 0.8);
       text-align:center;
-      top: 90%;
+      top: 50%;
       left: 50%;
-      transform: translate(-50%, -80%);
+      transform: translate(-50%, -50%);
 
-      .modal_header {
-        display:none;
-      }
       .modal_content {
-        padding:1.0rem;
-        color:#fff;
-        font-size:1.3rem
-      }
-      .modal_footer {
-        display:none;
-      }
-    }
-    .overlay {
-      display:none;
-    }
-    &.active {
-      .modal_container {
-        animation-duration: 0.5s;
-        animation-name: toast_up;
+        padding: 10px 15px;
+        color: #fff;
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 400;
+        background: rgba(0,0,0,0.8);
       }
     }
   }
@@ -761,21 +833,6 @@ ul.select_list {
 }
 
 .list_wrap {
-  .ranking {
-    width: 32px;
-    height: 32px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 32px;
-    text-align: center;
-    background-color: #000;
-    position: absolute;
-    top: 40px;
-    left: 20px;
-    z-index: 2;
-    display: block;
-  }
   .allChk_wrap {
     margin-bottom:20px;
     display:flex;
@@ -812,8 +869,23 @@ ul.select_list {
   gap: 40px 20px;
 
   >li {
-    width: 240px;
     position: relative;
+  }
+
+  .ranking {
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 32px;
+    text-align: center;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
   }
 }
 
@@ -1017,20 +1089,24 @@ ul.bullet_list {
 
 /* share modal layer */
 .share_wrap {
-  position:absolute;
-  bottom:0;
-  right:0;
-  .btn_share {
-    width:32px;
-    height:32px;
-    background:url('/assets/images/common/icon_split.png') no-repeat -170px -170px;
-    background-size:250px auto;
+  position: relative;
+  button {
+    em {
+      font-weight: 600;
+      &:after {
+        content: '';
+        width: 20px;
+        height: 20px;
+        margin-left:5px;
+        background:url('/assets/images/common/icon_split.png') no-repeat -30px -30px;
+        background-size:250px auto;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
   }
-  #modal_share {
+  .modal_wrap {
     .modal_container {
-      top:-20px;
-      right:0;
-      left:unset;
       .modal_header {
         h2 {
           font-size:20px;

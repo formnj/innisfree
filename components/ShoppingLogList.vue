@@ -26,7 +26,7 @@
 
   <!-- list -->
   <section class="list_wrap">
-    <ul class="goods_list type_column">
+    <ul class="goods_list">
       <!-- 검색어 -->
       <li>
         <div class="search_item">
@@ -40,8 +40,8 @@
       </li>
       <!-- //검색어 -->
       <li v-for="(item, idx) in sample_log" :key="idx">
-        <GoodsItem v-if="item.type == 'goods'" :item="item.item[0]" :link="item.item.link" />
-        <EventItem v-if="item.type == 'event'" :item="item.item[0]" :link="item.link" type="type_column" />
+        <GoodsItem v-if="item.type == 'goods'" :item="item.item[0]" :link="item.item.link" class="type_column" />
+        <EventItem v-if="item.type == 'event'" :item="item.item[0]" :link="item.link" class="type_column" />
       </li>
     </ul>
   </section>
@@ -64,6 +64,7 @@ section + section {
 .goods_list {
   margin: 0;
   position: relative;
+  gap: 50px 0;
 
   &:after {
     border-left: 1px solid #eee;
@@ -76,12 +77,9 @@ section + section {
 
   >li {
     padding: 0;
+    overflow: hidden;
     position: relative;
     z-index: 1;
-
-    &+li {
-      margin-top: 50px;
-    }
 
     .search_item {
       a {
@@ -204,9 +202,9 @@ section + section {
     :deep(.goods_item) {
       .img_wrap {
         height: 120px;
-        margin-right: 20px;
 
         .thumb {
+          width: 90px;
           height: 100%;
         }
 

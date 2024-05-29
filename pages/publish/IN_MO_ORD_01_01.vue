@@ -3,10 +3,7 @@
     <Button txt="126,000원 결제하기" class="btn_big confirm" />
     <section class="orderer_info">
       <div class="sub_title_wrap">
-        <div>
-          <h3>주문자 정보
-          </h3>
-        </div>
+        <h4>주문자 정보</h4>
         <div class="btn_wrap">
           <Button txt="변경" class="btn_sm change" @click="toggle_btn_02"/>
         </div>
@@ -29,10 +26,7 @@
     </section>
     <section class="addr_info">
       <div class="sub_title_wrap">
-        <div>
-          <h3>배송지 정보
-          </h3>
-        </div>
+        <h4>배송지 정보</h4>
         <div class="btn_wrap">
           <Button class="btn_sm" txt="등록/변경" @click="modal.open('ord_addr_change', 'fullMo')"/>
         </div>
@@ -64,12 +58,10 @@
 
     <section class="order_info">
       <div class="sub_title_wrap">
-        <div>
-          <h3>
-            주문 제품가격
-            <p>3개</p>
-          </h3>
-        </div>
+        <h4>
+          주문 제품가격
+          <p>3개</p>
+        </h4>
       </div>
       <ul>
         <li v-for="(item, idx) in order_info_goods" :key="idx" :class="item.class">
@@ -108,12 +100,10 @@
 
     <section class="point">
       <div class="sub_title_wrap">
-        <div>
-          <h3>
-            쿠폰/포인트
-            <Icons class="tooltip" @click="modal.open('coupon_info', 'alert')" />
-          </h3>
-        </div>
+        <h4>
+          쿠폰/포인트
+          <Icons class="tooltip" @click="modal.open('coupon_info', 'alert')" />
+        </h4>
       </div>
       <dl>
         <dt>
@@ -144,12 +134,10 @@
 
     <section class="odgift">
       <div class="sub_title_wrap">
-        <div>
-          <h3>
-            구매금액대 증정품
-            <p>1개</p>
-          </h3>
-        </div>
+        <h4>
+          구매금액대 증정품
+          <p>1개</p>
+        </h4>
         <button class="active" @click="toggle_btn"></button>
       </div>
       <div class="list_wrap">
@@ -179,10 +167,7 @@
 
     <section class="pay_method">
       <div class="sub_title_wrap">
-        <div>
-          <h3>결제수단
-          </h3>
-        </div>
+        <h4>결제수단</h4>
         <button @click="modal.open('notice_modal', 'fullMo notice_modal')">유의사항 안내</button>
       </div>
       <ul>
@@ -281,10 +266,7 @@
 
     <section class="payment">
       <div class="sub_title_wrap">
-        <div>
-          <h3>결제 예정 금액
-          </h3>
-        </div>
+        <h4>결제 예정 금액</h4>
       </div>
       <ul>
         <li>
@@ -976,10 +958,11 @@ padding:0 2.1rem;
     }
     .sub_title_wrap {
       align-items:center;
-      h3 {
+      h4 {
         display:flex;
         align-items:center;
         p {
+          margin-top: 0;
           margin-left:0.5rem;
           color:#00BC70;
           font-size:1.6rem;

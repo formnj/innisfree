@@ -1,14 +1,12 @@
 <template>
-  <!-- title washed -->
-  <div class="sub_title_wrap">
-    <div>
-      <h3>봄맞이 핑크템으로<br>생기를 더하세요!</h3>
-    </div>
-    <Button class="btn_all btn_outline" txt="전체보기" @click="modal.open('modal_all', 'fullMo')" />
-  </div>
-  <!-- //title washed -->
-
   <div class="inner">
+    <!-- title washed -->
+    <div class="sub_title_wrap">
+      <h4>봄맞이 핑크템으로<br>생기를 더하세요!</h4>
+      <Button class="btn_all btn_outline" txt="전체보기" @click="modal.open('modal_all', 'fullMo')" />
+    </div>
+    <!-- //title washed -->
+
     <div class="prd_wrap">
       <div><img src="/_nuxt/public/images/sam/pinkdoc1.jpg"></div>
       <div>
@@ -20,8 +18,8 @@
 
     <div class="list_wrap">
       <ul class="goods_list">
-        <li v-for="(item,idx) in sample_goods" :key="idx">
-          <GoodsItem :item="item" :link="item.link" />
+        <li v-for="(item,idx) in sample_goods.slice(0,5)" :key="idx">
+          <GoodsItem :item="item" :link="item.link" :useHash="false" />
         </li>
       </ul>
     </div>
@@ -83,6 +81,12 @@ const banner_list = [
 
 </script>
 <style lang="scss" scoped>
+.inner {
+  .sub_title_wrap {
+    margin-top: 2rem;
+  }
+}
+
 .prd_wrap {
   margin:0 -20px;
   >div {
