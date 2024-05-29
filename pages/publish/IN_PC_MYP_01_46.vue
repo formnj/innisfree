@@ -308,7 +308,8 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                     font-weight:500;
                     border-bottom:1px solid #f5f5f5;
                     :deep(button.btn_outline) {
-                        em {
+                      border-radius:1px;
+                      em {
                             font-weight:600;
                         }
                     }
@@ -465,6 +466,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                     }
                     .btn_outline {
                         font-weight:600;
+                        border-radius:1px;
                     }
                 }
             }

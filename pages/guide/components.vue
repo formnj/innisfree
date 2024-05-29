@@ -66,6 +66,8 @@
 
         <Button class="btn_min" txt="btn_min (30px)" />
 
+        <Button class="btn_sm" txt="btn_sm (24px)" />
+
         <Button class="btn_big_outline" txt="btn_big_outline (60px)" />
 
         <Button class="btn_mid_outline" txt="btn_mid_outline (50px)" />
@@ -73,6 +75,8 @@
         <Button class="btn_outline" txt="btn_outline (40px)" />
 
         <Button class="btn_min_outline" txt="btn_min_outline (30px)" />
+
+        <Button class="btn_sm_outline" txt="btn_sm_outline (24px)" />
       </div>
     </div>
     <pre class="code_box"><code>&lt;Button /&gt;</code></pre>

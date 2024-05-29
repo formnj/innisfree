@@ -280,6 +280,7 @@ const tabContShow = (e) => {
 
           :deep(button) {
             background-color: #fff !important;
+            border-radius:1px;
 
             em {
               font-size: 12px;
@@ -310,6 +311,9 @@ const tabContShow = (e) => {
 
         :deep(label.select) {
           flex: 1;
+        }
+        .btn_outline {
+          border-radius:1px;
         }
       }
     }

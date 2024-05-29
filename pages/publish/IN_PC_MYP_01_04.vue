@@ -147,7 +147,7 @@
           <span>
             아모레퍼시픽 전 매장&#40;온/오프라인&#41;에서 자유롭게 합산 및 사용하실 수 있습니다.
           </span>
-          <Button class="btn_outline btn_shop" txt="사용가능매장" @mouseenter="modal.open('modal_beauty_shop_tip', 'layer');" />
+          <Button class="btn_outline btn_shop btn_sm" txt="사용가능매장" @mouseenter="modal.open('modal_beauty_shop_tip', 'layer');" />
           <div id="modal_beauty_shop_tip" class="modal_wrap"><!-- 뷰티포인트 사용가능매장 툴팁 -->
             <div class="modal_container">
               <div class="modal_header">
@@ -381,8 +381,8 @@
           <li>신규 가입하면 총 70,000원 쿠폰팩 즉시 발급!</li>
         </ul>
         <div class="btn_wrap">
-          <Button class="btn_outline_big" txt="Google Play" />
-          <Button class="btn_outline_big" txt="App Store" />
+          <Button class="btn_outline_mid" txt="Google Play" />
+          <Button class="btn_outline_mid" txt="App Store" />
         </div>
       </div>
     </section>
@@ -939,7 +939,6 @@ section {
         }
         :deep(button.btn_shop) {
           width:68px;
-          height:24px;
           color:#999;
           font-size:10px;
           font-family:inherit;

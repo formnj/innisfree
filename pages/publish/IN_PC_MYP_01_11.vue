@@ -509,6 +509,7 @@ onMounted(() => {
                   font-weight:500;
                   border-bottom:1px solid #f5f5f5;
                   :deep(button.btn_min_outline) {
+                    border-radius:1px;
                       em {
                           padding:0 16px;
                           font-size:12px;

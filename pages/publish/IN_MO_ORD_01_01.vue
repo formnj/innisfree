@@ -8,7 +8,7 @@
           </h3>
         </div>
         <div class="btn_wrap">
-          <Button txt="변경" class="btn_ change" @click="toggle_btn_02"/>
+          <Button txt="변경" class="btn_sm change" @click="toggle_btn_02"/>
         </div>
       </div>
       <span class="name">김이안</span>
@@ -22,7 +22,7 @@
             <Inputs _type="text" _placeholder='휴대폰번호 입력("-"제외)' :isError="false" _err_text="주문자 휴대폰번호를 확인해주세요"/>
           </li>
           <li>
-            <Button txt="변경완료" class="btn_outline"/>
+            <Button txt="변경완료" class="btn_outline btn"/>
           </li>
         </ul>
       </div>
@@ -34,7 +34,7 @@
           </h3>
         </div>
         <div class="btn_wrap">
-          <Button txt="등록/변경" @click="modal.open('ord_addr_change', 'fullMo')"/>
+          <Button class="btn_sm" txt="등록/변경" @click="modal.open('ord_addr_change', 'fullMo')"/>
         </div>
       </div>
       <article>
@@ -348,8 +348,8 @@
                   <em v-if="item.on">{{ item.on }}</em>
                 </dt>
                 <dd>
-                  <Button class="btn_outline" txt="수정" @click="modal.open('address_modify_modal', 'fullMo');"/>
-                  <Button class="btn_outline" txt="삭제" @click="modal.open('delete_modal', 'alert');"/>
+                  <Button class="btn_outline btn_sm" txt="수정" @click="modal.open('address_modify_modal', 'fullMo');"/>
+                  <Button class="btn_outline btn_sm" txt="삭제" @click="modal.open('delete_modal', 'alert');"/>
                 </dd>
               </dl>
               <p>{{item.tel}}</p>
@@ -374,8 +374,8 @@
             <div>등록된 배송지를 삭제 하시겠습니까?</div>
         </div>
         <div class="modal_footer">
-            <Button class="btn_ confirm" txt="확인" />
-            <Button txt="취소" @click="modal.close(this);"/>
+            <Button class="btn_big confirm" txt="확인" />
+            <Button class="btn_big" txt="취소" @click="modal.close(this);"/>
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -993,9 +993,8 @@ padding:0 2.1rem;
       }
       .btn_wrap {
         display:flex;
-        :deep(.btn_) {
+        :deep(.btn_sm) {
           min-width:3.4rem;
-          height:2.4rem;
           background-color:#999999;
           em {
             padding:0 0.8rem;
@@ -1009,7 +1008,7 @@ padding:0 2.1rem;
       border-bottom:0;
       .sub_title_wrap {
         .btn_wrap {
-          :deep(.btn_) {
+          :deep(.btn_sm) {
               color:#fff;
               font-size: 1rem;
             &.active {
@@ -1727,7 +1726,6 @@ padding:0 2.1rem;
                         display:flex;
                         gap:8px;
                         :deep(button.btn_outline) {
-                          height:2.4rem;
                           border:0.1rem solid #999 !important;
                           em {
                             padding:0 1rem;

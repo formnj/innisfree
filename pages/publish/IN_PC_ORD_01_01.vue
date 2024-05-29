@@ -635,7 +635,7 @@
               서울특별시 리앙에이지
             </dd>
             <dd class="btn_wrap">
-              <Button class="btn_outline btn_min" txt="수정" @click="[modal.open('adress_manage', 'alert adress_manage'), ord_addr_more($event)]" />
+              <Button class="btn_outline btn_sm" txt="수정" @click="[modal.open('adress_manage', 'alert adress_manage'), ord_addr_more($event)]" />
             </dd>
           </dl>
           <dl>
@@ -650,16 +650,16 @@
               서울특별시 리앙에이지
             </dd>
             <dd class="btn_wrap">
-              <Button class='btn_outline btn_min' txt="수정" @click="[modal.open('adress_manage', 'alert adress_manage'), ord_addr_more($event)]" />
-              <Button class='btn_outline btn_min' txt="삭제" @click="[modal.open('delete_modal', 'alert'), ord_addr_more($event)]" />
+              <Button class='btn_outline btn_sm' txt="수정" @click="[modal.open('adress_manage', 'alert adress_manage'), ord_addr_more($event)]" />
+              <Button class='btn_outline btn_sm' txt="삭제" @click="[modal.open('delete_modal', 'alert'), ord_addr_more($event)]" />
             </dd>
           </dl>
         </div>
       </div>
       <div class="modal_footer">
-        <Button class="btn_ bg_type_02" txt="이번만 배송지 변경" />
-        <Button txt="배송지 추가" @click="modal.open('adress_manage', 'alert adress_manage');" />
-        <Button class="btn_ confirm" txt="기본 배송지로 설정" />
+        <Button class="btn_big bg_type_02" txt="이번만 배송지 변경" />
+        <Button class="btn_big" txt="배송지 추가" @click="modal.open('adress_manage', 'alert adress_manage');" />
+        <Button class="btn_big confirm" txt="기본 배송지로 설정" />
       </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -1051,7 +1051,7 @@ onMounted(() => {
                           display:flex;
                           gap:4px;
                           :deep(button.btn_outline) {
-                            border-radius:1;
+                            border-radius:1px;
                             em {
                               padding:0 16px;
                               color: #000;
@@ -1082,7 +1082,7 @@ onMounted(() => {
                         button.btn_min_outline {
                           margin-left:auto;
                           margin-right:0;
-                          border-radius:1;
+                          border-radius:1px;
                         }
                         :deep(.input_wrap) {
                           label.check {
@@ -1131,7 +1131,7 @@ onMounted(() => {
                           :deep(button.btn_outline) {
                             width:110px;
                             margin-right:5px;
-                            border-radius:1;
+                            border-radius:1px;
                             em {
                               padding:0 10px;
                               color:#333;
@@ -1232,7 +1232,7 @@ div.list {
         gap:5px;
         :deep(button.btn_outline) {
           width:34px;
-          border-radius:1;
+          border-radius:1px;
           em {
             padding:0px !important;
             font-size:10px;
@@ -1290,7 +1290,7 @@ div.list {
         }
         :deep(button.btn_outline) {
           border:1px solid #000;
-          border-radius:1;
+          border-radius:1px;
           box-sizing:border-box;
           em {
               padding:0 20px;
@@ -1511,6 +1511,7 @@ div.list {
             }
             button.btn_outline {
               margin-left:10px;
+              border-radius:1px;
             }
           }
         }
@@ -2175,6 +2176,7 @@ button.tooltip {
   border-top:1px solid #eee;
     button.btn_min_outline {
       margin-top:15px;
+      border-radius:1px;
       :deep(em) {
         font-size:12px;
         font-weight:600;

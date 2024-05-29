@@ -215,7 +215,7 @@
         </ul>
       </div>
       <div class="modal_footer">
-          <Button class="btn_ confirm" txt="확인" @click="modal.close(this);" />
+          <Button class="btn_big confirm" txt="확인" @click="modal.close(this);" />
       </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -343,6 +343,7 @@ const rankingTabUI = (e) => {
 
       :deep(button) {
         background-color: #999;
+        border-radius:1px;
 
         em {
           font-size: 12px;

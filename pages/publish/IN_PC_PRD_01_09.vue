@@ -417,8 +417,8 @@
           </div>
         </div>
         <div class="modal_footer">
-          <Button class="btn_outline" txt="초기화" disabled />
-          <Button txt="적용하기" disabled />
+          <Button class="btn_outline btn_mid" txt="초기화" disabled />
+          <Button class="btn_mid" txt="적용하기" disabled />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -944,7 +944,6 @@ onMounted(()=>{
 
     button {
       width: 260px;
-      height: 46px;
       border-radius: 5px;
     }
   }

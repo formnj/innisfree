@@ -81,8 +81,8 @@
             <div>삭제하시겠습니까?</div>
         </div>
         <div class="modal_footer">
-            <Button class="btn_ confirm" txt="확인" />
-            <Button txt="취소" @click="modal.close(this);"/>
+            <Button class="btn_big confirm" txt="확인" />
+            <Button class="btn_big" txt="취소" @click="modal.close(this);"/>
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -134,7 +134,8 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
       margin-top:-10px;
     }
     :deep(.btn_min_outline) {
-      width:84px !important;;
+      width:84px !important;
+      border-radius:1px;
       em {
         padding:0 14px;
         color:#999;
@@ -199,6 +200,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                         width:120px;
                         font :12px / 40px 'Pretendard', 'SDNeoL', 'notoR';
                         border:1px solid #000;
+                        border-radius:1px;
                         em {
                           color:#000;
                         }

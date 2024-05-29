@@ -53,8 +53,8 @@
             <div>삭제하시겠습니까?</div>
         </div>
         <div class="modal_footer">
-            <Button class="btn_mid confirm" txt="확인" />
-            <Button txt="취소" @click="modal.close(this);"/>
+            <Button class="btn_big confirm" txt="확인" />
+            <Button class="btn_big" txt="취소" @click="modal.close(this);"/>
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>

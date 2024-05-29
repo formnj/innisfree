@@ -11,8 +11,8 @@
               <em v-if="item.on">{{ item.on }}</em>
             </dt>
             <dd>
-              <Button class="btn_outline" txt="수정" @click="modal.open('address_modify_modal', 'fullMo');"/>
-              <Button class="btn_outline" txt="삭제" @click="modal.open('delete_modal', 'alert');"/>
+              <Button class="btn_outline btn_sm" txt="수정" @click="modal.open('address_modify_modal', 'fullMo');"/>
+              <Button class="btn_outline btn_sm" txt="삭제" @click="modal.open('delete_modal', 'alert');"/>
             </dd>
           </dl>
           <p>{{item.tel}}</p>
@@ -32,8 +32,8 @@
             <div>등록된 배송지를 삭제 하시겠습니까?</div>
         </div>
         <div class="modal_footer">
-            <Button class="btn_ confirm" txt="확인" />
-            <Button txt="취소" @click="modal.close(this);"/>
+            <Button class="btn_big confirm" txt="확인" />
+            <Button class="btn_big" txt="취소" @click="modal.close(this);"/>
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -95,7 +95,7 @@
             </ul>
         </div>
         <div class="modal_footer">
-            <Button txt="배송지 등록" class="btn_ confirm" />
+            <Button txt="배송지 등록" class="btn_big confirm" />
         </div>
     </div>
   </div>
@@ -212,7 +212,7 @@
           </ul>
         </div>
         <div class="modal_footer">
-            <Button txt="배송지 등록" class="btn_ confirm" />
+            <Button txt="배송지 등록" class="btn_big confirm" />
         </div>
     </div>
   </div>
@@ -337,7 +337,6 @@ onMounted(() => {
                 display:flex;
                 gap:8px;
                 :deep(button.btn_outline) {
-                  height:2.4rem;
                   border:0.1rem solid #999 !important;
                   border-radius:0.1rem;
                   em {
@@ -439,9 +438,8 @@ onMounted(() => {
       }
       .modal_footer {
         padding:0;
-        button.btn_ {
+        button.btn_big {
           width:100%;
-          height:6rem;
         }
       }
     }

@@ -152,6 +152,10 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
+
+.btn_min_outline {
+  border-radius:1px !important;
+}
 .goods_list {
   margin-left:-20px;
   > li {

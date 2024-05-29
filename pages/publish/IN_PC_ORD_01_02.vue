@@ -23,16 +23,16 @@
                     <td><Inputs _type="radio" _text="집(기본배송지)" _name="adrees"/></td>
                     <td><a href="#none">[22780] 서울특별시 강서구 양천로 551-17</a></td>
                     <td class="btn_wrap">
-                      <Button class="btn_outline" txt="수정"  @click="modal.open('adress_manage', 'alert')" />
-                      <Button class="btn_outline" txt="삭제"  @click="modal.open('delete_modal', 'alert')" />
+                      <Button class="btn_outline btn_min" txt="수정"  @click="modal.open('adress_manage', 'alert')" />
+                      <Button class="btn_outline btn_min" txt="삭제"  @click="modal.open('delete_modal', 'alert')" />
                     </td>
                   </tr>
                   <tr>
                     <td><Inputs _type="radio" _text="회사" _name="adrees"/></td>
                     <td><a href="#none">[22780] 서울특별시 강서구 양천로 551-17</a></td>
                     <td class="btn_wrap">
-                      <Button class="btn_outline" txt="수정"  @click="modal.open('adress_manage', 'alert')" />
-                      <Button class="btn_outline" txt="삭제"  @click="modal.open('delete_modal', 'alert')" />
+                      <Button class="btn_outline btn_min" txt="수정"  @click="modal.open('adress_manage', 'alert')" />
+                      <Button class="btn_outline btn_min" txt="삭제"  @click="modal.open('delete_modal', 'alert')" />
                     </td>
                   </tr>
                   <tr>
@@ -279,7 +279,7 @@ const reset = (event) => {
 
 :deep(.multi_form) {
   .btn_outline {
-    border-radius:1 !important;
+    border-radius:1px !important;
   }
 }
 
@@ -374,7 +374,6 @@ const reset = (event) => {
                       gap:8px;
                       :deep(button.btn_outline) {
                         width:60px;
-                        height:30px;
                         font-size:12px;
                         border:1px solid #999;
                       }

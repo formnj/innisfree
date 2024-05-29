@@ -43,6 +43,11 @@
     }
     &[class*='_min'] {
         height:30px;
+        border-radius:1px;
+    }
+    &[class*='_sm'] {
+        height:24px;
+        border-radius:1px;
     }
     &[class*='_txt'] {
         height:auto;

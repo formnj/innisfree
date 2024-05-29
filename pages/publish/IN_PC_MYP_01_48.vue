@@ -157,8 +157,8 @@
                 <div>해당 상담내역을 삭제 하시겠습니까?</div>
             </div>
             <div class="modal_footer">
-                <Button class="btn_ confirm" txt="확인" />
-                <Button txt="취소" @click="modal.close(this);"/>
+                <Button class="btn_big confirm" txt="확인" />
+                <Button class="btn_big" txt="취소" @click="modal.close(this);"/>
             </div>
         </div>
         <div class="overlay" @click="modal.close(this);"></div>
@@ -429,6 +429,7 @@ onMounted(() => {
                     button {
                         &.btn_outline {
                             padding:0 1px;
+                            border-radius:1px;
                             em {
                             color:#999;
                             font-size:12px;

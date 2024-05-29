@@ -20,7 +20,7 @@
         <li>
           <dl>
             <dt>비밀번호</dt>
-            <dd><Button class="btn_outline btn_change" txt="변경하기" @click="modal.open('modal_pwd', 'fullMo')" /></dd>
+            <dd><Button class="btn_outline btn_sm btn_change" txt="변경하기" @click="modal.open('modal_pwd', 'fullMo')" /></dd>
           </dl>
         </li>
         <li>
@@ -38,7 +38,7 @@
         <li>
           <dl class="type_input">
             <dt>휴대전화</dt>
-            <dd><Button class="btn_outline btn_change" txt="변경하기" @click="modal.open('modal_phone', 'fullMo')" /></dd>
+            <dd><Button class="btn_outline btn_change btn_sm" txt="변경하기" @click="modal.open('modal_phone', 'fullMo')" /></dd>
           </dl>
           <Inputs _type="text" _value="010-1234-1234" isDisabled="true" />
         </li>
@@ -143,24 +143,24 @@
       <ul>
         <li class="facebook">
           <div class="icon">페이스북</div>
-          <div class="info"><Button class="btn_min_outline" txt="연결 정보 없음" /></div>
+          <div class="info"><Button class="btn_sm_outline" txt="연결 정보 없음" /></div>
         </li>
         <li class="kakao">
           <div class="icon">카카오톡</div>
           <div class="info connect">
             <div class="txt">연결됨</div>
-            <Button class="btn_min_outline" txt="연결 해제" @click="modal.open('modal_disconnect', 'alert')" />
+            <Button class="btn_sm_outline" txt="연결 해제" @click="modal.open('modal_disconnect', 'alert')" />
           </div>
         </li>
         <li class="naver">
           <div class="icon">네이버</div>
-          <div class="info"><Button class="btn_min_outline" txt="연결 정보 없음" /></div>
+          <div class="info"><Button class="btn_sm_outline" txt="연결 정보 없음" /></div>
         </li>
         <li class="apple">
           <div class="icon">Apple</div>
           <div class="info connect">
             <div class="txt">연결됨</div>
-            <Button class="btn_min_outline" txt="연결 해제" @click="modal.open('modal_disconnect', 'alert')" />
+            <Button class="btn_sm_outline" txt="연결 해제" @click="modal.open('modal_disconnect', 'alert')" />
           </div>
         </li>
       </ul>
@@ -186,9 +186,9 @@
     </ul>
   </div>
 
-  <div class="btn_wrap"><Button class="btn_ confirm" txt="수정완료" /></div>
+  <div class="btn_wrap"><Button class="btn_mid confirm" txt="수정완료" /></div>
 
-  
+
   <div id="modal_pwd" class="modal_wrap">
       <div class="modal_container">
           <div class="modal_header">
@@ -383,7 +383,7 @@ onMounted(() => {
 section {
   padding:3rem 2.1rem;
   border-bottom:0.5rem solid #F5F5F5;
-  
+
   .sub_title_wrap {
     margin:0 0 2rem;
     flex-wrap:wrap;
@@ -404,7 +404,7 @@ section {
       font-size:1.3rem;
     }
   }
-  
+
   :deep(.input_wrap) {
     .input {
       input {
@@ -679,7 +679,6 @@ section {
           }
 
           :deep(button) {
-            height:2.4rem;
             margin-left:auto;
             border-color:#000;
 
