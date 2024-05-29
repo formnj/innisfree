@@ -52,11 +52,13 @@
             <p v-html="item.review"></p>
           </div>
 
-          <GoodsItem :item="item.goods" />
+          <GoodsItem :item="item.goods" class="type_column" />
         </li>
       </ul>
     </div>
 	</div>
+
+  <ProductListCartModal /><!-- 장바구니/바로구매 모달 -->
 </template>
 
 <script setup>
@@ -114,66 +116,57 @@ import { modal } from '~/assets/js/common-ui.js'
 }
 
 :deep(.goods_item) {
-  padding:20px;
-  border:1px solid #eee;
-  border-radius:0 0 3px 3px;
-  position:relative;
-  display:flex;
-  .img_wrap {
-    margin-right:15px;
-    position:static;
-    .thumb {
-      width:68px;
-      height:90px;
-    }
-    .btnIconBox {
-      background-color:transparent;
-      top:50%;
-      right:20px;
-      bottom:initial;
-      left:initial;
-      gap:15px;
-      transform:translateY(-50%);
-      button {
-        padding:0;
-        em {
-          width:24px;
-          height:24px;
-          background-size:250px auto;
-        }
-        &.btn_heart {
+  padding: 20px;
+  border: 1px solid #EEEEEE;
+  border-radius: 0px 0px 3px 3px;
+
+  &.type_column {
+    position: relative;
+    .img_wrap {
+      position: static;
+      .thumb {
+        width: 68px;
+        height: 90px;
+      }
+      .btnIconBox {
+        background-color:transparent;
+        display:flex;
+        position:absolute;
+        left: auto;
+        right: 20px;
+        bottom:auto;
+        top:50%;
+        gap:1rem;
+        justify-content:start;
+        transform:translateY(-50%);
+        button {
+          padding:0;
           em {
-            background-position:0 -300px;
+            width:24px;
+            height:24px;
+            padding:0;
+            background-image:url('~/assets/mo_images/common/icon_split.png');
+            background-size:250px auto;
           }
-        }
-        &.btn_cart {
-          em {
-            background-position:-30px -300px;
+          &.btn_heart {
+            em {
+              background-position:-140px -40px;
+            }
+            &.on {
+              em {
+                background-position:-180px -70px;
+              }
+            }
           }
-        }
-        &.btn_buy {
-          em {
-            background-position:-60px -300px;
+          &.btn_cart em {
+            background-position:-170px -40px;
+          }
+          &.btn_buy em {
+            background-position:-200px -40px;
           }
         }
       }
     }
-  }
-  .cont {
-    margin-top:0;
-    .price {
-      margin-top:15px;
-      > * {
-        margin-right:0;
-        font-size:14px;
-        & + * {
-          margin-left:5px;
-        }
-      }
-    }
-  }
-  .review_score {
-    display:none;
   }
 }
 </style>

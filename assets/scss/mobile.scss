@@ -227,7 +227,13 @@
     }
     .thumb {
       width:100%;
-      height:22.0rem;
+      em {
+        height: 100%;
+
+        &.overflip {
+          display: none;
+        }
+      }
     }
     .btnIconBox {
       background-color:transparent;
@@ -345,7 +351,6 @@
     .img_wrap {
       .thumb {
         width: 9rem;
-        height: 12rem;
       }
     }
     .cont {
@@ -1213,7 +1218,7 @@
 
 /* 쇼핑로그 */
 :deep(.shopping_log_wrap) {
-  .top_banner {
+  .svc_banner {
     padding: 1.2rem 2.8rem;
     background-position: center center;
     p {
@@ -1291,6 +1296,7 @@
 
         .goods_item {
           padding-bottom: 0;
+          position: relative;
 
           a {
             width: 100%;
@@ -1303,10 +1309,25 @@
             .thumb {
               width: 6rem;
             }
+
+            .btnIconBox {
+              display: block;
+              position: absolute;
+              right: 0;
+              left: auto;
+              bottom: .5rem;
+              z-index: 3;
+
+              .btn_cart,
+              .btn_buy {
+                display: none;
+              }
+            }
           }
 
           .cont {
             .price {
+              margin-bottom: 1.5rem;
               em {
                 display: inline-block;
               }

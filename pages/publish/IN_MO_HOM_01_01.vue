@@ -604,7 +604,6 @@ const rankingTabs = [
               .thumb {
                 width:6.1rem;
                 height:auto;
-                padding-top:132.786885%;
               }
               & + a {
                 flex:1;

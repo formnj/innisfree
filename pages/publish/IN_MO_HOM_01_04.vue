@@ -43,7 +43,7 @@
       <div class="list_wrap">
         <ul class="goods_list col_3">
           <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
-            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" :useMark="false" />
+            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" :useMark="false" :useScore="false" />
           </li>
         </ul>
       </div>
@@ -191,7 +191,7 @@ section {
     background: #fff;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
     position: sticky;
-    z-index: 10;
+    z-index: 5;
 
     .tab_scroll_wrap {
       height: 100%;

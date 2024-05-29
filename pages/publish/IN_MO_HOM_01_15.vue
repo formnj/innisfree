@@ -11,7 +11,7 @@
       </div>
 
       <div class="shopping_log">
-        <ShoppingLogList /><!-- 쇼핑로그 리스트 : FOR ME 쇼핑로그 최대 3개 노출 -->
+        <ShoppingLogList limit="2" /><!-- 쇼핑로그 리스트 : FOR ME 쇼핑로그 최대 3개 노출 -->
       </div>
     </div>
   </section>
@@ -327,10 +327,6 @@ section {
     :deep(.goods_item) {
       position: relative;
       width: 14rem;
-
-      .thumb {
-        height: 18.6rem;
-      }
 
       .review_score {
         display: none;
