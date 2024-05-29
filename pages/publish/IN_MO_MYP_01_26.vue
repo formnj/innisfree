@@ -32,8 +32,8 @@
       <li v-for="(item, idx) in review" :key="idx">
         <div class="review_header">
           <div class="btn_wrap ar">
-            <button type="button">신고</button>
-            <button type="button">차단</button>
+            <button type="button">수정</button>
+            <button type="button">삭제</button>
           </div>
         </div>
 
@@ -48,7 +48,7 @@
           </div>
         </div>
 
-        <GoodsItem :item="item.goods" />
+        <GoodsItem :item="item.goods" class="type_column" />
       </li>
     </ul>
   </div>
@@ -230,34 +230,24 @@ import { modal } from '~/assets/js/common-ui.js'
 }
 
 :deep(.goods_item) {
-  margin:2rem 0;
-  padding:0 !important;
-  position:relative;
-  display:flex;
-  .img_wrap {
-    margin-right:15px;
-    position:static;
-    .thumb {
-      width:3.6rem !important;
-      height:4.8rem !important;
-    }
-    .btnIconBox {
-      display:none;
-    }
-  }
-  .cont {
-    margin-top:0;
-    .name {
-      strong {
-        font-size:1.3rem;
+  margin-bottom: 2rem;
+
+  &.type_column {
+    .img_wrap a {
+      .thumb {
+        width: 3.6rem;
+        height: 4.8rem;
       }
     }
-    .price {
-      display:none;
+
+    .cont {
+      .name {
+        font-size: 1.3rem;
+      }
+      .price {
+        display: none;
+      }
     }
-  }
-  .review_score {
-    display:none;
   }
 }
 

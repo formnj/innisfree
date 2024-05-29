@@ -74,6 +74,25 @@
     </div>
   </template>
 
+  <section>
+    <div class="sub_title_wrap">
+      <div>
+        <h3>이니스프리 혜택 모음
+          <Icons class="tooltip" txt="툴팁" @click="modal.open('sample_01', 'alert sample_01');" />
+        </h3>
+      </div>
+    </div>
+    <div class="inner">
+      <div class="list_wrap">
+        <ul class="goods_list">
+          <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
+            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" :useGiveaway="true" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- tooltip modal -->
   <div class="modal_wrap" id="sample_01">
     <div class="modal_container">

@@ -1,5 +1,5 @@
 <template>
-  <a href="#none" class="top_banner">
+  <a href="#none" class="svc_banner">
     <p>1분 피부 진단으로<br>꾸준하게 기록하고 관리하세요.</p>
     <div class="btn_ui_wrap">
       <span class="btn">AI 케어 진단 시작</span>
@@ -12,11 +12,12 @@
 </script>
 
 <style lang="scss" scoped>
-.top_banner {
+.svc_banner {
   padding: 27px 20px;
   background: url('~/assets/images/ui/bg_log_top_bann.png') left top / 100% auto no-repeat;
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
   gap: 12px;
 
   p {

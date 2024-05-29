@@ -43,7 +43,7 @@
         </button>
         <!-- //증정품 영역 -->
 
-        <p v-if="!useHash && useScore && item.reviewScore" class="review_score">
+        <p v-if="!useHash && useScore && item.reviewScore || mustUseScore" class="review_score">
           {{ item.reviewScore.rate }}
           <em>({{ item.reviewScore.totalPoint }})</em>
         </p>
@@ -81,6 +81,10 @@ const props = defineProps({
       type: Boolean,
       default: true
     },
+    mustUseScore: { //별점 꼭 사용
+      type: Boolean,
+      default: false
+    }
 })
 
 import { modal } from '~/assets/js/common-ui.js'
@@ -144,7 +148,6 @@ import { modal } from '~/assets/js/common-ui.js'
       }
       .thumb {
         width:75px;
-        height:100px;
       }
     }
     .cont {
@@ -197,28 +200,28 @@ import { modal } from '~/assets/js/common-ui.js'
       }
 
       .thumb {
-          height:320px;
+          // height:320px;
           position:relative;
           display:block;
           em {
-              position:absolute;
-              top:0;
-              right:0;
-              bottom:0;
-              left:0;
-              display:flex;
-              align-items:center;
-              img {
-                  width:100%;
-                  height:100%;
-                  display:block;
-                  object-fit:cover;
-              }
-              &.overflip {
-                  opacity:0;
-                  top:50%;
-                  bottom:50%;
-                  transition:all 0.3s ease-out;
+            display:flex;
+            align-items:center;
+            img {
+              width:100%;
+              height:100%;
+              display:block;
+              object-fit:cover;
+            }
+            &.overflip {
+                position:absolute;
+                top:0;
+                right:0;
+                bottom:0;
+                left:0;
+                opacity:0;
+                top:50%;
+                bottom:50%;
+                transition:all 0.3s ease-out;
               }
           }
       }

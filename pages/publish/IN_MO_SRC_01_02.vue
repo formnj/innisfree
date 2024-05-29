@@ -111,12 +111,12 @@
           <a href="#none" class="btn_link_arrw"></a>
         </div>
         <!-- //title washed -->
-        <div class="swiper_wrap type_01">
+        <div class="swiper_wrap">
           <swiper
             v-bind="swieprOpt.recommend04"
           >
             <swiper-slide v-for="(item, idx) in sample_goods.slice(0,5)" :key="idx">
-              <GoodsItem class="type_cart" :item="item" />
+              <GoodsItem class="type_cart" :item="item" :useHash="true" />
             </swiper-slide>
           </swiper>
         </div>
@@ -295,7 +295,15 @@ onMounted(() => {
 </script>
 <style lang="scss" scoped>
 section {
-  padding:0 2.1rem;
+  padding:3rem 2.1rem;
+
+  & + section {
+    border-top: .5rem solid #f5f5f5;
+  }
+
+  .sub_title_wrap {
+    margin-top: 0;
+  }
 }
 .keyword {
   width:100%;
@@ -435,59 +443,15 @@ section {
 }
 
 .no_content {
-  padding:3.7rem 0 5rem;
   position:relative;
-  &:after {
-    content:'';
-    width:calc(100% + 4.2rem);
-    height:5px;
-    background:#F5F5F5;
-    position:absolute;
-    bottom:0;
-    left:50%;
-    transform:translateX(-50%);
-  }
 }
 
 .list_wrap {
   position:relative;
-  &:after {
-    content:'';
-    width:calc(100% + 4.2rem);
-    height:5px;
-    background:#F5F5F5;
-    position:absolute;
-    bottom:0;
-    left:50%;
-    transform:translateX(-50%);
-    opacity:0.5;
-  }
-  .goods_list {
-    padding-bottom:30px;
-    margin:0;
-    gap:4rem 0.3rem;
-    justify-content:space-between;
-    > li {
-      width:16.5rem;
-      padding:0;
-    }
-  }
 }
 
 .event_wrap {
-  padding-bottom:30px;
-  margin-bottom:30px;
   position:relative;
-  &:after {
-    content:'';
-    width:calc(100% + 4.2rem);
-    height:5px;
-    background:#F5F5F5;
-    position:absolute;
-    bottom:0;
-    left:50%;
-    transform:translateX(-50%);
-  }
   .swiper {
     padding-bottom:30px;
     :deep(.swiper-pagination) {
@@ -518,8 +482,10 @@ section {
   .swiper{
     padding:0 2.1rem;
   }
-  &.type_01 {
-    .swiper-slide {
+  .swiper-slide {
+    width:14rem;
+
+    .goods_item {
       width:14rem;
     }
   }
