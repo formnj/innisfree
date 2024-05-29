@@ -37,6 +37,10 @@
             </a>
           </swiper-slide>
         </swiper>
+        <div class="navigation">
+          <button class="swiper-button-prev">Prev1</button>
+          <button class="swiper-button-next">Next1</button>
+        </div>
       </div>
     </div>
     <!-- //visual -->
@@ -79,18 +83,23 @@
 
     <section class="recommend">
       <h2>
-        <a href="#none">오늘의 추천 제품</a>
+        <a href="#none">오늘의 추천 제품.</a>
       </h2>
 
       <div class="swiper_wrap">
         <swiper class="module_02"
           v-bind="swiperOpt.recommend02"
+          @swiper="onSwiper"
         >
           <swiper-slide v-for="(item, idx) in mainSam.recommend02" :key="idx">
             <EventItem :item="item" />
             <GoodsItem :item="item.goods" :link="item.link" />
           </swiper-slide>
         </swiper>
+        <div class="navigation">
+          <button class="swiper-button-prev">Prev1</button>
+          <button class="swiper-button-next">Next1</button>
+        </div>
       </div>
     </section>
 
@@ -112,8 +121,7 @@
             v-bind="swiperOpt.recommend03"
             @slideChange="scrollBar"
           >
-            <swiper-slide v-for="(item, idx) in sample_goods.slice(3,8)" :key="idx" v-slot="{ isActive }">
-              {{isActive ? 'active'+idx : 'not active'}}
+            <swiper-slide v-for="(item, idx) in sample_goods.slice(3,8)" :key="idx">
               <a href="#none" class="item">
                 <GoodsItem :item="item" :link="item.link" />
               </a>
@@ -140,6 +148,10 @@
             <GoodsItem :item="item" />
           </swiper-slide>
         </swiper>
+        <div class="navigation">
+          <button class="swiper-button-prev">Prev1</button>
+          <button class="swiper-button-next">Next1</button>
+        </div>
       </div>
     </section>
     <!-- //이 제품 어때요 -->
@@ -178,6 +190,10 @@
             <GoodsItem :item="item" />
           </swiper-slide>
         </swiper>
+        <div class="navigation">
+          <button class="swiper-button-prev">Prev1</button>
+          <button class="swiper-button-next">Next1</button>
+        </div>
       </div>
     </section>
     <!-- //랭킹 -->
@@ -199,18 +215,33 @@ import 'swiper/scss/pagination'
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, A11y, Autoplay, Scrollbar]);
 
+const onSwiper = (swiper) => {
+  console.log('onswiper : ',swiper.wrapperEl.parentNode)
+  console.log('swiper class : ',swiper.wrapperEl.parentNode.getAttribute('class'));
+}
+
+const navigation = {
+  nextEl: '.swiper-button-next',
+  prevEl: '.swiper-button-prev'
+}
+
+const scrollBar = (swiper) => {
+  swiper.wrapperEl.parentNode.querySelector('.scrollbar').style.width = ((swiper.realIndex + 1)/swiper.wrapperEl.children.length) * 100+'%'
+};
+
 /* swiper options */
 const swiperOpt = {
   visual:  {
     slidesPerView: "auto",
-    slidesPerGroup: 2,
+    slidesPerGroup: 1,
     spaceBetween: 40,
     loop: true,
+    navigation: navigation,
     pagination: {
       type:'fraction'
     },
     autoplay: {
-      delay: 300,
+      delay: 3000,
       disableOnInteraction: false,
     },
     centeredSlides: true,
@@ -229,21 +260,19 @@ const swiperOpt = {
     slidesPerView:3,
     spaceBetween: 40,
     loop: true,
+    navigation: navigation,
     autoplay: {
-      delay: 300,
+      delay: 3000,
       disableOnInteraction: false,
-    },
+    }
   },
   recommend03: {
     slidesPerView:3,
     spaceBetween:22,
     loop: true,
     observer: true,
-    // scrollbar: {
-    //   draggable: false
-    // },
     autoplay: {
-      delay: 30000,
+      delay: 3000,
       disableOnInteraction: false,
     },
   },
@@ -252,7 +281,7 @@ const swiperOpt = {
     spaceBetween:22,
     loop: true,
     observer: true,
-    // Navigation,
+    navigation: navigation,
     scrollbar: {
       draggable: false
     },
@@ -278,8 +307,9 @@ const swiperOpt = {
     slidesPerView:5,
     spaceBetween:20,
     loop: true,
+    navigation: navigation,
     autoplay: {
-      delay: 300,
+      delay: 3000,
       disableOnInteraction: false,
     },
     centeredSlides: true,
@@ -287,13 +317,6 @@ const swiperOpt = {
   }
 }
 /* //swiper options */
-
-const scrollBar = (swiper) => {
-  const isActive = ref(false);
-
-  console.log('is : '+isActive.value,' / swiper : ',swiper,' / length : ',swiper.wrapperEl.querySelectorAll('.swiper-slide').length);
-  console.log('a : ',swiper.wrapperEl.children[3].getAttribute('class'),' / leng : ',swiper.wrapperEl.children.length);
-};
 
 import {
   sampleSlide,
@@ -322,6 +345,9 @@ const rankingTabs = [
   }
   .visual {
     margin-top:40px;
+    .swiper_wrap {
+      width:100%;
+    }
     :deep(.swiper-slide) {
       width:620px;
       opacity:0.2;
@@ -414,6 +440,7 @@ const rankingTabs = [
   }
   section {
     padding:100px 0;
+    position:relative;
     &.narrow {
       padding:80px 0;
     }
@@ -683,6 +710,7 @@ const rankingTabs = [
                 display:block;
               }
               .scrollbar {
+                font-size:0;
                 border-bottom:2px solid #000;
                 position:absolute;
                 bottom:0;
@@ -695,6 +723,9 @@ const rankingTabs = [
       }
     }
     &.benefit {
+      .swiper_wrap {
+        width:100%;
+      }
       :deep(.swiper-slide) {
         width:400px;
         .event_item {
@@ -716,6 +747,31 @@ const rankingTabs = [
             }
           }
         }
+      }
+    }
+  }
+  .swiper_wrap {
+    width:1280px;
+    margin:0 auto;
+    position:relative;
+  }
+  .navigation {
+    margin:0 -740px;
+    position:absolute;
+    top:50%;
+    right:50%;
+    left:50%;
+    button {
+      width:60px;
+      height:60px;
+      font-size:0;
+      background: url('~/assets/images/common/icon_split.png') no-repeat 0 -190px;
+      background-size: 250px auto;
+      &:after {
+        display:none;
+      }
+      &.swiper-button-next {
+        transform:rotate(180deg);
       }
     }
   }
@@ -741,9 +797,5 @@ const rankingTabs = [
       top:0;
       right:0;
     }
-  }
-
-  .swiper_wrap {
-
   }
 </style>

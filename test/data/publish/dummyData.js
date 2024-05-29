@@ -1323,6 +1323,30 @@ export const mainSam = {
         name:'히알루론 수분 선크림 SPF 50+ PA++++',
         price:'11,000', sale:'~50%', cost:'26,000',
       }
+    },
+    {
+      img:("/_nuxt/public/images/sam/recommend_02.png"),
+      title:'원영이의 특별한 피부비결!<br/> 비타C 잡티 토닝 세럼이 정답!',
+      txt:'디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!1',
+      hash:['세럼','비타C', '토닝'],
+      goods:{
+        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
+        cate:'NEW',
+        name:'그린티 씨드 히알루론산 세렘 80ml',
+        price:'44,800', sale:'~20%', cost:'56,000',
+      }
+    },
+    {
+      img:("/_nuxt/public/images/sam/recommend_03.png"),
+      title:'라이브 단독 쿠폰 & 사은품<br/> 신세계 상품권 10만원 GET!',
+      txt:'채팅만 해도 경품을 받는다고?<br/> 구매 인증, 채팅 추첨 경품!',
+      hash:['라이브 단독','쿠폰'],
+      goods:{
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+      }
     }
   ],
   event_mo: [
