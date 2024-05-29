@@ -19,7 +19,7 @@
             <Inputs _type="text" _placeholder='휴대폰번호 입력("-"제외)' :isError="false" _err_text="주문자 휴대폰번호를 확인해주세요"/>
           </li>
           <li>
-            <Button txt="변경완료" class="btn_outline btn"/>
+            <Button txt="변경완료" class="btn_outline"/>
           </li>
         </ul>
       </div>

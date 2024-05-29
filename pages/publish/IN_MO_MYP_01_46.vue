@@ -72,7 +72,7 @@
                     *이메일, 휴대전화번호 정보 수정을 원하시는 경우<br>
                     회원정보 수정을 통해 변경해주시기 바랍니다.
                 </em>
-                <Button txt="문의하기" />
+                <Button txt="문의하기" class="btn_" />
                 <Button txt="문의하기" class="btn_ active" @click="modal.open('check_modal', 'full');"/>
             </section>
         </div>
@@ -136,7 +136,7 @@
                   1:1문의 작성이 완료되었습니다.
               </div>
               <div class="modal_footer">
-                  <Button txt="확인" @click="modal.close(this);" />
+                  <Button class="btn_big confirm" txt="확인" @click="modal.close(this);" />
               </div>
           </div>
           <div class="overlay" @click="modal.close(this);"></div>
@@ -446,7 +446,7 @@ section {
     }
     .modal_footer {
       padding:0;
-      button.btn_ {
+      button.btn_big {
         width:100%;
         padding:30px !important;
         background: #00BC70;

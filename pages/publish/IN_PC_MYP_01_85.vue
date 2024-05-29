@@ -125,7 +125,7 @@
           </table>
 
           <div class="btn_wrap">
-            <Button txt="등록하기" />
+            <Button txt="등록하기" class="btn_" />
           </div>
 
           <div class="paging">
