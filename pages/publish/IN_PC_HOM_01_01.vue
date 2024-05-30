@@ -95,6 +95,10 @@
             <EventItem :item="item" />
           </swiper-slide>
         </swiper>
+        <div class="navigation">
+          <button class="swiper-button-prev">Prev1</button>
+          <button class="swiper-button-next">Next1</button>
+        </div>
       </div>
     </section>
 
@@ -311,6 +315,10 @@ const swiperOpt = {
     slidesPerView:2,
     spaceBetween: 40,
     loop: true,
+    navigation: {
+      nextEl: '.event .swiper-button-next',
+      prevEl: '.event .swiper-button-prev'
+    },
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
