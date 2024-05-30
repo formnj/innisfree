@@ -24,6 +24,7 @@
                 <li v-for="(name, idx) in sale_menu" :key="idx" class="tab_title">
                     <Button :txt="name" @click="tab_click($event)" />
                 </li>
+                <li class="blur"></li>
             </ul>
             <label for="skin1" class="setFilter_sample">
                     <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
@@ -37,7 +38,25 @@
     <div class="sub_title_wrap">
       <div>
         <h3>{{ item.sub_title }}
-          <Icons class="tooltip" txt="툴팁" @click="modal.open('sample_01', 'alert');" />
+          <Icons class="tooltip" txt="툴팁" @click="modal.open('sample_01', 'layer tooltip');" />
+            <!-- tooltip modal -->
+          <div class="modal_wrap" id="sample_01">
+            <div class="modal_container">
+                <div class="modal_header">
+                    <h2>프로모션 제품 구매시 유의사항</h2>
+                    <button class="btn_close" @click="modal.close(this);">닫기</button>
+                </div>
+                <div class="modal_content">
+                  <div>
+                      <p>동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능</p>
+                      <p>기간 : 4/14(일) - 5/1(수) 23:59:00까지</p>
+                      <p>(행사제외 - 블루베리 클렌징 워터)</p>
+                  </div>
+                </div>
+            </div>
+            <div class="overlay" @click="modal.close(this);"></div>
+          </div>
+          <!-- //tooltip modal -->
         </h3>
         <p class="explain">{{item.desc}}</p>
       </div>
@@ -86,31 +105,12 @@
       <div class="list_wrap">
         <ul class="goods_list">
           <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
-            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" :useGiveaway="true" />
+            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="alert" :useGiveaway="true" />
           </li>
         </ul>
       </div>
     </div>
   </section>
-
-  <!-- tooltip modal -->
-  <div class="modal_wrap" id="sample_01">
-    <div class="modal_container">
-        <div class="modal_header">
-            <h2>프로모션 제품 구매시 유의사항</h2>
-            <button class="btn_close" @click="modal.close(this);">닫기</button>
-        </div>
-        <div class="modal_content">
-          <div>
-              <p>동일 제품 및 교차 구매 가능 / 기간 내 최대 10개 구매 가능</p>
-              <p>기간 : 4/14(일) - 5/1(수) 23:59:00까지</p>
-              <p>(행사제외 - 블루베리 클렌징 워터)</p>
-          </div>
-        </div>
-    </div>
-    <div class="overlay" @click="modal.close(this);"></div>
-  </div>
-  <!-- //tooltip modal -->
 
   <!-- 증정품 모달 -->
   <div class="modal_wrap" id="giveaway_01">
@@ -191,13 +191,16 @@ const tab_click = (event)=>{
 
 onMounted(() => {
     window.addEventListener('scroll', () => {
+        const fixed = document.querySelector('.tab_wrap')
         const target = document.querySelector('.tab_wrap > .type_02');
+        const sticky_menu = document.querySelector('.sticky_menu_wrap')
         const y = window.scrollY
-
+        const offtop = document.querySelector('.title_wrap').offsetTop;
+        console.log(offtop)
         if (y >=200) {
             target.style.display="none";
-            document.querySelector('.title_wrap').style.display="none";
-            document.querySelector('.sticky_menu_wrap').style.display="flex";
+            fixed.classList.add('active')
+            sticky_menu.style.display="flex";
 
             /* sticky wrap slide */
             const slider = document.querySelector('.sticky_menu_wrap > ul');
@@ -235,17 +238,22 @@ onMounted(() => {
 
         }
         else {
-            document.querySelector('.title_wrap').style.display="block";
+            fixed.classList.remove('active')
             target.style.display="flex";
-            document.querySelector('.sticky_menu_wrap').style.display="none";
+            sticky_menu.style.display="none";
         }
     })
 
     const header = document.querySelector('header');
     const header_height = header.getBoundingClientRect().height;
     const breadcrumb_height = document.querySelector('.breadcrumb').getBoundingClientRect().height;
-    // console.log('header_height',header_height)
-    // console.log('breadcrumb_height',breadcrumb_height)
+    console.log('header_height',header_height)
+    console.log('breadcrumb_height',breadcrumb_height)
+
+
+
+    let innerwid = document.querySelector('.sticky_menu_wrap > label').clientWidth
+    console.log(innerwid)
 })
 
 
@@ -254,6 +262,14 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.blur {
+  top:0;
+  right:0;
+  width:20px;
+  height:100%;
+  border:1px solid red;
+  position:absolute;
+}
 .timer_wrap {
   margin-bottom:40px;
   display:flex;
@@ -300,15 +316,14 @@ onMounted(() => {
   }
 }
 
+.sub_title_wrap  {
+  z-index:2;
+}
 .inner {
     .tab_wrap {
-        height:100%;
         margin-bottom:40px;
         padding:20px 0;
         background:#fff;
-        position:sticky;
-        top:79px;
-        z-index:2;
         ul {
             display:flex;
             &.type_02 {
@@ -358,6 +373,7 @@ onMounted(() => {
         .sticky_menu_wrap {
             width:100%;
             height:100%;
+            position:relative;
             display:none;
             align-items:center;
             justify-content:space-between;
@@ -371,6 +387,14 @@ onMounted(() => {
                     display: none;
                 }
             }
+
+        }
+        &.active {
+          max-width: 1280px;
+          margin: 0 auto;
+          position:fixed;
+          top:80px;
+          z-index:10;
         }
     }
 
@@ -430,9 +454,14 @@ onMounted(() => {
           margin-bottom:40px;
         }
     }
-    .modal_wrap{
+
+}
+
+.modal_wrap{
       &.layer {
-        .modal_container  {
+        &.tooltip {
+          z-index:2;
+          .modal_container  {
             .modal_header {
               margin-top:20px;
               padding:20px;
@@ -440,8 +469,8 @@ onMounted(() => {
                 h2 {
                     font-size:18px;
                     font-weight:600;
-                }
-            }
+                  }
+              }
             .modal_content {
               padding:20px 20px 30px;
                 > div {
@@ -455,7 +484,9 @@ onMounted(() => {
                      }
                 }
             }
+          }
         }
+
       }
         &[id^="giveaway_"]{
             .modal_container {
@@ -501,7 +532,5 @@ onMounted(() => {
             }
         }
     }
-}
-
 
 </style>
