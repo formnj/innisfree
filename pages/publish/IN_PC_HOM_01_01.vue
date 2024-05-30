@@ -3,10 +3,11 @@
     <!-- visual -->
     <div class="visual">
       <div class="swiper_wrap">
+        <!-- swiper -->
         <swiper
           v-bind="swiperOpt.visual"
-          @swiper="onSwiper"
-          @slideChange="onSlideChange"
+          @swiper="visual_swiper"
+          @slideChange="visual_swiper_change"
         >
           <swiper-slide v-for="(item, idx) in mainSam.visual" :key="idx">
             <a href="#none" class="item">
@@ -37,10 +38,26 @@
             </a>
           </swiper-slide>
         </swiper>
+        <!-- //swiper -->
+
+        <!-- navigation -->
         <div class="navigation">
-          <button class="swiper-button-prev">Prev1</button>
-          <button class="swiper-button-next">Next1</button>
+          <button class="swiper-button-prev">Prev</button>
+          <button class="swiper-button-next">Next</button>
         </div>
+        <!-- //navigation -->
+
+        <!-- pagination -->
+        <div class="custom_pagination">
+          <div class="current">
+            <em class="idx_01"></em>
+            <em class="idx_02"></em>
+          </div>
+          <strong class="total"></strong>
+
+          <Button class="btn_swiper_cont" data="play" />
+        </div>
+        <!-- //pagination -->
       </div>
     </div>
     <!-- //visual -->
@@ -83,13 +100,12 @@
 
     <section class="recommend">
       <h2>
-        <a href="#none">오늘의 추천 제품.</a>
+        <a href="#none">오늘의 추천 제품</a>
       </h2>
 
       <div class="swiper_wrap">
         <swiper class="module_02"
           v-bind="swiperOpt.recommend02"
-          @swiper="onSwiper"
         >
           <swiper-slide v-for="(item, idx) in mainSam.recommend02" :key="idx">
             <EventItem :item="item" />
@@ -171,7 +187,7 @@
     <!-- //혜택 -->
 
     <!-- 랭킹 -->
-    <section>
+    <section class="ranking">
       <h2>
         <a href="#none">랭킹</a>
       </h2>
@@ -187,7 +203,14 @@
           v-bind="swiperOpt.ranking"
         >
           <swiper-slide v-for="(item, idx) in sample_goods" :key="idx">
-            <GoodsItem :item="item" />
+            <div class="list_wrap">
+              <ul class="goods_list">
+                <li v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx">
+                  <span class="ranking">{{idx+1}}</span>
+                  <GoodsItem :item="item" />
+                </li>
+              </ul>
+            </div>
           </swiper-slide>
         </swiper>
         <div class="navigation">
@@ -215,14 +238,51 @@ import 'swiper/scss/pagination'
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, A11y, Autoplay, Scrollbar]);
 
-const onSwiper = (swiper) => {
-  console.log('onswiper : ',swiper.wrapperEl.parentNode)
-  console.log('swiper class : ',swiper.wrapperEl.parentNode.getAttribute('class'));
+/* play & pause */
+const visual_swiper = (swiper) => {
+  // const total = swiper.loopedSlides,
+  const total = swiper.wrapperEl.children.length,
+  current = swiper.realIndex+1,
+  pagination = swiper.wrapperEl.closest('.swiper_wrap').querySelector('.custom_pagination');
+
+  if(total < 10) {
+    pagination.querySelector('.current .idx_01').textContent = '0'+current;
+
+    if((current+1) > total) {
+      pagination.querySelector('.current .idx_02').textContent = '0'+((total - current)+1);
+    } else {
+      pagination.querySelector('.current .idx_02').textContent = '0'+(current+1);
+    }
+
+    pagination.querySelector('strong.total').textContent = '0'+total;
+  }
+
+  /* play & pause button */
+  pagination.querySelector('button').addEventListener('click', ()=>{
+    if(event.currentTarget.getAttribute('data') == 'play'){
+      swiper.autoplay.stop();
+      event.currentTarget.setAttribute('data','pause');
+    } else {
+      swiper.autoplay.start();
+      event.currentTarget.setAttribute('data','play');
+    }
+  });
 }
 
-const navigation = {
-  nextEl: '.swiper-button-next',
-  prevEl: '.swiper-button-prev'
+const visual_swiper_change = (swiper) => {
+  const total = swiper.wrapperEl.children.length,
+  current = swiper.realIndex+1,
+  pagination = swiper.wrapperEl.closest('.swiper_wrap').querySelector('.custom_pagination');
+
+  if(total < 10) {
+    pagination.querySelector('.current .idx_01').textContent = '0'+current;
+
+    if((current+1) > total) {
+      pagination.querySelector('.current .idx_02').textContent = '0'+((total - current)+1);
+    } else {
+      pagination.querySelector('.current .idx_02').textContent = '0'+(current+1);
+    }
+  }
 }
 
 const scrollBar = (swiper) => {
@@ -236,9 +296,9 @@ const swiperOpt = {
     slidesPerGroup: 1,
     spaceBetween: 40,
     loop: true,
-    navigation: navigation,
-    pagination: {
-      type:'fraction'
+    navigation: {
+      nextEl: '.visual .swiper-button-next',
+      prevEl: '.visual .swiper-button-prev'
     },
     autoplay: {
       delay: 3000,
@@ -252,15 +312,18 @@ const swiperOpt = {
     spaceBetween: 40,
     loop: true,
     autoplay: {
-      delay: 300,
+      delay: 3000,
       disableOnInteraction: false,
     },
   },
-  recommend02: {
+  recommend02: { //오늘의 추천 제품
     slidesPerView:3,
     spaceBetween: 40,
     loop: true,
-    navigation: navigation,
+    navigation: {
+      nextEl: '.recommend .swiper-button-next',
+      prevEl: '.recommend .swiper-button-prev'
+    },
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
@@ -281,7 +344,10 @@ const swiperOpt = {
     spaceBetween:22,
     loop: true,
     observer: true,
-    navigation: navigation,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
     scrollbar: {
       draggable: false
     },
@@ -304,14 +370,17 @@ const swiperOpt = {
     slidesOffsetBefore: -20
   },
   ranking: {
-    slidesPerView:5,
+    slidesPerView:1,
     spaceBetween:20,
     loop: true,
-    navigation: navigation,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
+    navigation: {
+      nextEl: '.ranking .swiper-button-next',
+      prevEl: '.ranking .swiper-button-prev'
     },
+    // autoplay: {
+    //   delay: 3000,
+    //   disableOnInteraction: false,
+    // },
     centeredSlides: true,
     observer:true,
   }
@@ -347,6 +416,64 @@ const rankingTabs = [
     margin-top:40px;
     .swiper_wrap {
       width:100%;
+      .swiper {
+        padding-bottom:40px;
+        .swiper-pagination {
+          bottom:0;
+        }
+      }
+      .custom_pagination {
+        position:absolute;
+        right:0;
+        bottom:0;
+        left:0;
+        z-index:1;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        em {
+          font-weight:600;
+          & + em:before {
+            margin:0 3px;
+            content:'/';
+          }
+        }
+        strong {
+          margin:0 10px;
+          color:#888;
+          font-weight:400;
+          display:flex;
+          align-items:center;
+          &:before {
+            height:8px;
+            margin-right:10px;
+            border-left:1px solid rgba(0,0,0,0.2);
+            content:'';
+            display:block;
+          }
+        }
+        button {
+          width:20px;
+          height:20px;
+          margin:0;
+          background-color:transparent;
+          background-image:url('~/assets/images/common/icon_split.png');
+          background-repeat:no-repeat;
+          background-size:250px auto;
+          position:static;
+          display:block;
+          transform:rotate(0);
+          :deep(em) {
+            font-size:0;
+          }
+          &[data="play"] {
+            background-position:-130px -250px;
+          }
+          &[data="pause"] {
+            background-position:-100px -250px;
+          }
+        }
+      }
     }
     :deep(.swiper-slide) {
       width:620px;
@@ -365,8 +492,19 @@ const rankingTabs = [
     }
     .item {
       position:relative;
+      &:hover {
+        .thumb {
+          img {
+            transform:scale(1.2);
+          }
+        }
+        .cont {
+          transform:translateY(-15px);
+        }
+      }
       .thumb {
         position:relative;
+        overflow:hidden;
         display:block;
         &:after {
           padding-top:36.774193%;
@@ -380,6 +518,7 @@ const rankingTabs = [
         }
         img {
           display:block;
+          transition:transform 0.45s;
         }
       }
       .tag-card {
@@ -415,6 +554,7 @@ const rankingTabs = [
         bottom:40px;
         left:40px;
         z-index:1;
+        transition:transform 0.45s;
         .name {
           & > * {
             margin-top:5px;
@@ -565,6 +705,13 @@ const rankingTabs = [
             .thumb {
               height:auto;
               padding-top:132.786885%;
+              em {
+                position:absolute;
+                top:0;
+                right:0;
+                bottom:0;
+                left:0;
+              }
             }
             & + a {
               flex:1;
@@ -662,6 +809,14 @@ const rankingTabs = [
           a, .thumb {
             display:block;
           }
+          .thumb {
+            height:335px;
+            img {
+              width:100%;
+              height:100%;
+              object-fit:cover;
+            }
+          }
           .cont {
             margin-top:30px;
             strong {
@@ -719,6 +874,13 @@ const rankingTabs = [
               }
             }
           }
+          .goods_item {
+            :deep(.price) {
+              em {
+                display:block;
+              }
+            }
+          }
         }
       }
     }
@@ -754,6 +916,9 @@ const rankingTabs = [
     width:1280px;
     margin:0 auto;
     position:relative;
+    .goods_item {
+      width:100%;
+    }
   }
   .navigation {
     margin:0 -740px;
@@ -796,6 +961,19 @@ const rankingTabs = [
       position:absolute;
       top:0;
       right:0;
+    }
+  }
+
+  .ranking {
+    .list_wrap {
+      .goods_list {
+        display:flex;
+        flex-wrap:wrap;
+        & > li {
+          width:240px;
+          // padding-left:20px;
+        }
+      }
     }
   }
 </style>
