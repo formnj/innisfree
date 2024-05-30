@@ -7,6 +7,7 @@
       </swiper-slide>
       <div v-if="isMo" class="custom_pagination"></div>
     </swiper>
+    <span class="badge">대용량</span>
   </div>
 
   <div v-if="thumbYN" class="thumb_swiper">
@@ -52,7 +53,7 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  isMo: {
+  isMo: { //모바일 여부
     type: Boolean,
     default: false
   }
@@ -79,41 +80,59 @@ const setThumbsSwiper = (swiper) => {
 </script>
 
 <style lang="scss" scoped>
-:deep(.swiper-container) {
+.prod_swiper {
   position: relative;
 
-  .swiper-slide {
-    img {
-      vertical-align: top;
-    }
-  }
-
-  .custom_pagination {
-    width: 70px;
+  .badge {
+    padding: 0 14px;
     height: 30px;
     color: #fff;
     font-size: 12px;
     font-weight: 600;
-    background: rgba(0, 0, 0, 0.3);
-    justify-content: center;
-    align-items: center;
+    line-height: 30px;
+    background: rgba(0, 0, 0, 0.6);
     position: absolute;
-    left: unset;
-    right: 0;
     bottom: 0;
+    left: 0;
     z-index: 2;
-    display: flex;
+  }
 
-    .pagination_total {
-      opacity: .5;
+  :deep(.swiper) {
+    position: relative;
 
-      &::before {
-        content: '';
-        width: 0.1rem;
-        height: 0.8rem;
-        margin: 0 0.8rem;
-        background-color: rgba(255, 255, 255, 0.2);
-        display: inline-flex;
+    .swiper-slide {
+      img {
+        vertical-align: top;
+      }
+    }
+
+    .custom_pagination {
+      width: 70px;
+      height: 30px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(0, 0, 0, 0.3);
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: unset;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      display: flex;
+
+      .pagination-total {
+        opacity: .5;
+
+        &::before {
+          content: '';
+          width: 0.1rem;
+          height: 0.8rem;
+          margin: 0 0.8rem;
+          background-color: rgba(255, 255, 255, 0.2);
+          display: inline-flex;
+        }
       }
     }
   }

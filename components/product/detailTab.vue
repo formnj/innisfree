@@ -18,12 +18,10 @@ onMounted(() => {
 
     if(!props.isMo) { gnbH = document.getElementsByClassName('gnb_wrap')[0].offsetHeight; }
 
-    if(!props.isMo ?  contTop = document.getElementsByClassName('tab_contents')[0].getBoundingClientRect().y - gnbH - target.offsetHeight : contTop = document.getElementsByClassName('tab_contents')[0].getBoundingClientRect().y - target.offsetHeight );
+    if(!props.isMo ? contTop = document.getElementsByClassName('tab_contents')[0].getBoundingClientRect().y - gnbH - target.offsetHeight : contTop = document.getElementsByClassName('tab_contents')[0].getBoundingClientRect().y - target.offsetHeight );
     if (contTop < 0) {
       if (!target.classList.contains('sticky')) {
         target.classList.add('sticky');
-
-        document.querySelector('.prod_detail_cont .tab_contents').style.marginTop = '60px';
 
         let top;
         if(!props.isMo ? top = "top:" + gnbH + "px;" : top = "top:0");
@@ -33,8 +31,6 @@ onMounted(() => {
     else if (contTop > 0) {
       target.classList.remove('sticky');
       target.style.cssText = "";
-
-      document.querySelector('.prod_detail_cont .tab_contents').style.marginTop = '0';
     }
   })
 })
@@ -75,11 +71,15 @@ const tabContShow = (e) => {
     background-color: #fff;
     position: fixed;
     left: 0;
-    z-index: 9;
+    z-index: 10;
 
     ul {
       width: 1280px;
       margin: 0 auto;
+    }
+
+    & + :deep(.tab_contents) {
+      margin-top: 60px;
     }
   }
 }

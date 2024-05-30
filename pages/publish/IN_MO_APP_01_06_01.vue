@@ -131,7 +131,8 @@
     <div class="modal_container">
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
-        <span>장바구니 담기가 완료 되었습니다.</span>
+        <p class="tit">알림</p>
+        <p class="txt">장바구니 담기가 완료 되었습니다.</p>
       </div>
       <div class="modal_footer">
         <Button class="btn_big" txt="화면유지하기" />
@@ -147,7 +148,8 @@
     <div class="modal_container">
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
-        <span>선택한 샘플이 없습니다.<br>샘플을 선택해주세요.</span>
+        <p class="tit">알림</p>
+        <p class="txt">선택한 샘플이 없습니다.<br>샘플을 선택해주세요.</p>
       </div>
       <div class="modal_footer">
         <Button class="btn_big confirm" txt="확인" />
@@ -162,8 +164,8 @@
     <div class="modal_container">
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
-        <p>샘플신청안내</p>
-        <span>보유 샘플을 모두 사용하지 않았습니다.<br>이대로 신청하시겠습니까?</span>
+        <p class="tit">샘플신청안내</p>
+        <p class="txt">보유 샘플을 모두 사용하지 않았습니다.<br>이대로 신청하시겠습니까?</p>
       </div>
       <div class="modal_footer">
         <Button class="btn_big" txt="샘플더담기" />
@@ -179,7 +181,8 @@
     <div class="modal_container">
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
-        <span>해당 샘플은 <strong>최대 9개</strong>까지만 신청 가능합니다.</span>
+        <p class="tit">알림</p>
+        <p class="txt">해당 샘플은 <strong>최대 9개</strong>까지만 신청 가능합니다.</p>
       </div>
       <div class="modal_footer">
         <Button class="btn_big confirm" txt="확인" />
@@ -194,7 +197,8 @@
     <div class="modal_container">
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
-        <span>보유 샘플포인트가 부족합니다.</span>
+        <p class="tit">알림</p>
+        <p class="txt">보유 샘플포인트가 부족합니다.</p>
       </div>
       <div class="modal_footer">
         <Button class="btn_big confirm" txt="확인" />
@@ -550,32 +554,24 @@ section {
     padding: 3rem 2rem;
 
     .tit {
-      font-size: 1.8rem;
+      font-size: 18px;
       font-weight: 600;
-      color: #000;
-      line-height: 2.4rem;
+      line-height: 24px;
 
-      &+p,
-      span {
-        margin-top: 1rem;
-        margin-bottom: 2.5rem;
-        padding-bottom: 2.5rem;
-        font-size: 1.3rem;
-        font-weight: 400;
-        color: #666;
-        line-height: 2rem;
-        border-bottom: 1px solid #eee;
-      }
-
-      &+ span {
-        margin-top: 1rem;
-        display: inline-block;
+      & + .txt {
+        margin-top: 10px;
       }
     }
 
-    em {
-      color: #00BC70;
-      font-weight: 600;
+    .txt {
+      font-size: 13px;
+      color: #666;
+      display: block;
+
+      em {
+        color: #00BC70;
+        font-weight: bold;
+      }
     }
 
     .point_info {

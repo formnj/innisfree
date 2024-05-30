@@ -1213,12 +1213,13 @@ export const prodImgData = [
 export const prodInfo = {
   topText: '2개이상 구매시 50%',
   name: '라이트 피팅 컨실러 [다크서클 커버] 7g',
-  price: '9,100', sale: '~50%', cost: '13,000',
+  price: '9,100원', sale: '~50%', cost: '13,000원',
   sticker: [
     { txt: '증정', type: 'type02' },
   ],
   rate: 4.6,
-  cntReview: 145,
+  cntReview: '999+',
+  cntPost: '999+',
   summaryReview: '이 제품을 구매하신 고객 분들은 다크서클과 잡티 커버, 자연스러운 색상, 그리고 사용 편의성이 좋다고 하셨어요!',
 }
 

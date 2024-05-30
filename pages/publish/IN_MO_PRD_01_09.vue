@@ -1,18 +1,21 @@
 <template>
   <div class="prod_swiper_wrap">
-    <ProductDetailSwiper :thumbYN="false" :pagiYN="true" :isMo="true" />
-    <div class="swiper-notify"><strong>7명의 고객님</strong> 동시에 확인중 <button type="button" class="btn_close">닫기</button>
+    <ProductDetailSwiper :thumbYN="false" :pagiYN="true" :isMo="true" />  <!-- 제품 이미지 -->
+    <div class="swiper_notify"><em>7명의 고객님</em> 동시에 확인중 <button type="button" class="btn_close">닫기</button>
+    <!-- <div class="swiper_notify"><em class="type02">품절임박!</em> 재고가 얼마 남지 않았으니 서두르세요! <button type="button" class="btn_close">닫기</button> -->
     </div>
   </div>
 
   <div class="prod_detail_info">
-    <ProductDetailInfo :isMo="true" />
+    <ProductDetailInfo :isMo="true" />  <!-- 제품 정보/리뷰수 -->
   </div>
+
+  <ProductMyPrice />  <!-- 제품 혜택가 -->
 
   <section>
     <div class="list_wrap">
-      <productDetailBenefit />
-      <!-- 결제/카드/혜택, 이벤트 -->
+      <productDetailBenefit />  <!-- 증정혜택 -->
+      <!-- 결제 혜택, 관련 이벤트 -->
       <dl class="benefit_list txt">
         <dt>결제/카드 헤택</dt>
         <dd>
@@ -33,15 +36,15 @@
           </ul>
         </dd>
       </dl>
+      <!-- //결제 혜택, 관련 이벤트 -->
     </div>
-    <!-- <p class="text_notify">증정품의 한정수량 소진 시 조기 품절될 수 있습니다.</p> -->
   </section>
 
   <!-- 상세 탭 / 컨텐츠 -->
   <div class="prod_detail">
-    <productDetailTab :isMo="true" /> <!-- 상세 탭 -->
+    <productDetailTab :isMo="true" /> <!-- 상세정보 탭 -->
 
-    <div class="tab_contents"> <!-- 상세 탭 컨텐츠 -->
+    <div class="tab_contents"> <!-- 탭 컨텐츠 -->
       <!-- 상세 정보 -->
       <div class="tab_cont" style="display: block;">
 
@@ -76,7 +79,6 @@
 
           <ProductDetailOnepoint /><!-- 원포인트 -->
         </section>
-
 
       </div>
       <!-- //상세 정보 -->
@@ -278,15 +280,120 @@
       </div>
       <!-- //유의사항 -->
     </div>
+
+    <section class="no_r_pd">
+      <div class="sub_title_wrap">
+        <div>
+          <h4>함께 진행하는 기획전 제품</h4>
+          <button type="button" @click="modal.open('alert_prod_alert','alert tooltip')">유의사항</button>
+        </div>
+        <p class="explain">탄탄쫀쫀 콜라겐 꿀 조합 할인 혜택</p>
+      </div>
+
+      <div class="swiper_wrap">
+        <swiper
+          :slides-per-view="'auto'"
+        >
+          <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
+            <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
+          </swiper-slide>
+        </swiper>
+      </div>
+    </section>
+
+    <section class="no_r_pd">
+      <div class="sub_title_wrap">
+        <div>
+          <h4>이 제품과 같은 라인</h4>
+          <a href="#none" class="btn_link_arrw"><strong>브라이트닝 포어</strong> 라인</a>
+        </div>
+      </div>
+
+      <div class="swiper_wrap">
+        <swiper
+          :slides-per-view="'auto'"
+        >
+          <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
+            <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
+          </swiper-slide>
+        </swiper>
+      </div>
+    </section>
+
+    <section class="no_r_pd">
+      <div class="sub_title_wrap">
+        <div>
+          <h4>이 제품의 카테고리 BEST</h4>
+        </div>
+      </div>
+
+      <div class="swiper_wrap goods_list">
+        <swiper
+          :slides-per-view="'auto'"
+        >
+          <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
+            <span class="ranking" v-if="idx < 9">{{ '0'+(idx+1) }}</span>
+            <span class="ranking" v-else>{{ idx+1 }}</span>
+            <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
+          </swiper-slide>
+        </swiper>
+      </div>
+    </section>
+
+    <section class="no_r_pd">
+      <div class="sub_title_wrap">
+        <div>
+          <h4>이 제품을 본 분들의 관심 제품</h4>
+        </div>
+      </div>
+      <div class="swiper_wrap">
+        <swiper
+          :slides-per-view="'auto'"
+        >
+          <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
+            <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
+          </swiper-slide>
+        </swiper>
+      </div>
+    </section>
   </div>
 
   <ProductQnaModal /> <!-- 문의 모달(제품문의 작성) -->
   <ProductReviewPhotoAllModal />  <!-- 포토리뷰 모아보기 모달-->
   <ProductReviewModal :isMo="true" /> <!-- 리뷰보기 모달 -->
+
+
+  <div id="alert_prod_alert" class="modal_wrap">
+    <div class="modal_container">
+        <div class="modal_content">
+          <button class="btn_close" @click="modal.close(this);">닫기</button>
+          <h2>기획전 제품 구매 시 유의사항</h2>
+          <p class="txt">납작아이브로우 / 컨실러 2개이상 구매시 40%<br>동일 제품 및 교차 구매 가능 / 기간 내 최대 10 구매 가능<br>기간 : 4/14(일) - 5/1(수) 23:59:00까지</p>
+        </div>
+        <div class="modal_footer">
+            <Button class="btn_big confirm" txt="확인" />
+        </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
 </template>
 <script setup>
 import { modal } from '~/assets/js/common-ui'
-import { sample_review } from '~/test/data/publish/dummyData'
+import { sample_review, sample_goods } from '~/test/data/publish/dummyData'
+// import Swiper core and required components
+import SwiperCore from "swiper";
+import { Navigation, Pagination, A11y } from "swiper/modules";
+
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
+
+// install Swiper components
+SwiperCore.use([Navigation, Pagination, A11y]);
 
 definePageMeta({
   layout:'mo-product'
@@ -296,30 +403,36 @@ definePageMeta({
 .prod_swiper_wrap {
   position: relative;
 
-  .swiper-notify {
+  .swiper_notify {
     height: 3rem;
     padding: 0 1rem;
     font-size: 1.3rem;
-    font-weight: 400;
     color: #fff;
     background-color: #000;
     align-items: center;
     bottom: 0;
     right: 7rem;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     display: inline-flex;
 
-    strong {
+    em {
       color: #00BC70;
+      padding-right: .4rem;
+      font-weight: 600;
+
+      &.type02 {
+        color: #FFFF82;
+      }
     }
 
     .btn_close {
       width: 1.6rem;
       height: 1.6rem;
-      margin-left: .1rem;
+      margin-left: 1rem;
       font-size: 0;
       background: url('/assets/mo_images/common/icon_split.png') -10.5rem -7rem / 25rem auto no-repeat;
+      display: inline-block;
     }
   }
 }
@@ -327,6 +440,46 @@ definePageMeta({
 section {
   padding: 3rem 2.1rem;
   border-top: 0.5rem solid #F5F5F5;
+
+  & + .acco_wrap + section  {
+    border-top: 0;
+  }
+
+  &.no_r_pd {
+    padding-right: 0;
+
+    .sub_title_wrap {
+      padding-right: 2.1rem;
+    }
+  }
+
+  .sub_title_wrap {
+    display: block;
+    margin: 0 0 2rem;
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+
+      h4 {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      button {
+        color: #000;
+        text-decoration: underline;
+      }
+    }
+
+    .explain {
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.prod_detail {
+  border-top: .5rem solid #f5f5f5;
 }
 
 .prod_detail_info {
@@ -342,18 +495,39 @@ section {
 
     .name {
       font-size: 1.8rem;
+      line-height: 2.4rem;
+
+      .top_text {
+        line-height: 1.6rem;
+      }
+
+      & + .info_box {
+        margin: 1rem 0;
+      }
     }
 
     .review_summary {
       margin-bottom: 0;
+
+      & + .info_box {
+        margin: 2rem 0 0;
+        padding-top: 2rem;
+        border-top: 1px solid #eee;
+
+        .price {
+          font-size: 2rem;
+          line-height: 2.4rem;
+
+          .cost {
+            font-size: 1.6rem;
+          }
+        }
+      }
     }
   }
 }
 
 :deep(.benefit_list) {
-  border-top: 0;
-  padding: 0;
-
   &.gift {
     padding: 0;
     border-top: 0;
@@ -637,5 +811,36 @@ button.tooltip {
   background: url('~/assets/images/common/icon_split.png') 0 -26rem / 25rem auto no-repeat;
   vertical-align: middle;
   display: inline-block;
+}
+
+.modal_wrap.alert {
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+
+    & + .txt {
+      margin-top: 10px;
+    }
+  }
+}
+
+.swiper_wrap{
+  .item {
+    width: 10.9rem;
+
+    &+.item {
+      margin-left: .3rem;
+    }
+
+    :deep(.goods_item) {
+      position: relative;
+      width: 10.9rem;
+
+      .review_score {
+        display: none;
+      }
+    }
+  }
 }
 </style>
