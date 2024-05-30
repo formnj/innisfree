@@ -120,8 +120,8 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','랭킹(T)','',''],
-        id:'IN_PC_HOM_01_07', status:'',
-        type:'', note:'',
+        id:'IN_PC_HOM_01_07', status:'com',
+        type:'', note:'layout : pc-default',
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','','상세',''],
