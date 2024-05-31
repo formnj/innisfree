@@ -101,7 +101,7 @@ const PC_arry = ([
     }, {
         depth:['홈','','',''],
         id:'IN_PC_HOM_01_01', status:'com',
-        type:'', note:'',
+        type:'', note:'swiper play/pause 기능, pagination : scrollbar',
         sDate:'', eDate:'2024-04-22/2024-04-22' , worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
@@ -120,8 +120,8 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','랭킹(T)','',''],
-        id:'IN_PC_HOM_01_07', status:'',
-        type:'', note:'',
+        id:'IN_PC_HOM_01_07', status:'com',
+        type:'', note:'layout : pc-default',
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','','상세',''],
@@ -635,7 +635,7 @@ const MO_arry = ([
     }, {
         depth:['','','상세',''],
         id:'IN_MO_HOM_01_09', status:'com',
-        type:'', note:'05-17 디자인 반영 완료',
+        type:'', note:'05-17 디자인 반영 완료<br/> 꽉찬 스와이퍼 관련 수정 <!-- Edit 24.05.30',
         sDate:'', eDate:'2024-05-03/2024-04-26', worker:'김나람'
     }, {
         depth:['','','에디터별 보기',''],

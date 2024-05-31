@@ -862,7 +862,7 @@ const input_change_cont = (event) => {
       display:none;
       span {
         &::after {
-          background-position:-5px -328px;
+          background-position:-0.5rem -32.8rem;
         }
       }
       &.active {
@@ -876,7 +876,7 @@ const input_change_cont = (event) => {
       }
       span {
           &::after {
-          background-position:-5px -328px;
+          background-position:-0.5rem -32.8rem;
           transform:rotate(180deg);
           }
         }

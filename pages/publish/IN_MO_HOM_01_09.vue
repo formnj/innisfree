@@ -30,11 +30,11 @@
 
   <!-- 에디터 PICK -->
   <section>
-    <div class="inner no_r_pd">
+    <div class="inner">
       <h2>
         <span>에디터 PICK</span>
       </h2>
-      <div class="swiper_wrap horizontal">
+      <div class="swiper_wrap full horizontal"><!-- Edit 24.05.30 JH : 꽉찬 스와이퍼 class="swiper_wrap full" -->
         <swiper :slides-per-view="'auto'" :space-between="3">
           <swiper-slide v-for="(item, idx) in sample_goods" :key="idx" class="goods_slide">
             <GoodsItem :item="item" :link="item.link" class="type_cart" :useHash="true" />
@@ -383,5 +383,14 @@ section {
 
 .modal_reply_menu {
   z-index: 16;
+}
+
+.swiper_wrap.full {
+  .swiper {
+    margin-right:-2.1rem;
+    margin-left:-2.1rem;
+    padding-right:2.1rem;
+    padding-left:2.1rem;
+  }
 }
 </style>
