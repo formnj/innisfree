@@ -26,9 +26,7 @@
                 아모레퍼시픽 뷰티포인트 상담실(080-023-5454/오전 9시 - 6시, 단, 12시 - 1시 점심시간 제외)로 문의부탁드립니다.
                 소중한 시간 내어 문의 주신 점 감사 드립니다.
                 행복한 하루 보내세요.
-                <button class="btn_outline" @click="modal.open('delete_modal', 'alert')">
-                  문의취소
-                </button>
+                <Button class="btn_outline btn_sm" txt="문의취소" @click="modal.open('delete_modal', 'alert')" />
               </div>
             </dd>
             <dt>
@@ -70,7 +68,7 @@
                   <div>해당 상담내역을 삭제 하시겠습니까?</div>
               </div>
               <div class="modal_footer">
-                  <Button class="btn_ confirm" txt="확인" @click="modal.close(this);"/>
+                  <Button class="btn_big confirm" txt="확인" @click="modal.close(this);"/>
               </div>
           </div>
           <div class="overlay" @click="modal.close(this);"></div>
@@ -254,18 +252,18 @@ accordion('.board_type_toggle', 'click')
         line-height: 1.6rem;
         display: block;
       }
-      button {
-        &[class*=btn_][class*=_outline]{
+      .btn_sm {
           width:5.3rem;
-          height:2.5rem;
           margin-left:auto;
           color:#999;
           font-size:1rem;
           border:0.1rem solid #999;
           border-radius:1px;
           display:block;
+          em {
+            padding:0 5px;
+          }
         }
-      }
     }
   }
 }

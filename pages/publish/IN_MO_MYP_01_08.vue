@@ -446,12 +446,12 @@ button {
             color: #000;
         }
         > em {
-            width:16px;
-            height:16px;
+            width:1.6rem;
+            height:1.6rem;
             background-image: url('~/assets/mo_images/common/icon_split.png');
             background-repeat:no-repeat;
             background-size:25rem;
-            background-position:-19.5rem -13.5rem
+            background-position:-19.6rem -13.5rem
         }
     }
 }

@@ -7,7 +7,7 @@
     <div class="inner">
       <div class="download">
         <h4>모바일 APP으로<br>더 간편하게! 더 특별하게!</h4>
-        <Button txt="APP 다운로드" />
+        <Button class="btn_big" txt="APP 다운로드" />
         <ul>
           <li>나에게 맞는 세일/혜택 소식들을 PUSH로 가장 먼저!</li>
           <li>매장에서 구매한 영수증도 APP에서 간편 확인</li>
@@ -61,7 +61,6 @@ onMounted(() => {
     }
     :deep(button) {
       width:100%;
-      height:6rem;
       margin:2rem 2.1rem 0;
       font-family:inherit;
       background:#00BC70;

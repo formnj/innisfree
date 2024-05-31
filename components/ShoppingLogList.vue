@@ -39,7 +39,7 @@
         </div>
       </li>
       <!-- //검색어 -->
-      <li v-for="(item, idx) in sample_log" :key="idx">
+      <li v-for="(item, idx) in sample_log.slice(0,limit)" :key="idx">
         <GoodsItem v-if="item.type == 'goods'" :item="item.item[0]" :link="item.item.link" class="type_column" />
         <EventItem v-if="item.type == 'event'" :item="item.item[0]" :link="item.link" class="type_column" />
       </li>
@@ -50,6 +50,9 @@
 
 <script setup>
 import { sample_log } from '~/test/data/publish/dummyData'
+const props = defineProps({
+    limit: Number,
+})
 </script>
 
 <style lang="scss" scoped>
@@ -229,32 +232,34 @@ section + section {
     }
 
     :deep(.event_item) {
-      .item {
-        gap: 20px;
-      }
-
-      .thumb {
-        height: 60px;
-      }
-
-      .cont {
-        strong {
-          font-size: 14px;
-          font-weight: 400;
-          white-space: normal;
-          word-break: break-all;
-          word-wrap: break-word;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
+      &.type_column{
+        .item {
+          gap: 20px;
         }
-      }
 
-      &:hover {
-        img {
-          transform: none;
+        .thumb {
+          height: 60px;
+        }
+
+        .cont {
+          strong {
+            font-size: 14px;
+            font-weight: 400;
+            white-space: normal;
+            word-break: break-all;
+            word-wrap: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+        }
+
+        &:hover {
+          img {
+            transform: none;
+          }
         }
       }
     }

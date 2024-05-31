@@ -354,7 +354,7 @@ onMounted(()=>{
         }
       }
       > :deep( button.btn_) {
-        height:60px;
+        height:50px;
         em {
           font-size:16px;
         }

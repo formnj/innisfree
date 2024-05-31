@@ -3,10 +3,11 @@
     <!-- visual -->
     <div class="visual">
       <div class="swiper_wrap">
+        <!-- swiper -->
         <swiper
           v-bind="swiperOpt.visual"
-          @swiper="onSwiper"
-          @slideChange="onSlideChange"
+          @swiper="visual_swiper"
+          @slideChange="visual_swiper_change"
         >
           <swiper-slide v-for="(item, idx) in mainSam.visual" :key="idx">
             <a href="#none" class="item">
@@ -37,6 +38,26 @@
             </a>
           </swiper-slide>
         </swiper>
+        <!-- //swiper -->
+
+        <!-- navigation -->
+        <div class="navigation">
+          <button class="swiper-button-prev">Prev</button>
+          <button class="swiper-button-next">Next</button>
+        </div>
+        <!-- //navigation -->
+
+        <!-- pagination -->
+        <div class="custom_pagination">
+          <div class="current">
+            <em class="idx_01"></em>
+            <em class="idx_02"></em>
+          </div>
+          <strong class="total"></strong>
+
+          <Button class="btn_swiper_cont" data="play" />
+        </div>
+        <!-- //pagination -->
       </div>
     </div>
     <!-- //visual -->
@@ -74,6 +95,10 @@
             <EventItem :item="item" :type="item.type" />
           </swiper-slide>
         </swiper>
+        <div class="navigation">
+          <button class="swiper-button-prev">Prev1</button>
+          <button class="swiper-button-next">Next1</button>
+        </div>
       </div>
     </section>
 
@@ -91,6 +116,10 @@
             <GoodsItem :item="item.goods" :link="item.link" />
           </swiper-slide>
         </swiper>
+        <div class="navigation">
+          <button class="swiper-button-prev">Prev1</button>
+          <button class="swiper-button-next">Next1</button>
+        </div>
       </div>
     </section>
 
@@ -112,12 +141,14 @@
             v-bind="swiperOpt.recommend03"
             @slideChange="scrollBar"
           >
-            <swiper-slide v-for="(item, idx) in sample_goods.slice(3,8)" :key="idx" v-slot="{ isActive }">
-              {{isActive ? 'active'+idx : 'not active'}}
+            <swiper-slide v-for="(item, idx) in sample_goods.slice(3,8)" :key="idx">
               <a href="#none" class="item">
                 <GoodsItem :item="item" :link="item.link" />
               </a>
             </swiper-slide>
+            <div class="swiper-scrollbar-wrap">
+              <p class="scrollbar">scroll bar</p>
+            </div>
           </swiper>
         </div>
       </div>
@@ -137,6 +168,10 @@
             <GoodsItem :item="item" />
           </swiper-slide>
         </swiper>
+        <div class="navigation">
+          <button class="swiper-button-prev">Prev1</button>
+          <button class="swiper-button-next">Next1</button>
+        </div>
       </div>
     </section>
     <!-- //이 제품 어때요 -->
@@ -156,13 +191,13 @@
     <!-- //혜택 -->
 
     <!-- 랭킹 -->
-    <section>
+    <section class="ranking">
       <h2>
         <a href="#none">랭킹</a>
       </h2>
       <div class="inner">
         <div class="update_wrap">
-          <Tabs tabType="type_txt" :item="rankingTabs"  :tabidx="0" />
+          <Tabs tabType="type_txt" :item="rankingTabs" :tabidx="0" />
           <span class="date">03:00 기준</span>
         </div>
       </div>
@@ -172,9 +207,20 @@
           v-bind="swiperOpt.ranking"
         >
           <swiper-slide v-for="(item, idx) in sample_goods" :key="idx">
-            <GoodsItem :item="item" />
+            <div class="list_wrap">
+              <ul class="goods_list">
+                <li v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx">
+                  <span class="ranking">{{idx+1}}</span>
+                  <GoodsItem :item="item" />
+                </li>
+              </ul>
+            </div>
           </swiper-slide>
         </swiper>
+        <div class="navigation">
+          <button class="swiper-button-prev">Prev1</button>
+          <button class="swiper-button-next">Next1</button>
+        </div>
       </div>
     </section>
     <!-- //랭킹 -->
@@ -196,20 +242,72 @@ import 'swiper/scss/pagination'
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, A11y, Autoplay, Scrollbar]);
 
+/* play & pause */
+const visual_swiper = (swiper) => {
+  // const total = swiper.loopedSlides,
+  const total = swiper.wrapperEl.children.length,
+  current = swiper.realIndex+1,
+  pagination = swiper.wrapperEl.closest('.swiper_wrap').querySelector('.custom_pagination');
+
+  if(total < 10) {
+    pagination.querySelector('.current .idx_01').textContent = '0'+current;
+
+    if((current+1) > total) {
+      pagination.querySelector('.current .idx_02').textContent = '0'+((total - current)+1);
+    } else {
+      pagination.querySelector('.current .idx_02').textContent = '0'+(current+1);
+    }
+
+    pagination.querySelector('strong.total').textContent = '0'+total;
+  }
+
+  /* play & pause button */
+  pagination.querySelector('button').addEventListener('click', ()=>{
+    if(event.currentTarget.getAttribute('data') == 'play'){
+      swiper.autoplay.stop();
+      event.currentTarget.setAttribute('data','pause');
+    } else {
+      swiper.autoplay.start();
+      event.currentTarget.setAttribute('data','play');
+    }
+  });
+}
+
+const visual_swiper_change = (swiper) => {
+  const total = swiper.wrapperEl.children.length,
+  current = swiper.realIndex+1,
+  pagination = swiper.wrapperEl.closest('.swiper_wrap').querySelector('.custom_pagination');
+
+  if(total < 10) {
+    pagination.querySelector('.current .idx_01').textContent = '0'+current;
+
+    if((current+1) > total) {
+      pagination.querySelector('.current .idx_02').textContent = '0'+((total - current)+1);
+    } else {
+      pagination.querySelector('.current .idx_02').textContent = '0'+(current+1);
+    }
+  }
+}
+
+const scrollBar = (swiper) => {
+  swiper.wrapperEl.parentNode.querySelector('.scrollbar').style.width = ((swiper.realIndex + 1)/swiper.wrapperEl.children.length) * 100+'%'
+};
+
 /* swiper options */
 const swiperOpt = {
   visual:  {
     slidesPerView: "auto",
-    slidesPerGroup: 2,
+    slidesPerGroup: 1,
     spaceBetween: 40,
     loop: true,
-    pagination: {
-      type:'fraction'
+    navigation: {
+      nextEl: '.visual .swiper-button-next',
+      prevEl: '.visual .swiper-button-prev'
     },
-    // autoplay: {
-    //   delay: 300,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
     centeredSlides: true,
     slidesOffsetBefore: -330
   },
@@ -217,63 +315,78 @@ const swiperOpt = {
     slidesPerView:2,
     spaceBetween: 40,
     loop: true,
-    // autoplay: {
-    //   delay: 3000,
-    //   disableOnInteraction: false,
-    // },
+    navigation: {
+      nextEl: '.event .swiper-button-next',
+      prevEl: '.event .swiper-button-prev'
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
   },
-  recommend02: {
+  recommend02: { //오늘의 추천 제품
     slidesPerView:3,
     spaceBetween: 40,
     loop: true,
-    // autoplay: {
-    //   delay: 300,
-    //   disableOnInteraction: false,
-    // },
+    navigation: {
+      nextEl: '.recommend .swiper-button-next',
+      prevEl: '.recommend .swiper-button-prev'
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    }
   },
   recommend03: {
     slidesPerView:3,
     spaceBetween:22,
     loop: true,
     observer: true,
-    scrollbar: {
-      draggable: false
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
     },
-    // autoplay: {
-    //   delay: 300,
-    //   disableOnInteraction: false,
-    // },
   },
   recommend04: {
     slidesPerView:6,
     spaceBetween:22,
     loop: true,
     observer: true,
-    Navigation,
-    // autoplay: {
-    //   delay: 300,
-    //   disableOnInteraction: false,
-    // },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    scrollbar: {
+      draggable: false
+    },
+    autoplay: {
+      delay: 300,
+      disableOnInteraction: false,
+    },
   },
   benefit: {
     slidesPerView: "auto",
     slidesPerGroup: 1,
     spaceBetween: 40,
     loop: true,
-    // autoplay: {
-    //   delay: 300,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 300,
+      disableOnInteraction: false,
+    },
     centeredSlides: true,
     observer:true,
     slidesOffsetBefore: -20
   },
   ranking: {
-    slidesPerView:5,
+    slidesPerView:1,
     spaceBetween:20,
     loop: true,
+    navigation: {
+      nextEl: '.ranking .swiper-button-next',
+      prevEl: '.ranking .swiper-button-prev'
+    },
     // autoplay: {
-    //   delay: 300,
+    //   delay: 3000,
     //   disableOnInteraction: false,
     // },
     centeredSlides: true,
@@ -281,11 +394,6 @@ const swiperOpt = {
   }
 }
 /* //swiper options */
-
-const scrollBar = () => {
-  const isActive = ref(false);
-  console.log('slide change');
-};
 
 import {
   sampleSlide,
@@ -314,6 +422,67 @@ const rankingTabs = [
   }
   .visual {
     margin-top:40px;
+    .swiper_wrap {
+      width:100%;
+      .swiper {
+        padding-bottom:40px;
+        .swiper-pagination {
+          bottom:0;
+        }
+      }
+      .custom_pagination {
+        position:absolute;
+        right:0;
+        bottom:0;
+        left:0;
+        z-index:1;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        em {
+          font-weight:600;
+          & + em:before {
+            margin:0 3px;
+            content:'/';
+          }
+        }
+        strong {
+          margin:0 10px;
+          color:#888;
+          font-weight:400;
+          display:flex;
+          align-items:center;
+          &:before {
+            height:8px;
+            margin-right:10px;
+            border-left:1px solid rgba(0,0,0,0.2);
+            content:'';
+            display:block;
+          }
+        }
+        button {
+          width:20px;
+          height:20px;
+          margin:0;
+          background-color:transparent;
+          background-image:url('~/assets/images/common/icon_split.png');
+          background-repeat:no-repeat;
+          background-size:250px auto;
+          position:static;
+          display:block;
+          transform:rotate(0);
+          :deep(em) {
+            font-size:0;
+          }
+          &[data="play"] {
+            background-position:-130px -250px;
+          }
+          &[data="pause"] {
+            background-position:-100px -250px;
+          }
+        }
+      }
+    }
     :deep(.swiper-slide) {
       width:620px;
       opacity:0.2;
@@ -331,8 +500,19 @@ const rankingTabs = [
     }
     .item {
       position:relative;
+      &:hover {
+        .thumb {
+          img {
+            transform:scale(1.2);
+          }
+        }
+        .cont {
+          transform:translateY(-15px);
+        }
+      }
       .thumb {
         position:relative;
+        overflow:hidden;
         display:block;
         &:after {
           padding-top:36.774193%;
@@ -346,6 +526,7 @@ const rankingTabs = [
         }
         img {
           display:block;
+          transition:transform 0.45s;
         }
       }
       .tag-card {
@@ -381,6 +562,7 @@ const rankingTabs = [
         bottom:40px;
         left:40px;
         z-index:1;
+        transition:transform 0.45s;
         .name {
           & > * {
             margin-top:5px;
@@ -406,6 +588,7 @@ const rankingTabs = [
   }
   section {
     padding:100px 0;
+    position:relative;
     &.narrow {
       padding:80px 0;
     }
@@ -530,6 +713,13 @@ const rankingTabs = [
             .thumb {
               height:auto;
               padding-top:132.786885%;
+              em {
+                position:absolute;
+                top:0;
+                right:0;
+                bottom:0;
+                left:0;
+              }
             }
             & + a {
               flex:1;
@@ -628,6 +818,14 @@ const rankingTabs = [
           a, .thumb {
             display:block;
           }
+          .thumb {
+            height:335px;
+            img {
+              width:100%;
+              height:100%;
+              object-fit:cover;
+            }
+          }
           .cont {
             margin-top:30px;
             strong {
@@ -659,7 +857,7 @@ const rankingTabs = [
           flex:1;
           :deep(.swiper) {
             height:100%;
-            .swiper-scrollbar {
+            .swiper-scrollbar-wrap {
               position:absolute;
               right:0;
               bottom:0;
@@ -675,8 +873,20 @@ const rankingTabs = [
                 z-index:-1;
                 display:block;
               }
-              .swiper-scrollbar-drag {
-                border-top:2px solid #000;
+              .scrollbar {
+                font-size:0;
+                border-bottom:2px solid #000;
+                position:absolute;
+                bottom:0;
+                left:0;
+                transition:width 0.25s;
+              }
+            }
+          }
+          .goods_item {
+            :deep(.price) {
+              em {
+                display:block;
               }
             }
           }
@@ -684,6 +894,9 @@ const rankingTabs = [
       }
     }
     &.benefit {
+      .swiper_wrap {
+        width:100%;
+      }
       :deep(.swiper-slide) {
         width:400px;
         .event_item {
@@ -705,6 +918,34 @@ const rankingTabs = [
             }
           }
         }
+      }
+    }
+  }
+  .swiper_wrap {
+    width:1280px;
+    margin:0 auto;
+    position:relative;
+    .goods_item {
+      width:100%;
+    }
+  }
+  .navigation {
+    margin:0 -740px;
+    position:absolute;
+    top:50%;
+    right:50%;
+    left:50%;
+    button {
+      width:60px;
+      height:60px;
+      font-size:0;
+      background: url('~/assets/images/common/icon_split.png') no-repeat 0 -190px;
+      background-size: 250px auto;
+      &:after {
+        display:none;
+      }
+      &.swiper-button-next {
+        transform:rotate(180deg);
       }
     }
   }
@@ -732,7 +973,16 @@ const rankingTabs = [
     }
   }
 
-  .swiper_wrap {
-
+  .ranking {
+    .list_wrap {
+      .goods_list {
+        display:flex;
+        flex-wrap:wrap;
+        & > li {
+          width:240px;
+          // padding-left:20px;
+        }
+      }
+    }
   }
 </style>

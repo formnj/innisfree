@@ -66,6 +66,9 @@
 
   <div class="shop_list">
     <div class="list_header">총 <em>337개</em> 매장</div>
+    <div class="no_content">
+      검색된 매장이 없습니다.
+    </div>
     <ul>
       <li v-for="(item, idx) in shop_list" :key="idx">
         <ShopInfo :item="item" />
@@ -163,7 +166,8 @@
   <div class="modal_container">
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
-        <p>마이샵 변경/삭제는 마이샵 등록일로부터 1개월 후에 하실 수 있습니다.</p>
+        <p class="tit">알림</p>
+        <p class="txt">마이샵 변경/삭제는 마이샵 등록일로부터 1개월 후에 하실 수 있습니다.</p>
       </div>
       <div class="modal_footer">
           <Button class="btn_big confirm" txt="확인" />
@@ -178,8 +182,8 @@
   <div class="modal_container">
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
-        <p>마이샵 삭제</p>
-        <p>등록한 마이샵을 삭제하시겠습니까?<br>삭제 후 새로운 마이샵을 등록하실 수 있습니다.</p>
+        <p class="tit">마이샵 삭제</p>
+        <p class="txt">등록한 마이샵을 삭제하시겠습니까?<br>삭제 후 새로운 마이샵을 등록하실 수 있습니다.</p>
       </div>
       <div class="modal_footer">
           <Button class="btn_big" txt="취소" />
@@ -195,7 +199,8 @@
   <div class="modal_container">
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
-        <p>삭제되었습니다.</p>
+        <p class="tit">알림</p>
+        <p class="txt">삭제되었습니다.</p>
       </div>
       <div class="modal_footer">
           <Button class="btn_big confirm" txt="확인" />
@@ -210,8 +215,8 @@
   <div class="modal_container">
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
-        <p>알림</p>
-        <p>
+        <p class="tit">알림</p>
+        <p class="txt">
           <strong>이니스프리 서비스 이용을 위해 다음의 앱 권한과 약관동의가 필요합니다.</strong><br>
           <br>
           위치 : 가까운매장검색<br>
@@ -237,8 +242,8 @@
   <div class="modal_container">
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
-        <p>알림</p>
-        <p>위치기반서비스 이용약관 동의 여부가  수정되었습니다.</p>
+        <p class="tit">알림</p>
+        <p class="txt">위치기반서비스 이용약관 동의 여부가  수정되었습니다.</p>
       </div>
       <div class="modal_footer">
           <Button class="btn_big confirm" txt="확인" />
@@ -253,7 +258,8 @@
   <div class="modal_container">
       <div class="modal_content">
         <button class="btn_close" @click="modal.close(this);">닫기</button>
-        <p>위치기반서비스 이용약관 동의 후 승인할 수 있습니다.</p>
+        <p class="tit">알림</p>
+        <p class="txt">위치기반서비스 이용약관 동의 후 승인할 수 있습니다.</p>
       </div>
       <div class="modal_footer">
           <Button class="btn_big confirm" txt="확인" />
@@ -444,6 +450,7 @@ onMounted(()=>{
   .list_header {
     padding: 0 2.1rem 1.5rem;
     font-weight: 600;
+    border-bottom: 1px solid #f5f5f5;
 
     em {
       color: #00BC70;
@@ -451,8 +458,6 @@ onMounted(()=>{
   }
 
   ul {
-    border-top: 1px solid #f5f5f5;
-
     li {
       & + li {
         border-top: 2px solid #f5f5f5;
@@ -600,19 +605,19 @@ onMounted(()=>{
   .modal_content {
     padding: 30px 40px 30px 20px;
 
-    p {
+    .tit {
       font-size: 1.8rem;
       font-weight: 600;
       color: #000;
       line-height: 2.4rem;
+    }
 
-      & + p {
-        margin-top: 1rem;
-        font-size: 1.3rem;
-        font-weight: 400;
-        color: #666;
-        line-height: 2rem;
-      }
+    .txt {
+      margin-top: 1rem;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #666;
+      line-height: 2rem;
     }
 
     .agree_box {

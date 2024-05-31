@@ -271,6 +271,9 @@ emit('title', '주문내역');
 </script>
 
 <style lang="scss" scoped>
+i {
+  font-style:normal;
+}
 .inner {
   padding: 0 2.1rem;
   article {
@@ -453,7 +456,7 @@ emit('title', '주문내역');
             display:none;
             span {
               &::after {
-                background-position:-5px -328px;
+                background-position:-0.5rem -32.7rem;
               }
             }
             &.active {
@@ -467,7 +470,7 @@ emit('title', '주문내역');
             }
             span {
                 &::after {
-                background-position:-5px -328px;
+                background-position:-0.5rem -32.7rem;
                 transform:rotate(180deg);
                 }
               }

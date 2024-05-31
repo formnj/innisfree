@@ -36,11 +36,11 @@
 
     <div class="list_wrap">
       <ul class="goods_list">
-          <li v-for="(item, idx) in sample_goods" :key="idx">
-              <span class="ranking" v-if="idx < 9">{{ '0'+(idx+1) }}</span>
-              <span class="ranking" v-else>{{ idx+1 }}</span>
-              <GoodsItem :item="item" :link="item.link" />
-          </li>
+        <li v-for="(item, idx) in sample_goods" :key="idx">
+          <span class="ranking" v-if="idx < 9">{{ '0'+(idx+1) }}</span>
+          <span class="ranking" v-else>{{ idx+1 }}</span>
+          <GoodsItem :item="item" :link="item.link" />
+        </li>
       </ul>
     </div>
   </div>
@@ -48,23 +48,11 @@
   <!-- swiper -->
   <div class="best_banner">
     <div class="inner">
-      <swiper
-        :slides-per-view="3"
-        :space-between="20"
-        :pagination="{
-          type: 'progressbar'
-        }"
-        :navigation="{
-          prevEl: '.swiper-button-prev',
-          nextEl: '.swiper-button-next'
-        }"
-      >
-        <swiper-slide v-for="(item, idx) in sample_event" :key="idx" class="item">
-          <EventItem :item="item" :type="item.type" />
+      <swiper-container slides-per-view="2" autoplay-delay="3000">
+        <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx" class="item">
+          <img :src="item.img">
         </swiper-slide>
-      </swiper>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      </swiper-container>
     </div>
   </div>
   <!-- //swiper -->
@@ -73,9 +61,9 @@
     <div class="list_wrap">
       <ul class="goods_list">
           <li v-for="(item, idx) in sample_goods" :key="idx">
-              <span class="ranking" v-if="idx < 9">{{ '0'+(idx+1) }}</span>
-              <span class="ranking" v-else>{{ idx+1 }}</span>
-              <GoodsItem :item="item" :link="item.link" />
+            <span class="ranking" v-if="idx < 9">{{ '0'+(idx+1) }}</span>
+            <span class="ranking" v-else>{{ idx+1 }}</span>
+            <GoodsItem :item="item" :link="item.link" />
           </li>
       </ul>
     </div>
@@ -89,9 +77,20 @@ import {
 } from '~/test/data/publish/dummyData';
 import { modal } from '~/assets/js/common-ui.js';
 
+definePageMeta({
+	layout:'pc-default'
+});
+
+const props = defineProps({
+    layoutType: {
+      type:String,
+      default:'default'
+    }
+});
+
 // import Swiper core and required components
 import SwiperCore from "swiper";
-import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
+import { Navigation, Pagination, A11y, Autoplay, Scrollbar } from "swiper/modules";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -102,18 +101,25 @@ import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y, Autoplay]);
+SwiperCore.use([Navigation, Pagination, A11y, Autoplay, Scrollbar]);
 
-definePageMeta({
-	layout:'pc-sub'
-});
+const swiperOpt= {
+  slidesPerView:3,
+  spaceBetween: 20,
+  loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  }
+}
 
-const props = defineProps({
-    layoutType: {
-      type:String,
-      default:'default'
-    }
-});
+const scrollBar = (swiper) => {
+  swiper.wrapperEl.parentNode.querySelector('.scrollbar').style.width = ((swiper.realIndex + 1)/swiper.wrapperEl.children.length) * 100+'%'
+};
 
 </script>
 
@@ -122,58 +128,56 @@ const props = defineProps({
   margin:100px 0;
   padding:100px 0;
   background-color:#f5f5f5;
-}
+  position:relative;
 
-:deep(.swiper) {
-  .swiper-wrapper {
-    padding-bottom: 30px;
+  .swiper {
+    padding-bottom:30px;
   }
-
-  .swiper-pagination {
-    height: 1px;
-    background-color: #DDD;
-    top: unset;
-    bottom: 0;
-
-    span {
-      background-color: #000;
-    }
-  }
-}
-
-.sort_tab_wrap {
-  .sub_tab {
-    margin-top: 30px;
-  }
-}
-
-.inner {
-  position: relative;
-
-  .swiper-button-prev, .swiper-button-next {
+  .swiper-scrollbar-wrap {
+    position:absolute;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:1;
     &:after {
-      content: '';
-      width: 32px;
-      height: 32px;
-      background: url('~/assets/images/common/icon_split.png') no-repeat -60px -200px;
-      background-size: 250px auto;
+      width:100%;
+      border-top:1px solid #ddd;
+      content:'';
+      position:absolute;
+      bottom:0;
+      left:0;
+      z-index:-1;
+      display:block;
+    }
+    .scrollbar {
+      font-size:0;
+      border-bottom:2px solid #000;
+      position:absolute;
+      bottom:0;
+      left:0;
+      transition:width 0.25s;
     }
   }
 
-  .swiper-button-prev {
-    left: -48px;
-    transform: rotate(-180deg);
+  .navigation {
+    margin:0 -720px;
+    position:absolute;
+    top:50%;
+    right:50%;
+    left:50%;
   }
 
-  .swiper-button-next {
-    right: -48px;
-  }
-}
-
-.bul_list {
-  li {
-    &:before {
-      border-radius: 50%;
+  [class*='swiper-button-'] {
+    width:32px;
+    height:32px;
+    font-size:0;
+    background: url('~/assets/images/common/icon_split.png') no-repeat -60px -200px;
+    background-size: 250px auto;
+    &:after {
+      display:none;
+    }
+    &.swiper-button-prev {
+      transform:rotate(180deg);
     }
   }
 }

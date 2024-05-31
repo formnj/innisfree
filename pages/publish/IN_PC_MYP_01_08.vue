@@ -44,7 +44,7 @@
                                   2024-03-24
                               </div>
                           </div>
-                          <Button class="btn_" txt="검색"/>
+                          <Button class="btn_ confirm" txt="검색"/>
                       </div>
                     </td>
                 </tr>
@@ -641,7 +641,6 @@ onMounted(() => {
               .btn_ {
                   padding:0 20px;
                   font-weight:600;
-                  background:#00BC70;
               }
           }
           tbody {
@@ -691,6 +690,7 @@ section {
     }
     .btn_min_outline {
       margin:0 auto !important;
+      border-radius:1px;
     }
 
   article {

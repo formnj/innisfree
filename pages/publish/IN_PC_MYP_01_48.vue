@@ -80,7 +80,7 @@
                     <td class="date">2024-04-25 08:42:20 </td>
                     <td class="btn">
                         <span>처리중</span>
-                        <Button class="btn_outline" txt="삭제"  @click="modal.open('delete_modal', 'alert')" />
+                        <Button class="btn_outline btn_min" txt="삭제"  @click="modal.open('delete_modal', 'alert')" />
                     </td>
                 </tr>
                 <tr class="questionCont">
@@ -113,7 +113,7 @@
                     <td class="date">2024-04-25 08:42:20 </td>
                     <td class="btn">
                         <span>처리중</span>
-                        <Button class="btn_outline" txt="삭제" @click="modal.open('delete_modal', 'alert')"/>
+                        <Button class="btn_outline btn_min" txt="삭제" @click="modal.open('delete_modal', 'alert')"/>
                     </td>
                 </tr>
                 <tr class="questionCont">
@@ -157,8 +157,8 @@
                 <div>해당 상담내역을 삭제 하시겠습니까?</div>
             </div>
             <div class="modal_footer">
-                <Button class="btn_ confirm" txt="확인" />
-                <Button txt="취소" @click="modal.close(this);"/>
+                <Button class="btn_big confirm" txt="확인" />
+                <Button class="btn_big" txt="취소" @click="modal.close(this);"/>
             </div>
         </div>
         <div class="overlay" @click="modal.close(this);"></div>
@@ -428,8 +428,8 @@ onMounted(() => {
                     gap:16px;
                     button {
                         &.btn_outline {
-                            height:30px !important;
                             padding:0 1px;
+                            border-radius:1px;
                             em {
                             color:#999;
                             font-size:12px;

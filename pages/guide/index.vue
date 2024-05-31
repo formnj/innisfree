@@ -101,7 +101,7 @@ const PC_arry = ([
     }, {
         depth:['홈','','',''],
         id:'IN_PC_HOM_01_01', status:'com',
-        type:'', note:'',
+        type:'', note:'swiper play/pause 기능, pagination : scrollbar',
         sDate:'', eDate:'2024-04-22/2024-04-22' , worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
@@ -120,8 +120,8 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','랭킹(T)','',''],
-        id:'IN_PC_HOM_01_07', status:'',
-        type:'', note:'',
+        id:'IN_PC_HOM_01_07', status:'com',
+        type:'', note:'layout : pc-default',
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','','상세',''],
@@ -141,7 +141,7 @@ const PC_arry = ([
     }, {
         depth:['','라이브(T)','',''],
         id:'IN_PC_HOM_01_14', status:'ing',
-        type:'', note:'라이브 예고 노출 케이스, 라이브 알림 팝업 작업 필요(5/28)',
+        type:'', note:'라이브 예고 노출 케이스, 라이브 알림 팝업 작업 필요',
         sDate:'', eDate:'2024-05-23/2024-04-25', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
@@ -165,7 +165,7 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-24/2024-04-09', worker:'김희경'
     }, {
         depth:['','상세','',''],
-        id:'IN_PC_PRD_01_09', status:'com',
+        id:'IN_PC_PRD_01_09', status:'ing',
         type:'', note:'디자인 고도화 필요<br/> 갯수 증/차감 콤포넌트 추가',
         sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/2024-05-09', worker:'김나람'
     }, {
@@ -455,7 +455,7 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','마이샵 관리','',''],
-        id:'IN_PC_MYP_01_85', status:'com',
+        id:'IN_PC_MYP_01_85', status:'ing',
         type:'', note:'디자인 고도화 필요',
         sDate:'', eDate:'2024-05-10/2024-05-13', worker:'김나람'
     }, {
@@ -485,9 +485,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-05-24/2024-05-21', worker:'형민우'
     }, {
         depth:['','전자공고','',''],
-        id:'IN_PC_MYP_01_93', status:'',
+        id:'IN_PC_MYP_01_93', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-31', worker:'김희경'
+        sDate:'2024-05-27', eDate:'2024-05-31/2024-05-27', worker:'김희경'
     }, {
         depth:['회원','회원가입','',''],
         id:'IN_PC_MYP_01_94', status:'',
@@ -635,7 +635,7 @@ const MO_arry = ([
     }, {
         depth:['','','상세',''],
         id:'IN_MO_HOM_01_09', status:'com',
-        type:'', note:'05-17 디자인 반영 완료',
+        type:'', note:'05-17 디자인 반영 완료<br/> 꽉찬 스와이퍼 관련 수정 <!-- Edit 24.05.30',
         sDate:'', eDate:'2024-05-03/2024-04-26', worker:'김나람'
     }, {
         depth:['','','에디터별 보기',''],
@@ -660,7 +660,7 @@ const MO_arry = ([
     }, {
         depth:['','라이브(T)','',''],
         id:'IN_MO_HOM_01_14', status:'ing',
-        type:'', note:'디자인 고도화 필요',
+        type:'', note:'라이브 예고 노출 케이스, 라이브 알림 팝업 작업 필요',
         sDate:'', eDate:'2024-04-26/2024-04-25', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
@@ -704,7 +704,7 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-24/2024-04-11', worker:'김희경'
     }, {
         depth:['','상세','',''],
-        id:'IN_MO_PRD_01_09', status:'com',
+        id:'IN_MO_PRD_01_09', status:'ing',
         type:'', note:'디자인 고도화 필요',
         sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/2024-05-09', worker:'김나람'
     }, {
@@ -1035,9 +1035,9 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-24/2024-05-21', worker:'형민우'
     }, {
         depth:['','전자공고','',''],
-        id:'IN_MO_MYP_01_93', status:'',
+        id:'IN_MO_MYP_01_93', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-05-31', worker:'김희경'
+        sDate:'2024-05-27', eDate:'2024-05-31/2024-05-27', worker:'김희경'
     }, {
         depth:['회원','회원가입','',''],
         id:'IN_MO_MYP_01_94', status:'',

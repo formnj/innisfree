@@ -40,7 +40,7 @@
         <div class="list_wrap">
           <ul class="goods_list">
             <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
-              <GoodsItem :item="item" :link="item.link" />
+              <GoodsItem :item="item" :link="item.link" :useMark="false" :useHash="true" :mustUseScore="true" />
             </li>
           </ul>
         </div>
@@ -91,7 +91,7 @@
         </ul>
       </div>
       <div class="modal_footer">
-          <Button class="btn_ confirm" txt="확인" @click="modal.close(this);" />
+          <Button class="btn_big confirm" txt="확인" @click="modal.close(this);" />
       </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>

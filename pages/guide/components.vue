@@ -66,6 +66,8 @@
 
         <Button class="btn_min" txt="btn_min (30px)" />
 
+        <Button class="btn_sm" txt="btn_sm (24px)" />
+
         <Button class="btn_big_outline" txt="btn_big_outline (60px)" />
 
         <Button class="btn_mid_outline" txt="btn_mid_outline (50px)" />
@@ -73,6 +75,8 @@
         <Button class="btn_outline" txt="btn_outline (40px)" />
 
         <Button class="btn_min_outline" txt="btn_min_outline (30px)" />
+
+        <Button class="btn_sm_outline" txt="btn_sm_outline (24px)" />
       </div>
     </div>
     <pre class="code_box"><code>&lt;Button /&gt;</code></pre>
@@ -533,39 +537,119 @@
       <li><NuxtLink :to="'https://swiperjs.com/vue'" target="_blank">[API] https://swiperjs.com/vue</NuxtLink></li>
     </ul>
     <div class="design_box">
-      <swiper :slides-per-view="'auto'" :space-between="40" :loop="true" navigation :pagination="pagination"
-        @swiper="onSwiper" @slideChange="onSlideChange" :centered-slides="true" :slides-offset-before="-310">
-        <swiper-slide v-for="(item, idx) in sampleSlide" :key="idx">
-          <div class="item">
-            <strong></strong>
-            <img :src="item.img">
+      <div class="swiper_wrap">
+        <!-- swiper -->
+        <swiper
+          v-bind="swiperOpt"
+          @swiper="onSwiper"
+          @slideChange="onSlideChange"
+        >
+          <swiper-slide v-for="(item, idx) in mainSam.visual" :key="idx">
+            <a href="#none" class="item">
+              <!-- visual tag -->
+              <div class="tag-card">
+                <span class="cardSt_1">{{item.tag[0]}}</span>
+                <span class="cardSt_2">{{item.tag[1]}}</span>
+              </div>
+              <!-- //visual tag -->
+
+              <!-- item text content -->
+              <div class="cont">
+                <p class="name">
+                  <strong>{{item.name[0]}}</strong>
+                  <span>{{item.name[1]}}</span>
+                </p>
+                <p class="price">{{item.price[0]}}
+                  <em>{{item.price[1]}}</em>
+                </p>
+              </div>
+              <!-- //item text content -->
+
+              <!-- visual image -->
+              <span class="thumb">
+                <em><img :src="item.img"></em>
+              </span>
+              <!-- //visual image -->
+            </a>
+          </swiper-slide>
+        </swiper>
+        <!-- //swiper -->
+
+        <!-- scrollbar -->
+        <div class="swiper-scrollbar-wrap">
+          <p class="scrollbar">scroll bar</p>
+        </div>
+        <!-- //scrollbar -->
+
+        <!-- navigation -->
+        <div class="navigation">
+          <button class="swiper-button-prev">Prev</button>
+          <button class="swiper-button-next">Next</button>
+        </div>
+        <!-- //navigation -->
+
+        <!-- pagination -->
+        <div class="custom_pagination">
+          <div class="current">
+            <em class="idx_01"></em>
+            <em class="idx_02"></em>
           </div>
-        </swiper-slide>
-      </swiper>
+          <strong class="total"></strong>
+
+          <Button class="btn_swiper_cont" data="play" />
+        </div>
+        <!-- //pagination -->
+      </div>
     </div>
-    <pre class="code_box"><code>&lt;swiper
-  :slides-per-view="'auto'"
-  :space-between="40"
-  :loop="true"
-  navigation
-  :pagination="pagination"
-  @swiper="onSwiper"
-  @slideChange="onSlideChange"
-  :centered-slides="true"
-  :slides-offset-before="-310"
-&gt;
-  &lt;swiper-slide v-for="(item, idx) in sampleSlide" :key="idx"&gt;
-    &lt;div class="item"&gt;
-      &lt;strong&gt;&lt;/strong&gt;
-      &lt;img :src="item.img"&gt;
+    <pre class="code_box"><code>&lt;div class="swiper_wrap"&gt;
+  &lt;!-- swiper --&gt;
+  &lt;swiper
+    v-bind="swiperOpt" //swiper option
+    @swiper="onSwiper"
+    @slideChange="onSlideChange"
+  &gt;
+    &lt;swiper-slide v-for="(item, idx) in mainSam.visual" :key="idx"&gt;
+      &lt;a href="#none" class="item"&gt;
+        &lt;!-- visual image --&gt;
+        &lt;span class="thumb"&gt;
+          &lt;em&gt;&lt;img :src="item.img"&gt;&lt;/em&gt;
+        &lt;/span&gt;
+        &lt;!-- //visual image --&gt;
+      &lt;/a&gt;
+    &lt;/swiper-slide&gt;
+  &lt;/swiper&gt;
+  &lt;!-- //swiper --&gt;
+
+  &lt;!-- custom scrollbar --&gt;
+  &lt;div class="swiper-scrollbar-wrap"&gt;
+    &lt;p class="scrollbar"&gt;scroll bar&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;!-- //custom scrollbar --&gt;
+
+  &lt;!-- custom navigation --&gt;
+  &lt;div class="navigation"&gt;
+    &lt;button class="swiper-button-prev"&gt;Prev&lt;/button&gt;
+    &lt;button class="swiper-button-next"&gt;Next&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;!-- //custom navigation --&gt;
+
+  &lt;!-- custom pagination --&gt;
+  &lt;div class="custom_pagination"&gt;
+    &lt;div class="current"&gt;
+      &lt;em class="idx_01"&gt;&lt;/em&gt;
+      &lt;em class="idx_02"&gt;&lt;/em&gt;
     &lt;/div&gt;
-  &lt;/swiper-slide&gt;
-&lt;/swiper&gt;
+    &lt;strong class="total"&gt;&lt;/strong&gt;
+
+    &lt;Button class="btn_swiper_cont" data="play" /&gt;
+  &lt;/div&gt;
+  &lt;!-- //custom pagination --&gt;
+&lt;/div&gt;
 
 &lt;script setup&gt;
 // import Swiper core and required components
 import SwiperCore from "swiper";
-import { Navigation, Pagination, A11y } from "swiper/modules";
+import { Navigation, Pagination, A11y, Autoplay, Scrollbar } from "swiper/modules";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -576,14 +660,55 @@ import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y]);
+SwiperCore.use([Navigation, Pagination, A11y, Autoplay, Scrollbar]);
 
 const onSwiper = (swiper) => {
-  document.querySelector('.swiper-pagination-fraction').style.border="2px solid red"
-};
-const onSlideChange = () => {
-  console.log('slide change');
-};
+  const total = swiper.wrapperEl.children.length,
+  current = swiper.realIndex+1,
+  pagination = swiper.wrapperEl.closest('.swiper_wrap').querySelector('.custom_pagination');
+
+  if(total < 10) {
+    pagination.querySelector('.current .idx_01').textContent = '0'+current;
+
+    if((current+1) > total) {
+      pagination.querySelector('.current .idx_02').textContent = '0'+((total - current)+1);
+    } else {
+      pagination.querySelector('.current .idx_02').textContent = '0'+(current+1);
+    }
+
+    pagination.querySelector('strong.total').textContent = '0'+total;
+  }
+
+  /* play & pause button */
+  pagination.querySelector('button').addEventListener('click', ()=>{
+    if(event.currentTarget.getAttribute('data') == 'play'){
+      swiper.autoplay.stop();
+      event.currentTarget.setAttribute('data','pause');
+    } else {
+      swiper.autoplay.start();
+      event.currentTarget.setAttribute('data','play');
+    }
+  });
+}
+
+const onSlideChange = (swiper) => {
+  const total = swiper.wrapperEl.children.length,
+  current = swiper.realIndex+1,
+  pagination = swiper.wrapperEl.closest('.swiper_wrap').querySelector('.custom_pagination');
+
+  if(total < 10) {
+    pagination.querySelector('.current .idx_01').textContent = '0'+current;
+
+    if((current+1) > total) {
+      pagination.querySelector('.current .idx_02').textContent = '0'+((total - current)+1);
+    } else {
+      pagination.querySelector('.current .idx_02').textContent = '0'+(current+1);
+    }
+  }
+
+  /* scrollbar */
+  swiper.wrapperEl.closest('.swiper_wrap').querySelector('.scrollbar').style.width = ((swiper.realIndex + 1)/swiper.wrapperEl.children.length) * 100+'%'
+}
 &lt;/script&gt;</code></pre>
   </section>
 
@@ -746,12 +871,12 @@ definePageMeta({
 })
 
 import { modal, Drop_Down, setFilter, toast_pop} from '~/assets/js/common-ui.js'
-import { sample_goods, sam_menu, sampleSlide, sample_event, sample_live } from '~/test/data/publish/dummyData.js'
+import { sample_goods, sam_menu, sampleSlide, sample_event, sample_live, mainSam } from '~/test/data/publish/dummyData.js'
 
 /* swiper */
 // import Swiper core and required components
 import SwiperCore from "swiper";
-import { Navigation, Pagination, A11y } from "swiper/modules";
+import { Navigation, Pagination, A11y, Autoplay, Scrollbar } from "swiper/modules";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -762,7 +887,78 @@ import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y]);
+SwiperCore.use([Navigation, Pagination, A11y, Autoplay, Scrollbar]);
+
+/* swiper sample option */
+const swiperOpt = {
+  slidesPerView: "auto",
+  slidesPerGroup: 1,
+  spaceBetween: 40,
+  loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  autoplay: {
+    delay: 300,
+    disableOnInteraction: false,
+  },
+  centeredSlides: true,
+  slidesOffsetBefore: -330,
+  scrollbar: {
+    draggable: false
+  },
+  observer:true
+}
+
+const onSwiper = (swiper) => {
+  // const total = swiper.loopedSlides,
+  const total = swiper.wrapperEl.children.length,
+  current = swiper.realIndex+1,
+  pagination = swiper.wrapperEl.closest('.swiper_wrap').querySelector('.custom_pagination');
+
+  if(total < 10) {
+    pagination.querySelector('.current .idx_01').textContent = '0'+current;
+
+    if((current+1) > total) {
+      pagination.querySelector('.current .idx_02').textContent = '0'+((total - current)+1);
+    } else {
+      pagination.querySelector('.current .idx_02').textContent = '0'+(current+1);
+    }
+
+    pagination.querySelector('strong.total').textContent = '0'+total;
+  }
+
+  /* play & pause button */
+  pagination.querySelector('button').addEventListener('click', ()=>{
+    if(event.currentTarget.getAttribute('data') == 'play'){
+      swiper.autoplay.stop();
+      event.currentTarget.setAttribute('data','pause');
+    } else {
+      swiper.autoplay.start();
+      event.currentTarget.setAttribute('data','play');
+    }
+  });
+}
+
+const onSlideChange = (swiper) => {
+  const total = swiper.wrapperEl.children.length,
+  current = swiper.realIndex+1,
+  pagination = swiper.wrapperEl.closest('.swiper_wrap').querySelector('.custom_pagination');
+
+  if(total < 10) {
+    pagination.querySelector('.current .idx_01').textContent = '0'+current;
+
+    if((current+1) > total) {
+      pagination.querySelector('.current .idx_02').textContent = '0'+((total - current)+1);
+    } else {
+      pagination.querySelector('.current .idx_02').textContent = '0'+(current+1);
+    }
+  }
+
+  /* scrollbar */
+  swiper.wrapperEl.closest('.swiper_wrap').querySelector('.scrollbar').style.width = ((swiper.realIndex + 1)/swiper.wrapperEl.children.length) * 100+'%'
+}
 
 const pagination = {
   type:'fraction',
@@ -990,8 +1186,70 @@ onMounted(()=>{
     }
 }
 
+.swiper_wrap {
+  width:100%;
+  position:relative;
+  .swiper {
+    padding-bottom:40px;
+    .swiper-pagination {
+      bottom:0;
+    }
+  }
+  .custom_pagination {
+    position:absolute;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    em {
+      font-weight:600;
+      & + em:before {
+        margin:0 3px;
+        content:'/';
+      }
+    }
+    strong {
+      margin:0 10px;
+      color:#888;
+      font-weight:400;
+      display:flex;
+      align-items:center;
+      &:before {
+        height:8px;
+        margin-right:10px;
+        border-left:1px solid rgba(0,0,0,0.2);
+        content:'';
+        display:block;
+      }
+    }
+    button {
+      width:20px;
+      height:20px;
+      margin:0;
+      background-color:transparent;
+      background-image:url('~/assets/images/common/icon_split.png');
+      background-repeat:no-repeat;
+      background-size:250px auto;
+      position:static;
+      display:block;
+      transform:rotate(0);
+      :deep(em) {
+        font-size:0;
+      }
+      &[data="play"] {
+        background-position:-130px -250px;
+      }
+      &[data="pause"] {
+        background-position:-100px -250px;
+      }
+    }
+  }
+}
 :deep(.swiper-slide) {
-  width:620px !important;
+  width:620px;
   opacity:0.2;
   filter:grayscale(1);
   transition:opacity 0.25s;
@@ -1003,6 +1261,140 @@ onMounted(()=>{
   &.swiper-slide-active + .swiper-slide {
     opacity:1;
     filter:grayscale(0);
+  }
+}
+.item {
+  position:relative;
+  &:hover {
+    .thumb {
+      img {
+        transform:scale(1.2);
+      }
+    }
+    .cont {
+      transform:translateY(-15px);
+    }
+  }
+  .thumb {
+    position:relative;
+    overflow:hidden;
+    display:block;
+    &:after {
+      padding-top:36.774193%;
+      background:linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+      content:'';
+      position:absolute;
+      right:0;
+      bottom:0;
+      left:0;
+      display:block;
+    }
+    img {
+      display:block;
+      transition:transform 0.45s;
+    }
+  }
+  .tag-card {
+    position:absolute;
+    top:20px;
+    left:20px;
+    z-index:1;
+    &:after {
+      clear:both;
+      content:'';
+      display:block;
+    }
+    & > * {
+      padding:6px 10px;
+      font-size:14px;
+      background-color:#000;
+      color:#fff;
+      float:left;
+      display:block;
+      & + * {
+        margin-left:1px;
+      }
+      &.cardSt_1 {
+        color:#000;
+        font-weight:600;
+        background-color:#FFFF82;
+      }
+    }
+  }
+  .cont {
+    color:#fff;
+    position:absolute;
+    bottom:40px;
+    left:40px;
+    z-index:1;
+    transition:transform 0.45s;
+    .name {
+      & > * {
+        margin-top:5px;
+        font-size:32px;
+        display:block;
+      }
+    }
+    .price {
+      margin-top:15px;
+      font-size:32px;
+      font-weight:700;
+      display:flex;
+      align-items:center;
+      em {
+        margin-left:10px;
+        font-size:20px;
+        font-weight:300;
+        text-decoration:line-through;
+      }
+    }
+  }
+}
+
+.navigation {
+  margin:0 -740px;
+  position:absolute;
+  top:50%;
+  right:50%;
+  left:50%;
+  button {
+    width:60px;
+    height:60px;
+    font-size:0;
+    background: url('~/assets/images/common/icon_split.png') no-repeat 0 -190px;
+    background-size: 250px auto;
+    &:after {
+      display:none;
+    }
+    &.swiper-button-next {
+      transform:rotate(180deg);
+    }
+  }
+}
+
+.swiper-scrollbar-wrap {
+  position:absolute;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:1;
+  &:after {
+    width:100%;
+    border-top:1px solid #ddd;
+    content:'';
+    position:absolute;
+    bottom:0;
+    left:0;
+    z-index:-1;
+    display:block;
+  }
+  .scrollbar {
+    font-size:0;
+    border-bottom:2px solid #000;
+    position:absolute;
+    bottom:0;
+    left:0;
+    transition:width 0.25s;
   }
 }
 

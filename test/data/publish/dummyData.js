@@ -3,6 +3,65 @@
  * 테스트 용도이므로 TS 불필요
  * jjy11@amorepacific.com
  */
+export const public_ann = [
+  {
+   title:'이니스프리 2023년도 재무상태표',
+   url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_2023.pdf'
+  },
+  {
+    title:'자기주식 취득 안내 정정공고다운로드',
+    url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_treasury%20stock_2.pdf'
+   },
+   {
+    title:'자기주식 취득 안내 공고다운로드',
+    url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_treasury%20stock_1_vf.pdf'
+   },
+   {
+    title:'주주확정기준일 공고',
+    url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_treasury%20stock_0.pdf'
+   },
+   {
+    title:'이니스프리 2023년도 재무상태표',
+    url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_by_2022.pdf'
+   },
+   {
+    title:'기준일 및 주주명부 폐쇄기간 설정 공고',
+    url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_2022_2.pdf'
+   },
+   {
+    title:'이니스프리 2021년도 재무상태표',
+    url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_2021.pdf'
+   },
+   {
+    title:'이니스프리 2023년도 재무상태표',
+    url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_2023.pdf'
+   },
+   {
+     title:'자기주식 취득 안내 정정공고다운로드',
+     url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_treasury%20stock_2.pdf'
+    },
+    {
+     title:'자기주식 취득 안내 공고다운로드',
+     url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_treasury%20stock_1_vf.pdf'
+    },
+    {
+     title:'주주확정기준일 공고',
+     url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_treasury%20stock_0.pdf'
+    },
+    {
+     title:'이니스프리 2023년도 재무상태표',
+     url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_by_2022.pdf'
+    },
+    {
+     title:'기준일 및 주주명부 폐쇄기간 설정 공고',
+     url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_2022_2.pdf'
+    },
+    {
+     title:'이니스프리 2021년도 재무상태표',
+     url:'https://www.innisfree.com/kr/ko/resources/download/innisfree_financial_2021.pdf'
+    },
+]
+
 
 export const mo_ord_notice = [
   {
@@ -1093,6 +1152,11 @@ export const sample_goods = [
         name:'블랙티 유스 인핸싱 앰플 50ml',
         price:'11,000', sale:'~50%', cost:'26,000',
         status:'sold_out',
+        sticker:[
+          {txt:'1+1', type:'type02'},
+          {txt:'뷰티포인트전용', type:'type01'},
+          {txt:'첫구매전용', type:'type01'}
+        ],
         hash:['#스킨팩','#화장솜','#순면화장솜'],
         reviewScore: {
           rate: 4.5,
@@ -1156,12 +1220,13 @@ export const prodImgData = [
 export const prodInfo = {
   topText: '2개이상 구매시 50%',
   name: '라이트 피팅 컨실러 [다크서클 커버] 7g',
-  price: '9,100', sale: '~50%', cost: '13,000',
+  price: '9,100원', sale: '~50%', cost: '13,000원',
   sticker: [
     { txt: '증정', type: 'type02' },
   ],
   rate: 4.6,
-  cntReview: 145,
+  cntReview: '999+',
+  cntPost: '999+',
   summaryReview: '이 제품을 구매하신 고객 분들은 다크서클과 잡티 커버, 자연스러운 색상, 그리고 사용 편의성이 좋다고 하셨어요!',
 }
 
@@ -1183,31 +1248,31 @@ export const mainSam = {
       {
         img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
         tag: ['25%','사은품'],
-        name: ['01-2-단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        name: ['02-1-단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
         price: ['10,000','18,000']
       },
       {
         img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
         tag: ['25%','체험단'],
-        name: ['02-1-단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        name: ['02-2-단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
         price: ['25,000','50,000']
       },
       {
         img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
         tag: ['25%','특가'],
-        name: ['01-1단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        name: ['03-1단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
         price: ['25,000','30,700']
       },
       {
         img: ("https://images.innisfree.co.kr/upload/event/3481_0.jpg?T202404030957"),
         tag: ['25%','체험단'],
-        name: ['02-1-단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        name: ['03-2-단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
         price: ['25,000','50,000']
       },
       {
         img: ("https://images.innisfree.co.kr/upload/event/3463_0.png?T202404030957"),
         tag: ['25%','특가'],
-        name: ['02-2-단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
+        name: ['04-1-단숨에 차오르는 수분', '그린티 씨드 히알루론산 세럼'],
         price: ['100','1,500']
       }
   ],
@@ -1257,6 +1322,30 @@ export const mainSam = {
     },
     {
       img:("/_nuxt/images/sam/recommend_03.png"),
+      title:'라이브 단독 쿠폰 & 사은품<br/> 신세계 상품권 10만원 GET!',
+      txt:'채팅만 해도 경품을 받는다고?<br/> 구매 인증, 채팅 추첨 경품!',
+      hash:['라이브 단독','쿠폰'],
+      goods:{
+        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+        cate:'BEST',
+        name:'히알루론 수분 선크림 SPF 50+ PA++++',
+        price:'11,000', sale:'~50%', cost:'26,000',
+      }
+    },
+    {
+      img:("/_nuxt/public/images/sam/recommend_02.png"),
+      title:'원영이의 특별한 피부비결!<br/> 비타C 잡티 토닝 세럼이 정답!',
+      txt:'디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!1',
+      hash:['세럼','비타C', '토닝'],
+      goods:{
+        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
+        cate:'NEW',
+        name:'그린티 씨드 히알루론산 세렘 80ml',
+        price:'44,800', sale:'~20%', cost:'56,000',
+      }
+    },
+    {
+      img:("/_nuxt/public/images/sam/recommend_03.png"),
       title:'라이브 단독 쿠폰 & 사은품<br/> 신세계 상품권 10만원 GET!',
       txt:'채팅만 해도 경품을 받는다고?<br/> 구매 인증, 채팅 추첨 경품!',
       hash:['라이브 단독','쿠폰'],

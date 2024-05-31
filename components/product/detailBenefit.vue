@@ -26,6 +26,7 @@
       </ul>
     </dd>
   </dl>
+  <p class="text_notify">증정품 한정수량 소진 시 조기 품절될 수 있습니다.</p>
 </template>
 <script setup>
 </script>
@@ -52,9 +53,12 @@
 
         .thumb {
           width: 60px;
-          height: 80px;
           margin-right: 20px;
           flex: none;
+
+          img {
+            vertical-align: top;
+          }
         }
 
         .desc {
@@ -75,5 +79,19 @@
     }
   }
 }
+.text_notify {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  color: #999;
 
+  &:before {
+    content: '';
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: .5rem;
+    vertical-align: middle;
+    background:url('~/assets/mo_images/common/icon_split.png') -21rem 0 / 25rem auto no-repeat;
+    display: inline-block;
+  }
+}
 </style>

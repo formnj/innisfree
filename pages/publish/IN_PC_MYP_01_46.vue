@@ -144,7 +144,7 @@
           </div>
           <div class="modal_content">
               <div class="inner">
-                  <Tabs tabType="type_01" :item="[{txt:'1개월'},{txt:'2개월'},{txt:'3개월'},{txt:'6개월'}]"  :tabidx="0" />
+                  <Tabs tabType="type_04" :item="[{txt:'1개월'},{txt:'2개월'},{txt:'3개월'},{txt:'6개월'}]"  :tabidx="0" />
                   <div class="date_wrap">
                       <div class="date">
                           <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
@@ -308,7 +308,8 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                     font-weight:500;
                     border-bottom:1px solid #f5f5f5;
                     :deep(button.btn_outline) {
-                        em {
+                      border-radius:1px;
+                      em {
                             font-weight:600;
                         }
                     }
@@ -433,37 +434,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
             .inner {
                 padding:0;
 
-                :deep(.tab_wrap) {
-                    ul {
-                        border-bottom:1px solid #eee;
-                        gap:50px;
-                        li {
-                            width:100%;
-                            flex:0 !important;
-                            > * {
-                                em {
-                                    width:50px;
-                                    padding: 0 !important;;
-                                    color:#666;
-
-                                    font-size:16px;
-                                    font-weight:600;
-                                }
-                            }
-                             &.current {
-                                > *  em{
-                                    color:#00BC70 !important;
-
-                                }
-                                > * {
-                                    &::after {
-                                        border-bottom:2px solid #00BC70 !important;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
 
                 .date_wrap {
                     margin:40px 0;
@@ -496,6 +466,7 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
                     }
                     .btn_outline {
                         font-weight:600;
+                        border-radius:1px;
                     }
                 }
             }

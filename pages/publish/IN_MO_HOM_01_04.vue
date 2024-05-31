@@ -43,7 +43,7 @@
       <div class="list_wrap">
         <ul class="goods_list col_3">
           <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
-            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" :useMark="false" />
+            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" :useMark="false" :useScore="false" />
           </li>
         </ul>
       </div>
@@ -85,7 +85,7 @@
         </div>
       </div>
       <div class="modal_footer">
-        <Button txt="확인" class="btn_ confirm" />
+        <Button txt="확인" class="btn_big confirm" />
       </div>
 
     </div>

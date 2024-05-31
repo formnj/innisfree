@@ -223,7 +223,13 @@
     }
     .thumb {
       width:100%;
-      height:22.0rem;
+      em {
+        height: 100%;
+
+        &.overflip {
+          display: none;
+        }
+      }
     }
     .btnIconBox {
       background-color:transparent;
@@ -341,7 +347,6 @@
     .img_wrap {
       .thumb {
         width: 9rem;
-        height: 12rem;
       }
     }
     .cont {
@@ -590,6 +595,7 @@
     background-image:url('~/assets/mo_images/common/icon_split.png');
     background-size:25rem auto;
     background-position:-23rem -2rem;
+    vertical-align:middle;
   }
 }
 
@@ -1215,7 +1221,7 @@
 
 /* 쇼핑로그 */
 :deep(.shopping_log_wrap) {
-  .top_banner {
+  .svc_banner {
     padding: 1.2rem 2.8rem;
     background-position: center center;
     p {
@@ -1293,6 +1299,7 @@
 
         .goods_item {
           padding-bottom: 0;
+          position: relative;
 
           a {
             width: 100%;
@@ -1305,10 +1312,25 @@
             .thumb {
               width: 6rem;
             }
+
+            .btnIconBox {
+              display: block;
+              position: absolute;
+              right: 0;
+              left: auto;
+              bottom: .5rem;
+              z-index: 3;
+
+              .btn_cart,
+              .btn_buy {
+                display: none;
+              }
+            }
           }
 
           .cont {
             .price {
+              margin-bottom: 1.5rem;
               em {
                 display: inline-block;
               }
@@ -1340,6 +1362,47 @@
 
     .keyword_wrap {
       border-top: 0;
+    }
+  }
+}
+
+/* 제품 상세 benefit_list */
+:deep(.benefit_list) {
+  &.gift {
+    gap: 1rem 0;
+
+    dd {
+      ul {
+        li {
+          padding: 0;
+          border: 1px solid #f5f5f5;
+
+          & + li {
+            margin-top: 1rem;
+          }
+
+          .thumb {
+            width: 8.8rem;
+          }
+        }
+      }
+    }
+  }
+
+  dt {
+    font-weight: 600;
+    color: #000;
+  }
+
+  &.txt {
+    padding: 3rem 0 0;
+    margin-top: 3rem;
+    gap: 1rem 0;
+
+    dd {
+      ul {
+        gap: 1rem 0;
+      }
     }
   }
 }

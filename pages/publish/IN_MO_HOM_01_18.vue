@@ -32,7 +32,7 @@
           </ul>
         </div>
         <div class="modal_footer">
-            <Button @click="modal.close(this);" class="btn_ confirm" txt="확인" />
+            <Button @click="modal.close(this);" class="btn_big confirm" txt="확인" />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>

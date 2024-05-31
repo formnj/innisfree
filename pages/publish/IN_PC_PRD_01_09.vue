@@ -123,8 +123,8 @@
             </div>
           </div>
           <button type="button" class="btn_like">찜하기</button>
-          <Button class="btn_big" txt="장바구니" />
-          <Button class="btn_big buy" txt="바로구매" />
+          <Button class="btn_mid" txt="장바구니" />
+          <Button class="btn_mid buy" txt="바로구매" />
         </div>
         <!-- //구매 영역 -->
 
@@ -417,8 +417,8 @@
           </div>
         </div>
         <div class="modal_footer">
-          <Button class="btn_outline" txt="초기화" disabled />
-          <Button txt="적용하기" disabled />
+          <Button class="btn_outline btn_mid" txt="초기화" disabled />
+          <Button class="btn_mid" txt="적용하기" disabled />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -484,55 +484,6 @@ onMounted(()=>{
 
       .list_wrap {
         margin: 0 35px;
-
-        .benefit_list.txt {
-          padding: 0;
-          gap: 10px;
-          border-top: 0;
-          flex-direction: column;
-
-          dt {
-            font-weight: 600;
-            color: #000;
-          }
-
-          dd {
-            width: 100%;
-
-            a {
-              width: auto;
-              max-width: 100%;
-              padding-right: 21px;
-              font-size: 13px;
-              line-height: 16px;
-              color: #666;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              vertical-align: top;
-              display: inline-block;
-              overflow: hidden;
-              position: relative;
-
-              &::after {
-                content: '';
-                width: 12px;
-                height: 12px;
-                margin-left: 8px;
-                background: url('/assets/mo_images/common/icon_split.png') -230px 0px / 250px auto no-repeat;
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
-              }
-            }
-          }
-
-          &+.benefit_list {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
-          }
-        }
       }
     }
 
@@ -603,7 +554,7 @@ onMounted(()=>{
         .btn_share,
         .btn_like {
           width: 60px;
-          height: 60px;
+          height: 50px;
           font-size: 0;
           text-align: center;
           background: #333;
@@ -626,7 +577,7 @@ onMounted(()=>{
           background: url('~/assets/images/common/icon_split.png') -140px -60px no-repeat;
         }
 
-        .btn_big.buy {
+        .btn_mid.buy {
           background-color: #00BC70;
         }
       }
@@ -949,7 +900,6 @@ onMounted(()=>{
 
     button {
       width: 260px;
-      height: 46px;
       border-radius: 5px;
     }
   }
