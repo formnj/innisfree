@@ -24,7 +24,6 @@
                 <li v-for="(name, idx) in sale_menu" :key="idx" class="tab_title">
                     <Button :txt="name" @click="tab_click($event)" />
                 </li>
-                <li class="blur"></li>
             </ul>
             <label for="skin1" class="setFilter_sample">
                     <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">혜택</span>
@@ -386,6 +385,19 @@ onMounted(() => {
                 &::-webkit-scrollbar {
                     display: none;
                 }
+            }
+            label {
+              position: relative;
+              &::before {
+                content:'';
+                width:40px;
+                height:100%;
+                filter:blur(10px);
+                background:#fff;
+                position:absolute;
+                top:0;
+                left:-55%;
+              }
             }
 
         }
