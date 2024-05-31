@@ -105,9 +105,9 @@ const PC_arry = ([
         sDate:'', eDate:'2024-04-22/2024-04-22' , worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
-        id:'IN_PC_HOM_01_04', status:'ing',
+        id:'IN_PC_HOM_01_04', status:'com',
         type:'', note:'디자인 고도화 / <del>sticky 시 해당영역 스크롤 바 없이는 좌우 스크롤 불가함</del><br/> [tooltip 버튼], [layout 모달]<br/> 증정품안내 모달 포함',
-        sDate:'', eDate:'2024-04-19/2024-04-16', worker:'김희경'
+        sDate:'2024-05-31', eDate:'2024-04-19/2024-04-16', worker:'김희경'
     }, {
         depth:['','이벤트(T)','목록',''],
         id:'IN_PC_HOM_01_05', status:'com',
