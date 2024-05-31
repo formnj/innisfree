@@ -407,6 +407,7 @@ onMounted(() => {
             right:-100%;
             bottom:0;
             left:-100%;
+            z-index:-1;
           }
         }
     }
