@@ -85,7 +85,7 @@
       <div class="list_wrap">
         <ul class="goods_list">
           <li v-for="(item, idx) in sample_goods.slice(0,9)" :key="idx" >
-              <GoodsItem :item="item" :link="item.link" :useMark="false" />
+              <GoodsItem :item="item" :link="item.link" :useMark="false" :useScore="false"/>
           </li>
         </ul>
       </div>
@@ -104,7 +104,7 @@
       <div class="list_wrap">
         <ul class="goods_list">
           <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
-            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="alert" :useGiveaway="true" />
+            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="alert" :useGiveaway="true" :useScore="false"/>
           </li>
         </ul>
       </div>
@@ -157,11 +157,12 @@
   </div>
   <!-- //증정품 모달 -->
 
+  <ProductListCartModal />  <!-- 장바구니/바로구매 모달 -->
+
 </template>
 
 <script setup>
-import { setFilter } from '~/assets/js/common-ui.js'
-import { modal } from '~/assets/js/common-ui.js'
+import { setFilter, modal } from '~/assets/js/common-ui.js'
 import { sample_goods, sale_menu, sample_data } from '~/test/data/publish/dummyData.js'
 
 definePageMeta({
@@ -195,7 +196,7 @@ onMounted(() => {
         const sticky_menu = document.querySelector('.sticky_menu_wrap')
         const y = window.scrollY
         const offtop = document.querySelector('.title_wrap').offsetTop;
-        console.log(offtop)
+        console.log('offtop', offtop)
         if (y >=200) {
             target.style.display="none";
             fixed.classList.add('active')
@@ -261,14 +262,6 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.blur {
-  top:0;
-  right:0;
-  width:20px;
-  height:100%;
-  border:1px solid red;
-  position:absolute;
-}
 .timer_wrap {
   margin-bottom:40px;
   display:flex;
@@ -392,11 +385,10 @@ onMounted(() => {
                 content:'';
                 width:40px;
                 height:100%;
-                filter:blur(10px);
-                background:#fff;
+                background:linear-gradient(-90deg, #fff, transparent);
                 position:absolute;
                 top:0;
-                left:-55%;
+                left:-53%;
               }
             }
 
