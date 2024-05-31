@@ -9,7 +9,7 @@
         <li><a :href="mainTopBannerData.url" class="txt" target="_blank">{{mainTopBannerData.bannerText}}</a></li>
       </ul>
     </div>
-    <button type="button" class="btnClose">닫기</button>
+    <button type="button" class="btn_close">닫기</button>
   </div>
 </template>
 <script setup>
@@ -44,10 +44,11 @@ onMounted(() => {
 });
 </script>
 <style lang="scss" scoped>
-.docTopBanner {
+.docTopBanner { // 모바일용 css
   height: 3.6rem;
   padding-right:2.1rem;
   justify-content:space-between;
+  gap: 1rem;
   .banner_list {
     height:100%;
     overflow:hidden;
@@ -55,12 +56,29 @@ onMounted(() => {
   ul {
     display:flex;
     flex-wrap:wrap;
+    flex-direction: column;
     li {
-      width:100%;
       height:3.6rem;
       display:flex;
       align-items:center;
+      .txt {
+        padding: 0 1rem 0 2.1rem;
+        font-size: 1.2rem;
+        white-space: normal;
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
     }
+  }
+  
+  .btn_close {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-left: 0;
   }
 }
 </style>

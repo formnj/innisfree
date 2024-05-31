@@ -1,20 +1,27 @@
 <template>
-    <!-- container padding O -->
+    <!-- mobile PRD 전용 -->
     <div id="wrap">
-        <HeaderMo />
+        <HeaderMo
+            :useLogo="false"
+            :useBack="true"
+            :useShare="true"
+            :useHome="true"
+            :useSearch="false"
+            :useNav="false"
+        />
         <div id="container">
-            <div class="content">
-                <router-view />
-            </div>
+            <router-view />
         </div>
         <FooterMo />
-        <Actionbar />
     </div>
 </template>
+
+
 <script setup>
-/* //device check text : 개발 시 제거해주세요. */
 </script>
+
 <style lang="scss" scoped>
+
 #wrap {
     min-height:100vh;
     max-width:100%;
@@ -26,13 +33,6 @@
 
 #container {
     flex:1 auto;
-}
-
-#container {
-    padding:0 2.1rem;
-    .content {
-        flex:1;
-    }
 }
 
 @import "~/assets/scss/mobile.scss";

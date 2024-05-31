@@ -322,7 +322,7 @@ import {
 } from '~/test/data/publish/dummyData'
 
 definePageMeta({
-  layout:'mo-default'
+  layout:'mo-main'
 })
 
 const rankingTabs = [
@@ -808,6 +808,12 @@ const rankingTabs = [
           margin-top:1.6rem;
           padding-top:1.6rem;
           border-top:1px solid #eee;
+        }
+
+        :deep(.event_item) {
+          .thumb {
+            height: 8.5rem;
+          }
         }
       }
 

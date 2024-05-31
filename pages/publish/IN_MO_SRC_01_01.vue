@@ -1,6 +1,6 @@
 <template>
     <!-- 검색 전 영역 -->
-    <div class="search_wrap" data-search="before">
+    <div class="search_cont">
         <section>
             <div class="sub_title_wrap">
                 <h4>인기검색</h4>
@@ -114,14 +114,14 @@ import {
     sample_auto,
     categoryForSearchLayerData,
     latestSearchWordData,
-} from '~/test/data/publish/dummyData'
+} from '~/test/data/publish/dummyData';
 
 definePageMeta({
     layout:'mo-search'
 });
 
 onMounted(() => {
-    document.querySelector('.search_header .input input').addEventListener('input', auto_complete);
+    document.querySelector('.search_wrap .input input').addEventListener('input', auto_complete);
 });
 
 const key_item_list = ref([]),
@@ -153,6 +153,9 @@ const auto_complete = (e) => {
     key_item_list.value = sample_goods.filter(e => e.name !== undefined && e.name.indexOf(isValid.value) >= 0);
 
     key_item_list.value.length <= 0 ? isBool.value = true : isBool.value = false;
+
+    if (isValid.value !== '') document.documentElement.style.cssText = `overflow: hidden`;
+    else document.documentElement.style.cssText = ``;
 };
 </script>
 <style lang="scss" scoped>
@@ -185,7 +188,7 @@ section {
     }
 }
 
-.search_wrap {
+.search_cont {
     &.active {
         display:block;
     }

@@ -127,7 +127,7 @@ const props = defineProps({
       gap: 1.6rem;
       .thumb {
         width: 16rem;
-        height: 8.5rem;
+        height: 10.6rem;
         padding-top:0;
       }
       .cont {

@@ -289,7 +289,7 @@ import { modal } from '~/assets/js/common-ui'
 import { sample_review } from '~/test/data/publish/dummyData'
 
 definePageMeta({
-  layout:'mo-product'
+  layout:'mo-home-search-cart'
 });
 </script>
 <style lang="scss" scoped>

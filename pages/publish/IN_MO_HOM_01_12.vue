@@ -1,12 +1,16 @@
 <template>
-  <div class="inner">
-    <!-- title washed -->
-    <div class="sub_title_wrap">
-      <h4>봄맞이 핑크템으로<br>생기를 더하세요!</h4>
-      <Button class="btn_all btn_outline" txt="전체보기" @click="modal.open('modal_all', 'fullMo')" />
+  <section>
+    <div class="inner">
+      <!-- title washed -->
+      <div class="sub_title_wrap">
+        <h4>봄맞이 핑크템으로<br>생기를 더하세요!</h4>
+        <Button class="btn_all btn_outline" txt="전체보기" @click="modal.open('modal_all', 'fullMo')" />
+      </div>
+      <!-- //title washed -->
     </div>
-    <!-- //title washed -->
+  </section>
 
+  <section>
     <div class="prd_wrap">
       <div><img src="/_nuxt/public/images/sam/pinkdoc1.jpg"></div>
       <div>
@@ -15,15 +19,21 @@
         <div class="overlay"><img src="/_nuxt/public/images/sam/lipstick.png"></div>
       </div>
     </div>
+  </section>
 
-    <div class="list_wrap">
-      <ul class="goods_list">
-        <li v-for="(item,idx) in sample_goods.slice(0,5)" :key="idx">
-          <GoodsItem :item="item" :link="item.link" :useHash="false" />
-        </li>
-      </ul>
+  <section>
+    <div class="inner">
+      <div class="list_wrap">
+        <ul class="goods_list">
+          <li v-for="(item,idx) in sample_goods.slice(0,5)" :key="idx">
+            <GoodsItem :item="item" :link="item.link" :useHash="false" />
+          </li>
+        </ul>
+      </div>
     </div>
+  </section>
 
+  <section>
     <div class="banner_wrap">
       <ul>
         <li v-for="(item,idx) in banner_list" :key="idx">
@@ -36,13 +46,13 @@
         </li>
       </ul>
     </div>
-  </div>
+  </section>
 
   <!-- 전체보기 모달 -->
   <div id="modal_all" class="modal_wrap">
     <div class="modal_container">
         <div class="modal_header">
-            <h2>전체보기</h2>
+            <h2>쇼케이스 전체보기</h2>
             <button class="btn_close" @click="modal.close(this);">닫기</button>
         </div>
         <div class="modal_content">
@@ -56,39 +66,25 @@
   <!-- 전체보기 모달 -->
 </template>
 <script setup>
-import { sample_goods } from '~/test/data/publish/dummyData'
+import { sample_goods, banner_list } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui'
 
 definePageMeta({
-	layout:'mo-category'
+	layout:'mo-default'
 });
 
 onMounted(() => {});
 
-const banner_list = [
-  {img: '/_nuxt/public/images/sam/banner01.jpg', title: '4월은 지구의 달\n공병수거하며 지구를 지켜요!'},
-  {img: '/_nuxt/public/images/sam/banner02.jpg', title: '꾸준히 사랑받는 한란 라인\n활용TIP!'},
-  {img: '/_nuxt/public/images/sam/banner03.jpg', title: '지구 환경도 챙기고\n뷰티포인트도 챙기자!'},
-  {img: '/_nuxt/public/images/sam/banner04.jpg', title: '추운 겨울 내 파우치 속 필수템\n취향따라 골라쓰는 퍼퓸드 핸드크림!'},
-  {img: '/_nuxt/public/images/sam/banner05.jpg', title: '겨울철 가려움, 각질 고민\n완벽 케어 솔루션!'},
-  {img: '/_nuxt/public/images/sam/banner06.jpg', title: '새해맞이!\n안티에이징 홈 케어 제품 추천!'},
-  {img: '/_nuxt/public/images/sam/banner07.jpg', title: '돌아온 보습 레전드\n올리브 라인'},
-  {img: '/_nuxt/public/images/sam/banner08.jpg', title: '이니스프리 직원 추천템\n#이니찐템'},
-  {img: '/_nuxt/public/images/sam/banner09.jpg', title: '반려견들을 위한 산책 뷰티템\n이니스프리 그린펫클럽'},
-  {img: '/_nuxt/public/images/sam/banner10.jpg', title: '이니스프리 FOAM 미쳤다!\n이니스프리 클렌징폼'},
-  {img: '/_nuxt/public/images/sam/banner11.jpg', title: '눈여겨봐야 할\n신상 아이템! UTILITY BAG'},
-];
-
 </script>
 <style lang="scss" scoped>
 .inner {
+  padding: 0 2.1rem;
   .sub_title_wrap {
     margin-top: 2rem;
   }
 }
 
 .prd_wrap {
-  margin:0 -20px;
   >div {
     max-width:780px;
     margin:0 auto;
@@ -125,7 +121,6 @@ const banner_list = [
 }
 
 .banner_wrap {
-  margin:0 -20px;
   ul {
     display:flex;
     flex-wrap:wrap;

@@ -115,7 +115,7 @@
             <button class="btn_close" @click="modal.close(this);">닫기</button>
         </div>
         <div class="modal_content shopping_log">
-          <ShoppingLogBanner /><!-- 쇼핑로그 상단 배너 -->
+          <ServiceBanner /><!-- 쇼핑로그 상단 배너 -->
           <ShoppingLogList /><!-- 쇼핑로그 리스트 -->
         </div>
     </div>

@@ -578,7 +578,7 @@ export const mo_benefit_goods = [
     }
   },
   {
-    img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
+    img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
     overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
     cate:'BEST',
     name:'블랙티 유스 인핸싱 앰플 50ml',
@@ -592,19 +592,19 @@ export const mo_benefit_goods = [
       modal_id: 'giveaway_01',
       goods: [
         {
-          img: ("/_nuxt/public/images/sam/sam_pre_01.png"),
+          img: ("/_nuxt/images/sam/sam_pre_01.png"),
           name: '제주 루트 에너지 마스크[당근] 5매 세트',
           date: '24.00.00 ~ 24.00.00',
           txt: '1개 구매시 1개 증정'
         },
         {
-          img: ("/_nuxt/public/images/sam/sam_pre_02.png"),
+          img: ("/_nuxt/images/sam/sam_pre_02.png"),
           name: '비타C 세럼 럭키 박스 (30ml + 랜덤기프트)',
           date: '24.00.00',
           txt: '1개 구매시 n개 증정'
         },
         {
-          img: ("/_nuxt/public/images/sam/am_pre_03.png"),
+          img: ("/_nuxt/images/sam/am_pre_03.png"),
           name: '레티놀 시카 앰플 포커싱 패치 1ea / 9patches',
           date: '24.00.00 ~ 24.00.00',
           txt: '1개 구매시 n개 증정'
@@ -617,8 +617,8 @@ export const mo_benefit_goods = [
     }
   },
   {
-      img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
-      overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
+      img:("/_nuxt/images/sam/sam_goods_list_02.jpg"),
+      overflip:("/_nuxt/images/sam/sam_goods_list_02-1.jpg"),
       cate:'NEW',
       name:'그린티 씨드 히알루론산 세렘 80ml',
       price:'44,800', sale:'~20%', cost:'56,000',
@@ -652,13 +652,13 @@ export const mo_benefit_goods = [
         modal_id: 'giveaway_01',
         goods: [
           {
-            img: ("/_nuxt/public/images/sam/am_pre_03.png"),
+            img: ("/_nuxt/images/sam/am_pre_03.png"),
             name: '레티놀 시카 앰플 포커싱 패치 1ea / 9patches',
             date: '24.00.00 ~ 24.00.00',
             txt: '1개 구매시 n개 증정'
           },
           {
-            img: ("/_nuxt/public/images/sam/sam_pre_02.png"),
+            img: ("/_nuxt/images/sam/sam_pre_02.png"),
             name: '비타C 세럼 럭키 박스 (30ml + 랜덤기프트)',
             date: '24.00.00',
             txt: '1개 구매시 n개 증정'
@@ -1034,8 +1034,8 @@ export const sample_goods = [
         big: true
 
     }, {
-        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
+        img:("/_nuxt/images/sam/sam_goods_list_02.jpg"),
+        overflip:("/_nuxt/images/sam/sam_goods_list_02-1.jpg"),
         cate:'NEW',
         name:'그린티 씨드 히알루론산 세렘 80ml',
         price:'44,800', sale:'~20%', cost:'56,000',
@@ -1053,19 +1053,19 @@ export const sample_goods = [
           modal_id: 'giveaway_01',
           goods: [
             {
-              img: ("/_nuxt/public/images/sam/sam_pre_01.png"),
+              img: ("/_nuxt/images/sam/sam_pre_01.png"),
               name: '제주 루트 에너지 마스크[당근] 5매 세트',
               date: '24.00.00 ~ 24.00.00',
               txt: '1개 구매시 1개 증정'
             },
             {
-              img: ("/_nuxt/public/images/sam/sam_pre_02.png"),
+              img: ("/_nuxt/images/sam/sam_pre_02.png"),
               name: '비타C 세럼 럭키 박스 (30ml + 랜덤기프트)',
               date: '24.00.00',
               txt: '1개 구매시 n개 증정'
             },
             {
-              img: ("/_nuxt/public/images/sam/am_pre_03.png"),
+              img: ("/_nuxt/images/sam/am_pre_03.png"),
               name: '레티놀 시카 앰플 포커싱 패치 1ea / 9patches',
               date: '24.00.00 ~ 24.00.00',
               txt: '1개 구매시 n개 증정'
@@ -1073,8 +1073,8 @@ export const sample_goods = [
           ]
         },
     }, {
-        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
+        img:("/_nuxt/images/sam/sam_goods_list_02.jpg"),
+        overflip:("/_nuxt/images/sam/sam_goods_list_02-1.jpg"),
         cate:'NEW',
         name:'그린티 씨드 히알루론산 세렘 80ml',
         price:'44,800', sale:'~20%', cost:'56,000',
@@ -1111,7 +1111,7 @@ export const sample_goods = [
         },
     },
     {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
         overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
         name:'블랙티 유스 인핸싱 앰플 50ml5',
         price:'11,000', sale:'~50%', cost:'26,000',
@@ -1123,16 +1123,16 @@ export const sample_goods = [
         },
     },
     {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
     },
     {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
     },
     {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
     },
     {
-        img:("/_nuxt/public/images/sam/sam_goods_list_04.jpg"),
+        img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
     },{
         img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
     },
@@ -1213,19 +1213,19 @@ export const mainSam = {
   ],
   recommend : [
     {
-      img:("/_nuxt/public/images/sam/recommend_01.png"),
+      img:("/_nuxt/images/sam/recommend_01.png"),
       title:'최강한파?! 오히려 좋아!<br/> 귀여운 귀마개를 드려요♥',
       txt:'디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!0',
       hash:['겨울필수아이템','그린펫클럽']
     },
     {
-      img:("/_nuxt/public/images/sam/recommend_02.png"),
+      img:("/_nuxt/images/sam/recommend_02.png"),
       title:'원영이의 특별한 피부비결!<br/> 비타C 잡티 토닝 세럼이 정답!',
       txt:'디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!1',
       hash:['세럼','비타C', '토닝']
     },
     {
-      img:("/_nuxt/public/images/sam/recommend_03.png"),
+      img:("/_nuxt/images/sam/recommend_03.png"),
       title:'라이브 단독 쿠폰 & 사은품<br/> 신세계 상품권 10만원 GET!',
       txt:'채팅만 해도 경품을 받는다고?<br/> 구매 인증, 채팅 추첨 경품!',
       hash:['라이브 단독','쿠폰']
@@ -1233,7 +1233,7 @@ export const mainSam = {
   ],
   recommend02 : [
     {
-      img:(" /_nuxt/public/images/sam/recommend_01.png"),
+      img:(" /_nuxt/images/sam/recommend_01.png"),
       title:'최강한파?! 오히려 좋아!<br/> 귀여운 귀마개를 드려요♥',
       txt:'디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!0',
       goods:{
@@ -1244,19 +1244,19 @@ export const mainSam = {
       }
     },
     {
-      img:("/_nuxt/public/images/sam/recommend_02.png"),
+      img:("/_nuxt/images/sam/recommend_02.png"),
       title:'원영이의 특별한 피부비결!<br/> 비타C 잡티 토닝 세럼이 정답!',
       txt:'디렉트파이 선정 비타민C TOP OF TOP 세럼!<br/> 특별히 준비한 마리떼 귀마개를 드려요!1',
       hash:['세럼','비타C', '토닝'],
       goods:{
-        img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
+        img:("/_nuxt/images/sam/sam_goods_list_02.jpg"),
         cate:'NEW',
         name:'그린티 씨드 히알루론산 세렘 80ml',
         price:'44,800', sale:'~20%', cost:'56,000',
       }
     },
     {
-      img:("/_nuxt/public/images/sam/recommend_03.png"),
+      img:("/_nuxt/images/sam/recommend_03.png"),
       title:'라이브 단독 쿠폰 & 사은품<br/> 신세계 상품권 10만원 GET!',
       txt:'채팅만 해도 경품을 받는다고?<br/> 구매 인증, 채팅 추첨 경품!',
       hash:['라이브 단독','쿠폰'],
@@ -2037,8 +2037,8 @@ export const global_menu = [
             {link:'#none', menu:'기타'}
         ],
         goods: [
-            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-1.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
-            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-2.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
+            {img:'/_nuxt/images/sam/category_sam_goods_list_00-1.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
+            {img:'/_nuxt/images/sam/category_sam_goods_list_00-2.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
         ]
     }, {
         link:'#none', menu:'메이크업',
@@ -2049,8 +2049,8 @@ export const global_menu = [
             {link:'#none', menu:'네일'}
         ],
         goods: [
-            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-3.png', name: '노세범 블러 프라이머 25mL', cate:'BEST'},
-            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-4.png', name: '노세범 AC 파우더 5G'},
+            {img:'/_nuxt/images/sam/category_sam_goods_list_00-3.png', name: '노세범 블러 프라이머 25mL', cate:'BEST'},
+            {img:'/_nuxt/images/sam/category_sam_goods_list_00-4.png', name: '노세범 AC 파우더 5G'},
         ]
     }, {
         link:'#none', menu:'남성',
@@ -2062,8 +2062,8 @@ export const global_menu = [
             {link:'#none', menu:'기획세트'}
         ],
         goods: [
-            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-5.png', name: '포레스트 포맨 쉐이빙&클렌징 폼', cate:'BEST'},
-            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-6.png', name: '포레스트 프레시 스킨 로션 2종 세트', cate:'BEST'},
+            {img:'/_nuxt/images/sam/category_sam_goods_list_00-5.png', name: '포레스트 포맨 쉐이빙&클렌징 폼', cate:'BEST'},
+            {img:'/_nuxt/images/sam/category_sam_goods_list_00-6.png', name: '포레스트 프레시 스킨 로션 2종 세트', cate:'BEST'},
         ]
     }, {
         link:'#none', menu:'헤어/바디',
@@ -2075,8 +2075,8 @@ export const global_menu = [
             {link:'#none', menu:'샴푸/트리트먼트'}
         ],
         goods: [
-            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-7.png', name: '아일 넘버 바디 앤 핸드 워시 300mL'},
-            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-8.png', name: '[LTD] 마이퍼퓸드 핸드크림 2종 기획 세트'},
+            {img:'/_nuxt/images/sam/category_sam_goods_list_00-7.png', name: '아일 넘버 바디 앤 핸드 워시 300mL'},
+            {img:'/_nuxt/images/sam/category_sam_goods_list_00-8.png', name: '[LTD] 마이퍼퓸드 핸드크림 2종 기획 세트'},
         ]
     }, {
         link:'#none', menu:'기획세트',
@@ -2084,8 +2084,8 @@ export const global_menu = [
             {link:'#none', menu:'기획세트'}
         ],
         goods: [
-            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-9.png', name: '[LTD] 블랙티 유스 인핸싱 앰플 세트', cate:'BEST'},
-            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-10.png', name: '[LTD] 비타C 잡티 토닝 세럼 대용량 세트', cate:'BEST'},
+            {img:'/_nuxt/images/sam/category_sam_goods_list_00-9.png', name: '[LTD] 블랙티 유스 인핸싱 앰플 세트', cate:'BEST'},
+            {img:'/_nuxt/images/sam/category_sam_goods_list_00-10.png', name: '[LTD] 비타C 잡티 토닝 세럼 대용량 세트', cate:'BEST'},
         ]
     }, {
         link:'#none', menu:'미용소품',
@@ -2097,35 +2097,38 @@ export const global_menu = [
             {link:'#none', menu:'기타 소품'},
         ],
         goods: [
-            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-11.png', name: '패들 헤어 브러시 1EA'},
-            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-12.png', name: '리스테이 리-스펜서 350mL'},
+            {img:'/_nuxt/images/sam/category_sam_goods_list_00-11.png', name: '패들 헤어 브러시 1EA'},
+            {img:'/_nuxt/images/sam/category_sam_goods_list_00-12.png', name: '리스테이 리-스펜서 350mL'},
         ]
     }, {
         link:'#none', menu:'고민별제품',
         sub_menu: [
-            {link:'#none', menu:'수분/보습/속건조', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-13.png'},
-            {link:'#none', menu:'모공/피지/블랙헤드', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-14.png'},
-            {link:'#none', menu:'주름/탄력', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-15.png'},
-            {link:'#none', menu:'트러블/리페어', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-16.png'},
-            {link:'#none', menu:'각질/피부결', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-17.png'},
-            {link:'#none', menu:'잡티/피부결', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-18.png'},
-            {link:'#none', menu:'영양/토탈안티에이징', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-19.png'},
-            {link:'#none', menu:'진정/민감', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-20.png'}
+            {link:'#none', menu:'수분/보습/속건조', img:'/_nuxt/images/sam/category_sam_goods_list_00-13.png'},
+            {link:'#none', menu:'모공/피지/블랙헤드', img:'/_nuxt/images/sam/category_sam_goods_list_00-14.png'},
+            {link:'#none', menu:'주름/탄력', img:'/_nuxt/images/sam/category_sam_goods_list_00-15.png'},
+            {link:'#none', menu:'트러블/리페어', img:'/_nuxt/images/sam/category_sam_goods_list_00-16.png'},
+            {link:'#none', menu:'각질/피부결', img:'/_nuxt/images/sam/category_sam_goods_list_00-17.png'},
+            {link:'#none', menu:'잡티/피부결', img:'/_nuxt/images/sam/category_sam_goods_list_00-18.png'},
+            {link:'#none', menu:'영양/토탈안티에이징', img:'/_nuxt/images/sam/category_sam_goods_list_00-19.png'},
+            {link:'#none', menu:'진정/민감', img:'/_nuxt/images/sam/category_sam_goods_list_00-20.png'}
         ]
     },
 ]
 
 /* mo sample menu */
 export const gnb_list = [
-  { tit: '이벤트', url: '/publish/IN_MO_HOM_01_05' },
   { tit: '특가', url: '/publish/IN_MO_HOM_01_04', admChk: true },
-  { tit: '랭킹', url: '/publish/IN_MO_HOM_01_07' },
+  { tit: '이벤트', url: '/publish/IN_MO_HOM_01_05' },
+  { tit: '랭킹', url: '/publish/IN_MO_HOM_01_07', active: true },
   { tit: '쿠폰존', url: '#none' },
-  { tit: '에디터', url: '/publish/IN_MO_HOM_01_08', type: 'active' },
+  { tit: '에디터', url: '/publish/IN_MO_HOM_01_08' },
+  { tit: '샘플마켓', url: '/publish/IN_MO_APP_01_06_01' },
+  { tit: 'AI케어', url: '#none' },
   { tit: '쇼케이스', url: '/publish/IN_MO_HOM_01_12' },
   { tit: '라이브', url: '/publish/IN_MO_HOM_01_14' },
   { tit: 'FOR ME', url: '/publish/IN_MO_HOM_01_15' },
   { tit: '임직원샵', url: '/publish/IN_MO_HOM_01_16' },
+  { tit: 'ABOUT', url: '#none' },
 ];
 
 
@@ -2417,52 +2420,52 @@ export const noti_data = {
 
 export const nav_goods = [
   {
-      img: ("/_nuxt/public/images/sam/category_sam_goods_list_01.png"),
+      img: ("/_nuxt/images/sam/category_sam_goods_list_01.png"),
       title: '2024 새해<br>콜라겐크림 기획전<br>럭키박스 + 럭키드로우',
       sticker: true,
       cate: '제휴혜택',
   }, {
-      img:("/_nuxt/public/images/sam/category_sam_goods_list_02.png"),
+      img:("/_nuxt/images/sam/category_sam_goods_list_02.png"),
       title: 'N페이 3만원 결제시<br>1만원 적립!<br>N페이 5천+뷰티5천',
       sticker: true,
       cate: '체험리뷰',
   }, {
-      img:("/_nuxt/public/images/sam/category_sam_goods_list_03.png"),
+      img:("/_nuxt/images/sam/category_sam_goods_list_03.png"),
       title: 'N페이 3만원 결제시<br>1만원 적립!<br>N페이 5천+뷰티5천',
       sticker: true,
       cate:'쇼핑혜택',
   }, {
-      img:("/_nuxt/public/images/sam/category_sam_goods_list_04.png"),
+      img:("/_nuxt/images/sam/category_sam_goods_list_04.png"),
       title: '단, 8일<br>선물같은 혜택<br>콜라보 데님 인디고 BAG',
       sticker: true,
       cate:'쇼핑혜택',
   }, {
-      img:("/_nuxt/public/images/sam/category_sam_goods_list_05.png"),
+      img:("/_nuxt/images/sam/category_sam_goods_list_05.png"),
       title: '2023 디렉터파이<br>비타민C 앰플<br>TOP of TOP 선정!',
       sticker: true,
       cate:'체험리뷰',
   }, {
-      img: ("/_nuxt/public/images/sam/category_sam_goods_list_01.png"),
+      img: ("/_nuxt/images/sam/category_sam_goods_list_01.png"),
       title: '2024 새해<br>콜라겐크림 기획전<br>럭키박스 + 럭키드로우',
       sticker: true,
       cate: '제휴혜택',
   }, {
-      img:("/_nuxt/public/images/sam/category_sam_goods_list_02.png"),
+      img:("/_nuxt/images/sam/category_sam_goods_list_02.png"),
       title: 'N페이 3만원 결제시<br>1만원 적립!<br>N페이 5천+뷰티5천',
       sticker: true,
       cate: '체험리뷰',
   }, {
-      img:("/_nuxt/public/images/sam/category_sam_goods_list_03.png"),
+      img:("/_nuxt/images/sam/category_sam_goods_list_03.png"),
       title: 'N페이 3만원 결제시<br>1만원 적립!<br>N페이 5천+뷰티5천',
       sticker: true,
       cate:'쇼핑혜택',
   }, {
-      img:("/_nuxt/public/images/sam/category_sam_goods_list_04.png"),
+      img:("/_nuxt/images/sam/category_sam_goods_list_04.png"),
       title: '단, 8일<br>선물같은 혜택<br>콜라보 데님 인디고 BAG',
       sticker: true,
       cate:'쇼핑혜택',
   }, {
-      img:("/_nuxt/public/images/sam/category_sam_goods_list_05.png"),
+      img:("/_nuxt/images/sam/category_sam_goods_list_05.png"),
       title: '2023 디렉터파이<br>비타민C 앰플<br>TOP of TOP 선정!',
       sticker: true,
       cate:'체험리뷰',

@@ -1,11 +1,27 @@
 <template>
-  <div class="title_wrap">
-    <div class="renewal">
-      8분전 갱신
-      <img src="/assets/images/common/icon_renewal.png" @click="modal.open('modal_renewal', 'layer tooltip')">
-    </div>
-  </div>
+  <NavGnb
+    :item="[
+      {tit:'전체', active: true},
+      {tit:'에센스/세럼/앰플'},
+      {tit:'로션/크림'},
+      {tit:'스킨/토너/미스트'},
+      {tit:'선케어'},
+      {tit:'클렌징'},
+      {tit:'팩/마스크'},
+      {tit:'립/아이케어'},
+      {tit:'오일/마사지'},
+      {tit:'기획 세트'},
+      {tit:'기타'}
+    ]"
+  />
+
   <div class="inner">
+    <div class="title_wrap">
+      <div class="renewal">
+        8분전 갱신
+        <img src="/assets/images/common/icon_renewal.png" @click="modal.open('modal_renewal', 'layer tooltip')">
+      </div>
+    </div>
 
     <div class="list_wrap">
       <ul class="goods_list">
@@ -90,7 +106,7 @@ const swieprOpt = {
 };
 
 definePageMeta({
-layout:'mo-category'
+layout:'mo-default'
 });
 
 const props = defineProps({
@@ -100,9 +116,34 @@ const props = defineProps({
   }
 });
 
+onMounted(() => {
+  document.querySelector('header .navGnb').classList.add('shadow');
+});
+
 </script>
 
 <style lang="scss" scoped>
+.inner {
+  padding: 0 2.1rem;
+}
+
+.navGnb {
+  border-bottom: 0.1rem solid #F5F5F5;
+  background: #fff;
+  position: sticky;
+  top: 4.6rem;
+  z-index: 3;
+  :deep(ul) {
+    li.active {
+      a {
+        &:after {
+          background-color: #000;
+        }
+      }
+    }
+  }
+}
+
 .title_wrap {
   h2 {
     .renewal {
@@ -112,23 +153,10 @@ const props = defineProps({
 }
 
 .best_banner {
-  padding: 3.5rem 0;
+  padding: 3.5rem 2.1rem;
   margin: 4rem 0;
-  position:relative;
-  &:before, &:after {
-    content:'';
-    width:calc(100% + 4.2rem);
-    height:0.5rem;
-    margin: 0 -2.1rem;
-    background:#F5F5F5;
-    position: absolute;
-  }
-  &:before {
-    top: 0;
-  }
-  &:after {
-    bottom: 0;
-  }
+  border-top: 0.5rem solid #F5F5F5;
+  border-bottom: 0.5rem solid #F5F5F5;
 
   :deep(.swiper) {
     padding-bottom: 2.5rem;

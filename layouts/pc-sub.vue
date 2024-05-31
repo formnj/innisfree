@@ -10,8 +10,7 @@
         <FooterPc />
     </div>
 </template>
-
-
+<!-- pc-sub 사용시 컨텐츠를 .inner 로 감싸서 사용 -->
 <script setup>
 import {
   breadcrumbData,
@@ -32,6 +31,7 @@ import {
   padding-bottom:100px;
   flex:1 auto;
   :deep(.inner) {
+    width: 1280px;
     margin:0 auto;
   }
 }

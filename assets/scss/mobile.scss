@@ -83,7 +83,7 @@
   h4 {
     font-size:1.6rem;
     line-height:2rem;
-    
+
     .explain {
       margin-top: 0.5rem;
       color: #AAA;
@@ -210,6 +210,8 @@
 :deep(.goods_item) {
   width: 16.5rem;
   padding-bottom:calc(24px + 1rem);
+  position: relative;
+
   .img_wrap {
     position:static;
     &:before {
@@ -332,7 +334,9 @@
   }
 
   &.type_column {
+    width: 100%;
     padding-bottom: 0;
+    align-items: center;
 
     .img_wrap {
       .thumb {
@@ -367,14 +371,33 @@
   }
 
   &.type_cart { /* .type_cart */
+    padding-bottom: 0;
+
     .img_wrap {
+      position: relative;
+
       .btnIconBox {
+        position: absolute;
+        bottom: .5rem;
+        right: 0px;
+        justify-content: end;
         gap: .5rem;
+
+        .btn_heart,
+        .btn_buy {
+          display: none;
+        }
       }
     }
   }
 }
 /* //goodsItem */
+
+:deep(.event_list) {
+  li {
+    flex: 1 1 100%;
+  }
+}
 
 /* eventitem */
 :deep(.event_item) {
@@ -1318,5 +1341,220 @@
     .keyword_wrap {
       border-top: 0;
     }
+  }
+}
+
+/* 마이페이지 멤버십 */
+:deep(.tab_wrap) {
+  &.membership_tab {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 2;
+  }
+
+  &.membership_tab, &.beauty_tab {
+    ul.type_01 {
+      li {
+        button {
+          height: 5rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+}
+
+:deep(.user_wrap) {
+  padding:3rem 2.1rem;
+  background:#F5F5F5;
+  display:flex;
+  justify-content:space-between;
+  position:relative;
+
+  .user_grade {
+    width:100%;
+    h3 {
+      font-size:2rem;
+      font-weight:600;
+      line-height:2.4rem;
+    }
+    .user_list {
+      margin-top:6rem;
+      font-size:1.3rem;
+      line-height:2rem;
+      display:flex;
+      flex-direction:column;
+      gap:0.5rem;
+      li {
+        display:flex;
+        gap:0.5rem;
+        span {
+          &:first-child {
+            color:#888;
+          }
+        }
+      }
+    }
+    .grade {
+      margin-top:2.8rem;
+      &.wc {
+        .grade_bar {
+          &:before{
+            width:0;
+          }
+          &:after {
+            left:-1%;
+          }
+        }
+      }
+      &.vip {
+        .grade_bar {
+          &:before{
+            animation: vip_bar 2s forwards;
+          }
+          &:after {
+            animation: vip_bullet 2s forwards;
+          }
+        }
+      }
+      &.gtclub {
+        .grade_bar {
+          &:before{
+            animation: gtclub_bar 2s forwards;
+          }
+          &:after {
+            animation: gtclub_bullet 2s forwards;
+          }
+        }
+      }
+      .grade_bar {
+        height:0.5rem;
+        font-size:0;
+        background:#EEE;
+        position:relative;
+        &:before {
+          content:'';
+          height:100%;
+          display:block;
+          background:#FFD067;
+        }
+        &:after {
+          content:'';
+          width:2rem;
+          height:2rem;
+          background:#fff;
+          border-radius:50%;
+          box-shadow: 0 0.1rem 0.3rem rgba(0,0,0,0.2);
+          position:absolute;
+          top:50%;
+          right:-1rem;
+          transform:translate(0,-50%);
+        }
+      }
+      .txt {
+        margin-top:1.4rem;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        span {
+          color:#AAA;
+          font-size:1.2rem;
+          line-height:1.6rem;
+          &.t2 {
+            margin-left:3rem;
+          }
+        }
+      }
+    }
+  }
+  > ul {
+    width:15rem;
+    display:flex;
+    gap:0 1.5rem;
+    position:absolute;
+    top:3rem;
+    right:0;
+    li {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      &:before {
+        content:'';
+        width:2rem;
+        height:2rem;
+        margin-bottom:0.3rem;
+        background:url('~/assets/mo_images/common/icon_split.png') no-repeat;
+        background-size:25rem auto;
+        display:block;
+      }
+      &.point{
+        &:before {
+          background-position:-6.5rem -21rem;
+        }
+      }
+      &.coupon{
+        &:before {
+          background-position:-8.5rem -21rem;
+        }
+      }
+      p {
+        color:#666;
+        font-size:1.3rem;
+        line-height:1.6rem;
+        display:flex;
+        align-items:center;
+      }
+      span {
+        color:#1B8DF7;
+        font-size:1.2rem;
+        font-weight:500;
+        line-height:2.4rem;
+        strong {
+          font-size:1.6rem;
+        }
+      }
+    }
+  }
+}
+@keyframes vip_bar {
+  0% {
+    width:0;
+    background:#FFD067;
+  }
+  100% {
+    width:50%;
+    background:#FFD067;
+  }
+}
+@keyframes vip_bullet {
+  0% {
+    left:-1%;
+  }
+  100% {
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+}
+@keyframes gtclub_bar {
+  0% {
+    width:0;
+    background:#FFD067;
+  }
+  50% {
+    background:#FFD067;
+  }
+  100% {
+    width:100%;
+    background:#12B560;
+  }
+}
+@keyframes gtclub_bullet {
+  0% {
+    left:-1%;
+  }
+  100% {
+    left:97%;
   }
 }

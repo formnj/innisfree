@@ -1,9 +1,10 @@
 <template>
   <Tabs class="membership_tab" tabType="type_01" :item="[{txt:'멤버십 혜택안내'},{txt:'뷰티포인트 안내'},{txt:'모바일 앱 다운로드'}]" :tabidx="2" />
-  <div class="inner">
+  
+  <section class="mobile_app">
+    <div class="img"><img src="/_nuxt/public/images/sam/appdown_img.png" alt=""></div>
 
-    <section class="mobile_app">
-      <div class="img"><img src="/_nuxt/public/images/sam/appdown_img.png" alt=""></div>
+    <div class="inner">
       <div class="download">
         <h4>모바일 APP으로<br>더 간편하게! 더 특별하게!</h4>
         <Button txt="APP 다운로드" />
@@ -14,8 +15,8 @@
           <li>신규 가입하면 총 70,000원 쿠폰팩 즉시 발급!</li>
         </ul>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 <script setup>
 import { useRouter } from 'vue-router';
@@ -23,12 +24,16 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 definePageMeta({
-  layout:'mo-category'
+  layout:'mo-back-name-search-cart'
 });
 
 const membership_link = [ 'IN_MO_MYP_01_04', 'IN_MO_MYP_01_05', 'IN_MO_MYP_01_07', ];
 
+const emit = defineEmits(['title']);
+
 onMounted(() => {
+  emit('title', '멤버십');
+  
   document.querySelectorAll('.membership_tab li').forEach((el, idx) => {
     el.addEventListener('click', () => {
       router.push(`/publish/${membership_link[idx]}`);
@@ -37,22 +42,11 @@ onMounted(() => {
 });
 </script>
 <style lang="scss" scoped>
-.membership_tab {
-  margin:0 -20px;
-  :deep(ul.type_01) {
-    li {
-      button {
-        height: 5rem;
-        font-weight: 600;
-      }
-    }
-  }
+.inner {
+  padding: 0 2.1rem;
 }
 
 .mobile_app {
-  .img {
-    margin:0 -20px;
-  }
   .download {
     padding-top:2rem;
     display:flex;

@@ -1,7 +1,7 @@
 <template>
   <div class="shopping_log_wrap">
     <div class="shopping_log">
-      <ShoppingLogBanner /><!-- 쇼핑로그 상단 배너 -->
+      <ServiceBanner /><!-- 쇼핑로그 상단 배너 -->
 
       <div class="inner">
         <div class="sub_title_wrap">
@@ -42,7 +42,7 @@
 <script setup>
 import { modal } from '~/assets/js/common-ui'
 definePageMeta({
-  layout:'mo-sub'
+  layout:'mo-default'
 });
 </script>
 <style lang="scss" scoped>
@@ -57,7 +57,7 @@ definePageMeta({
         line-height: 2.7rem;
       }
     }
-  
+
     .explain {
       margin-top: 0.5rem;
     }

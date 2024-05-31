@@ -1,6 +1,6 @@
 <template>
   <section class="shopping_log_wrap">
-    <ShoppingLogBanner /><!-- 쇼핑로그 상단 배너 -->
+    <ServiceBanner /><!-- 쇼핑로그 상단 배너 -->
     <div class="inner">
       <div class="sub_title_wrap">
         <div>
@@ -183,7 +183,7 @@ SwiperCore.use([Navigation, Pagination, A11y]);
 
 definePageMeta({
   layout:'mo-default'
-})
+});
 </script>
 
 <style lang="scss" scoped>

@@ -118,17 +118,30 @@
   </section>
 
   <section>
-    <h2>Goods Item</h2>
+    <h2>Goods Item - default</h2>
     <ul class="explain">
-      <li>sold out, coming soon = status:'sold_out' or 'coming_soon'</li>
-      <li>모바일에서 btn_cart 아이콘만 노출되게 하고 싶을 경우!
-        &lt;GoodsItem :item="item" :link="item.link" class="type_cart"/&gt; class에 type_cart 추가</li>
-      <li>[증정품]이 있는 경우 평점은 [증정품] 하단에 위치한 평점이 노출</li>
+      <li>sold out, coming soon = status:'sold_out' or 'coming_soon' or 'end'</li>
+      <li>Props<br>useMark(마크/스티커 사용여부, default:true)<br>useHas(해시태그 사용여부, default:false)<br>useScore(별점 사용여부, default:true)<br>useGiveaway(증정품 사용여부, default:false)<br>useBigmark(대용량 마크 사용여부, default:true)</li>
+      <li>class<br>type_column, type_cart</li>
+      <li>기준 : 기획서 PC, MO 제품목록 참고</li>
     </ul>
     <div class="design_box">
       <div class="list_wrap">
+        <h3>pc</h3>
         <ul class="goods_list">
-          <li v-for="(item, idx) in sample_goods.slice(0,5)" :key="idx">
+          <li v-for="(item, idx) in sample_goods.slice(0,2)" :key="idx">
+            <GoodsItem :item="item" :link="item.link" />
+          </li>
+          <li v-for="(item, idx) in sample_goods.slice(3,6)" :key="idx">
+            <GoodsItem :item="item" :link="item.link" />
+          </li>
+        </ul>
+        <h3 style="margin-top:40px;">mobile</h3>
+        <ul class="goods_list mobile" style="width:100%;">
+          <li v-for="(item, idx) in sample_goods.slice(0,2)" :key="idx">
+            <GoodsItem :item="item" :link="item.link" />
+          </li>
+          <li v-for="(item, idx) in sample_goods.slice(3,6)" :key="idx">
             <GoodsItem :item="item" :link="item.link" />
           </li>
         </ul>
@@ -136,6 +149,154 @@
     </div>
     <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
     &lt;ul class="goods_list"&gt;
+        &lt;li v-for="(item, idx) in sample_goods" :key="idx"&gt;
+            &lt;GoodsItem :item="item" :link="item.link" /&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>Goods Item - useHash</h2>
+    <ul class="explain">
+      <li>:useHash="true", default는 false(그 외 props는 default형 설명 참고)</li>
+    </ul>
+    <div class="design_box">
+      <div class="list_wrap" style="display:flex;">
+        <ul class="goods_list">
+          <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx">
+            <GoodsItem :item="item" :link="item.link" :useHash="true" />
+          </li>
+        </ul>
+        <ul class="goods_list mobile">
+          <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx">
+            <GoodsItem :item="item" :link="item.link" :useHash="true" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
+    &lt;ul class="goods_list"&gt;
+        &lt;li v-for="(item, idx) in sample_goods" :key="idx"&gt;
+            &lt;GoodsItem :item="item" :link="item.link" :useHash="true" /&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>Goods Item - useGiveaway</h2>
+    <ul class="explain">
+      <li>:useGiveaway="true", default는 false(그 외 props는 default형 설명 참고)</li>
+    </ul>
+    <div class="design_box">
+      <div class="list_wrap" style="display:flex;gap:20px;">
+        <ul class="goods_list">
+          <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx">
+            <GoodsItem :item="item" :link="item.link" :useGiveaway="true" />
+          </li>
+        </ul>
+        <ul class="goods_list mobile"><!--mobile 클래스는 가이드용 -->
+          <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx">
+            <GoodsItem :item="item" :link="item.link" :useGiveaway="true" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
+    &lt;ul class="goods_list"&gt;
+        &lt;li v-for="(item, idx) in sample_goods" :key="idx"&gt;
+            &lt;GoodsItem :item="item" :link="item.link" :useGiveaway="true" /&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>Goods Item - type_column</h2>
+    <ul class="explain">
+      <li>class="type_column"</li>
+    </ul>
+    <div class="design_box">
+      <div class="list_wrap">
+        <ul class="goods_list">
+          <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx">
+            <GoodsItem :item="item" :link="item.link" class="type_column" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
+    &lt;ul class="goods_list"&gt;
+        &lt;li v-for="(item, idx) in sample_goods" :key="idx"&gt;
+            &lt;GoodsItem :item="item" :link="item.link" class="type_column" /&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>Goods Item(Mobile) - type_cart</h2>
+    <ul class="explain">
+      <li>class="type_cart"</li>
+    </ul>
+    <div class="design_box">
+      <div class="list_wrap">
+        <ul class="goods_list mobile"><!--mobile 클래스는 가이드용 -->
+          <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx">
+            <GoodsItem :item="item" :link="item.link" class="type_cart" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
+    &lt;ul class="goods_list"&gt;
+        &lt;li v-for="(item, idx) in sample_goods" :key="idx"&gt;
+            &lt;GoodsItem :item="item" :link="item.link" class="type_cart" /&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>Goods Item(Mobile) - type_column + type_cart</h2>
+    <ul class="explain">
+      <li>class="type_column type_cart"</li>
+    </ul>
+    <div class="design_box">
+      <div class="list_wrap">
+        <ul class="goods_list mobile"><!--mobile 클래스는 가이드용 -->
+          <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx" style="width: 350px;">
+            <GoodsItem :item="item" :link="item.link" class="type_column type_cart" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
+    &lt;ul class="goods_list"&gt;
+        &lt;li v-for="(item, idx) in sample_goods" :key="idx"&gt;
+            &lt;GoodsItem :item="item" :link="item.link" class="type_column type_cart" /&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>Goods Item(Mobile) - col_3</h2>
+    <ul class="explain">
+      <li>class="col_3"</li>
+    </ul>
+    <div class="design_box">
+      <div class="list_wrap">
+        <ul class="goods_list mobile col_3"><!--mobile 클래스는 가이드용 -->
+          <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
+            <GoodsItem :item="item" :link="item.link" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
+    &lt;ul class="goods_list col_3"&gt;
         &lt;li v-for="(item, idx) in sample_goods" :key="idx"&gt;
             &lt;GoodsItem :item="item" :link="item.link" /&gt;
         &lt;/li&gt;
@@ -876,6 +1037,217 @@ onMounted(()=>{
     &.active {
       color: #FFFFFF;
       background: #00BC70;
+    }
+  }
+}
+
+
+
+
+/* goodsItem */
+.mobile {
+  :deep(.goods_item) {
+    width: 16.5rem;
+    padding-bottom:calc(24px + 1rem);
+    position: relative;
+
+    .img_wrap {
+      position:static;
+      &:before {
+        display:none !important;
+      }
+      .top_sticker {
+        height: 2.4rem;
+        line-height: 2.4rem;
+      }
+      .thumb {
+        width:100%;
+        height:22.0rem;
+      }
+      .btnIconBox {
+        background-color:transparent;
+        position:absolute;
+        bottom:0;
+        gap:1rem;
+        justify-content:start;
+        transform:translateY(0);
+        button {
+          padding:0;
+          em {
+            width:24px;
+            height:24px;
+            padding:0;
+            background-image:url('~/assets/mo_images/common/icon_split.png');
+            background-size:250px auto;
+          }
+          &.btn_heart {
+            em {
+              background-position:-140px -40px;
+            }
+            &.on {
+              em {
+                background-position:-180px -70px;
+              }
+            }
+          }
+          &.btn_cart em {
+            background-position:-170px -40px;
+          }
+          &.btn_buy em {
+            background-position:-200px -40px;
+          }
+        }
+      }
+    }
+    &.sold_out, &.coming_soon, &.end {
+      .img_wrap {
+        a {
+          position:relative;
+          &:before, &:after {
+            content:'';
+            display:block;
+          }
+          &:before {
+            background-color:rgba(0,0,0,0.3);
+            background-position:50%;
+            background-repeat:no-repeat;
+            background-size: 60%;
+            position:absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            z-index:1;
+          }
+        }
+      }
+    }
+    &.sold_out {
+      .img_wrap a:before {
+          background-image:url('~/assets/images/ui/overlay_soldout.png');
+      }
+    }
+    &.coming_soon {
+      .img_wrap a:before {
+          background-image:url('~/assets/images/ui/overlay_comingsoon.png');
+      }
+    }
+    &.end {
+      .img_wrap a:before {
+          background-image:url('~/assets/images/ui/overlay_end.png');
+      }
+    }
+    .cont {
+      > .price {
+        margin-top:0.6rem;
+        margin-bottom:1rem;
+        strong {
+          margin-right:0.5rem;
+          font-size:1.4rem;
+        }
+        span {
+          font-size:1.2rem;
+        }
+        em {
+          font-size:1rem;
+          display:block;
+        }
+      }
+      .name {
+        font-size:1.4rem;
+        strong {
+          color:#000;
+          .cate {
+            margin:0;
+          }
+        }
+      }
+      .review_score {
+        margin-top:1.0rem;
+        font-size:1.0rem;
+      }
+      .sticker em {
+        padding:3px 5px;
+        font-size:1rem;
+      }
+    }
+
+    &.type_column {
+      width: 100%;
+      padding-bottom: 0;
+
+      .img_wrap {
+        .thumb {
+          width: 9rem;
+          height: 12rem;
+        }
+      }
+      .cont {
+        .price {
+          em {
+            display: inline;
+          }
+        }
+      }
+
+      &.type_cart { /* .type_column.type_cart */
+        .img_wrap {
+          position: static;
+          .btnIconBox {
+            display: flex;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%);
+            bottom: auto;
+            right: 0;
+            left: auto;
+            z-index: 2;
+            gap: 0;
+          }
+        }
+      }
+    }
+
+    &.type_cart { /* .type_cart */
+      padding-bottom: 0;
+
+      .img_wrap {
+        position: relative;
+
+        .btnIconBox {
+          position: absolute;
+          bottom: .5rem;
+          right: 0px;
+          justify-content: end;
+          gap: .5rem;
+
+          .btn_heart,
+          .btn_buy {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+/* //goodsItem */
+
+/* goods list */
+:deep(.goods_list).mobile {
+  width:375px;
+  &.col_3 {
+    display: flex;
+    gap: 2rem .3rem;
+    > li {
+      width: 10.9rem;
+      .goods_item {
+        width: 10.9rem;
+        .img_wrap {
+          .thumb {
+            height: 14.5rem;
+          }
+        }
+      }
     }
   }
 }

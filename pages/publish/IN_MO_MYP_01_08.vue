@@ -126,7 +126,7 @@
 
 <script setup>
 definePageMeta({
-layout:'mo-category'
+layout:'mo-back-name-search-cart'
 });
 import { modal } from '~/assets/js/common-ui.js'
 
@@ -137,12 +137,15 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   }
 });
 
+const emit = defineEmits(['title']);
 
 onMounted(() => {
+  emit('title', '주문내역');
+
   function date_tab (){
     let tab = document.querySelectorAll('.type_05 li');
     let footer_btn = document.querySelector('#date_check .modal_container .modal_footer')
-    console.log(footer_btn)
+
     tab.forEach((a,i)=>{
       a.addEventListener('click', ()=>{
         footer_btn.classList.remove('active');
@@ -154,11 +157,15 @@ onMounted(() => {
   }
   date_tab()
 
-})
+});
 
 </script>
 
 <style lang="scss" scoped>
+.inner {
+  padding: 0 2.1rem;
+}
+
 button {
   &.btn_outline {
     width:100%;

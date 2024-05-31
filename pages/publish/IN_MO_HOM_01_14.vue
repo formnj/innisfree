@@ -104,7 +104,7 @@ const swiper_nav = {
 /* swiper custom navigation */
 
 definePageMeta({
-	layout:'mo-category'
+	layout:'mo-default'
 });
 
 onMounted(() => {
@@ -119,8 +119,6 @@ const props = defineProps({
 </script>
 <style lang="scss" scoped>
 .swiper_wrap {
-  margin-right:-20px;
-  margin-left:-20px;
   :deep(.swiper-container) {
     padding-right:20px;
     padding-left:20px;
@@ -165,8 +163,6 @@ const props = defineProps({
 }
 
 .live_box {
-  margin-right:-20px;
-  margin-left:-20px;
   .liveVisual_none {
     position: relative;
     height: 46rem;
