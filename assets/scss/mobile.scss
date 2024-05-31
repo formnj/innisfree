@@ -593,6 +593,7 @@
     background-image:url('~/assets/mo_images/common/icon_split.png');
     background-size:25rem auto;
     background-position:-23rem -2rem;
+    vertical-align:middle;
   }
 }
 
@@ -1359,6 +1360,48 @@
 
     .keyword_wrap {
       border-top: 0;
+    }
+  }
+}
+
+
+/* 제품 상세 benefit_list */
+:deep(.benefit_list) {
+  &.gift {
+    gap: 1rem 0;
+
+    dd {
+      ul {
+        li {
+          padding: 0;
+          border: 1px solid #f5f5f5;
+
+          & + li {
+            margin-top: 1rem;
+          }
+
+          .thumb {
+            width: 8.8rem;
+          }
+        }
+      }
+    }
+  }
+
+  dt {
+    font-weight: 600;
+    color: #000;
+  }
+
+  &.txt {
+    padding: 3rem 0 0;
+    margin-top: 3rem;
+    gap: 1rem 0;
+
+    dd {
+      ul {
+        gap: 1rem 0;
+      }
     }
   }
 }

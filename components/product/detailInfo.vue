@@ -6,7 +6,7 @@
       <strong>BEST</strong> {{ prodInfo.name }}
     </div>
     <div class="info_box">
-      <div class="price">
+      <div v-if="!isMo" class="price">  <!-- PC 가격 표시 위치 -->
         <em>{{ prodInfo.price }}</em>
         <span class="sale">{{ prodInfo.sale }}</span>
         <span class="cost">{{ prodInfo.cost }}</span>
@@ -14,14 +14,22 @@
       <div class="rate">
         <a href="javascript:void(0);" @click="gotoReview">
           <Reviewpoint width="90" rate="4.7" />
-          <span class="review_cnt">{{ prodInfo.cntReview }}건 리뷰</span>
+          <span class="review_cnt">리뷰 {{ prodInfo.cntReview }}</span>
         </a>
+        <span class="review_cnt">포스팅 {{ prodInfo.cntPost }}</span>
       </div>
     </div>
     <p class="review_summary">
       {{ prodInfo.summaryReview }}
       <button type="button" @click="gotoReview">더보기</button>
     </p>
+    <div v-if="isMo" class="info_box">  <!-- MO 가격 표시 위치 -->
+      <div class="price">
+        <em>{{ prodInfo.price }}</em>
+        <span class="sale">{{ prodInfo.sale }}</span>
+        <span class="cost">{{ prodInfo.cost }}</span>
+      </div>
+    </div>
   </div>
 </template>
 <script setup>
@@ -104,6 +112,15 @@ const gotoReview = () => {
       .cost {
         color: #999;
         text-decoration: line-through;
+      }
+    }
+
+    .rate {
+      display: flex;
+      align-items: center;
+
+      a {
+        display: inline-flex;
       }
     }
   }

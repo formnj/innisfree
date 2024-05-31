@@ -484,55 +484,6 @@ onMounted(()=>{
 
       .list_wrap {
         margin: 0 35px;
-
-        .benefit_list.txt {
-          padding: 0;
-          gap: 10px;
-          border-top: 0;
-          flex-direction: column;
-
-          dt {
-            font-weight: 600;
-            color: #000;
-          }
-
-          dd {
-            width: 100%;
-
-            a {
-              width: auto;
-              max-width: 100%;
-              padding-right: 21px;
-              font-size: 13px;
-              line-height: 16px;
-              color: #666;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              vertical-align: top;
-              display: inline-block;
-              overflow: hidden;
-              position: relative;
-
-              &::after {
-                content: '';
-                width: 12px;
-                height: 12px;
-                margin-left: 8px;
-                background: url('/assets/mo_images/common/icon_split.png') -230px 0px / 250px auto no-repeat;
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
-              }
-            }
-          }
-
-          &+.benefit_list {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
-          }
-        }
       }
     }
 
