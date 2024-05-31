@@ -195,9 +195,9 @@ onMounted(() => {
         const target = document.querySelector('.tab_wrap > .type_02');
         const sticky_menu = document.querySelector('.sticky_menu_wrap')
         const y = window.scrollY
-        const offtop = document.querySelector('.title_wrap').offsetTop;
+        const offtop = document.querySelector('.title_wrap').getBoundingClientRect().y;
         console.log('offtop', offtop)
-        if (y >=200) {
+        if (offtop <= 1) {
             target.style.display="none";
             fixed.classList.add('active')
             sticky_menu.style.display="flex";
