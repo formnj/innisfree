@@ -57,7 +57,7 @@
         >
           <swiper-slide v-for="item in categoryForSearchLayerData" :key="item">
             <a href="#none">
-              <span class="thumb">
+              <span class="thumb" :class="item.type"><!-- 관리자 강조 등록 시 point 클래스 추가 -->
                 <em><img :src="item.imageUrl" /></em>
               </span>
               <p>{{ item.text }}</p>
@@ -67,6 +67,41 @@
       </div>
     </section>
     <!-- //quick menu -->
+
+    <!-- 혜택 슬라이드 -->
+    <div class="text_banner">
+      <div class="swiper_wrap">
+        <swiper :slides-per-view="1" :loop="true" :space-between="40"
+          :autoplay="{
+            delay: 3000,
+          }"
+          @swiper="onSwiper2"
+          @slideChange="onSlideChange2"
+        >
+          <swiper-slide>
+            <a href="#none">현대카드 결제시 20% 할인혜택</a><!-- default : #ccc / 관리자에서 직접 색상값 지정할 수 있음 -->
+          </swiper-slide>
+          <swiper-slide>
+            <a href="#none" style="background:#B7E8CB;">네이버페이 10,000원 혜택</a>
+          </swiper-slide>
+          <swiper-slide>
+            <a href="#none" style="color:#fff; background:purple;">네이버페이 10,000원 혜택</a>
+          </swiper-slide>
+
+          <!-- customer pagination -->
+          <div class="custom_pagination">
+            <Button class="btn_swiper_cont" data="play" />
+
+            <div class="current">
+              <em class="idx_01"></em>
+            </div>
+            <strong class="total"></strong>
+          </div>
+          <!-- //customer pagination -->
+        </swiper>
+      </div>
+    </div>
+    <!-- //혜택 슬라이드 -->
 
     <section>
       <ul class="list_wrap type_column">
@@ -80,6 +115,23 @@
       <h2>
         <a href="#none">오늘의 추천 제품</a>
       </h2>
+
+      <div class="module_01">
+        <ul>
+          <li v-for="(item, idx) in mainSam.recommend" :key="idx">
+            <a href="#none" class="item">
+              <span class="thumb">
+                <img :src="item.img" alt="" />
+              </span>
+              <div class="cont">
+                <strong v-html="item.title"></strong>
+                <p v-html="item.txt"></p>
+                <Hash :item="item.hash" />
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
 
       <div class="swiper_wrap">
         <swiper class="module_02"
@@ -207,7 +259,7 @@ import { modal } from '~/assets/js/common-ui.js'
 
 // import Swiper core and required components
 import SwiperCore from "swiper";
-import { Navigation, Pagination, A11y } from "swiper/modules";
+import { Navigation, Pagination, A11y, Autoplay, Scrollbar } from "swiper/modules";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -218,7 +270,7 @@ import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y]);
+SwiperCore.use([Navigation, Pagination, A11y, Autoplay, Scrollbar]);
 
 /* swiper options */
 const swieprOpt = {
@@ -293,24 +345,46 @@ const navigation = {
 
 const onSwiper = (swiper) => {
 
-  console.log('swiper : ',swiper);
-  const total = swiper.loopedSlides,
+  const total = swiper.wrapperEl.children.length,
   current = swiper.realIndex+1;
 
   if(total < 10) {
-    document.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
-    document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
+    swiper.wrapperEl.parentNode.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
+    swiper.wrapperEl.parentNode.querySelector('.custom_pagination strong.total').textContent = '0'+total;
   }
 };
 
 const onSlideChange = (swiper) => {
-  const total = swiper.loopedSlides,
+  const current = swiper.realIndex+1;
+
+  if(current < 10) {
+    swiper.wrapperEl.parentNode.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
+  }
+};
+
+const onSwiper2 = (swiper) => {
+
+  const total = swiper.wrapperEl.children.length,
   current = swiper.realIndex+1;
 
-  if(total < 10) {
-    document.querySelector('.custom_pagination .current .idx_01').textContent = '0'+current;
-    document.querySelector('.custom_pagination strong.total').textContent = '0'+total;
-  }
+  swiper.wrapperEl.parentNode.querySelector('.custom_pagination .current .idx_01').textContent = current;
+  swiper.wrapperEl.parentNode.querySelector('.custom_pagination strong.total').textContent = total;
+
+  swiper.wrapperEl.parentNode.querySelector('.custom_pagination button').addEventListener('click', ()=>{
+    if(event.currentTarget.getAttribute('data') == 'play'){
+      swiper.autoplay.stop();
+      event.currentTarget.setAttribute('data','pause');
+    } else {
+      swiper.autoplay.start();
+      event.currentTarget.setAttribute('data','play');
+    }
+  });
+};
+
+const onSlideChange2 = (swiper) => {
+  const current = swiper.realIndex+1;
+
+  swiper.wrapperEl.parentNode.querySelector('.custom_pagination .current .idx_01').textContent = current;
 };
 
 import {
@@ -541,6 +615,21 @@ const rankingTabs = [
         .swiper-slide {
           width:5.7rem;
           text-align:center;
+          .thumb {
+            position:relative;
+            display:block;
+            &.point:after {
+              width:0.5rem;
+              height:0.5rem;
+              background-color:#00BC70;
+              border-radius:50%;
+              content:'';
+              position:absolute;
+              top:0.3rem;
+              right:0.3rem;
+              display:block;
+            }
+          }
           p {
             margin-top:0.8rem;
             color:#888;
@@ -558,6 +647,51 @@ const rankingTabs = [
           a {
             &:after {
               display:none;
+            }
+          }
+        }
+        .module_01 {
+          margin-bottom:10rem;
+          > ul {
+            > li {
+              & + li {
+                margin-top:2rem;
+              }
+              > a {
+                display:flex;
+                gap:2rem;
+                .thumb {
+                  width:9rem;
+                  height:12rem;
+                  img {
+                    width:100%;
+                  }
+                }
+                .cont {
+                  flex:1;
+                  strong {
+                    font-size:1.6rem;
+                  }
+                  p {
+                    margin-top:1rem;
+                    color:#888;
+                    font-size:1.2rem;
+                  }
+                  :deep(.hash) {
+                    margin-top:1rem;
+                    button {
+                      padding:0.6rem 0.8rem;
+                      display:flex;
+                      align-items:center;
+                      &:before {
+                        margin-right:0.3rem;
+                        content:'#';
+                        display:block;
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -704,6 +838,13 @@ const rankingTabs = [
           padding-bottom:30px;
           :deep(.swiper-pagination) {
             bottom:0;
+            .swiper-pagination-bullet {
+              width:0.8rem;
+              height:0.8rem;
+              &.swiper-pagination-bullet-active {
+                background-color:#000;
+              }
+            }
           }
         }
         :deep(.goods_item) {
@@ -749,6 +890,75 @@ const rankingTabs = [
         }
       }
     }
+    .text_banner {
+      .swiper {
+        padding:0 2.1rem;
+      }
+      a {
+        height:40px;
+        padding:0 30px;
+        font-size:12px;
+        font-weight:600;
+        line-height:40px;
+        background-color:#ccc;
+        border-radius:100px;
+        display:block;
+      }
+      .custom_pagination {
+        height:2rem;
+        padding:0 0.8rem;
+        color:#fff;
+        font-size:10px;
+        font-weight:400;
+        background-color:rgba(0,0,0,0.2);
+        border-radius:10rem;
+        position:absolute;
+        top:50%;
+        right:3.5rem;
+        z-index:1;
+        display:flex;
+        align-items:center;
+        transform:translateY(-50%);
+        .idx_01, .total {
+          width:12px;
+          text-align:right;
+          position:relative;
+          display:block;
+        }
+        .total {
+          margin-left:0.4rem;
+          font-weight:400;
+          opacity:0.5;
+          &:before {
+            content:'/';
+            position:absolute;
+            top:50%;
+            left:-0.2rem;
+            display:block;
+            transform:translateY(-50%);
+          }
+        }
+        :deep(button) {
+          width:1.2rem;
+          height:1.2rem;
+          margin-right:0.2rem;
+          background-color:transparent;
+          background-image:url('~/assets/mo_images/common/icon_split.png');
+          background-repeat:no-repeat;
+          background-size:25rem auto;
+          em {
+            padding:0;
+            font-size:0;
+          }
+          &[data="play"] {
+            background-position:-4rem -32rem;
+          }
+          &[data="pause"] {
+            background-position:-6rem -32rem;
+          }
+        }
+      }
+    }
     .update_wrap {
       margin-right:-2.1rem;
       margin-bottom:3rem;
@@ -766,13 +976,17 @@ const rankingTabs = [
             display:none;
           }
           li > * {
-            padding:0 1rem;
+            padding:0 1rem 1.5rem;
             font-size:1.4rem;
             white-space:nowrap;
             em {
               padding-bottom:1.5rem;
               font-size:1.4rem;
             }
+          }
+          li.current button:after {
+            right:1rem;
+            left:1rem;
           }
         }
       }

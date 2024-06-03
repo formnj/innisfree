@@ -102,7 +102,7 @@ const PC_arry = ([
         depth:['홈','','',''],
         id:'IN_PC_HOM_01_01', status:'com',
         type:'', note:'swiper play/pause 기능, pagination : scrollbar',
-        sDate:'', eDate:'2024-04-22/2024-04-22' , worker:'이종환'
+        sDate:'', eDate:'2024-04-22/2024-04-22<br/> <strong>24-06-03 디자인 반영</strong>' , worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
         id:'IN_PC_HOM_01_04', status:'com',
