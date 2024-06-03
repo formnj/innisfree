@@ -708,6 +708,11 @@ const MO_arry = ([
         type:'', note:'디자인 고도화 필요',
         sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/2024-05-09', worker:'김나람'
     }, {
+        depth:['','','',''],
+        id:'IN_MO_PRD_01_09_button', status:'ing',
+        type:'', note:'제품 상세 버튼 및 팝업',
+        sDate:'', eDate:'', worker:'김나람'
+    }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_MO_CAR_01_01', status:'com',
         type:'', note:'한페이지 모두 배치<br/> 갯수 증/차감 콤포넌트 추가',

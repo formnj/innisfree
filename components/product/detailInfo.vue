@@ -31,6 +31,7 @@
         <span class="sale">{{ prodInfo.sale }}</span>
         <span class="cost">{{ prodInfo.cost }}</span>
       </div>
+      <em>일시품절</em>
     </div>
   </div>
 </template>

@@ -2091,7 +2091,9 @@ export const sample_review = [
 
     ],
     usedAmonth: true,
-    txt: '리뉴얼된 화이트도 깔끔하고 귀여운거같네요 앰플은 넘 좋아서 주변에 늘 추천하는 츄천템입니다 스킨바르고 바르면 쫀득하고 너무 촉촉해서 겨울 봄에 없어서는 안되는..쭉 계속 쓰고싶어요'
+    txt: '수분감이 느껴져서 세안 직후 발랐을때 건조함이 느껴지지 않아요. 특히 <em>발림성이 끈적이지 않고</em> 수분감이 느껴져 너무 만족합니다. 데일리로 매일매일 쓸 수 있는 수분관리템으로 적극 추천하는 제품이예요. <em>바를 때 느껴지는 촉촉함이</em> 자고 속수분감까지 채워주는 제품입니다.',
+    useMore: true,
+    writer: true
   },
   {
     user: 'user02*****',
@@ -2104,12 +2106,146 @@ export const sample_review = [
       name: ''
     },
     imgs: [
+      ('/_nuxt/public/images/sam/img_ed_topic_03.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_04.png'),
+    ],
+    usedAmonth: false,
+    txt: '이니스프리는 라인별로 다 좋더라구요 이번에 블랙티유스 인헨싱 앰프랑 새로 출시되어서 체험 샘플을 받아서 사용해봤어요 브라운 원통형 용기에 스포이드 형태로 되어서 앰플을 스포이드로 덜어서 사용하는점도 좋았어요 아예 공기와 접촉을 차단하는 펌프형 이면 어떨까도 생각해봅니다 제형은 아주 묽어서 물같은 제형이 아니고 살짝 점성이 있는듯하고 발림성은 매끄럽게 금방 쫙 펴지며 발라지고 겉돌지 않아요',
+    useMore: true
+  },
+  {
+    user: 'user03*****',
+    age: '40대',
+    type: '여성',
+    rate: '50',
+    date: '2024.01.01',
+    option: {
+      is: false,
+      name: ''
+    },
+    imgs: [
       ('/_nuxt/public/images/sam/img_ed_topic_01.png'),
       ('/_nuxt/public/images/sam/img_ed_topic_02.png'),
     ],
     usedAmonth: false,
-    txt: '이니스프리는 라인별로 다 좋더라구요 이번에 블랙티유스 인헨싱 앰프랑 새로 출시되어서 체험 샘플을 받아서 사용해봤어요 브라운 원통형 용기에 스포이드 형태로 되어서 앰플을 스포이드로 덜어서 사용하는점도 좋았어요 아예 공기와 접촉을 차단하는 펌프형 이면 어떨까도 생각해봅니다 제형은 아주 묽어서 물같은 제형이 아니고 살짝 점성이 있는듯하고 발림성은 매끄럽게 금방 쫙 펴지며 발라지고 겉돌지 않아요 향도 은은한 고급스러운 티 향이 살짝 나고 향은 약한편이예요 얼굴이 발라서 두드려 흡수 시켜준후 만져보면 끈적임 없고 촉촉 해서 너무 좋아요 본픔 구매하려고 해요 이니스프리는 라인별로 다 좋더라구요 이번에 블랙티유스 인헨싱 앰프랑 새로 출시되어서 체험 샘플을 받아서 사용해봤어요 브라운 원통형 용기에 스포이드 형태로 되어서 앰플을 스포이드로 덜어서 사용하는점도 좋았어요 아예 공기와 접촉을 차단하는 펌프형 이면 어떨까도 생각해봅니다 제형은 아주 묽어서 물같은 제형이 아니고 살짝 점성이 있는듯하고 발림성은 매끄럽게 금방 쫙 펴지며 발라지고 겉돌지 않아요 향도 은은한 고급스러운 티 향이 살짝 나고 향은 약한편이예요 얼굴이 발라서 두드려 흡수 시켜준후 만져보면 끈적임 없고 촉촉 해서 너무 좋아요 본픔 구매하려고 해요'
-  }
+    txt: '이번에 블랙티유스 인헨싱 앰프랑 새로 출시되어서 체험 샘플을 받아서 사용해봤어요'
+  },
+  {
+    user: 'user01*****',
+    age: '30대',
+    type: '여성/복합성/모공/탄력/잡티',
+    rate: '100',
+    date: '2024.01.01',
+    option: {
+      is: true,
+      name: '1호 샐먼 베이지'
+    },
+    imgs: [
+      ('/_nuxt/public/images/sam/img_ed_topic_01.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_02.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_03.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_04.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_01.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_02.png'),
+
+    ],
+    usedAmonth: true,
+    txt: '수분감이 느껴져서 세안 직후 발랐을때 건조함이 느껴지지 않아요. 특히 <em>발림성이 끈적이지 않고</em> 수분감이 느껴져 너무 만족합니다. 데일리로 매일매일 쓸 수 있는 수분관리템으로 적극 추천하는 제품이예요. <em>바를 때 느껴지는 촉촉함이</em> 자고 속수분감까지 채워주는 제품입니다.',
+    useMore: true
+  },
+  {
+    user: 'user02*****',
+    age: '20대',
+    type: '여성',
+    rate: '50',
+    date: '2024.01.01',
+    option: {
+      is: false,
+      name: ''
+    },
+    imgs: [
+      ('/_nuxt/public/images/sam/img_ed_topic_03.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_04.png'),
+    ],
+    usedAmonth: false,
+    txt: '이니스프리는 라인별로 다 좋더라구요 이번에 블랙티유스 인헨싱 앰프랑 새로 출시되어서 체험 샘플을 받아서 사용해봤어요 브라운 원통형 용기에 스포이드 형태로 되어서 앰플을 스포이드로 덜어서 사용하는점도 좋았어요 아예 공기와 접촉을 차단하는 펌프형 이면 어떨까도 생각해봅니다 제형은 아주 묽어서 물같은 제형이 아니고 살짝 점성이 있는듯하고 발림성은 매끄럽게 금방 쫙 펴지며 발라지고 겉돌지 않아요',
+    useMore: true
+  },
+  {
+    user: 'user03*****',
+    age: '40대',
+    type: '여성',
+    rate: '50',
+    date: '2024.01.01',
+    option: {
+      is: false,
+      name: ''
+    },
+    imgs: [
+      ('/_nuxt/public/images/sam/img_ed_topic_01.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_02.png'),
+    ],
+    usedAmonth: false,
+    txt: '이번에 블랙티유스 인헨싱 앰프랑 새로 출시되어서 체험 샘플을 받아서 사용해봤어요'
+  },
+  {
+    user: 'user01*****',
+    age: '30대',
+    type: '여성/복합성/모공/탄력/잡티',
+    rate: '100',
+    date: '2024.01.01',
+    option: {
+      is: true,
+      name: '1호 샐먼 베이지'
+    },
+    imgs: [
+      ('/_nuxt/public/images/sam/img_ed_topic_01.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_02.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_03.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_04.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_01.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_02.png'),
+
+    ],
+    usedAmonth: true,
+    txt: '수분감이 느껴져서 세안 직후 발랐을때 건조함이 느껴지지 않아요. 특히 <em>발림성이 끈적이지 않고</em> 수분감이 느껴져 너무 만족합니다. 데일리로 매일매일 쓸 수 있는 수분관리템으로 적극 추천하는 제품이예요. <em>바를 때 느껴지는 촉촉함이</em> 자고 속수분감까지 채워주는 제품입니다.',
+    useMore: true
+  },
+  {
+    user: 'user02*****',
+    age: '20대',
+    type: '여성',
+    rate: '50',
+    date: '2024.01.01',
+    option: {
+      is: false,
+      name: ''
+    },
+    imgs: [
+      ('/_nuxt/public/images/sam/img_ed_topic_03.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_04.png'),
+    ],
+    usedAmonth: false,
+    txt: '이니스프리는 라인별로 다 좋더라구요 이번에 블랙티유스 인헨싱 앰프랑 새로 출시되어서 체험 샘플을 받아서 사용해봤어요 브라운 원통형 용기에 스포이드 형태로 되어서 앰플을 스포이드로 덜어서 사용하는점도 좋았어요 아예 공기와 접촉을 차단하는 펌프형 이면 어떨까도 생각해봅니다 제형은 아주 묽어서 물같은 제형이 아니고 살짝 점성이 있는듯하고 발림성은 매끄럽게 금방 쫙 펴지며 발라지고 겉돌지 않아요',
+    useMore: true
+  },
+  {
+    user: 'user03*****',
+    age: '40대',
+    type: '여성',
+    rate: '50',
+    date: '2024.01.01',
+    option: {
+      is: false,
+      name: ''
+    },
+    imgs: [
+      ('/_nuxt/public/images/sam/img_ed_topic_01.png'),
+      ('/_nuxt/public/images/sam/img_ed_topic_02.png'),
+    ],
+    usedAmonth: false,
+    txt: '이번에 블랙티유스 인헨싱 앰프랑 새로 출시되어서 체험 샘플을 받아서 사용해봤어요'
+  },
 ]
 
 export const sample_auto = [

@@ -585,6 +585,12 @@ html {
       .modal_content {
         padding: 0 0 34px;
       }
+
+      .modal_footer {
+        & > button {
+          flex: 1;
+        }
+      }
     }
   }
 
@@ -663,7 +669,6 @@ html {
         font-size: 13px;
         line-height: 20px;
         font-weight: 400;
-        background: rgba(0,0,0,0.8);
       }
     }
   }
