@@ -1,7 +1,7 @@
 /* 공통 - 모달 */
 export const modal = {
   open: (_target, _type) => {
-    console.log(_target, _type);
+    // console.log(_target, _type);
     document.getElementById(_target).className = 'modal_wrap active '+_type;
     const body = document.querySelector("body");
     const pageY = document.body.scrollTop || document.documentElement.scrollTop;

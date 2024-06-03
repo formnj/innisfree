@@ -1,7 +1,7 @@
 <template>
   <!-- 로그인 전 -->
   <section class="bg_gray">
-    <p><button type="button"><em>로그인</em></button> 후 나의혜택가를 확인하세요!!</p>
+    <p><button type="button"><em>로그인</em></button> 후 나의 혜택가를 확인하세요!!</p>
   </section>
 
   <!-- 로그인 후 -->
@@ -10,7 +10,8 @@
       <div class="sub_title_wrap">
         <div>
           <h4>
-            나의 혜택가 <Icons class="tooltip" txt="나의 혜택가 안내" @click="modal.open('alert_my_price', 'alert')" />
+            나의 혜택가
+            <Icons class="tooltip" txt="나의 혜택가 안내" @click="modal.open('alert_my_price', 'alert')" />
             <div id="alert_my_price" class="modal_wrap"><!-- 나의 혜택가 안내 툴팁 -->
               <div class="modal_container">
                 <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
@@ -43,7 +44,7 @@
         <div class="ipt_row">
           <Inputs _type="radio" _name="cp1" _text="그린티 씨드 세럼 본품+리필 3천원 할인" />
           <span>-1,200원</span>
-          <button type="button">받기</button>
+          <button type="button" @click="modal.open('toast_download','toast');toast_pop(3000)">받기</button>
         </div>
         <div class="ipt_row">
           <Inputs _type="radio" _name="cp1" _text="5만원 이상 결제 시 5% 할인" />
@@ -72,10 +73,28 @@
       </div>
     </div>
   </div>
+
+  <div id="toast_download" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_header">
+        <h2>Modal Title</h2>
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+      </div>
+      <div class="modal_content">
+        다운로드가 완료되었습니다.
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_outline" txt="cancel" />
+        <Button txt="OK" />
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+
 </template>
 
 <script setup>
-import { modal } from '~/assets/js/common-ui'
+import { modal, toast_pop } from '~/assets/js/common-ui'
 const accordionUI = (e) => {
   e.target.closest('.acco_tit').parentElement.classList.toggle('open');
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="prod_swiper_wrap">
     <ProductDetailSwiper :thumbYN="false" :pagiYN="true" :isMo="true" />  <!-- 제품 이미지 -->
-    <div class="swiper_notify"><em>7명의 고객님</em> 동시에 확인중 <button type="button" class="btn_close">닫기</button>
+    <div class="swiper_notify"><em>7명의 고객님</em> 동시에 확인중 <button type="button" class="btn_close" @click="closeNotify">닫기</button>
     <!-- <div class="swiper_notify"><em class="type02">품절임박!</em> 재고가 얼마 남지 않았으니 서두르세요! <button type="button" class="btn_close">닫기</button> -->
     </div>
   </div>
@@ -45,7 +45,7 @@
     <productDetailTab :isMo="true" /> <!-- 상세정보 탭 -->
 
     <div class="tab_contents"> <!-- 탭 컨텐츠 -->
-      <!-- 상세 정보 -->
+      <!-- 상세정보 -->
       <div class="tab_cont" style="display: block;">
 
         <ProductDetailConts :isMo="true" />
@@ -88,7 +88,10 @@
 
         <!-- 리뷰 리스트 -->
         <div class="review_list_wrap">
-          <ul class="review_list">
+
+          <div class="no_content">등록된 리뷰가 없습니다.</div> <!-- 리뷰없을 경우 -->
+
+          <ul class="review_list has_bd">
             <li v-for="(item, idx) in sample_review.slice(0,3)" :key="idx">
               <div class="review_header">
                 <div class="rate">
@@ -105,178 +108,195 @@
                   <span class="date ar">{{ item.date }}</span>
                 </div>
               </div>
+
               <ProductReview :item="item" :isMo="true" /> <!-- 리뷰 -->
-              <div class="btn_wrap">
-                <button type="button">신고</button>
-                <button type="button">차단</button>
+
+              <div class="btn_area">
+                <button v-if="item.useMore" type="button" class="btn_more" @click="toggleReviewTxt">더보기</button>
+                <div class="btn_wrap">
+                  <button v-if="!item.writer" type="button">신고</button>
+                  <button v-if="!item.writer" type="button">차단</button>
+                  <button v-if="item.writer" type="button"><em>수정</em></button>
+                  <button v-if="item.writer" type="button"><em>삭제</em></button>
+                </div>
               </div>
             </li>
           </ul>
+
+          <div class="btn_wrap">
+            <Button class="btn_outline btn_list_btm" txt="리뷰 전체보기" />
+          </div>
         </div>
         <!-- //리뷰 리스트 -->
 
-      </div>
-      <!-- //상세 정보 -->
-
-      <div class="tab_cont tab_cont_review">
         <section>
-          <ProductReviewSummary :isMo="true" limit="5" /> <!-- 리뷰 요약 -->
-
-        <!-- 리뷰 옵션 선택 -->
-          <div class="review_option">
-            <div class="sort">
-              <button type="button" class="btn_dropdown" @click="modal.open('review_filter', 'bottom')">전체 리뷰</button>
-              <div id="review_filter" class="modal_wrap"><!-- 리뷰 필터 -->
-                <div class="modal_container">
-                  <div class="modal_header">
-                    <button class="btn_close" @click="modal.close(this);"></button>
-                  </div>
-                  <div class="modal_content">
-                    <ul class="select_list">
-                      <li class="active"><a href="#none" class="active">전체 리뷰</a></li>
-                      <li><a href="#none">포토 리뷰</a></li>
-                      <li><a href="#none">한달 사용</a></li>
-                      <li><a href="#none">체험단</a></li>
-                      <li><a href="#none">샘플마켓</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="overlay" @click="modal.close(this);"></div>
-              </div>
+          <div class="sub_title_wrap">
+            <div>
+              <h4>함께 진행하는 기획전 제품</h4>
+              <button type="button" @click="modal.open('alert_prod_alert','alert tooltip')">유의사항</button>
             </div>
+            <p class="explain">탄탄쫀쫀 콜라겐 꿀 조합 할인 혜택</p>
+          </div>
 
-            <div class="sort">
-              <button type="button" class="btn_dropdown" @click="modal.open('review_sort', 'bottom')">추천순</button>
-              <div id="review_sort" class="modal_wrap"><!-- 리뷰 정렬 -->
-                <div class="modal_container">
-                  <div class="modal_header">
-                    <button class="btn_close" @click="modal.close(this);"></button>
-                  </div>
-                  <div class="modal_content">
-                    <ul class="select_list">
-                      <li class="active"><a href="#none" class="active">추천순</a></li>
-                      <li><a href="#none">최신순</a></li>
-                      <li><a href="#none">평점순</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="overlay" @click="modal.close(this);"></div>
-              </div>
+          <div class="swiper_wrap">
+            <swiper
+              :slides-per-view="'auto'"
+            >
+              <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
+                <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
+              </swiper-slide>
+            </swiper>
+          </div>
+        </section>
 
-              <button type="button" class="btn_filter" @click="modal.open('modal_skin_type', 'bottom filter')">피부 정보</button>
-              <!-- 피부 속성 필터 모달 -->
-              <div id="modal_skin_type" class="modal_wrap">
-                <div class="modal_container">
-                  <div class="modal_header">
-                      <h2>피부 속성 필터</h2>
-                      <button class="btn_close_x" @click="modal.close(this);">닫기</button>
-                  </div>
-                  <div class="modal_content">
-                    <p>피부타입(필수 1개)</p>
-                    <ul class="pick_list">
-                      <li>
-                        <Inputs _id="skinType1" _name="skinType" _type="checkbox" class="round_square" _text="건성" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinType2" _name="skinType" _type="checkbox" class="round_square" _text="중성" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinType3" _name="skinType" _type="checkbox" class="round_square" _text="지성" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinType4" _name="skinType" _type="checkbox" class="round_square" _text="민감성" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinType5" _name="skinType" _type="checkbox" class="round_square" _text="복합성" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinType6" _name="skinType" _type="checkbox" class="round_square" _text="약건성" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinType7" _name="skinType" _type="checkbox" class="round_square" _text="트러블성" />
-                      </li>
-                    </ul>
-
-                    <p>연령대(필수 1개)</p>
-                    <ul class="pick_list">
-                      <li>
-                        <Inputs _id="age1" _name="age" _type="checkbox" class="round_square" _text="10대" />
-                      </li>
-                      <li>
-                        <Inputs _id="age2" _name="age" _type="checkbox" class="round_square" _text="20대" />
-                      </li>
-                      <li>
-                        <Inputs _id="age3" _name="age" _type="checkbox" class="round_square" _text="30대" />
-                      </li>
-                      <li>
-                        <Inputs _id="age4" _name="age" _type="checkbox" class="round_square" _text="40대" />
-                      </li>
-                      <li>
-                        <Inputs _id="age5" _name="age" _type="checkbox" class="round_square" _text="50대 이상" />
-                      </li>
-                    </ul>
-
-                    <p>피부고민(최대 3개)</p>
-                    <ul class="pick_list">
-                      <li>
-                        <Inputs _id="skinTrb1" _name="skinTrb" _type="checkbox" class="round_square" _text="모공" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinTrb2" _name="skinTrb" _type="checkbox" class="round_square" _text="주름" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinTrb15" _name="skinTrb" _type="checkbox" class="round_square" _text="탄력" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinTrb3" _name="skinTrb" _type="checkbox" class="round_square" _text="블랙헤드" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinTrb4" _name="skinTrb" _type="checkbox" class="round_square" _text="트러블" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinTrb5" _name="skinTrb" _type="checkbox" class="round_square" _text="각질" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinTrb6" _name="skinTrb" _type="checkbox" class="round_square" _text="잡티" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinTrb7" _name="skinTrb" _type="checkbox" class="round_square" _text="피지과다" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinTrb8" _name="skinTrb" _type="checkbox" class="round_square" _text="건조함" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinTrb9" _name="skinTrb" _type="checkbox" class="round_square" _text="민감성" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinTrb10" _name="skinTrb" _type="checkbox" class="round_square" _text="색소침착" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinTrb11" _name="skinTrb" _type="checkbox" class="round_square" _text="피부톤" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinTrb12" _name="skinTrb" _type="checkbox" class="round_square" _text="다크서클" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinTrb13" _name="skinTrb" _type="checkbox" class="round_square" _text="피부결" />
-                      </li>
-                      <li>
-                        <Inputs _id="skinTrb14" _name="skinTrb" _type="checkbox" class="round_square" _text="홍조" />
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="modal_footer">
-                    <Button class="btn_big btn_reset" txt="초기화" disabled />
-                    <Button class="btn_big btn_ confirm" txt="적용하기" disabled />
-                  </div>
-                </div>
-                <div class="overlay" @click="modal.close(this);"></div>
-              </div>
-              <!-- //피부 속성 필터 -->
+        <section>
+          <div class="sub_title_wrap">
+            <div>
+              <h4>이 제품과 같은 라인</h4>
+              <a href="#none" class="btn_link_arrw"><strong>브라이트닝 포어</strong> 라인</a>
             </div>
           </div>
-          <!-- //리뷰 옵션 선택 -->
+
+          <div class="swiper_wrap">
+            <swiper
+              :slides-per-view="'auto'"
+            >
+              <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
+                <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
+              </swiper-slide>
+            </swiper>
+          </div>
         </section>
+
+        <section>
+          <div class="sub_title_wrap">
+            <div>
+              <h4>이 제품의 카테고리 BEST</h4>
+            </div>
+          </div>
+
+          <div class="swiper_wrap goods_list">
+            <swiper
+              :slides-per-view="'auto'"
+            >
+              <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
+                <span class="ranking" v-if="idx < 9">{{ '0'+(idx+1) }}</span>
+                <span class="ranking" v-else>{{ idx+1 }}</span>
+                <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
+              </swiper-slide>
+            </swiper>
+          </div>
+        </section>
+
+        <section>
+          <div class="sub_title_wrap">
+            <div>
+              <h4>이 제품을 본 분들의 관심 제품</h4>
+            </div>
+          </div>
+          <div class="swiper_wrap">
+            <swiper
+              :slides-per-view="'auto'"
+            >
+              <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
+                <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
+              </swiper-slide>
+            </swiper>
+          </div>
+        </section>
+
+      </div>
+      <!-- //상세정보 -->
+
+      <!-- 리뷰 -->
+      <div class="tab_cont tab_cont_review">
+
+        <section class="no_bd">
+          <div class="sub_title_wrap">
+            <div>
+              <h4>Editor 포스팅</h4>
+            </div>
+          </div>
+
+          <div class="list_wrap post_list_wrap">
+            <ul class="post_list">
+              <li v-for="(item, idx) in samplePost" :key="idx">
+                <a :href="link">
+                  <span class="thumb">
+                    <img :src="item.img" alt="">
+                  </span>
+                  <span class="info">
+                    <img :src="item.editor.photo" alt="" class="photo">
+                    <span>{{ item.editor.name }}</span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <ProductReviewSummary :isMo="true" limit="5" /> <!-- 리뷰 요약 -->
+        </section>
+
+        <!-- 리뷰 옵션 선택 -->
+        <div class="review_option">
+          <div class="sort">
+            <button type="button" class="btn_dropdown" @click="modal.open('review_filter', 'bottom')">전체 리뷰</button>
+            <div id="review_filter" class="modal_wrap"><!-- 리뷰 필터 -->
+              <div class="modal_container">
+                <div class="modal_header">
+                  <button class="btn_close" @click="modal.close(this);"></button>
+                </div>
+                <div class="modal_content">
+                  <ul class="select_list">
+                    <li class="active"><a href="#none" class="active">전체 리뷰</a></li>
+                    <li><a href="#none">포토 리뷰</a></li>
+                    <li><a href="#none">한달 사용</a></li>
+                    <li><a href="#none">체험단</a></li>
+                    <li><a href="#none">샘플마켓</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="overlay" @click="modal.close(this);"></div>
+            </div>
+          </div>
+
+          <div class="sort">
+            <button type="button" class="btn_dropdown" @click="modal.open('review_sort', 'bottom')">추천순</button>
+            <div id="review_sort" class="modal_wrap"><!-- 리뷰 정렬 -->
+              <div class="modal_container">
+                <div class="modal_header">
+                  <button class="btn_close" @click="modal.close(this);"></button>
+                </div>
+                <div class="modal_content">
+                  <ul class="select_list">
+                    <li class="active"><a href="#none" class="active">추천순</a></li>
+                    <li><a href="#none">최신순</a></li>
+                    <li><a href="#none">평점순</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="overlay" @click="modal.close(this);"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter_wrap">
+          <Tabs tabType="type_02"
+            :item="[{ txt: '발림성', Cnt: '1,123' }, { txt: '향', Cnt: '1,123' }, { txt: '피부결', Cnt: '1,123' }, { txt: '가격', Cnt: '1,123' }]"
+            :tabidx="0" />
+        </div>
+
+        <div class="select_wrap">
+          <selectbox
+          :options="[
+            { val: 'op0', name: 'op', txt: '전체' },
+            { val: 'op1', name: 'op', txt: '1호 샐먼 베이지' },
+            { val: 'op2', name: 'op', txt: '2호 피치 베이지' }
+          ]" />
+        </div>
+        <!-- //리뷰 옵션 선택 -->
 
         <!-- 리뷰 리스트 -->
         <div class="review_list_wrap">
@@ -296,16 +316,32 @@
                   <span class="date ar">{{ item.date }}</span>
                 </div>
               </div>
+
               <ProductReview :item="item" :isMo="true" /> <!-- 리뷰 -->
-              <div class="btn_wrap">
-                <button type="button">신고</button>
-                <button type="button">차단</button>
+
+              <div class="btn_area">
+                <button v-if="item.useMore" type="button" class="btn_more" @click="toggleReviewTxt">더보기</button>
+                <div class="btn_wrap">
+                  <button v-if="!item.writer" type="button">신고</button>
+                  <button v-if="!item.writer" type="button">차단</button>
+                  <button v-if="item.writer" type="button"><em>수정</em></button>
+                  <button v-if="item.writer" type="button"><em>삭제</em></button>
+                </div>
               </div>
             </li>
+
+            <li>
+              <p>회원님의 요청으로 차단된 리뷰입니다.</p>
+            </li>
           </ul>
+
+          <div class="btn_wrap">
+            <Button class="btn_outline btn_list_btm" txt="더보기" />
+          </div>
         </div>
         <!-- //리뷰 리스트 -->
       </div>
+      <!-- //리뷰 -->
 
       <!-- 유의사항 -->
       <div class="tab_cont">
@@ -316,81 +352,14 @@
       <!-- //유의사항 -->
     </div>
 
-    <section class="no_r_pd">
-      <div class="sub_title_wrap">
-        <div>
-          <h4>함께 진행하는 기획전 제품</h4>
-          <button type="button" @click="modal.open('alert_prod_alert','alert tooltip')">유의사항</button>
-        </div>
-        <p class="explain">탄탄쫀쫀 콜라겐 꿀 조합 할인 혜택</p>
-      </div>
-
-      <div class="swiper_wrap">
-        <swiper
-          :slides-per-view="'auto'"
-        >
-          <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
-            <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
-          </swiper-slide>
-        </swiper>
-      </div>
-    </section>
-
-    <section class="no_r_pd">
-      <div class="sub_title_wrap">
-        <div>
-          <h4>이 제품과 같은 라인</h4>
-          <a href="#none" class="btn_link_arrw"><strong>브라이트닝 포어</strong> 라인</a>
-        </div>
-      </div>
-
-      <div class="swiper_wrap">
-        <swiper
-          :slides-per-view="'auto'"
-        >
-          <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
-            <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
-          </swiper-slide>
-        </swiper>
-      </div>
-    </section>
-
-    <section class="no_r_pd">
-      <div class="sub_title_wrap">
-        <div>
-          <h4>이 제품의 카테고리 BEST</h4>
-        </div>
-      </div>
-
-      <div class="swiper_wrap goods_list">
-        <swiper
-          :slides-per-view="'auto'"
-        >
-          <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
-            <span class="ranking" v-if="idx < 9">{{ '0'+(idx+1) }}</span>
-            <span class="ranking" v-else>{{ idx+1 }}</span>
-            <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
-          </swiper-slide>
-        </swiper>
-      </div>
-    </section>
-
-    <section class="no_r_pd">
-      <div class="sub_title_wrap">
-        <div>
-          <h4>이 제품을 본 분들의 관심 제품</h4>
-        </div>
-      </div>
-      <div class="swiper_wrap">
-        <swiper
-          :slides-per-view="'auto'"
-        >
-          <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
-            <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
-          </swiper-slide>
-        </swiper>
-      </div>
-    </section>
+    <!-- 구매 버튼 영역 : IN_MO_PRD_01_09_button 참고 -->
+    <div class="btn_wrap fixed">
+      <button type="button" class="btn_share"></button>
+      <button type="button" class="btn_like">찜하기</button>  <!-- 활성화시 on 클래스 추가 -->
+      <Button class="btn_big" txt="장바구니" />
+      <Button class="btn_big confirm" txt="바로구매" />
+    </div>
+    <!-- //구매 버튼 영역 -->
   </div>
 
   <ProductQnaModal /> <!-- 문의 모달(제품문의 작성) -->
@@ -403,7 +372,7 @@
         <div class="modal_content">
           <button class="btn_close" @click="modal.close(this);">닫기</button>
           <h2>기획전 제품 구매 시 유의사항</h2>
-          <p class="txt">납작아이브로우 / 컨실러 2개이상 구매시 40%<br>동일 제품 및 교차 구매 가능 / 기간 내 최대 10 구매 가능<br>기간 : 4/14(일) - 5/1(수) 23:59:00까지</p>
+          <p class="txt"><strong>납작아이브로우 / 컨실러 2개이상 구매시 40%</strong><br><br>동일 제품 및 교차 구매 가능 / 기간 내 최대 10 구매 가능<br>기간 : 4/14(일) - 5/1(수) 23:59:00까지</p>
         </div>
         <div class="modal_footer">
             <Button class="btn_big confirm" txt="확인" />
@@ -414,7 +383,7 @@
 </template>
 <script setup>
 import { modal } from '~/assets/js/common-ui'
-import { sample_review, sample_goods } from '~/test/data/publish/dummyData'
+import { sample_review, sample_goods, samplePost } from '~/test/data/publish/dummyData'
 // import Swiper core and required components
 import SwiperCore from "swiper";
 import { Navigation, Pagination, A11y } from "swiper/modules";
@@ -433,6 +402,22 @@ SwiperCore.use([Navigation, Pagination, A11y]);
 definePageMeta({
   layout:'mo-home-search-cart'
 });
+
+const closeNotify = () => {
+  document.querySelector('.swiper_notify').style.display = "none";
+}
+
+const toggleReviewTxt = (e) => {
+  const el = e.target;
+  const txt = el.parentElement.parentElement.querySelector('.txt');
+  txt.classList.toggle('open');
+  el.classList.toggle('open');
+  if(el.classList.contains('open')) {
+    el.innerText = "접기"
+  }else {
+    el.innerText = "더보기"
+  }
+}
 </script>
 <style lang="scss" scoped>
 .prod_swiper_wrap {
@@ -480,12 +465,8 @@ section {
     border-top: 0;
   }
 
-  &.no_r_pd {
-    padding-right: 0;
-
-    .sub_title_wrap {
-      padding-right: 2.1rem;
-    }
+  &.no_bd {
+    border-top: 0;
   }
 
   .sub_title_wrap {
@@ -519,47 +500,6 @@ section {
 
 .prod_detail_info {
   padding: 3rem 2.1rem;
-
-  :deep(.prod_info) {
-    width: 100%;
-    position: relative;
-
-    .sticker {
-      margin-bottom: 1rem;
-    }
-
-    .name {
-      font-size: 1.8rem;
-      line-height: 2.4rem;
-
-      .top_text {
-        line-height: 1.6rem;
-      }
-
-      & + .info_box {
-        margin: 1rem 0;
-      }
-    }
-
-    .review_summary {
-      margin-bottom: 0;
-
-      & + .info_box {
-        margin: 2rem 0 0;
-        padding-top: 2rem;
-        border-top: 1px solid #eee;
-
-        .price {
-          font-size: 2rem;
-          line-height: 2.4rem;
-
-          .cost {
-            font-size: 1.6rem;
-          }
-        }
-      }
-    }
-  }
 }
 
 :deep(.benefit_list) {
@@ -655,6 +595,7 @@ section {
   }
 
   .list_photo_wrap {
+    margin-bottom: 0;
     ul {
       li {
         width: auto;
@@ -670,6 +611,7 @@ section {
 }
 
 .review_option {
+  padding: 0 2.1rem;
   display: flex;
   justify-content: space-between;
 
@@ -691,23 +633,32 @@ section {
         display: inline-block;
       }
     }
-
-    .btn_filter {
-      &:after {
-        content: "";
-        background: url(~/assets/images/common/icon_split.png) -13rem -6rem / 25rem auto no-repeat;
-      }
-    }
   }
 }
 
 .review_list_wrap {
-  // border-top: .1rem solid #f5f5f5;
   padding: 0 2.1rem 3rem;
 
+  .no_content {
+    margin: 3rem 0 5rem;
+  }
+
   .review_list {
+    &.has_bd {
+      border-top: 1px solid #eee;
+    }
+
     & > li {
       padding: 3rem 0;
+      border-bottom: .1rem solid #eee;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      & > p {
+        text-align: center;
+      }
 
       .review_header {
         display: flex;
@@ -728,23 +679,60 @@ section {
         }
       }
 
-      .btn_wrap {
+      .btn_area {
         margin-top: 2rem;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
 
-        & >  button {
+        button {
           font-size: 1.2rem;
           color: #999;
 
-          & + button:before {
-            content: '';
-            width: 0.1rem;
-            height: 1rem;
-            margin: 0 1.5rem;
-            background-color: #EEE;
-            display: inline-block;
+          &.btn_more {
+            &:after {
+              content: '';
+              width: .8rem;
+              height: .8rem;
+              margin-left: .8rem;
+              border-bottom: 1px solid #999;
+              border-left: 1px solid #999;
+              display: inline-block;
+              transform: rotate(-45deg);
+              position: relative;
+              top: -.2rem;
+              transition: all .3s;
+            }
+
+            &.open {
+              &:after {
+                transform: rotate(135deg);
+                top: .2rem;
+              }
+            }
+          }
+
+          em {
+            color: #000;
+            font-weight: 600;
+          }
+        }
+
+        .btn_wrap {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          margin-left: auto;
+
+          & >  button {
+            & + button:before {
+              content: '';
+              width: 0.1rem;
+              height: 1rem;
+              margin: 0 1.5rem;
+              background-color: #EEE;
+              display: inline-block;
+            }
           }
         }
       }
@@ -774,16 +762,6 @@ section {
             flex-shrink: 0;
           }
         }
-      }
-    }
-  }
-}
-
-.filter {
-  .modal_container {
-    .modal_footer {
-      .confirm {
-        flex: 1;
       }
     }
   }
@@ -862,30 +840,31 @@ section {
   }
 }
 
-:deep(.modal_wrap){
+.modal_wrap {
   &.alert {
     .modal_content {
-      padding: 30px 20px;
+      padding: 3rem 2rem;
 
       .sub_tit {
-        font-size: 13px;
+        font-size: 1.3rem;
         color: #00BC70;
         margin-bottom: .6rem;
       }
 
       h2 {
-        font-size: 18px;
+        font-size: 1.8rem;
         font-weight: 600;
-        line-height: 24px;
+        line-height: 2.4rem;
 
         & + .txt {
-          margin-top: 10px;
+          margin-top: 1rem;
         }
       }
 
       .txt {
-        font-size: 13px;
+        font-size: 1.3rem;
         color: #666;
+        line-height: 2rem;
         display: block;
 
         em {
@@ -898,6 +877,12 @@ section {
 }
 
 .swiper_wrap{
+  margin: 0 -2.1rem;
+
+  .swiper {
+    padding-left: 2.1rem;
+  }
+
   .item {
     width: 10.9rem;
 
@@ -914,5 +899,159 @@ section {
       }
     }
   }
+}
+
+:deep([class*=btn_][class*=_outline]).btn_list_btm {
+  width: 100%;
+  font-size: 14px;
+  border-color: #eee;
+
+  em {
+    color: #666;
+  }
+}
+
+.btn_wrap.fixed {
+  width: 100%;
+  display: flex;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+
+  & > button {
+    font-size: 1.6rem;
+    font-weight: 600;
+    flex: 1;
+  }
+
+  .btn_share,
+  .btn_like {
+    width: 6rem;
+    height: 6rem;
+    font-size: 0;
+    text-align: center;
+    background: #333;
+    flex: none;
+
+    &:before {
+      content: '';
+      width: 3.2rem;
+      height: 3.2rem;
+      vertical-align: middle;
+      display: inline-block;
+    }
+  }
+
+  .btn_share:before {
+    background: url('~/assets/mo_images/common/icon_split.png') -14rem -36.5rem / 25rem auto no-repeat;
+  }
+
+  .btn_like:before {
+    background: url('~/assets/mo_images/common/icon_split.png') -17.5rem -36.5rem / 25rem auto no-repeat;
+  }
+
+  .btn_like.on:before {
+    background: url('~/assets/mo_images/common/icon_split.png') -21rem -36.5rem / 25rem auto no-repeat;
+  }
+
+  :deep(.btn_big):disabled {
+    background-color: #666;
+    em {
+      color: #aaa;
+    }
+  }
+}
+
+.post_list_wrap {
+  margin: 0 -2.1rem;
+  padding: 0 2.1rem;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display:none;
+  }
+
+  .post_list {
+    flex-wrap: nowrap;
+
+    li {
+      width: 10.9rem;
+      flex-shrink: 0;
+
+      a, span {
+        display: inline-block;
+      }
+
+      .info {
+        margin-top: .8rem;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+
+        .photo {
+          width: 2.4rem;
+        }
+      }
+    }
+  }
+}
+
+.filter_wrap {
+  margin: 1.6rem 0 0;
+  padding: 0 2.1rem 2.2rem;
+  border-bottom: 1px solid #f5f5f5;
+  position: relative;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display:none;
+  }
+
+  :deep(.tab_wrap) {
+    ul.type_02 {
+      margin: 0;
+      gap: .8rem .5rem;
+      flex-wrap: nowrap;
+
+      li {
+        margin: 0;
+        padding: 0;
+
+        &>* {
+          padding: .7rem 1.5rem;
+          font-size: 1.2rem;
+          background: #fff;
+          border-color: #eee;
+
+          em {
+            height: 3rem;
+            padding: 0 14px;
+            line-height: 3rem;
+            font-weight: 600;
+          }
+
+          span {
+            font-size: 1.2rem;
+          }
+        }
+
+        &.current {
+          &>* {
+            border-color: #000;
+            span {
+              color: #00BC70;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.select_wrap {
+  margin-top: 2rem;
+  padding: 0 2.1rem;
 }
 </style>

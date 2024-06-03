@@ -1136,7 +1136,6 @@
 :deep(.modal_wrap.toast) {
   .modal_container {
     width:calc(100% - 60px);
-    background-color: rgba(0, 0, 0, 0.8);
     text-align:center;
     top: 90%;
     left: 50%;
@@ -1662,6 +1661,52 @@
 
   .icons {
     gap: .5rem;
+  }
+}
+
+:deep(.prod_info) {
+  width: 100%;
+  position: relative;
+
+  .sticker {
+    margin-bottom: 1rem;
+  }
+
+  .name {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+
+    .top_text {
+      line-height: 1.6rem;
+    }
+
+    & + .info_box {
+      margin: 1rem 0;
+    }
+  }
+
+  .review_summary {
+    margin-bottom: 0;
+
+    & + .info_box {
+      margin: 2rem 0 0;
+      padding-top: 2rem;
+      border-top: 1px solid #eee;
+
+      & > em {
+        font-weight: 600;
+        color: #ff0000;
+      }
+
+      .price {
+        font-size: 2rem;
+        line-height: 2.4rem;
+
+        .cost {
+          font-size: 1.6rem;
+        }
+      }
+    }
   }
 }
 /* //제품 상세 */

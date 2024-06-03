@@ -101,7 +101,7 @@
         </div>
         <!-- //상품 옵션 및 가격 -->
 
-        <!-- 구매 영역 -->
+        <!-- 구매 버튼 영역 -->
         <div class="btn_wrap">
           <div class="share_wrap">
             <button class="btn_share" @click="modal.open('modal_share', 'layer')"></button>
@@ -124,9 +124,9 @@
           </div>
           <button type="button" class="btn_like">찜하기</button>
           <Button class="btn_mid" txt="장바구니" />
-          <Button class="btn_mid buy" txt="바로구매" />
+          <Button class="btn_mid confirm" txt="바로구매" />
         </div>
-        <!-- //구매 영역 -->
+        <!-- //구매 버튼 영역 -->
 
         <!-- 네이버 페이 영역 -->
         <div class="naver_pay">
@@ -575,10 +575,6 @@ onMounted(()=>{
 
         .btn_like:before {
           background: url('~/assets/images/common/icon_split.png') -140px -60px no-repeat;
-        }
-
-        .btn_mid.buy {
-          background-color: #00BC70;
         }
       }
     }

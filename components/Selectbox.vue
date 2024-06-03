@@ -27,7 +27,7 @@
 select {
   width:100%;
   height:40px;
-  padding:12px 40px 12px 12px;
+  padding:11px 40px 11px 12px;
   font-size:14px;
   line-height:18px;
   border:1px solid #aaa;
