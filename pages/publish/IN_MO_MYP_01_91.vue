@@ -35,10 +35,14 @@
 import { faq_data } from '/_nuxt/test/data/publish/dummyData'
 
 definePageMeta({
-  layout:'mo-sub'
+  layout:'mo-menu-search-cart'
 });
 
+const emit = defineEmits(['title']);
+
 onMounted(() => {
+  emit('title', 'FAQ');
+
   document.querySelector('.slide_wrap ul li').classList.add('active');
 });
 
@@ -58,43 +62,43 @@ const accordion_tab = (e) => {
   const tg_cont = e.target.nextElementSibling;
   const list = document.querySelectorAll('.faq_wrap ul li');
 
-  tg_cont.style.height = 'auto';
   const height = tg_cont.clientHeight*0.1;
-  tg_cont.style.height = '0';
-
+  
   list.forEach(el => {
     const el_cont = el.querySelector('.faq_cont');
     
     if (tg_li === el && !tg_li.classList.contains('active')) {
       tg_li.classList.add('active');
-
-      setTimeout(() => {
-        tg_cont.style.height = (height + 6) + 'rem';
-        tg_cont.style.paddingTop = '3rem';
-        tg_cont.style.paddingBottom = '3rem';
-      }, 0)
-    }
-    else if (tg_li === el && tg_li.classList.contains('active')) {
+      slides.down(tg_cont);
+    } else if (tg_li === el && tg_li.classList.contains('active')) {
       tg_li.classList.remove('active');
-
-      tg_cont.style.height = height + 'rem';
-      setTimeout(() => {
-        tg_cont.style.height = '0rem'
-        tg_cont.style.paddingTop = '0rem';
-        tg_cont.style.paddingBottom = '0rem';
-      }, 0)
-    }
-    else if (tg_li !== el && el.classList.contains('active')) {
+      slides.up(tg_cont,height);
+    } else if (tg_li !== el && el.classList.contains('active')) {
       el.classList.remove('active');
-      
-      el_cont.style.height = height + 'rem';
-      setTimeout(() => {
-        el_cont.style.height = '0rem'
-        el_cont.style.paddingTop = '0rem';
-        el_cont.style.paddingBottom = '0rem';
-      }, 0)
+      slides.up(el_cont,height);
     }
   });
+};
+
+const slides = {
+  up: (el, height) => {
+    el.style.height = height + 'rem';
+    setTimeout(() => {
+      el.style.height = '0rem'
+      el.style.paddingTop = '0rem';
+      el.style.paddingBottom = '0rem';
+    }, 0)
+  },
+  down: (el) => {
+    el.style.height = 'auto';
+    const height = el.clientHeight*0.1;
+    el.style.height = '0';
+    setTimeout(() => {
+      el.style.height = (height + 6) + 'rem'
+      el.style.paddingTop = '3rem';
+      el.style.paddingBottom = '3rem';
+    }, 0);
+  },
 };
 
 </script>
@@ -139,7 +143,7 @@ const accordion_tab = (e) => {
     background:#fff;
     position:sticky;
     top:0.8rem;
-    z-index: 99;
+    z-index: 9;
 
     ul {
       height:100%;

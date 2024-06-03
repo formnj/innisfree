@@ -434,6 +434,11 @@ const PC_arry = ([
         type:'', note:'개인정보 수정 컨텐츠( 회원정보 수정, 비밀번호 수정 ) 포함',
         sDate:'', eDate:'2024-05-10/2024-05-10', worker:'형민우'
     }, {
+        depth:['','회원탈퇴','',''],
+        id:'IN_PC_MYP_01_75', status:'com',
+        type:'', note:'회원탈퇴 페이지 추가<br>개인정보수정 탈퇴신청 버튼 클릭시 이동되는 페이지',
+        sDate:'', eDate:'', worker:'형민우'
+    }, {
         depth:['','배송지 관리','',''],
         id:'IN_PC_MYP_01_76', status:'com',
         type:'', note:'주문서 배송지 등록/변경',
@@ -729,8 +734,8 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-10/', worker:'이종환'
     }, {
         depth:['주문서','','',''],
-        id:'IN_MO_ORD_01_01', status:'com',
-        type:'', note:'결제하기페이지<br/> 장바구니 참고',
+        id:'IN_MO_ORD_01_01', status:'ing',
+        type:'', note:'결제하기페이지<br/> 장바구니 참고<br/>디자인 고도화 수정 필요',
         sDate:'2024-05-17', eDate:'2024-05-24/2024-05-24', worker:'김희경'
     }, {
         depth:['','배송지 등록/변경','',''],
@@ -939,8 +944,8 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 문의하기(T)',''],
-        id:'IN_MO_MYP_01_46', status:'com',
-        type:'', note:'',
+        id:'IN_MO_MYP_01_46', status:'ing',
+        type:'', note:'디자인 고도화 수정 필요',
         sDate:'2024-04-24', eDate:'2024-04-26/2024-04-24', worker:'김희경'
     }, {
         depth:['','','1:1 답변확인(T)',''],
@@ -975,9 +980,14 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-10/2024-05-10', worker:'형민우'
     }, {
         depth:['','','','개인정보 수정'],
-        id:'IN_MO_MYP_01_69', status:'com',
-        type:'', note:'',
+        id:'IN_MO_MYP_01_69', status:'ing',
+        type:'', note:'주소검색 팝업 수정 필요',
         sDate:'', eDate:'2024-05-10/2024-05-10', worker:'형민우'
+    }, {
+        depth:['','회원탈퇴','',''],
+        id:'IN_MO_MYP_01_75', status:'com',
+        type:'', note:'회원탈퇴 페이지 추가<br>개인정보수정 탈퇴신청 버튼 클릭시 이동되는 페이지',
+        sDate:'', eDate:'', worker:'형민우'
     }, {
         depth:['','배송지 관리','',''],
         id:'IN_MO_MYP_01_76', status:'com',

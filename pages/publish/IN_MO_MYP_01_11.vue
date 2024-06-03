@@ -97,12 +97,12 @@
         </dd>
       </dl>
       <div class="more_btns">
-         <button class="more_list active" @click="show($event)">
+        <button class="more_list active" @click="show($event)">
           <span>전체보기</span>
-         </button>
-         <button class="more_close" @click="hide($event)">
+        </button>
+        <button class="more_close" @click="hide($event)">
           <span>닫기</span>
-         </button>
+        </button>
       </div>
       <div class="btn_wrap">
         <Button txt="배송 조회" class="btn_outline" @click="modal.open('my_delivery', 'fullMo')" />

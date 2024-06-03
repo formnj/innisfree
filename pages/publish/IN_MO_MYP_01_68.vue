@@ -12,7 +12,13 @@
 </template>
 <script setup>
 definePageMeta({
-  layout:'mo-sub',
+  layout:'mo-back-name-search-cart',
+});
+
+const emit = defineEmits(['title']);
+
+onMounted(() => {
+  emit('title', '개인정보수정')
 });
 </script>
 <style lang="scss" scoped>

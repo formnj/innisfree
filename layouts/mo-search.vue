@@ -6,19 +6,22 @@
         :useBack="true"
         :useSearchWrap="true"
         :useSearch="false"
-        :useCart="false"
-        :useBarcode="true"
+        :useCart="icons <= 0 ? false : true"
+        :useBarcode="icons <= 0 ? true : false"
         :useNav="false"
       />
       <div id="container">
-          <router-view />
+        {{ barcode }}
+          <router-view @icons="icons = $event" />
       </div>
       <FooterMo />
       <Actionbar />
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const icons = ref(null);
+</script>
 
 <style lang="scss" scoped>
 

@@ -247,7 +247,11 @@ definePageMeta({
   layout:'mo-search'
 });
 
+const emit = defineEmits(['icons']);
+
 onMounted(() => {
+  emit('icons', 1);
+
   /* keyword rolling */
   const keyword_pos = document.querySelector('.search_area ol'),
   roll_size = keyword_pos.querySelectorAll('li'),

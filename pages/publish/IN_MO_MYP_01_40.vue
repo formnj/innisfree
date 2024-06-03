@@ -64,7 +64,7 @@
 
 <script setup>
 definePageMeta({
-layout:'mo-category'
+layout:'mo-back-name-search-cart'
 });
 import { modal } from '~/assets/js/common-ui.js'
 import {select_list} from '~/test/data/publish/dummyData'
@@ -76,17 +76,19 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   }
 });
 
+const emit = defineEmits(['title']);
 
 onMounted(() => {
+  emit('title','찜한 제품')
 
-
-})
+});
 
 </script>
 
 <style lang="scss" scoped>
 
 .inner {
+  padding: 0 2.1rem;
   > section {
     margin-left:-2.1rem;
     margin-right:-2.1rem;

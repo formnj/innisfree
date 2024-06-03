@@ -1,56 +1,53 @@
 <template>
-  <div class="sub_title_wrap">
-    <h4>내 피부 정보</h4>
-    <a href="#none" class="btn_text">수정하기</a>
-  </div>
-
-  <!-- 프로필 등록 전 -->
   <div class="inner">
+    <div class="sub_title_wrap">
+      <h4>내 피부 정보</h4>
+      <a href="#none" class="btn_text">수정하기</a>
+    </div>
+
+    <!-- 프로필 등록 전 -->
     <div class="profile_wrap">
       <div>
         <a href="#none">피부 프로필 등록하고 혜택 받기</a>
         <p>프로필 등록 시 뷰티포인트 적립은 기본!<br/> 나에게 딱 맞는 맞춤형 추천까지!</p>
       </div>
     </div>
+    <!-- //프로필 등록 전 -->
   </div>
-  <!-- //프로필 등록 전 -->
 
   <Tabs tabType="type_01" :item="[{txt:'작성 가능한 리뷰'},{txt:'내가 작성한 리뷰'}]" :tabidx="1" />
 
-  <div class="list_wrap">
-
-    <div class="list_top">
-      <Selectbox
-          :options="[
-          { val: 'value', txt: '옵션01' },
-          { val: 'value', txt: '옵션02' }
-      ]" />
-      <a href="#none" @click="modal.open('review_policy', 'fullMo')" class="btn_link_arrw">리뷰 정책</a>
+  <div class="inner">
+    <div class="list_wrap">
+      <div class="list_top">
+        <Selectbox
+            :options="[
+            { val: 'value', txt: '옵션01' },
+            { val: 'value', txt: '옵션02' }
+        ]" />
+        <a href="#none" @click="modal.open('review_policy', 'fullMo')" class="btn_link_arrw">리뷰 정책</a>
+      </div>
+      <ul class="review_list">
+        <li v-for="(item, idx) in review" :key="idx">
+          <div class="review_header">
+            <div class="btn_wrap ar">
+              <button type="button">수정</button>
+              <button type="button">삭제</button>
+            </div>
+          </div>
+          <div class="review_cont">
+            <p v-html="item.review"></p>
+          </div>
+          <div class="review_header">
+            <div class="user_info">
+              <Reviewpoint :width="item.point" />
+              <span class="date ar">{{ item.date }}</span>
+            </div>
+          </div>
+          <GoodsItem :item="item.goods" class="type_column" />
+        </li>
+      </ul>
     </div>
-
-    <ul class="review_list">
-      <li v-for="(item, idx) in review" :key="idx">
-        <div class="review_header">
-          <div class="btn_wrap ar">
-            <button type="button">수정</button>
-            <button type="button">삭제</button>
-          </div>
-        </div>
-
-        <div class="review_cont">
-          <p v-html="item.review"></p>
-        </div>
-
-        <div class="review_header">
-          <div class="user_info">
-            <Reviewpoint :width="item.point" />
-            <span class="date ar">{{ item.date }}</span>
-          </div>
-        </div>
-
-        <GoodsItem :item="item.goods" class="type_column" />
-      </li>
-    </ul>
   </div>
 
   <!-- modal -->
@@ -159,16 +156,25 @@
 
 <script setup>
 definePageMeta({
-layout:'mo-category'
+layout:'mo-back-name-search-cart'
 });
 
 import {review} from '~/test/data/publish/dummyData'
 
 import { modal } from '~/assets/js/common-ui.js'
 /* //component sample data */
+
+const emit = defineEmits(['title']);
+onMounted(() => {
+  emit('title', '리뷰');
+});
 </script>
 
 <style lang="scss" scoped>
+.inner {
+  padding: 0 2.1rem;
+}
+
 .sub_title_wrap {
   .btn_text {
     color:#999;

@@ -1,12 +1,10 @@
 <template>
-    <Tabs tabType="type_01" :item="[{txt:'1&#58;1 문의하기'},{txt:'답변확인'}]" :tabidx="0" />
+    <Tabs tabType="type_01" :item="[{txt:'1&#58;1 문의하기'},{txt:'1:1 문의내역'}]" :tabidx="1" />
         <div class="inner">
           <dl class="board_type_toggle single">
             <dt>
               <a href="#none">
-                <div>
-                  <em class="type_01">답변대기중</em>
-                </div>
+                <Sticker :item="[{txt: '추가문의', type: 'type04'}, {txt: '답변대기중', type: 'type03'}]" />
                 <p>뷰티포인트 소멸시기가 궁금합니다.</p>
                 <span>2024-04-24 08:22:50</span>
                 <em></em>
@@ -26,14 +24,12 @@
                 아모레퍼시픽 뷰티포인트 상담실(080-023-5454/오전 9시 - 6시, 단, 12시 - 1시 점심시간 제외)로 문의부탁드립니다.
                 소중한 시간 내어 문의 주신 점 감사 드립니다.
                 행복한 하루 보내세요.
-                <Button class="btn_outline btn_sm" txt="문의취소" @click="modal.open('delete_modal', 'alert')" />
+                <Button class="btn_outline btn_sm" txt="문의 취소" @click="modal.open('delete_modal', 'alert')" />
               </div>
             </dd>
             <dt>
               <a href="#none">
-                <div>
-                  <em class="type_02">답변완료</em>
-                </div>
+                <Sticker :item="[{txt: '답변완료', type: 'type05'}]" />
                 <p>뷰티포인트 소멸시기가 궁금합니다.</p>
                 <span>2024-04-24 08:22:50</span>
                 <em></em>
@@ -79,9 +75,10 @@
 
 <script setup>
 import { createUnparsedSourceFile } from 'typescript';
+import { modal } from '~/assets/js/common-ui.js'
 
 definePageMeta({
-layout:'mo-category'
+layout:'mo-menu-search-cart'
 });
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   link: {
@@ -90,31 +87,24 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   }
 });
 
-import { modal } from '~/assets/js/common-ui.js'
+const emit = defineEmits(['title']);
 
 onMounted(() => {
+  emit('title', '1:1 고객상담')
 
   /* accordion */
 function accordion(_target, evt){ // 23.08.18 nextElementSibling 테그가 없는 경우를 위한 수정
-    var evt;
-    var rotate_icon= document.querySelectorAll('.board_type_toggle dt > a > em');
-    console.log(rotate_icon)
+    const rotate_icon = document.querySelectorAll('.board_type_toggle dt > a > em');
     accordion = document.querySelectorAll(_target, evt);
-    console.log('accordion :', accordion)
     accordion.forEach(el => {
-        console.log('el :', el)
         el.querySelectorAll('.board_type_toggle > dt > a').forEach((el, i) => {
             el.addEventListener(evt, function(){
                 if(el.closest('dl').classList.contains('single')){
-                    console.log('closet :', el.closest('dl'))
-                    const parent_index = Array.from(el.closest('dl').getElementsByTagName('dt')).indexOf(el.parentNode);
-                    console.log('parent_index :', parent_index)
-                    var j
+                    let j
                     for(j=0; j<el.closest('dl').getElementsByTagName('dt').length; j++){
                         if(i != j && el.closest('dl').getElementsByTagName('dt')[j].nextElementSibling != null){
                             el.closest('dl').getElementsByTagName('dt')[j].nextElementSibling.classList.remove('show');
                             rotate_icon[j].classList.remove('active');
-                            console.log('rotate', rotate_icon[j])
                         }
                     }
                 }
@@ -125,8 +115,6 @@ function accordion(_target, evt){ // 23.08.18 nextElementSibling 테그가 없�
 
                         el.parentNode.nextElementSibling.addEventListener('transitionend', () => {
                             el.parentNode.nextElementSibling.classList.remove('show');
-                            console.log('el.parentNode.nextElementSibling', el.parentNode.nextElementSibling)
-                            console.log('el.parentNode.firstElementChild.lastElementChild')
                             el.parentNode.firstElementChild.lastElementChild.classList.remove('active')
                         }, {once: true});
                     } else {
@@ -135,7 +123,7 @@ function accordion(_target, evt){ // 23.08.18 nextElementSibling 테그가 없�
 
 
                         el.parentNode.nextElementSibling.style.height = 'auto'
-                        var height = el.parentNode.nextElementSibling.clientHeight + 'px'
+                        const height = el.parentNode.nextElementSibling.clientHeight + 'px'
                         el.parentNode.nextElementSibling.style.height = '0px'
                         setTimeout(() => {
                             el.parentNode.nextElementSibling.style.height = height
@@ -149,14 +137,12 @@ function accordion(_target, evt){ // 23.08.18 nextElementSibling 테그가 없�
 
 accordion('.board_type_toggle', 'click')
 
-})
+});
 
 </script>
 
 <style lang="scss" scoped>
 .tab_wrap {
-  margin-left:-21px !important;
-  margin-right:-21px !important;
   .type_01 {
       li {
           button {
@@ -170,26 +156,16 @@ accordion('.board_type_toggle', 'click')
 
 .board_type_toggle {
   dt {
-    margin-left:-2.0rem;
-    margin-right:-2.0rem;
     padding:3rem 3rem;
     border-bottom: #f4f4f4 solid 0.1rem;
     position:relative;
     a {
-      div {
-        em {
-          padding: 0.2rem 0.5rem;
-          color: #fff;
-          font-size: 1rem;
-          font-weight: 400;
-          line-height: 1.4rem;
-          letter-spacing: 0;
-          display:inline-block;
-          &.type_01 {
-            background:#00BC70;
-          }
-          &.type_02 {
-            background:#1B8DF7;
+      :deep(.sticker) {
+        gap: 0.3rem;
+        li {
+          em {
+            padding: 0.3rem 0.5rem;
+            font-size: 1rem;
           }
         }
       }
@@ -228,8 +204,6 @@ accordion('.board_type_toggle', 'click')
     }
   }
   dd {
-    margin-left:-2.0rem;
-    margin-right:-2.0rem;
     padding:3rem 3rem;
     color:#666;
     font-size:13px;
@@ -252,7 +226,7 @@ accordion('.board_type_toggle', 'click')
         line-height: 1.6rem;
         display: block;
       }
-      .btn_sm {
+      :deep(.btn_sm) {
           width:5.3rem;
           margin-left:auto;
           color:#999;
@@ -262,6 +236,7 @@ accordion('.board_type_toggle', 'click')
           display:block;
           em {
             padding:0 5px;
+            color: #999;
           }
         }
     }

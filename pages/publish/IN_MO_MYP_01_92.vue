@@ -112,16 +112,26 @@
         <a href="#none" class="last">마지막으로</a>
       </div>
     </div>
+    
+    <!-- 동일한 내용의 컨텐츠 X -->
+    <!-- <div class="no_content">
+      찾으시는 내용이 없습니다.
+    </div> -->
+    <!-- 동일한 내용의 컨텐츠 X -->
   </div>
 </template>
 <script setup>
 import { noti_data } from '/_nuxt/test/data/publish/dummyData'
 
 definePageMeta({
-  layout:'mo-sub'
+  layout:'mo-menu-search-cart'
 });
 
+const emit = defineEmits(['title']);
+
 onMounted(() => {
+  emit('title', '공지사항');
+
   document.querySelector('.slide_wrap ul li').classList.add('active');
 });
 
@@ -268,8 +278,6 @@ const slides = {
   .inner {
     .title_wrap {
       margin:3rem 2.1rem 1.5rem;
-      margin-left:2.1rem;
-      margin-right:2.1rem;
   
       h2 {
         color:#000;
@@ -408,5 +416,9 @@ const slides = {
         }
       }
     }
+  }
+
+  .no_content {
+    padding: 5rem 0;
   }
 </style>
