@@ -26,7 +26,7 @@
 import { public_ann } from '~/test/data/publish/dummyData'
 
 definePageMeta({
-  layout:'mo-sub'
+  layout:'mo-menu-search-cart'
 });
 
 const link_click = ()=>{
@@ -39,7 +39,13 @@ const link_click = ()=>{
       link_a[i].classList.add('active')
     })
   })
-}
+};
+
+const emit = defineEmits(['title']);
+
+onMounted(() => {
+  emit('title', '전자공고')
+});
 
 </script>
 <style lang="scss" scoped>

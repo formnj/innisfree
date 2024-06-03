@@ -245,7 +245,7 @@
     <div class="leave_wrap">
       <p>
         이니스프리 회원 또는 이니스프리 밀리터리 회원에서 탈퇴가 가능합니다.
-        <Button class="btn_min_outline" txt="회원탈퇴" />
+        <Button class="btn_min_outline" txt="회원탈퇴" @click="$router.push('IN_PC_MYP_01_75')" />
       </p>
     </div>
   </section>

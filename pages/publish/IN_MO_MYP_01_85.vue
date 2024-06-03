@@ -42,20 +42,22 @@
       <h4>매장 안내</h4>
     </div>
     <div class="multi_form">
-       <Selectbox
+      <Selectbox
         :options="[
           { val: 'op1', name: 'op', txt: '광역시/도' },
           { val: 'op2', name: 'op', txt: '강원' },
           { val: 'op3', name: 'op', txt: '경기' },
           { val: 'op4', name: 'op', txt: '경남' },
-        ]" />
-       <Selectbox
+        ]"
+      />
+      <Selectbox
         :options="[
           { val: 'op1', name: 'op2', txt: '시/군/구' },
           { val: 'op2', name: 'op2', txt: '강릉시' },
           { val: 'op3', name: 'op2', txt: '고성군' },
           { val: 'op4', name: 'op2', txt: '동해시' },
-        ]" />
+        ]"
+      />
     </div>
 
     <div class="multi_form">
@@ -274,10 +276,14 @@
 import { modal } from '~/assets/js/common-ui.js'
 import { shop_list } from '~/test/data/publish/dummyData'
 definePageMeta({
-  layout:'mo-sub'
+  layout:'mo-back-name-search-cart'
 });
 
+const emit = defineEmits(['title']);
+
 onMounted(()=>{
+  emit('title','마이샵관리')
+
   //마이샵 메뉴 외 영역 클릭 시 메뉴 닫힘
   const body = document.querySelector('body');
   body.addEventListener('click', (event)=>{

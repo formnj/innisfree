@@ -1,16 +1,17 @@
 <template>
   <div id="wrap">
-      <HeaderMo
-          :useLogo="false"
-          :useBack="true"
-          :useName="true"
-          :txt="txt"
-          :useNav="false"
-      />
-      <div id="container">
-          <router-view @title="txt = $event" />
-      </div>
-      <FooterMo />
+    <HeaderMo
+        :useLogo="false"
+        :useBack="true"
+        :useName="true"
+        :txt="txt"
+        :useNav="false"
+    />
+    <div id="container">
+        <router-view @title="txt = $event" />
+    </div>
+    <FooterMo />
+    <Actionbar />
   </div>
 </template>
 

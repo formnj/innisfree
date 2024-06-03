@@ -120,7 +120,11 @@ definePageMeta({
     layout:'mo-search'
 });
 
+const emit = defineEmits(['icons'])
+
 onMounted(() => {
+    emit('icons', 0)
+
     document.querySelector('.search_wrap .input input').addEventListener('input', auto_complete);
 });
 

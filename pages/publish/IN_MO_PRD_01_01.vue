@@ -1,31 +1,30 @@
 <template>
-  <div class="title_wrap">
-    <div>
-      <h2>
-        <strong class="badge count">총 <em>32</em>건</strong>
-      </h2>
-    </div>
-
-    <div class="pdtSortTab_wrap">
-      <div class="sortTab">
-        <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom modal_sort');">추천순</button>
+  <div class="inner">
+    <div class="title_wrap">
+      <div>
+        <h2>
+          <strong class="badge count">총 <em>32</em>건</strong>
+        </h2>
       </div>
-      <button @click="modal.open('modal_filter', 'bottom filter');">필터</button>
+      <div class="pdtSortTab_wrap">
+        <div class="sortTab">
+          <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom modal_sort');">추천순</button>
+        </div>
+        <button @click="modal.open('modal_filter', 'bottom filter');">필터</button>
+      </div>
     </div>
-  </div>
-
-  <div class="list_wrap">
-    <div class="no_content">
-      <p>조건에 맞는 제품이 없습니다.</p>
-      <span>다른 조건으로 변경해보세요.</span>
-      <Button class="btn_min btn_outline btn_reset" txt="초기화" />
+    <div class="list_wrap">
+      <div class="no_content">
+        <p>조건에 맞는 제품이 없습니다.</p>
+        <span>다른 조건으로 변경해보세요.</span>
+        <Button class="btn_min btn_outline btn_reset" txt="초기화" />
+      </div>
+      <ul class="goods_list">
+        <li v-for="(item, idx) in sample_goods" :key="idx">
+          <GoodsItem :item="item" :link="item.link" />
+        </li>
+      </ul>
     </div>
-
-    <ul class="goods_list">
-      <li v-for="(item, idx) in sample_goods" :key="idx">
-        <GoodsItem :item="item" :link="item.link" />
-      </li>
-    </ul>
   </div>
 
   <!-- 정렬 기준 모달 -->
@@ -176,11 +175,21 @@
 import { sample_goods } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui'
 definePageMeta({
-  layout:'mo-category'
+  layout:'mo-menu-search-cart'
+});
+
+const emit = defineEmits(['title']);
+
+onMounted(() => {
+  emit('title', '스킨케어')
 });
 </script>
 
 <style lang="scss" scoped>
+.inner {
+  padding: 0 2.1rem;
+}
+
 .goods_list {
   margin: 0;
   gap: 4rem 0.3rem;

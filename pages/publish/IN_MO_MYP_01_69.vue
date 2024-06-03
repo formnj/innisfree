@@ -20,7 +20,7 @@
         <li>
           <dl>
             <dt>비밀번호</dt>
-            <dd><Button class="btn_outline btn_sm btn_change" txt="변경하기" @click="modal.open('modal_pwd', 'fullMo')" /></dd>
+            <dd><Button class="btn_outline btn_sm btn_change" txt="변경하기" @click="modal.open('modal_pwd', 'fullMo modal_pwd')" /></dd>
           </dl>
         </li>
         <li>
@@ -38,7 +38,7 @@
         <li>
           <dl class="type_input">
             <dt>휴대전화</dt>
-            <dd><Button class="btn_outline btn_change btn_sm" txt="변경하기" @click="modal.open('modal_phone', 'fullMo')" /></dd>
+            <dd><Button class="btn_outline btn_change btn_sm" txt="변경하기" @click="modal.open('modal_phone', 'fullMo modal_phone')" /></dd>
           </dl>
           <Inputs _type="text" _value="010-1234-1234" isDisabled="true" />
         </li>
@@ -48,7 +48,7 @@
           </dl>
           <div class="addr_wrap">
             <Inputs _type="text" _value="12345" isDisabled="true" />
-            <Button class="btn_outline" txt="주소검색" />
+            <Button class="btn_outline" txt="주소검색" @click="modal.open('modal_address', 'fullMo modal_address')" />
             <Button class="btn_outline" txt="초기화" />
           </div>
           <Inputs _type="text" _value="서울 용산구 한강대로30길 25" isDisabled="true" />
@@ -64,7 +64,7 @@
         <ul>
           <li>
             <Inputs _type="checkbox" _text="개인정보 수집·이용 동의 (마케팅) (선택)" />
-            <button type="button" @click="modal.open('modal_privacy', 'fullMo')">자세히보기</button>
+            <button type="button" @click="modal.open('modal_privacy', 'fullMo modal_privacy')">자세히보기</button>
             <span>(최근변경일시 :  - )</span>
           </li>
         </ul>
@@ -94,7 +94,7 @@
             <ul>
               <li>
                 <Inputs _type="checkbox" _text="반려동물 정보 수집 및 이용 동의(선택)" />
-                <button type="button" @click="modal.open('modal_pet', 'alert')">자세히보기</button>
+                <button type="button" @click="modal.open('modal_pet', 'alert modal_pet')">자세히보기</button>
               </li>
             </ul>
           </div>
@@ -149,7 +149,7 @@
           <div class="icon">카카오톡</div>
           <div class="info connect">
             <div class="txt">연결됨</div>
-            <Button class="btn_sm_outline" txt="연결 해제" @click="modal.open('modal_disconnect', 'alert')" />
+            <Button class="btn_sm_outline" txt="연결 해제" @click="modal.open('modal_disconnect', 'alert modal_disconnect')" />
           </div>
         </li>
         <li class="naver">
@@ -160,7 +160,7 @@
           <div class="icon">Apple</div>
           <div class="info connect">
             <div class="txt">연결됨</div>
-            <Button class="btn_sm_outline" txt="연결 해제" @click="modal.open('modal_disconnect', 'alert')" />
+            <Button class="btn_sm_outline" txt="연결 해제" @click="modal.open('modal_disconnect', 'alert modal_disconnect')" />
           </div>
         </li>
       </ul>
@@ -172,7 +172,7 @@
       <div class="sub_title_wrap">
         <h4>
           회원탈퇴
-          <button type="button">탈퇴신청</button>
+          <button type="button" @click="$router.push('IN_MO_MYP_01_75')">탈퇴신청</button>
         </h4>
         <div class="explain">이니스프리 회원을 탈퇴하시겠습니까?</div>
       </div>
@@ -229,7 +229,7 @@
               </div>
           </div>
           <div class="modal_footer">
-            <Button class="btn_big confirm" txt="확인" />
+            <Button class="btn_big confirm" txt="확인" @click="modal.close(this)" />
           </div>
       </div>
       <div class="overlay" @click="modal.close(this);"></div>
@@ -340,7 +340,102 @@
               </div>
           </div>
           <div class="modal_footer">
-            <Button class="btn_big confirm" txt="확인" />
+            <Button class="btn_big confirm" txt="확인" @click="modal.close(this)" />
+          </div>
+      </div>
+      <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  
+  <div id="modal_address" class="modal_wrap">
+      <div class="modal_container">
+          <div class="modal_header">
+              <h2>주소검색</h2>
+              <button class="btn_close" @click="modal.close(this);"></button>
+          </div>
+          <div class="modal_content">
+              <section>
+                <!-- 검색 영역 -->
+                <div class="search_wrap">
+                  <Inputs _placeholder="도로명, 건물명, 번지로 검색해 주세요" />
+                  <Icons class="btn_search" txt="검색" />
+                </div>
+                <div class="btn_wrap">
+                  <button type="button">CU편의점픽업</button>
+                  <button type="button">GS편의점픽업</button>
+                </div>
+                <!-- //검색 영역 -->
+              </section>
+              <!-- 잘못된 키워드 입력 시 -->
+              <!-- <section>
+                <h3>검색 결과가 없습니다.</h3>
+                <ul>
+                  <li>도로명 + 건물번호&nbsp;&nbsp;<em>(예 : 한강대로 100)</em></li>
+                  <li>동/읍/면/리 + 번지&nbsp;&nbsp;<em>(예 : 아모레퍼시픽)</em></li>
+                  <li>건물명, 아파트명&nbsp;&nbsp;<em>(예 : 한강로2가)</em></li>
+                </ul>
+              </section> -->
+              <!-- //잘못된 키워드 입력 시 -->
+
+              <!-- 올바른 키워드 입력 시 -->
+              <section class="answer">
+                <dl>
+                  <dt>
+                    <h3>검색결과<em>2,103건</em></h3>
+                  </dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <Sticker :item="[{txt: '도로명', type: 'type01'}]" />
+                        <span>서울특별시 용산구 한강대로 23</span>
+                      </li>
+                      <li>
+                        <Sticker :item="[{txt: '지번', type: 'type01'}]" />
+                        <span>서울특별시 용산구 한강로3가 40-19</span>
+                      </li>
+                    </ul>
+                  </dd>
+                  <dd>
+                    <ul>
+                      <li>
+                        <Sticker :item="[{txt: '도로명', type: 'type01'}]" />
+                        <span>서울특별시 용산구 한강대로 23</span>
+                      </li>
+                      <li>
+                        <Sticker :item="[{txt: '지번', type: 'type01'}]" />
+                        <span>서울특별시 용산구 한강로3가 65-230 한강대우트럼프월드 3차</span>
+                      </li>
+                    </ul>
+                  </dd>
+                  <dd>
+                    <ul>
+                      <li>
+                        <Sticker :item="[{txt: '도로명', type: 'type01'}]" />
+                        <span>서울특별시 용산구 한강대로 23</span>
+                      </li>
+                      <li>
+                        <Sticker :item="[{txt: '지번', type: 'type01'}]" />
+                        <span>서울특별시 용산구 한강로3가 65-230 한강대우트럼프월드 3차</span>
+                      </li>
+                    </ul>
+                  </dd>
+                  <dd>
+                    <ul>
+                      <li>
+                        <Sticker :item="[{txt: '도로명', type: 'type01'}]" />
+                        <span>서울특별시 용산구 한강대로 23</span>
+                      </li>
+                      <li>
+                        <Sticker :item="[{txt: '지번', type: 'type01'}]" />
+                        <span>서울특별시 용산구 한강로3가 65-230 한강대우트럼프월드 3차</span>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+              </section>
+              <!-- //올바른 키워드 입력 시 -->
+          </div>
+          <div class="modal_footer">
+            <Button class="btn_big confirm" txt="완료" @click="modal.close(this)" />
           </div>
       </div>
       <div class="overlay" @click="modal.close(this);"></div>
@@ -350,7 +445,7 @@
 import { modal } from '~/assets/js/common-ui'
 
 definePageMeta({
-  layout:'mo-sub',
+  layout:'mo-back-name-search-cart',
 });
 
 const desc_list = [
@@ -362,7 +457,11 @@ const members = ref(true);
 const title = ref('회원 정보');
 const desc = ref(desc_list[0].text);
 
+const emit = defineEmits(['title']);
+
 onMounted(() => {
+  emit('title', '개인정보수정')
+
   document.querySelectorAll('#privacy_tab li').forEach((item,idx) => {
     item.addEventListener('click', () => {
       if (idx === 0) {
@@ -871,8 +970,7 @@ section {
     }
   }
 
-
-  &#modal_pwd {
+  &.modal_pwd {
     .modal_container {
       .modal_content {
         padding:1.2rem 1rem 2rem 1rem;
@@ -946,7 +1044,7 @@ section {
     }
   }
 
-  &#modal_phone {
+  &.modal_phone {
     .modal_container {
       .modal_content {
         padding:3.2rem 2.6rem 3rem;
@@ -989,7 +1087,7 @@ section {
     }
   }
 
-  &#modal_privacy {
+  &.modal_privacy {
     .modal_container {
       .modal_header {
         color:#999;
@@ -1017,7 +1115,7 @@ section {
     }
   }
 
-  &#modal_pet {
+  &.modal_pet {
     .modal_container {
       .modal_content {
         .cont {
@@ -1061,7 +1159,7 @@ section {
     }
   }
 
-  &#modal_disconnect {
+  &.modal_disconnect {
     .modal_container {
       .modal_content {
         padding:3rem 2rem;
@@ -1077,6 +1175,165 @@ section {
             }
           }
         }
+      }
+    }
+  }
+
+  &.modal_address {
+    .modal_content {
+      section {
+        padding: 0 2.1rem;
+
+        &:nth-of-type(n+2) {
+          padding: 3rem 2.1rem;
+          border-bottom: 0;
+        }
+
+        &.answer {
+          padding: 3rem 0;
+
+          dl {
+            > * {
+              padding-left: 2.1rem;
+              padding-right: 2.1rem;
+            }
+          }
+        }
+      }
+
+      .search_wrap {
+        height: 4rem;
+        margin: 2rem 0 1.5rem;
+        border: 0.1rem solid #EEEEEE;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        flex: 1;
+        
+        :deep(.input_wrap) {
+            .input {
+              i, input {
+                  font-size:1.3rem;
+              }
+              i {
+                left:1.5rem;
+              }
+              input {
+                  height:4rem;
+                  padding-left:1.5rem;
+                  padding-right:0.5rem;
+                  border:0;
+              }
+            }
+        }
+
+        .btn_search {
+            width:2.4rem;
+            height:2.4rem;
+            margin-right:0.8rem;
+            background-color:transparent;
+            background-position:0 -4rem;
+        }
+      }
+
+      .btn_wrap {
+        margin: 0 0 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0 2rem;
+
+        button {
+          width: auto;
+          color: #666666;
+          font-size: 1.3rem;
+          font-weight: 400;
+          line-height: 1.6rem;
+          text-decoration: underline;
+
+          &:first-child {
+            padding-right: 2rem;
+            position: relative;
+
+            &:after {
+              content: '';
+              width: 0.1rem;
+              height: 100%;
+              background-color: #EEEEEE;
+              position: absolute;
+              top: 0;
+              right: 0;
+            }
+          }
+        }
+      }
+
+      h3 {
+        margin-bottom: 2rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 1.8rem;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        li {
+          color: #666;
+          font-size: 1.3rem;
+
+          em {
+            color: #999;
+          }
+        }
+      }
+
+      dl {
+        dt {
+
+          em {
+            margin-left: 1rem;
+            color: #00BC70;
+            font-size: 1.3rem;
+          }
+        }
+
+        dd {
+          padding: 2.5rem 0;
+          border-top: 0.1rem solid #F5F5F5;
+          
+          &:last-child {
+            border-bottom: 0.1rem solid #F5F5F5;
+          }
+
+          ul {
+            li {
+              display: flex;
+              gap: 1rem;
+
+              :deep(.sticker) {
+                em {
+                  width: 3.6rem;
+                  font-size: 1rem;
+                  text-align: center;
+                }
+              }
+
+              span {
+                color: #333;
+              }
+            }
+          }
+        }
+      }
+    }
+    .modal_footer {
+      padding: 0;
+
+      button {
+        flex: 1;
       }
     }
   }

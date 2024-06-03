@@ -35,6 +35,10 @@ const props = defineProps({
             color:#fff;
             background-color:#000;
         }
+        &.type05 {
+            color: #fff;
+            background-color: #666;
+        }
     }
 }
 .prod_info {

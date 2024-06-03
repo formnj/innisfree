@@ -1,159 +1,158 @@
 <template>
-    <Tabs tabType="type_01" :item="[{txt:'1&#58;1 문의하기'},{txt:'답변확인'}]" :tabidx="0" />
-        <div class="inner">
-            <section>
-                <dl>
-                    <dt>문의제품</dt>
-                    <dd>
-                    <div class="multi_form">
-                    <Inputs _type="text" _placeholder="주문 제품을 선택해주세요" />
-                    <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'fullMo');" />
-                    </div>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt>
-                        문의유형<em class="vital">*</em>
-                    </dt>
-                    <dd>
-                        <Selectbox
-                            :options="[
-                            { val: 'value', txt: '선택하세요' },
-                            { val: 'value', txt: '주문/결제문의' },
-                            { val: 'value', txt: '배송문의' },
-                            { val: 'value', txt: '취소/반품/교환문의' },
-                            { val: 'value', txt: '자주하는 문의/기타' },
-                            { val: 'value', txt: '가맹점 개설문의' },
-                        ]" />
-                        <Selectbox
-                            :options="[
-                            { val: 'value', txt: '선택해주세요' },
-                            { val: 'value', txt: '주문/결제문의' },
-                            { val: 'value', txt: '뷰티포인트/쿠폰' }
-                        ]" />
-                    </dd>
-                </dl>
-                <dl>
-                    <dt>
-                        문의내용<em class="vital">*</em>
-                    </dt>
-                    <dd>
-                        <Inputs _type="text" _placeholder="제목을 입력해주세요. (최대 30자 이내)" />
-                        <!-- 24-04-25 Add -->
-                        <Textarea _placeholder="내용을 입력해 주세요. 문의 내용 본문에는 개인정보를 입력하지 말아주세요. 고객정보보호를 위해 마스킹 처리될 수 있습니다.(예 : 성명, 연락처, 이메일주소, 계좌번호 등)" />
-                        <!-- //24-04-25 Add -->
-                    </dd>
-                </dl>
-                <Button class="btn_outline" txt="사진 최대 5장(선택)" />
-                <hr>
-            </section>
-            <section>
-                <ul>
-                    <li>
-                        <dl>
-                            <dt>답변 결과를 이메일로 받으시겠습니까?</dt>
-                            <dd>
-                                <Inputs _type="radio" _text="예" _name="email" value="yes"/>
-                                <Inputs _type="radio" _text="아니요" _name="email" value="no"/>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>답변 결과를 문자 메시지로 받으시겠습니까?</dt>
-                            <dd>
-                                <Inputs _type="radio" _text="예" _name="sms" value="yes"/>
-                                <Inputs _type="radio" _text="아니요" _name="sms" value="no"/>
-                            </dd>
-                        </dl>
-                    </li>
-                </ul>
-                <em>
-                    *이메일, 휴대전화번호 정보 수정을 원하시는 경우<br>
-                    회원정보 수정을 통해 변경해주시기 바랍니다.
-                </em>
-                <Button txt="문의하기" class="btn_" />
-                <Button txt="문의하기" class="btn_ active" @click="modal.open('check_modal', 'full');"/>
-            </section>
-        </div>
-
-        <div class="modal_wrap" id="choice_modal">
-            <div class="modal_container">
-                <div class="modal_header">
-                    <h2>주문제품 선택</h2>
-                    <button class="btn_close" @click="modal.close(this);">닫기</button>
+    <Tabs tabType="type_01" :item="[{txt:'1&#58;1 문의하기'},{txt:'1:1 문의내역'}]" :tabidx="0" />
+    <div class="inner">
+        <section>
+            <dl>
+                <dt>문의제품</dt>
+                <dd>
+                <div class="multi_form">
+                <Inputs _type="text" _placeholder="주문 제품을 선택해주세요" />
+                <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'fullMo');" />
                 </div>
-                <div class="modal_content">
-                    <div class="inner">
-                        <ul class="modal_tab_wrap">
-                            <li><button class="active" @click="tab_click($event)">1개월</button></li>
-                            <li><button @click="tab_click($event)">2개월</button></li>
-                            <li><button @click="tab_click($event)">3개월</button></li>
-                            <li><button @click="tab_click($event)">6개월</button></li>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    문의유형<em class="vital">*</em>
+                </dt>
+                <dd>
+                    <Selectbox
+                        :options="[
+                        { val: 'value', txt: '선택하세요' },
+                        { val: 'value', txt: '주문/결제문의' },
+                        { val: 'value', txt: '배송문의' },
+                        { val: 'value', txt: '취소/반품/교환문의' },
+                        { val: 'value', txt: '자주하는 문의/기타' },
+                        { val: 'value', txt: '가맹점 개설문의' },
+                    ]" />
+                    <Selectbox
+                        :options="[
+                        { val: 'value', txt: '선택해주세요' },
+                        { val: 'value', txt: '주문/결제문의' },
+                        { val: 'value', txt: '뷰티포인트/쿠폰' }
+                    ]" />
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    문의내용<em class="vital">*</em>
+                </dt>
+                <dd>
+                    <Inputs _type="text" _placeholder="제목을 입력해주세요. (최대 30자 이내)" />
+                    <!-- 24-04-25 Add -->
+                    <Textarea _placeholder="내용을 입력해 주세요. 문의 내용 본문에는 개인정보를 입력하지 말아주세요. 고객정보보호를 위해 마스킹 처리될 수 있습니다.(예 : 성명, 연락처, 이메일주소, 계좌번호 등)" />
+                    <!-- //24-04-25 Add -->
+                </dd>
+            </dl>
+            <Button class="btn_outline" txt="사진 최대 5장(선택)" />
+            <hr>
+        </section>
+        <section>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>답변 결과를 이메일로 받으시겠습니까?</dt>
+                        <dd>
+                            <Inputs _type="radio" _text="예" _name="email" value="yes"/>
+                            <Inputs _type="radio" _text="아니요" _name="email" value="no"/>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>답변 결과를 문자 메시지로 받으시겠습니까?</dt>
+                        <dd>
+                            <Inputs _type="radio" _text="예" _name="sms" value="yes"/>
+                            <Inputs _type="radio" _text="아니요" _name="sms" value="no"/>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+            <em>
+                *이메일, 휴대전화번호 정보 수정을 원하시는 경우<br>
+                회원정보 수정을 통해 변경해주시기 바랍니다.
+            </em>
+            <Button txt="문의하기" class="btn_" />
+            <Button txt="문의하기" class="btn_ active" @click="modal.open('check_modal', 'full');"/>
+        </section>
+    </div>
 
-                        </ul>
-                        <div class="date_wrap">
-                            <div class="date">
-                                <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
-                                <div class="dataValue">
-                                    2024-03-24
-                                </div>
-                                <em></em>
-	                          </div>
-                            <div>~</div>
-                            <div class="date">
-                                <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
-                                <div class="dataValue">
-                                    2024-03-24
-                                </div>
-                                <em></em>
-	                          </div>
+    <div id="choice_modal" class="modal_wrap">
+        <div class="modal_container">
+            <div class="modal_header">
+                <h2>주문제품 선택</h2>
+                <button class="btn_close" @click="modal.close(this);">닫기</button>
+            </div>
+            <div class="modal_content">
+                <div class="inner">
+                    <ul class="modal_tab_wrap">
+                        <li><button class="active" @click="tab_click($event)">1개월</button></li>
+                        <li><button @click="tab_click($event)">2개월</button></li>
+                        <li><button @click="tab_click($event)">3개월</button></li>
+                        <li><button @click="tab_click($event)">6개월</button></li>
 
+                    </ul>
+                    <div class="date_wrap">
+                        <div class="date">
+                            <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
+                            <div class="dataValue">
+                                2024-03-24
+                            </div>
+                            <em></em>
                         </div>
-                        <p class="alt">
-                            최근 1년 구매내역만 검색 가능합니다
-                        </p>
-                        <Button class="btn_outline" txt="검색"/>
-                    </div>
-                    <section>
-                        <div>
-                            검색 내역이 없습니다.
+                        <div>~</div>
+                        <div class="date">
+                            <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
+                            <div class="dataValue">
+                                2024-03-24
+                            </div>
+                            <em></em>
                         </div>
-                    </section>
+                    </div>
+                    <p class="alt">
+                        최근 1년 구매내역만 검색 가능합니다
+                    </p>
+                    <Button class="btn_outline" txt="검색"/>
                 </div>
-                <div class="modal_footer">
-                </div>
+                <section>
+                    <div>
+                        검색 내역이 없습니다.
+                    </div>
+                </section>
+            </div>
+            <div class="modal_footer">
             </div>
         </div>
+    </div>
 
 
-        <div class="modal_wrap" id="check_modal">
-          <div class="modal_container">
-              <div class="modal_header">
-                  <h2>알려드립니다.</h2>
-              </div>
-              <div class="modal_content">
-                  1:1문의 작성이 완료되었습니다.
-              </div>
-              <div class="modal_footer">
-                  <Button class="btn_big confirm" txt="확인" @click="modal.close(this);" />
-              </div>
-          </div>
-          <div class="overlay" @click="modal.close(this);"></div>
-      </div>
+    <div id="check_modal" class="modal_wrap">
+        <div class="modal_container">
+            <div class="modal_header">
+                <h2>알려드립니다.</h2>
+            </div>
+            <div class="modal_content">
+                1:1문의 작성이 완료되었습니다.
+            </div>
+            <div class="modal_footer">
+                <Button class="btn_big confirm" txt="확인" @click="modal.close(this);" />
+            </div>
+        </div>
+        <div class="overlay" @click="modal.close(this);"></div>
+    </div>
 </template>
 
 <script setup>
 definePageMeta({
-layout:'mo-category'
+layout:'mo-menu-search-cart'
 });
 import { modal } from '~/assets/js/common-ui.js'
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
-  link: {
-      type: String,
-      default: '#none'
-  }
+    link: {
+        type: String,
+        default: '#none'
+    }
 });
 
 const tab_click = (event)=>{
@@ -166,26 +165,30 @@ const tab_click = (event)=>{
     target.classList.add('active');
 }
 
+const emit = defineEmits(['title']);
+
 onMounted(() => {
+    emit('title','1:1 고객상담');
 
-
-})
+});
 
 </script>
 
 <style lang="scss" scoped>
+.inner {
+    padding: 0 2.1rem;
+}
+
 .tab_wrap {
-  margin-left:-21px !important;
-  margin-right:-21px !important;
-  .type_01 {
-      li {
-          button {
-              > em {
-              padding:0px !important;
-              }
-          }
-      }
-  }
+    .type_01 {
+        li {
+            button {
+                > em {
+                padding:0px !important;
+                }
+            }
+        }
+    }
 }
 
 section {

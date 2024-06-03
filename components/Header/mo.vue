@@ -6,7 +6,7 @@
       <div class="menu_wrap">
         <h1 v-if="useLogo"><a href="/publish/IN_MO_HOM_01_01"><img src="/assets/images/common/logo_innisfree.png" /></a></h1>
         <Icons v-if="useBack" class="back" txt="뒤로가기" />
-        <button v-if="useMenu" class="btn_menu" @click="modal.open('modal_nav', 'bottom nav')">쇼케이스</button>
+        <button v-if="useMenu" class="btn_menu" @click="modal.open('modal_nav', 'bottom nav')">{{ props.txt }}</button>
         <div v-if="useSearchWrap" class="search_wrap">
           <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
           <Icons class="btn_search" txt="검색" />
@@ -104,6 +104,24 @@
         </nav>
       </div>
     </div>
+
+    <div id="modal_nav" class="modal_wrap">
+        <div class="modal_container">
+            <div class="modal_header">
+                <button class="btn_close" @click="modal.close(this);">닫기</button>
+            </div>
+            <div class="modal_content">
+                <ul>
+                    <li class="active"><a href="#none">FAQ</a></li>
+                    <li><a href="#none">1:1고객상담</a></li>
+                    <li><a href="#none">매장안내</a></li>
+                    <li><a href="#none">공지사항</a></li>
+                    <li><a href="#none">전자공고</a></li>
+                </ul>
+            </div>
+        </div>
+        <div div class="overlay" @click="modal.close(this);"></div>
+    </div>
   </header>
 </template>
 
@@ -113,6 +131,7 @@ import {
   gnb_list,
   nav_goods
 } from '~/test/data/publish/dummyData'
+import { modal } from '~/assets/js/common-ui.js'
 
 const props = defineProps({
   useBanner: {

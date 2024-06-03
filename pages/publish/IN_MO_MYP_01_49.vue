@@ -1,5 +1,6 @@
 <template>
   <div class="inner">
+    <!-- 입고알림 신청내역 X -->
     <section>
       <span>아이콘</span>
       <p>신청하신 입고 알림 내역이 없습니다</p>
@@ -8,6 +9,9 @@
         <Button  class="btn_min_outline" txt="개인정보 수정하기"/>
       </div>
     </section>
+    <!-- 입고알림 신청내역 X -->
+
+    <!-- 입고알림 신청내역 O -->
     <div>
       <ul>
         <li>
@@ -42,6 +46,7 @@
         </li>
       </ul>
     </div>
+    <!-- 입고알림 신청내역 O -->
   </div>
 
 
@@ -65,7 +70,7 @@
 
 <script setup>
 definePageMeta({
-layout:'mo-category'
+layout:'mo-back-name-search-cart'
 });
 import { modal } from '~/assets/js/common-ui.js'
 
@@ -78,18 +83,19 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
   }
 });
 
-
+const emit = defineEmits(['title']);
 
 onMounted(() => {
-
-
-})
+  emit('title', '입고알림 신청내역');
+});
 
 </script>
 
 <style lang="scss" scoped>
   .inner {
+    padding: 0 2.1rem;
     text-align:center;
+
     section {
       span {
         width:65px;

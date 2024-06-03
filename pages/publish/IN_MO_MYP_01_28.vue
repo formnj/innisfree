@@ -14,7 +14,7 @@
         <Inputs class="pwd" _type="password" _placeholder="AP - ON PASSWORD" />
         <Button class="btn_mid confirm" txt="인증하기" @click="account_check" />
       </div>
-      <p class="explain">*임직원 인증은 최초 1회에 한해 진행되며,<br>로그인 시 뷰티포인트 통합 멤버십 계정에 연동됩니다.</p>
+      <p class="explain">*임직원인증은 최초 1회에 한해 진행되며,<br>로그인 시 뷰티포인트 통합 멤버십 계정에 연동됩니다.</p>
     </section>
     <!-- //임직원 인증 전 -->
 
@@ -22,7 +22,7 @@
     <section v-if="acc_auth" class="after_auth">
       <div class="title">
         <div class="img"><img src="/assets/images/common/icon_auth.png"></div>
-        <h3>임직원 인증 완료</h3>
+        <h3>임직원인증 완료</h3>
       </div>
       <ul class="btn_list">
         <li><Button class="btn_mid confirm" txt="임직원샵으로 이동" @click="page_link" /></li>
@@ -54,16 +54,16 @@
         <div class="modal_content">
           <div class="cont">
             <button class="btn_close" @click="modal.close(this);">닫기</button>
-            <p>임직원 인증 완료</p>
+            <p>임직원인증 완료</p>
             <p>
-              <em>김이나</em>님의 임직원 인증이 완료되었습니다.<br>
+              <em>김이나</em>님의 임직원인증이 완료되었습니다.<br>
               지금부터 이니스프리 임직원 서비스 헤택이 적용됩니다.
             </p>
           </div>
         </div>
         <div class="modal_footer">
           <Button class="btn_big" txt="임직원샵으로 이동" @click="page_link" />
-          <Button class="btn_big confirm" txt="확인" />
+          <Button class="btn_big confirm" txt="확인" @click="modal.close(this);" />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -74,7 +74,7 @@
         <div class="modal_content">
           <div class="cont">
             <button class="btn_close" @click="modal.close(this);">닫기</button>
-            <p>임직원 인증 해제</p>
+            <p>임직원인증 해제</p>
             <p>
               인증을 해제하시겠습니까?<br>
               해제 시 임직원 서비스 혜택이 적용되지 않습니다.
@@ -83,7 +83,7 @@
         </div>
         <div class="modal_footer">
           <Button class="btn_big" txt="취소" />
-          <Button class="btn_big confirm" txt="확인" />
+          <Button class="btn_big confirm" txt="확인" @click="modal.close(this);" />
         </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -96,7 +96,7 @@
   const router = useRouter();
 
   definePageMeta({
-    layout:'mo-sub'
+    layout:'mo-back-name'
   });
 
   const acc_auth = ref(false);
@@ -122,7 +122,13 @@
   const page_link = () => {
     router.push('/publish/IN_MO_HOM_01_16');
     modal.close(event.target);
-  }
+  };
+
+  const emit = defineEmits(['title']);
+
+  onMounted(() => {
+    emit('title', '임직원인증관리')
+  });
 
 </script>
 <style lang="scss" scoped>
