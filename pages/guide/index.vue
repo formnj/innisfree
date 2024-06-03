@@ -606,7 +606,7 @@ const MO_arry = ([
         depth:['홈','','',''],
         id:'IN_MO_HOM_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-22/2024-04-22', worker:'이종환'
+        sDate:'', eDate:'2024-04-22/2024-04-22<br/> <strong>24-06-03 디자인 반영</strong>', worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
         id:'IN_MO_HOM_01_04', status:'com',
