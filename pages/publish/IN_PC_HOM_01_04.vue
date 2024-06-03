@@ -194,10 +194,8 @@ onMounted(() => {
         const fixed = document.querySelector('.tab_wrap')
         const target = document.querySelector('.tab_wrap > .type_02');
         const sticky_menu = document.querySelector('.sticky_menu_wrap')
-        const y = window.scrollY
-        const offtop = document.querySelector('.title_wrap').offsetTop;
-        console.log('offtop', offtop)
-        if (y >=200) {
+        const offtop = document.querySelector('.title_wrap').getBoundingClientRect().y;
+        if (offtop <= 1) {
             target.style.display="none";
             fixed.classList.add('active')
             sticky_menu.style.display="flex";
@@ -399,6 +397,16 @@ onMounted(() => {
           position:fixed;
           top:80px;
           z-index:10;
+          &:after {
+            box-shadow:0 10px 10px -10px rgb(0,0,0,0.02);
+            content:'';
+            position:absolute;
+            top:0;
+            right:-100%;
+            bottom:0;
+            left:-100%;
+            z-index:-1;
+          }
         }
     }
 
