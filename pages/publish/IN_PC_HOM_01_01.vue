@@ -248,7 +248,7 @@
     <!-- //랭킹 -->
 
     <!-- AI케어 -->
-    <ServiceBanner /><!-- 쇼핑로그 상단 배너 -->
+    <ServiceBanner />
     <!-- //AI케어 -->
   </div>
 </template>

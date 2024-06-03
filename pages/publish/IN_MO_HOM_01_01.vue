@@ -218,6 +218,10 @@
       </swiper>
     </section>
     <!-- //랭킹 -->
+
+    <!-- AI케어 -->
+    <ServiceBanner />
+    <!-- //AI케어 -->
   </div>
 
   <div class="modal_wrap" id="visual_modal">
@@ -1056,6 +1060,30 @@ const rankingTabs = [
             }
           }
         }
+      }
+    }
+  }
+
+  :deep(.svc_banner) {
+    margin-bottom:-90px;
+    padding:1.2rem 2rem;
+    background-image:url('~/assets/images/ui/bg_ai_bottom_bann.png');
+    background-size:cover;
+    justify-content:center;
+    gap:1.2rem;
+    p {
+      padding-left:0;
+      font-size:1.4rem;
+      font-weight:600;
+    }
+    .btn_ui_wrap {
+      span.btn {
+        font-size:1.3rem;
+        font-weight:600;
+        box-shadow:0 0.8rem 1rem 0 rgba(0,0,0,0.15);
+      }
+      span.bubble {
+        font-weight:700;
       }
     }
   }
