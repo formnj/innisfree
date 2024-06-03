@@ -975,6 +975,9 @@ const rankingTabs = [
           &:after {
             display:none;
           }
+          &::-webkit-scrollbar {
+            display:none;
+          }
           li > * {
             padding:0 1rem 1.5rem;
             font-size:1.4rem;
