@@ -146,10 +146,10 @@
 
 <script setup>
 import { sample_goods, sample_data } from '~/test/data/publish/dummyData'
-import { modal, setFilter, toast_pop } from '~/assets/js/common-ui'
+import { modal } from '~/assets/js/common-ui'
 
 definePageMeta({
-layout:'mo-sub'
+layout:'mo-default'
 });
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
@@ -161,11 +161,10 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 
 
 onMounted(() => {
-    const header = document.querySelector('header');
-    const header_height = header.offsetHeight
-    // console.log('header_height',header_height)
-    const title_wrap_inner = document.querySelector('.title_wrap_inner')
-    title_wrap_inner.style.top = header_height - 1 + 'px';
+  // const header = document.querySelector('header');
+  // const header_height = header.offsetHeight
+  // const title_wrap_inner = document.querySelector('.title_wrap_inner')
+  // title_wrap_inner.style.top = header_height - 1 + 'px';
 });
 
 
@@ -188,10 +187,12 @@ section {
   &.title_wrap_inner {
     height: 100%;
     padding: 1.6rem 2.1rem;
+    border-top: 0.1rem solid #EEE;
     background: #fff;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
     position: sticky;
-    z-index: 5;
+    top: 4.6rem;
+    z-index: 10;
 
     .tab_scroll_wrap {
       height: 100%;

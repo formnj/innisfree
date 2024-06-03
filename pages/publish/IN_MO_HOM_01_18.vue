@@ -42,7 +42,7 @@
 <script setup>
 import { modal } from '~/assets/js/common-ui'
 definePageMeta({
-  layout:'mo-sub'
+  layout:'mo-default'
 });
 </script>
 <style lang="scss" scoped>

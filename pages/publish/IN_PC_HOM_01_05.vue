@@ -13,7 +13,7 @@
       <div class="list_wrap">
           <ul class="event_list">
               <li v-for="(item, idx) in sample_event" :key="idx">
-                <EventItem :item="item" :link="item.link" />
+                <EventItem :item="item" :link="item.link" :type="item.type" />
               </li>
           </ul>
       </div>

@@ -50,7 +50,7 @@ onMounted(()=>{
   if(document.querySelector('.title_wrap').getAttribute('data-layout') == 'default'){
     layoutType.value = false;
   }
-})
+});
 /* //개발에 맞게 수정해주세요 */
 </script>
 

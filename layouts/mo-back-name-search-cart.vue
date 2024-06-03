@@ -1,24 +1,23 @@
 <template>
   <div id="wrap">
       <HeaderMo
-        :useBanner="false"
-        :useLogo="false"
-        :useBack="true"
-        :useSearchWrap="true"
-        :useSearch="false"
-        :useCart="false"
-        :useBarcode="true"
-        :useNav="false"
+          :useLogo="false"
+          :useBack="true"
+          :useName="true"
+          :txt="txt"
+          :useNav="false"
       />
       <div id="container">
-          <router-view />
+          <router-view @title="txt = $event" />
       </div>
       <FooterMo />
-      <Actionbar />
   </div>
 </template>
 
-<script setup></script>
+
+<script setup>
+const txt = ref(null);
+</script>
 
 <style lang="scss" scoped>
 

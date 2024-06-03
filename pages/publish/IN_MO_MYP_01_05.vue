@@ -1,49 +1,49 @@
 <template>
   <Tabs class="membership_tab" tabType="type_01" :item="[{txt:'멤버십 혜택안내'},{txt:'뷰티포인트 안내'},{txt:'모바일 앱 다운로드'}]" :tabidx="1" />
-  <div class="inner">
-    <div class="user_wrap">
-      <div class="user_grade">
-        <h3>김이니님은<br>웰컴 고객 입니다.</h3>
-        <ul class="user_list">
-          <li>
-            <span>VIP 승급까지</span>
-            <span>61,800 원 부족</span>
-          </li>
-          <li>
-            <span>최근 6개월 구매 금액</span>
-            <span>38,200 원</span>
-          </li>
-          <li>
-            <span>다음 등급 산정일</span>
-            <span>2024.05.01</span>
-          </li>
-        </ul>
-        <div class="grade wc">
-          <div class="grade_bar">grade bar</div>
-          <div class="txt">
-            <span class="t1">웰컴</span>
-            <span class="t2">VIP</span>
-            <span class="t3">그린티클럽</span>
-          </div>
-        </div>
-      </div>
-      <ul>
-        <li class="point">
-          <p>
-            뷰티포인트
-          </p>
-          <span class="num"><strong>1,000</strong>P</span>
+  <div class="user_wrap">
+    <div class="user_grade">
+      <h3>김이니님은<br>웰컴 고객 입니다.</h3>
+      <ul class="user_list">
+        <li>
+          <span>VIP 승급까지</span>
+          <span>61,800 원 부족</span>
         </li>
-        <li class="coupon">
-          <p>보유 쿠폰</p>
-          <span class="num"><strong>6</strong>장</span>
+        <li>
+          <span>최근 6개월 구매 금액</span>
+          <span>38,200 원</span>
+        </li>
+        <li>
+          <span>다음 등급 산정일</span>
+          <span>2024.05.01</span>
         </li>
       </ul>
+      <div class="grade wc">
+        <div class="grade_bar">grade bar</div>
+        <div class="txt">
+          <span class="t1">웰컴</span>
+          <span class="t2">VIP</span>
+          <span class="t3">그린티클럽</span>
+        </div>
+      </div>
     </div>
+    <ul>
+      <li class="point">
+        <p>
+          뷰티포인트
+        </p>
+        <span class="num"><strong>1,000</strong>P</span>
+      </li>
+      <li class="coupon">
+        <p>보유 쿠폰</p>
+        <span class="num"><strong>6</strong>장</span>
+      </li>
+    </ul>
+  </div>
 
-    <section class="beauty_point">
-      <Tabs class="beauty_tab" :item="[{txt:'뷰티포인트'},{txt:'VIP등급안내'}]" :tabidx="0" tabType="type_01" />
-      <div class="con beauty_wrap show">
+  <Tabs class="beauty_tab" tabType="type_01" :item="[{txt:'뷰티포인트'},{txt:'VIP등급안내'}]" :tabidx="0" />
+  <section>
+    <div class="inner">
+      <div class="beauty_wrap show">
         <div class="header">
           <h4>뷰티 포인트는</h4>
           <p>쌓을수록 아름다워지는 아모레퍼시픽<br>통합 멤버십 서비스 입니다.</p>
@@ -127,8 +127,8 @@
           </li>
         </ul>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 <script setup>
 import { useRouter } from 'vue-router';
@@ -136,13 +136,17 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 definePageMeta({
-  layout:'mo-category'
+  layout:'mo-back-name-search-cart'
 });
 
 const membership_link = [ 'IN_MO_MYP_01_04', 'IN_MO_MYP_01_05', 'IN_MO_MYP_01_07', ];
 const beauty_link = [ 'IN_MO_MYP_01_05', 'IN_MO_MYP_01_06', ];
 
+const emit = defineEmits(['title']);
+
 onMounted(() => {
+  emit('title', '멤버십');
+
   document.querySelectorAll('.membership_tab li').forEach((el, idx) => {
     el.addEventListener('click', () => {
       router.push(`/publish/${membership_link[idx]}`);
@@ -157,278 +161,98 @@ onMounted(() => {
 });
 </script>
 <style lang="scss" scoped>
-.membership_tab {
-  margin:0 -20px;
-  :deep(ul.type_01) {
-    li {
-      button {
-        height: 5rem;
-        font-weight: 600;
-      }
+.inner {
+  padding: 0 2.1rem;
+}
+
+.sub_title_wrap {
+  margin-top: 5rem;
+  
+  &:nth-of-type(2) {
+    margin-top: 4rem;
+  }
+
+  h4 {
+    p {
+      margin-top: 2rem;
     }
   }
 }
 
-.user_wrap {
-  margin:0 -20px;
-  padding:3rem 2.1rem;
-  background:#F5F5F5;
-  display:flex;
-  justify-content:space-between;
+.header {
+  padding-left:8rem;
+  margin-top:3rem;
   position:relative;
-  &.hide {
-    display:none;
-  }
-  .user_grade {
-    width:100%;
-    h3 {
-      font-size:2rem;
-      font-weight:600;
-      line-height:2.4rem;
-    }
-    .user_list {
-      margin-top:6rem;
-      font-size:1.3rem;
-      line-height:2rem;
-      display:flex;
-      flex-direction:column;
-      gap:0.5rem;
-      li {
-        display:flex;
-        gap:0.5rem;
-        span {
-          &:first-child {
-            color:#888;
-          }
-        }
-      }
-    }
-    .grade {
-      margin-top:2.8rem;
-      &.wc {
-        .grade_bar {
-          &:before{
-            width:0;
-          }
-          &:after {
-            left:-1%;
-          }
-        }
-      }
-      &.vip {
-        .grade_bar {
-          &:before{
-            animation: vip_bar 2s forwards;
-          }
-          &:after {
-            animation: vip_bullet 2s forwards;
-          }
-        }
-      }
-      &.gtclub {
-        .grade_bar {
-          &:before{
-            animation: gtclub_bar 2s forwards;
-          }
-          &:after {
-            animation: gtclub_bullet 2s forwards;
-          }
-        }
-      }
-      .grade_bar {
-        height:0.5rem;
-        font-size:0;
-        background:#EEE;
-        position:relative;
-        &:before {
-          content:'';
-          height:100%;
-          display:block;
-          background:#FFD067;
-        }
-        &:after {
-          content:'';
-          width:2rem;
-          height:2rem;
-          background:#fff;
-          border-radius:50%;
-          box-shadow: 0 0.1rem 0.3rem rgba(0,0,0,0.2);
-          position:absolute;
-          top:50%;
-          right:-1rem;
-          transform:translate(0,-50%);
-        }
-      }
-      .txt {
-        margin-top:1.4rem;
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        span {
-          color:#AAA;
-          font-size:1.2rem;
-          line-height:1.6rem;
-          &.t2 {
-            margin-left:3rem;
-          }
-        }
-      }
-    }
-  }
-  > ul {
-    width:15rem;
-    margin-top:1rem;
-    display:flex;
-    gap:0 1.5rem;
+  &:before {
+    content:'';
+    width:7rem;
+    height:7rem;
+    background:url('~/assets/images/common/img_beauty_logo.png') no-repeat left top;
+    background-size:100%;
     position:absolute;
-    top:3rem;
-    right:0;
+    top:0;
+    left:0;
+  }
+  h4 {
+    font-size:1.4rem;
+    font-weight:500;
+    line-height:1.8rem;
+    >span {
+      margin:0;
+      color:#999;
+      font-size:1.2rem;
+      font-weight:400;
+      line-height:1.6rem;
+      display:block;
+    }
+  }
+  p {
+    margin-top:0.5rem;
+    color:#666;
+    font-size:1.3rem;
+    line-height:2rem;
+  }
+}
+
+.point_info {
+  margin-top:1.5rem;
+  padding:2rem;
+  border:0.1rem solid #EEE;
+  background:#FCFCFD;
+  ul {
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
     li {
+      width:100%;
+      padding-left:2.5rem;
+      color:#666;
+      font-size:1.3rem;
+      line-height:1.8rem;
       display:flex;
       flex-direction:column;
-      align-items:center;
+      justify-content:center;
+      position:relative;
       &:before {
         content:'';
         width:2rem;
-        height:2rem;
-        margin-bottom:0.3rem;
+        height:2.5rem;
         background:url('~/assets/mo_images/common/icon_split.png') no-repeat;
         background-size:25rem auto;
-        display:block;
+        background-position:-10.5rem -24rem;
+        position:absolute;
+        top:0;
+        left:0;
       }
-      &.point{
+      &:last-child {
         &:before {
-          background-position:-6.5rem -21rem;
+          width:2rem;
+          height:2rem;
+          background-position:-10.5rem -21rem;
         }
-      }
-      &.coupon{
-        &:before {
-          background-position:-8.5rem -21rem;
-        }
-      }
-      p {
-        color:#666;
-        font-size:1.3rem;
-        line-height:1.6rem;
-        display:flex;
-        align-items:center;
       }
       span {
-        color:#1B8DF7;
-        font-size:1.2rem;
-        font-weight:500;
-        line-height:2.4rem;
-        strong {
-          font-size:1.6rem;
-        }
-      }
-    }
-  }
-}
-
-.beauty_point {
-  :deep(.tab_wrap) {
-    margin:0 -20px;
-
-    ul {
-      li {
-        button {
-          height: 5rem;
-          font-weight: 600;
-        }
-      }
-    }
-  }
-
-  .sub_title_wrap {
-    margin-top: 5rem;
-    
-    &:nth-of-type(2) {
-      margin-top: 4rem;
-    }
-
-    h4 {
-      p {
-        margin-top: 2rem;
-      }
-    }
-  }
-
-  .header {
-    padding-left:8rem;
-    margin-top:3rem;
-    position:relative;
-    &:before {
-      content:'';
-      width:7rem;
-      height:7rem;
-      background:url('~/assets/images/common/img_beauty_logo.png') no-repeat left top;
-      background-size:100%;
-      position:absolute;
-      top:0;
-      left:0;
-    }
-    h4 {
-      font-size:1.4rem;
-      font-weight:500;
-      line-height:1.8rem;
-      >span {
-        margin:0;
-        color:#999;
-        font-size:1.2rem;
-        font-weight:400;
-        line-height:1.6rem;
-        display:block;
-      }
-    }
-    p {
-      margin-top:0.5rem;
-      color:#666;
-      font-size:1.3rem;
-      line-height:2rem;
-    }
-  }
-
-  .point_info {
-    margin-top:1.5rem;
-    padding:2rem;
-    border:0.1rem solid #EEE;
-    background:#FCFCFD;
-    ul {
-      display:flex;
-      flex-wrap:wrap;
-      gap:1rem;
-      li {
-        width:100%;
-        padding-left:2.5rem;
-        color:#666;
-        font-size:1.3rem;
-        line-height:1.8rem;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        position:relative;
-        &:before {
-          content:'';
-          width:2rem;
-          height:2.5rem;
-          background:url('~/assets/mo_images/common/icon_split.png') no-repeat;
-          background-size:25rem auto;
-          background-position:-10.5rem -24rem;
-          position:absolute;
-          top:0;
-          left:0;
-        }
-        &:last-child {
-          &:before {
-            width:2rem;
-            height:2rem;
-            background-position:-10.5rem -21rem;
-          }
-        }
-        span {
-          line-height:1.2;
-        }
+        line-height:1.2;
       }
     }
   }
@@ -535,47 +359,6 @@ ul.dot_list {
         color:#999;
       }
     }
-  }
-}
-
-@keyframes vip_bar {
-  0% {
-    width:0;
-    background:#FFD067;
-  }
-  100% {
-    width:50%;
-    background:#FFD067;
-  }
-}
-@keyframes vip_bullet {
-  0% {
-    left:-1%;
-  }
-  100% {
-    left:50%;
-    transform:translate(-50%,-50%);
-  }
-}
-@keyframes gtclub_bar {
-  0% {
-    width:0;
-    background:#FFD067;
-  }
-  50% {
-    background:#FFD067;
-  }
-  100% {
-    width:100%;
-    background:#12B560;
-  }
-}
-@keyframes gtclub_bullet {
-  0% {
-    left:-1%;
-  }
-  100% {
-    left:97%;
   }
 }
 </style>

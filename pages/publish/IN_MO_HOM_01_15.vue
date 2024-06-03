@@ -183,7 +183,7 @@ SwiperCore.use([Navigation, Pagination, A11y]);
 
 definePageMeta({
   layout:'mo-default'
-})
+});
 </script>
 
 <style lang="scss" scoped>

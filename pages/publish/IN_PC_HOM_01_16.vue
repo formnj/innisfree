@@ -89,7 +89,7 @@
               <button class="btn_close" @click="modal.close(this);">닫기</button>
           </div>
           <div class="modal_content">
-            <div class="mdWarning">
+            <div class="warning">
               <h4>유의사항</h4>
               <strong>타 프로모션과 중복 적용 불가</strong>
               <ul class="list_num">
@@ -111,7 +111,7 @@
                 <li>6 행사 제외 매장 : 면세점, 제주하우스 등</li>
               </ul>
             </div>
-            <div class="mdWarning">
+            <div class="warning">
               <h4>그 외 이용안내</h4>
               <ul class="list_dot">
                 <li>이니스프리 임직원샵은 사내 임직원 전용 복지몰로서 비정상 유통 행위시(유출시) 사규에 의해 징계를 받을 수 있습니다. </li>
@@ -167,8 +167,8 @@ const props = defineProps({
       }
     }
     .modal_content {
-      .mdWarning {
-        &+.mdWarning {
+      .warning {
+        &+.warning {
           margin-top:30px;
         }
         h4 {

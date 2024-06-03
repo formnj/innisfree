@@ -1,6 +1,12 @@
 <template>
+    <!-- mobile PRD 전용 -->
     <div id="wrap">
-        <HeaderMoProduct />
+        <HeaderMo
+            :useLogo="false"
+            :useBack="true"
+            :useHome="true"
+            :useNav="false"
+        />
         <div id="container">
             <router-view />
         </div>

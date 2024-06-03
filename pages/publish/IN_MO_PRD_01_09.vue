@@ -396,7 +396,7 @@ import 'swiper/scss/pagination'
 SwiperCore.use([Navigation, Pagination, A11y]);
 
 definePageMeta({
-  layout:'mo-product'
+  layout:'mo-home-search-cart'
 });
 </script>
 <style lang="scss" scoped>

@@ -25,7 +25,7 @@ html {
     display: block;
   }
 
-  .btnClose {
+  .btn_close {
     width: 16px;
     height: 16px;
     margin-left: 10px;
@@ -80,7 +80,6 @@ html {
 .title_wrap {
   max-width:1320px;
   margin:60px auto 30px;
-  padding:0 20px;
   position:relative;
   z-index:2;
   display:flex;
@@ -121,13 +120,10 @@ html {
       left: 100%;
       transform: translateX(20px);
 
-      &:after {
-        content: '';
+      img {
         width: 10px;
         height: 10px;
-        background: url('~/assets/images/common/icon_split.png') no-repeat -190px -20px;
-        background-size: 250px auto;
-        display: inline-block;
+        cursor: pointer;
       }
     }
   }
@@ -890,14 +886,12 @@ ul.select_list {
 }
 
 .event_list {
-  margin-top:-20px;
-  margin-left:-20px;
-  display:flex;
-  flex-wrap:wrap;
-  > li {
-    width:33.3333%;
-    padding-top:20px;
-    padding-left:20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  li {
+    flex: 1 1 32%;
   }
 }
 

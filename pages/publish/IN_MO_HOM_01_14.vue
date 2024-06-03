@@ -29,7 +29,7 @@
 </template>
 <script setup>
 definePageMeta({
-	layout:'mo-sub'
+	layout:'mo-default'
 });
 
 

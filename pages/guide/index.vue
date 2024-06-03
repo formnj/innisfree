@@ -624,8 +624,8 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:'이종환'
     }, {
         depth:['','랭킹(T)','',''],
-        id:'IN_MO_HOM_01_07', status:'',
-        type:'', note:'',
+        id:'IN_MO_HOM_01_07', status:'com',
+        type:'', note:'베스트 페이지 랭킹으로 대체',
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','에디터(T)','목록',''],
@@ -640,11 +640,11 @@ const MO_arry = ([
     }, {
         depth:['','','에디터별 보기',''],
         id:'IN_MO_HOM_01_10', status:'com',
-        type:'', note:'05-17 디자인 반영 완료',
+        type:'', note:'05-17 디자인 반영 완료<br>mo-noicons.vue layout 사용',
         sDate:'', eDate:'2024-05-03/2024-04-29', worker:'김나람'
     }, {
         depth:['','베스트','',''],
-        id:'IN_MO_HOM_01_00-1', status:'com',
+        id:'IN_MO_HOM_01_00-1', status:'',
         type:'', note:'swiper 샘플 완료 후 적용',
         sDate:'', eDate:'2024-04-12/ 2024-04-12', worker:'이종환'
     }, {

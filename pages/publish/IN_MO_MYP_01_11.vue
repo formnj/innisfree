@@ -224,7 +224,7 @@
 
 <script setup>
 definePageMeta({
-layout:'mo-category'
+layout:'mo-back-name-search-cart'
 });
 import { modal } from '~/assets/js/common-ui.js'
 import Button from '../../components/Button.vue';
@@ -254,9 +254,11 @@ const hide = (event) => {
   list.classList.add('active')
 }
 
-
+const emit = defineEmits(['title']);
 
 onMounted(() => {
+emit('title', '주문내역');
+
 
 /**
  * 전체보기버튼을 누르면, dl의 active가 사라진고, 전체보기버튼이 none, 닫기버튼에 active가 추가된다
@@ -264,7 +266,7 @@ onMounted(() => {
  */
 
 
-})
+});
 
 </script>
 
@@ -273,11 +275,8 @@ i {
   font-style:normal;
 }
 .inner {
+  padding: 0 2.1rem;
   article {
-    margin-left:-2.1rem;
-    margin-right:-2.1rem;
-    padding-left:2rem;
-    padding-right:2rem;
     padding-bottom:2rem;
     border-bottom:0.5rem solid #F5F5F5;
     &:last-of-type {
@@ -301,7 +300,7 @@ i {
         gap: 1.5rem;
         li {
           justify-content: flex-start;
-           > span {
+          > span {
             width:7rem;
             margin-right: 2.0rem;
             color: #888888;
@@ -334,10 +333,6 @@ i {
         }
       }
       > dl {
-        margin-left: -2.1rem;
-        margin-right: -2.1rem;
-        padding-right: 2rem;
-        padding-left: 2rem;
         padding-bottom:4rem;
         border-bottom:0.1rem solid #F5F5F5;
         position:relative;
@@ -395,7 +390,7 @@ i {
                 height:100%;
                 display:flex;
                 flex-direction:column;
-                 p {
+                p {
                   display:flex;
                   flex-direction:column;
                   em {
@@ -404,14 +399,14 @@ i {
                     font-size: 1.2rem;
                     display:inline-block;
                   }
-                 }
-                 span {
+                }
+                span {
                   margin-top:1.5rem;
                   margin-left:auto;
                   margin-right:0;
                   font-size:1.6rem;
                   font-weight:600;
-                 }
+                }
               }
             }
           }
@@ -434,10 +429,6 @@ i {
       }
       .more_btns {
         margin-top:2rem;
-        margin-left:-2.1rem;
-        margin-right:-2.1rem;
-        padding-right:2rem;
-        padding-left:2rem;
         border-top:0.1rem solid #EEEEEE;
         border-bottom:0.1rem solid #EEEEEE;
         display:flex;

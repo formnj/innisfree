@@ -3,6 +3,7 @@
       <a :href="props.link" class="item">
         <span class="thumb">
           <em><img :src="item.img"></em>
+          <button v-if="type === 'type_down'" class="down"><span>쿠폰 다운로드</span></button>
         </span>
         <div class="cont">
             <em v-if="item.sticker" class="sticker">{{ item.cate }}</em>
@@ -30,6 +31,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 .event_item {
   position:relative;
+
   .thumb {
       width:100%;
       padding-top:65.859564%;
@@ -125,7 +127,7 @@ const props = defineProps({
       gap: 1.6rem;
       .thumb {
         width: 16rem;
-        height: 8.5rem;
+        height: 10.6rem;
         padding-top:0;
       }
       .cont {
@@ -148,6 +150,53 @@ const props = defineProps({
           font-size:1rem;
           font-weight: 300;
           line-height:1.4rem;
+        }
+      }
+    }
+  }
+
+  &.type_down {
+    .item {
+      .thumb {
+        .down {
+          width: calc(100% - 40px);
+          padding: 18px 0;
+          border: 1px solid rgba(255, 255, 255, 0.6);
+          background: rgba(0, 0, 0, 0.4);
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+
+          span {
+            color: #FFF;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+
+            &:after {
+              content: '';
+              width: 24px;
+              height: 24px;
+              background: url('~/assets/images/common/icon_split.png') no-repeat -120px -330px;
+              background-size: 250px auto;
+              display: inline-block;
+            }
+          }
+        }
+      }
+
+      .cont {
+        .sticker {
+          padding: 8px 12px;
+          font-size: 24px;
+          font-weight: 600;
+          left: unset;
+          right: 0;
         }
       }
     }

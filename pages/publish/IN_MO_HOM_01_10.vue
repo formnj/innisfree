@@ -15,8 +15,14 @@
 <script setup>
 import { samplePost } from '~/test/data/publish/dummyData'
 definePageMeta({
-  layout:'mo-product'
-})
+  layout:'mo-back-name'
+});
+
+const emit = defineEmits(['title']);
+
+onMounted(() => {
+  emit('title', '이사배');
+});
 </script>
 
 <style lang="scss" scoped>

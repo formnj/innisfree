@@ -3,13 +3,13 @@
     <header>
         <div class="inner">
             <div class="menu_wrap">
-              <Icons class="back" txt="뒤로가기" />
+                <Icons class="back" txt="뒤로가기" />
             </div>
             <div class="icon_menu">
                 <Icons class="home" txt="홈" />
                 <Icons class="share" txt="공유" />
                 <a :href="path+'IN_MO_SRC_01_01'">
-                  <Icons class="btn_search" txt="검색" />
+                    <Icons class="btn_search" txt="검색" />
                 </a>
                 <Icons class="cart" txt="50" />
             </div>
@@ -39,78 +39,11 @@
 
 <script setup>
 import { modal } from '~/assets/js/common-ui'
-import {
-    global_menu,
-    gnb_list
-} from '~/test/data/publish/dummyData'
 
 /* path */
 const path = '/publish/';
 
 /* sample data */
-const nav_goods = [
-    {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_01.png"),
-        cate:'제휴혜택',
-        title_01:'2024 새해',
-        title_02:'콜라겐크림 기획전',
-        title_03:'럭키박스 + 럭키드로우',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_02.png"),
-        cate:'체험리뷰',
-        title_01:'N페이 3만원 결제시',
-        title_02:'1만원 적립!',
-        title_03:'N페이 5천+뷰티5천',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_03.png"),
-        cate:'쇼핑혜택',
-        title_01:'N페이 3만원 결제시',
-        title_02:'1만원 적립!',
-        title_03:'N페이 5천+뷰티5천',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_04.png"),
-        cate:'쇼핑혜택',
-        title_01:'단, 8일',
-        title_02:'선물같은 혜택',
-        title_03:'콜라보 데님 인디고 BAG',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_05.png"),
-        cate:'체험리뷰',
-        title_01:'2023 디렉터파이',
-        title_02:'비타민C 앰플',
-        title_03:'TOP of TOP 선정!',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_01.png"),
-        cate:'제휴혜택',
-        title_01:'2024 새해',
-        title_02:'콜라겐크림 기획전',
-        title_03:'럭키박스 + 럭키드로우',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_02.png"),
-        cate:'체험리뷰',
-        title_01:'N페이 3만원 결제시',
-        title_02:'1만원 적립!',
-        title_03:'N페이 5천+뷰티5천',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_03.png"),
-        cate:'쇼핑혜택',
-        title_01:'N페이 3만원 결제시',
-        title_02:'1만원 적립!',
-        title_03:'N페이 5천+뷰티5천',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_04.png"),
-        cate:'쇼핑혜택',
-        title_01:'단, 8일',
-        title_02:'선물같은 혜택',
-        title_03:'콜라보 데님 인디고 BAG',
-    }, {
-        img:("/_nuxt/public/images/sam/category_sam_goods_list_05.png"),
-        cate:'체험리뷰',
-        title_01:'2023 디렉터파이',
-        title_02:'비타민C 앰플',
-        title_03:'TOP of TOP 선정!',
-    },
-]
 /* //sample data */
 
 onMounted(() => {
@@ -121,16 +54,6 @@ onMounted(() => {
         if(window.scrollY <= 0) header.classList.remove('fixed');
     })
 });
-
-const cate_tab = (e) => {
-    const lis = [...e.target.parentElement.parentElement.children];
-    const index = lis.indexOf(e.target.parentElement);
-
-    const nav_cont = document.querySelector('.nav_wrap > div');
-    const target = document.querySelectorAll('.nav_wrap > div section')[index];
-
-    nav_cont.scrollTo({top: target.offsetTop, behavior: 'smooth'});
-};
 </script>
 
 <style lang="scss" scoped>
@@ -456,83 +379,6 @@ header {
                                     }
                                 }
                             }
-                        }
-                    }
-                }
-                .quick_wrap {
-                    border-top:5px solid #EEE;
-                    border-bottom:5px solid #F5F5F5;
-                    overflow:hidden;
-                    .quick {
-                        background-color:#F5F5F5;
-                        overflow:auto;
-                        display:flex;
-                        gap:1px;
-                        scrollbar-width:none;
-                        &::-webkit-scrollbar {
-                            display:none;
-                        }
-                        li {
-                            background-color:#fff;
-                            a {
-                                padding:16px 24px;
-                                font-size:14px;
-                                font-weight:400;
-                                white-space:nowrap;
-                                display:block;
-                            }
-                        }
-                    }
-                }
-                .list_wrap {
-                    padding:40px 21px 60px;
-                    .event_list {
-                        display:flex;
-                        flex-wrap:wrap;
-                        gap:16px;
-                        li {
-                            width:100%;
-                            padding-bottom:16px;
-                            border-bottom:1px solid #eeeeee;
-                                &:last-child {
-                                padding-bottom:0;
-                                border-bottom:0;
-                                }
-                                a {
-                                height:100%;
-                                display:flex;
-                                align-items:center;
-                                justify-content:flex-start;
-                                gap:16px;
-                                    > div {
-                                        width:56%;
-                                        height:100%;
-                                        position:relative;
-                                        img {
-                                        width:100%;
-                                        height:100%;
-                                        }
-                                        em {
-                                        padding:2px 5px;
-                                        color:#fff;
-                                        font-size:10px;
-                                        font-weight:300;
-                                        background-color:#000;
-                                        position:absolute;
-                                        top:0;
-                                        left:0;
-                                        }
-                                    }
-                                    dl {
-                                        dd {
-                                        color:#000;
-                                        font-size:14px;
-                                        font-weight:600;
-                                        line-height:18px;
-                                        letter-spacing:-0.4px;
-                                        }
-                                    }
-                                }
                         }
                     }
                 }

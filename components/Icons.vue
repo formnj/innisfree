@@ -14,7 +14,7 @@ const props = defineProps({
     type: String,
     default: '',
   },
-})
+});
 
 </script>
 
@@ -41,10 +41,10 @@ button {
       font-weight:600;
       line-height:1.7rem;
       background-color:#000;
-      border-radius:100px;
+      border-radius:50px;
       position:absolute;
-      right:-5px;
-      bottom:-5px;
+      right:-0.5rem;
+      bottom:-0.2rem;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -64,6 +64,10 @@ button {
   }
   &.barcode {
     background-position:0 -18rem;
+  }
+  &.alarm { // 마이페이지 알람 버튼
+    background-position: -11rem -28rem;
+    background-blend-mode: difference;
   }
   &.tooltip { //모바일 사이즈는 mobile.scss로 옮김
     width:24px;

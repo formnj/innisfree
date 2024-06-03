@@ -3,8 +3,8 @@
     <header>
         <div class="inner">
             <div class="menu_wrap">
-            <Icons class="back" txt="뒤로가기" />
-            <h2><Button txt="쇼케이스" @click="modal.open('modal_nav', 'bottom nav')" /></h2>
+                <Icons class="back" txt="뒤로가기" />
+                <h2><Button txt="쇼케이스" @click="modal.open('modal_nav', 'bottom nav')" /></h2>
             </div>
             <div class="icon_menu">
                 <Icons class="home" txt="홈" />
@@ -297,11 +297,11 @@ header {
                     }
                 }
                 .btn_search {
-                    width: 24px;
-                    height: 24px;
+                    width: 1.7rem;
+                    height: 1.7rem;
                     margin-right: 10px;
                     background-color: transparent;
-                    background-position: 0 -40px;
+                    background-position: -0.3rem -4.3rem;
                 }
                 .back {
                     margin-right:10px;
