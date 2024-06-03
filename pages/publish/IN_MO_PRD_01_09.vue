@@ -17,7 +17,7 @@
       <productDetailBenefit />  <!-- 증정혜택 -->
       <!-- 결제 혜택, 관련 이벤트 -->
       <dl class="benefit_list txt">
-        <dt>결제/카드 헤택</dt>
+        <dt>결제/카드 혜택</dt>
         <dd>
           <ul>
             <li><a href="#none">멤버십세일 결제혜택 모음 SAVE 5,000!!</a></li>
@@ -54,16 +54,16 @@
           <dl class="benefit_list">
             <dt>뷰티포인트</dt>
             <dd>
-              결제 금액의 기본 1%, 추가 700원 적립
-              <button type="button" class="tooltip" @click="modal.open('modal_beauty_point_tip', 'alert');">뷰티포인트 안내 자세히 보기</button>
+              결제 금액의 1% 적립
+              <Icons class="tooltip" txt="뷰티포인트 안내 자세히 보기" @click="modal.open('modal_beauty_point_tip', 'alert tooltip')" />
               <div id="modal_beauty_point_tip" class="modal_wrap"><!-- 뷰티포인트 적립안내 툴팁 -->
                 <div class="modal_container">
                   <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
                   <div class="modal_content">
-                    <h3>뷰티포인트 적립안내</h3>
-                    <p>
-                      아모레퍼시픽 뷰티포인트 통합회원은 회원 등급과 상관없이<br>(뷰티포인트 적립 대상상품에 한하여) 포인트가 적립됩니다.<br><br>
-                      <em>포인트 적립률은 제품별, 브랜드별로 상이하며,<br>쿠폰/뷰티포인트 사용 조건과 금액에 따라 상이할 수 있습니다.</em>
+                    <h2>뷰티포인트 안내</h2>
+                    <p class="txt">
+                      아모레퍼시픽 뷰티포인트 통합회원은 회원 등급과 상관없이 (뷰티포인트 적립 대상상품에 한하여) 포인트가 적립됩니다.<br><br>
+                      <strong>포인트 적립률은 제품별, 브랜드별로 상이하며,<br>쿠폰/뷰티포인트 사용 조건과 금액에 따라 상이할 수 있습니다.</strong>
                     </p>
                   </div>
                   <div class="modal_footer">
@@ -75,15 +75,50 @@
             </dd>
             <dt>배송비</dt>
             <dd>무료배송</dd>
+            <dt>유의사항</dt>
+            <dd>3.7~9 / 기간 내 5개 / 뷰티포인트 전용, APP 전용 / 할인제외, 증정제외, 구매금액 제외 / 반품교환 불가능 </dd>
           </dl>
 
           <ProductDetailOnepoint /><!-- 원포인트 -->
         </section>
 
+        <section>
+          <ProductReviewSummary :isMo="true" limit="5" :usePhotoList="false" /> <!-- 리뷰 요약 -->
+        </section>
+
+        <!-- 리뷰 리스트 -->
+        <div class="review_list_wrap">
+          <ul class="review_list">
+            <li v-for="(item, idx) in sample_review.slice(0,3)" :key="idx">
+              <div class="review_header">
+                <div class="rate">
+                  <Reviewpoint width="90" />
+                </div>
+                <strong class="buy_cnt"><em>1</em>회 구매</strong>
+              </div>
+
+              <div class="review_header">
+                <div class="user_info">
+                  <span class="name">{{ item.user }}</span>
+                  <span class="age">{{ item.age }}</span>
+                  <span class="type">{{ item.type }}</span>
+                  <span class="date ar">{{ item.date }}</span>
+                </div>
+              </div>
+              <ProductReview :item="item" :isMo="true" /> <!-- 리뷰 -->
+              <div class="btn_wrap">
+                <button type="button">신고</button>
+                <button type="button">차단</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- //리뷰 리스트 -->
+
       </div>
       <!-- //상세 정보 -->
 
-      <div class="tab_cont tab_cont_review" style="display: block;">
+      <div class="tab_cont tab_cont_review">
         <section>
           <ProductReviewSummary :isMo="true" limit="5" /> <!-- 리뷰 요약 -->
 
@@ -585,8 +620,17 @@ section {
       justify-content: space-between;
 
       .emoji_txt{
+        & > * {
+          &:before {
+            width: 16px;
+            height: 16px;
+            background-size: auto 16px;
+          }
+        }
         p {
-          font-size: 1.2rem;
+          font-size: 1.4rem;
+          font-weight: 600;
+          color: #000;
         }
       }
     }
@@ -658,7 +702,7 @@ section {
 }
 
 .review_list_wrap {
-  border-top: .1rem solid #f5f5f5;
+  // border-top: .1rem solid #f5f5f5;
   padding: 0 2.1rem 3rem;
 
   .review_list {
@@ -666,6 +710,17 @@ section {
       padding: 3rem 0;
 
       .review_header {
+        display: flex;
+        justify-content: space-between;
+
+        .buy_cnt {
+          font-size: 1.2rem;
+
+          em {
+            color: #00BC70;
+          }
+        }
+
         .user_info {
           .date:before {
             display:none;
@@ -702,9 +757,13 @@ section {
 
       .review_photo_list_wrap {
         display: flex;
-        margin: 2.0rem -2.1rem;
+        margin: 2.0rem -2.1rem 0;
         overflow-x: scroll;
         overflow-y: hidden;
+
+        &::-webkit-scrollbar {
+          width: 0;
+        }
 
         .review_photo_list {
           margin: 0 2.1rem;
@@ -803,24 +862,37 @@ section {
   }
 }
 
-button.tooltip {
-  width: 1.6rem;
-  height: 1.6rem;
-  margin-left: .6rem;
-  font-size: 0;
-  background: url('~/assets/images/common/icon_split.png') 0 -26rem / 25rem auto no-repeat;
-  vertical-align: middle;
-  display: inline-block;
-}
+:deep(.modal_wrap){
+  &.alert {
+    .modal_content {
+      padding: 30px 20px;
 
-.modal_wrap.alert {
-  h2 {
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 24px;
+      .sub_tit {
+        font-size: 13px;
+        color: #00BC70;
+        margin-bottom: .6rem;
+      }
 
-    & + .txt {
-      margin-top: 10px;
+      h2 {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 24px;
+
+        & + .txt {
+          margin-top: 10px;
+        }
+      }
+
+      .txt {
+        font-size: 13px;
+        color: #666;
+        display: block;
+
+        em {
+          color: #00BC70;
+          font-weight: bold;
+        }
+      }
     }
   }
 }

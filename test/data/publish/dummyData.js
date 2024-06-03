@@ -1209,25 +1209,36 @@ export const sam_lnb = ['에센스/세럼/앰플','로션/크림','스킨/토너
 
 export const prodImgData = [
   {
-    img: ("https://images.innisfree.co.kr/upload/product/36830_l_S_375.jpg?T202404091127"),
+    img: ("/_nuxt/public/images/sam/img_prod_swiper_01.png"),
   },
   {
-    img: ("https://images.innisfree.co.kr/upload/product/36830_l1_S_375.jpg?T202404091627"),
+    img: ("/_nuxt/public/images/sam/img_prod_swiper_02.png"),
+  },
+  {
+    img: ("/_nuxt/public/images/sam/img_prod_swiper_03.png"),
+  },
+  {
+    img: ("/_nuxt/public/images/sam/img_prod_swiper_04.png"),
+  },
+  {
+    img: ("/_nuxt/public/images/sam/img_prod_swiper_05.png"),
   },
 ]
 
 //single item
 export const prodInfo = {
-  topText: '2개이상 구매시 50%',
-  name: '라이트 피팅 컨실러 [다크서클 커버] 7g',
-  price: '9,100원', sale: '~50%', cost: '13,000원',
+  topText: '[집중 안티에이징 앰플]',
+  name: '그린티 씨드 세럼 대용량 + 리필(130mL+80mL)',
+  price: '17,300원', sale: '35%', cost: '25,000원',
   sticker: [
     { txt: '증정', type: 'type02' },
+    { txt: '뷰티포인트 전용', type: 'type01' },
+    { txt: 'LIVE 전용', type: 'type01' },
   ],
   rate: 4.6,
   cntReview: '999+',
   cntPost: '999+',
-  summaryReview: '이 제품을 구매하신 고객 분들은 다크서클과 잡티 커버, 자연스러운 색상, 그리고 사용 편의성이 좋다고 하셨어요!',
+  summaryReview: '이 제품을 구매하신 고객 분들은 수분감과 보습력, 순하고 자극 없는 성분, 가벼운 제형과 관련된 점이 좋다고 하셨어요! 이 제품을 구매하신 고객 분들은 수분감과 보습력, 순하고 자극 없는 성분, 가벼운 제형과 관련된 점이 좋다고 하셨어요!',
 }
 
 // main item

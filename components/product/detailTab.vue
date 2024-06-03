@@ -11,15 +11,16 @@ const props = defineProps({
 })
 
 onMounted(() => {
-  let gnbH, contTop
-  // if(!props.isMo) { gnbH = document.getElementsByClassName('gnb_wrap')[0].offsetHeight; }
+  let gnbH, contTop, tri
+  if(props.isMo) { gnbH = document.getElementsByTagName('header')[0].offsetHeight; }
   const target = document.querySelector('.product_tab').parentElement;
   window.addEventListener('scroll', () => {
 
     if(!props.isMo) { gnbH = document.getElementsByClassName('gnb_wrap')[0].offsetHeight; }
 
     if(!props.isMo ? contTop = document.getElementsByClassName('tab_contents')[0].getBoundingClientRect().y - gnbH - target.offsetHeight : contTop = document.getElementsByClassName('tab_contents')[0].getBoundingClientRect().y - target.offsetHeight );
-    if (contTop < 0) {
+    if(!props.isMo ? tri = 0 : tri = gnbH);
+    if (contTop < tri) {
       if (!target.classList.contains('sticky')) {
         target.classList.add('sticky');
 
@@ -48,10 +49,10 @@ const tabContShow = (e) => {
       tabConts[i].style.display = "none";
     }
 
-    if (tabIdx == 0 || tabIdx == 1) {
-      tabConts[0].style.display = "block";
-      tabConts[1].style.display = "block";
-    }
+    // if (tabIdx == 0 || tabIdx == 1) {
+    //   tabConts[0].style.display = "block";
+    //   tabConts[1].style.display = "block";
+    // }
     tabConts[tabIdx].style.display = "block";
     const contsTop = tabConts[tabIdx].getBoundingClientRect().y + window.pageYOffset - contPadding;
     window.scrollTo({ top: contsTop, behavior: 'smooth' });
@@ -69,17 +70,13 @@ const tabContShow = (e) => {
   &.sticky {
     width: 100%;
     background-color: #fff;
-    position: fixed;
+    position: sticky;
     left: 0;
     z-index: 10;
 
     ul {
       width: 1280px;
       margin: 0 auto;
-    }
-
-    & + :deep(.tab_contents) {
-      margin-top: 60px;
     }
   }
 }

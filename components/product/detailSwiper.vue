@@ -101,6 +101,8 @@ const setThumbsSwiper = (swiper) => {
     position: relative;
 
     .swiper-slide {
+      text-align: center;
+
       img {
         vertical-align: top;
       }

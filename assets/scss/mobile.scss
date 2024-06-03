@@ -1366,10 +1366,36 @@
   }
 }
 
+<<<<<<< HEAD
 /* 제품 상세 benefit_list */
+=======
+
+/* 제품 상세 */
+>>>>>>> 97a6d0f0f7ef0154578235e10de91f2690f169ce
 :deep(.benefit_list) {
+  padding: 0;
+  border-top: 0;
+  gap: 1rem 0;
+
+  dt {
+    width: 8rem;
+    margin-right: 0;
+    font-size: 1.3rem;
+  }
+
+  dd {
+    font-size: 1.3rem;
+  }
+
   &.gift {
     gap: 1rem 0;
+
+    dt {
+        width: auto;
+        font-weight: 600;
+        font-size: 1.4rem;
+        color: #000;
+      }
 
     dd {
       ul {
@@ -1389,15 +1415,16 @@
     }
   }
 
-  dt {
-    font-weight: 600;
-    color: #000;
-  }
-
   &.txt {
     padding: 3rem 0 0;
     margin-top: 3rem;
+    border-top: 1px solid #eee;
     gap: 1rem 0;
+
+    dt {
+      width: auto;
+      font-size: 1.4rem;
+    }
 
     dd {
       ul {
@@ -1407,6 +1434,7 @@
   }
 }
 
+<<<<<<< HEAD
 /* 마이페이지 멤버십 */
 :deep(.tab_wrap) {
   &.membership_tab {
@@ -1621,3 +1649,25 @@
     left:97%;
   }
 }
+=======
+:deep(.onepoint) {
+  padding-bottom: 0;
+
+  .txt {
+    p {
+      padding: 0 2rem;
+      font-size: 1.3rem;
+      line-height: 2rem;
+    }
+  }
+
+  .hash {
+    margin-bottom: 3rem;
+  }
+
+  .icons {
+    gap: .5rem;
+  }
+}
+/* //제품 상세 */
+>>>>>>> 97a6d0f0f7ef0154578235e10de91f2690f169ce
