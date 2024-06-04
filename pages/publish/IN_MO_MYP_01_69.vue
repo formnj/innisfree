@@ -445,7 +445,7 @@
 import { modal } from '~/assets/js/common-ui'
 
 definePageMeta({
-  layout:'mo-back-name-search-cart',
+  layout:'mo-name-search-cart',
 });
 
 const desc_list = [

@@ -84,23 +84,22 @@
       </ul>
     </div>
     <!-- //cart list -->
-
-    <!-- custom banner -->
-    <div class="customBen">
-      <a href="javascript:void(0);" onclick="BannerLink(&quot;https://www.innisfree.com/kr/ko/EventView.do?eventSeq=3508&quot;, &quot;1&quot;)">
-        <div class="img">
-          <img src="https://images.innisfree.co.kr/upload/banner/R05_195_0.png?T202404300927" alt="-">
-        </div>
-        <div class="textWrap">
-          <div class="text">
-            <div class="t1" style="color:#ffffff; font-family:SDNeoL;">롯데카드 터치하고</div>
-            <div class="t2" style="color:#ffffff; font-family:SDNeoL;">최대 8천원 할인</div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <!-- //custom banner -->
   </div>
+  <!-- custom banner -->
+  <div class="customBen">
+    <a href="javascript:void(0);" onclick="BannerLink(&quot;https://www.innisfree.com/kr/ko/EventView.do?eventSeq=3508&quot;, &quot;1&quot;)">
+      <div class="img">
+        <img src="https://images.innisfree.co.kr/upload/banner/R05_195_0.png?T202404300927" alt="-">
+      </div>
+      <div class="textWrap">
+        <div class="text">
+          <div class="t1" style="color:#ffffff; font-family:SDNeoL;">롯데카드 터치하고</div>
+          <div class="t2" style="color:#ffffff; font-family:SDNeoL;">최대 8천원 할인</div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <!-- //custom banner -->
 </template>
 
 <script setup>
@@ -109,6 +108,12 @@ import { modal } from '~/assets/js/common-ui.js'
 
 definePageMeta({
 layout:'mo-cart'
+});
+
+const emit = defineEmits(['title']);
+
+onMounted(() => {
+  emit('title','장바구니');
 });
 </script>
 

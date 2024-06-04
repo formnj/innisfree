@@ -64,7 +64,7 @@
 
 <script setup>
 definePageMeta({
-layout:'mo-back-name-search-cart'
+layout:'mo-name-search-cart'
 });
 import { modal } from '~/assets/js/common-ui.js'
 import {select_list} from '~/test/data/publish/dummyData'

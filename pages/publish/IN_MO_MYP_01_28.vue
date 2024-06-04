@@ -96,7 +96,7 @@
   const router = useRouter();
 
   definePageMeta({
-    layout:'mo-back-name'
+    layout:'mo-name'
   });
 
   const acc_auth = ref(false);
