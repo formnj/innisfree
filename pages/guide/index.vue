@@ -719,8 +719,8 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
-        id:'IN_MO_CAR_01_01', status:'ing',
-        type:'', note:'한페이지 모두 배치<br/> 갯수 증/차감 콤포넌트 추가<br/>디자인 고도화 수정 필요',
+        id:'IN_MO_CAR_01_01', status:'com',
+        type:'', note:'한페이지 모두 배치<br/> 갯수 증/차감 콤포넌트 추가',
         sDate:'', eDate:'2024-05-10/2024-04-30', worker:'이종환'
     }, {
         depth:['','상품 있음','',''],
