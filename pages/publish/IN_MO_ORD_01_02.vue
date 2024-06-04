@@ -221,7 +221,7 @@
 
 <script setup>
 definePageMeta({
-layout:'mo-category'
+layout:'mo-default'
 });
 import { modal } from '~/assets/js/common-ui.js'
 import { setFilter } from '~/assets/js/common-ui.js'
@@ -268,8 +268,6 @@ onMounted(() => {
 }
 .inner {
   section {
-  margin-right:-2.1rem;
-  margin-left:-2.1rem;
   padding:0rem 2.1rem 3.0rem;
   border-bottom:0.5rem solid #F5F5F5;
   > button {
@@ -575,7 +573,7 @@ onMounted(() => {
       }
       .modal_footer {
         padding:0;
-        button.btn_ {
+        :deep(button) {
           width:100%;
           height:6rem;
         }

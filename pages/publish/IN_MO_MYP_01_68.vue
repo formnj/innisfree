@@ -12,7 +12,7 @@
 </template>
 <script setup>
 definePageMeta({
-  layout:'mo-back-name-search-cart',
+  layout:'mo-name-search-cart',
 });
 
 const emit = defineEmits(['title']);

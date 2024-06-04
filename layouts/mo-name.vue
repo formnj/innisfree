@@ -13,6 +13,7 @@
           <router-view @title="txt = $event" />
       </div>
       <FooterMo />
+      <Actionbar />
   </div>
 </template>
 

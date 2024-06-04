@@ -703,7 +703,7 @@
 
 <script setup>
 definePageMeta({
-layout:'mo-back-name'
+layout:'mo-name'
 });
 import { modal, setFilter } from '~/assets/js/common-ui.js'
 import Button from '../../components/Button.vue';

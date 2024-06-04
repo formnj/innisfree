@@ -1,10 +1,17 @@
 <template>
   <div id="wrap">
-    <HeaderMoSub />
+    <HeaderMo
+      :useLogo="false"
+      :useBack="true"
+      :useName="true"
+      :txt="txt"
+      :useSearch="false"
+      :useCart="false"
+    />
     <div id="container">
         <div class="content_wrap">
             <div class="content">
-                <router-view />
+                <router-view @title="txt = $event" />
             </div>
             <!-- payment -->
             <div class="payment">
@@ -48,8 +55,10 @@ import {
   sample_goods
 } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui.js'
-</script>
 
+const txt = ref(null);
+
+</script>
 <style lang="scss" scoped>
 #wrap {
     min-height:100vh;

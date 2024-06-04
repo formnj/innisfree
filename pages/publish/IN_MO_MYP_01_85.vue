@@ -276,7 +276,7 @@
 import { modal } from '~/assets/js/common-ui.js'
 import { shop_list } from '~/test/data/publish/dummyData'
 definePageMeta({
-  layout:'mo-back-name-search-cart'
+  layout:'mo-name-search-cart'
 });
 
 const emit = defineEmits(['title']);

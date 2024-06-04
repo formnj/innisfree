@@ -156,7 +156,7 @@
 
 <script setup>
 definePageMeta({
-layout:'mo-back-name-search-cart'
+layout:'mo-name-search-cart'
 });
 
 import {review} from '~/test/data/publish/dummyData'

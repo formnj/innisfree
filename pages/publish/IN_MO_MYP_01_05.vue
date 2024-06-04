@@ -136,7 +136,7 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 definePageMeta({
-  layout:'mo-back-name-search-cart'
+  layout:'mo-name-search-cart'
 });
 
 const membership_link = [ 'IN_MO_MYP_01_04', 'IN_MO_MYP_01_05', 'IN_MO_MYP_01_07', ];

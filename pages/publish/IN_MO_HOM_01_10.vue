@@ -15,7 +15,7 @@
 <script setup>
 import { samplePost } from '~/test/data/publish/dummyData'
 definePageMeta({
-  layout:'mo-back-name'
+  layout:'mo-name'
 });
 
 const emit = defineEmits(['title']);

@@ -224,7 +224,7 @@
 
 <script setup>
 definePageMeta({
-layout:'mo-back-name-search-cart'
+layout:'mo-name-search-cart'
 });
 import { modal } from '~/assets/js/common-ui.js'
 import Button from '../../components/Button.vue';
