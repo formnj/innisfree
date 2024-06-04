@@ -1,16 +1,16 @@
 <template>
     <div class="action_bar">
         <div class="fix_btn">
-            <Button class="btn_icon_back" txt=""/>
-            <div class="pdtSortTab_wrap">
+            <Button class="btn_icon btn_icon_back" txt=""/>
+            <!-- <div class="pdtSortTab_wrap">
                 <div class="sortTab">
                     <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom');" >추천순</button>
                 </div>
                 <button @click="modal.open('sample_modal_search', 'bottom');">상세검색</button>
-            </div>
+            </div> -->
             <div class="right_box">
-                <Button class="btn_icon_history" txt="" @click="$router.push('/publish/IN_MO_HOM_01_18')" />
-                <Button class="top_btn" txt="" @click="scroll_top()" />
+                <Button class="btn_icon btn_icon_history" txt="" @click="$router.push('/publish/IN_MO_HOM_01_18')" />
+                <Button class="btn_icon top_btn" txt="" @click="scroll_top()" />
             </div>
         </div>
         <div class="inner">
@@ -155,22 +155,22 @@ onMounted(() => {
     let nextScrollTop = window.scrollY
     let actionbar = document.querySelector('.action_bar')
     let fix_btn = document.querySelector('.fix_btn')
-    let pdtSortTab_wrap = document.querySelector('.fix_btn .pdtSortTab_wrap')
+    // let pdtSortTab_wrap = document.querySelector('.fix_btn .pdtSortTab_wrap')
     let top_btn = document.querySelector('.top_btn')
     let btn_icon_history = document.querySelector('.btn_icon_history')
     if (preScrollTop < nextScrollTop) {
       actionbar.style.bottom = -(actionbar.offsetHeight + 40) + 'px'
       fix_btn.style.bottom = 90+'px';
-      pdtSortTab_wrap.classList.add('active')
+      // pdtSortTab_wrap.classList.add('active')
       btn_icon_history.classList.add('active')
       top_btn.classList.add('active');
     } else if(nextScrollTop<20){
         // console.log(nextScrollTop)
         top_btn.classList.remove('active');
         btn_icon_history.classList.remove('active')
-        pdtSortTab_wrap.classList.add('active')
+        // pdtSortTab_wrap.classList.add('active')
         fix_btn.classList.remove('active')
-        pdtSortTab_wrap.classList.remove('active')
+        // pdtSortTab_wrap.classList.remove('active')
     }
     else {
       actionbar.removeAttribute('style');
@@ -227,12 +227,13 @@ const cate_layer = {
   close: () => {
     document.querySelector('.navCategory').classList.remove('active')
   }
-}
+};
+
 </script>
 
 <style lang="scss" scoped>
 .action_bar {
-  padding: 15px 25px;
+  padding: 1rem 2.5rem;
   background: #000;
   position: fixed;
   right: 0;
@@ -243,15 +244,15 @@ const cate_layer = {
 
   .inner {
     display: flex;
-    justify-content: center;
-    gap: 100px;
+    justify-content: space-between;
+    gap: 11.5rem;
 
     > a {
-      width: 61px;
-      height: 61px;
+      width: 6.1rem;
+      height: 6.1rem;
       position: absolute;
       left: 50%;
-      top: -20px;
+      bottom: 1rem;
       display: block;
       transform: translateX(-50%);
 
@@ -262,13 +263,11 @@ const cate_layer = {
 
     > div {
       display: flex;
-      gap: 20px;
+      gap: 4.1rem;
 
       button {
-        width: 32px;
-        height: 32px;
-        display: block;
-        color: #fff;
+        width: 3.2rem;
+        height: 3.2rem;
 
         img {
           width: 100%;
@@ -279,7 +278,7 @@ const cate_layer = {
 }
 
 .fix_btn {
-    margin-bottom:30px;
+    margin-bottom: 2.1rem;
     position:absolute;
     right:0;
     left:0;
@@ -287,28 +286,28 @@ const cate_layer = {
     display:flex;
     align-items:flex-end;
     justify-content:space-between;
-    button {
-        border-radius:7px;
-        box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.05);
-        background:#fff;
-        background-repeat:no-repeat;
-        background-size:250px;
+
+    .btn_icon {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 5px;
+        box-shadow: 0.2rem 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.05);
+        background: rgba(255, 255, 255, 0.95) url('~/assets/mo_images/common/icon_split.png') no-repeat;
+        background-size: 25rem auto;
     }
+
     .btn_icon_back {
-        width:44px !important;
-        height:44px !important;
-        background-image:url('~/assets/mo_images/common/icon_split.png');
-        background-position:-33px -32px;
-        position:absolute;
-        bottom:0;
-        left:20px;
+        background-position: -2.2rem -3.2rem;
+        position: absolute;
+        bottom: 0;
+        left: 2.1rem;
     }
 
     .pdtSortTab_wrap {
-      width: 20rem;
-    height: 3.8rem;
-        padding:10px 15px;
-        border:1px solid #000;
+        width: 20rem;
+        height: 3.8rem;
+        padding: 1rem 1.5rem;
+        border: 0.1rem solid #000;
         border-radius:20px;
         background:#fff;
         overflow:hidden;
@@ -316,6 +315,7 @@ const cate_layer = {
         bottom:0;
         right:50%;
         display:flex;
+        justify-content: center;
         visibility:hidden;
         transform:translateX(50%);
         transition:all 0.2s;
@@ -369,18 +369,17 @@ const cate_layer = {
             }
         }
     }
+
     .right_box {
-        position:absolute;
-        bottom:0;
-        right:20px;
-        display:flex;
-        flex-direction:column;
-        gap:10px;
+        position: absolute;
+        bottom: 0;
+        right: 2.1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
         .btn_icon_history {
-            width:44px !important;
-            height:44px !important;
-            background-image:url('~/assets/mo_images/common/icon_split.png');
-            background-position:-66px -29px;
+            background-position: -5.6rem -3.2rem;
             transform:translateY(54px);
             transition:all 0.2s;
             &.active {
@@ -388,10 +387,7 @@ const cate_layer = {
             }
         }
         .top_btn {
-            width:44px !important;
-            height:44px !important;
-            background-image:url('~/assets/mo_images/common/icon_split.png');
-            background-position:-99px -30px;
+            background-position: -9.7rem -3.2rem;
             transform:translateX(400px);
             transition:all 0.3s;
             &.active {

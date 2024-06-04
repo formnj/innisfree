@@ -20,8 +20,8 @@ const props = defineProps({
     }
   },
   type: {
-    type: String,
-    default: ''
+    type: Boolean,
+    default: false
   }
 });
 </script>
