@@ -102,12 +102,12 @@ const PC_arry = ([
         depth:['홈','','',''],
         id:'IN_PC_HOM_01_01', status:'com',
         type:'', note:'swiper play/pause 기능, pagination : scrollbar',
-        sDate:'', eDate:'2024-04-22/2024-04-22' , worker:'이종환'
+        sDate:'', eDate:'2024-04-22/2024-04-22<br/> <strong>24-06-03 디자인 반영</strong>' , worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
-        id:'IN_PC_HOM_01_04', status:'ing',
+        id:'IN_PC_HOM_01_04', status:'com',
         type:'', note:'디자인 고도화 / <del>sticky 시 해당영역 스크롤 바 없이는 좌우 스크롤 불가함</del><br/> [tooltip 버튼], [layout 모달]<br/> 증정품안내 모달 포함',
-        sDate:'', eDate:'2024-04-19/2024-04-16', worker:'김희경'
+        sDate:'2024-05-31', eDate:'2024-04-19/2024-04-16', worker:'김희경'
     }, {
         depth:['','이벤트(T)','목록',''],
         id:'IN_PC_HOM_01_05', status:'com',
@@ -141,7 +141,7 @@ const PC_arry = ([
     }, {
         depth:['','라이브(T)','',''],
         id:'IN_PC_HOM_01_14', status:'ing',
-        type:'', note:'라이브 예고 노출 케이스, 라이브 알림 팝업 작업 필요',
+        type:'', note:'라이브 예고 노출 케이스, 라이브 알림 팝업 작업 필요<br/> 플랫폼 영역은 타사 플랫폼 호출 영역으로 기존 스와이퍼 제거',
         sDate:'', eDate:'2024-05-23/2024-04-25', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
@@ -611,7 +611,7 @@ const MO_arry = ([
         depth:['홈','','',''],
         id:'IN_MO_HOM_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-04-22/2024-04-22', worker:'이종환'
+        sDate:'', eDate:'2024-04-22/2024-04-22<br/> <strong>24-06-03 디자인 반영</strong>', worker:'이종환'
     }, {
         depth:['','특가(T)','',''],
         id:'IN_MO_HOM_01_04', status:'com',
@@ -640,7 +640,7 @@ const MO_arry = ([
     }, {
         depth:['','','상세',''],
         id:'IN_MO_HOM_01_09', status:'com',
-        type:'', note:'05-17 디자인 반영 완료<br/> 꽉찬 스와이퍼 관련 수정 <!-- Edit 24.05.30',
+        type:'', note:'05-17 디자인 반영 완료<br/> 꽉찬 스와이퍼 관련 수정 Edit 24.05.30',
         sDate:'', eDate:'2024-05-03/2024-04-26', worker:'김나람'
     }, {
         depth:['','','에디터별 보기',''],
@@ -665,7 +665,7 @@ const MO_arry = ([
     }, {
         depth:['','라이브(T)','',''],
         id:'IN_MO_HOM_01_14', status:'ing',
-        type:'', note:'라이브 예고 노출 케이스, 라이브 알림 팝업 작업 필요',
+        type:'', note:'라이브 예고 노출 케이스, 라이브 알림 팝업 작업 필요<br/> 플랫폼 영역은 타사 플랫폼 호출 영역으로 기존 스와이퍼 제거',
         sDate:'', eDate:'2024-04-26/2024-04-25', worker:'이종환'
     }, {
         depth:['','FOR ME(T)','',''],
@@ -712,6 +712,11 @@ const MO_arry = ([
         id:'IN_MO_PRD_01_09', status:'ing',
         type:'', note:'디자인 고도화 필요',
         sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/2024-05-09', worker:'김나람'
+    }, {
+        depth:['','','',''],
+        id:'IN_MO_PRD_01_09_button', status:'ing',
+        type:'', note:'제품 상세 버튼 및 팝업',
+        sDate:'', eDate:'', worker:'김나람'
     }, {
         depth:['장바구니','상품 없음','',''],
         id:'IN_MO_CAR_01_01', status:'ing',

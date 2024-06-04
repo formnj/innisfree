@@ -62,6 +62,28 @@
     </div>
     <!-- //visual -->
 
+    <!-- 혜택 슬라이드 -->
+    <div class="text_banner">
+      <div class="swiper_wrap">
+        <swiper :slides-per-view="2" :loop="true" :space-between="40"
+          :autoplay="{
+            delay: 3000,
+          }"
+        >
+          <swiper-slide>
+            <a href="#none">현대카드 결제시 20% 할인혜택</a><!-- default : #ccc / 관리자에서 직접 색상값 지정할 수 있음 -->
+          </swiper-slide>
+          <swiper-slide>
+            <a href="#none" style="background:#B7E8CB;">네이버페이 10,000원 혜택</a>
+          </swiper-slide>
+          <swiper-slide>
+            <a href="#none" style="color:#fff; background:purple;">네이버페이 10,000원 혜택</a>
+          </swiper-slide>
+        </swiper>
+      </div>
+    </div>
+    <!-- //혜택 슬라이드 -->
+
     <!-- 오늘의 추천 제품 -->
     <section class="recommend">
       <h2>
@@ -103,9 +125,9 @@
     </section>
 
     <section class="recommend">
-      <h2>
+      <!-- Del : 24.06.03 <h2>
         <a href="#none">오늘의 추천 제품</a>
-      </h2>
+      </h2> -->
 
       <div class="swiper_wrap">
         <swiper class="module_02"
@@ -125,17 +147,17 @@
 
     <section class="narrow combi">
       <div class="inner">
+        <!-- edit 24.06.03 -->
         <div class="main_thumb">
-          <a href="#none">
-            <span class="thumb">
-              <em><img src="/public/images/sam/3425_0.jpg" alt="" /></em>
-            </span>
-            <div class="cont">
-              <strong>23년 공식몰 어워즈<br/> 이 제품 아직 안샀눈사람~</strong>
-              <p>18:21:01</p>
-            </div>
-          </a>
+          <h2>집중관리가<br/> 필요할땐, 스페셜 케어 마스크 5+5</h2>
+          <a href="#none" class="more">더보기</a>
+
+          <div class="navigation">
+            <button class="swiper-button-prev">Prev1</button>
+            <button class="swiper-button-next">Next1</button>
+          </div>
         </div>
+        <!-- //edit 24.06.03 -->
         <div class="swiper_wrap">
           <swiper
             v-bind="swiperOpt.recommend03"
@@ -224,6 +246,10 @@
       </div>
     </section>
     <!-- //랭킹 -->
+
+    <!-- AI케어 -->
+    <ServiceBanner />
+    <!-- //AI케어 -->
   </div>
 </template>
 <script setup>
@@ -338,9 +364,13 @@ const swiperOpt = {
     }
   },
   recommend03: {
-    slidesPerView:3,
+    slidesPerView:4,
     spaceBetween:22,
     loop: true,
+    navigation: {
+      nextEl: '.combi .swiper-button-next',
+      prevEl: '.combi .swiper-button-prev'
+    },
     observer: true,
     autoplay: {
       delay: 3000,
@@ -419,6 +449,7 @@ const rankingTabs = [
 <style lang="scss" scoped>
   .main {
     min-width:1320px;
+    margin:0 auto;
   }
   .visual {
     margin-top:40px;
@@ -586,6 +617,29 @@ const rankingTabs = [
       }
     }
   }
+
+  .text_banner {
+    margin-top:40px;
+    position:relative;
+    &:after {
+      border-top:1px solid #ddd;
+      content:'';
+      position:absolute;
+      top:50%;
+      right:0;
+      left:0;
+    }
+    a {
+      height:60px;
+      padding:0 30px;
+      font-size:20px;
+      font-weight:600;
+      line-height:60px;
+      background-color:#ccc;
+      display:block;
+    }
+  }
+
   section {
     padding:100px 0;
     position:relative;
@@ -639,6 +693,7 @@ const rankingTabs = [
             width:33.3333%;
             margin-left:30px;
             .item {
+              height:100%;
               padding:39px;
               border:1px solid #eee;
               box-shadow:0 4px 3px 0 rgba(0,0,0,0.03);
@@ -692,6 +747,9 @@ const rankingTabs = [
       }
       .module_02 {
         :deep(.event_item) {
+          .thumb {
+            padding-top:120.75%;
+          }
           .cont {
             height:auto;
             margin-bottom:20px;
@@ -813,50 +871,57 @@ const rankingTabs = [
         display:flex;
         flex-wrap:wrap;
         .main_thumb {
-          width:628px;
-          margin-right:22px;
-          a, .thumb {
-            display:block;
+          width:200px;
+          margin-right:60px;
+          h2 {
+            margin-bottom:15px;
+            font-size:28px;
+            text-align:left;
           }
-          .thumb {
-            height:335px;
-            img {
-              width:100%;
-              height:100%;
-              object-fit:cover;
+          .more {
+            height:32px;
+            padding:0 20px;
+            font-size:12px;
+            font-weight:600;
+            line-height:30px;
+            border:1px solid #000;
+            border-radius:1px;
+            display:inline-flex;
+            align-items:center;
+            &:after {
+              width:12px;
+              height:12px;
+              margin-left:5px;
+              background:url('~/assets/images/common/icon_split.png') -210px 0 no-repeat;
+              background-size:250px auto;
+              content:'';
+              display:block;
             }
           }
-          .cont {
-            margin-top:30px;
-            strong {
-              font-size:32px;
-              font-weight:600;
-              display:flex;
-              align-items:center;
-              justify-content:space-between;
-              &:after {
-                width:40px;
-                height:40px;
-                margin-right:40px;
-                background:url('~/assets/images/common/icon_split.png') 0 -130px no-repeat;
-                background-size:250px auto;
-                content:'';
-                display:block;
+          .navigation {
+            margin:60px 0 0 0;
+            position:static;
+            display:flex;
+            gap:20px;
+            button {
+              width:32px;
+              height:32px;
+              margin:0;
+              background:url('~/assets/images/common/icon_split.png') -60px -200px no-repeat;
+              background-size:250px auto;
+              position:static;
+              transform:rotate(180deg);
+              &.swiper-button-next {
+                transform:rotate(0);
               }
-            }
-            p {
-              margin-top:10px;
-              color:#ddd;
-              font-size:32px;
-              font-weight:700;
             }
           }
         }
         .swiper_wrap {
-          width:calc(100% - 650px);
+          width:calc(100% - 260px);
           flex:1;
           :deep(.swiper) {
-            height:100%;
+            padding-bottom:60px;
             .swiper-scrollbar-wrap {
               position:absolute;
               right:0;
@@ -935,6 +1000,7 @@ const rankingTabs = [
     top:50%;
     right:50%;
     left:50%;
+    z-index:0;
     button {
       width:60px;
       height:60px;
@@ -981,6 +1047,46 @@ const rankingTabs = [
         & > li {
           width:240px;
           // padding-left:20px;
+        }
+      }
+    }
+  }
+
+  :deep(.svc_banner) {
+    max-width:1320px;
+    margin:0 auto;
+    background:url('~/assets/images/ui/bg_svc_bann_big.png') no-repeat 0 0;
+    align-items:center;
+    justify-content:center;
+    p {
+      padding:0;
+      font-size:20px;
+      font-weight:600;
+    }
+    br {
+      display:none;
+    }
+    .btn_ui_wrap {
+      span.btn {
+        width:auto;
+        height:40px;
+        padding:0 70px;
+        font-size:16px;
+        font-weight:600;
+        line-height:40px;
+        border-radius:100px;
+        box-shadow:0 8px 10px 0 rgba(0,0,0,0.15);
+      }
+      span.bubble {
+        height:22px;
+        padding:0 8px;
+        font-size:12px;
+        font-weight:700;
+        line-height:22px;
+        border-radius:100px;
+        &:after {
+          margin-right:-2px;
+          right:50%;
         }
       }
     }

@@ -10,7 +10,7 @@
       </div>
 
       <div class="review">
-        <p class="txt">고객들은 이 제품이 피부에 빠르게 흡수되고 끈적임 없이 마무리되는 점을 높이 평가했습니다. 또한, 지속적인 보습 효과와 부드러운 피부로의 개선을 경험했다고 합니다. 특히, 민감성 피부를 가진 사용자들도 안심하고 사용할 수 있다는 점에서 만족도가 높았습니다.</p>
+        <p class="txt">“그린티 씨드 세럼은 꾸준하게 쓸 수 있는 수분 세럼입니다. 히알루론산으로 리뉴얼 된 이후 더 촉촉한 수분감을 느낄 수 있고 펌핑 용기가 사용하기에 매우 편합니다. 산뜻한 마무리감과 수분력으로 추천하는 제품입니다.”</p>
         <p class="noti">Chat GPT로 최근 리뷰들을 요약했어요. 기술 수준으로 요약이 정확하지 않거나 표현이 어색할 수 있습니다.</p>
 
         <!-- 리뷰 요약이 없을 시 안내문구 노출 -->
@@ -20,7 +20,7 @@
     <!-- //평점/리뷰 요약 -->
 
     <!-- 포토 리뷰 요약 -->
-    <div class="list_photo_wrap">
+    <div v-if="usePhotoList" class="list_photo_wrap">
       <ul>
         <li v-for="(item, idx) in samplePost.slice(0, limit)" :key="idx" :class="idx == limit-1 ? 'last' : '' ">  <!-- 마지막 포토에 last 클래스 추가 -->
           <ProductReviewPhotoList :item="item" :idx="idx" :isAll="false" :limit="limit-1"/>
@@ -38,6 +38,10 @@ const props = defineProps({
     default: false
   },
   limit: Number,  //리뷰 갯수
+  usePhotoList: { //리뷰 포토 사용 여부
+    type: Boolean,
+    default: true
+  }
 })
 </script>
 <style lang="scss" scoped>
@@ -76,6 +80,18 @@ const props = defineProps({
           margin-right: 10px;
           background-image: url('/assets/images/common/icon_emoji.png');
           display: inline-block;
+        }
+      }
+    }
+
+    :deep(.review_point) {
+      p {
+        width: 120px;
+        height: 24px;
+        background: url("/_nuxt/assets/images/common/bg_reviewPoint.png") 0 0 / 120px auto no-repeat;
+
+        span {
+          background: url("/_nuxt/assets/images/common/bg_reviewPoint.png") 0 -24px / 120px auto no-repeat
         }
       }
     }

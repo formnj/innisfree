@@ -398,7 +398,7 @@ onMounted(() => {
           top:80px;
           z-index:10;
           &:after {
-            box-shadow:0 10px 10px -10px rgb(0,0,0,0.02);
+            box-shadow:0 10px 10px -10px rgb(0,0,0,0.05);
             content:'';
             position:absolute;
             top:0;

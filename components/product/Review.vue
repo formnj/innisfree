@@ -10,7 +10,8 @@
       </ul>
     </div>
     <p class="txt">
-      <span v-if="item.usedAmonth" class="mark_month">한달사용</span>{{ item.txt }}
+      <span v-if="item.usedAmonth" class="mark">한달사용</span>
+      <a href="#none" v-html="item.txt"></a>
     </p>
   </div>
 
@@ -39,7 +40,8 @@
     </div>
 
     <p class="txt">
-      <span v-if="item.usedAmonth" class="mark_month">한달사용</span>{{ item.txt }}
+      <span v-if="item.usedAmonth" class="mark">한달사용</span>
+      <span v-html="item.txt"></span>
     </p>
   </div>
 </template>
@@ -146,22 +148,40 @@ const swiper_options = {
   .txt {
     line-height: 24px;
     color: #333333;
-    text-overflow: ellipsis;
-    white-space: normal;
-    word-wrap: break-word;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
 
-    .mark_month {
+    &.open {
+      a {
+        -webkit-line-clamp:unset;
+      }
+    }
+
+    .mark {
       height: 22px;
-      margin-right: 10px;
+      margin-bottom: .5rem;
       padding: 0 5px;
       font-size: 12px;
       color: #FFFFFF;
       background-color: #00BC70;
       display: inline-block;
+    }
+
+    a {
+      text-overflow: ellipsis;
+      white-space: normal;
+      word-wrap: break-word;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+
+      :deep(em) {
+        color: #fff;
+        background-color: #00BC70;
+      }
+    }
+
+    span {
+      display: block;
     }
   }
 }

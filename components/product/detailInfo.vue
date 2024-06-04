@@ -19,16 +19,19 @@
         <span class="review_cnt">포스팅 {{ prodInfo.cntPost }}</span>
       </div>
     </div>
-    <p class="review_summary">
-      {{ prodInfo.summaryReview }}
-      <button type="button" @click="gotoReview">더보기</button>
-    </p>
+    <div class="review_summary">
+      <p>
+        <span class="btn_wrap"><button type="button" @click="gotoReview">더보기</button></span>
+        {{ prodInfo.summaryReview }}
+      </p>
+    </div>
     <div v-if="isMo" class="info_box">  <!-- MO 가격 표시 위치 -->
       <div class="price">
         <em>{{ prodInfo.price }}</em>
         <span class="sale">{{ prodInfo.sale }}</span>
         <span class="cost">{{ prodInfo.cost }}</span>
       </div>
+      <em>일시품절</em>
     </div>
   </div>
 </template>
@@ -127,14 +130,33 @@ const gotoReview = () => {
 
   .review_summary {
     margin-bottom: 30px;
-    line-height: 20px;
-    font-size: 13px;
-    color: #666;
+    display: flex;
+    --line-count: 2;
 
-    button {
-      margin-left: 20px;
-      font-weight: 700;
-      text-decoration-line: underline;
+    p {
+      line-height: 20px;
+      font-size: 13px;
+      color: #666;
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: var(--line-count);
+      -webkit-box-orient: vertical;
+    }
+
+    .btn_wrap {
+      float: right;
+      display: flex;
+      align-items: flex-end;
+      height: 100%;
+      shape-outside: inset(calc(100% - 20px) 0 0 0);
+
+      button {
+        line-height: 20px;
+        margin-left: 5px;
+        font-weight: 700;
+        text-decoration-line: underline;
+      }
     }
   }
 }
