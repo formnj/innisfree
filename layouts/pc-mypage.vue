@@ -10,7 +10,7 @@
           <div class="inner">
             <div class="user_info">
               <!-- 레벨 아이콘 -->
-              <em><img src="~/assets/images/common/icon_rank_w2.png" alt="" /></em>
+              <img src="~/assets/images/common/icon_rank_gt.png" alt="" />
               <!-- //레벨 아이콘 -->
               <div>
                 <p>
@@ -119,6 +119,11 @@ let lnb_click = (event)=>{
       align-items:center;
       gap: 10px;
 
+      img {
+        width: 60px;
+        height: 60px;
+      }
+
       p {
         font-size: 28px;
         font-weight: 300;
@@ -164,6 +169,11 @@ let lnb_click = (event)=>{
       li {
         width:200px;
         height:140px;
+        border-left: 1px solid #EEE;
+
+        &:last-child {
+          border-right: 1px solid #EEE;
+        }
 
         &.point {
           span {
