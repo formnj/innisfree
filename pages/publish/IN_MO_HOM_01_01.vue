@@ -704,6 +704,11 @@ const rankingTabs = [
           padding-bottom:30px;
           :deep(.swiper-pagination) {
             bottom:0;
+
+            span {
+              margin: 0 0.5rem;
+              background-color: #000;
+            }
           }
         }
         :deep(.goods_item) {
@@ -765,8 +770,11 @@ const rankingTabs = [
           &:after {
             display:none;
           }
+          li {
+            padding: 0 1rem;
+          }
           li > * {
-            padding:0 1rem;
+            padding-bottom: 1.5rem;
             font-size:1.4rem;
             white-space:nowrap;
             em {

@@ -139,8 +139,8 @@ const props = defineProps({
     default: true,
   },
   main: {
-    type: String,
-    default: ''
+    type: Boolean,
+    default: false
   },
   useLogo: {
     type: Boolean,
@@ -361,15 +361,15 @@ header {
         flex-direction: column;
       }
       .search {
-        padding: 10px 16px 10px 21px;
+        padding: 1rem 1.6rem 1rem 2.1rem;
         border: 0;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 0.1rem solid #ddd;
         border-radius: 0;
         display: flex;
         align-items: center;
         & > div {
-          border: 1px solid #000;
-          border-radius: 5px;
+          border: 0.1rem solid #000;
+          border-radius: 0.5rem;
           overflow: hidden;
           display: flex;
           align-items: center;
@@ -378,19 +378,19 @@ header {
         :deep(.input) {
           i,
           input {
-            font-size: 13px;
+            font-size: 1.3rem;
           }
           input {
-            padding-right: 5px;
+            padding-right: 0.5rem;
             border: 0;
           }
         }
         .btn_search {
-          width: 24px;
-          height: 24px;
-          margin-right: 10px;
+          width: 2.4rem;
+          height: 2.4rem;
+          margin-right: 1rem;
           background-color: transparent;
-          background-position: 0 -40px;
+          background-position: 0 -4rem;
         }
         .back {
           margin-right: 10px;
@@ -405,16 +405,16 @@ header {
         font-weight: 400;
         background-color: #000;
         a {
-          padding: 10px 21px;
+          padding: 1rem 2.1rem;
           display: flex;
           justify-content: space-between;
           &:after {
-            width: 16px;
-            height: 16px;
+            width: 1.6rem;
+            height: 1.6rem;
             background-image: url('~/assets/mo_images/common/icon_split.png');
-            background-position: -80px 0;
+            background-position: -8rem 0;
             background-repeat: no-repeat;
-            background-size: 250px auto;
+            background-size: 25rem auto;
             content: '';
             display: block;
           }
@@ -528,22 +528,16 @@ header {
                 }
               }
               .goods {
-                margin: 20px 9px 20px 21px;
+                margin: 2rem 0.9rem 2rem 2.1rem;
                 display: flex;
                 gap: 5px;
                 li {
                   width: 50%;
                   :deep(.goods_item) {
+                    width: 10rem;
                     padding-bottom: 50px;
                     a {
                       padding: 0;
-                    }
-                    .img_wrap {
-                      .thumb {
-                        width: 10rem;
-                        height: auto;
-                        padding-top: 133%;
-                      }
                     }
                     .btnIconBox {
                       display: none;
@@ -556,9 +550,6 @@ header {
                           color: #000;
                           font-size: 12px;
                           overflow: hidden;
-                          display: -webkit-box;
-                          -webkit-box-orient: vertical;
-                          -webkit-line-clamp: 2;
                           .cate {
                             margin-right: 0;
                           }

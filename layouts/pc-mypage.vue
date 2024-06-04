@@ -18,7 +18,7 @@
                   <span>임직원</span>
                 </p>
                 <a href="#none">
-                  <span>웰컴</span> 멤버시네요! 멤버십 혜택을 확인해보세요.
+                  <em>웰컴</em> 멤버시네요! 멤버십 혜택을 확인해보세요.
                 </a>
               </div>
             </div>
@@ -26,25 +26,25 @@
               <li>
                 <a href="#none">
                   <span>뷰티포인트</span>
-                  <strong>150 P</strong>
+                  <strong>100,000 P</strong>
                 </a>
               </li>
-              <li>
+              <li class="point">
                 <a href="#none">
                   <span>보유쿠폰</span>
-                  <strong>7 장</strong>
+                  <strong>4 장</strong>
                 </a>
               </li>
-              <li>
+              <li class="point">
                 <a href="#none">
                   <span>이번달 공병수거</span>
-                  <strong>0 개</strong>
+                  <strong>35 개</strong>
                 </a>
               </li>
               <li>
                 <a href="#none">
                   <span>피부정보</span>
-                  <strong>포인트 받기</strong>
+                  <strong class="arrow">포인트 받기</strong>
                 </a>
               </li>
             </ul>
@@ -86,7 +86,7 @@ let lnb_click = (event)=>{
   target.classList.add('active')
   // 전체 li에 active 클래스 제거
   //클릭한 대상에게 active 클래스 추가
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -117,12 +117,71 @@ let lnb_click = (event)=>{
     .user_info {
       display:flex;
       align-items:center;
+      gap: 10px;
+
+      p {
+        font-size: 28px;
+        font-weight: 300;
+        line-height: 36px;
+        display: flex;
+        align-items: center;
+
+        span {
+          padding: 2px 5px;
+          margin-left: 15px;
+          color: #fff;
+          font-size: 12px;
+          line-height: 18px;
+          background: #00BC70;
+          display: inline-block;
+        }
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        em {
+          color: #00BC70;
+          text-decoration: underline;
+        }
+
+        &:after {
+          content: '';
+          width: 9px;
+          height: 9px;
+          border-top: 1px solid #000;
+          border-right: 1px solid #000;
+          display: inline-block;
+          transform: rotate(45deg);
+        }
+      }
+
     }
     ul {
       display:flex;
       li {
         width:200px;
         height:140px;
+
+        &.point {
+          span {
+            position: relative;
+
+            &::after {
+              content: '';
+              width: 5px;
+              height: 5px;
+              border-radius: 50%;
+              background-color: #00BC70;
+              position: absolute;
+              top: -2px;
+              right: -10px;
+            }
+          }
+        }
+
         a {
           width: 100%;
           height: 100%;
@@ -130,6 +189,31 @@ let lnb_click = (event)=>{
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          gap: 5px;
+
+          strong {
+            padding-bottom: 1px;
+            font-size: 20px;
+            line-height: 24px;
+            border-bottom: 1px solid #000;
+
+            &.arrow {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+
+              &:after {
+                content: '';
+                width: 11px;
+                height: 11px;
+                margin: 0 6px;
+                border-top: 1.5px solid #000;
+                border-right: 1.5px solid #000;
+                display: inline-block;
+                transform: rotate(45deg);
+              }
+            }
+          }
         }
       }
     }
