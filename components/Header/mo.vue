@@ -66,7 +66,7 @@
                 </ul>
                 <ul v-if="item.goods" class="goods">
                   <li v-for="item_sub in item.goods" :key="item_sub">
-                    <GoodsItem :item="item_sub" />
+                    <GoodsItem :item="item_sub"/>
                   </li>
                 </ul>
               </section>
@@ -269,7 +269,7 @@ header {
 
     h1 {
       padding: 0.9rem 0;
-      
+
       a {
         display: flex;
       }
@@ -311,7 +311,7 @@ header {
       display: flex;
       align-items: center;
       flex: 1;
-      
+
       :deep(.input_wrap) {
           .input {
             i, input {
@@ -337,7 +337,7 @@ header {
           background-position:0 -4rem;
       }
     }
-    
+
     .icon_wrap {
       display: flex;
       gap: 1rem;
@@ -528,22 +528,16 @@ header {
                 }
               }
               .goods {
-                margin: 20px 9px 20px 21px;
+                margin: 20px 9px 70px 21px;
                 display: flex;
                 gap: 5px;
                 li {
                   width: 50%;
                   :deep(.goods_item) {
-                    padding-bottom: 50px;
+                    width: 10rem;
+                    padding: 0;
                     a {
                       padding: 0;
-                    }
-                    .img_wrap {
-                      .thumb {
-                        width: 10rem;
-                        height: auto;
-                        padding-top: 133%;
-                      }
                     }
                     .btnIconBox {
                       display: none;
@@ -563,9 +557,6 @@ header {
                             margin-right: 0;
                           }
                         }
-                      }
-                      .review_score {
-                        display: none;
                       }
                     }
                   }
