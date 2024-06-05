@@ -812,6 +812,19 @@ const rankingTabs = [
             font-size:2.4rem;
           }
         }
+        :deep(.goods_list) {
+          margin-top:-2rem;
+          margin-left:-0.3rem;
+          gap:0;
+          & > li {
+            width:33.3333%;
+            padding-top:2rem;
+            padding-left:0.3rem;
+            .goods_item {
+              width:100%;
+            }
+          }
+        }
       }
       &.benefit {
         :deep(.swiper-slide) {
