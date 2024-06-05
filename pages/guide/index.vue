@@ -874,9 +874,9 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','','리뷰 포인트 혜택 안내 팝업',''],
-        id:'IN_MO_MYP_01_23', status:'',
+        id:'IN_MO_MYP_01_23', status:'com',
         type:'modal', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-06-04', worker:'김나람'
     }, {
         depth:['','','제품 리뷰 이용약관',''],
         id:'IN_MO_MYP_01_25', status:'',

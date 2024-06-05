@@ -30,7 +30,6 @@ const props = defineProps({
 .modal_wrap {
   .modal_container {
     width: 550px;
-
     .modal_content {
       padding: 20px 30px;
       max-height: 700px;

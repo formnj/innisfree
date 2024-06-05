@@ -1,17 +1,21 @@
 <template>
   <!-- 리뷰 일반 -->
-  <div v-if="isModal == false" class="review" @click="modal.open('modal_review','full modal_review');">
+  <div v-if="isModal == false" class="review">
     <p v-if="item.option.is" class="option_name">옵션<span v-if="isMo == false">)</span> {{ item.option.name }}</p>
     <div class="review_photo_list_wrap">
       <ul class="review_photo_list">
         <li v-for="(img, idx) in item.imgs" :key="idx" :class="idx == 5 ? 'last' : '' ">
-          <a href="#none"><img :src="img" :class="item.user" alt=""></a>
+          <a v-if="!isMo" href="#none" @click="modal.open('modal_review','full modal_review');" class="img_wrap"><img :src="img" alt=""></a>
+          <a v-if="isMo && !isPage" href="IN_MO_PRD_01_08" class="img_wrap"><img :src="img" alt=""></a>
+          <span v-if="isMo && isPage" class="img_wrap"><img :src="img" alt=""></span>
         </li>
       </ul>
     </div>
     <p class="txt">
-      <span v-if="item.usedAmonth" class="mark">한달사용</span>
-      <a href="#none" v-html="item.txt"></a>
+      <span v-if="item.useMark" class="mark">한달사용</span>
+      <a v-if="!isMo" href="#none" @click="modal.open('modal_review','full modal_review');" v-html="item.txt"></a>
+      <a v-if="isMo && !isPage" href="IN_MO_PRD_01_08" v-html="item.txt"></a>
+      <span v-if="isMo && isPage" v-html="item.txt"></span>
     </p>
   </div>
 
@@ -40,7 +44,7 @@
     </div>
 
     <p class="txt">
-      <span v-if="item.usedAmonth" class="mark">한달사용</span>
+      <span v-if="item.useMark" class="mark">한달사용</span>
       <span v-html="item.txt"></span>
     </p>
   </div>
@@ -63,6 +67,10 @@ const props = defineProps({
     default: false
   },
   isMo: {
+    type: Boolean,
+    default: false
+  },
+  isPage: {
     type: Boolean,
     default: false
   }
@@ -101,7 +109,7 @@ const swiper_options = {
       height: 120px;
       position: relative;
 
-      a {
+      .img_wrap {
         width: 100%;
         height: 100%;
         display: block;
@@ -180,8 +188,12 @@ const swiper_options = {
       }
     }
 
+    :deep(.hashtag) {
+      color: #00BC70;
+    }
+
     span {
-      display: block;
+      display: inline-block;
     }
   }
 }

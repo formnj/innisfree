@@ -11,10 +11,10 @@
 
       <div class="review">
         <p class="txt">“그린티 씨드 세럼은 꾸준하게 쓸 수 있는 수분 세럼입니다. 히알루론산으로 리뉴얼 된 이후 더 촉촉한 수분감을 느낄 수 있고 펌핑 용기가 사용하기에 매우 편합니다. 산뜻한 마무리감과 수분력으로 추천하는 제품입니다.”</p>
-        <p class="noti">Chat GPT로 최근 리뷰들을 요약했어요. 기술 수준으로 요약이 정확하지 않거나 표현이 어색할 수 있습니다.</p>
+        <p class="i_noti">Chat GPT로 최근 리뷰들을 요약했어요. 기술 수준으로 요약이 정확하지 않거나 표현이 어색할 수 있습니다.</p>
 
         <!-- 리뷰 요약이 없을 시 안내문구 노출 -->
-        <p class="noti">Chat GPT 리뷰 서비스가 제공되는 부분입니다. 해당 서비스는 최근 6개월간의 리뷰를 대상으로 제공됩니다. <br>최근 등록된 제품일 경우 충분한 리뷰가 없어 서비스 제공이 어려울 수 있습니다.</p>
+        <p class="i_noti">Chat GPT 리뷰 서비스가 제공되는 부분입니다. 해당 서비스는 최근 6개월간의 리뷰를 대상으로 제공됩니다. <br>최근 등록된 제품일 경우 충분한 리뷰가 없어 서비스 제공이 어려울 수 있습니다.</p>
       </div>
     </div>
     <!-- //평점/리뷰 요약 -->
@@ -103,26 +103,6 @@ const props = defineProps({
         line-height: 26px;
         color: #333;
         word-break: keep-all;
-      }
-
-      .noti {
-        margin-top: 10px;
-        padding-left: 21px;
-        font-size: 12px;
-        line-height: 16px;
-        color: #999;
-        position: relative;
-
-        &:before {
-          content: '';
-          width: 16px;
-          height: 16px;
-          background: url("~/assets/images/common/icon_split.png") -400px -20px no-repeat;
-          display: inline-block;
-          position: absolute;
-          left: 0;
-          top: 0;
-        }
       }
     }
   }

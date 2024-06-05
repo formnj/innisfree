@@ -31,6 +31,11 @@
 
 #container {
     flex:1 auto;
+    margin-top: -4.8rem;
+}
+
+:deep(header) {
+  top: 0;
 }
 
 @import "~/assets/scss/mobile.scss";

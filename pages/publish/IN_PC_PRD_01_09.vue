@@ -96,7 +96,7 @@
           </div>
           <!-- //옵션 -->
         </div>
-        <div class="totle_price">
+        <div class="total_price">
           합계<span class="price"><em>5,6000</em>원</span>
         </div>
         <!-- //상품 옵션 및 가격 -->
@@ -511,7 +511,7 @@ onMounted(()=>{
         }
       }
 
-      .totle_price {
+      .total_price {
         padding: 20px 0 30px;
         display: flex;
         align-items: center;
