@@ -7,22 +7,18 @@
       </div>
       <div class="modal_content">
         <ul class="bul_list dot">
-          <li>문의 내역 및 답변은 마이페이지 &gt; 내 상담내역 또는 답변확인에서 <br> 확인 가능합니다.</li>
-          <li>제품문의 처리 시간은 09:00~18:00이며, 문의는 24시간 가능합니다.</li>
-          <li>제품과 관련 없는 내용, 홍보, 불건전한 내용의 글은 사전 동의 없이<br> 삭제될 수 있습니다.</li>
-          <li><span style="color: #bd1e31;">제품문의 본문에는 개인정보를 입력하지 말아주세요.<br>
-            고객정보 보호를 위해 마스킹 처리될 수 있습니다.<br>
-            (예: 성명, 연락처, 이메일주소, 계좌번호 등)</span>
-          </li>
+          <li>문의 내역 및 답변은 마이페이지 &gt; 내 상담내역 또는 답변확인에서 확인 가능합니다.</li>
+          <li>제품 문의 처리 시간은 09:00~18:00 이며, 문의는 24시간 가능합니다.</li>
+          <li>제품문의 본문에는 개인정보를 입력하지 말아주세요 고객정보 보호를 위해 마스킹 처리 될 수 있습니다. (예 : 성명, 연락처, 이메일 주소, 계좌번호 등)</li>
         </ul>
         <div class="ipt_wrap">
           <Inputs _type="text" _placeholder="제목을 입력하세요. (최대 30자 이내)" />
           <Textarea class="ipt_textarea" _placeholder="내용을 입력하세요." />
-          <div class="text_count">0/300자</div>
+          <div class="txt_cnt"><em>0</em> / 300자</div> <!-- 300자 초과시 em에 err 클래스 추가 -->
         </div>
       </div>
       <div class="modal_footer">
-        <Button class="btn_big confirm" txt="문의등록" />
+        <Button class="btn_big confirm" txt="문의 등록" />
       </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -45,7 +41,14 @@ import { modal } from '~/assets/js/common-ui'
     .modal_content {
       padding: 30px 30px 0;
 
+      .bul_list {
+        li {
+          color: #666;
+        }
+      }
+
       .ipt_wrap {
+        position: relative;
         margin: 20px 0;
         & > * + * {
           margin-top: 7px;
@@ -59,6 +62,9 @@ import { modal } from '~/assets/js/common-ui'
         }
 
         .ipt_textarea {
+          padding-bottom: 30px;
+          border: 1px solid #eee;
+
           :deep(label.input) {
             i {
               top: 14px;
@@ -66,17 +72,29 @@ import { modal } from '~/assets/js/common-ui'
             }
 
             textarea {
-              height: 160px;
+              height: 130px;
               padding: 14px;
+              border: 0;
             }
           }
         }
-      }
 
-      .text_count {
-        text-align: right;
-        font-weight: 500;
-        color: #777;
+        .txt_cnt {
+          position: absolute;
+          bottom: 15px;
+          right: 15px;
+          font-weight: 500;
+          color: #777;
+
+          em {
+            color: #000;
+            font-weight: 600;
+
+            &.err {
+              color: #ff0000;
+            }
+          }
+        }
       }
     }
 

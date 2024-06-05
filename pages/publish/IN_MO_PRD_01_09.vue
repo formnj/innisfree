@@ -1,20 +1,21 @@
 <template>
   <div class="prod_swiper_wrap">
-    <ProductDetailSwiper :thumbYN="false" :pagiYN="true" :isMo="true" />  <!-- 제품 이미지 -->
-    <div class="swiper_notify"><em>7명의 고객님</em> 동시에 확인중 <button type="button" class="btn_close" @click="closeNotify">닫기</button>
-    <!-- <div class="swiper_notify"><em class="type02">품절임박!</em> 재고가 얼마 남지 않았으니 서두르세요! <button type="button" class="btn_close">닫기</button> -->
+    <ProductDetailSwiper :thumbYN="false" :pagiYN="true" :isMo="true" /> <!-- 제품 이미지 -->
+    <div class="swiper_notify"><em>7명의 고객님</em> 동시에 확인중 <button type="button" class="btn_close"
+        @click="closeNotify">닫기</button>
+      <!-- <div class="swiper_notify"><em class="type02">품절임박!</em> 재고가 얼마 남지 않았으니 서두르세요! <button type="button" class="btn_close">닫기</button> -->
     </div>
   </div>
 
   <div class="prod_detail_info">
-    <ProductDetailInfo :isMo="true" />  <!-- 제품 정보/리뷰수 -->
+    <ProductDetailInfo :isMo="true" /> <!-- 제품 정보/리뷰수 -->
   </div>
 
-  <ProductMyPrice />  <!-- 제품 혜택가 -->
+  <ProductMyPrice /> <!-- 제품 혜택가 -->
 
   <section>
     <div class="list_wrap">
-      <productDetailBenefit />  <!-- 증정혜택 -->
+      <productDetailBenefit /> <!-- 증정혜택 -->
       <!-- 결제 혜택, 관련 이벤트 -->
       <dl class="benefit_list txt">
         <dt>결제/카드 혜택</dt>
@@ -55,7 +56,8 @@
             <dt>뷰티포인트</dt>
             <dd>
               결제 금액의 1% 적립
-              <Icons class="tooltip" txt="뷰티포인트 안내 자세히 보기" @click="modal.open('modal_beauty_point_tip', 'alert tooltip')" />
+              <Icons class="tooltip" txt="뷰티포인트 안내 자세히 보기"
+                @click="modal.open('modal_beauty_point_tip', 'alert tooltip')" />
               <div id="modal_beauty_point_tip" class="modal_wrap"><!-- 뷰티포인트 적립안내 툴팁 -->
                 <div class="modal_container">
                   <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
@@ -95,7 +97,7 @@
             <li v-for="(item, idx) in sample_review.slice(0,3)" :key="idx">
               <div class="review_header">
                 <div class="rate">
-                  <Reviewpoint width="90" />
+                  <Reviewpoint :width="item.rate" />
                 </div>
                 <strong class="buy_cnt"><em>1</em>회 구매</strong>
               </div>
@@ -114,7 +116,7 @@
               <div class="btn_area">
                 <button v-if="item.useMore" type="button" class="btn_more" @click="toggleReviewTxt">더보기</button>
                 <div class="btn_wrap">
-                  <button v-if="!item.writer" type="button">신고</button>
+                  <button v-if="!item.writer" type="button" @click="modal.open('modal_review_report','alert modal_review_report')">신고</button>
                   <button v-if="!item.writer" type="button">차단</button>
                   <button v-if="item.writer" type="button"><em>수정</em></button>
                   <button v-if="item.writer" type="button"><em>삭제</em></button>
@@ -139,9 +141,7 @@
           </div>
 
           <div class="swiper_wrap">
-            <swiper
-              :slides-per-view="'auto'"
-            >
+            <swiper :slides-per-view="'auto'">
               <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
                 <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
               </swiper-slide>
@@ -158,9 +158,7 @@
           </div>
 
           <div class="swiper_wrap">
-            <swiper
-              :slides-per-view="'auto'"
-            >
+            <swiper :slides-per-view="'auto'">
               <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
                 <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
               </swiper-slide>
@@ -176,9 +174,7 @@
           </div>
 
           <div class="swiper_wrap goods_list">
-            <swiper
-              :slides-per-view="'auto'"
-            >
+            <swiper :slides-per-view="'auto'">
               <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
                 <span class="ranking" v-if="idx < 9">{{ '0'+(idx+1) }}</span>
                 <span class="ranking" v-else>{{ idx+1 }}</span>
@@ -195,9 +191,7 @@
             </div>
           </div>
           <div class="swiper_wrap">
-            <swiper
-              :slides-per-view="'auto'"
-            >
+            <swiper :slides-per-view="'auto'">
               <swiper-slide v-for="(item, idx) in sample_goods.slice(0,10)" :key="idx" class="item">
                 <GoodsItem :item="item" :link="item.link" class="type_cart" :useMark="false" />
               </swiper-slide>
@@ -211,13 +205,22 @@
       <!-- 리뷰 -->
       <div class="tab_cont tab_cont_review">
 
+        <!-- 리뷰없을 경우 -->
+        <div class="no_review">
+          <button type="button" class="btn_link_arrw" @click="modal.open('modal_review_point_info', 'fullMo modal_review_point_info')">리뷰 포인트 혜택</button>
+          <div class="btn_wrap">
+            <Button class="btn_mid" txt="리뷰작성 (최대 +600P)" />
+          </div>
+          <div class="no_content">등록된 리뷰가 없습니다.</div>
+        </div>
+        <!-- //리뷰없을 경우 -->
+
         <section class="no_bd">
           <div class="sub_title_wrap">
             <div>
               <h4>Editor 포스팅</h4>
             </div>
           </div>
-
           <div class="list_wrap post_list_wrap">
             <ul class="post_list">
               <li v-for="(item, idx) in samplePost" :key="idx">
@@ -275,6 +278,9 @@
                     <li><a href="#none">최신순</a></li>
                     <li><a href="#none">평점순</a></li>
                   </ul>
+                  <div class="inner">
+                    <p class="i_noti">추천순 : 리뷰의 내용을 단위별로 분석해 AI가 부여한 점수 산정 기준에 따라 높은 점수 순으로 리뷰를 정렬합니다.</p>
+                  </div>
                 </div>
               </div>
               <div class="overlay" @click="modal.close(this);"></div>
@@ -304,7 +310,7 @@
             <li v-for="(item, idx) in sample_review" :key="idx">
               <div class="review_header">
                 <div class="rate">
-                  <Reviewpoint width="90" />
+                  <Reviewpoint :width="item.rate" />
                 </div>
               </div>
 
@@ -322,7 +328,7 @@
               <div class="btn_area">
                 <button v-if="item.useMore" type="button" class="btn_more" @click="toggleReviewTxt">더보기</button>
                 <div class="btn_wrap">
-                  <button v-if="!item.writer" type="button">신고</button>
+                  <button v-if="!item.writer" type="button" @click="modal.open('modal_review_report','alert modal_review_report')">신고</button>
                   <button v-if="!item.writer" type="button">차단</button>
                   <button v-if="item.writer" type="button"><em>수정</em></button>
                   <button v-if="item.writer" type="button"><em>삭제</em></button>
@@ -345,41 +351,123 @@
 
       <!-- 유의사항 -->
       <div class="tab_cont">
-        <section>
+        <div class="inner">
           <ProductDetailNotice />
-        </section>
+        </div>
       </div>
       <!-- //유의사항 -->
     </div>
 
-    <!-- 구매 버튼 영역 : IN_MO_PRD_01_09_button 참고 -->
-    <div class="btn_wrap fixed">
-      <button type="button" class="btn_share"></button>
-      <button type="button" class="btn_like">찜하기</button>  <!-- 활성화시 on 클래스 추가 -->
-      <Button class="btn_big" txt="장바구니" />
-      <Button class="btn_big confirm" txt="바로구매" />
+    <div class="bottom_fixed">
+      <ProductBottomButtons /><!-- 구매 버튼 -->
     </div>
-    <!-- //구매 버튼 영역 -->
   </div>
 
-  <ProductQnaModal /> <!-- 문의 모달(제품문의 작성) -->
-  <ProductReviewPhotoAllModal />  <!-- 포토리뷰 모아보기 모달-->
+  <ProductQnaModal /> <!-- 제품문의 작성 모달 -->
+  <ProductReviewPhotoAllModal /> <!-- 포토리뷰 모아보기 모달-->
   <ProductReviewModal :isMo="true" /> <!-- 리뷰보기 모달 -->
 
-
+  <!-- 기획전 유의사항 -->
   <div id="alert_prod_alert" class="modal_wrap">
     <div class="modal_container">
-        <div class="modal_content">
-          <button class="btn_close" @click="modal.close(this);">닫기</button>
-          <h2>기획전 제품 구매 시 유의사항</h2>
-          <p class="txt"><strong>납작아이브로우 / 컨실러 2개이상 구매시 40%</strong><br><br>동일 제품 및 교차 구매 가능 / 기간 내 최대 10 구매 가능<br>기간 : 4/14(일) - 5/1(수) 23:59:00까지</p>
-        </div>
-        <div class="modal_footer">
-            <Button class="btn_big confirm" txt="확인" />
-        </div>
+      <div class="modal_content">
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <h2>기획전 제품 구매 시 유의사항</h2>
+        <p class="txt"><strong>납작아이브로우 / 컨실러 2개이상 구매시 40%</strong><br><br>동일 제품 및 교차 구매 가능 / 기간 내 최대 10 구매 가능<br>기간 :
+          4/14(일) - 5/1(수) 23:59:00까지</p>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_big confirm" txt="확인" />
+      </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
+  <!-- //기획전 유의사항 -->
+
+  <!-- 리뷰 포인트 혜택 안내 -->
+  <div id="modal_review_point_info" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_header">
+        <h2>리뷰 포인트 혜택 안내</h2>
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+      </div>
+      <div class="modal_content">
+        <div class="table">
+          <table>
+            <caption>리뷰 포인트 혜택 안내</caption>
+            <colgroup>
+              <col style="width:50%" />
+              <col style="width:25%" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">활동내용</th>
+                <th scope="col">적립포인트</th>
+                <th scope="col">적립 제한</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>일반리뷰 (90자 미만 리뷰)</td>
+                <td>150P</td>
+                <td rowspan="6">월 최대<br>6,000P<br>적립가능</td>
+              </tr>
+              <tr>
+                <td>포토리뷰 (90자 미만 리뷰)</td>
+                <td>300P</td>
+              </tr>
+              <tr>
+                <td>일반리뷰 (90자 이상 리뷰)</td>
+                <td>300P</td>
+              </tr>
+              <tr>
+                <td>포토리뷰 (90자 이상 리뷰)</td>
+                <td>600P</td>
+              </tr>
+              <tr>
+                <td>한달사용리뷰 (텍스트)</td>
+                <td>50P</td>
+              </tr>
+              <tr>
+                <td>한달사용리뷰 (포토)</td>
+                <td>100P</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>리뷰 포인트 혜택 안내</h3>
+        <ul class="bul_list dot">
+          <li>
+            2022년 1월 1일부터 뷰티포인트 운영 정책에 따라 비구매성 포인트(이벤트 포인트)는 연간 누적 2,000,000P 를 초과하거나 동일한 적립 사유로 고객님의 일 적립 요청 횟수가 50회를 초과하는 경우, 뷰티포인트 적립이 불가능합니다.
+            <ul class="bul_list dot">
+              <li>비구매성 포인트 예시: 리뷰 작성, 리뷰 프로필 등록, 이벤트 참여, 공병수거 적립, 공병 프리퀀시 혜택, 특정 제품 구매 추가 적립 등으로 인한 적립 뷰티포인트</li>
+              <li>잔여 한도 내에서는 부분 적립됩니다.</li>
+              <li>누적 포인트는 사용기한, 적립된 포인트의 사용/소멸 여부 등과 관계없이 초과적립분에 대해서는 적립 제한됩니다.</li>
+            </ul>
+          </li>
+          <li>리뷰 작성은 무제한으로 가능하나, 월 최대 6,000P까지 적립이 제한됩니다.</li>
+          <li>한달리뷰 작성 시 일반 한달리뷰의 경우 50P, 포토 한달리뷰의 경우 뷰티포인트 100P 적립됩니다.</li>
+          <li>샘플 마켓 신청 제품의 경우 샘플 리뷰를 작성하더라도 뷰티포인트가 따로 자동 적립 되지 않습니다.</li>
+          <li>
+            리뷰 작성으로 적립된 뷰티포인트는 적립일 기준 90일간 사용할 수 있으며, 유효기간 경과 후에는 별도 알람없이 소멸됩니다.
+            <ul class="bul_list dot">
+              <li>(소멸 예정 포인트에 대해 회사는 별도의 고지에 대한 의무를 부담하지 않습니다. 자세한 포인트 소멸 예정일은 뷰티포인트 사이트 및 어플에서 확인 가능합니다.)</li>
+            </ul>
+          </li>
+          <li>리뷰 이벤트 진행 제품은 뷰티포인트 적립액이 달라질 수 있습니다.</li>
+          <li>작성하신 리뷰를 삭제하면 적립되었던 리뷰포인트가 회수되며, 리뷰 작성 가능 기간이 지나지 않은 경우에는 재작성후 포인트 재적립이 가능합니다. ( 리뷰 삭제 시점에 리뷰 작성 가능 기간이 지난 경우 리뷰 재작성 및 포인트 재적립이 불가합니다. )</li>
+          <li>작성하신 리뷰를 수정하면 기존 적립된 리뷰포인트가 회수된 후 일반 리뷰 적립 기준에 맞게 재적립 됩니다.</li>
+          <li>이벤트성으로 적립된 비구매성포인트의 경우, 이벤트 기간 이후 리뷰 수정 시 동일 수준의 포인트 적립이 불가할 수 있으며, 이미 적립된 비구매성 포인트 차감 후 일반 리뷰 적립 포인트 기준으로 재적립됩니다.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //리뷰 포인트 혜택 안내 -->
+
+  <ProductReviewReport /> <!-- 신고 팝업 -->
+
 </template>
 <script setup>
 import { modal } from '~/assets/js/common-ui'
@@ -523,6 +611,10 @@ section {
 
 .tab_cont {
   display: none;
+
+  .inner {
+    padding: 3rem 2.1rem;
+  }
 }
 
 :deep(.prod_detail_conts) {
@@ -582,7 +674,7 @@ section {
         line-height: 2rem;
       }
 
-      .noti {
+      .i_noti {
         padding: 1rem 1rem 1rem 3.1rem;
         background-color: #f5f5f5;
 
@@ -631,6 +723,12 @@ section {
         margin-left: .5rem;
         background: url(~/assets/images/common/icon_split.png) -11rem -6rem / 25rem auto no-repeat;
         display: inline-block;
+      }
+    }
+
+    .modal_wrap {
+      .inner {
+        padding: 0 2.1rem;
       }
     }
   }
@@ -767,6 +865,37 @@ section {
   }
 }
 
+.no_review {
+  padding: 3rem 2.1rem;
+  text-align: center;
+
+  .btn_link_arrw {
+    font-size: 1.3rem;
+    color: #666;
+
+    &:after {
+      width: .6rem;
+      height: .6rem;
+      border-color: #999;
+      vertical-align: middle;
+    }
+  }
+
+  .btn_wrap {
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+
+    button {
+      width: 100%;
+    }
+  }
+
+  .no_content {
+    margin: 3rem 0 5rem;
+  }
+}
+
 .prod_qna_wrap:deep {
   .modal_container {
     .modal_header {
@@ -880,7 +1009,8 @@ section {
   margin: 0 -2.1rem;
 
   .swiper {
-    padding-left: 2.1rem;
+    display: flex;
+    padding: 0 2.1rem;
   }
 
   .item {
@@ -911,59 +1041,8 @@ section {
   }
 }
 
-.btn_wrap.fixed {
-  width: 100%;
-  display: flex;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 9;
-
-  & > button {
-    font-size: 1.6rem;
-    font-weight: 600;
-    flex: 1;
-  }
-
-  .btn_share,
-  .btn_like {
-    width: 6rem;
-    height: 6rem;
-    font-size: 0;
-    text-align: center;
-    background: #333;
-    flex: none;
-
-    &:before {
-      content: '';
-      width: 3.2rem;
-      height: 3.2rem;
-      vertical-align: middle;
-      display: inline-block;
-    }
-  }
-
-  .btn_share:before {
-    background: url('~/assets/mo_images/common/icon_split.png') -14rem -36.5rem / 25rem auto no-repeat;
-  }
-
-  .btn_like:before {
-    background: url('~/assets/mo_images/common/icon_split.png') -17.5rem -36.5rem / 25rem auto no-repeat;
-  }
-
-  .btn_like.on:before {
-    background: url('~/assets/mo_images/common/icon_split.png') -21rem -36.5rem / 25rem auto no-repeat;
-  }
-
-  :deep(.btn_big):disabled {
-    background-color: #666;
-    em {
-      color: #aaa;
-    }
-  }
-}
-
 .post_list_wrap {
+  display: flex;
   margin: 0 -2.1rem;
   padding: 0 2.1rem;
   overflow-x: scroll;
@@ -1002,6 +1081,7 @@ section {
   margin: 1.6rem 0 0;
   padding: 0 2.1rem 2.2rem;
   border-bottom: 1px solid #f5f5f5;
+  display: flex;
   position: relative;
   overflow-x: scroll;
 
@@ -1053,5 +1133,102 @@ section {
 .select_wrap {
   margin-top: 2rem;
   padding: 0 2.1rem;
+}
+
+.modal_wrap.modal_review_point_info {
+  .modal_content {
+    padding: 3rem 2.1rem;
+
+    h3 {
+      margin: 4rem 0 1.5rem;
+      padding-bottom: 1rem;
+      font-size: 1.6rem;
+      border-bottom: 1px solid #000;
+    }
+
+    .bul_list {
+      li {
+        color: #666;
+        .bul_list {
+          margin: 1rem 0;
+          li {
+            padding-left: 8px;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            color: #999;
+
+            &:before {
+              width: 2px;
+              height: 2px;
+              top: 7px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.table {
+  border-top:0.1rem solid #999;
+  position:relative;
+  table {
+    width:100%;
+    border-collapse:collapse;
+    border:0;
+    caption {
+      position:absolute;
+      z-index:-1;
+      font-size:0;
+      text-indent:-99999px;
+    }
+    th {
+      padding:1.1rem 1rem;
+      color:#666;
+      font-size:1.2rem;
+      font-weight:400;
+      line-height:1.6rem;
+      border-bottom:0.1rem solid #EEE;
+      border-left:0.1rem solid #EEE;
+      background:#F5F5F5;
+    }
+    td {
+      padding:1.5rem 1rem;
+      color:#000;
+      font-size:1.3rem;
+      line-height:1.6rem;
+      text-align:center;
+      border-left:0.1rem solid #EEE;
+      border-bottom:0.1rem solid #EEE;
+      sup {
+        line-height:1;
+      }
+    }
+    th:first-child,
+    td:first-child {
+      border-left:0;
+    }
+  }
+  &.row {
+    th,td {
+      text-align:left;
+    }
+  }
+}
+
+:deep(.prod_notice_wrap) {
+  .bul_list {
+    li {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.bottom_fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%
 }
 </style>
