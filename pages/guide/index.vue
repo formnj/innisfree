@@ -3,7 +3,7 @@
       <div>
         <Button class="btn_small_outline active" txt="MO" @click="change_device()" />
         <Button class="btn_small_outline" txt="PC" @click="change_device()" />
-        <Button class="btn_small_outline" txt="schedule" @click="change_device()" />
+        <Button class="btn_small_outline" txt="완료일정" @click="change_device()" />
       </div>
       <ul class="legend">
           <li><span class="badge modal">modal popup</span></li>
