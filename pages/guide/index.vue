@@ -1,11 +1,16 @@
 <template>
-    <h2>퍼블리싱 리스트 <Button class="btn_small_outline" txt="MO" @click="change_device()" />
-        <ul class="legend">
-            <li><span class="badge modal">modal popup</span></li>
-            <li><span class="badge com">완료</span></li>
-            <li><span class="badge ing">진행중</span></li>
-            <li><span class="badge edit">수정요청</span></li>
-        </ul>
+    <h2>퍼블리싱 리스트
+      <div>
+        <Button class="btn_small_outline active" txt="MO" @click="change_device()" />
+        <Button class="btn_small_outline" txt="PC" @click="change_device()" />
+        <Button class="btn_small_outline" txt="schedule" @click="change_device()" />
+      </div>
+      <ul class="legend">
+          <li><span class="badge modal">modal popup</span></li>
+          <li><span class="badge com">완료</span></li>
+          <li><span class="badge ing">진행중</span></li>
+          <li><span class="badge edit">수정요청</span></li>
+      </ul>
     </h2>
     <table>
         <colgroup>
@@ -76,6 +81,15 @@ const comm_arry = ([
         sDate:'', eDate:'/ 2024-05-16', worker:'이종환'
     }
 ])
+
+const sch_arry = ([
+    {
+        depth:['pc_공통','헤더','',''],
+        id:'Header', status:'com',
+        type:'component', note:'/component/Header/pc',
+        sDate:'', eDate:'', worker:'형민우'
+    }
+]);
 
 const PC_arry = ([
     {
@@ -1151,19 +1165,33 @@ let row_chk,
     link;
 
 const change_device = () => {
-    const target = document.querySelector('table tbody');
+    const tbody = document.querySelector('table tbody');
 
-    while (target.firstElementChild) {
-        target.removeChild(target.firstElementChild);
+    while (tbody.firstElementChild) {
+        tbody.removeChild(tbody.firstElementChild);
         // key_cnt.value = document.querySelector('.latest').childElementCount;
     }
 
-    if(event.target.textContent == 'MO'){
-        event.target.textContent = 'PC';
-        device.value=PC_arry;
-    } else {
-        event.target.textContent = 'MO'
+    const deviceBtn = event.target.closest('div');
+
+    for(let i=0; i<deviceBtn.childElementCount; i++){
+      if(deviceBtn.children[i].classList.contains('active')){
+        deviceBtn.children[i].classList.remove('active')
+      }
+    }
+
+    event.target.parentNode.classList.add('active');
+
+    switch(event.target.textContent){
+      case 'MO':
         device.value=MO_arry;
+        break;
+      case 'PC':
+        device.value=PC_arry;
+        break;
+      default:
+        device.value=sch_arry;
+        break;
     }
 
     for (let j=0; j<comm_arry.length; j++){
@@ -1294,6 +1322,10 @@ onMounted(() => {
 .ac {text-align:center;}
 h2 {margin:20px 20px 40px; font-size:24px; font-weight:700; text-align:center;}
 h2:after {clear:both; content:''; display:block;}
+h2 div {display:flex; gap:5px;}
+h2 div [class*=btn_] :deep(em) {height:100%; display:flex; align-items:center;}
+h2 div [class*=btn_].active {background-color:#00BC70 !important;}
+h2 div [class*=btn_].active :deep(em) {color:#fff !important;}
 h2 .legend {margin-top:15px; display:flex; justify-content:end; gap:15px;}
 h2 .badge {font-size:14px; font-weight:500;}
 h2 .badge:before {width:18px; height:18px; margin-right:5px; border-radius:4px; vertical-align:middle; content:''; display:inline-block;}
