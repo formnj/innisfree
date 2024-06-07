@@ -84,10 +84,715 @@ const comm_arry = ([
 
 const sch_arry = ([
     {
-        depth:['pc_공통','헤더','',''],
-        id:'Header', status:'com',
-        type:'component', note:'/component/Header/pc',
-        sDate:'', eDate:'', worker:'형민우'
+        depth:['MO','헤더','',''],
+        id:'', status:'',
+        type:'component', note:'',
+        sDate:'', eDate:'2024-06-14' , worker:''
+    },{
+        depth:['','푸터','',''],
+        id:'', status:'',
+        type:'component', note:'',
+        sDate:'', eDate:'2024-06-14' , worker:''
+    }, {
+        depth:['','메인','',''],
+        id:'IN_MO_HOM_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','장바구니','상품없음',''],
+        id:'IN_MO_CAR_01_01', status:'',
+        type:'', note:'상품없음에/있음 한페이지로 통합',
+        sDate:'', eDate:'2024-07-05' , worker:''
+    }, {
+        depth:['','장바구니','상품있음',''],
+        id:'IN_MO_CAR_01_02', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','마이페이지','로그인전',''],
+        id:'IN_MO_MYP_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-12' , worker:''
+    }, {
+        depth:['','메인','',''],
+        id:'', status:'',
+        type:'', note:'베너전체보기, 전체보기',
+        sDate:'', eDate:'2024-07-12' , worker:''
+    }, {
+        depth:['','마이페이지','주문내역','주문내역'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-19' , worker:''
+    }, {
+        depth:['','','','주문취소'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-26' , worker:''
+    }, {
+        depth:['','','','주문취소완료'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-26' , worker:''
+    }, {
+        depth:['','마이페이지','메인','로그인후'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-02' , worker:''
+    }, {
+        depth:['','주문내역','주문상세(온라인)',''],
+        id:'IN_MO_MYP_01_11', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-02' , worker:''
+    }, {
+        depth:['','','주문상세(오프라인)',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-02' , worker:''
+    }, {
+        depth:['','','현금영수증발급',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-02' , worker:''
+    }, {
+        depth:['','','현금영수증조회',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-02' , worker:''
+    }, {
+        depth:['','뷰티포인트 바코드','',''],
+        id:'IN_MO_MYP_01_03', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-08-07' , worker:''
+    }, {
+        depth:['','주문서','주문서',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-09' , worker:''
+    }, {
+        depth:['','','배송지등록/변경',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-09' , worker:''
+    }, {
+        depth:['','','배송지정보',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-09' , worker:''
+    }, {
+        depth:['','','배송지추가',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-09' , worker:''
+    }, {
+        depth:['','','편의점검색',''],
+        id:'', status:'',
+        type:'', note:'CU/GS',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','안심번호서비스안내',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-09' , worker:''
+    }, {
+        depth:['','','배송포장제안내',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-09' , worker:''
+    }, {
+        depth:['','','뷰티포인트혜택안내',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-09' , worker:''
+    }, {
+        depth:['','','주문완료',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','주문실패',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','마이페이지','멤버십',''],
+        id:'IN_MO_MYP_01_04', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-13' , worker:''
+    }, {
+        depth:['','고객센터','',''],
+        id:'IN_MO_MYP_01_90', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-13' , worker:''
+    }, {
+        depth:['','마이페이지','멤버십','뷰티포인트안내'],
+        id:'IN_MO_MYP_01_05', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-16' , worker:''
+    }, {
+        depth:['','','','VIP등급안내'],
+        id:'IN_MO_MYP_01_06', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-16' , worker:''
+    }, {
+        depth:['','','','모바일앱다운로드'],
+        id:'IN_MO_MYP_01_07', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-16' , worker:''
+    }, {
+        depth:['','','뷰티포인트',''],
+        id:'IN_MO_MYP_01_38', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-16' , worker:''
+    }, {
+        depth:['','마이페이지','주문내역','교환신청'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-16' , worker:''
+    }, {
+        depth:['','','','교환신청 완료'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-16' , worker:''
+    }, {
+        depth:['','고객센터','FAQ',''],
+        id:'IN_MO_MYP_01_91', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-16' , worker:''
+    }, {
+        depth:['','마이페이지','뷰티포인트 정보',''],
+        id:'IN_MO_MYP_01_39', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-08-23' , worker:''
+    }, {
+        depth:['','','개인정보수정','비밀번호재확인'],
+        id:'IN_MO_MYP_01_68', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-23' , worker:''
+    }, {
+        depth:['','','','개인정보수정'],
+        id:'IN_MO_MYP_01_69', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-27' , worker:''
+    }, {
+        depth:['','전자공고','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-30' , worker:''
+    }, {
+        depth:['','마이페이지','개인정보수정','연결해제완료알림'],
+        id:'IN_MO_MYP_01_69', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','','반려동물정보수집및이용동의'],
+        id:'IN_MO_MYP_01_69', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-08-30' , worker:''
+    }, {
+        depth:['','','','개인정보수집이용동의(마케팅)'],
+        id:'IN_MO_MYP_01_73', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-08-30' , worker:''
+    }, {
+        depth:['','','','뷰티포인트통합비밀번호수정'],
+        id:'IN_MO_MYP_01_71', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','','휴대전화변경'],
+        id:'IN_MO_MYP_01_72', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-09-06' , worker:''
+    }, {
+        depth:['','','','회원탈퇴'],
+        id:'IN_MO_MYP_01_75', status:'',
+        type:'', note:'탈퇴팝업 포함',
+        sDate:'', eDate:'2024-09-13' , worker:''
+    }, {
+        depth:['','1:1고객상담','',''],
+        id:'IN_MO_MYP_01_45', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-09-20' , worker:''
+    }, {
+        depth:['','1:1문의하기','',''],
+        id:'IN_MO_MYP_01_46', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-09-24' , worker:''
+    }, {
+        depth:['','마이페이지','배송지관리',''],
+        id:'IN_MO_MYP_01_76', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-09-26' , worker:''
+    }, {
+        depth:['','','배송지 추가',''],
+        id:'IN_MO_MYP_01_77', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-09-27' , worker:''
+    }, {
+        depth:['','','1:1문의내역',''],
+        id:'IN_MO_MYP_01_48', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-09-27' , worker:''
+    }, {
+        depth:['','','배송지관리','배송지수정'],
+        id:'', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-10-02' , worker:''
+    }, {
+        depth:['','','','군부대배송안내'],
+        id:'', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-10-02' , worker:''
+    }, {
+        depth:['','','','개인정보수집동의'],
+        id:'', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-10-02' , worker:''
+    }, {
+        depth:['','특가','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-02' , worker:''
+    }, {
+        depth:['','마이페이지','마이샵관리','마이샵관리'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-04' , worker:''
+    }, {
+        depth:['','','','마이샵등록하기'],
+        id:'', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-10-10' , worker:''
+    }, {
+        depth:['','','임직원인증관리',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-15' , worker:''
+    }, {
+        depth:['','','쿠폰존',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-15' , worker:''
+    }, {
+        depth:['','','','매장용쿠폰인증'],
+        id:'', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-10-18' , worker:''
+    }, {
+        depth:['','','찜한제품',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-18' , worker:''
+    }, {
+        depth:['','','쿠폰존','쿠폰상세'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-18' , worker:''
+    }, {
+        depth:['','','주문내역','반품신청'],
+        id:'IN_MO_MYP_01_18', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-11-06' , worker:''
+    }, {
+        depth:['','','','반품신청완료'],
+        id:'IN_MO_MYP_01_19', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-11-06' , worker:''
+    }, {
+        depth:['','에디터','포스트목록조회',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','에디터프로필',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','포스트상세',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','포스트댓글조회',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','랭킹','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','쇼케이스','목록',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','상세',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','임직원샵','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','FOR ME','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','쇼핑로그','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','카테고리','목록',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','샘플마켓','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','검색','검색',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','검색결과',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','상세검색',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['PC','헤더','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-06-14' , worker:''
+    }, {
+        depth:['','푸터','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-06-14' , worker:''
+    }, {
+        depth:['','장바구니','상품없음',''],
+        id:'', status:'',
+        type:'', note:'상품없음에/있음 한페이지로 통합',
+        sDate:'', eDate:'2024-06-21' , worker:''
+    }, {
+        depth:['','','상품있음',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','주문서','주문서',''],
+        id:'IN_PC_ORD_01_01', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-12' , worker:''
+    }, {
+        depth:['','','주문완료',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-12' , worker:''
+    }, {
+        depth:['','','주문실패',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-12' , worker:''
+    }, {
+        depth:['','마이페이지','주문내역','주문내역'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-16' , worker:''
+    }, {
+        depth:['','','','운송장선택'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','','배송조회'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-16' , worker:''
+    }, {
+        depth:['','','','주문취소'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-19' , worker:''
+    }, {
+        depth:['','','','주문취소완료'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-19' , worker:''
+    }, {
+        depth:['','','','주문상세(온라인)'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-19' , worker:''
+    }, {
+        depth:['','','','주문상세(오프라인)'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-19' , worker:''
+    }, {
+        depth:['','','','현금영수증발급'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-26' , worker:''
+    }, {
+        depth:['','','','현금영수증조회'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-07-26' , worker:''
+    }, {
+        depth:['','메인','',''],
+        id:'', status:'',
+        type:'', note:'베너전체보기, 전체보기',
+        sDate:'', eDate:'2024-08-02' , worker:''
+    }, {
+        depth:['','마이페이지','주문내역','교환신청'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-09' , worker:''
+    }, {
+        depth:['','','','교환신청완료'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-09' , worker:''
+    }, {
+        depth:['','','','옵션변경'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-16' , worker:''
+    }, {
+        depth:['','','','관리자요청결제이력'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','','관리자요청결제'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','가맹점창업문의','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-30' , worker:''
+    }, {
+        depth:['','전자공고','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-08-30' , worker:''
+    }, {
+        depth:['','고객센터','메인',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-09-06' , worker:''
+    }, {
+        depth:['','','FAQ',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-09-06' , worker:''
+    }, {
+        depth:['','마이페이지','취소/교환/반품','목록'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-09-20' , worker:''
+    }, {
+        depth:['','','','취소상세'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-08' , worker:''
+    }, {
+        depth:['','','','반품상세'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-18' , worker:''
+    }, {
+        depth:['','','','반품상세(오프라인)'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-18' , worker:''
+    }, {
+        depth:['','','','교환상세'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-11-01' , worker:''
+    }, {
+        depth:['','마이페이지','멤버십혜택안내',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-09-27' , worker:''
+    }, {
+        depth:['','','뷰티포인트안내',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-09-27' , worker:''
+    }, {
+        depth:['','','VIP등급안내',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-09-27' , worker:''
+    }, {
+        depth:['','','모바일앱다운로드',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-09-27' , worker:''
+    }, {
+        depth:['','특가','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-08' , worker:''
+    }, {
+        depth:['','1:1고객상담','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-10' , worker:''
+    }, {
+        depth:['','1:1문의하기','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-11' , worker:''
+    }, {
+        depth:['','쿠폰존','목록',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-23' , worker:''
+    }, {
+        depth:['','','상세',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-25' , worker:''
+    }, {
+        depth:['','마이페이지','로그인전',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-25' , worker:''
+    }, {
+        depth:['','','로그인후',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-29' , worker:''
+    }, {
+        depth:['','마이페이지','주문내역','반품신청'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-30' , worker:''
+    }, {
+        depth:['','','','신청완료'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-30' , worker:''
+    }, {
+        depth:['','','뷰티포인트',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-30' , worker:''
+    }, {
+        depth:['','','찜한제품',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-11-01' , worker:''
+    }, {
+        depth:['','','비밀번호재확인',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-11-06' , worker:''
+    }, {
+        depth:['','','개인정보수정',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-11-08' , worker:''
+    }, {
+        depth:['','','','휴대전화번호변경'],
+        id:'', status:'',
+        type:'modal', note:'',
+        sDate:'', eDate:'2024-11-08' , worker:''
+    }, {
+        depth:['','','','비밀번호수정'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-11-14' , worker:''
+    }, {
+        depth:['','','','회원탈퇴'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-11-14' , worker:''
+    }, {
+        depth:['','','배송지관리','목록'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-11-20' , worker:''
+    }, {
+        depth:['','','','상세'],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-11-22' , worker:''
+    }, {
+        depth:['','랭킹','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','쇼케이스','목록',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','상세',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','임직원샵','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','FOR ME','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','쇼핑로그','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','카테고리','목록',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','샘플마켓','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','검색','',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','검색결과',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
+    }, {
+        depth:['','','상세검색',''],
+        id:'', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'' , worker:''
     }
 ]);
 
@@ -1254,10 +1959,16 @@ const change_device = () => {
 }
 
 onMounted(() => {
-    if(device.value == 'PC'){
-        device.value = PC_arry;
-    } else {
-        device.value = MO_arry;
+    switch(device.value){
+      case 'MO':
+        device.value=MO_arry;
+        break;
+      case 'PC':
+        device.value=PC_arry;
+        break;
+      default:
+        device.value=sch_arry;
+        break;
     }
 
     for (let j=0; j<comm_arry.length; j++){
