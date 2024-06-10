@@ -9,6 +9,8 @@
   <Button txt="옵션선택" @click="modal.open('alert4','alert')"/>
   <Button txt="일시품절" @click="modal.open('alert5','alert')"/>
   <Button txt="로그인 필요" @click="modal.open('alert6','alert')"/>
+  <Button txt="체험단 대상자(구매이력포함)가 아닐 경우" @click="modal.open('alert7','alert')"/>
+  <Button txt="체험단 제품을 장바구니에 이미 담은 경우" @click="modal.open('alert8','alert')"/>
   <Button txt="회원 구매 혜택" @click="modal.open('modal_member_benefit','alert modal_member_benefit')"/>
 
   <!-- 제품구매 + 추가구성품 할인 – 추가구성품 선택 x -->
@@ -108,6 +110,38 @@
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
   <!-- //로그인 필요 -->
+
+  <!-- 체험단 대상자(구매이력포함)가 아닐 경우 -->
+  <div id="alert7" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_content">
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <h2>알림</h2>
+        <p class="txt">해당제품은 체헌단전용제품으로 대상자가 아닙니다.</p>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_big confirm" txt="확인" />
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //체험단 대상자(구매이력포함)가 아닐 경우 -->
+
+  <!-- 체험단 제품을 장바구니에 이미 담은 경우 -->
+  <div id="alert8" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_content">
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <h2>알림</h2>
+        <p class="txt">체험단전용 제품은 1개만 주문 가능합니다.<br>이미 장바구니에 체험단전용제품이 담겨 있습니다.</p>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_big confirm" txt="확인" />
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //체험단 제품을 장바구니에 이미 담은 경우 -->
 
   <!-- 회원 구매 혜택 -->
   <div id="modal_member_benefit" class="modal_wrap">
