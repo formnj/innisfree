@@ -1824,24 +1824,24 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','이용약관','',''],
-        id:'IN_MO_FOO_01_04', status:'',
+        id:'IN_MO_FOO_01_04', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'2024-06-10', eDate:'2024-06-10/2024-06-10', worker:'김희경'
     }, {
         depth:['','개인정보처리방침','',''],
-        id:'IN_MO_FOO_01_05', status:'',
+        id:'IN_MO_FOO_01_05', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-06-10/', worker:'김희경'
     }, {
         depth:['','영상기기관리방침','',''],
-        id:'IN_MO_FOO_01_10', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        id:'IN_MO_FOO_01_10', status:'com',
+        type:'', note:'header title 말줄임 처리 확인 요청 ',
+        sDate:'2024-06-10', eDate:'2024-06-10/2024-06-10', worker:'김희경'
     }, {
         depth:['','위치기반서비스 이용약관','',''],
-        id:'IN_MO_FOO_01_12', status:'',
+        id:'IN_MO_FOO_01_12', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-06-10/', worker:'김희경'
     }, {
         depth:['','사업자정보 확인','보안문자 입력',''],
         id:'IN_MO_FOO_01_13', status:'',
@@ -1854,14 +1854,14 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['','약관 및 법적고지','',''],
-        id:'IN_MO_FOO_01_15', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        id:'IN_MO_FOO_01_15', status:'com',
+        type:'', note:'footer 안에 모달팝업형태로 추가/footer 약관 및 법적고지 클릭시 확인가능',
+        sDate:'2024-06-10', eDate:'2024-06-10/2024-06-10', worker:'김희경'
     }, {
         depth:['','','토스페이먼츠 구매안전 서비스 가입 확인',''],
-        id:'IN_MO_FOO_01_16', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        id:'IN_MO_FOO_01_16', status:'com',
+        type:'', note:'약관 및 법적고지 내 버튼 클릭 시, 새창으로 확인 가능',
+        sDate:'2024-06-10', eDate:'2024-06-10/2024-06-10', worker:'김희경'
     }
 ])
 
