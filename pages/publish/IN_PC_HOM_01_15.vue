@@ -1,8 +1,8 @@
 <template>
-  <div class="content_inner">
+  <div class="content">
     <div class="recommend_area">
       <!-- 로그인 후 타이틀 -->
-      <div class="title_wrap" :data-layout="props.layoutType">
+      <div class="title_wrap">
         <div class="prd_tit">
           <h2>FOR ME</h2>
           <h3><strong>주소희</strong> 님께 추천해요</h3>
@@ -12,7 +12,7 @@
       <!-- //로그인 후 타이틀 -->
 
       <!-- 로그인 전 타이틀 --
-      <div class="title_wrap" :data-layout="props.layoutType">
+      <div class="title_wrap">
         <div class="prd_tit login">
           <h2>FOR ME</h2>
           <h3>추천해요 <a href="#none" class="btn_link_arrw">로그인하기</a></h3>
@@ -103,13 +103,7 @@ import { modal } from '~/assets/js/common-ui'
 import { sample_goods, sampleShowcase } from '~/test/data/publish/dummyData'
 import { onMounted } from 'vue';
 definePageMeta({
-  layout:'pc-category'
-});
-const props = defineProps({
-  layoutType: {
-    type: String,
-    default: 'default'
-  }
+  layout:'pc-default'
 });
 
 onMounted(() => {
@@ -121,13 +115,12 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.content_inner {
+.content {
+  width: 1320px;
+  margin: 0 auto;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
-
-  .inner {
-    padding: 0 !important;
-  }
 }
 
 .recommend_area {
