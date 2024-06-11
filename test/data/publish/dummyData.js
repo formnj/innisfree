@@ -1090,8 +1090,9 @@ export const sample_goods = [
             },
           ]
         },
-        big: true
-
+        big: true,
+        cartTag: '4.1~5, 기간내 10개',
+        hasOption: true,
     }, {
         img:("/_nuxt/images/sam/sam_goods_list_02.jpg"),
         overflip:("/_nuxt/images/sam/sam_goods_list_02-1.jpg"),
@@ -1131,6 +1132,7 @@ export const sample_goods = [
             }
           ]
         },
+        cartTag: '할인제외',
     }, {
         img:("/_nuxt/images/sam/sam_goods_list_02.jpg"),
         overflip:("/_nuxt/images/sam/sam_goods_list_02-1.jpg"),
@@ -2717,7 +2719,8 @@ export const sample_prod_selected_list = [
   }, {
     name:"02 베이비핑크",
     price:"23,000",
-    cost:"26,000"
+    cost:"26,000",
+    isExtra: true
   }, {
     name:"그린티 씨드 세럼",
     price:"17,300",

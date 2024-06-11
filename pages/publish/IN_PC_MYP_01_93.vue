@@ -12,7 +12,7 @@
     </div>
     <section>
       <div class="list_wrap">
-        <ul class="cart_list type_default">
+        <ul>
           <li v-for="(item, idx) in public_ann" :key="idx">
             <div class="row">
               <p>{{ item.title }}</p>
@@ -54,7 +54,9 @@ onMounted(() => {
 <style lang="scss" scoped>
 
 .list_wrap {
-  .cart_list  {
+  ul  {
+    border-top: 2px solid #000;
+
     > li + li {
       border-color:#dcdcdc !important;
     }

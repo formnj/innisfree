@@ -185,6 +185,9 @@ section {
         font-size: 1.4rem;
         line-height: 1.8rem;
 
+        button {
+          margin-top: -.2rem;
+        }
       }
 
       .price {

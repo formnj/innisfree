@@ -1428,12 +1428,12 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-24/2024-04-11', worker:'김희경'
     }, {
         depth:['','상세','',''],
-        id:'IN_MO_PRD_01_09', status:'ing',
-        type:'', note:'디자인 고도화 필요',
+        id:'IN_MO_PRD_01_09', status:'com',
+        type:'', note:'디자인 고도화',
         sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/2024-05-09', worker:'김나람'
     }, {
         depth:['','','',''],
-        id:'IN_MO_PRD_01_09_button', status:'ing',
+        id:'IN_MO_PRD_01_09_button', status:'com',
         type:'', note:'제품 상세 버튼 및 팝업',
         sDate:'', eDate:'', worker:'김나람'
     }, {
