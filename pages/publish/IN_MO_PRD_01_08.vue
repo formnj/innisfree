@@ -38,7 +38,7 @@ import { modal } from '~/assets/js/common-ui'
 import { sample_review } from '~/test/data/publish/dummyData'
 
 definePageMeta({
-  layout:'mo-back-name-search-cart'
+  layout:'mo-name-search-cart'
 });
 
 const props = defineProps({

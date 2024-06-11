@@ -2717,7 +2717,8 @@ export const sample_prod_selected_list = [
   }, {
     name:"02 베이비핑크",
     price:"23,000",
-    cost:"26,000"
+    cost:"26,000",
+    isExtra: true
   }, {
     name:"그린티 씨드 세럼",
     price:"17,300",

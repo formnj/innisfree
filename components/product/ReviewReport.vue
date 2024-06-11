@@ -120,8 +120,6 @@ import { modal } from '~/assets/js/common-ui'
 /* alert 모달 스타일 */
 .modal_wrap.alert {
   .modal_content {
-    padding: 30px 40px 30px 20px;
-
     .tit {
       font-size: 1.8rem;
       font-weight: 600;

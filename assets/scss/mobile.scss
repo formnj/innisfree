@@ -582,6 +582,7 @@
   &:after {
     width: .8rem;
     height: .8rem;
+    vertical-align: middle;
   }
 }
 /* //텍스트 링크 with 오른쪽 화살표 */
@@ -1772,7 +1773,11 @@
     position: relative;
 
     .name {
+      font-size: 1.3rem;
       display: block;
+      em {
+        font-size: 1.3rem;
+      }
     }
 
     .price {

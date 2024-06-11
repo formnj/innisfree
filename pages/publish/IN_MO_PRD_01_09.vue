@@ -727,6 +727,9 @@ section {
     }
 
     .modal_wrap {
+      .modal_content {
+        padding: 0 0 34px;
+      }
       .inner {
         padding: 0 2.1rem;
       }

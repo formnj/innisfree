@@ -4,7 +4,7 @@
     <button type="button" class="btn_share"></button>
     <button type="button" class="btn_like" @click="zzimUI">찜하기</button> <!-- 활성화시 on 클래스 추가 -->
     <Button v-if="useCart && !useStock && !useDisabled" class="btn_big" txt="장바구니" @click="modal.open('bottom_cart','bottom bottom_cart')" />
-    <Button v-if="useBuy && !useStock && !useDisabled" class="btn_big confirm" txt="바로구매" />
+    <Button v-if="useBuy && !useStock && !useDisabled" class="btn_big confirm" txt="바로구매" @click="modal.open('bottom_cart','bottom bottom_cart buy')" />
     <Button v-if="useStock" class="btn_big" txt="입고알림 신청" @click="modal.open('modal_stock_list', 'bottom modal_stock_list')" />
     <Button v-if="useDisabled" class="btn_big" txt="구매불가" disabled />
   </div>
@@ -41,19 +41,29 @@
 
         <div class="select_tit">
           <span>추가구성품할인 (선택)</span>
+          <span>구매가능수량<em>2</em>개</span>
         </div>
         <ProdSelectbox
           _placeholder="추가구성품을 선택해주세요."
           :options="[
-            { val: 'op1', name: 'op', txt: '알로에' },
-            { val: 'op2', name: 'op', txt: '상품명 상품명 상품명 상품명 상품명' },
-            { val: 'op3', name: 'op', txt: '상품명 상품명 상품명 상품명 상품명', soldout: true, stockAlert: true },
+            { val: 'op1', name: 'op2', txt: '알로에', extraPrice: '4,900' },
+            { val: 'op2', name: 'op2', txt: '상품명 상품명 상품명 상품명 상품명 상품명 상품명', extraPrice: '9,000' },
+            { val: 'op3', name: 'op2', txt: '상품명 상품명 상품명 상품명 상품명', extraPrice: '7,000', soldout: true, stockAlert: true },
+          ]"
+        />
+
+        <ProdSelectbox
+          _placeholder="추가구성품을 선택해주세요." _disabled="disabled"
+          :options="[
+            { val: 'op1', name: 'op2', txt: '알로에', extraPrice: '4,900' },
+            { val: 'op2', name: 'op2', txt: '상품명 상품명 상품명 상품명 상품명 상품명 상품명', extraPrice: '9,000' },
+            { val: 'op3', name: 'op2', txt: '상품명 상품명 상품명 상품명 상품명', extraPrice: '7,000', soldout: true, stockAlert: true },
           ]"
         />
 
         <ul class="selected_list">
           <li v-for="(item, idx) in sample_prod_selected_list" :key="idx">
-            <span class="name">{{ item.name}} </span>
+            <span class="name"><em v-if="item.isExtra">추가구성</em>{{ item.name}}</span>
             <!-- <span v-if="selectedPriceShow" class="price">37,000원</span> -->
             <span class="price">{{ item.price }}원 <span class="cost">{{ item.cost }}원</span></span>
             <div class="quantity_control">
@@ -67,12 +77,13 @@
         </ul>
 
         <div class="total_price">
-          <span>총 수량 <em>2</em>개</span>
-          <span>합계금액 <span><em>60,000</em>원</span></span>
+          <span>총 수량<em>2</em>개</span>
+          <span>합계금액<span><em>60,000</em>원</span></span>
         </div>
       </div>
       <div class="modal_footer">
-        <Button class="btn_big" txt="장바구니" />
+        <Button class="btn_big" txt="장바구니" @click="modal.open('toast_add_cart', 'toast');toast_pop(3000);"/>
+        <Button class="btn_big confirm" txt="바로구매" />
       </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
@@ -159,11 +170,20 @@
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
   <!-- //입고알림 신청 -->
+
+  <!-- 장바구니 담기 완료 -->
+  <div id="toast_add_cart" class="modal_wrap">
+    <div class="modal_container">
+        <div class="modal_content">장바구니담기가 완료 되었습니다.</div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- 장바구니 담기 완료 -->
 </template>
 
 <script setup>
 import { sample_prod_selected_list } from '~/test/data/publish/dummyData'
-import { modal } from '~/assets/js/common-ui'
+import { modal, toast_pop } from '~/assets/js/common-ui'
 const props = defineProps({
   useCart: {
     type: Boolean,
@@ -500,9 +520,24 @@ const zzimUI = (e) => {
 }
 
 .bottom_cart {
+  &.buy {
+    .modal_footer {
+      button.confirm {
+        display: block;
+      }
+    }
+  }
+
   .modal_content {
     max-height: 54rem;
   }
+
+  .modal_footer {
+    button.confirm {
+      display: none;
+    }
+  }
+
   .select_tit {
     margin-bottom: 10px;
     display: flex;
@@ -518,6 +553,12 @@ const zzimUI = (e) => {
           color: #ff0000;
           padding-left: 5px
         }
+      }
+
+      em {
+        font-size: 1.6rem;
+        color: #00BC70;
+        padding:0 .5rem 0 1rem;
       }
     }
 
@@ -550,6 +591,7 @@ const zzimUI = (e) => {
     em {
       font-weight: 600;
       color: #00BC70;
+      padding: 0 .5rem 0 1rem;
     }
   }
 }
@@ -599,6 +641,11 @@ const zzimUI = (e) => {
       white-space: nowrap;
       overflow: hidden;
       flex: 1;
+
+      em {
+        color: #00BC70;
+        padding-right: 5px;
+      }
     }
 
     .price {
