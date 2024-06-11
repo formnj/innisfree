@@ -2,8 +2,8 @@
   <div class="cart_item">
     <div class="row">
       <div class="prod_img">
-        <Inputs _type="checkbox" />
-        <a href="#none" class="thumb">
+        <Inputs _type="checkbox" :isDisabled="item.status ? true : false"/>
+        <a href="#none" class="thumb" :class="item.status">
           <img :src="item.img" />
         </a>
       </div>
@@ -12,7 +12,7 @@
           <span>{{ item.cartTag }}</span>
         </div>
         <a class="name" href="#none"><strong>{{ item.cate }}</strong> {{ item.name }}</a>
-        <Button v-if="item.status && item.status == 'sold_out'" class="btn_min_outline" txt="입고알림신청" />
+        <button v-if="item.status && item.status == 'sold_out'" type="button" class="btn_text_green">입고알림신청</button>
         <ProdSelectbox
           v-if="item.hasOption"
           _placeholder="옵션을 선택해주세요"
@@ -30,7 +30,8 @@
           <span class="price">{{ item.price }}원</span>
         </div>
       </div>
-      <span v-if="item.status && item.status == 'sold_out'">일시품절</span> <!-- 상태 : 일시품절, 판매중지, 출시예정 -->
+      <span v-if="item.status && item.status == 'sold_out'" class="fc_red"><strong>일시품절</strong></span>
+      <span v-if="item.status && item.status == 'end'" class="fc_red"><strong>판매중지</strong></span>
       <Icons class="del" />
     </div>
     <ul v-if="item.hasOption" class="selected_list">
@@ -76,10 +77,52 @@ const props = defineProps({
         position: absolute;
         left: 0;
         top: 0;
+        z-index: 5;
+
+        :deep(.check) {
+          vertical-align: top;
+        }
       }
 
       .thumb {
         display: inline-block;
+        position: relative;
+
+        img {
+          vertical-align: top;
+        }
+
+        &.sold_out:before, &.end:before {
+          content: '';
+          background-color:rgba(0,0,0,0.3);
+          background-position:50%;
+          background-repeat:no-repeat;
+          position:absolute;
+          top:0;
+          right:0;
+          bottom:0;
+          left:0;
+          z-index:1;
+        }
+
+        &.sold_out:after, &.end:after {
+          content: '';
+          width: 60px;
+          height: 60px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 2;
+        }
+
+        &.sold_out:after {
+          background:url('~/assets/images/ui/overlay_soldout.png') 0 0 / 60px auto no-repeat;
+        }
+
+        &.end:after {
+          background:url('~/assets/images/ui/overlay_end.png') 0 0 / 60px auto no-repeat;
+        }
       }
     }
 
@@ -104,6 +147,11 @@ const props = defineProps({
       .name {
         font-size: 16px;
         line-height: 20px;
+        display: block;
+      }
+
+      .btn_text_green {
+        margin-top: 10px;
       }
 
       .select {
@@ -138,12 +186,17 @@ const props = defineProps({
         }
 
         .price {
+          min-width: 100px;
           font-size: 18px;
           font-weight: 700;
           line-height: 24px;
           color: #000;
         }
       }
+    }
+
+    .fc_red {
+      color: #ff0000;
     }
 
     .del {
@@ -157,6 +210,52 @@ const props = defineProps({
     max-height: none;
     overflow: hidden;
     padding: 0;
+  }
+
+  &.extra {
+    padding-left: 45px;
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-left: 1px solid #aaa;
+      border-bottom: 1px solid #aaa;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .prod_img {
+      width: 68px;
+      height: 90px;
+
+      .input_wrap {
+        display: none;
+      }
+    }
+
+    .prod_info {
+      height: auto;
+    }
+
+    .prod_price {
+      .count_wrap {
+        width:100px;
+        height: 30px;
+
+        :deep(input),
+        :deep(button) {
+          height: 28px;
+        }
+
+        :deep(input) {
+          font-size: 13px;
+        }
+      }
+    }
   }
 }
 

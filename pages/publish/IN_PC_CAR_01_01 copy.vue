@@ -15,8 +15,7 @@
             <Button class="btn_min_outline" txt="선택삭제" />
           </div>
         </div>
-
-        <ul class="cart_list">
+        <ul class="cart_list type_default">
           <!-- no data -->
           <li>
             <p class="no_data">
@@ -25,68 +24,48 @@
             </p>
           </li>
           <!-- //no data -->
-        </ul>
-
-        <!-- 프로모션 -->
-        <h3 class="list_tit">[1+1] 깨끗하게 EASY! 클렌징 티슈 쟁여놓기 (6/1~6/30)</h3>
-        <ul class="cart_list">
-          <li v-for="(item, idx) in sample_goods.slice(0,4)" :key="idx">
-            <CartItem :item="item" />
+          <li>
+            <div class="row">
+              <div class="cell check">
+                <Inputs _type="checkbox" />
+              </div>
+              <div class="cell pdt_img">
+                <a href="#none">
+                  <span class="thumb">
+                    <em><img src="https://images.innisfree.co.kr/upload/product/36116_l_S_140.jpg?T202404300927" alt="" /></em>
+                  </span>
+                </a>
+              </div>
+              <div class="cell pdt_info">
+                <div class="name">
+                  <a href="#none">상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명</a>
+                  <div class="alt">
+                    <span>[4/23 ~ 5/1, 기간내 5개]</span>
+                  </div>
+                </div>
+                <Selectbox
+                    :options="[
+                    { val: 'value', txt: '1호 블랙' },
+                    { val: 'value', txt: '옵션02' }
+                ]" />
+              </div>
+              <div class="cell count">
+                <Quantity _id="Quantity" quantity="32" />
+              </div>
+              <div class="cell price">
+                <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
+                <Button class="btn_min_outline" txt="입고알림신청" />
+                <p>
+                  <strong>52,000 <em>원</em></strong>
+                  <span class="point">+529P</span><!-- point -->
+                </p>
+              </div>
+              <div class="cell del">
+                <Icons class="del" />
+              </div>
+            </div>
           </li>
         </ul>
-        <div class="prom_box">
-          <div class="info">
-            <p class="tit">1개 구매 시 30%, 2개 구매 시 40%, 3개이상 구매 시 50%</p>
-            <button type="button" class="btn_link_arrw">프로모션 제품 더보기</button>
-            <button type="button" class="btn_text_green">유의사항</button>
-          </div>
-          <div class="noti">
-            <p>N+% 제품은 같은 행사내 제품들과 교차구매가 가능합니다.</p>
-          </div>
-        </div>
-
-        <div class="prom_box">
-          <div class="info">
-            <p class="tit">20개 구매 시 반값할인</p>
-            <button type="button" class="btn_link_arrw">프로모션 제품 더보기</button>
-            <button type="button" class="btn_text_green">유의사항</button>
-          </div>
-          <div class="noti">
-            <p>N+N 제품은 같은 행사내 제품들과 교차구매가 가능합니다.</p>
-          </div>
-        </div>
-
-        <div class="prom_box">
-          <div class="info">
-            <p class="tit">최종결제금액 40,000원 이상 결제시 6,900원에 구매가능</p>
-            <button type="button" class="btn_text_green">유의사항</button>
-          </div>
-        </div>
-        <!-- //프로모션 -->
-
-        <!-- 판매중지 -->
-        <h3 class="list_tit">판매중지제품 <strong class="fc_red">※ 구매불가</strong></h3>
-        <ul class="cart_list">
-          <li v-for="(item, idx) in sample_goods.slice(5,6)" :key="idx">
-            <CartItem :item="item" />
-          </li>
-        </ul>
-        <!-- //판매중지 -->
-
-        <!-- 추가구성품할인 -->
-        <h3 class="list_tit">추가구성품할인</h3>
-        <ul class="cart_list">
-          <li v-for="(item, idx) in sample_goods.slice(1,2)" :key="idx">
-            <CartItem :item="item" />
-
-            <ul class="cart_list">
-              <li v-for="(item, idx) in sample_goods.slice(2,5)" :key="idx">
-                <CartItem :item="item" class="extra" />
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <!-- //추가구성품할인 -->
       </div>
       <!-- //cart list -->
 
@@ -204,89 +183,6 @@ definePageMeta({
 
   .title_wrap {
     margin-bottom: 60px;
-  }
-
-  .list_wrap {
-    .allChk_wrap {
-      padding-bottom: 20px;
-      border-bottom: 2px solid #000;
-    }
-
-    .cart_list {
-      border-top: 0;
-
-      .no_data {
-        border-bottom: 1px solid #eee;
-      }
-    }
-
-    .list_tit {
-      margin-top: 40px;
-      font-size: 18px;
-      font-weight: 600;
-
-      & + .cart_list {
-        margin-top: 20px;
-        border-top: 1px solid #000;
-      }
-
-      strong {
-        padding-left: 10px;
-        font-size: 12px;
-        line-height: 16px;
-        vertical-align: top;
-      }
-    }
-  }
-
-  .prom_box {
-    padding: 12px 20px;
-    border: 1px solid #eee;
-
-    & + .prom_box {
-      margin-top: 10px;
-    }
-
-    .info {
-      position: relative;
-
-      .tit {
-        font-size: 13px;
-        color: #333;
-        line-height: 28px;
-      }
-
-      .btn_link_arrw {
-        font-weight: 600;
-        color: #000;
-        text-decoration: underline;
-
-        &:after {
-          width: 6px;
-          height: 6px;
-          border-color: #000;
-          position: relative;
-          top: -1px;
-        }
-      }
-    }
-
-    .noti {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid #f5f5f5;
-
-      p {
-        font-size: 12px;
-        color: #999;
-      }
-    }
-
-    .btn_text_green {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
   }
 }
 
@@ -435,9 +331,5 @@ definePageMeta({
       }
     }
   }
-}
-
-.fc_red {
-  color: #ff0000;
 }
 </style>
