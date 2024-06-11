@@ -1686,3 +1686,72 @@ ul.pick_list {
     top: 0;
   }
 }
+
+/* 약관관련 css */
+.policy_wrap {
+  h3, h2 {
+    margin:2rem 0;
+    font-size:1.6rem;
+    font-weight:600;
+  }
+  > p {
+    margin:2rem 0;
+    color:#333;
+    font-size:1.3rem;
+    font-weight:400;
+    line-height:2rem;
+    > * + * {
+      margin-top:0.3rem;
+    }
+    span {
+      display:block;
+    }
+  }
+  > dl + dl {
+    margin-top:3rem;
+  }
+  dl {
+    dt {
+      color:#333;
+      font-weight:600;;
+    }
+    dd {
+      > span + p {
+        margin-top:0.5rem;
+      }
+      margin-top:1rem;
+      color:#666;
+      font-size:1.3rem;
+      font-weight:400;
+      span, p {
+        line-height:2rem;
+      }
+    }
+    &.supple_pro {
+      dt {
+        color:#666;
+        font-weight:500;
+      }
+      dd {
+        color:#888;
+        font-weight:400;
+      }
+    }
+  }
+  > ul {
+    margin-top:3rem;
+    > * + * {
+      margin-top:0.5rem;
+    }
+    li {
+      color:#888;
+      font-size:1.3rem;
+      font-weight:400;
+      p {
+        color:#666;
+        font-size:1.3rem;
+        font-weight:500;
+      }
+    }
+  }
+}

@@ -1,6 +1,8 @@
 <template>
-    <div class="inner">
-    <Selectbox
+  <div class="inner">
+    <div class="policy_wrap">
+
+      <Selectbox
       :options="[
       { val: 'value', txt: '2024-05-17 (3.00v)' },
       { val: 'value', txt: '2024-05-17 (3.00v)' }
@@ -243,6 +245,7 @@
         <Button class="btn_sm_outline " txt="이전 약관보기" />
       </li>
     </ul>
+    </div>
   </div>
 
 </template>
@@ -297,50 +300,6 @@ header {
 
 .inner {
   padding: 2rem 2.1rem;
-  > p {
-    margin:2rem 0;
-    color:#333;
-    font-size:1.3rem;
-    font-weight:400;
-    line-height:2rem;
-  }
-  > dl + dl {
-    margin-top:3rem;
-  }
-  dl {
-    dt {
-      color:#333;
-      font-weight:600;;
-    }
-    dd {
-      > span + p {
-        margin-top:0.5rem;
-      }
-      margin-top:1rem;
-      color:#666;
-      font-size:1.3rem;
-      font-weight:400;
-      span, p {
-        line-height:2rem;
-      }
-    }
-  }
-  > ul {
-    margin-top:3rem;
-    > * + * {
-      margin-top:0.5rem;
-    }
-    li {
-      color:#888;
-      font-size:1.3rem;
-      font-weight:400;
-      p {
-        color:#666;
-        font-size:1.3rem;
-        font-weight:500;
-      }
-    }
-  }
 }
 
 .table_wrap {

@@ -9,7 +9,7 @@
         </span>
         <p class="copyRignt">Copyright ©2023 이니스프리. All Rights Reserved</p>
         <ul>
-          <li><a href="#none">Be free with INNISFREE</a></li>
+          <li><a @click="$router.push('/publish/IN_MO_FOO_01_01')">Be free with INNISFREE</a></li>
           <li><a href="#none">나의 주문내역</a></li>
           <li><a href="#none">공지사항</a></li>
           <li><a href="#none">로그아웃</a></li>
@@ -24,7 +24,7 @@
           <li class="mo"><a @click="$router.push('/publish/IN_MO_FOO_01_05')" class="active">개인정보처리방침</a></li>
           <li class="mo"><a @click="$router.push('/publish/IN_MO_FOO_01_10')">영상기기관리방침</a></li>
           <li class="mo"><a @click="$router.push('/publish/IN_MO_FOO_01_12')">위치기반서비스 이용약관</a></li>
-          <li class="mo"><a href="#none">사업자정보확인</a></li>
+          <li class="mo"><a @click="fair_trade_info()">사업자정보확인</a></li>
           <li class="mo"><a href="#none"  @click="modal.open('legal_notice', 'fullMo')">약관및법적고지확인</a></li>
           <li class="pc"><a href="#none">서비스 이용약관</a></li>
           <li class="pc"><a href="#none" class="active">개인정보처리방침</a></li>
@@ -162,6 +162,10 @@ const toggle_btn = (event) => {
 const onPress = () => {
   window.open(toss)
   };
+
+const fair_trade_info = () => {
+  window.open("https://www.ftc.go.kr/bizCommPop.do?key=232&wrkr_no=1068668127");
+}
 
 </script>
 
