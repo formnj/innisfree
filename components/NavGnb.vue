@@ -1,5 +1,5 @@
 <template>
-  <nav class="navGnb" :class="{ main: props.type }">
+  <nav class="navGnb" :class="{ main: type === 'main' }">
     <ul>
       <!-- active: true 면 active 클래스 적용 -->
       <li v-for="(con, idx) in item" :key="idx" :class="{ active: con.active }">
@@ -20,8 +20,8 @@ const props = defineProps({
     }
   },
   type: {
-    type: Boolean,
-    default: false
+    type: String,
+    default: ''
   }
 });
 </script>

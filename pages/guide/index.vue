@@ -39,7 +39,7 @@ definePageMeta({
 })
 
 /* device check text : 개발 시 제거해주세요. */
-const device = ref('MO');
+const device = ref();
 
 import { onMounted } from 'vue'
 
@@ -95,9 +95,9 @@ const sch_arry = ([
         sDate:'', eDate:'2024-06-14' , worker:''
     }, {
         depth:['','메인','',''],
-        id:'IN_MO_HOM_01_01', status:'',
+        id:'IN_MO_HOM_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'' , worker:''
+        sDate:'', eDate:' / 2024-06-11' , worker:'이종환'
     }, {
         depth:['','장바구니','상품없음',''],
         id:'IN_MO_CAR_01_01', status:'',
@@ -120,12 +120,12 @@ const sch_arry = ([
         sDate:'', eDate:'2024-07-12' , worker:''
     }, {
         depth:['','마이페이지','주문내역','주문내역'],
-        id:'', status:'',
+        id:'IN_MO_MYP_01_08', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-07-19' , worker:''
     }, {
         depth:['','','','주문취소'],
-        id:'', status:'',
+        id:'IN_MO_MYP_01_16', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-07-26' , worker:''
     }, {
@@ -170,7 +170,7 @@ const sch_arry = ([
         sDate:'', eDate:'2024-08-09' , worker:''
     }, {
         depth:['','','배송지등록/변경',''],
-        id:'', status:'',
+        id:'IN_MO_ORD_01_02', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-08-09' , worker:''
     }, {
@@ -369,11 +369,6 @@ const sch_arry = ([
         type:'', note:'',
         sDate:'', eDate:'2024-10-15' , worker:''
     }, {
-        depth:['','','쿠폰존',''],
-        id:'', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'2024-10-15' , worker:''
-    }, {
         depth:['','','','매장용쿠폰인증'],
         id:'', status:'',
         type:'modal', note:'',
@@ -384,8 +379,18 @@ const sch_arry = ([
         type:'', note:'',
         sDate:'', eDate:'2024-10-18' , worker:''
     }, {
-        depth:['','','쿠폰존','쿠폰상세'],
-        id:'', status:'',
+        depth:['','','쿠폰존','다운로드 가능 쿠폰'],
+        id:'IN_MO_MYP_01_32', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-15' , worker:''
+    }, {
+        depth:['','','','보유 쿠폰'],
+        id:'IN_MO_MYP_01_35', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-15' , worker:''
+    }, {
+        depth:['','','','쿠폰상세'],
+        id:'IN_MO_MYP_01_36', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-10-18' , worker:''
     }, {
@@ -1428,12 +1433,12 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-24/2024-04-11', worker:'김희경'
     }, {
         depth:['','상세','',''],
-        id:'IN_MO_PRD_01_09', status:'com',
-        type:'', note:'디자인 고도화',
+        id:'IN_MO_PRD_01_09', status:'ing',
+        type:'', note:'디자인 고도화 필요',
         sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/2024-05-09', worker:'김나람'
     }, {
         depth:['','','',''],
-        id:'IN_MO_PRD_01_09_button', status:'com',
+        id:'IN_MO_PRD_01_09_button', status:'ing',
         type:'', note:'제품 상세 버튼 및 팝업',
         sDate:'', eDate:'', worker:'김나람'
     }, {
@@ -1704,8 +1709,8 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-10/2024-05-10', worker:'형민우'
     }, {
         depth:['','','','개인정보 수정'],
-        id:'IN_MO_MYP_01_69', status:'ing',
-        type:'', note:'주소검색 팝업 수정 필요',
+        id:'IN_MO_MYP_01_69', status:'com',
+        type:'', note:'주소검색 팝업 수정 완료',
         sDate:'', eDate:'2024-05-10/2024-05-10', worker:'형민우'
     }, {
         depth:['','회원탈퇴','',''],
@@ -1824,9 +1829,9 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','이용약관','',''],
-        id:'IN_MO_FOO_01_04', status:'com',
+        id:'IN_MO_FOO_01_04', status:'',
         type:'', note:'',
-        sDate:'2024-06-10', eDate:'2024-06-10/2024-06-10', worker:'김희경'
+        sDate:'', eDate:'', worker:''
     }, {
         depth:['','개인정보처리방침','',''],
         id:'IN_MO_FOO_01_05', status:'com',
@@ -1834,9 +1839,9 @@ const MO_arry = ([
         sDate:'2024-06-10', eDate:'2024-06-10/2024-06-11', worker:'김희경'
     }, {
         depth:['','영상기기관리방침','',''],
-        id:'IN_MO_FOO_01_10', status:'com',
-        type:'', note:'header title 말줄임 처리 확인 요청 ',
-        sDate:'2024-06-10', eDate:'2024-06-10/2024-06-10', worker:'김희경'
+        id:'IN_MO_FOO_01_10', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'', worker:''
     }, {
         depth:['','위치기반서비스 이용약관','',''],
         id:'IN_MO_FOO_01_12', status:'com',
@@ -1854,14 +1859,14 @@ const MO_arry = ([
         sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }, {
         depth:['','약관 및 법적고지','',''],
-        id:'IN_MO_FOO_01_15', status:'com',
-        type:'', note:'footer 안에 모달팝업형태로 추가/footer 약관 및 법적고지 클릭시 확인가능',
-        sDate:'2024-06-10', eDate:'2024-06-10/2024-06-10', worker:'김희경'
+        id:'IN_MO_FOO_01_15', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'', worker:''
     }, {
         depth:['','','토스페이먼츠 구매안전 서비스 가입 확인',''],
-        id:'IN_MO_FOO_01_16', status:'com',
-        type:'', note:'약관 및 법적고지 내 버튼 클릭 시, 새창으로 확인 가능',
-        sDate:'2024-06-10', eDate:'2024-06-10/2024-06-10', worker:'김희경'
+        id:'IN_MO_FOO_01_16', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'', worker:''
     }
 ])
 

@@ -959,10 +959,27 @@
   }
 
   &.filter {
+    .modal_header {
+      width: auto;
+      height: auto;
+      padding: 2.3rem 0;
+      margin: 0 2.1rem;
+      border-bottom: 0.1rem solid #EEE;
+
+      .btn_close {
+        width: 2.4rem;
+        height: 2.4rem;
+        background: 0;
+
+        &::before {
+          content: '';
+          width: 1.3rem;
+        }
+      }
+    }
+
     .modal_content {
-      margin: 0 2.6rem;
-      padding: 2rem 0 4rem;
-      border-top: 0.1rem solid #EEE;
+      padding: 2rem 2.6rem 4rem;
 
       p {
         margin-bottom:1rem;
@@ -1790,11 +1807,8 @@
     }
 
     .cost {
-      padding-left: .5rem;
       font-size: 1rem;
       font-weight: 400;
-      text-decoration: line-through;
-      color: #999;
     }
 
     .quantity_control {

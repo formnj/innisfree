@@ -79,12 +79,14 @@ onMounted(() => {
 .modal_wrap.bottom .modal_container {
   padding-bottom: 10.6rem;
   max-height: 76rem;
+  height: calc(100vh - 5.6rem);
 
   .modal_header {
+    height: auto;
     padding-bottom: 0;
 
     h2 {
-      padding-top: 1.5rem;
+      padding-top: 3.6rem;
       font-size: 1.8rem;
       text-align: center;
     }

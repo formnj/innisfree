@@ -171,20 +171,24 @@
     </div>
   </div>
   <div class="list_wrap">
-    <ul class="cart_list type_default">
-      <li>
-        <div class="row">
-          <p>결제방법</p>
-          <em>네이버페이</em>
-        </div>
-      </li>
-      <li>
-        <div class="row">
-          <p>결제금액</p>
-          <em>2,500원</em>
-        </div>
-      </li>
-    </ul>
+    <div class="table_wrap">
+      <table>
+        <caption>결제정보</caption>
+        <colgroup>
+            <col style="width:170px;">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th>결제방법</th>
+            <td>네이버페이</td>
+          </tr>
+          <tr>
+            <th>결제금액</th>
+            <td>2,500원</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <div class="sub_title_wrap">
@@ -423,25 +427,6 @@ onMounted(() => {
               width:25%;
               display:block !important;
           }
-        }
-      }
-    }
-  }
-}
-
-.list_wrap {
-  .cart_list {
-    li {
-      .row {
-        padding:24px 20px;
-        gap:0;
-        p {
-          width:175px;
-          font-weight:400;
-        }
-        em {
-          font-size:16px;
-          font-weight:500;
         }
       }
     }

@@ -1,7 +1,7 @@
 <template>
   <DocTopBanner v-if="useBanner" />
-  <header :class="{ main:props.main }">
-    <!-- type: main or sub -->
+  <!-- type: main, type_sub, type_search -->
+  <header :class="type">
     <div class="header_wrap">
       <div class="menu_wrap">
         <h1 v-if="useLogo"><a href="/publish/IN_MO_HOM_01_01"><img src="/assets/images/common/logo_innisfree.png" /></a></h1>
@@ -9,21 +9,21 @@
         <button v-if="useMenu" class="btn_menu" @click="modal.open('modal_nav', 'bottom nav')">{{ props.txt }}</button>
         <div v-if="useSearchWrap" class="search_wrap">
           <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
-          <Icons class="btn_search" txt="검색" />
+          <Icons class="btn_search" txt="검색" @click="page_link($event, 'IN_MO_SRC_01_02')" />
         </div>
         <h2 v-if="useName">{{ props.txt }}</h2>
       </div>
       <div class="icon_wrap">
         <Icons v-if="useShare" class="share" txt="공유하기" />
-        <Icons v-if="useHome" class="home" txt="홈" />
+        <a v-if="useHome" href="/publish/IN_MO_HOM_01_01"><Icons class="home" txt="홈" /></a>
         <Icons v-if="useAlarm" class="alarm" txt="알람" />
-        <Icons v-if="useSearch" class="btn_search" txt="검색" />
-        <Icons v-if="useCart" class="cart" txt="50" />
-        <Icons v-if="useBarcode" class="barcode" txt="50" />
+        <Icons v-if="useSearch" class="btn_search" txt="검색" @click="page_link($event, 'IN_MO_SRC_01_01')" />
+        <Icons v-if="useCart" class="cart" txt="50" @click="page_link($event, 'IN_MO_CAR_01_01')" />
+        <Icons v-if="useBarcode" class="barcode" />
       </div>
     </div>
     <div class="gnb_wrap">
-      <NavGnb v-if="useNav" :item="gnb_list" :type="main" />
+      <NavGnb v-if="useNav" :item="gnb_list" :type="props.type === 'main'" />
 
       <div class="navCategory">
         <!-- mo search -->
@@ -112,11 +112,11 @@
             </div>
             <div class="modal_content">
                 <ul>
-                    <li class="active"><a href="#none">FAQ</a></li>
+                    <li class="active"><a href="/publish/IN_MO_MYP_01_91">FAQ</a></li>
                     <li><a href="#none">1:1고객상담</a></li>
                     <li><a href="#none">매장안내</a></li>
-                    <li><a href="#none">공지사항</a></li>
-                    <li><a href="#none">전자공고</a></li>
+                    <li><a href="/publish/IN_MO_MYP_01_92">공지사항</a></li>
+                    <li><a href="/publish/IN_MO_MYP_01_93">전자공고</a></li>
                 </ul>
             </div>
         </div>
@@ -133,14 +133,18 @@ import {
 } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui.js'
 
+import { useRouter } from 'vue-router'
+
+const router = useRouter();
+
 const props = defineProps({
   useBanner: {
     type: Boolean,
     default: true,
   },
-  main: {
-    type: Boolean,
-    default: false
+  type: {
+    type: String,
+    default: ''
   },
   useLogo: {
     type: Boolean,
@@ -194,10 +198,7 @@ const props = defineProps({
     type: Boolean,
     default: true
   },
-  style: {
-    type: String,
-    default: ''
-  }
+
 })
 
 onMounted(() => {
@@ -238,6 +239,14 @@ const cate_tab = (e) => {
 
   nav_cont.scrollTo({ top: target.offsetTop, behavior: 'smooth' })
 };
+
+const page_link = (e, link) => {
+  if (e.target.className === 'back') {
+    router.go(-1);
+  }
+
+  router.push(`/publish/${link}`);
+};
 </script>
 
 <style lang="scss" scoped>
@@ -245,7 +254,8 @@ header {
   position: sticky;
   top: -5rem;
   left: 0;
-  z-index: 10;
+  z-index: 11;
+
   &.fixed {
     background: #fff;
 
@@ -254,8 +264,20 @@ header {
     }
   }
 
+  &.type_sub {
+    .header_wrap {
+      padding: 1.3rem 1.6rem;
+    }
+  }
+
+  &.type_search {
+    .header_wrap {
+      padding: 1rem 1.6rem;
+    }
+  }
+
   .header_wrap {
-    padding: 1rem 2.1rem 0.6rem;
+    padding: 1rem 2.6rem 0.6rem 2.1rem;
     display: flex;
     align-items: center;
     flex-wrap: wrap;

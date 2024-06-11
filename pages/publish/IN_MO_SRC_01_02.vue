@@ -58,7 +58,7 @@
         <h3><p class="badge count">제품 <em>23</em></p></h3>
         <div class="pdtSortTab_wrap">
           <div class="sortTab">
-            <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom')">랭킹순</button>
+            <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom modal_sort')">랭킹순</button>
           </div>
           <button @click="modal.open('modal_filter', 'bottom filter')">필터</button>
         </div>
@@ -496,7 +496,7 @@ section {
 }
 
 .modal_wrap {
-  &#modal_sort {
+  &.modal_sort {
     .modal_container {
       border-top-left-radius: 20px 20px;
       border-top-right-radius: 20px 20px;
@@ -563,47 +563,6 @@ section {
                 letter-spacing: -0.14px;
               }
             }
-          }
-        }
-      }
-    }
-  }
-  &#modal_search {
-    .modal_container {
-      .modal_header {
-        button {
-          width:24px;
-          height:24px;
-          top:20px;
-          left:unset;
-          right:20px;
-          transform:unset;
-          &:before,&:after {
-            width: 100%;
-            height:1px;
-            border-top: 1px solid #222;
-            border-radius:0;
-            background:none;
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0;
-            display: block;
-          }
-          &:before {
-            transform:rotate(45deg);
-          }
-        }
-      }
-      .modal_content {
-        padding:0 26px;
-      }
-      .modal_footer {
-        padding:0;
-        gap:0;
-        button {
-          &.btn_reset {
-            width:13.5rem;
           }
         }
       }
