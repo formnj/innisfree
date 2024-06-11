@@ -6,6 +6,7 @@
             :useBack="true"
             :useHome="true"
             :useNav="false"
+            :type="'type_sub'"
         />
         <div id="container">
             <router-view />
@@ -31,11 +32,11 @@
 
 #container {
     flex:1 auto;
-    margin-top: -4.8rem;
+    margin-top: -5.8rem;
 }
 
 :deep(header) {
-  top: 0;
+    top: 0;
 }
 
 @import "~/assets/scss/mobile.scss";

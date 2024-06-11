@@ -22,6 +22,10 @@
     <button class="btn_reply" title="답글" @click="openReplyModal();">120</button>
   </div>
 
+  <div class="post_back">
+    <Button class="btn_icon btn_icon_back" txt="" />
+  </div>
+
   <div class="post_detail">
     <!-- 개발 시 아래 div 삭제 -->
     <div style="width: 100%; padding:5rem 0; background-color:#ccc; text-align:center; color:#fff;">포스트 내용</div>
@@ -149,7 +153,8 @@ onMounted(()=>{
   const body = document.querySelector('body');
   body.addEventListener('click', (event)=>{
     const target = event.target;
-    const replyMenuModal = document.getElementsByClassName('modal_reply_menu')[0];
+    const replyMenuModal = document.getElementById('modal_reply_menu');
+    console.log(replyMenuModal);
     if (!target.classList.contains('btn_reply_menu') && replyMenuModal.classList.contains('active') && !target.classList.contains('btn_single_menu')){
       replyMenuModal.classList.remove('active')
     }
@@ -378,6 +383,22 @@ section {
     &.btn_reply:before {
       background-position: -4rem -17rem;
     }
+  }
+}
+
+.post_back {
+  position: fixed;
+  bottom: 7.8rem;
+  left: 2.1rem;
+  z-index: 2;
+
+  :deep(button) {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 5px;
+    box-shadow: 0.2rem 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.95) url('~/assets/mo_images/common/icon_split.png') no-repeat -2.2rem -3.2rem;
+    background-size: 25rem auto;
   }
 }
 

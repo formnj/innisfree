@@ -325,7 +325,62 @@
     <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
     &lt;ul class="event_list"&gt;
         &lt;li v-for="(item, idx) in sample_event" :key="idx"&gt;
-            &lt;EventItem :item="item" :link="item.link" type="타입입력 default는 제외" /&gt;
+            &lt;EventItem :item="item" :link="item.link" /&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>Event Item - type_02, type_down</h2>
+    <ul class="explain">
+      <li>event item type 추가 : default, type_02, type_column, type_down &lt;EventItem :item="item" type="타입입력 default는 제외" /&gt;</li>
+    </ul>
+    <div class="design_box">
+      <div class="list_wrap">
+        <ul class="event_list">
+          <li v-for="(item, idx) in sample_event.slice(0,3)" :key="idx">
+            <EventItem :item="item" :link="item.link" type="type_02" />
+          </li>
+          <li>
+            <EventItem :item="sample_event.slice(5,6)[0]" :link="sample_event.slice(4,6)[0].link" type="type_down" />
+          </li>
+          <li>
+            <EventItem :item="sample_event.slice(5,6)[0]" :link="sample_event.slice(4,6)[0].link" type="type_down" />
+          </li>
+          <li>
+            <EventItem :item="sample_event.slice(5,6)[0]" :link="sample_event.slice(4,6)[0].link" type="type_down" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
+    &lt;ul class="event_list"&gt;
+        &lt;li v-for="(item, idx) in sample_event" :key="idx"&gt;
+            &lt;EventItem :item="item" :link="item.link" type="type_02" /&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>Event Item - type_column (mobile)</h2>
+    <ul class="explain">
+      <li>event item type 추가 : default, type_02, type_column, type_down &lt;EventItem :item="item" type="타입입력 default는 제외" /&gt;</li>
+    </ul>
+    <div class="design_box">
+      <div class="list_wrap">
+        <ul class="event_list">
+          <li v-for="(item, idx) in sample_event.slice(0,3)" :key="idx">
+            <EventItem :item="item" :link="item.link" type="type_column" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
+    &lt;ul class="event_list"&gt;
+        &lt;li v-for="(item, idx) in sample_event" :key="idx"&gt;
+            &lt;EventItem :item="item" :link="item.link" type="type_column" /&gt;
         &lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;</code></pre>

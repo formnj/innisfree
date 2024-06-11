@@ -1704,8 +1704,8 @@ const MO_arry = ([
         sDate:'', eDate:'2024-05-10/2024-05-10', worker:'형민우'
     }, {
         depth:['','','','개인정보 수정'],
-        id:'IN_MO_MYP_01_69', status:'ing',
-        type:'', note:'주소검색 팝업 수정 필요',
+        id:'IN_MO_MYP_01_69', status:'com',
+        type:'', note:'주소검색 팝업 수정 완료',
         sDate:'', eDate:'2024-05-10/2024-05-10', worker:'형민우'
     }, {
         depth:['','회원탈퇴','',''],

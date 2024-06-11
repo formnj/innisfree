@@ -220,12 +220,13 @@
 </template>
 
 <script setup>
-definePageMeta({
-layout:'mo-default'
-});
 import { modal } from '~/assets/js/common-ui.js'
 import { setFilter } from '~/assets/js/common-ui.js'
 import {adress_list} from '~/test/data/publish/dummyData.js'
+
+definePageMeta({
+  layout:'mo-name-search-cart'
+});
 
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   link: {
@@ -249,10 +250,11 @@ const show_hide = ()=>{
   target.parentElement.nextElementSibling.classList.toggle('show')
 }
 
+const emit = defineEmits(['title']);
+
 onMounted(() => {
-
-
-})
+  emit('title', '배송지 관리')
+});
 
 </script>
 

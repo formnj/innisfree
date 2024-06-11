@@ -1,20 +1,21 @@
 <template>
-  <!-- mobile PRD 전용 -->
-  <div id="wrap">
-      <HeaderMo
-          :useBanner="false"
-          :useLogo="false"
-          :useBack="true"
-          :useMenu="true"
-          :txt="txt"
-          :useNav="false"
-      />
-      <div id="container">
-          <router-view @title="txt = $event" />
-      </div>
-      <FooterMo />
-      <Actionbar />
-  </div>
+    <!-- mobile PRD 전용 -->
+    <div id="wrap">
+        <HeaderMo
+            :useBanner="false"
+            :useLogo="false"
+            :useBack="true"
+            :useMenu="true"
+            :txt="txt"
+            :useNav="false"
+            :type="'type_sub'"
+        />
+        <div id="container">
+            <router-view @title="txt = $event" />
+        </div>
+        <FooterMo />
+        <Actionbar />
+    </div>
 </template>
 
 

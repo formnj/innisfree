@@ -21,7 +21,10 @@
       <!-- 공지사항 목록 -->
       <div class="noti_wrap">
         <div class="sub_title_wrap">
-          <h3>총&nbsp;<em>551</em>개</h3>
+          <h3>총&nbsp;<em>5</em>개</h3>
+          <!-- 검색결과 X -->
+          <!-- <p><em>'검색결과없음'</em> 검색 결과 <em>0</em> 개</p> -->
+          <!-- //검색결과 X -->
         </div>
         <ul class="noti_list">
           <li v-for="(item,idx) in noti_data.list" :key="idx">
@@ -33,6 +36,12 @@
             <span class="date">{{ item.date }}</span>
           </li>
         </ul>
+        
+        <!-- 검색결과 X -->
+        <!-- <div class="no_data">
+          검색 결과가 없습니다.
+        </div> -->
+        <!-- //검색결과 X -->
       </div>
       <!-- //공지사항 목록 -->
     </section>
@@ -156,6 +165,12 @@ const customer = () => {
         font-weight:500;
       }
     }
+
+    p {
+      em {
+        color: #00BC70;
+      }
+    }
   }
 
   :deep(.tab_wrap) {
@@ -264,6 +279,16 @@ const customer = () => {
         text-align:center;
       }
     }
+  }
+
+  .no_data {
+    border-top:2px solid #000;
+    margin: 0;
+    padding: 140px 0;
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 1px solid #EEE;
   }
 
   .noti_detail {

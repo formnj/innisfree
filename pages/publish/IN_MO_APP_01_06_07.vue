@@ -62,7 +62,7 @@ onMounted(() => {
     .point_box {
       width: 100%;
       position: fixed;
-      top: 48px;
+      top: 46px;
       left: 0;
       z-index: 3;
       margin: 0;

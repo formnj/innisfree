@@ -1,6 +1,6 @@
 <template>
     <div id="wrap">
-        <HeaderMo :main="true" />
+        <HeaderMo :type="'main'" />
         <div id="container">
             <router-view />
         </div>

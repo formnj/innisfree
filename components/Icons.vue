@@ -15,7 +15,6 @@ const props = defineProps({
     default: '',
   },
 });
-
 </script>
 
 <style lang="scss" scoped>
