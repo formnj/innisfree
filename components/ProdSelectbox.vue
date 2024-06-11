@@ -1,12 +1,12 @@
 <template>
   <div class="prod_select">
-    <button type="button" class="btn_select" @click="selectOpen">{{ _placeholder }}</button>
+    <button type="button" class="btn_select" :disabled="_disabled" @click="selectOpen">{{ _placeholder }}</button>
     <ul class="op_list">
       <li v-for="(select, i) in options" :key="i">
         <input :id="select.val" type="radio" :name="select.name">
         <label :for="select.val" :class="select.soldout ? 'soldout' : ''">
           <em v-if="select.soldout">일시품절</em>
-          <span class="name">{{ select.txt }}</span>
+          <span class="name">{{ select.txt }}</span><span v-if="select.extraPrice" class="price">+{{ select.extraPrice}}원</span>
           <button v-if="select.stockAlert" type="button" class="btn_txt">입고알림 신청</button>
         </label>
       </li>
@@ -24,7 +24,8 @@ const props = defineProps({
     type: Boolean,
     default: true
   },
-  _placeholder: String
+  _placeholder: String,
+  _disabled: String
 });
 
 //옵션(버튼) 선택 시 open 클래스 추가
@@ -84,6 +85,11 @@ onMounted(()=> {
       right: 16px;
       transform: translateY(-50%) rotate(45deg);
     }
+
+    &:disabled {
+      color: #aaa;
+      background-color: #f5f5f5;
+    }
   }
 
   .op_list {
@@ -126,16 +132,34 @@ onMounted(()=> {
         }
 
         .name {
-          flex: 1;
+          color: #000;
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
+          flex: 1;
+        }
+
+        .price {
+          width: 8rem;
+          font-size: 1.2rem;
+          text-align: right;
+          color: #333;
+          display: inline-block;
         }
 
         em {
           padding-right: 5px;
           font-size: 12px;
           color: #ff0000;
+
+          & + .name {
+            color: #aaa;
+
+            & + .price {
+              width: auto;
+              color: #aaa;
+            }
+          }
         }
 
         .btn_txt {
