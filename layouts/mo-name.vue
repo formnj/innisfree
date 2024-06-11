@@ -8,6 +8,7 @@
           :useSearch="false"
           :useCart="false"
           :useNav="false"
+          :type="'type_sub'"
       />
       <div id="container">
           <router-view @title="txt = $event" />

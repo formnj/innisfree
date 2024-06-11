@@ -17,6 +17,9 @@
   <div class="inner">
     <div class="title_wrap">
       <h2>총<em>551</em>개</h2>
+      <!-- 컨텐츠 X -->
+      <!-- <p><em>'검색결과없음'</em> 검색결과 <em>0</em>개</p> -->
+      <!-- //컨텐츠 X -->
     </div>
 
     <div class="noti_wrap">
@@ -99,19 +102,19 @@
           </div>
         </li>
       </ul>
-    </div>
-    
-    <div class="paging">
-      <div>
-        <a href="#none" class="first">처음으로</a>
-        <a href="#none">1</a>
-        <a href="#none">2</a>
-        <a href="#none" class="active">3</a>
-        <a href="#none">4</a>
-        <a href="#none">5</a>
-        <a href="#none" class="last">마지막으로</a>
+      <div class="paging">
+        <div>
+          <a href="#none" class="first">처음으로</a>
+          <a href="#none">1</a>
+          <a href="#none">2</a>
+          <a href="#none" class="active">3</a>
+          <a href="#none">4</a>
+          <a href="#none">5</a>
+          <a href="#none" class="last">마지막으로</a>
+        </div>
       </div>
     </div>
+    
     
     <!-- 동일한 내용의 컨텐츠 X -->
     <!-- <div class="no_content">
@@ -289,6 +292,17 @@ const slides = {
           color:#2FAF63;
         }
       }
+
+      p {
+        color:#000;
+        font-size:1.2rem;
+        line-height:1.2rem;
+        font-weight:600;
+  
+        em {
+          color:#2FAF63;
+        }
+      }
     }
 
     .noti_list {
@@ -420,5 +434,6 @@ const slides = {
 
   .no_content {
     padding: 5rem 0;
+    font-size: 1.6rem;
   }
 </style>

@@ -28,6 +28,13 @@
         </div>
       </li>
     </ul>
+
+    <!-- 컨텐츠 X -->
+    <!-- <div class="no_content">
+      찾으시는 질문이 없습니다
+    </div>
+    <Button class="btn_mid confirm" txt="1:1 문의하기" /> -->
+    <!-- //컨텐츠 X -->
   </div>
   <!-- //FAQ 컨텐츠 -->
 </template>
@@ -142,7 +149,7 @@ const slides = {
     border-bottom:0.1rem solid #F5F5F5;
     background:#fff;
     position:sticky;
-    top:0.8rem;
+    top:0;
     z-index: 9;
 
     ul {
@@ -256,6 +263,15 @@ const slides = {
           }
         }
       }
+    }
+
+    .no_content {
+      padding: 5rem 0;
+    }
+
+    > button {
+      width: calc(100% - 4.2rem);
+      margin: 0 2.1rem;
     }
   }
 </style>

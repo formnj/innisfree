@@ -9,9 +9,9 @@
         :useCart="icons <= 0 ? false : true"
         :useBarcode="icons <= 0 ? true : false"
         :useNav="false"
+        :type="'type_search'"
       />
       <div id="container">
-        {{ barcode }}
           <router-view @icons="icons = $event" />
       </div>
       <FooterMo />

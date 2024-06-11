@@ -7,6 +7,7 @@
       :txt="txt"
       :useSearch="false"
       :useCart="false"
+      :type="'type_sub'"
     />
     <div id="container">
         <div class="content_wrap">
