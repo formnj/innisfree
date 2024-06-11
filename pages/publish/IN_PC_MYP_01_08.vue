@@ -672,22 +672,6 @@ section {
       margin: 60px auto 20px;
       padding:0 !important;
     }
-    .cart_list {
-      li {
-        .pdt_info {
-          strong {
-            margin-bottom:8px;
-            font-size:16px;
-            font-weight:600;
-            display:inline-block;
-          }
-          p {
-            color: #999;
-            line-height: 1.71em;
-          }
-        }
-      }
-    }
     .btn_min_outline {
       margin:0 auto !important;
       border-radius:1px;

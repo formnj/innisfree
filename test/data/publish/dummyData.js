@@ -1090,8 +1090,9 @@ export const sample_goods = [
             },
           ]
         },
-        big: true
-
+        big: true,
+        cartTag: '4.1~5, 기간내 10개',
+        hasOption: true,
     }, {
         img:("/_nuxt/images/sam/sam_goods_list_02.jpg"),
         overflip:("/_nuxt/images/sam/sam_goods_list_02-1.jpg"),
@@ -1131,6 +1132,7 @@ export const sample_goods = [
             }
           ]
         },
+        cartTag: '할인제외',
     }, {
         img:("/_nuxt/images/sam/sam_goods_list_02.jpg"),
         overflip:("/_nuxt/images/sam/sam_goods_list_02-1.jpg"),
