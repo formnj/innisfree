@@ -1815,13 +1815,13 @@ const MO_arry = ([
     }, {
         depth:['','','GREEN TEA HERITAGE(T)',''],
         id:'IN_MO_FOO_01_02', status:'ing',
-        type:'', note:'IN_MO_FOO_01_01 내에서 확인가능',
-        sDate:'', eDate:'2024-06-11/', worker:'김희경'
+        type:'', note:'',
+        sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','','BETTER FOR EARTH(T)',''],
         id:'IN_MO_FOO_01_03', status:'ing',
-        type:'', note:'IN_MO_FOO_01_01 내에서 확인가능',
-        sDate:'', eDate:'2024-06-11/', worker:'김희경'
+        type:'', note:'',
+        sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','이용약관','',''],
         id:'IN_MO_FOO_01_04', status:'com',
