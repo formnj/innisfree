@@ -409,7 +409,7 @@
           </dd>
         </dl>
       </div>
-      <ul class="bullistType_02">
+      <ul class="bul_list star">
         <li>스페셜 기프트 또는 원하시는 구매 금액 증정품을 선택하셔야 증정품 증정이 가능합니다.</li>
         <li>구매 금액대별로 선택 가능한 개수만큼 중복 또는 여러 증정품의 선택이 가능합니다.</li>
         <li>선택하신 증정품은 배송기간 중 품절이나 소진 시 동일 수준 혹은 더 좋은 증정품으로 변경될 수 있습니다.</li>
@@ -424,7 +424,7 @@
         </div>
       </div>
       <div class="list_wrap">
-        <ul class="cart_list type_default">
+        <ul class="type_default">
           <li>
             <div class="row">
               <Inputs _type="radio" _text="신용카드 결제" _name="pay_method" _checked @change="radioChk = 'card'"/>
@@ -584,7 +584,7 @@
         </div>
       </div>
       <div class="list_wrap">
-        <ul class="cart_list type_default">
+        <ul class="type_default">
           <li>
             <div class="row">
               <Inputs _type="radio" _text="결제 수단으로 환불 받기" />
@@ -1553,7 +1553,7 @@ div.list {
       }
     }
   }
-  .bullistType_02 {
+  .bul_list.star {
     margin-top:20px !important;
   }
 }
@@ -2199,13 +2199,13 @@ button.tooltip {
   }
 }
 
-div.list_wrap {
-  ul.cart_list {
+.list_wrap {
+  ul {
     li {
       div.row {
-        .input_wrap {
+        :deep(.input_wrap) {
           flex:0 auto !important;
-          :deep(label.check) {
+          label.check {
             > * {
               font-size:16px !important;
             }

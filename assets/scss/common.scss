@@ -830,7 +830,6 @@ ul.select_list {
 
 .list_wrap {
   .allChk_wrap {
-    margin-bottom:20px;
     display:flex;
     align-items:center;
     .btnSection {
@@ -1049,7 +1048,7 @@ ul.bullet_list {
 }
 
 .no_data {
-  margin:150px auto;
+  padding:150px 0;
   display:flex;
   align-items:center;
   flex-direction:column;
@@ -1222,6 +1221,162 @@ ul.bullet_list {
     }
   }
 }
+
+.selected_list {
+  max-height: 230px;
+  margin: 10px 0 0;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar{
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb{
+    background-color: #e2e2e2;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-track{
+    background-color: transparent;
+  }
+
+  li {
+    padding: 10px 15px;
+    background-color: #F7FAFA;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & + li {
+      margin-top: 3px;
+    }
+
+    & > * {
+      flex-shrink: 0;
+    }
+
+    .name {
+      font-size: 14px;
+      line-height: 24px;
+      color: #666;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      flex: 1;
+
+      em {
+        color: #00BC70;
+        padding-right: 5px;
+      }
+    }
+
+    .price {
+      margin-left: 10px;
+      padding-left: 22px;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 16px;
+      color: #000;
+      flex: none;
+    }
+
+    .cost {
+      padding-left: 5px;
+      font-size: 11px;
+      font-weight: 300;
+      text-decoration: line-through;
+      color: #999;
+    }
+
+    .quantity_control {
+      width: auto;
+      margin-left: 20px;
+      background-color: #fff;
+      display: inline-block;
+
+      .name {
+        display: none;
+      }
+
+      .count {
+        width: 100px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+          width: 28px;
+          height: 28px;
+          background: #fff;
+          font-size: 0;
+          flex: none;
+          position: relative;
+
+          &:before,
+          &.btn_inc:after {
+            content: '';
+            width: 8px;
+            height: 1px;
+            background-color: #000;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
+
+          &.btn_inc:after {
+            width: 1px;
+            height: 8px;
+          }
+        }
+        .count_wrap {
+          flex:1;
+          .input_wrap {
+            .input {
+              height: 28px;
+              padding: 0;
+              font-weight: 600;
+              font-size: 13px;
+              text-align: center;
+              color: #000;
+              border: none;
+
+              input {
+                height: 28px;
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+
+      dd {
+        .price {
+          font-weight: 600;
+          font-size: 13px;
+          line-height: 20px;
+          letter-spacing: -0.16px;
+          display: inline-flex;
+          align-items: center;
+
+          em {
+            font-size: 16px;
+            margin-right: 3px;
+          }
+        }
+      }
+    }
+
+    .btn_del {
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+      font-size: 0;
+      background: url("~/assets/images/common/icon_split.png") -460px -40px no-repeat;
+      flex: none;
+    }
+  }
+}
 /* //상품 상세 */
 
 
@@ -1293,68 +1448,13 @@ ul.bullet_list {
 
 /* cart list */
 .cart_list {
-  .cell {
-    &.count, &.price {
-      display:flex;
-      align-items:center;
-    }
+
+  li {
+    border-bottom: 1px solid #f5f5f5;
   }
-  .pdt_img {
-    width:100px;
-  }
-  .pdt_info {
-    margin-right:50px;
-    flex:1;
-    .name {
-      a {
-        font-size:16px;
-      }
-      .alt {
-        margin-top:15px;
-        color:#EB5B54;
-      }
-    }
-    .select {
-      margin-top:20px;
-      display:block;
-    }
-  }
-  .count {
-    width:116px;
-  }
-  .price {
-    flex-direction:column;
-    justify-content:center;
-    p, .point {
-      width:100%;
-      text-align:right;
-    }
-    p {
-      display:flex;
-      flex-direction:column;
-      strong {
-        font-size:18px;
-      }
-      em {
-        font-size:14px;
-        font-weight:500;
-      }
-    }
-    .point {
-      margin-top:5px;
-      color:#009D5E;
-      font-size:13px;
-    }
-    span {
-      margin-bottom:10px;
-      color:#d72137;
-      font-size:13px;
-    }
-    button {
-      em {
-        font-size:12px;
-      }
-    }
+
+  & > li + li {
+    margin-top: 20px;
   }
 }
 

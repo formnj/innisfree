@@ -15,7 +15,8 @@
             <Button class="btn_min_outline" txt="선택삭제" />
           </div>
         </div>
-        <ul class="cart_list type_default">
+
+        <ul class="cart_list">
           <!-- no data -->
           <li>
             <p class="no_data">
@@ -24,48 +25,25 @@
             </p>
           </li>
           <!-- //no data -->
-          <li>
-            <div class="row">
-              <div class="cell check">
-                <Inputs _type="checkbox" />
-              </div>
-              <div class="cell pdt_img">
-                <a href="#none">
-                  <span class="thumb">
-                    <em><img src="https://images.innisfree.co.kr/upload/product/36116_l_S_140.jpg?T202404300927" alt="" /></em>
-                  </span>
-                </a>
-              </div>
-              <div class="cell pdt_info">
-                <div class="name">
-                  <a href="#none">상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명</a>
-                  <div class="alt">
-                    <span>[4/23 ~ 5/1, 기간내 5개]</span>
-                  </div>
-                </div>
-                <Selectbox
-                    :options="[
-                    { val: 'value', txt: '1호 블랙' },
-                    { val: 'value', txt: '옵션02' }
-                ]" />
-              </div>
-              <div class="cell count">
-                <Quantity _id="Quantity" quantity="32" />
-              </div>
-              <div class="cell price">
-                <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
-                <Button class="btn_min_outline" txt="입고알림신청" />
-                <p>
-                  <strong>52,000 <em>원</em></strong>
-                  <span class="point">+529P</span><!-- point -->
-                </p>
-              </div>
-              <div class="cell del">
-                <Icons class="del" />
-              </div>
-            </div>
+        </ul>
+
+        <h3 class="list_tit">[1+1] 깨끗하게 EASY! 클렌징 티슈 쟁여놓기 (6/1~6/30)</h3>
+        <ul class="cart_list">
+          <li v-for="(item, idx) in sample_goods.slice(0,4)" :key="idx">
+            <CartItem :item="item" />
           </li>
         </ul>
+
+        <div class="prom_box">
+          <div class="info">
+            <p class="tit">1개 구매 시 30%, 2개 구매 시 40%, 3개이상 구매 시 50%</p>
+            <button type="button" class="btn_link_arrw">프로모션 제품 더보기</button>
+            <button type="button">유의사항</button>
+          </div>
+          <div class="noti">
+            <p>N+% 제품은 같은 행사내 제품들과 교차구매가 가능합니다.</p>
+          </div>
+        </div>
       </div>
       <!-- //cart list -->
 
@@ -130,7 +108,10 @@
     </div>
     <div class="list_wrap">
       <ul class="goods_list">
-        <li v-for="(item,idx) in sample_goods.slice(0,5)" :key="idx">
+        <li v-for="(item,idx) in sample_goods" :key="idx">
+          <GoodsItem :item="item" :link="item.link" :useGiveaway="true" />
+        </li>
+        <li v-for="(item,idx) in sample_goods.slice(0,8)" :key="idx">
           <GoodsItem :item="item" :link="item.link" :useGiveaway="true" />
         </li>
       </ul>
@@ -180,6 +161,29 @@ definePageMeta({
 
   .title_wrap {
     margin-bottom: 60px;
+  }
+
+  .list_wrap {
+    .allChk_wrap {
+      padding-bottom: 20px;
+      border-bottom: 2px solid #000;
+    }
+
+    .cart_list {
+      border-top: 0;
+    }
+
+    .list_tit {
+      margin-top: 40px;
+      font-size: 18px;
+      font-weight: 600;
+
+      & + .cart_list {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #000;
+      }
+    }
   }
 }
 
