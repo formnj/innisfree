@@ -1809,19 +1809,19 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['풋터','ABOUT US(T)','BRAND STORY(T)',''],
-        id:'IN_MO_FOO_01_01', status:'',
+        id:'IN_MO_FOO_01_01', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'2024-06-11/', worker:'김희경'
     }, {
         depth:['','','GREEN TEA HERITAGE(T)',''],
-        id:'IN_MO_FOO_01_02', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        id:'IN_MO_FOO_01_02', status:'ing',
+        type:'', note:'IN_MO_FOO_01_01 내에서 확인가능',
+        sDate:'', eDate:'2024-06-11/', worker:'김희경'
     }, {
         depth:['','','BETTER FOR EARTH(T)',''],
-        id:'IN_MO_FOO_01_03', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        id:'IN_MO_FOO_01_03', status:'ing',
+        type:'', note:'IN_MO_FOO_01_01 내에서 확인가능',
+        sDate:'', eDate:'2024-06-11/', worker:'김희경'
     }, {
         depth:['','이용약관','',''],
         id:'IN_MO_FOO_01_04', status:'com',
@@ -1829,9 +1829,9 @@ const MO_arry = ([
         sDate:'2024-06-10', eDate:'2024-06-10/2024-06-10', worker:'김희경'
     }, {
         depth:['','개인정보처리방침','',''],
-        id:'IN_MO_FOO_01_05', status:'ing',
+        id:'IN_MO_FOO_01_05', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-10/', worker:'김희경'
+        sDate:'2024-06-10', eDate:'2024-06-10/2024-06-11', worker:'김희경'
     }, {
         depth:['','영상기기관리방침','',''],
         id:'IN_MO_FOO_01_10', status:'com',
@@ -1839,19 +1839,19 @@ const MO_arry = ([
         sDate:'2024-06-10', eDate:'2024-06-10/2024-06-10', worker:'김희경'
     }, {
         depth:['','위치기반서비스 이용약관','',''],
-        id:'IN_MO_FOO_01_12', status:'ing',
+        id:'IN_MO_FOO_01_12', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-10/', worker:'김희경'
+        sDate:'2024-06-11', eDate:'2024-06-10/2024-06-11', worker:'김희경'
     }, {
         depth:['','사업자정보 확인','보안문자 입력',''],
-        id:'IN_MO_FOO_01_13', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        id:'IN_MO_FOO_01_13', status:'com',
+        type:'', note:'푸터 -> 사업자정보확인 클릭시 공정거래 페이지로 새창 이동 ',
+        sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }, {
         depth:['','','','사업자정보'],
-        id:'IN_MO_FOO_01_14', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        id:'IN_MO_FOO_01_14', status:'com',
+        type:'', note:'IN_MO_FOO_01_13 문자 입력 시, 공정거래 페이지로 변공 ',
+        sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }, {
         depth:['','약관 및 법적고지','',''],
         id:'IN_MO_FOO_01_15', status:'com',
