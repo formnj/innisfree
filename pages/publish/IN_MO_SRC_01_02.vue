@@ -151,7 +151,7 @@
         <div class="modal_container">
             <div class="modal_header">
                 <h2>필터</h2>
-                <button class="btn_close" @click="modal.close(this);">닫기</button>
+                <button class="btn_close" @click="modal.close(this);"><span>닫기</span></button>
             </div>
             <div class="modal_content">
               <p>혜택별</p>
