@@ -38,7 +38,7 @@
           <div class="info">
             <p class="tit">1개 구매 시 30%, 2개 구매 시 40%, 3개이상 구매 시 50%</p>
             <button type="button" class="btn_link_arrw">프로모션 제품 더보기</button>
-            <button type="button" class="btn_text_green">유의사항</button>
+            <button type="button" class="btn_text_green" @click="modal.open('modal_prom_noti', 'full')">유의사항</button>
           </div>
           <div class="noti">
             <p>N+% 제품은 같은 행사내 제품들과 교차구매가 가능합니다.</p>
@@ -64,15 +64,6 @@
         </div>
         <!-- //프로모션 -->
 
-        <!-- 판매중지 -->
-        <h3 class="list_tit">판매중지제품 <strong class="fc_red">※ 구매불가</strong></h3>
-        <ul class="cart_list">
-          <li v-for="(item, idx) in sample_goods.slice(5,6)" :key="idx">
-            <CartItem :item="item" />
-          </li>
-        </ul>
-        <!-- //판매중지 -->
-
         <!-- 추가구성품할인 -->
         <h3 class="list_tit">추가구성품할인</h3>
         <ul class="cart_list">
@@ -87,6 +78,32 @@
           </li>
         </ul>
         <!-- //추가구성품할인 -->
+
+        <!-- 첫구매전용, 체험단전용 -->
+        <ul class="cart_list">
+          <li v-for="(item, idx) in sample_goods.slice(8,10)" :key="idx">
+            <CartItem :item="item" />
+          </li>
+        </ul>
+        <!-- //추가구성품할인 -->
+
+        <!-- 샘플마켓 -->
+        <h3 class="list_tit">샘플마켓</h3>
+        <ul class="cart_list">
+          <li v-for="(item, idx) in sample_goods.slice(6,8)" :key="idx">
+            <CartItem :item="item" class="sample" />
+          </li>
+        </ul>
+        <!-- //샘플마켓 -->
+
+        <!-- 판매중지 -->
+        <h3 class="list_tit">판매중지제품 <strong class="fc_red">※ 구매불가</strong></h3>
+        <ul class="cart_list">
+          <li v-for="(item, idx) in sample_goods.slice(5,6)" :key="idx">
+            <CartItem :item="item" />
+          </li>
+        </ul>
+        <!-- //판매중지 -->
       </div>
       <!-- //cart list -->
 
@@ -118,13 +135,13 @@
         <dl>
           <dt>주문금액</dt>
           <dd>
-            <strong>103,200</strong>원
+            <strong>261,000</strong>원
           </dd>
         </dl>
         <dl class="desc">
           <dt>제품할인</dt>
           <dd>
-            <strong>0</strong>원
+            <strong>-61,000</strong>원
           </dd>
         </dl>
         <dl>
@@ -135,12 +152,12 @@
           <dl>
             <dt>결제예정금액</dt>
             <dd>
-              <strong>103,200</strong>원
+              <strong>200,000</strong>원
             </dd>
           </dl>
         </div>
       </div>
-      <Button class="btn_big confirm" txt="쇼핑하러 가기" />
+      <Button class="btn_big confirm" txt="주문하기" />
     </div>
   </div>
 
@@ -160,10 +177,38 @@
       </ul>
     </div>
   </div>
+
+  <ProductStockAlertModal /> <!-- 입고알림 신청 -->
+
+  <!-- 프로모션 유의사항 -->
+  <div id="modal_prom_noti" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_header">
+        <h2>프로모션 유의사항</h2>
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+      </div>
+      <div class="modal_content">
+        <!-- BO 텍스트입력 내용 출력, 개발시 아래 내용 삭제 -->
+        <p style="font-weight: bold;margin-bottom: 10px;">1. 최종 4만원 이상 결제 금액 기준(*할인 후 금액)</p>
+        <p>1. 로미 캠핑 의자 구입 금액 : 최종 결제 금액 4만원에 미포함</p>
+        <p>2. 쿠폰 사용 : 쿠폰 할인 금액 제외한 최종 결제 금액 기준 포함</p>
+        <p>3. 뷰티포인트 사용 : 최종 결제 금액에 포함</p>
+        <p>4. 1+1 및 할인 제품 : 할인 금액 제외하고 최종 결제 금액에 포함</p>
+        <p>5. 카드사/페이 제휴 : 제휴 할인 적용 전 금액 기준</p>
+        <!-- //BO 텍스트 입력 내용 출력 -->
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_big confirm" txt="확인" />
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //프로모션 유의사항 -->
 </template>
 
 <script setup>
 import { sample_goods } from '~/test/data/publish/dummyData'
+import { modal } from '~/assets/js/common-ui'
 definePageMeta({
   layout:'pc-default'
 });
@@ -207,6 +252,8 @@ definePageMeta({
   }
 
   .list_wrap {
+    border-bottom: 1px solid #eee;
+
     .allChk_wrap {
       padding-bottom: 20px;
       border-bottom: 2px solid #000;
@@ -215,8 +262,9 @@ definePageMeta({
     .cart_list {
       border-top: 0;
 
-      .no_data {
-        border-bottom: 1px solid #eee;
+      & + .cart_list {
+        margin-top: 40px;
+        border-top: 1px solid #000;
       }
     }
 
@@ -234,7 +282,7 @@ definePageMeta({
         padding-left: 10px;
         font-size: 12px;
         line-height: 16px;
-        vertical-align: top;
+        vertical-align: middle;
       }
     }
   }
@@ -439,5 +487,25 @@ definePageMeta({
 
 .fc_red {
   color: #ff0000;
+}
+
+
+.modal_wrap.full {
+  :deep(.modal_container) {
+    width: 540px;
+
+    .modal_content {
+      padding: 20px 30px 40px;
+      font-size: 16px;
+    }
+
+    .modal_footer {
+      padding: 0;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
 }
 </style>
