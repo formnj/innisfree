@@ -404,8 +404,13 @@ const sch_arry = ([
         type:'', note:'',
         sDate:'', eDate:'2024-10-18' , worker:''
     }, {
-        depth:['','','주문내역','반품신청'],
+        depth:['','','주문내역','반품신청 > 반품사유선택'],
         id:'IN_MO_MYP_01_18', status:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
+        sDate:'', eDate:'2024-11-06' , worker:''
+    }, {
+        depth:['','','주문내역','반품신청 > 반품제품선택'],
+        id:'IN_MO_MYP_02_12', status:'',
         type:'', note:'<span class="noti">mo_주문관리</span>',
         sDate:'', eDate:'2024-11-06' , worker:''
     }, {
