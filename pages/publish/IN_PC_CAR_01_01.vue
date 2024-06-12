@@ -7,7 +7,6 @@
         </div>
       </div>
 
-      <!-- cart list -->
       <div class="list_wrap">
         <div class="allChk_wrap">
           <Inputs _type="checkbox" _text="전체선택" isDisabled="true" />
@@ -30,10 +29,11 @@
 
       <!-- custom banner -->
       <div class="custom_banner">
-        <a href="#none" style="background-image:url('/_nuxt/public/images/sam/bg_cart_banner.png')">
+        <a href="#none">
+          <img src="/_nuxt/public/images/sam/bg_cart_banner.png" alt="">
           <div class="text">
-            <div class="t1" style="color:#333;">토스페이 전용카드로 혜택을</div>
-            <div class="t2" style="color:#333;">띄어쓰기 포함 14자 노출 결제일 캐시백!!</div>
+            <div class="t1" style="color:#fff;">토스페이 전용카드로 혜택을~</div>
+            <div class="t2" style="color:#fff;">5,000원 결제일 캐시백!!</div>
           </div>
         </a>
       </div>
@@ -410,20 +410,23 @@ definePageMeta({
 
   a {
     width: 100%;
-    height: 100px;
     display: block;
-    padding: 23px 0 0 200px;
+    position: relative;
 
     .text {
+      position: absolute;
+      left: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+
       .t1 {
-        line-height: 24px;
-        font-weight: 500;
+        font-size: 32px;
       }
 
       .t2 {
-        font-size: 18px;
+        padding-top: 10px;
+        font-size: 32px;
         font-weight: 600;
-        line-height: 28px;
       }
     }
   }
