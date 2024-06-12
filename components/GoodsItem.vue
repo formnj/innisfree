@@ -36,7 +36,7 @@
         <!-- //Hash -->
 
         <!-- 증정품 영역 : 특가 페이지에서만 노출 -->
-        <button v-if="useGiveaway && item.giveaway" class="giveaway" @click="modal.open(item.giveaway.modal_id, props.modal_type+' modal_giveaway');">
+        <button v-if="useGiveaway && item.giveaway" class="giveaway" @click="modal.open(item.giveaway.modal_id, props.modal_type+' modal_gift');">
           <template v-for="(item, idx) in item.giveaway.goods" :key="idx">
             <img :src="item.img">
           </template>

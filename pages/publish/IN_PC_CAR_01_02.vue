@@ -10,13 +10,13 @@
       <!-- cart list -->
       <div class="list_wrap">
         <div class="allChk_wrap">
-          <Inputs _type="checkbox" _text="전체선택" isDisabled="true" />
+          <Inputs _type="checkbox" _text="전체선택" />
           <div class="btnSection">
             <Button class="btn_min_outline" txt="선택삭제" />
           </div>
         </div>
 
-        <!-- no data -->
+        <!-- no data --
         <ul class="cart_list">
           <li>
             <p class="no_data">
@@ -25,8 +25,87 @@
             </p>
           </li>
         </ul>
-        <!-- //no data -->
+        -- //no data -->
+
+        <!-- 프로모션 -->
+        <h3 class="list_tit">[1+1] 깨끗하게 EASY! 클렌징 티슈 쟁여놓기 (6/1~6/30)</h3>
+        <ul class="cart_list">
+          <li v-for="(item, idx) in sample_goods.slice(0,4)" :key="idx">
+            <CartItem :item="item" />
+          </li>
+        </ul>
+        <div class="prom_box">
+          <div class="info">
+            <p class="tit">1개 구매 시 30%, 2개 구매 시 40%, 3개이상 구매 시 50%</p>
+            <button type="button" class="btn_link_arrw">프로모션 제품 더보기</button>
+            <button type="button" class="btn_text_green" @click="modal.open('modal_prom_noti', 'full')">유의사항</button>
+          </div>
+          <div class="noti">
+            <p>N+% 제품은 같은 행사내 제품들과 교차구매가 가능합니다.</p>
+          </div>
+        </div>
+
+        <div class="prom_box">
+          <div class="info">
+            <p class="tit">20개 구매 시 반값할인</p>
+            <button type="button" class="btn_link_arrw">프로모션 제품 더보기</button>
+            <button type="button" class="btn_text_green">유의사항</button>
+          </div>
+          <div class="noti">
+            <p>N+N 제품은 같은 행사내 제품들과 교차구매가 가능합니다.</p>
+          </div>
+        </div>
+
+        <div class="prom_box">
+          <div class="info">
+            <p class="tit">최종결제금액 40,000원 이상 결제시 6,900원에 구매가능</p>
+            <button type="button" class="btn_text_green">유의사항</button>
+          </div>
+        </div>
+        <!-- //프로모션 -->
+
+        <!-- 추가구성품할인 -->
+        <h3 class="list_tit">추가구성품할인</h3>
+        <ul class="cart_list">
+          <li v-for="(item, idx) in sample_goods.slice(1,2)" :key="idx">
+            <CartItem :item="item" />
+
+            <ul class="cart_list">
+              <li v-for="(item2, idx2) in sample_goods.slice(2,5)" :key="idx2">
+                <CartItem :item="item2" class="extra" />
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!-- //추가구성품할인 -->
+
+        <!-- 첫구매전용, 체험단전용 -->
+        <ul class="cart_list">
+          <li v-for="(item, idx) in sample_goods.slice(8,10)" :key="idx">
+            <CartItem :item="item" />
+          </li>
+        </ul>
+        <!-- //추가구성품할인 -->
+
+        <!-- 샘플마켓 -->
+        <h3 class="list_tit">샘플마켓</h3>
+        <ul class="cart_list">
+          <li v-for="(item, idx) in sample_goods.slice(6,8)" :key="idx">
+            <CartItem :item="item" class="sample" />
+          </li>
+        </ul>
+        <!-- //샘플마켓 -->
+
+        <!-- 판매중지 -->
+        <h3 class="list_tit">판매중지제품 <strong class="fc_red">※ 구매불가</strong></h3>
+        <ul class="cart_list">
+          <li v-for="(item, idx) in sample_goods.slice(5,6)" :key="idx">
+            <CartItem :item="item" />
+          </li>
+        </ul>
+        <!-- //판매중지 -->
       </div>
+      <!-- //cart list -->
 
       <!-- custom banner -->
       <div class="custom_banner">
@@ -56,13 +135,13 @@
         <dl>
           <dt>주문금액</dt>
           <dd>
-            <strong>0</strong>원
+            <strong>261,000</strong>원
           </dd>
         </dl>
         <dl class="desc">
           <dt>제품할인</dt>
           <dd>
-            <strong>0</strong>원
+            <strong>-61,000</strong>원
           </dd>
         </dl>
         <dl>
@@ -73,81 +152,42 @@
           <dl>
             <dt>결제예정금액</dt>
             <dd>
-              <strong>0</strong>원
+              <strong>200,000</strong>원
             </dd>
           </dl>
         </div>
       </div>
-      <Button class="btn_big confirm" txt="쇼핑하러 가기" />
+      <Button class="btn_big confirm" txt="주문하기" />
     </div>
   </div>
 
-  <div class="inner">
-    <div class="title_wrap">
-      <h3>이니스프리 혜택모음</h3>
-      <a href="IN_PC_HOM_01_04" class="btn_link_arrw">특가 혜택 더보기</a>
-    </div>
-    <div class="list_wrap">
-      <ul class="goods_list">
-        <li v-for="(item,idx) in sample_goods" :key="idx">
-          <GoodsItem :item="item" :link="item.link" :useGiveaway="true" />
-        </li>
-        <li v-for="(item,idx) in sample_goods.slice(0,8)" :key="idx">
-          <GoodsItem :item="item" :link="item.link" :useGiveaway="true" />
-        </li>
-      </ul>
-    </div>
-  </div>
+  <ProductStockAlertModal /> <!-- 입고알림 신청 -->
 
-
-  <!-- 증정품 모달 -->
-  <div id="modal_gift" class="modal_wrap">
+  <!-- 프로모션 유의사항 -->
+  <div id="modal_prom_noti" class="modal_wrap">
     <div class="modal_container">
-        <div class="modal_header">
-            <h2>증정품안내</h2>
-            <button class="btn_close" @click="modal.close(this);">닫기</button>
-        </div>
-        <div class="modal_content">
-          <div class="giveaway_list">
-            <dl>
-              <dt>
-                <img src="/_nuxt/public/images/sam/giveaway_01.png">
-              </dt>
-              <dd>
-                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
-                <em>24.3.25 ~ 24.3.31</em>
-                <span>1개 구매시 1개 증정</span>
-              </dd>
-            </dl>
-            <dl>
-              <dt>
-                <img src="/_nuxt/public/images/sam/giveaway_02.png">
-              </dt>
-              <dd>
-                <p>비타C 세럼 럭키 박스 (30ml + 랜덤기프트)</p>
-                <em>23.4.11</em>
-                <span>1개 구매시 n개 증정</span>
-              </dd>
-            </dl>
-            <dl>
-              <dt>
-                <img src="/_nuxt/public/images/sam/giveaway_03.png">
-              </dt>
-              <dd>
-                <p>레티놀 시카 앰플 포커싱 패치 1ea / 9patches</p>
-                <em>24.2.29 ~ 24.3.31</em>
-                <span>1개 구매시 n개 증정</span>
-              </dd>
-            </dl>
-          </div>
-        </div>
-        <div class="modal_footer">
-          <Button class="btn_big confirm" txt="확인" />
-        </div>
+      <div class="modal_header">
+        <h2>프로모션 유의사항</h2>
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+      </div>
+      <div class="modal_content">
+        <!-- BO 텍스트입력 내용 출력, 개발시 아래 내용 삭제 -->
+        <p style="font-weight: bold;margin-bottom: 10px;">1. 최종 4만원 이상 결제 금액 기준(*할인 후 금액)</p>
+        <p>1. 로미 캠핑 의자 구입 금액 : 최종 결제 금액 4만원에 미포함</p>
+        <p>2. 쿠폰 사용 : 쿠폰 할인 금액 제외한 최종 결제 금액 기준 포함</p>
+        <p>3. 뷰티포인트 사용 : 최종 결제 금액에 포함</p>
+        <p>4. 1+1 및 할인 제품 : 할인 금액 제외하고 최종 결제 금액에 포함</p>
+        <p>5. 카드사/페이 제휴 : 제휴 할인 적용 전 금액 기준</p>
+        <!-- //BO 텍스트 입력 내용 출력 -->
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_big confirm" txt="확인" />
+      </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
-  <!-- //증정품 모달 -->
+  <!-- //프로모션 유의사항 -->
+
 </template>
 
 <script setup>
@@ -433,62 +473,21 @@ definePageMeta({
   color: #ff0000;
 }
 
-.modal_wrap {
-  &.modal_gift {
-    .modal_container {
-      width: 500px;
 
-      .modal_content {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
+.modal_wrap.full {
+  :deep(.modal_container) {
+    width: 540px;
 
-        dl {
-          border: 1px solid #F5F5F5;
-          display: flex;
-          gap: 16px;
+    .modal_content {
+      padding: 20px 30px 40px;
+      font-size: 16px;
+    }
 
-          dt {
-            width: 100px;
-            height: 133px;
-            background: #eee;
-          }
+    .modal_footer {
+      padding: 0;
 
-          dd {
-            padding: 18px 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            div {
-              p {
-                margin-bottom: 5px;
-                font-size: 14px;
-                font-weight: 400;
-              }
-
-              em {
-                color: #666;
-                font-size: 12px;
-                font-weight: 300;
-              }
-            }
-
-            span {
-              font-size: 14px;
-              font-weight: 400;
-            }
-
-          }
-        }
-      }
-
-      .modal_footer {
-        padding: 0;
-
-        button {
-          width: 100%;
-        }
+      button {
+        width: 100%;
       }
     }
   }
