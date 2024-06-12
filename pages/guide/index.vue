@@ -219,7 +219,7 @@ const sch_arry = ([
         type:'', note:'<span class="noti">mo_주문서</span>',
         sDate:'', eDate:'' , worker:''
     }, {
-        depth:['','마이페이지','멤버십',''],
+        depth:['','마이페이지','멤버십','멤버십혜택안내'],
         id:'IN_MO_MYP_01_04', status:'',
         type:'', note:'<span class="noti">mo_마이페이지</span>',
         sDate:'', eDate:'2024-08-13' , worker:''
@@ -229,19 +229,19 @@ const sch_arry = ([
         type:'', note:'<span class="noti">mo_마이샵관리,임직원인증,고객센터</span>',
         sDate:'', eDate:'2024-08-13' , worker:''
     }, {
-        depth:['','마이페이지','멤버십','뷰티포인트안내'],
+        depth:['','마이페이지','멤버십','뷰티포인트안내 > 뷰티포인트'],
         id:'IN_MO_MYP_01_05', status:'',
-        type:'', note:'',
+        type:'', note:'<span class="noti">mo_마이페이지</span>',
         sDate:'', eDate:'2024-08-16' , worker:''
     }, {
-        depth:['','','','VIP등급안내'],
+        depth:['','','','뷰티포인트안내 > VIP등급안내'],
         id:'IN_MO_MYP_01_06', status:'',
-        type:'', note:'',
+        type:'', note:'<span class="noti">mo_마이페이지</span>',
         sDate:'', eDate:'2024-08-16' , worker:''
     }, {
         depth:['','','','모바일앱다운로드'],
         id:'IN_MO_MYP_01_07', status:'',
-        type:'', note:'',
+        type:'', note:'<span class="noti">mo_마이페이지</span>',
         sDate:'', eDate:'2024-08-16' , worker:''
     }, {
         depth:['','','뷰티포인트',''],
@@ -249,14 +249,19 @@ const sch_arry = ([
         type:'', note:'',
         sDate:'', eDate:'2024-08-16' , worker:''
     }, {
-        depth:['','마이페이지','주문내역','교환신청'],
-        id:'', status:'',
-        type:'', note:'',
+        depth:['','마이페이지','주문내역','교환신청 > 교환사유선택'],
+        id:'IN_MO_MYP_01_17', status:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
+        sDate:'', eDate:'2024-08-16' , worker:''
+    }, {
+        depth:['','','','교환신청 > 교환제품선택'],
+        id:'IN_MO_MYP_02_15', status:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
         sDate:'', eDate:'2024-08-16' , worker:''
     }, {
         depth:['','','','교환신청 완료'],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_MYP_02_16', status:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
         sDate:'', eDate:'2024-08-16' , worker:''
     }, {
         depth:['','고객센터','FAQ',''],
