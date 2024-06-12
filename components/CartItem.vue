@@ -12,7 +12,12 @@
           <span>{{ item.cartTag }}</span>
         </div>
         <a class="name" href="#none"><strong>{{ item.cate }}</strong> {{ item.name }}</a>
-        <button v-if="item.status && item.status == 'sold_out'" type="button" class="btn_text_green">입고알림신청</button>
+        <p v-if="item.hasNoti" class="fc_red">{{ item.hasNoti }}</p>
+        <div v-if="item.gift || item.optionalGift" class="tag gift">
+          <span v-if="item.gift">증정품</span>
+          <span v-if="item.optionalGift">선택 증정품</span>
+        </div>
+        <button v-if="item.status && item.status == 'sold_out'" type="button" class="btn_text_green" @click="modal.open('modal_stock_alert','full modal_stock_alert')">입고알림신청</button>
         <ProdSelectbox
           v-if="item.hasOption"
           _placeholder="옵션을 선택해주세요"
@@ -23,17 +28,20 @@
           ]"
         />
       </div>
-      <div v-if="!item.status || !item.status == 'sold_out'"  class="prod_price">
-        <Quantity v-if="!item.hasOption" _id="Quantity" quantity="1" />
-        <div class="price_wrap">
+      <div v-if="!item.status || !item.status == 'sold_out'" class="prod_price">
+        <div class="quantity_area">
+          <Quantity v-if="!item.hasOption" _id="Quantity" quantity="1" />
+          <span v-if="item.isLimited" :class="item.isLimited.over ? 'err' : '' ">최대선택{{ item.isLimited.limit }}개까지</span> <!-- 최대선택 갯수 넘을 경우 err 클래스 추가-->
+        </div>
+        <div v-if="!item.isSample" class="price_wrap">
           <span class="cost">{{ item.cost }}원</span>
           <span class="price">{{ item.price }}원</span>
         </div>
       </div>
-      <span v-if="item.status && item.status == 'sold_out'" class="fc_red"><strong>일시품절</strong></span>
-      <span v-if="item.status && item.status == 'end'" class="fc_red"><strong>판매중지</strong></span>
-      <Icons class="del" />
+      <span v-if="item.status && item.status == 'sold_out'">일시품절</span> <!-- 상태 : 일시품절, 판매중지, 출시예정 -->
+      <Icons v-if="item.delete || item.delete === undefined" class="del" />
     </div>
+    
     <ul v-if="item.hasOption" class="selected_list">
       <li v-for="(item, idx) in sample_prod_selected_list.slice(0,3)" :key="idx">
         <span class="name">{{ item.name}}</span>
@@ -48,10 +56,12 @@
         <button type="button" class="btn_del">옵션 삭제</button>
       </li>
     </ul>
+    <!-- //선택된 옵션 리스트 -->
   </div>
 </template>
 
 <script setup>
+import { modal } from '~/assets/js/common-ui'
 import { sample_prod_selected_list } from '~/test/data/publish/dummyData'
 const props = defineProps({
     item: {},
@@ -61,6 +71,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 .cart_item {
   padding: 20px 0;
+
   .row {
     padding-right: 34px;
     display:flex;
@@ -142,16 +153,38 @@ const props = defineProps({
           background-color: #00bc70;
           display: inline-block;
         }
+
+        &.gift {
+          margin-top: 15px;
+
+          span {
+            padding: 7px 20px;
+            position: relative;
+
+            &:before {
+              content: '';
+              width: 0;
+              height: 0;
+              border-top: 10px solid #00bc70;
+              border-bottom: 10px solid transparent;
+              border-right: 10px solid #00bc70;
+              border-left: 10px solid transparent;
+              position: absolute;
+              left: -9px;
+              top: 8px;
+            }
+          }
+        }
       }
 
       .name {
         font-size: 16px;
         line-height: 20px;
         display: block;
-      }
 
-      .btn_text_green {
-        margin-top: 10px;
+        & + * {
+          margin-top: 10px;
+        }
       }
 
       .select {
@@ -160,7 +193,7 @@ const props = defineProps({
       }
 
       .prod_select {
-        width: 200px;
+        width: 430px;
         margin-top: 20px;
       }
     }
@@ -168,6 +201,21 @@ const props = defineProps({
     .prod_price {
       display: flex;
       gap: 10px;
+
+      .quantity_area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        & > span {
+          color: #999;
+
+          &.err {
+            color: #EB5B54;
+          }
+        }
+      }
 
       .count_wrap {
         width:122px;
@@ -203,6 +251,12 @@ const props = defineProps({
       position: absolute;
       top: 0;
       right: 0;
+      z-index: 2;
+
+      &:before, &:after {
+        width: 16px;
+        border-color: #888;
+      }
     }
   }
 
@@ -257,6 +311,49 @@ const props = defineProps({
       }
     }
   }
-}
 
+  &.sample {
+    .row {
+      .prod_img {
+        height: 90px;
+        display: flex;
+        gap: 10px;
+
+        .input_wrap {
+          position: relative;
+        }
+
+        .thumb {
+          flex-shrink: 0;
+          width: 68px;
+        }
+      }
+
+      .prod_info {
+        height: auto;
+      }
+
+      .prod_price {
+        .count_wrap {
+          width:100px;
+          height: 30px;
+
+          :deep(input),
+          :deep(button) {
+            height: 28px;
+          }
+
+          :deep(input) {
+            font-size: 13px;
+          }
+        }
+      }
+
+      .del {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
 </style>
