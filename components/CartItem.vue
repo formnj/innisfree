@@ -39,7 +39,7 @@
         </div>
       </div>
       <span v-if="item.status && item.status == 'sold_out'">일시품절</span> <!-- 상태 : 일시품절, 판매중지, 출시예정 -->
-      <Icons v-if="item.delete || item.delete === undefined" class="del" />
+      <Icons class="del" />
     </div>
     
     <ul v-if="item.hasOption" class="selected_list">
