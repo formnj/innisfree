@@ -3,6 +3,52 @@
  * 테스트 용도이므로 TS 불필요
  * jjy11@amorepacific.com
  */
+
+export const about_greentea_03 = [
+  {
+    img: ("https://images.innisfree.co.kr/resources/mobile2/images/about/230228/greenTeaHeritage_bg01.png"),
+    txt: '그린티 씨드<br> 히알루론산 세럼',
+    url: ("https://www.innisfree.com/kr/ko/mProductView.do?prdSeq=34116")
+  },
+  {
+    img: ("https://images.innisfree.co.kr/resources/mobile2/images/about/230228/greenTeaHeritage_bg02.png"),
+    txt: '그린티 씨드<br>히알루론산 크림',
+    url: ("https://www.innisfree.com/kr/ko/mProductView.do?prdSeq=34510")
+  },
+  {
+    img: ("https://images.innisfree.co.kr/resources/mobile2/images/about/230228/greenTeaHeritage_bg03.png"),
+    txt: `비타C 그린티 엔자임<br>잡티 토닝 세럼`,
+    url: ("https://www.innisfree.com/kr/ko/mProductView.do?prdSeq=34116")
+  },
+  {
+    img: ("https://images.innisfree.co.kr/resources/mobile2/images/about/230228/greenTeaHeritage_bg08.png"),
+    txt: '콜라겐 그린티 세라마이드<br>탄력장벽 크림',
+    url: ("https://www.innisfree.com/kr/ko/mProductView.do?prdSeq=36831")
+  },
+
+]
+
+
+export const about_greentea_02 = [
+  {img: ("/_nuxt/public/images/sam/greenTeaHeritage_slide01.png")},
+  {img: ("/_nuxt/public/images/sam/greenTeaHeritage_slide02.png")},
+  {img: ("/_nuxt/public/images/sam/greenTeaHeritage_slide03.png")},
+  {img: ("/_nuxt/public/images/sam/greenTeaHeritage_slide04.png")},
+  {img: ("/_nuxt/public/images/sam/greenTeaHeritage_slide05.png")},
+  {img: ("/_nuxt/public/images/sam/greenTeaHeritage_slide06.png")},
+]
+export const about_greentea_01 = [
+  {img: ("/_nuxt/public/images/sam/green_slide01.png")},
+  {img: ("/_nuxt/public/images/sam/green_slide02.png")},
+  {img: ("/_nuxt/public/images/sam/green_slide03.png")},
+  {img: ("/_nuxt/public/images/sam/green_slide04.png")},
+  {img: ("/_nuxt/public/images/sam/green_slide05.png")},
+  {img: ("/_nuxt/public/images/sam/green_slide01.png")},
+  {img: ("/_nuxt/public/images/sam/green_slide02.png")},
+
+]
+
+
 export const public_ann = [
   {
    title:'이니스프리 2023년도 재무상태표',

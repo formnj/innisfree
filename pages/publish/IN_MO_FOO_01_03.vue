@@ -1,11 +1,115 @@
 <template>
   <div class="inner">
     <Tabs tabType="type_01" :item="[{txt:'Brand Story'},{txt:'Green Tea Heritage'},{txt:'Better For Earth'}]"  :tabidx="0" />
-    <section class="current">
+    <section>
       <dl>
-        <dt><img src="/_nuxt/public/images/sam/brandStory_bg0101.png" alt=""></dt>
-        <dd></dd>
+        <dt><img src="/_nuxt/public/images/sam/brandStory_bg0301.png" alt=""></dt>
+        <dd>
+          <h2>
+            with INNISFREE<br>Better for Us and <br>Earth
+          </h2>
+          <p>
+            이니스프리는 함께 살아가는 우리 모두와<br>지구를 위한 선택과 실천을 제안합니다. <br>이니스프리와 함께할 수 있는 즐거운 실천들과<br>그 동안 모두와 함께 만들어 온 아름다운 발자취를<br>지금 바로 확인해보세요.
+          </p>
+        </dd>
       </dl>
+      <ul>
+        <li class="img_full"></li>
+        <li>
+          <strong>
+            Sustainable Green Beauty
+          </strong>
+          <p>
+            <span>이니스프리는 제품을 개발하는 초기 단계부터 <br>제품의 내용물과 패키지의 환경 영향력에 대해 <br>고민하고 연구합니다. </span>
+            <span>오늘보다 더 나은 내일을 위해 <br>지구에 이로운 방향으로 제품을 개발하겠습니다.</span>
+          </p>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <div>
+            <span>Better for Us and Earth</span>
+            <span>Better for Us and Earth</span>
+          </div>
+          <span>
+            <img src="/_nuxt/public/images/sam/brandStory_bg0303.png" alt="">
+          </span>
+        </li>
+        <li>
+          <strong>
+            Vegan
+          </strong>
+          <p>
+            <span>
+              제품의 내용물에 불필요한 동물성 원료를<br>
+              처방하지 않는 비건 제품을 점차 확대해 나가겠습니다.
+            </span>
+          </p>
+          <Button class="btn_sm_outline" txt="비건 제품 확인하기" />
+        </li>
+      </ul>
+      <ul>
+        <li class='both_side'>
+          <span>
+            <img src="/_nuxt/public/images/sam/brandStory_bg0305.png" alt="">
+          </span>
+        </li>
+        <li>
+          <strong>
+            Less Plastic
+          </strong>
+          <p>
+            <span>
+              분리배출이 용이한 단일 소재(PP메탈 프리 펌프 등)를<br>
+              사용한 제품을 늘려나가고,<br>
+              버려진 플라스틱과 유리를 재가공하여 만든 재생 원료를<br>
+              제품 용기와 캡에 적용하는 비율을 높여 나가겠습니다.
+            </span>
+            <span>
+              또한, 리필 가능한 용기를 사용하는 제품을 개발하여<br>
+              Less Plastic을 실천해 나가겠습니다.
+            </span>
+          </p>
+        </li>
+      </ul>
+
+      <ul>
+        <li class="both_side">
+          <em class="icon_1">
+            이니스프리의 대표<br>친환경 캠페인, 공병수거
+          </em>
+          <p>
+            화장품 용기가 환경에 미치는 영향을 줄이기 위해<br>
+            다 쓴 화장품 용기를 수거해 재활용하고, <br>
+            동참해 준 고객에게 베네핏으로 돌려주는 캠페인에<br>
+            함께해 보세요.
+            <Button class="btn_ confirm" txt="공병수거에 대해 더 알고 싶다면?" />
+          </p>
+        </li>
+      </ul>
+
+      <ul>
+        <li class="both_side">
+          <em class="icon_2">
+            Better Together,<br>Green Together
+          </em>
+          <p>
+            이니스프리는 기후 변화에 대응하기 위해 국내 외<br>
+            다양한 활동을 지원하고 실천하고 있습니다.
+          </p>
+        </li>
+      </ul>
+
+
+      <div class="link_box">
+        <a class="list01" @click="$router.push('/publish/IN_MO_FOO_01_01')">
+          <span>Brand Story</span>
+        </a>
+        <a class="list02" @click="$router.push('/publish/IN_MO_FOO_01_02')">
+          <span>The Origin<br>Green Tea Heritage</span>
+        </a>
+      </div>
     </section>
   </div>
 
@@ -23,6 +127,14 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
       default: '#none'
   }
 });
+
+import {
+  about_greentea_01, about_greentea_02, about_greentea_03
+
+} from '~/test/data/publish/dummyData'
+
+
+
 
 const emit = defineEmits(['title']);
 
@@ -55,9 +167,197 @@ onMounted(() => {
 section {
   margin-left:-2.1rem;
   margin-right:-2.1rem;
-  display:none;
-  &.current {
-    display:block;
+  > dl {
+    margin-bottom:10rem;
+    dd {
+      margin-top:-3.5rem;
+      margin-left:4rem;
+      h2 {
+        font-size:3.2rem;
+        font-weight:700;
+        line-height:3.6rem;
+      }
+      p {
+        margin:1.5rem 0 0 0;
+        padding:0 0 8rem;
+        font-size:1.6rem;
+        font-weight:500;
+        line-height:2.4rem;
+      }
+    }
+    &::after {
+      content:'';
+      width:4rem;
+      height:4rem;
+      margin-left:4rem;
+      background-image:url('~/assets/mo_images/common/icon_split.png');
+      background-position:-5.7rem -35rem;
+      background-repeat:no-repeat;
+      background-size:25rem auto;
+      display:block;
+    }
+  }
+  > ul {
+    margin-bottom:10rem;
+    position:relative;
+    li {
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      &.img_full {
+        height:18.8rem;
+        margin-left:-2.1rem;
+        margin-right:-2.1rem;
+        margin-bottom:3rem;
+        background:#F2F2F2 url('/_nuxt/public/images/sam/brandStory_bg0302.png') no-repeat center center;
+        background-size:8.9rem 7.9rem;
+        display:block;
+
+      }
+      img {
+        margin-bottom:3rem;
+      }
+      strong {
+        margin-left:4rem;
+        font-size:1.8rem;
+        font-weight:600;
+        line-height:2.4rem;
+      }
+      > span {
+        margin-left:4rem;
+      }
+      p {
+        margin-left:4rem;
+        display:flex;
+        flex-direction:column;
+        > * {
+          margin-top:1rem;
+        }
+        > * + * {
+          margin-top:0.5rem;
+        }
+          span {
+          color:#666;
+          font-size:1.4rem;
+          font-weight:500;
+          line-height:2.2rem;
+        }
+      }
+      .btn_sm_outline{
+          width:9.1rem;
+          margin-left:4rem;
+          margin-top:2rem;
+          :deep(em) {
+            padding:0;
+            font-size:1.0rem;
+            font-weight:600;
+
+          }
+        }
+      > div {
+        height:7rem;
+        margin-bottom:-1.5rem;
+        margin-left:-4rem;
+        white-space:nowrap;
+        overflow:hidden;
+        span {
+          color:#F5F5F5;
+          font-weight:700;
+          font-size:5.6rem;
+          line-height:7rem;
+          white-space:nowrap;
+          animation:movebg 10s linear infinite;
+          display:inline-block;
+        }
+      }
+      &.both_side {
+        margin:0 4rem;
+        strong {
+          margin-left:0;
+        }
+        span {
+          margin-left:0;
+        }
+        p {
+          margin-left:0;
+          font-weight:500;
+          line-height:2.2rem;
+          > .btn_ {
+            margin-top:3rem;
+          }
+        }
+        em {
+          margin-bottom:1rem;
+          font-size:2rem;
+          font-weight:600;
+          &::before {
+            content:'';
+            width:5rem;
+            height:5rem;
+            margin-bottom:2rem;
+            background:url('~/assets/mo_images/common/about_icon.png') no-repeat 0rem 0rem / 30rem auto;
+            display:block;
+          }
+          &.icon_2 {
+            &::before {
+              background-position: -5.3rem 0rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.link_box {
+  margin-top:10rem;
+  > * + * {
+    margin-top:0.3rem;
+  }
+  a {
+    height:15rem;
+    padding:0 2.1rem;
+    color:#fff;
+    font-size:1.6rem;
+    font-weight:600;
+    line-height:2rem;
+    display:flex;
+    align-items:center;
+    position:relative;
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: #000000;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0.25;
+    }
+    &.list01 {
+      background:url('/_nuxt/public/images/sam/bg_page01.png') no-repeat center top / 100% auto;
+    }
+    &.list02 {
+      background:url('/_nuxt/public/images/sam/bg_page02.png') no-repeat center top / 100% auto;
+    }
+    span {
+      position:relative;
+      z-index:1;
+    }
+  }
+}
+
+:deep(footer) {
+  margin-top:10px !important;
+}
+
+@keyframes movebg {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
 
