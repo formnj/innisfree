@@ -1,6 +1,6 @@
 <template>
   <div class="count_wrap">
-    <Button class="btn_dec" txt="-" @click="decrease" />
+    <Button class="btn_dec" txt="-" @click="decrease" />  <!-- 클릭 불가일 경우 disabled 속성 추가 -->
     <Inputs :_id="_id" :_value="quantity" />
     <Button class="btn_inc" txt="+" @click="increase" />
   </div>
@@ -35,7 +35,17 @@
   :deep(button) {
     width:45px;
     background-color:#fff;
+
+    &:disabled {
+      background-color:#fff;
+
+      em {
+        color: #ddd;
+      }
+    }
+
     em {
+      font-size: 20px;
       padding:0;
       color:#000;
     }

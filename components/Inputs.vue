@@ -1,7 +1,7 @@
 <template>
   <div class="input_wrap" :class="{err:isError}">
     <label v-if="_type == 'checkbox' || _type == 'radio'" :class="{'check': !isswitch, 'check_ani': isswitch}">
-        <input :type="_type" :id="_id" :name="_name" />
+        <input :type="_type" :id="_id" :name="_name" :disabled="isDisabled"/>
         <em class="label">{{_text}}</em>
     </label>
     <div v-else class="label_wrap">
@@ -177,6 +177,7 @@
     }
     input[type='checkbox']:disabled, input[type='checkbox']:disabled + .label:before {
       background-color:#f5f5f5;
+      cursor: default;
     }
   }
   .check_ani {
