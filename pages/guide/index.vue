@@ -87,27 +87,27 @@ const sch_arry = ([
         depth:['MO','헤더','',''],
         id:'', status:'',
         type:'component', note:'',
-        sDate:'', eDate:'2024-06-14' , worker:''
+        sDate:'', eDate:'2024-06-14' , worker:'형민우'
     },{
         depth:['','푸터','',''],
         id:'', status:'',
         type:'component', note:'',
-        sDate:'', eDate:'2024-06-14' , worker:''
+        sDate:'', eDate:'2024-06-14' , worker:'김희경'
     }, {
         depth:['','메인','',''],
-        id:'IN_MO_HOM_01_01', status:'',
+        id:'IN_MO_HOM_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'' , worker:''
+        sDate:'', eDate:' / 2024-06-11' , worker:'이종환'
     }, {
         depth:['','장바구니','상품없음',''],
         id:'IN_MO_CAR_01_01', status:'',
         type:'', note:'상품없음에/있음 한페이지로 통합',
-        sDate:'', eDate:'2024-07-05' , worker:''
+        sDate:'', eDate:'2024-07-05' , worker:'김나람'
     }, {
         depth:['','장바구니','상품있음',''],
         id:'IN_MO_CAR_01_02', status:'',
         type:'', note:'',
-        sDate:'', eDate:'' , worker:''
+        sDate:'', eDate:'' , worker:'김나람'
     }, {
         depth:['','마이페이지','로그인전',''],
         id:'IN_MO_MYP_01_01', status:'',
@@ -115,17 +115,17 @@ const sch_arry = ([
         sDate:'', eDate:'2024-07-12' , worker:''
     }, {
         depth:['','메인','',''],
-        id:'', status:'',
-        type:'', note:'베너전체보기, 전체보기',
-        sDate:'', eDate:'2024-07-12' , worker:''
+        id:'', status:'com',
+        type:'', note:'IN_MO_HOM_01_01에 베너전체보기, 전체보기 포함',
+        sDate:'', eDate:'2024-07-12 / 2024-06-11' , worker:'이종환'
     }, {
         depth:['','마이페이지','주문내역','주문내역'],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_MYP_01_08', status:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
         sDate:'', eDate:'2024-07-19' , worker:''
     }, {
         depth:['','','','주문취소'],
-        id:'', status:'',
+        id:'IN_MO_MYP_01_16', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-07-26' , worker:''
     }, {
@@ -135,33 +135,38 @@ const sch_arry = ([
         sDate:'', eDate:'2024-07-26' , worker:''
     }, {
         depth:['','마이페이지','메인','로그인후'],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_MYP_01_02', status:'',
+        type:'', note:'<span class="noti">mo_마이페이지(메인)</span>',
         sDate:'', eDate:'2024-08-02' , worker:''
     }, {
         depth:['','주문내역','주문상세(온라인)',''],
         id:'IN_MO_MYP_01_11', status:'',
-        type:'', note:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
         sDate:'', eDate:'2024-08-02' , worker:''
     }, {
         depth:['','','주문상세(오프라인)',''],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_MYP_02_03', status:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
         sDate:'', eDate:'2024-08-02' , worker:''
     }, {
         depth:['','','현금영수증발급',''],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_MYP_02_08', status:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
+        sDate:'', eDate:'2024-08-02' , worker:''
+    }, {
+        depth:['','','현금영수증발급 완료',''],
+        id:'IN_MO_MYP_02_09', status:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
         sDate:'', eDate:'2024-08-02' , worker:''
     }, {
         depth:['','','현금영수증조회',''],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_MYP_02_10', status:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
         sDate:'', eDate:'2024-08-02' , worker:''
     }, {
         depth:['','뷰티포인트 바코드','',''],
         id:'IN_MO_MYP_01_03', status:'',
-        type:'modal', note:'',
+        type:'modal', note:'<span class="noti">mo_마이페이지(메인)</span>',
         sDate:'', eDate:'2024-08-07' , worker:''
     }, {
         depth:['','주문서','주문서',''],
@@ -170,8 +175,8 @@ const sch_arry = ([
         sDate:'', eDate:'2024-08-09' , worker:''
     }, {
         depth:['','','배송지등록/변경',''],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_ORD_01_02', status:'',
+        type:'', note:'<span class="noti">mo_주문서</span>',
         sDate:'', eDate:'2024-08-09' , worker:''
     }, {
         depth:['','','배송지정보',''],
@@ -185,58 +190,58 @@ const sch_arry = ([
         sDate:'', eDate:'2024-08-09' , worker:''
     }, {
         depth:['','','편의점검색',''],
-        id:'', status:'',
-        type:'', note:'CU/GS',
+        id:'IN_MO_ORD_01_05', status:'',
+        type:'modal', note:'<span class="noti">mo_주문서</span><br/> CU/GS',
         sDate:'', eDate:'' , worker:''
     }, {
         depth:['','','안심번호서비스안내',''],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_ORD_01_08', status:'',
+        type:'modal', note:'<span class="noti">mo_주문서</span',
         sDate:'', eDate:'2024-08-09' , worker:''
     }, {
         depth:['','','배송포장제안내',''],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_ORD_01_09', status:'',
+        type:'modal', note:'<span class="noti">mo_주문서</span>',
         sDate:'', eDate:'2024-08-09' , worker:''
     }, {
         depth:['','','뷰티포인트혜택안내',''],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_ORD_01_11', status:'',
+        type:'modal', note:'<span class="noti">mo_주문서</span>',
         sDate:'', eDate:'2024-08-09' , worker:''
     }, {
         depth:['','','주문완료',''],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_ORD_01_30', status:'',
+        type:'', note:'<span class="noti">mo_주문서</span>',
         sDate:'', eDate:'' , worker:''
     }, {
         depth:['','','주문실패',''],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_ORD_01_31', status:'',
+        type:'', note:'<span class="noti">mo_주문서</span>',
         sDate:'', eDate:'' , worker:''
     }, {
-        depth:['','마이페이지','멤버십',''],
+        depth:['','마이페이지','멤버십','멤버십혜택안내'],
         id:'IN_MO_MYP_01_04', status:'',
-        type:'', note:'',
+        type:'', note:'<span class="noti">mo_마이페이지</span>',
         sDate:'', eDate:'2024-08-13' , worker:''
     }, {
         depth:['','고객센터','',''],
         id:'IN_MO_MYP_01_90', status:'',
-        type:'', note:'',
+        type:'', note:'<span class="noti">mo_마이샵관리,임직원인증,고객센터</span>',
         sDate:'', eDate:'2024-08-13' , worker:''
     }, {
-        depth:['','마이페이지','멤버십','뷰티포인트안내'],
+        depth:['','마이페이지','멤버십','뷰티포인트안내 > 뷰티포인트'],
         id:'IN_MO_MYP_01_05', status:'',
-        type:'', note:'',
+        type:'', note:'<span class="noti">mo_마이페이지</span>',
         sDate:'', eDate:'2024-08-16' , worker:''
     }, {
-        depth:['','','','VIP등급안내'],
+        depth:['','','','뷰티포인트안내 > VIP등급안내'],
         id:'IN_MO_MYP_01_06', status:'',
-        type:'', note:'',
+        type:'', note:'<span class="noti">mo_마이페이지</span>',
         sDate:'', eDate:'2024-08-16' , worker:''
     }, {
         depth:['','','','모바일앱다운로드'],
         id:'IN_MO_MYP_01_07', status:'',
-        type:'', note:'',
+        type:'', note:'<span class="noti">mo_마이페이지</span>',
         sDate:'', eDate:'2024-08-16' , worker:''
     }, {
         depth:['','','뷰티포인트',''],
@@ -244,14 +249,19 @@ const sch_arry = ([
         type:'', note:'',
         sDate:'', eDate:'2024-08-16' , worker:''
     }, {
-        depth:['','마이페이지','주문내역','교환신청'],
-        id:'', status:'',
-        type:'', note:'',
+        depth:['','마이페이지','주문내역','교환신청 > 교환사유선택'],
+        id:'IN_MO_MYP_01_17', status:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
+        sDate:'', eDate:'2024-08-16' , worker:''
+    }, {
+        depth:['','','','교환신청 > 교환제품선택'],
+        id:'IN_MO_MYP_02_15', status:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
         sDate:'', eDate:'2024-08-16' , worker:''
     }, {
         depth:['','','','교환신청 완료'],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_MYP_02_16', status:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
         sDate:'', eDate:'2024-08-16' , worker:''
     }, {
         depth:['','고객센터','FAQ',''],
@@ -340,8 +350,8 @@ const sch_arry = ([
         sDate:'', eDate:'2024-10-02' , worker:''
     }, {
         depth:['','','','군부대배송안내'],
-        id:'', status:'',
-        type:'modal', note:'',
+        id:'IN_MO_MYP_01_63', status:'',
+        type:'modal', note:'<span class="noti">mo_주문서</span>',
         sDate:'', eDate:'2024-10-02' , worker:''
     }, {
         depth:['','','','개인정보수집동의'],
@@ -355,23 +365,18 @@ const sch_arry = ([
         sDate:'', eDate:'2024-10-02' , worker:''
     }, {
         depth:['','마이페이지','마이샵관리','마이샵관리'],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_MYP_01_85', status:'',
+        type:'', note:'<span class="noti">mo_마이샵관리,임직원인증,고객센터</span>',
         sDate:'', eDate:'2024-10-04' , worker:''
     }, {
         depth:['','','','마이샵등록하기'],
-        id:'', status:'',
-        type:'modal', note:'',
+        id:'IN_MO_MYP_01_86', status:'',
+        type:'modal', note:'<span class="noti">mo_마이샵관리,임직원인증,고객센터</span>',
         sDate:'', eDate:'2024-10-10' , worker:''
     }, {
         depth:['','','임직원인증관리',''],
-        id:'', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'2024-10-15' , worker:''
-    }, {
-        depth:['','','쿠폰존',''],
-        id:'', status:'',
-        type:'', note:'',
+        id:'IN_MO_MYP_01_28', status:'',
+        type:'', note:'<span class="noti">mo_마이샵관리,임직원인증,고객센터</span><br/> 프로세스 변경으로 SB확인 필요',
         sDate:'', eDate:'2024-10-15' , worker:''
     }, {
         depth:['','','','매장용쿠폰인증'],
@@ -380,18 +385,33 @@ const sch_arry = ([
         sDate:'', eDate:'2024-10-18' , worker:''
     }, {
         depth:['','','찜한제품',''],
-        id:'', status:'',
+        id:'IN_MO_MYP_01_40', status:'',
+        type:'', note:'<span class="noti">mo_마이페이지</span>',
+        sDate:'', eDate:'2024-10-18' , worker:''
+    }, {
+        depth:['','','쿠폰존','다운로드 가능 쿠폰'],
+        id:'IN_MO_MYP_01_32', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-15' , worker:''
+    }, {
+        depth:['','','','보유 쿠폰'],
+        id:'IN_MO_MYP_01_35', status:'',
+        type:'', note:'',
+        sDate:'', eDate:'2024-10-15' , worker:''
+    }, {
+        depth:['','','','쿠폰상세'],
+        id:'IN_MO_MYP_01_36', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-10-18' , worker:''
     }, {
-        depth:['','','쿠폰존','쿠폰상세'],
-        id:'', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'2024-10-18' , worker:''
-    }, {
-        depth:['','','주문내역','반품신청'],
+        depth:['','','주문내역','반품신청 > 반품사유선택'],
         id:'IN_MO_MYP_01_18', status:'',
-        type:'', note:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
+        sDate:'', eDate:'2024-11-06' , worker:''
+    }, {
+        depth:['','','주문내역','반품신청 > 반품제품선택'],
+        id:'IN_MO_MYP_02_12', status:'',
+        type:'', note:'<span class="noti">mo_주문관리</span>',
         sDate:'', eDate:'2024-11-06' , worker:''
     }, {
         depth:['','','','반품신청완료'],
@@ -477,22 +497,22 @@ const sch_arry = ([
         depth:['PC','헤더','',''],
         id:'', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-14' , worker:''
+        sDate:'', eDate:'2024-06-14' , worker:'형민우'
     }, {
         depth:['','푸터','',''],
         id:'', status:'',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-14' , worker:''
+        sDate:'', eDate:'2024-06-14' , worker:'김희경'
     }, {
         depth:['','장바구니','상품없음',''],
         id:'', status:'',
         type:'', note:'상품없음에/있음 한페이지로 통합',
-        sDate:'', eDate:'2024-06-21' , worker:''
+        sDate:'', eDate:'2024-06-21' , worker:'김나람'
     }, {
         depth:['','','상품있음',''],
         id:'', status:'',
         type:'', note:'',
-        sDate:'', eDate:'' , worker:''
+        sDate:'', eDate:'' , worker:'김나람'
     }, {
         depth:['','주문서','주문서',''],
         id:'IN_PC_ORD_01_01', status:'',
@@ -1428,12 +1448,12 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-24/2024-04-11', worker:'김희경'
     }, {
         depth:['','상세','',''],
-        id:'IN_MO_PRD_01_09', status:'com',
-        type:'', note:'디자인 고도화',
+        id:'IN_MO_PRD_01_09', status:'ing',
+        type:'', note:'디자인 고도화 필요',
         sDate:'', eDate:'<del>2024-05-03</del><br/> 2024-05-10/2024-05-09', worker:'김나람'
     }, {
         depth:['','','',''],
-        id:'IN_MO_PRD_01_09_button', status:'com',
+        id:'IN_MO_PRD_01_09_button', status:'ing',
         type:'', note:'제품 상세 버튼 및 팝업',
         sDate:'', eDate:'', worker:'김나람'
     }, {
@@ -1464,7 +1484,7 @@ const MO_arry = ([
     }, {
         depth:['','배송지 등록/변경','',''],
         id:'IN_MO_ORD_01_02', status:'com',
-        type:'modal', note:'마이페이지 > 배송지관리 > 추가',
+        type:'', note:'마이페이지 > 배송지관리 > 추가',
         sDate:'2024-04-29', eDate:'2024-05-03/2024-04-29', worker:'김희경'
     }, {
         depth:['','','배송지 수정',''],
@@ -1809,59 +1829,59 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['풋터','ABOUT US(T)','BRAND STORY(T)',''],
-        id:'IN_MO_FOO_01_01', status:'',
+        id:'IN_MO_FOO_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }, {
         depth:['','','GREEN TEA HERITAGE(T)',''],
-        id:'IN_MO_FOO_01_02', status:'',
+        id:'IN_MO_FOO_01_02', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }, {
         depth:['','','BETTER FOR EARTH(T)',''],
-        id:'IN_MO_FOO_01_03', status:'',
+        id:'IN_MO_FOO_01_03', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'2024-06-11', eDate:'', worker:'김희경'
     }, {
         depth:['','이용약관','',''],
-        id:'IN_MO_FOO_01_04', status:'',
+        id:'IN_MO_FOO_01_04', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'2024-06-10', eDate:'2024-06-10/2024-06-11', worker:'김희경'
     }, {
         depth:['','개인정보처리방침','',''],
-        id:'IN_MO_FOO_01_05', status:'',
+        id:'IN_MO_FOO_01_05', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'2024-06-10', eDate:'2024-06-10/2024-06-11', worker:'김희경'
     }, {
         depth:['','영상기기관리방침','',''],
-        id:'IN_MO_FOO_01_10', status:'',
+        id:'IN_MO_FOO_01_10', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'2024-06-11', eDate:'2024-06-10/2024-06-11', worker:'김희경'
     }, {
         depth:['','위치기반서비스 이용약관','',''],
-        id:'IN_MO_FOO_01_12', status:'',
+        id:'IN_MO_FOO_01_12', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'2024-06-10', eDate:'2024-06-10/2024-06-11', worker:'김희경'
     }, {
         depth:['','사업자정보 확인','보안문자 입력',''],
-        id:'IN_MO_FOO_01_13', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        id:'IN_MO_FOO_01_13', status:'com',
+        type:'', note:'푸터 -> 사업자정보확인 클릭시 공정거래 페이지로 새창 이동 ',
+        sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }, {
         depth:['','','','사업자정보'],
-        id:'IN_MO_FOO_01_14', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        id:'IN_MO_FOO_01_14', status:'com',
+        type:'', note:'IN_MO_FOO_01_13 문자 입력 시, 공정거래 페이지로 변공 ',
+        sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }, {
         depth:['','약관 및 법적고지','',''],
-        id:'IN_MO_FOO_01_15', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        id:'IN_MO_FOO_01_15', status:'com',
+        type:'', note:'푸터 내 약관및 법적고지확인 클릭 시 모달팝업으로 노출',
+        sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }, {
         depth:['','','토스페이먼츠 구매안전 서비스 가입 확인',''],
-        id:'IN_MO_FOO_01_16', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        id:'IN_MO_FOO_01_16', status:'com',
+        type:'', note:'법적고지확인 안내 내 구매안전서비스 가입확인 버튼 클릭 시 타페이지로 연결 ',
+        sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }
 ])
 
@@ -2056,6 +2076,8 @@ thead tr > * + *, :deep(td) {border-left:1px solid #ddd;}
 :deep(td) {border-bottom:1px solid #ddd;}
 :deep(td) a {font-weight:700; text-decoration:underline; display:block;}
 :deep(td) a.modal {padding:4px 5px; color:#fff; font-weight:400; background-color:#0070ba; border:1px solid #0070ba; text-decoration:none; border-radius:4px;}
+:deep(td) .noti {padding:3px; color:#fff; background-color:#00BC70; border-radius:2px; display:inline-flex; align-items:center;}
+:deep(td) .noti:before {content:'[SB]';}
 
 .content section + section:before {margin:30px -20px; border-top:4px solid #F1F1F1; content:''; display:block;}
 
