@@ -1851,3 +1851,85 @@
   }
 }
 /* //제품 상세 */
+
+:deep(.modal_wrap.promotion) {
+  .modal_container {
+    width: 100%;
+
+    .modal_header {}
+
+    .modal_content {
+      padding: 2.3rem 2.1rem;
+
+      section {
+        & + section {
+          margin-top: 4rem;
+        }
+
+        .promo_tit {
+          padding-bottom: 1.5rem;
+          font-size: 1.4rem;
+        }
+
+        .table {
+          thead {
+            tr {
+              th {
+                padding: 1.2rem 0;
+                font-size: 1.2rem;
+              }
+            }
+          }
+
+          tbody {
+            tr {
+              td {
+                padding: 1.5rem 0;
+                font-size: 1.3rem;
+              }
+            }
+          }
+        }
+
+        .cart_list {
+          .cart_item {
+            padding: 2rem 0;
+
+            .prod_img {
+              width: 7.5rem;
+              height: 10rem;
+            }
+
+            .prod_info {
+              .name {
+                font-size: 1.4rem;
+              }
+            }
+          }
+
+          .selected_list {
+            li {
+              .quantity_control {
+                position: static;
+              }
+
+              .price {
+                .cost {
+                  color: #999;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .modal_footer {
+      padding: 0;
+
+      button {
+        flex: 1;
+      }
+    }
+  }
+}
