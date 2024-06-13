@@ -1269,9 +1269,9 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['풋터','ABOUT US(T)','BRAND STORY(T)',''],
-        id:'IN_PC_FOO_01_01', status:'',
+        id:'IN_PC_FOO_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'2024-06-13', eDate:'2024-06-13/2024-06-13', worker:'김희경'
     }, {
         depth:['','','GREEN TEA HERITAGE(T)',''],
         id:'IN_PC_FOO_01_02', status:'',
