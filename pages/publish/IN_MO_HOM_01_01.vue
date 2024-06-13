@@ -581,6 +581,7 @@ const rankingTabs = [
     }
     .main_cont_wrap {
       padding-top:3.2rem;
+      padding-bottom:10rem;
       background-color:#fff;
       position:relative;
       > section:first-child {
@@ -588,7 +589,7 @@ const rankingTabs = [
       }
     }
     section {
-      margin:10rem 0;
+      margin-top:10rem;
       padding:0 2.1rem;
       h2 {
         margin-bottom:2rem;
@@ -1102,6 +1103,7 @@ const rankingTabs = [
     padding:1.2rem 2rem;
     background-image:url('~/assets/images/ui/bg_ai_bottom_bann.png');
     background-size:cover;
+    position:relative;
     justify-content:center;
     gap:1.2rem;
     p {
