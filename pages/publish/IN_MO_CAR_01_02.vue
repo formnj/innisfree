@@ -31,7 +31,7 @@
           <CartItem :item="item" :isMo="true" />
         </li>
       </ul>
-      <!-- <div class="prom_box">
+      <div class="prom_box">
         <div class="info">
           <p class="tit">1개 구매 시 30%, 2개 구매 시 40%, 3개이상 구매 시 50%</p>
           <button type="button" class="btn_link_arrw">프로모션 제품 더보기</button>
@@ -58,10 +58,58 @@
           <p class="tit">최종결제금액 40,000원 이상 결제시 6,900원에 구매가능</p>
           <button type="button" class="btn_text_green">유의사항</button>
         </div>
-      </div> -->
+      </div>
     </section>
     <!-- //프로모션 -->
 
+    <!-- 추가구성품할인 -->
+    <section>
+      <h3 class="list_tit">추가구성품할인</h3>
+      <ul class="cart_list">
+        <li v-for="(item, idx) in sample_goods.slice(1,2)" :key="idx">
+          <CartItem :item="item" :isMo="true" />
+
+          <ul class="cart_list">
+            <li v-for="(item2, idx2) in sample_goods.slice(2,5)" :key="idx2">
+              <CartItem :item="item2" class="extra" :isMo="true" />
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <!-- //추가구성품할인 -->
+
+    <!-- 첫구매전용, 체험단전용 -->
+     <section>
+      <ul class="cart_list">
+        <li v-for="(item, idx) in sample_goods.slice(8,10)" :key="idx">
+          <CartItem :item="item" :isMo="true" />
+        </li>
+      </ul>
+    </section>
+    <!-- //첫구매전용, 체험단전용 -->
+
+    <!-- 샘플마켓 -->
+    <section>
+      <h3 class="list_tit">샘플마켓</h3>
+      <ul class="cart_list">
+        <li v-for="(item, idx) in sample_goods.slice(6,8)" :key="idx">
+          <CartItem :item="item" class="sample" :isMo="true" />
+        </li>
+      </ul>
+    </section>
+    <!-- //샘플마켓 -->
+
+    <!-- 판매중지 -->
+     <section>
+      <h3 class="list_tit">판매중지제품 <strong class="fc_red">※ 구매불가</strong></h3>
+      <ul class="cart_list">
+        <li v-for="(item, idx) in sample_goods.slice(5,6)" :key="idx">
+          <CartItem :item="item" />
+        </li>
+      </ul>
+    </section>
+    <!-- //판매중지 -->
 
   </div>
   <!-- //cart list -->
@@ -97,6 +145,10 @@ onMounted(() => {
 <style lang="scss" scoped>
 section {
   padding: 3rem 2.1rem;
+
+  & + section {
+    border-top: .5rem solid #f5f5f5;
+  }
 }
 
 .list_wrap {
@@ -128,9 +180,22 @@ section {
   .cart_list {
     border-top: 0;
 
-    & + .cart_list {
-      margin-top: 40px;
-      border-top: 1px solid #000;
+    li {
+      & + li {
+        padding-top: 2rem;
+      }
+
+      ul {
+        li{
+          padding-top: 1.5rem;
+
+          &:last-child {
+            .cart_item {
+              padding-bottom: 0;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -140,9 +205,12 @@ section {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
 
     & + .cart_list {
       margin-top: 1.5rem;
+      padding-top: 2rem;
       border-top: 1px solid #000;
     }
 
@@ -154,6 +222,69 @@ section {
     }
   }
 }
+
+.fc_red {
+  color: #ff0000;
+}
+
+.prom_box {
+    padding: 1.5rem;
+    border: 1px solid #eee;
+
+    & + .prom_box {
+      margin-top: 1rem;
+    }
+
+    .info {
+      position: relative;
+
+      .tit {
+        padding-right: 6rem;
+        line-height: 2rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .btn_link_arrw {
+        margin-top: .5rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #000;
+        text-decoration: underline;
+
+        &:after {
+          width: 6px;
+          height: 6px;
+          border-color: #000;
+          position: relative;
+          top: -1px;
+        }
+      }
+    }
+
+    .noti {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #f5f5f5;
+
+      p {
+        font-size: 1.2rem;
+        color: #999;
+      }
+    }
+
+    .btn_text_green {
+      padding: .5rem .7rem;
+      font-size: 1rem;
+      font-weight: 600;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
 
 .custom_banner {
   a {
