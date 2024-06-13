@@ -90,9 +90,9 @@ const sch_arry = ([
         sDate:'', eDate:'2024-06-14' , worker:'형민우'
     },{
         depth:['','푸터','',''],
-        id:'', status:'',
+        id:'', status:'com',
         type:'component', note:'',
-        sDate:'', eDate:'2024-06-14' , worker:'김희경'
+        sDate:'', eDate:'2024-06-14/2024-06-13' , worker:'김희경'
     }, {
         depth:['','메인','',''],
         id:'IN_MO_HOM_01_01', status:'com',
