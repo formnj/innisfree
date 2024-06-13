@@ -1856,8 +1856,6 @@
   .modal_container {
     width: 100%;
 
-    .modal_header {}
-
     .modal_content {
       padding: 2.3rem 2.1rem;
 
@@ -1939,21 +1937,25 @@
   .row {
     padding-right: 0;
     display: grid;
-    grid-template-columns: 75px auto 20px;
-    grid-template-rows: 36px auto;
-    gap: 8px 15px;
+    grid-template-columns: 9rem auto auto;
+    grid-template-rows: auto;
+    align-items: start;
+    gap: 0;
     position: relative;
 
     .prod_img {
       width: 7.5rem;
       height: 10rem;
       flex-shrink: 0;
-      grid-row: 1 / 3;
+      grid-row: 1 / 5;
     }
 
     .prod_info {
       height: auto;
       padding-right: 0;
+      grid-column: 2 / 4;
+      grid-row: 1 / 2;
+      margin-bottom: auto;
 
       .tag {
         margin-bottom: .8rem;
@@ -1981,6 +1983,8 @@
     }
 
     .prod_price {
+      margin: 0.8rem 0;
+      justify-content: space-between;
       grid-column: 2 / span 2;
       grid-row: 2 / 3;
 
@@ -2041,7 +2045,8 @@
       }
 
       &.gift {
-        margin-top: 15px;
+        grid-column: 3 / 4;
+        grid-row: 3 / 4;
 
         & > * {
           padding: 7px 20px;
@@ -2060,7 +2065,17 @@
             top: 8px;
           }
         }
+
+        button {
+          margin-right: 0;
+        }
       }
+    }
+
+    > span {
+      margin: auto 0 0 auto;
+      grid-column: 3 / 4;
+      grid-row: 1 / 2;
     }
   }
 
