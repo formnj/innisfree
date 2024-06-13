@@ -46,10 +46,11 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
+
 definePageMeta({
 layout:'mo-name-search-cart'
 });
-
 const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
   link: {
       type: String,
@@ -59,10 +60,13 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 
 const emit = defineEmits(['title']);
 
+
 onMounted(() => {
   emit('title','ABOUT')
 
 });
+
+
 
 </script>
 

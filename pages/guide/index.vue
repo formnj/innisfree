@@ -1824,9 +1824,9 @@ const MO_arry = ([
         sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }, {
         depth:['','','BETTER FOR EARTH(T)',''],
-        id:'IN_MO_FOO_01_03', status:'ing',
+        id:'IN_MO_FOO_01_03', status:'com',
         type:'', note:'',
-        sDate:'2024-06-11', eDate:'', worker:'김희경'
+        sDate:'2024-06-13', eDate:'2024-06-12/2024-06-13', worker:'김희경'
     }, {
         depth:['','이용약관','',''],
         id:'IN_MO_FOO_01_04', status:'com',
