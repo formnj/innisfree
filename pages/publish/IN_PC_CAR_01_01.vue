@@ -10,7 +10,7 @@
       <div class="list_wrap">
         <div class="allChk_wrap">
           <Inputs _type="checkbox" _text="전체선택" isDisabled="true" />
-          <div class="btnSection">
+          <div class="btn_wrap">
             <Button class="btn_min_outline" txt="선택삭제" />
           </div>
         </div>
@@ -24,6 +24,7 @@
             </p>
           </li>
         </ul>
+<<<<<<< HEAD
 
         <!-- 프로모션 -->
         <h3 class="list_tit">[1+1] 깨끗하게 EASY! 클렌징 티슈 쟁여놓기 (6/1~6/30)</h3>
@@ -103,6 +104,9 @@
         </ul>
         <!-- //판매중지 -->
         <!-- //no data -->
+=======
+        <!-- no data -->
+>>>>>>> e7ca02e4442d19967bbcac085244a8033e3562b4
       </div>
 
       <!-- custom banner -->
@@ -225,6 +229,7 @@
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
+<<<<<<< HEAD
   <!-- //프로모션 유의사항 -->
 
   <!-- 프로모션 모달 -->
@@ -360,17 +365,17 @@
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
   <!-- //프로모션 모달 -->
+=======
+>>>>>>> e7ca02e4442d19967bbcac085244a8033e3562b4
   <!-- //증정품 모달 -->
 </template>
 
 <script setup>
-import { sample_goods, sample_prod_selected_list } from '~/test/data/publish/dummyData'
+import { sample_goods } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui';
 definePageMeta({
   layout:'pc-default'
 });
-
-const promotion_table = ref(false);
 </script>
 
 <style lang="scss" scoped>
@@ -420,79 +425,6 @@ const promotion_table = ref(false);
 
     .cart_list {
       border-top: 0;
-
-      & + .cart_list {
-        margin-top: 40px;
-        border-top: 1px solid #000;
-      }
-    }
-
-    .list_tit {
-      margin-top: 40px;
-      font-size: 18px;
-      font-weight: 600;
-
-      & + .cart_list {
-        margin-top: 20px;
-        border-top: 1px solid #000;
-      }
-
-      strong {
-        padding-left: 10px;
-        font-size: 12px;
-        line-height: 16px;
-        vertical-align: middle;
-      }
-    }
-  }
-
-  .prom_box {
-    padding: 12px 20px;
-    border: 1px solid #eee;
-
-    & + .prom_box {
-      margin-top: 10px;
-    }
-
-    .info {
-      position: relative;
-
-      .tit {
-        font-size: 13px;
-        color: #333;
-        line-height: 28px;
-      }
-
-      .btn_link_arrw {
-        font-weight: 600;
-        color: #000;
-        text-decoration: underline;
-
-        &:after {
-          width: 6px;
-          height: 6px;
-          border-color: #000;
-          position: relative;
-          top: -1px;
-        }
-      }
-    }
-
-    .noti {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid #f5f5f5;
-
-      p {
-        font-size: 12px;
-        color: #999;
-      }
-    }
-
-    .btn_text_green {
-      position: absolute;
-      top: 0;
-      right: 0;
     }
   }
 }
@@ -649,66 +581,5 @@ const promotion_table = ref(false);
 
 .fc_red {
   color: #ff0000;
-}
-
-.modal_wrap {
-  &.modal_gift {
-    .modal_container {
-      width: 500px;
-
-      .modal_content {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-
-        dl {
-          border: 1px solid #F5F5F5;
-          display: flex;
-          gap: 16px;
-
-          dt {
-            width: 100px;
-            height: 133px;
-            background: #eee;
-          }
-
-          dd {
-            padding: 18px 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            div {
-              p {
-                margin-bottom: 5px;
-                font-size: 14px;
-                font-weight: 400;
-              }
-
-              em {
-                color: #666;
-                font-size: 12px;
-                font-weight: 300;
-              }
-            }
-
-            span {
-              font-size: 14px;
-              font-weight: 400;
-            }
-
-          }
-        }
-      }
-
-      .modal_footer {
-        padding: 0;
-
-        button {
-          width: 100%;
-        }
-      }
-    }
-  }
 }
 </style>
