@@ -1851,3 +1851,267 @@
   }
 }
 /* //제품 상세 */
+
+:deep(.modal_wrap.promotion) {
+  .modal_container {
+    width: 100%;
+
+    .modal_content {
+      padding: 2.3rem 2.1rem;
+
+      section {
+        & + section {
+          margin-top: 4rem;
+        }
+
+        .promo_tit {
+          padding-bottom: 1.5rem;
+          font-size: 1.4rem;
+        }
+
+        .table {
+          thead {
+            tr {
+              th {
+                padding: 1.2rem 0;
+                font-size: 1.2rem;
+              }
+            }
+          }
+
+          tbody {
+            tr {
+              td {
+                padding: 1.5rem 0;
+                font-size: 1.3rem;
+              }
+            }
+          }
+        }
+
+        .cart_list {
+          .cart_item {
+            padding: 2rem 0;
+
+            .prod_img {
+              width: 7.5rem;
+              height: 10rem;
+            }
+
+            .prod_info {
+              .name {
+                font-size: 1.4rem;
+              }
+            }
+          }
+
+          .selected_list {
+            li {
+              .quantity_control {
+                position: static;
+              }
+
+              .price {
+                .cost {
+                  color: #999;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .modal_footer {
+      padding: 0;
+
+      button {
+        flex: 1;
+      }
+    }
+  }
+}
+
+/* CartItem */
+:deep(.cart_item) {
+  .row {
+    padding-right: 0;
+    display: grid;
+    grid-template-columns: 9rem auto auto;
+    grid-template-rows: auto;
+    align-items: start;
+    gap: 0;
+    position: relative;
+
+    .prod_img {
+      width: 7.5rem;
+      height: 10rem;
+      flex-shrink: 0;
+      grid-row: 1 / 5;
+    }
+
+    .prod_info {
+      height: auto;
+      padding-right: 0;
+      grid-column: 2 / 4;
+      grid-row: 1 / 2;
+      margin-bottom: auto;
+
+      .tag {
+        margin-bottom: .8rem;
+
+        > * {
+          font-size: 1rem;
+        }
+      }
+
+      .name {
+        padding-right: 3rem;
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .prod_select {
+        width: 100%;
+        margin-top: .8rem;
+      }
+    }
+
+    .prod_price {
+      margin: 0.8rem 0;
+      justify-content: space-between;
+      grid-column: 2 / span 2;
+      grid-row: 2 / 3;
+
+      .quantity_area {
+        .count_wrap {
+          width: 8rem;
+
+          button {
+            width: 2.8rem;
+            height: 2.8rem;
+          }
+
+          .label_wrap {
+            label.input input {
+              height: 3rem;
+              padding: 0;
+            }
+          }
+        }
+      }
+
+      .price_wrap {
+        padding-left: 0;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: .5rem;
+
+        .price {
+          font-size: 1.6rem;
+        }
+
+        .cost {
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    .del {
+      width: 20px;
+      height: 20px;
+      font-size: 0;
+      background: url(/_nuxt/assets/images/common/icon_split.png) -460px -40px no-repeat;
+
+      &:before, &:after {
+        content: none;
+      }
+    }
+
+    .tag {
+
+      & > * {
+        margin-right: 4px;
+        padding: 2px 5px;
+        font-size: 12px;
+        color:#fff;
+        background-color: #00bc70;
+        display: inline-block;
+      }
+
+      &.gift {
+        grid-column: 3 / 4;
+        grid-row: 3 / 4;
+
+        & > * {
+          padding: 7px 20px;
+          position: relative;
+
+          &:before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 10px solid #00bc70;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid #00bc70;
+            border-left: 10px solid transparent;
+            position: absolute;
+            left: -9px;
+            top: 8px;
+          }
+        }
+
+        button {
+          margin-right: 0;
+        }
+      }
+    }
+
+    > span {
+      margin: auto 0 0 auto;
+      grid-column: 3 / 4;
+      grid-row: 1 / 2;
+    }
+  }
+
+  .selected_list {
+    margin-top: 2rem;
+
+    li {
+      .name {
+        line-height: 1.6rem;
+      }
+
+      .quantity_control {
+        .name {
+          display: none;
+        }
+
+        .count {
+          width: 8rem;
+
+          .count_wrap {
+            width: 8rem;
+            padding: 0;
+
+            button {
+              width: 2.8rem;
+              height: 2.8rem;
+            }
+          }
+        }
+      }
+
+      .cost {
+        font-size: 1.1rem;
+        font-weight: 300;
+        color: #999;
+      }
+    }
+  }
+}

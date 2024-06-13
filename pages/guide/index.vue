@@ -96,7 +96,7 @@ const sch_arry = ([
     }, {
         depth:['','메인','',''],
         id:'IN_MO_HOM_01_01', status:'com',
-        type:'', note:'',
+        type:'', note:'visual stick기능 추가 [Edit 24.06.13 JH]',
         sDate:'', eDate:' / 2024-06-11' , worker:'이종환'
     }, {
         depth:['','장바구니','상품없음',''],

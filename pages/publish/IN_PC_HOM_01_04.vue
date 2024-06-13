@@ -252,11 +252,7 @@ onMounted(() => {
 
     let innerwid = document.querySelector('.sticky_menu_wrap > label').clientWidth
     console.log(innerwid)
-})
-
-
-
-
+});
 </script>
 
 <style lang="scss" scoped>
@@ -312,17 +308,15 @@ onMounted(() => {
 .inner {
     .tab_wrap {
         margin-bottom:40px;
-        padding:20px 0;
         background:#fff;
         ul {
             display:flex;
             &.type_02 {
-                margin-top:-10px;
-                margin-left:-10px;
+                padding-bottom: 60px;
+                border-bottom: 1px solid #EEE;
                 flex-wrap:wrap;
+                gap: 10px;
                 li {
-                    padding-top:10px;
-                    padding-left:10px;
                     flex:0 auto;
                         &:deep(> *) {
                         height:auto;
@@ -363,13 +357,16 @@ onMounted(() => {
         .sticky_menu_wrap {
             width:100%;
             height:100%;
-            position:relative;
+            padding: 20px 0;
             display:none;
             align-items:center;
             justify-content:space-between;
+            position:relative;
             overflow:hidden;
             ul {
                 max-width:94%;
+                padding-bottom: 0;
+                border-bottom: 0;
                 overflow-x:auto;
                 white-space: nowrap;
                 flex-wrap:nowrap;
@@ -393,12 +390,13 @@ onMounted(() => {
         }
         &.active {
           max-width: 1280px;
+          width: 100%;
           margin: 0 auto;
           position:fixed;
           top:80px;
           z-index:10;
           &:after {
-            box-shadow:0 10px 10px -10px rgb(0,0,0,0.05);
+            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.02);
             content:'';
             position:absolute;
             top:0;

@@ -13,10 +13,12 @@
         </div>
         <a class="name" href="#none"><strong>{{ item.cate }}</strong> {{ item.name }}</a>
         <p v-if="item.hasNoti" class="fc_red">{{ item.hasNoti }}</p>
-        <div v-if="item.gift || item.optionalGift" class="tag gift">
+        <!-- PC 증정품, 선택증정품 태그 위치-->
+        <div v-if="!isMo && (item.gift || item.optionalGift)" class="tag gift">
           <button v-if="item.gift" type="button" @click="modal.open('modal_gift','full modal_gift')">증정품</button>
           <button v-if="item.optionalGift" type="button" @click="modal.open('modal_gift','full modal_gift')">선택 증정품</button>
         </div>
+        <!-- //PC 증정품, 선택증정품 태그 위치-->
         <button v-if="item.status && item.status == 'sold_out'" type="button" class="btn_text_green" @click="modal.open('modal_stock_alert','full modal_stock_alert')">입고알림신청</button>
         <ProdSelectbox
           v-if="item.hasOption"
@@ -28,7 +30,7 @@
           ]"
         />
       </div>
-      <div v-if="!item.status || !item.status == 'sold_out'" class="prod_price">
+      <div v-if="!item.status || !item.status == 'sold_out'" :class="item.hasOption ? 'prod_price no_use' : 'prod_price'">
         <div class="quantity_area">
           <Quantity v-if="!item.hasOption" _id="Quantity" quantity="1" />
           <span v-if="item.isLimited" :class="item.isLimited.over ? 'err' : '' ">최대선택{{ item.isLimited.limit }}개까지</span> <!-- 최대선택 갯수 넘을 경우 err 클래스 추가-->
@@ -40,12 +42,17 @@
       </div>
       <span v-if="item.status && item.status == 'sold_out'">일시품절</span> <!-- 상태 : 일시품절, 판매중지, 출시예정 -->
       <Icons class="del" />
+      <!-- MO 증정품, 선택증정품 태그 위치-->
+      <div v-if="isMo && (item.gift || item.optionalGift)" class="tag gift">
+        <button v-if="item.gift" type="button" @click="modal.open('modal_gift','full modal_gift')">증정품</button>
+        <button v-if="item.optionalGift" type="button" @click="modal.open('modal_gift','full modal_gift')">선택 증정품</button>
+      </div>
+      <!-- //MO 증정품, 선택증정품 태그 위치-->
     </div>
-    
+
     <ul v-if="item.hasOption" class="selected_list">
       <li v-for="(item, idx) in sample_prod_selected_list.slice(0,3)" :key="idx">
         <span class="name">{{ item.name}}</span>
-        <!-- <span v-if="selectedPriceShow" class="price">37,000원</span> -->
         <div class="quantity_control">
           <span class="name">수량</span>
           <div class="count">
@@ -65,6 +72,10 @@ import { modal } from '~/assets/js/common-ui'
 import { sample_prod_selected_list } from '~/test/data/publish/dummyData'
 const props = defineProps({
     item: {},
+    isMo : {
+      type: Boolean,
+      default: false
+    }
 })
 </script>
 
@@ -202,6 +213,10 @@ const props = defineProps({
       display: flex;
       align-items: center;
       gap: 10px;
+
+      &.no_use {
+        display: none;
+      }
 
       .quantity_area {
         display: flex;

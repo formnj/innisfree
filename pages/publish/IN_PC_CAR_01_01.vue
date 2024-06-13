@@ -10,7 +10,7 @@
       <div class="list_wrap">
         <div class="allChk_wrap">
           <Inputs _type="checkbox" _text="전체선택" isDisabled="true" />
-          <div class="btnSection">
+          <div class="btn_wrap">
             <Button class="btn_min_outline" txt="선택삭제" />
           </div>
         </div>
@@ -24,85 +24,7 @@
             </p>
           </li>
         </ul>
-
-        <!-- 프로모션 -->
-        <h3 class="list_tit">[1+1] 깨끗하게 EASY! 클렌징 티슈 쟁여놓기 (6/1~6/30)</h3>
-        <ul class="cart_list">
-          <li v-for="(item, idx) in sample_goods.slice(0,4)" :key="idx">
-            <CartItem :item="item" />
-          </li>
-        </ul>
-        <div class="prom_box">
-          <div class="info">
-            <p class="tit">1개 구매 시 30%, 2개 구매 시 40%, 3개이상 구매 시 50%</p>
-            <button type="button" class="btn_link_arrw" @click="modal.open('modal_promotion', 'alert promotion')">프로모션 제품 더보기</button>
-            <button type="button" class="btn_text_green">유의사항</button>
-          </div>
-          <div class="noti">
-            <p>N+% 제품은 같은 행사내 제품들과 교차구매가 가능합니다.</p>
-          </div>
-        </div>
-
-        <div class="prom_box">
-          <div class="info">
-            <p class="tit">20개 구매 시 반값할인</p>
-            <button type="button" class="btn_link_arrw">프로모션 제품 더보기</button>
-            <button type="button" class="btn_text_green">유의사항</button>
-          </div>
-          <div class="noti">
-            <p>N+N 제품은 같은 행사내 제품들과 교차구매가 가능합니다.</p>
-          </div>
-        </div>
-
-        <div class="prom_box">
-          <div class="info">
-            <p class="tit">최종결제금액 40,000원 이상 결제시 6,900원에 구매가능</p>
-            <button type="button" class="btn_text_green">유의사항</button>
-          </div>
-        </div>
-        <!-- //프로모션 -->
-
-        <!-- 추가구성품할인 -->
-        <h3 class="list_tit">추가구성품할인</h3>
-        <ul class="cart_list">
-          <li v-for="(item, idx) in sample_goods.slice(1,2)" :key="idx">
-            <CartItem :item="item" />
-
-            <ul class="cart_list">
-              <li v-for="(item, idx) in sample_goods.slice(2,5)" :key="idx">
-                <CartItem :item="item" class="extra" />
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <!-- //추가구성품할인 -->
-
-        <!-- 첫구매전용, 체험단전용 -->
-        <ul class="cart_list">
-          <li v-for="(item, idx) in sample_goods.slice(8,10)" :key="idx">
-            <CartItem :item="item" />
-          </li>
-        </ul>
-        <!-- //추가구성품할인 -->
-
-        <!-- 샘플마켓 -->
-        <h3 class="list_tit">샘플마켓</h3>
-        <ul class="cart_list">
-          <li v-for="(item, idx) in sample_goods.slice(6,8)" :key="idx">
-            <CartItem :item="item" class="sample" />
-          </li>
-        </ul>
-        <!-- //샘플마켓 -->
-
-        <!-- 판매중지 -->
-        <h3 class="list_tit">판매중지제품 <strong class="fc_red">※ 구매불가</strong></h3>
-        <ul class="cart_list">
-          <li v-for="(item, idx) in sample_goods.slice(5,6)" :key="idx">
-            <CartItem :item="item" />
-          </li>
-        </ul>
-        <!-- //판매중지 -->
-        <!-- //no data -->
+        <!-- no data -->
       </div>
 
       <!-- custom banner -->
@@ -225,152 +147,15 @@
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
-  <!-- //프로모션 유의사항 -->
-
-  <!-- 프로모션 모달 -->
-  <div id="modal_promotion" class="modal_wrap">
-    <div class="modal_container">
-        <div class="modal_header">
-            <h2>프로모션 제품</h2>
-            <button class="btn_close" @click="modal.close(this);">닫기</button>
-        </div>
-        <div class="modal_content">
-            <section>
-              <button
-                class="promo_tit"
-                type="button"
-                :class="{active: promotion_table}"
-                @click="promotion_table = !promotion_table"
-              >
-                2개 이상 구매 시 최대 [50% 할인]
-              </button>
-              <div v-if="promotion_table" class="table">
-                <table>
-                  <caption>프로모션 제품 설명 및 추가</caption>
-                  <colgroup>
-                    <col width="50%">
-                    <col width="50%">
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th>조건</th>
-                      <th>할인액</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1개 구매시</td>
-                      <td>30%</td>
-                    </tr>
-                    <tr>
-                      <td>2개 구매시</td>
-                      <td>50%</td>
-                    </tr>
-                    <tr>
-                      <td>3개 구매시</td>
-                      <td>50%</td>
-                    </tr>
-                    <tr>
-                      <td>4개 구매시</td>
-                      <td>50%</td>
-                    </tr>
-                    <tr>
-                      <td>5개 구매시</td>
-                      <td>50%</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </section>
-
-            <section>
-              <p class="promo_tit">프로모션 제품 더 담기</p>
-              <ul class="cart_list">
-                <li v-for="(item, idx) in sample_goods.slice(0,2)" :key="idx">
-                  <div class="cart_item" :class="{option_type: idx === 0}">
-                    <div class="row">
-                      <div class="prod_img">
-                        <Inputs _type="checkbox" :isDisabled="item.status ? true : false"/>
-                        <a href="#none" class="thumb" :class="item.status">
-                          <img :src="item.img" />
-                        </a>
-                      </div>
-
-                      <div class="prod_info">
-                        <a class="name" href="#none"><strong>{{ item.cate }}</strong> {{ item.name }}</a>
-                        <p v-if="item.hasNoti" class="fc_red">{{ item.hasNoti }}</p>
-                        <button
-                          v-if="item.status && item.status == 'sold_out'"
-                          type="button"
-                          class="btn_text_green"
-                          @click="modal.open('modal_stock_alert','full modal_stock_alert')"
-                        >
-                          입고알림신청
-                        </button>
-                        <ProdSelectbox
-                          v-if="item.hasOption"
-                          _placeholder="옵션을 선택해주세요"
-                          :options="[
-                            { val: 'op1', name: 'op', txt: '베이지' },
-                            { val: 'op2', name: 'op', txt: '베이비핑크' },
-                            { val: 'op3', name: 'op', txt: '상품명 상품명 상품명 상품명 상품명', soldout: true, stockAlert: true },
-                          ]"
-                        />
-                      </div>
-
-                      <div v-if="!item.status || !item.status == 'sold_out'" class="prod_price">
-                        <div class="quantity_area">
-                          <Quantity v-if="!item.hasOption" _id="Quantity" quantity="1" />
-                          <span v-if="item.isLimited" :class="item.isLimited.over ? 'err' : '' ">최대선택{{ item.isLimited.limit }}개까지</span> <!-- 최대선택 갯수 넘을 경우 err 클래스 추가-->
-                        </div>
-                        <div v-if="!item.isSample" class="price_wrap">
-                          <span class="cost">{{ item.cost }}원</span>
-                          <span class="price">{{ item.price }}원</span>
-                        </div>
-                      </div>
-
-                      <span v-if="item.status && item.status == 'sold_out'">일시품절</span> <!-- 상태 : 일시품절, 판매중지, 출시예정 -->
-
-                      <Icons v-if="item.delete || item.delete === undefined" class="btn_del" />
-                    </div>
-
-                    <ul v-if="item.hasOption" class="selected_list">
-                      <li v-for="(list, i) in sample_prod_selected_list.slice(0,3)" :key="i">
-                        <span class="name">{{ list.name}}</span>
-                        <!-- <span v-if="selectedPriceShow" class="price">37,000원</span> -->
-                        <span class="price">{{ list.price }}원 <span class="cost">{{ list.cost }}원</span></span>
-                        <div class="quantity_control">
-                          <div class="count">
-                            <Quantity _id="detail_1" :quantity="1" />
-                          </div>
-                        </div>
-                        <button type="button" class="btn_del">옵션 삭제</button>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </section>
-        </div>
-        <div class="modal_footer">
-            <Button class="btn_ btn_big" txt="취소" @click="modal.close(this);" />
-            <Button class="btn_big confirm" txt="장바구니 담기" />
-        </div>
-    </div>
-    <div class="overlay" @click="modal.close(this);"></div>
-  </div>
-  <!-- //프로모션 모달 -->
   <!-- //증정품 모달 -->
 </template>
 
 <script setup>
-import { sample_goods, sample_prod_selected_list } from '~/test/data/publish/dummyData'
+import { sample_goods } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui';
 definePageMeta({
   layout:'pc-default'
 });
-
-const promotion_table = ref(false);
 </script>
 
 <style lang="scss" scoped>
@@ -420,79 +205,6 @@ const promotion_table = ref(false);
 
     .cart_list {
       border-top: 0;
-
-      & + .cart_list {
-        margin-top: 40px;
-        border-top: 1px solid #000;
-      }
-    }
-
-    .list_tit {
-      margin-top: 40px;
-      font-size: 18px;
-      font-weight: 600;
-
-      & + .cart_list {
-        margin-top: 20px;
-        border-top: 1px solid #000;
-      }
-
-      strong {
-        padding-left: 10px;
-        font-size: 12px;
-        line-height: 16px;
-        vertical-align: middle;
-      }
-    }
-  }
-
-  .prom_box {
-    padding: 12px 20px;
-    border: 1px solid #eee;
-
-    & + .prom_box {
-      margin-top: 10px;
-    }
-
-    .info {
-      position: relative;
-
-      .tit {
-        font-size: 13px;
-        color: #333;
-        line-height: 28px;
-      }
-
-      .btn_link_arrw {
-        font-weight: 600;
-        color: #000;
-        text-decoration: underline;
-
-        &:after {
-          width: 6px;
-          height: 6px;
-          border-color: #000;
-          position: relative;
-          top: -1px;
-        }
-      }
-    }
-
-    .noti {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid #f5f5f5;
-
-      p {
-        font-size: 12px;
-        color: #999;
-      }
-    }
-
-    .btn_text_green {
-      position: absolute;
-      top: 0;
-      right: 0;
     }
   }
 }
@@ -649,66 +361,5 @@ const promotion_table = ref(false);
 
 .fc_red {
   color: #ff0000;
-}
-
-.modal_wrap {
-  &.modal_gift {
-    .modal_container {
-      width: 500px;
-
-      .modal_content {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-
-        dl {
-          border: 1px solid #F5F5F5;
-          display: flex;
-          gap: 16px;
-
-          dt {
-            width: 100px;
-            height: 133px;
-            background: #eee;
-          }
-
-          dd {
-            padding: 18px 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            div {
-              p {
-                margin-bottom: 5px;
-                font-size: 14px;
-                font-weight: 400;
-              }
-
-              em {
-                color: #666;
-                font-size: 12px;
-                font-weight: 300;
-              }
-            }
-
-            span {
-              font-size: 14px;
-              font-weight: 400;
-            }
-
-          }
-        }
-      }
-
-      .modal_footer {
-        padding: 0;
-
-        button {
-          width: 100%;
-        }
-      }
-    }
-  }
 }
 </style>

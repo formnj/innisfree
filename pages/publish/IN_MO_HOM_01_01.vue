@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <!-- visual -->
-    <div class="visual">
+    <div class="visual" :style="'top:'+stickyTop+'px'"><!-- Edit 24.06.13 JH visual sticky top -->
       <swiper
         v-bind="swieprOpt.visual"
         @swiper="onSwiper"
@@ -49,175 +49,177 @@
     </div>
     <!-- //visual -->
 
-    <!-- quick menu -->
-    <section class="category">
-      <div class="swiper_wrap">
-        <swiper class="module_02"
-          v-bind="swieprOpt.category"
-        >
-          <swiper-slide v-for="item in categoryForSearchLayerData" :key="item">
-            <a href="#none">
-              <span class="thumb" :class="item.type"><!-- 관리자 강조 등록 시 point 클래스 추가 -->
-                <em><img :src="item.imageUrl" /></em>
-              </span>
-              <p>{{ item.text }}</p>
-            </a>
-          </swiper-slide>
-        </swiper>
-      </div>
-    </section>
-    <!-- //quick menu -->
+    <div class="main_cont_wrap"><!-- add 24.06.13 : visual sticky로 추가 -->
+      <!-- quick menu -->
+      <section class="category">
+        <div class="swiper_wrap">
+          <swiper class="module_02"
+            v-bind="swieprOpt.category"
+          >
+            <swiper-slide v-for="item in categoryForSearchLayerData" :key="item">
+              <a href="#none">
+                <span class="thumb" :class="item.type"><!-- 관리자 강조 등록 시 point 클래스 추가 -->
+                  <em><img :src="item.imageUrl" /></em>
+                </span>
+                <p>{{ item.text }}</p>
+              </a>
+            </swiper-slide>
+          </swiper>
+        </div>
+      </section>
+      <!-- //quick menu -->
 
-    <!-- 혜택 슬라이드 -->
-    <div class="text_banner">
-      <div class="swiper_wrap">
-        <swiper :slides-per-view="1" :loop="true" :space-between="40"
-          :autoplay="{
-            delay: 3000,
-          }"
-          @swiper="onSwiper2"
-          @slideChange="onSlideChange2"
-        >
-          <swiper-slide>
-            <a href="#none">현대카드 결제시 20% 할인혜택</a><!-- default : #ccc / 관리자에서 직접 색상값 지정할 수 있음 -->
-          </swiper-slide>
-          <swiper-slide>
-            <a href="#none" style="background:#B7E8CB;">네이버페이 10,000원 혜택</a>
-          </swiper-slide>
-          <swiper-slide>
-            <a href="#none" style="color:#fff; background:purple;">네이버페이 10,000원 혜택</a>
-          </swiper-slide>
+      <!-- 혜택 슬라이드 -->
+      <div class="text_banner">
+        <div class="swiper_wrap">
+          <swiper :slides-per-view="1" :loop="true" :space-between="40"
+            :autoplay="{
+              delay: 3000,
+            }"
+            @swiper="onSwiper2"
+            @slideChange="onSlideChange2"
+          >
+            <swiper-slide>
+              <a href="#none">현대카드 결제시 20% 할인혜택</a><!-- default : #ccc / 관리자에서 직접 색상값 지정할 수 있음 -->
+            </swiper-slide>
+            <swiper-slide>
+              <a href="#none" style="background:#B7E8CB;">네이버페이 10,000원 혜택</a>
+            </swiper-slide>
+            <swiper-slide>
+              <a href="#none" style="color:#fff; background:purple;">네이버페이 10,000원 혜택</a>
+            </swiper-slide>
 
-          <!-- customer pagination -->
-          <div class="custom_pagination">
-            <Button class="btn_swiper_cont" data="play" />
+            <!-- customer pagination -->
+            <div class="custom_pagination">
+              <Button class="btn_swiper_cont" data="play" />
 
-            <div class="current">
-              <em class="idx_01"></em>
-            </div>
-            <strong class="total"></strong>
-          </div>
-          <!-- //customer pagination -->
-        </swiper>
-      </div>
-    </div>
-    <!-- //혜택 슬라이드 -->
-
-    <section>
-      <ul class="list_wrap type_column">
-        <li v-for="(item, idx) in mainSam.event_mo" :key="idx">
-          <EventItem :item="item" :link="item.link" type="type_02"/>
-        </li>
-      </ul>
-    </section>
-
-    <section class="recommend">
-      <h2>
-        <a href="#none">오늘의 추천 제품</a>
-      </h2>
-
-      <div class="module_01">
-        <ul>
-          <li v-for="(item, idx) in mainSam.recommend" :key="idx">
-            <a href="#none" class="item">
-              <span class="thumb">
-                <img :src="item.img" alt="" />
-              </span>
-              <div class="cont">
-                <strong v-html="item.title"></strong>
-                <p v-html="item.txt"></p>
-                <Hash :item="item.hash" />
+              <div class="current">
+                <em class="idx_01"></em>
               </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="swiper_wrap">
-        <swiper class="module_02"
-          v-bind="swieprOpt.recommend02"
-        >
-          <swiper-slide v-for="(item, idx) in mainSam.recommend02" :key="idx">
-            <EventItem :item="item" />
-            <GoodsItem :item="item.goods" :link="item.link" />
-          </swiper-slide>
-        </swiper>
-      </div>
-    </section>
-
-    <section class="combi">
-      <h2>
-        <a href="#none">23년 공식몰 어워즈<br/> 이 제품 아직 안샀눈사람~
-        </a>
-        <span class="date">18:21:01</span>
-      </h2>
-      <ul class="goods_list col_3">
-        <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
-          <GoodsItem class="type_cart" :item="item" :link="item.link" :useScore="false" />
-        </li>
-      </ul>
-    </section>
-    <!-- //오늘의 추천 제품 -->
-
-    <section class="event">
-        <ul class="list_wrap type_column02">
-          <li v-for="(item, idx) in mainSam.event_mo" :key="idx">
-            <EventItem :item="item" type="type_column" />
-          </li>
-        </ul>
-    </section>
-
-    <!-- 이 제품 어때요 -->
-    <section>
-      <h2>
-        <a href="#none"><strong>주소희</strong> 님,<br/> 이 제품 어때요?</a>
-      </h2>
-      <div class="swiper_wrap">
-        <swiper
-          v-bind="swieprOpt.recommend04"
-        >
-          <swiper-slide v-for="(item, idx) in sample_goods.slice(0,5)" :key="idx" class="goods_slide">
-            <GoodsItem class="type_cart" :item="item" :useHash="true" />
-          </swiper-slide>
-        </swiper>
-      </div>
-    </section>
-    <!-- //이 제품 어때요 -->
-
-    <!-- 랭킹 -->
-    <section class="ranking">
-      <h2>
-        <a href="#none">랭킹</a>
-        <span class="date">03:00 기준</span>
-      </h2>
-      <div class="inner">
-        <div class="update_wrap">
-          <Tabs tabType="type_txt" :item="rankingTabs"  :tabidx="0" />
+              <strong class="total"></strong>
+            </div>
+            <!-- //customer pagination -->
+          </swiper>
         </div>
       </div>
+      <!-- //혜택 슬라이드 -->
 
-      <swiper
-        v-bind="swieprOpt.ranking"
-      >
-        <swiper-slide>
-          <ul class="list_wrap">
-            <li v-for="(item, idx) in sample_goods.slice(0,5)" :key="idx">
-              <span class="badge">{{idx+1}}</span>
-              <GoodsItem class="type_column type_cart" :item="item" :link="item.link" />
+      <section>
+        <ul class="list_wrap type_column">
+          <li v-for="(item, idx) in mainSam.event_mo" :key="idx">
+            <EventItem :item="item" :link="item.link" type="type_02"/>
+          </li>
+        </ul>
+      </section>
+
+      <section class="recommend">
+        <h2>
+          <a href="#none">오늘의 추천 제품</a>
+        </h2>
+
+        <div class="module_01">
+          <ul>
+            <li v-for="(item, idx) in mainSam.recommend" :key="idx">
+              <a href="#none" class="item">
+                <span class="thumb">
+                  <img :src="item.img" alt="" />
+                </span>
+                <div class="cont">
+                  <strong v-html="item.title"></strong>
+                  <p v-html="item.txt"></p>
+                  <Hash :item="item.hash" />
+                </div>
+              </a>
             </li>
           </ul>
-        </swiper-slide>
-        <swiper-slide>
-          <ul class="list_wrap">
-            <li v-for="(item, idx) in sample_goods.slice(5,10)" :key="idx">
-              <span class="badge">{{idx+6}}</span>
-              <GoodsItem class="type_column" :item="item" :link="item.link" />
+        </div>
+
+        <div class="swiper_wrap">
+          <swiper class="module_02"
+            v-bind="swieprOpt.recommend02"
+          >
+            <swiper-slide v-for="(item, idx) in mainSam.recommend02" :key="idx">
+              <EventItem :item="item" />
+              <GoodsItem :item="item.goods" :link="item.link" />
+            </swiper-slide>
+          </swiper>
+        </div>
+      </section>
+
+      <section class="combi">
+        <h2>
+          <a href="#none">23년 공식몰 어워즈<br/> 이 제품 아직 안샀눈사람~
+          </a>
+          <span class="date">18:21:01</span>
+        </h2>
+        <ul class="goods_list col_3">
+          <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
+            <GoodsItem class="type_cart" :item="item" :link="item.link" :useScore="false" />
+          </li>
+        </ul>
+      </section>
+      <!-- //오늘의 추천 제품 -->
+
+      <section class="event">
+          <ul class="list_wrap type_column02">
+            <li v-for="(item, idx) in mainSam.event_mo" :key="idx">
+              <EventItem :item="item" type="type_column" />
             </li>
           </ul>
-        </swiper-slide>
-      </swiper>
-    </section>
-    <!-- //랭킹 -->
+      </section>
+
+      <!-- 이 제품 어때요 -->
+      <section>
+        <h2>
+          <a href="#none"><strong>주소희</strong> 님,<br/> 이 제품 어때요?</a>
+        </h2>
+        <div class="swiper_wrap">
+          <swiper
+            v-bind="swieprOpt.recommend04"
+          >
+            <swiper-slide v-for="(item, idx) in sample_goods.slice(0,5)" :key="idx" class="goods_slide">
+              <GoodsItem class="type_cart" :item="item" :useHash="true" />
+            </swiper-slide>
+          </swiper>
+        </div>
+      </section>
+      <!-- //이 제품 어때요 -->
+
+      <!-- 랭킹 -->
+      <section class="ranking">
+        <h2>
+          <a href="#none">랭킹</a>
+          <span class="date">03:00 기준</span>
+        </h2>
+        <div class="inner">
+          <div class="update_wrap">
+            <Tabs tabType="type_txt" :item="rankingTabs"  :tabidx="0" />
+          </div>
+        </div>
+
+        <swiper
+          v-bind="swieprOpt.ranking"
+        >
+          <swiper-slide>
+            <ul class="list_wrap">
+              <li v-for="(item, idx) in sample_goods.slice(0,5)" :key="idx">
+                <span class="badge">{{idx+1}}</span>
+                <GoodsItem class="type_column type_cart" :item="item" :link="item.link" />
+              </li>
+            </ul>
+          </swiper-slide>
+          <swiper-slide>
+            <ul class="list_wrap">
+              <li v-for="(item, idx) in sample_goods.slice(5,10)" :key="idx">
+                <span class="badge">{{idx+6}}</span>
+                <GoodsItem class="type_column" :item="item" :link="item.link" />
+              </li>
+            </ul>
+          </swiper-slide>
+        </swiper>
+      </section>
+      <!-- //랭킹 -->
+    </div>
 
     <!-- AI케어 -->
     <ServiceBanner />
@@ -347,6 +349,14 @@ const navigation = {
 }
 /* //swiper options */
 
+const stickyTop = ref(null); //visual sticky top값
+
+onMounted(() => {
+  console.log(document.querySelector('.navGnb').offsetHeight);
+  stickyTop.value = document.querySelector('.navGnb').offsetHeight;
+  console.log(stickyTop.value);
+})
+
 const onSwiper = (swiper) => {
 
   const total = swiper.wrapperEl.children.length,
@@ -416,6 +426,7 @@ const rankingTabs = [
 <style lang="scss" scoped>
   .main {
     .visual {
+      position:sticky;
       .swiper {
         :deep(.swiper-pagination) {
           display:none;
@@ -568,8 +579,17 @@ const rankingTabs = [
         }
       }
     }
+    .main_cont_wrap {
+      padding-top:3.2rem;
+      padding-bottom:10rem;
+      background-color:#fff;
+      position:relative;
+      > section:first-child {
+        margin-top:0;
+      }
+    }
     section {
-      margin:10rem 0;
+      margin-top:10rem;
       padding:0 2.1rem;
       h2 {
         margin-bottom:2rem;
@@ -615,7 +635,7 @@ const rankingTabs = [
         }
       }
       &.category {
-        margin:3rem 0 2.4rem;
+        margin:0 0 2.4rem;
         .swiper-slide {
           width:5.7rem;
           text-align:center;
@@ -1083,6 +1103,7 @@ const rankingTabs = [
     padding:1.2rem 2rem;
     background-image:url('~/assets/images/ui/bg_ai_bottom_bann.png');
     background-size:cover;
+    position:relative;
     justify-content:center;
     gap:1.2rem;
     p {
