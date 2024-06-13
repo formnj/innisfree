@@ -64,7 +64,6 @@
         <ul class="selected_list">
           <li v-for="(item, idx) in sample_prod_selected_list" :key="idx">
             <span class="name"><em v-if="item.isExtra">추가구성</em>{{ item.name}}</span>
-            <!-- <span v-if="selectedPriceShow" class="price">37,000원</span> -->
             <span class="price">{{ item.price }}원 <span class="cost">{{ item.cost }}원</span></span>
             <div class="quantity_control">
               <div class="count">

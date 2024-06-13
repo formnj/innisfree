@@ -24,7 +24,7 @@
   </div>
   <!-- //custom banner -->
 
-  <div class="inner">
+  <section>
     <div class="title_wrap">
       <h3>이니스프리 혜택모음</h3>
     </div>
@@ -39,10 +39,10 @@
       </ul>
     </div>
     <a hef="IN_MO_HOM_01_04" class="btn_list_btm">더 많은 특가 혜택 확인하기</a>
-  </div>
+  </section>
 
   <!-- 프로모션 모달 -->
-  <div id="modal_promotion" class="modal_wrap active promotion fullMo">
+  <div id="modal_promotion" class="modal_wrap">
     <div class="modal_container">
         <div class="modal_header">
             <h2>프로모션 제품</h2>
@@ -193,7 +193,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.inner {
+section {
   padding: 0 2.1rem 3rem;
 }
 

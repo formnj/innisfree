@@ -832,7 +832,7 @@ ul.select_list {
   .allChk_wrap {
     display:flex;
     align-items:center;
-    .btnSection {
+    .btn_wrap {
       margin-left:auto;
     }
   }
@@ -1312,22 +1312,22 @@ ul.bullet_list {
           flex: none;
           position: relative;
 
-          &:before,
-          &.btn_inc:after {
-            content: '';
-            width: 8px;
-            height: 1px;
-            background-color: #000;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-          }
+          // &:before,
+          // &.btn_inc:after {
+          //   content: '';
+          //   width: 8px;
+          //   height: 1px;
+          //   background-color: #000;
+          //   position: absolute;
+          //   left: 50%;
+          //   top: 50%;
+          //   transform: translate(-50%, -50%);
+          // }
 
-          &.btn_inc:after {
-            width: 1px;
-            height: 8px;
-          }
+          // &.btn_inc:after {
+          //   width: 1px;
+          //   height: 8px;
+          // }
         }
         .count_wrap {
           flex:1;
@@ -2144,6 +2144,67 @@ ul.pick_list {
             }
           }
         }
+      }
+    }
+  }
+}
+
+
+/* 증정품 모달 */
+.modal_wrap.modal_gift {
+  .modal_container {
+    width: 500px;
+
+    .modal_content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      dl {
+        border: 1px solid #F5F5F5;
+        display: flex;
+        gap: 16px;
+
+        dt {
+          width: 100px;
+          height: 133px;
+          background: #eee;
+        }
+
+        dd {
+          padding: 18px 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          div {
+            p {
+              margin-bottom: 5px;
+              font-size: 14px;
+              font-weight: 400;
+            }
+
+            em {
+              color: #666;
+              font-size: 12px;
+              font-weight: 300;
+            }
+          }
+
+          span {
+            font-size: 14px;
+            font-weight: 400;
+          }
+
+        }
+      }
+    }
+
+    .modal_footer {
+      padding: 0;
+
+      button {
+        width: 100%;
       }
     }
   }
