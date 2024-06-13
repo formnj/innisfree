@@ -1080,7 +1080,6 @@ const rankingTabs = [
   }
 
   :deep(.svc_banner) {
-    margin-bottom:-90px;
     padding:1.2rem 2rem;
     background-image:url('~/assets/images/ui/bg_ai_bottom_bann.png');
     background-size:cover;
