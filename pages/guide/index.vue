@@ -39,7 +39,7 @@ definePageMeta({
 })
 
 /* device check text : 개발 시 제거해주세요. */
-const device = ref('MO');
+const device = ref(null);
 
 import { onMounted } from 'vue'
 
