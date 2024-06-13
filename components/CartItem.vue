@@ -14,8 +14,8 @@
         <a class="name" href="#none"><strong>{{ item.cate }}</strong> {{ item.name }}</a>
         <p v-if="item.hasNoti" class="fc_red">{{ item.hasNoti }}</p>
         <div v-if="item.gift || item.optionalGift" class="tag gift">
-          <span v-if="item.gift">증정품</span>
-          <span v-if="item.optionalGift">선택 증정품</span>
+          <button v-if="item.gift" type="button" @click="modal.open('modal_gift','full modal_gift')">증정품</button>
+          <button v-if="item.optionalGift" type="button" @click="modal.open('modal_gift','full modal_gift')">선택 증정품</button>
         </div>
         <button v-if="item.status && item.status == 'sold_out'" type="button" class="btn_text_green" @click="modal.open('modal_stock_alert','full modal_stock_alert')">입고알림신청</button>
         <ProdSelectbox
@@ -34,7 +34,7 @@
           <span v-if="item.isLimited" :class="item.isLimited.over ? 'err' : '' ">최대선택{{ item.isLimited.limit }}개까지</span> <!-- 최대선택 갯수 넘을 경우 err 클래스 추가-->
         </div>
         <div v-if="!item.isSample" class="price_wrap">
-          <span class="cost">{{ item.cost }}원</span>
+          <span v-if="!item.noDiscount" class="cost">{{ item.cost }}원</span>
           <span class="price">{{ item.price }}원</span>
         </div>
       </div>
@@ -145,7 +145,7 @@ const props = defineProps({
       .tag {
         margin-bottom: 10px;
 
-        span {
+        & > * {
           margin-right: 4px;
           padding: 2px 5px;
           font-size: 12px;
@@ -157,7 +157,7 @@ const props = defineProps({
         &.gift {
           margin-top: 15px;
 
-          span {
+          & > * {
             padding: 7px 20px;
             position: relative;
 
@@ -200,6 +200,7 @@ const props = defineProps({
 
     .prod_price {
       display: flex;
+      align-items: center;
       gap: 10px;
 
       .quantity_area {

@@ -1,105 +1,45 @@
 <template>
-
-  <div class="inner">
-    <!-- cart list -->
-    <div class="list_wrap">
-      <div class="allChk_wrap">
-        <Inputs _type="checkbox" _text="전체선택" />
-        <div class="btnSection">
-          <Button class="btn_min_outline" txt="선택삭제" />
-        </div>
-      </div>
-      <ul class="cart_list type_default">
-        <!-- no data -->
-        <li>
-          <div class="no_data">
-            <strong>장바구니에 담긴 제품이 없습니다.</strong>
-            <span>특가혜택 제품과 실시간 가장 인기있는<br>제품들을 살펴보세요</span>
-            <p class="btnSection">
-              <Button class="btn_min_outline" txt="특가" />
-              <Button class="btn_min_outline" txt="베스트" />
-            </p>
-          </div>
-        </li>
-        <!-- //no data -->
-
-        <li>
-          <div class="row">
-            <div class="cell check">
-              <Inputs _type="checkbox" />
-            </div>
-            <div class="cell pdt_img">
-              <a href="#none">
-                <span class="thumb">
-                  <em><img src="https://images.innisfree.co.kr/upload/product/36116_l_S_140.jpg?T202404300927" alt="" /></em>
-                </span>
-              </a>
-            </div>
-            <div class="cell pdt_info">
-              <div class="name">
-                <a href="#none">상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명상품명</a>
-                <div class="alt">
-                  <span>[4/23 ~ 5/1, 기간내 5개]</span>
-                </div>
-              </div>
-              <Selectbox
-                  :options="[
-                  { val: 'value', txt: '1호 블랙' },
-                  { val: 'value', txt: '옵션02' }
-              ]" />
-            </div>
-            <ul class="addOrder">
-              <li>
-                <p class="title"> 1호 베이비 핑크</p>
-                <div class="opt_wrap">
-                  <div class="count">
-                    <Quantity quantity="32" />
-                  </div>
-                  <div class="cell price">
-                    <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
-                    <p>
-                      <strong>52,000 <em>원</em></strong>
-                      <span class="point">+529P</span><!-- point -->
-                    </p>
-                  </div>
-                </div>
-                <Icons class="del" />
-              </li>
-              <li>
-                <div class="opt_wrap">
-                  <div class="count">
-                    <Quantity quantity="3" />
-                  </div>
-                  <div class="cell price">
-                    <span>판매중지</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <div class="cell del">
-              <Icons class="del" />
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <!-- //cart list -->
+  <div class="list_wrap">
+    <!-- no data -->
+    <ul class="cart_list">
+      <li>
+        <p class="no_data">
+          <strong>장바구니에 담긴 제품이 없습니다.</strong>
+          <span>하단의 특가혜택 제품들을 살펴보세요.</span>
+        </p>
+      </li>
+    </ul>
+    <!-- //no data -->
   </div>
+
   <!-- custom banner -->
-  <div class="customBen">
-    <a href="javascript:void(0);" onclick="BannerLink(&quot;https://www.innisfree.com/kr/ko/EventView.do?eventSeq=3508&quot;, &quot;1&quot;)">
-      <div class="img">
-        <img src="https://images.innisfree.co.kr/upload/banner/R05_195_0.png?T202404300927" alt="-">
-      </div>
-      <div class="textWrap">
-        <div class="text">
-          <div class="t1" style="color:#ffffff; font-family:SDNeoL;">롯데카드 터치하고</div>
-          <div class="t2" style="color:#ffffff; font-family:SDNeoL;">최대 8천원 할인</div>
-        </div>
+  <div class="custom_banner">
+    <a href="#none">
+      <img src="/_nuxt/public/images/sam/bg_cart_banner.png" alt="">
+      <div class="text">
+        <div class="t1" style="color:#fff;">토스페이 전용카드로 혜택을~</div>
+        <div class="t2" style="color:#fff;">5,000원 결제일 캐시백!!</div>
       </div>
     </a>
   </div>
   <!-- //custom banner -->
+
+  <div class="inner">
+    <div class="title_wrap">
+      <h3>이니스프리 혜택모음</h3>
+    </div>
+    <div class="list_wrap">
+      <ul class="goods_list">
+        <li v-for="(item,idx) in sample_goods" :key="idx">
+          <GoodsItem :item="item" :link="item.link" :useGiveaway="true" />
+        </li>
+        <li v-for="(item,idx) in sample_goods.slice(0,8)" :key="idx">
+          <GoodsItem :item="item" :link="item.link" :useGiveaway="true" />
+        </li>
+      </ul>
+    </div>
+    <a hef="IN_MO_HOM_01_04" class="btn_list_btm">더 많은 특가 혜택 확인하기</a>
+  </div>
 
   <!-- 프로모션 모달 -->
   <div id="modal_promotion" class="modal_wrap active promotion fullMo">
@@ -240,7 +180,7 @@ import { sample_goods, sample_prod_selected_list } from '~/test/data/publish/dum
 import { modal } from '~/assets/js/common-ui.js'
 
 definePageMeta({
-layout:'mo-cart'
+layout:'mo-name'
 });
 
 const promotion_table = ref(false);
@@ -253,4 +193,45 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.inner {
+  padding: 0 2.1rem 3rem;
+}
+
+.btn_list_btm {
+  width: 100%;
+  height: 4rem;
+  margin-top: 3rem;
+  font-size: 1.4rem;
+  line-height: 3.8rem;
+  text-align: center;
+  color: #666;
+  border: 1px solid #eee;
+  display: block;
+}
+
+.custom_banner {
+  a {
+    width: 100%;
+    display: block;
+    position: relative;
+
+    .text {
+      position: absolute;
+      left: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+
+      .t1 {
+        font-size: 1.6rem;
+      }
+
+      .t2 {
+        padding-top: .2rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
 </style>

@@ -177,6 +177,7 @@
     }
     input[type='checkbox']:disabled, input[type='checkbox']:disabled + .label:before {
       background-color:#f5f5f5;
+      cursor: default;
     }
   }
   .check_ani {

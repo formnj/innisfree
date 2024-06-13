@@ -1080,7 +1080,7 @@ export const sample_goods = [
         totalPoint: 1254
       },
       giveaway: {
-        modal_id: 'giveaway_01',
+        modal_id: 'modal_gift',
         goods: [
           {
             img: ("/_nuxt/public/images/sam/sam_pre_01.png"),
@@ -1111,7 +1111,7 @@ export const sample_goods = [
         totalPoint: 1254
       },
       giveaway: {
-        modal_id: 'giveaway_01',
+        modal_id: 'modal_gift',
         goods: [
           {
             img: ("/_nuxt/images/sam/sam_pre_01.png"),
@@ -1216,13 +1216,15 @@ export const sample_goods = [
       name:'그린티 씨드 히알루론산 대용량 세럼 80ml + 그린티 씨드 히알루론산 대용량 크림 50ml',
       price:'11,000', sale:'~50%', cost:'26,000',
       cartTag: '첫구매전용',
-      hasNoti: '4.21 ~24 / 대상제품 중 1개'
+      hasNoti: '4.21 ~24 / 대상제품 중 1개',
+      noDiscount: true,
     },
     {
       img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
       name:'그린티 씨드 히알루론산 대용량 세럼 80ml + 그린티 씨드 히알루론산 대용량 크림 50ml',
       price:'11,000', sale:'~50%', cost:'26,000',
       cartTag: '체험단전용',
+      noDiscount: true,
     },{
       img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
     },
