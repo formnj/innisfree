@@ -171,7 +171,7 @@ const fair_trade_info = () => {
 
 <style lang="scss" scoped>
 footer {
-  margin-top:90px;
+  margin-top:10px;
   background-color:#F5F5F5;
   .inner {
     padding:40px 21px;

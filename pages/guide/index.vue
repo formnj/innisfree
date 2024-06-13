@@ -39,7 +39,7 @@ definePageMeta({
 })
 
 /* device check text : 개발 시 제거해주세요. */
-const device = ref();
+const device = ref('MO');
 
 import { onMounted } from 'vue'
 
@@ -1829,24 +1829,24 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['풋터','ABOUT US(T)','BRAND STORY(T)',''],
-        id:'IN_MO_FOO_01_01', status:'ing',
+        id:'IN_MO_FOO_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-11/', worker:'김희경'
+        sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }, {
         depth:['','','GREEN TEA HERITAGE(T)',''],
-        id:'IN_MO_FOO_01_02', status:'ing',
+        id:'IN_MO_FOO_01_02', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:'김희경'
+        sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }, {
         depth:['','','BETTER FOR EARTH(T)',''],
         id:'IN_MO_FOO_01_03', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'', worker:'김희경'
+        sDate:'2024-06-11', eDate:'', worker:'김희경'
     }, {
         depth:['','이용약관','',''],
-        id:'IN_MO_FOO_01_04', status:'',
+        id:'IN_MO_FOO_01_04', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'2024-06-10', eDate:'2024-06-10/2024-06-11', worker:'김희경'
     }, {
         depth:['','개인정보처리방침','',''],
         id:'IN_MO_FOO_01_05', status:'com',
@@ -1854,14 +1854,14 @@ const MO_arry = ([
         sDate:'2024-06-10', eDate:'2024-06-10/2024-06-11', worker:'김희경'
     }, {
         depth:['','영상기기관리방침','',''],
-        id:'IN_MO_FOO_01_10', status:'',
+        id:'IN_MO_FOO_01_10', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'2024-06-11', eDate:'2024-06-10/2024-06-11', worker:'김희경'
     }, {
         depth:['','위치기반서비스 이용약관','',''],
         id:'IN_MO_FOO_01_12', status:'com',
         type:'', note:'',
-        sDate:'2024-06-11', eDate:'2024-06-10/2024-06-11', worker:'김희경'
+        sDate:'2024-06-10', eDate:'2024-06-10/2024-06-11', worker:'김희경'
     }, {
         depth:['','사업자정보 확인','보안문자 입력',''],
         id:'IN_MO_FOO_01_13', status:'com',
@@ -1874,14 +1874,14 @@ const MO_arry = ([
         sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }, {
         depth:['','약관 및 법적고지','',''],
-        id:'IN_MO_FOO_01_15', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        id:'IN_MO_FOO_01_15', status:'com',
+        type:'', note:'푸터 내 약관및 법적고지확인 클릭 시 모달팝업으로 노출',
+        sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }, {
         depth:['','','토스페이먼츠 구매안전 서비스 가입 확인',''],
-        id:'IN_MO_FOO_01_16', status:'',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        id:'IN_MO_FOO_01_16', status:'com',
+        type:'', note:'법적고지확인 안내 내 구매안전서비스 가입확인 버튼 클릭 시 타페이지로 연결 ',
+        sDate:'2024-06-11', eDate:'2024-06-11/2024-06-11', worker:'김희경'
     }
 ])
 
