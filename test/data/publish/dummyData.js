@@ -1063,147 +1063,171 @@ export const sampleSlide = [
 
 export const sample_goods = [
     {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        cate:'BEST',
-        name:'히알루론 수분 선크림 SPF 50+ PA++++',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        sticker:[
-            {txt:'type01', type:'type01'},
-            {txt:'type02', type:'type02'},
-            {txt:'type03', type:'type03'},
-            {txt:'type04', type:'type04'}
-        ],
-        hash:['#스킨팩','#화장솜','#순면화장솜'],
-        reviewScore: {
-          rate: 4.5,
-          totalPoint: 1254
-        },
-        giveaway: {
-          modal_id: 'giveaway_01',
-          goods: [
-            {
-              img: ("/_nuxt/public/images/sam/sam_pre_01.png"),
-              name: '제주 루트 에너지 마스크[당근] 5매 세트',
-              date: '24.00.00 ~ 24.00.00',
-              txt: '1개 구매시 1개 증정'
-            },
-          ]
-        },
-        big: true,
-        cartTag: '4.1~5, 기간내 10개',
-        hasOption: true,
+      img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+      overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+      cate:'BEST',
+      name:'히알루론 수분 선크림 SPF 50+ PA++++',
+      price:'11,000', sale:'~50%', cost:'26,000',
+      sticker:[
+          {txt:'type01', type:'type01'},
+          {txt:'type02', type:'type02'},
+          {txt:'type03', type:'type03'},
+          {txt:'type04', type:'type04'}
+      ],
+      hash:['#스킨팩','#화장솜','#순면화장솜'],
+      reviewScore: {
+        rate: 4.5,
+        totalPoint: 1254
+      },
+      giveaway: {
+        modal_id: 'giveaway_01',
+        goods: [
+          {
+            img: ("/_nuxt/public/images/sam/sam_pre_01.png"),
+            name: '제주 루트 에너지 마스크[당근] 5매 세트',
+            date: '24.00.00 ~ 24.00.00',
+            txt: '1개 구매시 1개 증정'
+          },
+        ]
+      },
+      big: true,
+      cartTag: '4.1~5, 기간내 10개',
+      hasOption: true,
+      delete: false,
     }, {
-        img:("/_nuxt/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/images/sam/sam_goods_list_02-1.jpg"),
-        cate:'NEW',
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'~20%', cost:'56,000',
-        sticker:[
-            {txt:'1+1', type:'type02'},
-            {txt:'뷰티포인트전용', type:'type01'},
-            {txt:'첫구매전용', type:'type01'}
-        ],
-        hash:['#주름개선기능성'],
-        reviewScore: {
-          rate: 4.5,
-          totalPoint: 1254
-        },
-        giveaway: {
-          modal_id: 'giveaway_01',
-          goods: [
-            {
-              img: ("/_nuxt/images/sam/sam_pre_01.png"),
-              name: '제주 루트 에너지 마스크[당근] 5매 세트',
-              date: '24.00.00 ~ 24.00.00',
-              txt: '1개 구매시 1개 증정'
-            },
-            {
-              img: ("/_nuxt/images/sam/sam_pre_02.png"),
-              name: '비타C 세럼 럭키 박스 (30ml + 랜덤기프트)',
-              date: '24.00.00',
-              txt: '1개 구매시 n개 증정'
-            },
-            {
-              img: ("/_nuxt/images/sam/am_pre_03.png"),
-              name: '레티놀 시카 앰플 포커싱 패치 1ea / 9patches',
-              date: '24.00.00 ~ 24.00.00',
-              txt: '1개 구매시 n개 증정'
-            }
-          ]
-        },
-        cartTag: '할인제외',
-    }, {
-        img:("/_nuxt/images/sam/sam_goods_list_02.jpg"),
-        overflip:("/_nuxt/images/sam/sam_goods_list_02-1.jpg"),
-        cate:'NEW',
-        name:'그린티 씨드 히알루론산 세렘 80ml',
-        price:'44,800', sale:'~20%', cost:'56,000',
-        sticker:[
-            {txt:'1+1', type:'type02'},
-            {txt:'뷰티포인트전용', type:'type01'},
-            {txt:'첫구매전용', type:'type01'}
-        ],
-        reviewScore: {
-          rate: 4.5,
-          totalPoint: 1254
-        },
-    }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'sold_out',
-        sticker:[
+      img:("/_nuxt/images/sam/sam_goods_list_02.jpg"),
+      overflip:("/_nuxt/images/sam/sam_goods_list_02-1.jpg"),
+      cate:'NEW',
+      name:'그린티 씨드 히알루론산 세렘 80ml',
+      price:'44,800', sale:'~20%', cost:'56,000',
+      sticker:[
           {txt:'1+1', type:'type02'},
           {txt:'뷰티포인트전용', type:'type01'},
           {txt:'첫구매전용', type:'type01'}
-        ],
-        hash:['#스킨팩','#화장솜','#순면화장솜'],
-        reviewScore: {
-          rate: 4.5,
-          totalPoint: 1254
-        },
+      ],
+      hash:['#주름개선기능성'],
+      reviewScore: {
+        rate: 4.5,
+        totalPoint: 1254
+      },
+      giveaway: {
+        modal_id: 'giveaway_01',
+        goods: [
+          {
+            img: ("/_nuxt/images/sam/sam_pre_01.png"),
+            name: '제주 루트 에너지 마스크[당근] 5매 세트',
+            date: '24.00.00 ~ 24.00.00',
+            txt: '1개 구매시 1개 증정'
+          },
+          {
+            img: ("/_nuxt/images/sam/sam_pre_02.png"),
+            name: '비타C 세럼 럭키 박스 (30ml + 랜덤기프트)',
+            date: '24.00.00',
+            txt: '1개 구매시 n개 증정'
+          },
+          {
+            img: ("/_nuxt/images/sam/am_pre_03.png"),
+            name: '레티놀 시카 앰플 포커싱 패치 1ea / 9patches',
+            date: '24.00.00 ~ 24.00.00',
+            txt: '1개 구매시 n개 증정'
+          }
+        ]
+      },
+      cartTag: '할인제외',
+      optionalGift: true,
     }, {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        name:'블랙티 유스 인핸싱 앰플 50ml',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'coming_soon',
-        hash:['#스킨팩','#화장솜','#순면화장솜'],
-        reviewScore: {
-          rate: 4.5,
-          totalPoint: 1254
-        },
+      img:("/_nuxt/images/sam/sam_goods_list_02.jpg"),
+      overflip:("/_nuxt/images/sam/sam_goods_list_02-1.jpg"),
+      cate:'NEW',
+      name:'그린티 씨드 히알루론산 세렘 80ml',
+      price:'44,800', sale:'~20%', cost:'56,000',
+      sticker:[
+          {txt:'1+1', type:'type02'},
+          {txt:'뷰티포인트전용', type:'type01'},
+          {txt:'첫구매전용', type:'type01'}
+      ],
+      reviewScore: {
+        rate: 4.5,
+        totalPoint: 1254
+      },
+      gift: true
+    }, {
+      img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+      overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+      name:'블랙티 유스 인핸싱 앰플 50ml',
+      price:'11,000', sale:'~50%', cost:'26,000',
+      status:'sold_out',
+      sticker:[
+        {txt:'1+1', type:'type02'},
+        {txt:'뷰티포인트전용', type:'type01'},
+        {txt:'첫구매전용', type:'type01'}
+      ],
+      hash:['#스킨팩','#화장솜','#순면화장솜'],
+      reviewScore: {
+        rate: 4.5,
+        totalPoint: 1254
+      },
+    }, {
+      img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+      overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+      name:'블랙티 유스 인핸싱 앰플 50ml',
+      price:'11,000', sale:'~50%', cost:'26,000',
+      status:'coming_soon',
+      hash:['#스킨팩','#화장솜','#순면화장솜'],
+      reviewScore: {
+        rate: 4.5,
+        totalPoint: 1254
+      },
     },
     {
-        img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
-        overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
-        name:'블랙티 유스 인핸싱 앰플 50ml5',
-        price:'11,000', sale:'~50%', cost:'26,000',
-        status:'end',
-        hash:['#스킨팩','#화장솜','#순면화장솜'],
-        reviewScore: {
-          rate: 4.5,
-          totalPoint: 1254
-        },
+      img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
+      overflip:("https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900"),
+      name:'블랙티 유스 인핸싱 앰플 50ml5',
+      price:'11,000', sale:'~50%', cost:'26,000',
+      status:'end',
+      hash:['#스킨팩','#화장솜','#순면화장솜'],
+      reviewScore: {
+        rate: 4.5,
+        totalPoint: 1254
+      },
     },
     {
-        img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
+      img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
+      name:'그린티 씨드 히알루론산 대용량 세럼 80ml + 그린티 씨드 히알루론산 대용량 크림 50ml',
+      price:'11,000', sale:'~50%', cost:'26,000',
+      isSample: true,
+      isLimited: {
+        limit: 3,
+        over: false
+      }
     },
     {
-        img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
+      img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
+      name:'그린티 씨드 히알루론산 대용량 세럼 80ml + 그린티 씨드 히알루론산 대용량 크림 50ml',
+      price:'11,000', sale:'~50%', cost:'26,000',
+      isSample: true,
+      isLimited: {
+        limit: 3,
+        over: true
+      }
     },
     {
-        img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
+      img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
+      name:'그린티 씨드 히알루론산 대용량 세럼 80ml + 그린티 씨드 히알루론산 대용량 크림 50ml',
+      price:'11,000', sale:'~50%', cost:'26,000',
+      cartTag: '첫구매전용',
+      hasNoti: '4.21 ~24 / 대상제품 중 1개'
     },
     {
-        img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
+      img:("/_nuxt/images/sam/sam_goods_list_04.jpg"),
+      name:'그린티 씨드 히알루론산 대용량 세럼 80ml + 그린티 씨드 히알루론산 대용량 크림 50ml',
+      price:'11,000', sale:'~50%', cost:'26,000',
+      cartTag: '체험단전용',
     },{
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+      img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
     },
     {
-        img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
+      img:("https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900"),
     },
 ]
 
