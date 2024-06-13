@@ -36,7 +36,7 @@
           <div class="info">
             <p class="tit">1개 구매 시 30%, 2개 구매 시 40%, 3개이상 구매 시 50%</p>
             <button type="button" class="btn_link_arrw" @click="modal.open('modal_promotion', 'alert promotion')">프로모션 제품 더보기</button>
-            <button type="button">유의사항</button>
+            <button type="button" class="btn_text_green">유의사항</button>
           </div>
           <div class="noti">
             <p>N+% 제품은 같은 행사내 제품들과 교차구매가 가능합니다.</p>
