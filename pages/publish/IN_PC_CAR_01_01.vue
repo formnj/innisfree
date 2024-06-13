@@ -7,24 +7,22 @@
         </div>
       </div>
 
-      <!-- cart list -->
       <div class="list_wrap">
         <div class="allChk_wrap">
-          <Inputs _type="checkbox" _text="전체선택" />
+          <Inputs _type="checkbox" _text="전체선택" isDisabled="true" />
           <div class="btnSection">
             <Button class="btn_min_outline" txt="선택삭제" />
           </div>
         </div>
 
+        <!-- no data -->
         <ul class="cart_list">
-          <!-- no data -->
           <li>
             <p class="no_data">
               <strong>장바구니에 담긴 제품이 없습니다.</strong>
               <span>하단의 특가혜택 제품들을 살펴보세요.</span>
             </p>
           </li>
-          <!-- //no data -->
         </ul>
 
         <!-- 프로모션 -->
@@ -104,15 +102,16 @@
           </li>
         </ul>
         <!-- //판매중지 -->
+        <!-- //no data -->
       </div>
-      <!-- //cart list -->
 
       <!-- custom banner -->
       <div class="custom_banner">
-        <a href="#none" style="background-image:url('/_nuxt/public/images/sam/bg_cart_banner.png')">
+        <a href="#none">
+          <img src="/_nuxt/public/images/sam/bg_cart_banner.png" alt="">
           <div class="text">
-            <div class="t1" style="color:#333;">토스페이 전용카드로 혜택을</div>
-            <div class="t2" style="color:#333;">띄어쓰기 포함 14자 노출 결제일 캐시백!!</div>
+            <div class="t1" style="color:#fff;">토스페이 전용카드로 혜택을~</div>
+            <div class="t2" style="color:#fff;">5,000원 결제일 캐시백!!</div>
           </div>
         </a>
       </div>
@@ -135,13 +134,13 @@
         <dl>
           <dt>주문금액</dt>
           <dd>
-            <strong>261,000</strong>원
+            <strong>0</strong>원
           </dd>
         </dl>
         <dl class="desc">
           <dt>제품할인</dt>
           <dd>
-            <strong>-61,000</strong>원
+            <strong>0</strong>원
           </dd>
         </dl>
         <dl>
@@ -152,12 +151,12 @@
           <dl>
             <dt>결제예정금액</dt>
             <dd>
-              <strong>200,000</strong>원
+              <strong>0</strong>원
             </dd>
           </dl>
         </div>
       </div>
-      <Button class="btn_big confirm" txt="주문하기" />
+      <Button class="btn_big confirm" txt="쇼핑하러 가기" />
     </div>
   </div>
 
@@ -178,28 +177,51 @@
     </div>
   </div>
 
-  <ProductStockAlertModal /> <!-- 입고알림 신청 -->
 
-  <!-- 프로모션 유의사항 -->
-  <div id="modal_prom_noti" class="modal_wrap">
+  <!-- 증정품 모달 -->
+  <div id="modal_gift" class="modal_wrap">
     <div class="modal_container">
-      <div class="modal_header">
-        <h2>프로모션 유의사항</h2>
-        <button class="btn_close" @click="modal.close(this);">닫기</button>
-      </div>
-      <div class="modal_content">
-        <!-- BO 텍스트입력 내용 출력, 개발시 아래 내용 삭제 -->
-        <p style="font-weight: bold;margin-bottom: 10px;">1. 최종 4만원 이상 결제 금액 기준(*할인 후 금액)</p>
-        <p>1. 로미 캠핑 의자 구입 금액 : 최종 결제 금액 4만원에 미포함</p>
-        <p>2. 쿠폰 사용 : 쿠폰 할인 금액 제외한 최종 결제 금액 기준 포함</p>
-        <p>3. 뷰티포인트 사용 : 최종 결제 금액에 포함</p>
-        <p>4. 1+1 및 할인 제품 : 할인 금액 제외하고 최종 결제 금액에 포함</p>
-        <p>5. 카드사/페이 제휴 : 제휴 할인 적용 전 금액 기준</p>
-        <!-- //BO 텍스트 입력 내용 출력 -->
-      </div>
-      <div class="modal_footer">
-        <Button class="btn_big confirm" txt="확인" />
-      </div>
+        <div class="modal_header">
+            <h2>증정품안내</h2>
+            <button class="btn_close" @click="modal.close(this);">닫기</button>
+        </div>
+        <div class="modal_content">
+          <div class="giveaway_list">
+            <dl>
+              <dt>
+                <img src="/_nuxt/public/images/sam/giveaway_01.png">
+              </dt>
+              <dd>
+                <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+                <em>24.3.25 ~ 24.3.31</em>
+                <span>1개 구매시 1개 증정</span>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <img src="/_nuxt/public/images/sam/giveaway_02.png">
+              </dt>
+              <dd>
+                <p>비타C 세럼 럭키 박스 (30ml + 랜덤기프트)</p>
+                <em>23.4.11</em>
+                <span>1개 구매시 n개 증정</span>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <img src="/_nuxt/public/images/sam/giveaway_03.png">
+              </dt>
+              <dd>
+                <p>레티놀 시카 앰플 포커싱 패치 1ea / 9patches</p>
+                <em>24.2.29 ~ 24.3.31</em>
+                <span>1개 구매시 n개 증정</span>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="modal_footer">
+          <Button class="btn_big confirm" txt="확인" />
+        </div>
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
@@ -338,6 +360,7 @@
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
   <!-- //프로모션 모달 -->
+  <!-- //증정품 모달 -->
 </template>
 
 <script setup>
@@ -602,20 +625,23 @@ const promotion_table = ref(false);
 
   a {
     width: 100%;
-    height: 100px;
     display: block;
-    padding: 23px 0 0 200px;
+    position: relative;
 
     .text {
+      position: absolute;
+      left: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+
       .t1 {
-        line-height: 24px;
-        font-weight: 500;
+        font-size: 32px;
       }
 
       .t2 {
-        font-size: 18px;
+        padding-top: 10px;
+        font-size: 32px;
         font-weight: 600;
-        line-height: 28px;
       }
     }
   }
@@ -625,21 +651,62 @@ const promotion_table = ref(false);
   color: #ff0000;
 }
 
+.modal_wrap {
+  &.modal_gift {
+    .modal_container {
+      width: 500px;
 
-.modal_wrap.full {
-  :deep(.modal_container) {
-    width: 540px;
+      .modal_content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
 
-    .modal_content {
-      padding: 20px 30px 40px;
-      font-size: 16px;
-    }
+        dl {
+          border: 1px solid #F5F5F5;
+          display: flex;
+          gap: 16px;
 
-    .modal_footer {
-      padding: 0;
+          dt {
+            width: 100px;
+            height: 133px;
+            background: #eee;
+          }
 
-      button {
-        width: 100%;
+          dd {
+            padding: 18px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            div {
+              p {
+                margin-bottom: 5px;
+                font-size: 14px;
+                font-weight: 400;
+              }
+
+              em {
+                color: #666;
+                font-size: 12px;
+                font-weight: 300;
+              }
+            }
+
+            span {
+              font-size: 14px;
+              font-weight: 400;
+            }
+
+          }
+        }
+      }
+
+      .modal_footer {
+        padding: 0;
+
+        button {
+          width: 100%;
+        }
       }
     }
   }
