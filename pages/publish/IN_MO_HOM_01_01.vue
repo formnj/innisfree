@@ -49,7 +49,7 @@
     </div>
     <!-- //visual -->
 
-    <div class="main_cont_wrap"><!-- add 24.06-13 : visual sticky로 추가 -->
+    <div class="main_cont_wrap"><!-- add 24.06.13 : visual sticky로 추가 -->
       <!-- quick menu -->
       <section class="category">
         <div class="swiper_wrap">
