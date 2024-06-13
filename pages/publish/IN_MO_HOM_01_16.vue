@@ -36,6 +36,12 @@
         </li>
       </ul>
     </div>
+
+    <!-- 컨텐츠 X -->
+    <!-- <div class="no_content">
+      임직원 전용 제품이 없습니다.
+    </div> -->
+    <!-- //컨텐츠 X -->
   </div>
 
   <div id="modal_sort" class="modal_wrap">
@@ -222,6 +228,10 @@ onMounted(() => {});
       }
     }
   }
+}
+
+.no_content {
+  padding: 10rem 0;
 }
 
 .modal_wrap {

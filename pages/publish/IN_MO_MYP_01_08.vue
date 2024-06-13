@@ -233,8 +233,8 @@ button {
           display: inline-block;
           background-image: url('~/assets/mo_images/common/icon_split.png');
           background-repeat:no-repeat;
-          background-size:25rem;
-          background-position:0px -70px;
+          background-size:25rem auto;
+          background-position:0px -7rem;
           transform: rotate(270deg);
         }
       }

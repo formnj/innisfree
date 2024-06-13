@@ -206,7 +206,7 @@
                 </ul>
             </div>
 
-            <div class="navCategory" @mouseleave="cate_layer.close">
+            <div class="nav_category" @mouseleave="cate_layer.close">
                 <nav>
                     <div class="nav_wrap">
                         <Button class="btn_category" txt="카테고리" />
@@ -442,9 +442,9 @@ const keyword_del_all = (e) => {
 /* category layer */
 const cate_layer = {
     open: () => {
-        document.querySelector('.navCategory').classList.add('active');
+        document.querySelector('.nav_category').classList.add('active');
     }, close: () => {
-        document.querySelector('.navCategory').classList.remove('active');
+        document.querySelector('.nav_category').classList.remove('active');
     }
 }
 </script>
@@ -452,13 +452,14 @@ const cate_layer = {
 <style lang="scss" scoped>
 #wrap.fixed {
     header {
+        border: 0;
         .inner {
             h1 {
                 a {
                     width:80px;
                     height:80px;
                     position:fixed;
-                    top:0;
+                    top:0px;
                     img {
                         width:80px;
                         height:80px;
@@ -484,9 +485,11 @@ const cate_layer = {
     }
     .gnb_wrap {
         height:80px;
+        border: 0;
         .inner {
             height:80px;
             .btn_category {
+                height: 80px;
                 margin-left:110px;
             }
             .quick {
@@ -502,7 +505,7 @@ const cate_layer = {
           }
         }
     }
-    .navCategory {
+    .nav_category {
         .btn_category {
             height:80px;
             padding:0 41px 0 30px;
@@ -510,11 +513,12 @@ const cate_layer = {
         }
     }
 }
+
 header {
     border-bottom:1px solid #f5f5f5;
     position:sticky;
-    top:-101px;
-    z-index:3;
+    top:-100px;
+    z-index:12;
     .inner {
         max-width:1320px;
         margin:0 auto;
@@ -786,7 +790,7 @@ header {
                 right:50%;
                 transform:translate(84%,);
                 z-index: 3;
-                animation: slideDown .5s ease-in forwards;
+                animation: slideDown .3s ease-in forwards;
                 ol {
                   margin-top:28px;
                   margin-bottom:20px;
@@ -895,51 +899,34 @@ header {
                 display:flex;
             }
             :deep(.btn_category) {
-                width:140px;
-                height:auto;
-                padding:18px 0 19px;
+                width:130px;
+                height:60px;
                 background-color:transparent;
                 justify-content:flex-start;
                 position:relative;
                 em {
-                    padding-right:0;
-                    padding-left:34px;
+                    padding:0 0 0 34px;
                     color:#000;
                     font-size:16px;
                     font-weight:600;
-                    font-family:'Pretendard';
                     position:relative;
+
                     &:before, &:after {
+                        width:16px;
                         border-top:2px solid #000;
                         content:'';
                         position:absolute;
-                        top:5px;
+                        top:50%;
                         left:4px;
                         display:block;
+                        transform: translateY(-50%);
                     }
                     &:before {
-                        width:16px;
                         height:12px;
                         border-bottom:2px solid #000;
-                        border-right:0;
-                        border-left:0;
-                    }
-                    &:after {
-                        width:16px;
-                        border-top:2px solid #000;
-                        top:50%;
                     }
                 }
-                &.active {
-                    padding:18px 31px 18px 20px;
-                    border:1px solid #eee;
-                    border-top:0;
-                    border-bottom:0;
-                    box-shadow:3px 3px 3px rgba(0,0,0,0.4);
-                    em:before, em:after {
-                        border-color:#00BC70;
-                    }
-                }
+
                 &:after {
                     content:'';
                     width:1px;
@@ -947,7 +934,7 @@ header {
                     background-color:#eee;
                     position:absolute;
                     top:50%;
-                    right:10px;
+                    right:0;
                     transform:translateY(-50%);
                 }
             }
@@ -967,57 +954,61 @@ header {
                 }
             }
             .navGnb {
-                padding-left:18px;
-                li {
-                  padding:0 4px;
-                  display:flex;
-                  align-items:center;
-                  a {
-                    height:58px;
-                    padding:0 8px;
-                    font-size:16px;
-                    font-weight:600;
-                    position:relative;
-                    display:flex;
-                    align-items:center;
-                    em {
-                      position:relative;
-                      display:block;
-                    }
-                    &.point {
-                      em {
-                        padding-right:10px;
-                        &:after {
-                            width:5px;
-                            height:5px;
-                            background-color:#00BC70;
-                            border-radius:50%;
-                            content:'';
-                            position:absolute;
-                            top:0;
-                            right:0;
+                padding-left: 40px;
+                ul {
+                    gap: 24px;
+                    li {
+                        display:flex;
+                        align-items:center;
+                        flex-direction: column;
+                        position: relative;
+                        a {
+                            height:58px;
+                            font-size:16px;
+                            font-weight:600;
+                            position:relative;
+                            display:flex;
+                            align-items:center;
+                            em {
+                            position:relative;
                             display:block;
+                            }
+                            &.point {
+                            em {
+                                padding-right:10px;
+                                &:after {
+                                    width:5px;
+                                    height:5px;
+                                    background-color:#00BC70;
+                                    border-radius:50%;
+                                    content:'';
+                                    position:absolute;
+                                    top:0;
+                                    right:0;
+                                    display:block;
+                                }
+                            }
+                            }
                         }
-                      }
+                        &.active {
+                            em {
+                                color:#00BC70;
+                            }
+
+                            &:after {
+                                content:'';
+                                width: 100%;
+                                height: 2px;
+                                margin-top: -2px;
+                                background-color: #00BC70;
+                                display: block;
+                            }
+                        }
                     }
-                  }
-                  &.active {
-                    em {
-                      color:#00BC70;
-                    }
-                    a:after {
-                      border-bottom:2px solid #00BC70;
-                      content:'';
-                      position:absolute;
-                      right:8px;
-                      bottom:-1px;
-                      left:8px;
-                    }
-                  }
                 }
             }
         }
-        .navCategory {
+        .nav_category {
             background-color:#fff;
             border-bottom:1px solid #eee;
             box-shadow:0 10px 20px 0 rgba(0,0,0,0.05);
@@ -1061,25 +1052,30 @@ header {
                                 display:block;
                             }
                             &:hover {
-                              border-bottom:1px solid #00BC70;
-                              a {
-                                color:#00bc70;
-                              }
+                                border-bottom:1px solid #00BC70;
+                                a {
+                                    color:#00bc70;
+                                }
                             }
                         }
                         dd {
                             li {
                                 height:31px;
                                 margin-bottom:5px;
+                                border-bottom: 1px solid transparent;
+                                display: flex;
+                                align-items: center;
+
+                                &:hover {
+                                    color:#000;
+                                    font-weight:600;
+                                    border-bottom:1px solid #000;
+                                }
+
                                 a {
                                     width:100%;
                                     color:#888;
                                     display:block;
-                                    &:hover {
-                                      color:#000;
-                                      font-weight:600;
-                                      border-bottom:1px solid #000;
-                                    }
                                 }
                             }
                         }
@@ -1097,32 +1093,24 @@ header {
                 left:18px;
                 transform:translateY(-100%);
                 em {
-                    padding-left:34px;
-                    padding-right:0;
+                    padding: 0 0 0 34px;
                     color:#000;
                     font-size:16px;
                     font-weight:600;
-                    font-family:'Pretendard';
                     position:relative;
                     &:before, &:after {
-                        border-top:2px solid #00BC70;
                         content:'';
+                        width:16px;
+                        border-top:2px solid #00BC70;
                         position:absolute;
-                        top:5px;
+                        top:50%;
                         left:4px;
                         display:block;
+                        transform: translateY(-50%)
                     }
                     &:before {
-                        width:16px;
                         height:12px;
                         border-bottom:2px solid #00BC70;
-                        border-right:0;
-                        border-left:0;
-                    }
-                    &:after {
-                        width:16px;
-                        border-top:2px solid #00BC70;
-                        top:50%;
                     }
                 }
             }

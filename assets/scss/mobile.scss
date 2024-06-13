@@ -959,10 +959,52 @@
   }
 
   &.filter {
+    .modal_header {
+      width: auto;
+      height: auto;
+      padding: 2.3rem 0;
+      margin: 0 2.1rem;
+      border-bottom: 0.1rem solid #EEE;
+
+      .btn_close {
+        width: 2.4rem;
+        height: 2.4rem;
+        padding: 0.3rem;
+        background-color: unset;
+        top: 2rem;
+        left: unset;
+        right: 0;
+        transform: unset;
+
+        span {
+          width: 100%;
+          height: 100%;
+          display: block;
+          position: relative;
+
+          &:before, &:after {
+            content: '';
+            width: 100%;
+            height: 0.1rem;
+            background-color: #000;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+          }
+
+          &:before {
+            transform: translate(-50%, -50%) rotate(45deg);
+          }
+          &:after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+          }
+        }
+
+      }
+    }
+
     .modal_content {
-      margin: 0 2.6rem;
-      padding: 2rem 0 4rem;
-      border-top: 0.1rem solid #EEE;
+      padding: 2rem 2.6rem 4rem;
 
       p {
         margin-bottom:1rem;

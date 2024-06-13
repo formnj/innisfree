@@ -26,6 +26,9 @@
       <div class="sub_title_wrap">
         <h3>{{ faq_data[faq_idx].sub_txt }}</h3>
         <Tabs v-if="faq_data[faq_idx].tabs !== undefined" tabType="type_02" :item="faq_data[faq_idx].tabs" />
+        <!-- 검색결과 X -->
+        <!-- <p><em>'검색결과없음'</em> 검색 결과 <em>0</em> 개</p> -->
+        <!-- //검색결과 X -->
       </div>
       <ul>
         <li v-for="(item,idx) in faq_data[faq_idx].list" :key="idx">
@@ -39,6 +42,13 @@
           </div>
         </li>
       </ul>
+
+      <!-- 검색결과 X -->
+      <!-- <div class="no_data">
+        검색 결과가 없습니다.
+      </div> -->
+      <!-- //검색결과 X -->
+
     </div>
     <!-- //FAQ 컨텐츠 -->
   </div>
@@ -150,6 +160,10 @@ const slides = {
     display:flex;
     gap:40px;
 
+    &.search_list {
+      margin-bottom: 20px;
+    }
+
     h3 {
       color:#000;
       font-size:22px;
@@ -164,6 +178,12 @@ const slides = {
             font-size:16px;
           }
         }
+      }
+    }
+
+    p {
+      em {
+        color: #00BC70;
       }
     }
   }
@@ -354,6 +374,16 @@ const slides = {
           }
         }
       }
+    }
+
+    .no_data {
+      border-top:2px solid #000;
+      margin: 0;
+      padding: 140px 0;
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      border-bottom: 1px solid #EEE;
     }
   }
 </style>

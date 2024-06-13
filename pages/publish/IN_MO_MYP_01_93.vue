@@ -7,17 +7,13 @@
             <div class="row" @click="link_click()">
               <a :href="item.url" target="_blank">
                 <p>{{ item.title }}</p>
-                <span>
-                  다운
-                </span>
+                <span>다운로드</span>
               </a>
             </div>
           </li>
         </ul>
       </div>
     </section>
-
-
   </div>
 
 
@@ -49,22 +45,17 @@ onMounted(() => {
 
 </script>
 <style lang="scss" scoped>
-.inner {
-  padding:1.2rem 2rem;
-}
-
 :deep(.list_wrap) {
   .cart_list  {
-    border-top:2px solid #222 !important;
-    > li + li {
-      border-color:#dcdcdc !important;
-    }
-    li
-    {
+    li {
+      &:first-child {
+        border-top: 0.1rem solid #F5F5F5;
+      }
+
       .row {
         margin-top:0;
         margin-bottom:0;
-        padding:1.5rem 1.8rem 1.5rem 1.2rem;
+        padding:2rem 2.1rem 2rem 2.1rem;
         font-size:1.3rem;
         a {
           display:flex;
@@ -76,18 +67,17 @@ onMounted(() => {
           }
           span {
             color:#777;
-            font-weight:500;
+            font-size: 0;
             display:flex;
             align-items:center;
             &::before {
               content:'';
-              width:1.2rem;
-              height:1.2rem;
-              margin-right:1rem;
+              width:2.4rem;
+              height:2.4rem;
               background-image:url('~/assets/mo_images/common/icon_split.png');
               background-repeat:no-repeat;
               background-size:25rem;
-              background-position:-0.5rem -35.2rem;
+              background-position:-3rem -35rem;
               display:inline-block;
             }
           }
@@ -101,9 +91,6 @@ onMounted(() => {
             }
             span {
               text-decoration:underline;
-              &::before{
-                background-position:-0.5rem -37.4rem
-              }
             }
           }
         }

@@ -721,6 +721,7 @@ const rankingTabs = [
             }
             .cont {
               height:auto;
+              margin-top:0;
               margin-bottom:2rem;
               padding:1.6rem 2rem 0 0;
               strong {
@@ -937,7 +938,8 @@ const rankingTabs = [
         align-items:center;
         transform:translateY(-50%);
         .idx_01, .total {
-          width:12px;
+          width:1.2rem;
+          line-height:1.2rem;
           text-align:right;
           position:relative;
           display:block;
@@ -1014,7 +1016,7 @@ const rankingTabs = [
 
     .list_wrap {
       &.type_column{
-        margin:0 -21px;
+        margin:0 -2.1rem;
         > li + li {
           margin-top:2rem;
         }

@@ -6,6 +6,7 @@
         :useName="true"
         :txt="txt"
         :useNav="false"
+        :type="'type_sub'"
     />
     <div id="container">
         <router-view @title="txt = $event" />

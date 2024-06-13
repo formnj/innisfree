@@ -38,12 +38,10 @@
           <span class="price">{{ item.price }}원</span>
         </div>
       </div>
-      <span v-if="item.status && item.status == 'sold_out'" class="fc_red"><strong>일시품절</strong></span>
-      <span v-if="item.status && item.status == 'end'" class="fc_red"><strong>판매중지</strong></span>
-      <Icons class="del" />
+      <span v-if="item.status && item.status == 'sold_out'">일시품절</span> <!-- 상태 : 일시품절, 판매중지, 출시예정 -->
+      <Icons v-if="item.delete || item.delete === undefined" class="del" />
     </div>
-
-    <!-- 선택된 옵션 리스트 -->
+    
     <ul v-if="item.hasOption" class="selected_list">
       <li v-for="(item, idx) in sample_prod_selected_list.slice(0,3)" :key="idx">
         <span class="name">{{ item.name}}</span>

@@ -8,6 +8,7 @@
             :useHome="true"
             :useSearch="false"
             :useNav="false"
+            :type="'type_sub'"
         />
         <div id="container">
             <router-view />
