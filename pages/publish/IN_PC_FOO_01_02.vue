@@ -58,22 +58,24 @@
               전세계 유일무이한 '피부만을 위한 녹차 품종'을 탄생 시킬 수 있었습니다.
             </span>
           </p>
-          <div>
-            <div class="swiper_wrap">
-              <!-- swiper -->
-              <swiper
-                class="swiper"
-                v-bind="swiper_options.greentea"
-                @swiper="onSwiper"
-              >
-                <swiper-slide v-for="(item, idx) in about_greentea_02" :key="idx">
-                    <div class="item">
-                      <img :src="item.img">
-                    </div>
-                </swiper-slide>
-              </swiper>
-              <!-- //swiper -->
-            </div>
+          <div class="swiper_wrap">
+            <!-- swiper -->
+            <swiper
+              class="swiper"
+              v-bind="swiper_options.greentea"
+              @swiper="onSwiper"
+              @slideChange="scrollBar"
+            >
+              <swiper-slide v-for="(item, idx) in about_greentea_02" :key="idx">
+                  <div class="item">
+                    <img :src="item.img">
+                  </div>
+              </swiper-slide>
+              <div class="swiper-scrollbar-wrap">
+                <p class="scrollbar">scroll bar</p>
+              </div>
+            </swiper>
+            <!-- //swiper -->
           </div>
         </dd>
       </dl>
@@ -106,15 +108,14 @@
   </div>
 </template>
 <script setup>
-import { modal } from '~/assets/js/common-ui'
+import {
+  about_greentea_01, about_greentea_02, about_greentea_03
+} from '~/test/data/publish/dummyData'
+
 
 definePageMeta({
   layout:'pc-category'
 });
-
-import {
-  about_greentea_01, about_greentea_02, about_greentea_03
-} from '~/test/data/publish/dummyData'
 
 // import Swiper core and required components
 import SwiperCore from "swiper";
@@ -131,6 +132,32 @@ import 'swiper/scss/pagination'
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, A11y, Autoplay, Scrollbar]);
 
+/* play & pause */
+const visual_swiper = (swiper) => {
+  // const total = swiper.loopedSlides,
+  const total = swiper.wrapperEl.children.length,
+  current = swiper.realIndex+1,
+  pagination = swiper.wrapperEl.closest('.swiper_wrap').querySelector('.custom_pagination');
+
+  if(total < 10) {
+    pagination.querySelector('.current .idx_01').textContent = '0'+current;
+
+    if((current+1) > total) {
+      pagination.querySelector('.current .idx_02').textContent = '0'+((total - current)+1);
+    } else {
+      pagination.querySelector('.current .idx_02').textContent = '0'+(current+1);
+    }
+
+    pagination.querySelector('strong.total').textContent = '0'+total;
+  }
+
+}
+
+
+const scrollBar = (swiper) => {
+  swiper.wrapperEl.parentNode.querySelector('.scrollbar').style.width = ((swiper.realIndex + 1)/swiper.wrapperEl.children.length) * 100+'%'
+};
+
 
 /* swiper option */
 const setSwiper = ref(null);
@@ -138,7 +165,7 @@ const onSwiper = (swiper) => setSwiper.value = swiper;
 const swiper_options = {
   greentea: {
     slidesPerView: '3',
-    spaceBetween: 3,
+    spaceBetween: 5,
     loop:true,
     loopedSlides: 1,
     // autoplay: {
@@ -258,14 +285,15 @@ section {
       }
     }
     dd {
-      // display:flex;
-      // justify-content: space-between;
-      padding: 0 0 22px;
+      padding-bottom:22px;
+      display:flex;
+      justify-content: space-between;
+      gap:15px;
       > p {
         > * + * {
           margin-top:10px;
         }
-        width: 500px;
+        min-width: 500px;
         height: 320px;
         padding: 55.5px 20px;
         color: #fff;
@@ -305,7 +333,18 @@ section {
           z-index:2;
         }
       }
-      > div {}
+      > div {
+        width:calc(100% - 500px);
+        max-height:320px;;
+        overflow: hidden;
+        .item {
+          overflow:hidden;
+          img {max-height:320px;}
+        }
+        .custom_pagination {
+          border: 1px solid red;
+        }
+      }
     }
    }
    > h3 {
