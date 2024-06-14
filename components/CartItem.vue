@@ -21,7 +21,7 @@
           </div>
           <!-- //PC 증정품, 선택증정품 태그 위치-->
         </div>
-        <div class="prod_info">
+        <div v-if="item.status || item.hasOption" class="prod_info">
           <button v-if="item.status && item.status == 'sold_out'" type="button" class="btn_text_green" @click="modal.open('modal_stock_alert','full modal_stock_alert')">입고알림신청</button>
           <ProdSelectbox
             v-if="item.hasOption"
@@ -49,8 +49,8 @@
       <Icons class="del" />
       <!-- MO 증정품, 선택증정품 태그 위치-->
       <div v-if="isMo && (item.gift || item.optionalGift)" class="tag gift">
-        <button v-if="item.gift" type="button" @click="modal.open('modal_gift','full modal_gift')">증정품</button>
-        <button v-if="item.optionalGift" type="button" @click="modal.open('modal_gift','full modal_gift')">선택 증정품</button>
+        <button v-if="item.gift" type="button" @click="modal.open('modal_gift','bottom modal_gift')">증정품</button>
+        <button v-if="item.optionalGift" type="button" @click="modal.open('modal_gift','bottom modal_gift')">선택 증정품</button>
       </div>
       <!-- //MO 증정품, 선택증정품 태그 위치-->
     </div>
