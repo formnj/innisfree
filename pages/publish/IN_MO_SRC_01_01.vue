@@ -393,6 +393,7 @@ section {
     }
     .auto_complete_wrap {
         background:rgba(0,0,0,0.6);
+        overflow-y: auto;
         display:none;
         position:fixed;
         top:60px;
