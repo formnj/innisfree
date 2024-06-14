@@ -500,15 +500,6 @@
   }
 }
 
-.giveaway_list {
-  dd {
-    font-size:1.3rem;
-    em {
-      font-size:1.2rem;
-    }
-  }
-}
-
 /* 증정품 리스트 */
 :deep(.giveaway_list) {
   dl {
@@ -2195,6 +2186,15 @@
 
     .modal_header {
       padding: 2.6rem 2.1rem 1rem;
+    }
+
+    .modal_content {
+      dl {
+        dt {
+          width: 8.8rem;
+          height: 11.7rem;
+        }
+      }
     }
   }
 }
