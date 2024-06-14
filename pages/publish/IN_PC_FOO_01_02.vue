@@ -341,9 +341,33 @@ section {
           overflow:hidden;
           img {max-height:320px;}
         }
-        .custom_pagination {
-          border: 1px solid red;
+
+        .swiper-scrollbar-wrap {
+          position:absolute;
+          right:0;
+          bottom:0;
+          left:0;
+          z-index:1;
+          &:after {
+            width:100%;
+            border-top:1px solid #ddd;
+            content:'';
+            position:absolute;
+            bottom:0;
+            left:0;
+            z-index:-1;
+            display:block;
+          }
+          .scrollbar {
+            font-size:0;
+            border-bottom:2px solid #000;
+            position:absolute;
+            bottom:0;
+            left:0;
+            transition:width 0.25s;
+          }
         }
+
       }
     }
    }
