@@ -1989,21 +1989,7 @@ ul.pick_list {
                 }
 
                 .prod_select {
-                  width: 243px;
                   margin-top: 8px;
-
-                  .btn_select {
-                    &:after {
-                      width: 16px;
-                      height: 16px;
-                      margin-top: 0;
-                      border: 0;
-                      background: url('~/assets/mo_images/common/icon_split.png') no-repeat 0 -70px;
-                      background-size: 250px auto;
-                      right: 12px;
-                      transform: translateY(-50%) rotate(0deg);
-                    }
-                  }
                 }
               }
 
@@ -2088,58 +2074,10 @@ ul.pick_list {
             }
 
             .selected_list {
-              max-height: none;
+              margin-top: 20px;
 
               li {
-                padding: 15px;
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px 0;
-                position: relative;
-
-                .name {
-                  font-size: 13px;
-                  line-height: 16px;
-                  display: block;
-                  em {
-                    font-size: 13px;
-                  }
-                }
-
-                .price {
-                  margin: 0;
-                  padding: 0;
-                  text-align: right;
-                  font-size: 16px;
-                  font-weight: 700;
-                  line-height: 20px;
-                  grid-column: 2 / 3;
-                  grid-row: 2 / 3;
-                }
-
-                .cost {
-                  font-size: 11px;
-                  font-weight: 300;
-                }
-
-                .btn_del {
-                  margin: 0;
-                  position: absolute;
-                  top: 10px;
-                  right: 10px;
-                }
-
-                .quantity_control {
-                  margin: 0;
-                  grid-column: 1 / 2;
-                  grid-row: 2 / 3;
-
-                  .count button {
-                    em {
-                      font-size: 0;
-                    }
-                  }
-                }
+                display: flex;
               }
             }
           }
