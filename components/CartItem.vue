@@ -7,28 +7,32 @@
           <img :src="item.img" />
         </a>
       </div>
-      <div class="prod_info">
-        <div v-if="item.cartTag" class="tag">
-          <span>{{ item.cartTag }}</span>
+      <div class="prod_info_wrap">
+        <div class="prod_info">
+          <div v-if="item.cartTag" class="tag">
+            <span>{{ item.cartTag }}</span>
+          </div>
+          <a class="name" href="#none"><strong>{{ item.cate }}</strong> {{ item.name }}</a>
+          <p v-if="item.hasNoti" class="fc_red">{{ item.hasNoti }}</p>
+          <!-- PC 증정품, 선택증정품 태그 위치-->
+          <div v-if="!isMo && (item.gift || item.optionalGift)" class="tag gift">
+            <button v-if="item.gift" type="button" @click="modal.open('modal_gift','full modal_gift')">증정품</button>
+            <button v-if="item.optionalGift" type="button" @click="modal.open('modal_gift','full modal_gift')">선택 증정품</button>
+          </div>
+          <!-- //PC 증정품, 선택증정품 태그 위치-->
         </div>
-        <a class="name" href="#none"><strong>{{ item.cate }}</strong> {{ item.name }}</a>
-        <p v-if="item.hasNoti" class="fc_red">{{ item.hasNoti }}</p>
-        <!-- PC 증정품, 선택증정품 태그 위치-->
-        <div v-if="!isMo && (item.gift || item.optionalGift)" class="tag gift">
-          <button v-if="item.gift" type="button" @click="modal.open('modal_gift','full modal_gift')">증정품</button>
-          <button v-if="item.optionalGift" type="button" @click="modal.open('modal_gift','full modal_gift')">선택 증정품</button>
+        <div v-if="item.status || item.hasOption" class="prod_info">
+          <button v-if="item.status && item.status == 'sold_out'" type="button" class="btn_text_green" @click="modal.open('modal_stock_alert','full modal_stock_alert')">입고알림신청</button>
+          <ProdSelectbox
+            v-if="item.hasOption"
+            _placeholder="옵션을 선택해주세요"
+            :options="[
+              { val: 'op1', name: 'op', txt: '베이지' },
+              { val: 'op2', name: 'op', txt: '베이비핑크' },
+              { val: 'op3', name: 'op', txt: '상품명 상품명 상품명 상품명 상품명', soldout: true, stockAlert: true },
+            ]"
+          />
         </div>
-        <!-- //PC 증정품, 선택증정품 태그 위치-->
-        <button v-if="item.status && item.status == 'sold_out'" type="button" class="btn_text_green" @click="modal.open('modal_stock_alert','full modal_stock_alert')">입고알림신청</button>
-        <ProdSelectbox
-          v-if="item.hasOption"
-          _placeholder="옵션을 선택해주세요"
-          :options="[
-            { val: 'op1', name: 'op', txt: '베이지' },
-            { val: 'op2', name: 'op', txt: '베이비핑크' },
-            { val: 'op3', name: 'op', txt: '상품명 상품명 상품명 상품명 상품명', soldout: true, stockAlert: true },
-          ]"
-        />
       </div>
       <div v-if="!item.status || !item.status == 'sold_out'" :class="item.hasOption ? 'prod_price no_use' : 'prod_price'">
         <div class="quantity_area">
@@ -36,16 +40,17 @@
           <span v-if="item.isLimited" :class="item.isLimited.over ? 'err' : '' ">최대선택{{ item.isLimited.limit }}개까지</span> <!-- 최대선택 갯수 넘을 경우 err 클래스 추가-->
         </div>
         <div v-if="!item.isSample" class="price_wrap">
-          <span v-if="!item.noDiscount" class="cost">{{ item.cost }}원</span>
+          <span v-if="!item.noDiscount || (item.noDiscount && isMo)" class="cost">{{ item.cost }}원</span>
           <span class="price">{{ item.price }}원</span>
         </div>
       </div>
-      <span v-if="item.status && item.status == 'sold_out'">일시품절</span> <!-- 상태 : 일시품절, 판매중지, 출시예정 -->
+      <span v-if="item.status && item.status == 'sold_out'" class="fc_red"><strong>일시품절</strong></span>
+      <span v-if="item.status && item.status == 'end'" class="fc_red"><strong>판매중지</strong></span>
       <Icons class="del" />
       <!-- MO 증정품, 선택증정품 태그 위치-->
       <div v-if="isMo && (item.gift || item.optionalGift)" class="tag gift">
-        <button v-if="item.gift" type="button" @click="modal.open('modal_gift','full modal_gift')">증정품</button>
-        <button v-if="item.optionalGift" type="button" @click="modal.open('modal_gift','full modal_gift')">선택 증정품</button>
+        <button v-if="item.gift" type="button" @click="modal.open('modal_gift','bottom modal_gift')">증정품</button>
+        <button v-if="item.optionalGift" type="button" @click="modal.open('modal_gift','bottom modal_gift')">선택 증정품</button>
       </div>
       <!-- //MO 증정품, 선택증정품 태그 위치-->
     </div>
@@ -102,6 +107,7 @@ const props = defineProps({
         z-index: 5;
 
         :deep(.check) {
+          padding-left: 20px;
           vertical-align: top;
         }
       }
@@ -148,8 +154,15 @@ const props = defineProps({
       }
     }
 
-    .prod_info {
+    .prod_info_wrap {
       height: 133px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .prod_info {
       padding-right:56px;
       flex:1;
 
@@ -191,6 +204,7 @@ const props = defineProps({
       .name {
         font-size: 16px;
         line-height: 20px;
+        color: #000;
         display: block;
 
         & + * {
@@ -307,7 +321,7 @@ const props = defineProps({
       }
     }
 
-    .prod_info {
+    .prod_info_wrap {
       height: auto;
     }
 
@@ -345,7 +359,7 @@ const props = defineProps({
         }
       }
 
-      .prod_info {
+      .prod_info_wrap {
         height: auto;
       }
 
