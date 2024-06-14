@@ -18,25 +18,77 @@
             청록의 다원은 이니스프리의 시작점입니다.
           </p>
         </div>
-
       </div>
-      <dl>
-        <dt>비디오 영역</dt>
-        <dd>
-          이 모든 것들이 자유롭게 살아 숨쉬는 <strong>THE NEW ISLE</strong>
-        </dd>
-      </dl>
       <ul>
         <li>
-          <img src="/_nuxt/public/images/sam/p_bg0102.png" alt="">
-          <strong>
-            Enjoy being you,<br>Be free with INNISFREE
-          </strong>
-          <span>
-            이니스프리와 함께 겉으로 보이는 아름다움을 넘어<br> 당신의 모든 아름다운 찰나를 발견해보세요.
-          </span>
+          <img src="/_nuxt/public/images/sam/p_slide01.png" alt="">
+        </li>
+        <li>
+          <span><img src="/_nuxt/public/images/sam/p_slide02.png" alt=""></span>
+          <p>
+            <span>
+              돌무더기와 가시덤불이 가득했던 황무지를<br>
+              손으로 일구어 비옥한 차밭으로<br>
+              개간한 창업주의 끈질긴 집념과 개척 정신은
+            </span>
+            <span>
+              ‘건강한 피부를 위해 끊임없이 도전하고 연구’ <br>
+              하는 오늘날 이니스프리의 근간이 되었고,<br>
+              이것의 산물이라고 할 수 있는 ‘그린티’는<br>
+              이니스프리의 정수가 되는 원료로 자리 잡았습니다.
+            </span>
+          </p>
         </li>
       </ul>
+      <dl>
+        <dt>
+          <strong>
+            Farm to Face<br>Beauty Green Tea™ INNISFREE
+          </strong>
+        </dt>
+        <dd>
+          <p>
+            <span>녹차 나무 한 그루가 자라기까지 걸리는 시간 5년.</span>
+            <span>
+              약 20여년 동안 여러 실험 끝에 2만여 종의 녹차 중 <br>
+              기후, 병충해를 비롯한 여러 악조건을 견디며<br>
+              최적의 효능을 발휘해낼 수 있는,
+            </span>
+            <span>
+              전세계 유일무이한 '피부만을 위한 녹차 품종'을 탄생 시킬 수 있었습니다.
+            </span>
+          </p>
+          <div>
+            <div class="swiper_wrap">
+              <!-- swiper -->
+              <swiper
+                class="swiper"
+                v-bind="swiper_options.greentea"
+                @swiper="onSwiper"
+              >
+                <swiper-slide v-for="(item, idx) in about_greentea_02" :key="idx">
+                    <div class="item">
+                      <img :src="item.img">
+                    </div>
+                </swiper-slide>
+              </swiper>
+              <!-- //swiper -->
+            </div>
+          </div>
+        </dd>
+      </dl>
+      <h3>
+        이니스프리의 특별한 그린티가 들어간 <br><strong>이니스프리 대표 제품</strong>들을 지금 바로 만나보세요.
+      </h3>
+      <ol>
+        <li v-for="(item, idx) in about_greentea_03" :key="idx">
+          <a :href="item.url">
+            <img :src="item.img" alt="img">
+            <span v-html="item.txt"></span>
+            <em>상품 보러가기</em>
+          </a>
+        </li>
+      </ol>
       <div class="link_box">
         <a class="list02" @click="$router.push('/publish/IN_MO_FOO_01_02')">
           <span>The Origin<br>Green Tea Heritage</span>
@@ -60,11 +112,13 @@ definePageMeta({
   layout:'pc-category'
 });
 
-import { sampleSlide } from '~/test/data/publish/dummyData.js'
+import {
+  about_greentea_01, about_greentea_02, about_greentea_03
+} from '~/test/data/publish/dummyData'
 
 // import Swiper core and required components
 import SwiperCore from "swiper";
-import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
+import { Navigation, Pagination, A11y, Autoplay, Scrollbar } from "swiper/modules";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -75,21 +129,25 @@ import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y, Autoplay]);
+SwiperCore.use([Navigation, Pagination, A11y, Autoplay, Scrollbar]);
+
 
 /* swiper option */
 const setSwiper = ref(null);
 const onSwiper = (swiper) => setSwiper.value = swiper;
 const swiper_options = {
-  slidesPerView: 'auto',
-  spaceBetween: 15,
-  loop: true,
-	loopedSlides: 1,
-  autoplay: {
-    delay:3000,
-    disableOnInteraction:false,
-  },
-  speed:1000,
+  greentea: {
+    slidesPerView: '3',
+    spaceBetween: 3,
+    loop:true,
+    loopedSlides: 1,
+    // autoplay: {
+    //   delay:500,
+    //   disableOnInteraction:false,
+    // },
+    speed:1000,
+  }
+
 }
 /* swiper option */
 
@@ -123,7 +181,7 @@ section {
       > div {
         position:absolute;
         left: 0;
-        bottom:-485px;
+        bottom:-417px;
         h2 {
         font-size:60px;
         font-weight:700;
@@ -146,57 +204,155 @@ section {
       }
     }
    }
-   > dl {
-    margin-bottom:150px;
-    padding-top:150px;
-    font-weight:500;
-    font-size:16px;
-    text-align:right;
-    dt {
-      width:100%;
-      height:650px;
-      background-color:#999;
-      overflow:hidden;
-    }
-    dd {
-      margin-top:20px;
-      text-align:right;
-    }
-   }
    > ul {
+    padding-top:120px;
     li {
-      height:670px;
-      padding:0px 0 100px 350px;
-      box-sizing:border-box;
-      position:relative;
+      margin-top:50px;
       display:flex;
-      flex-direction:column;
-      strong {
-        margin-top:50px;
-        font-size:22px;
-        font-weight:600;
-        line-height:1.36;
-        display:inline-block;
+      align-items:center;
+      justify-content: flex-end;
+      > span {
+        img {}
       }
-      span {
-        margin:10px 0 0 0;
-        color:#666;
-        font-size:16px;
-        font-weight:500;
-        line-height:1.62;
+      > p {
+        margin-left:140px;
+        > * + * {
+          margin-top:15px;
+        }
+        span {
+          color: #666;
+          font-size: 16px;
+          line-height: 1.62;
+          display:block;
+        }
         &::before {
           content:'';
-          width:300px;
-          height:300px;
-          background: url('/_nuxt/public/images/sam/p_brandStory_bg0103.png');
-          position:absolute;
-          bottom:-120px;
-          left:0;
+          width:40px;
+          height:40px;
+          margin-bottom:20px;
+          background:url('~/assets/images/common/icon_split.png') no-repeat -318px -738px / 500px auto;
+          display:block;
+        }
+        &::after {
+          text-align:right;
+          content:'';
+          width:40px;
+          height:40px;
+          margin-top:20px;
+          margin-left:auto;
+          margin-right:0;
+          background:url('~/assets/images/common/icon_split.png') no-repeat -373px -738px / 500px auto;
           display:block;
         }
       }
     }
    }
+   > dl {
+    margin-top:140px;
+    dt {
+      strong {
+      margin-bottom: 40px;
+      font-size:24px;
+      font-weight:600;
+      display:block;
+      }
+    }
+    dd {
+      // display:flex;
+      // justify-content: space-between;
+      padding: 0 0 22px;
+      > p {
+        > * + * {
+          margin-top:10px;
+        }
+        width: 500px;
+        height: 320px;
+        padding: 55.5px 20px;
+        color: #fff;
+        font-size: 14px;
+        background:url('https://images.innisfree.co.kr/resources/web2/images/about/230228/bg_greenBox.png') no-repeat left top;
+        line-height: 1.86;
+        box-sizing: border-box;
+        text-align: center;
+        position: relative;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        &::before {
+          content:'';
+          width:44px;
+          height:45px;
+          margin-bottom:20px;
+          background:url('~/assets/images/common/icon_split.png') no-repeat -292px -659px / 500px auto;
+          display:block;
+          position:relative;
+          z-index:2;
+
+        }
+        &::after {
+          content: "";
+          background:#000;
+          position:absolute;
+          left:0;
+          right:0;
+          bottom:0;
+          top:0;
+          opacity:0.4;
+        }
+        span {
+          position:relative;
+          z-index:2;
+        }
+      }
+      > div {}
+    }
+   }
+   > h3 {
+    margin-bottom: 40px;
+    padding-top:150px;
+    font-size:24px;
+    font-weight:600;
+    strong {
+      color: #00BC70;
+    }
+   }
+   > ol {
+    display:flex;
+    flex-wrap:wrap;
+    gap:0 20px;
+    li {
+      width:240px;
+      a {
+        display:flex;
+        flex-direction:column;
+        span {
+          margin-top:20px;
+          font-size:16px;
+          font-weight:400;
+          display:block
+        }
+        em {
+          margin-top:10px;
+          padding-right:16px;
+          color: #888;
+          font-size:14px;
+          line-height:1.6rem;
+          display:flex;
+          align-items:center;
+          &::after {
+            content:'';
+            width:17px;
+            height:17px;
+            margin-left:5px;
+            background:url('~/assets/images/common/icon_split.png') no-repeat -3px -175px / 250px auto;;
+            display:inline-block;
+          }
+        }
+      }
+    }
+   }
+
 }
 
 

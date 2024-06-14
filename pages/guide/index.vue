@@ -501,7 +501,7 @@ const sch_arry = ([
     }, {
         depth:['','푸터','',''],
         id:'', status:'',
-        type:'', note:'',
+        type:'', note:'24.06.14 디자인 미확정',
         sDate:'', eDate:'2024-06-14' , worker:'김희경'
     }, {
         depth:['','장바구니','상품없음',''],
@@ -1274,14 +1274,14 @@ const PC_arry = ([
         sDate:'2024-06-13', eDate:'2024-06-13/2024-06-13', worker:'김희경'
     }, {
         depth:['','','GREEN TEA HERITAGE(T)',''],
-        id:'IN_PC_FOO_01_02', status:'',
+        id:'IN_PC_FOO_01_02', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','','BETTER FOR EARTH(T)',''],
-        id:'IN_PC_FOO_01_03', status:'',
+        id:'IN_PC_FOO_01_03', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','이용약관','',''],
         id:'IN_PC_FOO_01_04', status:'',
