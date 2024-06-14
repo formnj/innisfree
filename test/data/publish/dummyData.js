@@ -723,7 +723,7 @@ export const mo_benefit_goods = [
   },
   {
       img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
-      overflip:("/_nuxt/images/sam/sam_goods_list_02-1.jpg"),
+      overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
       cate:'NEW',
       name:'그린티 씨드 히알루론산 세렘 80ml',
       price:'44,800', sale:'~20%', cost:'56,000',
@@ -1142,7 +1142,7 @@ export const sample_goods = [
       delete: false,
     }, {
       img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
-      overflip:("/_nuxt/images/sam/sam_goods_list_02-1.jpg"),
+      overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
       cate:'NEW',
       name:'그린티 씨드 히알루론산 세렘 80ml',
       price:'44,800', sale:'~20%', cost:'56,000',
@@ -1183,7 +1183,7 @@ export const sample_goods = [
       optionalGift: true,
     }, {
       img:("/_nuxt/public/images/sam/sam_goods_list_02.jpg"),
-      overflip:("/_nuxt/images/sam/sam_goods_list_02-1.jpg"),
+      overflip:("/_nuxt/public/images/sam/sam_goods_list_02-1.jpg"),
       cate:'NEW',
       name:'그린티 씨드 히알루론산 세렘 80ml',
       price:'44,800', sale:'~20%', cost:'56,000',
@@ -2348,8 +2348,8 @@ export const global_menu = [
             {link:'#none', menu:'기타'}
         ],
         goods: [
-            {img:'/_nuxt/images/sam/category_sam_goods_list_00-1.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
-            {img:'/_nuxt/images/sam/category_sam_goods_list_00-2.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-1.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-2.png', name: '2024 레티놀 앰플 럭키박스', cate:'BEST'},
         ]
     }, {
         link:'#none', menu:'메이크업',
@@ -2360,8 +2360,8 @@ export const global_menu = [
             {link:'#none', menu:'네일'}
         ],
         goods: [
-            {img:'/_nuxt/images/sam/category_sam_goods_list_00-3.png', name: '노세범 블러 프라이머 25mL', cate:'BEST'},
-            {img:'/_nuxt/images/sam/category_sam_goods_list_00-4.png', name: '노세범 AC 파우더 5G'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-3.png', name: '노세범 블러 프라이머 25mL', cate:'BEST'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-4.png', name: '노세범 AC 파우더 5G'},
         ]
     }, {
         link:'#none', menu:'남성',
@@ -2373,8 +2373,8 @@ export const global_menu = [
             {link:'#none', menu:'기획세트'}
         ],
         goods: [
-            {img:'/_nuxt/images/sam/category_sam_goods_list_00-5.png', name: '포레스트 포맨 쉐이빙&클렌징 폼', cate:'BEST'},
-            {img:'/_nuxt/images/sam/category_sam_goods_list_00-6.png', name: '포레스트 프레시 스킨 로션 2종 세트', cate:'BEST'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-5.png', name: '포레스트 포맨 쉐이빙&클렌징 폼', cate:'BEST'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-6.png', name: '포레스트 프레시 스킨 로션 2종 세트', cate:'BEST'},
         ]
     }, {
         link:'#none', menu:'헤어/바디',
@@ -2386,8 +2386,8 @@ export const global_menu = [
             {link:'#none', menu:'샴푸/트리트먼트'}
         ],
         goods: [
-            {img:'/_nuxt/images/sam/category_sam_goods_list_00-7.png', name: '아일 넘버 바디 앤 핸드 워시 300mL'},
-            {img:'/_nuxt/images/sam/category_sam_goods_list_00-8.png', name: '[LTD] 마이퍼퓸드 핸드크림 2종 기획 세트'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-7.png', name: '아일 넘버 바디 앤 핸드 워시 300mL'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-8.png', name: '[LTD] 마이퍼퓸드 핸드크림 2종 기획 세트'},
         ]
     }, {
         link:'#none', menu:'기획세트',
@@ -2395,8 +2395,8 @@ export const global_menu = [
             {link:'#none', menu:'기획세트'}
         ],
         goods: [
-            {img:'/_nuxt/images/sam/category_sam_goods_list_00-9.png', name: '[LTD] 블랙티 유스 인핸싱 앰플 세트', cate:'BEST'},
-            {img:'/_nuxt/images/sam/category_sam_goods_list_00-10.png', name: '[LTD] 비타C 잡티 토닝 세럼 대용량 세트', cate:'BEST'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-9.png', name: '[LTD] 블랙티 유스 인핸싱 앰플 세트', cate:'BEST'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-10.png', name: '[LTD] 비타C 잡티 토닝 세럼 대용량 세트', cate:'BEST'},
         ]
     }, {
         link:'#none', menu:'미용소품',
@@ -2408,20 +2408,20 @@ export const global_menu = [
             {link:'#none', menu:'기타 소품'},
         ],
         goods: [
-            {img:'/_nuxt/images/sam/category_sam_goods_list_00-11.png', name: '패들 헤어 브러시 1EA'},
-            {img:'/_nuxt/images/sam/category_sam_goods_list_00-12.png', name: '리스테이 리-스펜서 350mL'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-11.png', name: '패들 헤어 브러시 1EA'},
+            {img:'/_nuxt/public/images/sam/category_sam_goods_list_00-12.png', name: '리스테이 리-스펜서 350mL'},
         ]
     }, {
         link:'#none', menu:'고민별제품',
         sub_menu: [
-            {link:'#none', menu:'수분/보습/속건조', img:'/_nuxt/images/sam/category_sam_goods_list_00-13.png'},
-            {link:'#none', menu:'모공/피지/블랙헤드', img:'/_nuxt/images/sam/category_sam_goods_list_00-14.png'},
-            {link:'#none', menu:'주름/탄력', img:'/_nuxt/images/sam/category_sam_goods_list_00-15.png'},
-            {link:'#none', menu:'트러블/리페어', img:'/_nuxt/images/sam/category_sam_goods_list_00-16.png'},
-            {link:'#none', menu:'각질/피부결', img:'/_nuxt/images/sam/category_sam_goods_list_00-17.png'},
-            {link:'#none', menu:'잡티/피부결', img:'/_nuxt/images/sam/category_sam_goods_list_00-18.png'},
-            {link:'#none', menu:'영양/토탈안티에이징', img:'/_nuxt/images/sam/category_sam_goods_list_00-19.png'},
-            {link:'#none', menu:'진정/민감', img:'/_nuxt/images/sam/category_sam_goods_list_00-20.png'}
+            {link:'#none', menu:'수분/보습/속건조', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-13.png'},
+            {link:'#none', menu:'모공/피지/블랙헤드', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-14.png'},
+            {link:'#none', menu:'주름/탄력', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-15.png'},
+            {link:'#none', menu:'트러블/리페어', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-16.png'},
+            {link:'#none', menu:'각질/피부결', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-17.png'},
+            {link:'#none', menu:'잡티/피부결', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-18.png'},
+            {link:'#none', menu:'영양/토탈안티에이징', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-19.png'},
+            {link:'#none', menu:'진정/민감', img:'/_nuxt/public/images/sam/category_sam_goods_list_00-20.png'}
         ]
     },
 ]
