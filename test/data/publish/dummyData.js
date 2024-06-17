@@ -2807,3 +2807,16 @@ export const sample_prod_selected_list = [
     cost:"26,000"
   },
 ]
+
+export const keyword_list = [
+  { num: "1.", name: "장원영 네컷", type: "up" },
+  { num: "2.", name: "블랙티", type: "" },
+  { num: "3.", name: "선크림", type: "down" },
+  { num: "4.", name: "그린티", type: "new" },
+  { num: "5.", name: "크림", type: "up" },
+  { num: "6.", name: "클렌징폼", type: "" },
+  { num: "7.", name: "블랙티", type: "down" },
+  { num: "8.", name: "선크림", type: "new" },
+  { num: "9.", name: "그린티", type: "up" },
+  { num: "10.", name: "크림", type: "" },
+]

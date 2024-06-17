@@ -12,7 +12,7 @@
             :search-placeholder="[
               {text:'새로워진 이니스프리 SHOWCASE'},
               {text:'새로워진 이니스프리'},
-              {text:'새로워진'},
+              // {text:'새로워진'},
             ]"
           />
           <Icons class="btn_search" txt="검색" @click="page_link($event, 'IN_MO_SRC_01_02')" />
@@ -219,7 +219,7 @@ onMounted(() => {
 
   document.querySelector('.nav_wrap > ul li').classList.add('active')
   document.querySelector('.nav_wrap > div').addEventListener('scroll', (e) => {
-    ;[...e.target.children].forEach((item, index) => {
+    [...e.target.children].forEach((item, index) => {
       document
         .querySelectorAll('.nav_wrap > ul li')
         [index].classList.remove('active')
