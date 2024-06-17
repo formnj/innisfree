@@ -1280,7 +1280,7 @@ const PC_arry = ([
     }, {
         depth:['','','GREEN TEA HERITAGE(T)',''],
         id:'IN_PC_FOO_01_02', status:'com',
-        type:'', note:'',
+        type:'', note:'스와이퍼 스크롤바 수정-[JH 24.06.17]',
         sDate:'2024-06-14', eDate:'2024-06-14/2024-06-14', worker:'김희경'
     }, {
         depth:['','','BETTER FOR EARTH(T)',''],
