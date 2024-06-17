@@ -11,35 +11,8 @@
           </h2>
           <div class="keyword_list">
               <ol ref="roll_ele">
-                  <li>
-                      <a href="#none" class="up"><em>1</em><span>장원영 네컷</span></a>
-                  </li>
-                  <li>
-                      <a href="#none" class="up"><em>2</em><span>노세범</span></a>
-                  </li>
-                  <li>
-                      <a href="#none" class="down"><em>3</em><span>메이크업도구</span></a>
-                  </li>
-                  <li>
-                      <a href="#none"><em>4</em><span>그린티 신상</span></a>
-                  </li>
-                  <li>
-                      <a href="#none"><em>5</em><span>아이라이너</span></a>
-                  </li>
-                  <li>
-                      <a href="#none"><em>6</em><span>검색어 최대 9자까지 가능</span></a>
-                  </li>
-                  <li>
-                      <a href="#none" class="down"><em>7</em><span>바디로션</span></a>
-                  </li>
-                  <li>
-                      <a href="#none" class="new"><em>8</em><span>선크림</span></a>
-                  </li>
-                  <li>
-                      <a href="#none"><em>9</em><span>신규 구매 혜택</span></a>
-                  </li>
-                  <li>
-                      <a href="#none" class="up"><em>10</em>이벤트</a>
+                  <li v-for="(item, idx) in keyword_list" :key="idx">
+                      <a href="#none" :class="item.type"><em>{{ item.num }}</em><span>{{ item.name }}</span></a>
                   </li>
               </ol>
           </div>
@@ -204,6 +177,7 @@
 import {
   sample_goods,
   sample_event,
+  keyword_list
 } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui'
 

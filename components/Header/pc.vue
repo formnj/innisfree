@@ -94,7 +94,7 @@
                 <div class="keyword">
                     <ol ref="roll_ele">
                         <li v-for="(item, idx) in keyword_list" :key="idx" >
-                            <a href="#none" :class="item.type"><em>{{ item.num }}</em>{{ item.name }}</a>
+                            <a href="#none" :class="item.type"><em>{{ item.num }}.</em>{{ item.name }}</a>
                         </li>
                     </ol>
                     <div>
