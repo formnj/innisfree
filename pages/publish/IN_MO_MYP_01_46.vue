@@ -49,7 +49,7 @@
                     <Inputs _type="text" _placeholder="제목을 입력해주세요. (최대 30자 이내)" />
                     <!-- 24-04-25 Add -->
                     <div class="txtarea_wrap">
-                      <Textarea @keydown="counter()" _placeholder="내용을 입력해 주세요. 문의 내용 본문에는 개인정보를 입력하지 말아주세요. 고객정보보호를 위해 마스킹 처리될 수 있습니다.(예 : 성명, 연락처, 이메일주소, 계좌번호 등)" />
+                      <Textarea @keydown="counter($event)" _placeholder="내용을 입력해 주세요. 문의 내용 본문에는 개인정보를 입력하지 말아주세요. 고객정보보호를 위해 마스킹 처리될 수 있습니다.(예 : 성명, 연락처, 이메일주소, 계좌번호 등)" />
                       <span class="count">
                         <em>0</em>/300</span>
                     </div>
@@ -240,9 +240,11 @@ const tab_click = (event)=>{
     target.classList.add('active');
 }
 
-const counter = () =>{
-  var content = document.querySelector('.txtarea_wrap textarea').value;
-  console.log(content)
+const counter = (event) =>{
+  var content = event.target.value;
+  var num = ref(content)
+  var length = ref(num.length())
+  console.log(length)
 }
 
 const emit = defineEmits(['title']);
