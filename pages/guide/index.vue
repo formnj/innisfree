@@ -585,9 +585,9 @@ const sch_arry = ([
         sDate:'', eDate:'2024-07-26' , worker:''
     }, {
         depth:['','메인','',''],
-        id:'IN_PC_HOM_01_01', status:'',
+        id:'IN_PC_HOM_01_01', status:'com',
         type:'', note:'베너전체보기, 전체보기',
-        sDate:'', eDate:'2024-08-02' , worker:''
+        sDate:'', eDate:'2024-08-02/2024-06-14' , worker:'이종환'
     }, {
         depth:['','마이페이지','주문내역','교환신청'],
         id:'', status:'',
