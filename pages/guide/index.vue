@@ -530,12 +530,12 @@ const sch_arry = ([
         sDate:'', eDate:'2024-07-12' , worker:''
     }, {
         depth:['','','주문완료',''],
-        id:'', status:'',
+        id:'IN_PC_ORD_01_30', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-07-12' , worker:''
     }, {
         depth:['','','주문실패',''],
-        id:'', status:'',
+        id:'IN_PC_ORD_01_31', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-07-12' , worker:''
     }, {
