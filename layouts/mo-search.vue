@@ -15,7 +15,7 @@
           <router-view @icons="icons = $event" />
       </div>
       <FooterMo />
-      <Actionbar />
+      <!-- <Actionbar /> -->
   </div>
 </template>
 

@@ -64,16 +64,13 @@
               class="swiper"
               v-bind="swiper_options.greentea"
               @swiper="onSwiper"
-              @slideChange="scrollBar"
             >
               <swiper-slide v-for="(item, idx) in about_greentea_02" :key="idx">
                   <div class="item">
                     <img :src="item.img">
                   </div>
               </swiper-slide>
-              <div class="swiper-scrollbar-wrap">
-                <p class="scrollbar">scroll bar</p>
-              </div>
+              <div class="swiper-scrollbar-wrap"></div>
             </swiper>
             <!-- //swiper -->
           </div>
@@ -173,6 +170,10 @@ const swiper_options = {
       disableOnInteraction:false,
     },
     speed:1000,
+    scrollbar: {
+      el:'.swiper-scrollbar-wrap',
+      draggable: false
+    }
   }
 
 }
@@ -358,16 +359,14 @@ section {
             z-index:-1;
             display:block;
           }
-          .scrollbar {
+          & > :deep(.swiper-scrollbar-drag) {
             font-size:0;
             border-bottom:2px solid #000;
             position:absolute;
             bottom:0;
             left:0;
-            transition:width 0.25s;
           }
         }
-
       }
     }
    }

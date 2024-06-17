@@ -4,11 +4,17 @@
   <header :class="type">
     <div class="header_wrap">
       <div class="menu_wrap">
-        <h1 v-if="useLogo"><a href="/publish/IN_MO_HOM_01_01"><img src="/assets/images/common/logo_innisfree.png" /></a></h1>
+        <h1 v-if="useLogo"><a :href="path + '/IN_MO_HOM_01_01'"><img src="/assets/images/common/logo_innisfree.png" /></a></h1>
         <Icons v-if="useBack" class="back" txt="뒤로가기" />
         <button v-if="useMenu" class="btn_menu" @click="modal.open('modal_nav', 'bottom nav')">{{ props.txt }}</button>
         <div v-if="useSearchWrap" class="search_wrap">
-          <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
+          <SearchInput
+            :search-placeholder="[
+              {text:'새로워진 이니스프리 SHOWCASE'},
+              {text:'새로워진 이니스프리'},
+              // {text:'새로워진'},
+            ]"
+          />
           <Icons class="btn_search" txt="검색" @click="page_link($event, 'IN_MO_SRC_01_02')" />
         </div>
         <h2 v-if="useName">{{ props.txt }}</h2>
@@ -213,7 +219,7 @@ onMounted(() => {
 
   document.querySelector('.nav_wrap > ul li').classList.add('active')
   document.querySelector('.nav_wrap > div').addEventListener('scroll', (e) => {
-    ;[...e.target.children].forEach((item, index) => {
+    [...e.target.children].forEach((item, index) => {
       document
         .querySelectorAll('.nav_wrap > ul li')
         [index].classList.remove('active')
