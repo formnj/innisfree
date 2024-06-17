@@ -585,7 +585,7 @@ const sch_arry = ([
         sDate:'', eDate:'2024-07-26' , worker:''
     }, {
         depth:['','메인','',''],
-        id:'', status:'',
+        id:'IN_PC_HOM_01_01', status:'',
         type:'', note:'베너전체보기, 전체보기',
         sDate:'', eDate:'2024-08-02' , worker:''
     }, {
