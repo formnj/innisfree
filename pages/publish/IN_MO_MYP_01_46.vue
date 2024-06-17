@@ -3,15 +3,6 @@
     <div class="inner">
         <section>
             <dl>
-                <dt>문의제품</dt>
-                <dd>
-                <div class="multi_form">
-                <Inputs _type="text" _placeholder="주문 제품을 선택해주세요" />
-                <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'fullMo');" />
-                </div>
-                </dd>
-            </dl>
-            <dl>
                 <dt>
                     문의유형<em class="vital">*</em>
                 </dt>
@@ -34,6 +25,23 @@
                 </dd>
             </dl>
             <dl>
+                <dt>주문제품</dt>
+                <dd>
+                  <div class="multi_form">
+                    <Inputs _type="text" _placeholder="주문 제품을 선택해주세요"/>
+                    <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'fullMo');" />
+                  </div>
+                  <div class="multi_form hide">
+                    <Inputs _type="text" _placeholder="주문 제품을 선택해주세요"/>
+                    <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'fullMo');" />
+                  </div>
+                  <div class="multi_form hide">
+                    <Inputs _type="text" _placeholder="주문 제품을 선택해주세요"/>
+                    <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'fullMo');" />
+                  </div>
+                </dd>
+            </dl>
+            <dl>
                 <dt>
                     문의내용<em class="vital">*</em>
                 </dt>
@@ -42,6 +50,16 @@
                     <!-- 24-04-25 Add -->
                     <Textarea _placeholder="내용을 입력해 주세요. 문의 내용 본문에는 개인정보를 입력하지 말아주세요. 고객정보보호를 위해 마스킹 처리될 수 있습니다.(예 : 성명, 연락처, 이메일주소, 계좌번호 등)" />
                     <!-- //24-04-25 Add -->
+                  <ul class="ph_wrap">
+                    <li>
+                      <img src="" alt="">
+                      <em></em>
+                    </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
                 </dd>
             </dl>
             <Button class="btn_outline" txt="사진 최대 5장(선택)" />
@@ -214,6 +232,11 @@ section {
               button.btn_outline {
                 height:auto;
               }
+              &.hide {
+                  button.btn_outline {
+                    visibility:hidden;
+                }
+              }
             }
             :deep(.input) {
                 textarea {
@@ -230,6 +253,30 @@ section {
                 }
 
             }
+          .ph_wrap {
+            display:flex;
+            gap:0.5rem;
+            li {
+              width:19.5%;
+              height:6.0rem;
+              border:1px solid red;
+              position:relative;
+              img {
+                object-fit:cover;
+              }
+              em {
+                content:'';
+                width:1.2rem;
+                height:1.2rem;
+                background:url('~/assets/mo_images/common/icon_split.png') no-repeat 0rem 0rem / 25rem auto;;
+                position:absolute;
+                top:0;
+                right:0;
+                display:block;
+                border:1px solid red;
+              }
+            }
+          }
         }
     }
     > button {

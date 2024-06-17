@@ -89,6 +89,40 @@
         </li>
       </ul>
 
+      <div>
+        <ul>
+          <li>
+            <img src="/_nuxt/public/images/sam/brandStory_bg0307.png" alt="">
+          </li>
+          <li>
+            <strong>Coral Reef</strong>
+            <span>
+              코랄 리프(Coral Reef)프렌들리 성분 처방 해양 생태계<br>
+              보전을 위해 코랄 리프(Coral Reef) 프렌들리 제품을<br>
+              자외선 차단 지수(SPF)함유 전 제품에 적용하겠습니다.
+            </span>
+          </li>
+        </ul>
+        <dl>
+          <dt>
+            <strong>Recycled Papers</strong>
+            <span>
+              이니스프리는 플라스틱 비닐 소재의 포장재 대신<br>
+              FSC 인증을 받은 종이 포장재와 박스를 사용하여<br>
+              환경에 불필요하게 미치는 영향을 최소화 했습니다.
+            </span>
+          </dt>
+          <dd>
+            <img src="/_nuxt/public/images/sam/brandStory_bg0308.png" alt="">
+            <img src="/_nuxt/public/images/sam/brandStory_bg0309.png" alt="">
+            <span>
+              배송박스를 받으신 후에는 종이류로 분리배출하여<br>
+              지구를 위한 이니스프리의 실천에 함께 해주세요!
+            </span>
+          </dd>
+        </dl>
+      </div>
+
       <ul>
         <li class="both_side">
           <em class="icon_2">
@@ -97,6 +131,53 @@
           <p>
             이니스프리는 기후 변화에 대응하기 위해 국내 외<br>
             다양한 활동을 지원하고 실천하고 있습니다.
+          </p>
+        </li>
+      </ul>
+      <ul class="trans_aside">
+        <li>
+          <div>
+            <span>Better Together, Green Together</span>
+            <span>Better Together, Green Together</span>
+          </div>
+          <span>
+            <img src="/_nuxt/public/images/sam/brandStory_bg0310.png" alt="">
+          </span>
+        </li>
+        <li>
+          <strong>
+            01. 제주 자연 보전 활동(Since 2011)
+          </strong>
+          <p>
+            <span>
+              매년 제주의 대표적인 명소를 선정하여
+              그린 원정대와 함께 제주의 올레길과 해안가의
+              환경을 정비하는 등 제주 자연 환경 보전 활동을
+              펼쳐오고 있습니다.
+            </span>
+          </p>
+        </li>
+      </ul>
+      <ul class="trans_aside">
+        <li>
+          <span>
+            <img src="/_nuxt/public/images/sam/brandStory_bg0311.png" alt="">
+          </span>
+        </li>
+        <li>
+          <strong>
+            02. 글로벌 숲 캠페인
+          </strong>
+          <p>
+            <span>
+              이니스프리는 기후 변화에 대응하기 위해
+              지구 곳곳에 숲을 조성하고 있습니다.
+            </span>
+            <span>
+              글로벌 대표 CSR 활동으로 자리매김한 Green Forest Campaign을 통해 2012년부터 2022년까지 총 26만
+              그루 의 나무를 심었습니다.
+            </span>
+            <em>* 국내 외 11개 지역 대상 26만 그루 식재 완료</em>
           </p>
         </li>
       </ul>
@@ -130,7 +211,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 
 import {
   about_greentea_01, about_greentea_02, about_greentea_03
-
 } from '~/test/data/publish/dummyData'
 
 
@@ -200,6 +280,7 @@ section {
   > ul {
     margin-bottom:10rem;
     position:relative;
+    overflow:hidden;
     li {
       display:flex;
       flex-direction:column;
@@ -306,11 +387,90 @@ section {
         }
       }
     }
+    &.trans_aside {
+      img {
+        position:relative;
+        z-index:1;
+      }
+      > li {
+        > span {
+          margin-left:0;
+          margin-right:4rem;
+        }
+        strong, p {
+          margin-left:2.1rem;
+          margin-right:2.1rem;
+        }
+        em {
+          color: #999;
+          font-size:1.2rem;
+          font-weight:500;
+          line-height:1.6rem;
+        }
+      }
+      &:last-of-type {
+        li {
+          > span {
+            margin-left:4rem;
+            margin-right:2.1rem;
+          }
+        }
+      }
+    }
+  }
+  > div {
+    padding: 0 2.1rem 10rem;
+    strong {
+      margin-bottom:1rem;
+      color:#333;
+      font-size:1.8rem;
+      font-weight:600;
+      line-height:2.4rem;
+    }
+    span {
+      color:#666;
+      font-weight:500;
+      line-height:2.2rem;
+      letter-spacing:-0.014em;
+    }
+    ul {
+      > * {
+        margin-top:3rem;
+      }
+      li {
+        img {
+          max-width:none;
+          margin-left:-2.1rem;
+          margin-right:-2.1rem;
+          display:block;
+        }
+        display:flex;
+        flex-direction:column;
+      }
+    }
+    dl {
+      margin-top:10rem;
+      dt {
+        display:flex;
+        flex-direction:column;
+      }
+      dd {
+        margin-top:3rem;
+        > * + * {
+          margin-top:1rem;
+        }
+        span {
+          margin-top:3rem;
+          display:block;
+        }
+      }
+    }
   }
 }
 
 
 .link_box {
+  padding: 0;
   margin-top:10rem;
   > * + * {
     margin-top:0.3rem;
@@ -342,6 +502,10 @@ section {
       background:url('/_nuxt/public/images/sam/bg_page02.png') no-repeat center top / 100% auto;
     }
     span {
+      color:#fff;
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 2rem;
       position:relative;
       z-index:1;
     }

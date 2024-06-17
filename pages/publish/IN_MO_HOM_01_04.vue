@@ -95,7 +95,7 @@
 
 
   <!-- 증정품 모달 -->
-  <div id="giveaway_01" class="modal_wrap">
+  <div id="modal_gift" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
         <h2>증정품안내</h2>

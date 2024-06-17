@@ -12,8 +12,8 @@
                         :search-placeholder="[
                             {text: '새로워진 이니스프리 SHOWCASE'},
                             {text: '새로워진 이니스프리'},
-                            // {text: '새로워진'}
-                        ]" 
+                            {text: '새로워진'}
+                        ]"
                     />
                     <Button class="btn_search" />
                 </div>
