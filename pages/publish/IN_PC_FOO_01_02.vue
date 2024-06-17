@@ -168,10 +168,10 @@ const swiper_options = {
     spaceBetween: 5,
     loop:true,
     loopedSlides: 1,
-    // autoplay: {
-    //   delay:500,
-    //   disableOnInteraction:false,
-    // },
+    autoplay: {
+      delay:500,
+      disableOnInteraction:false,
+    },
     speed:1000,
   }
 
@@ -293,8 +293,7 @@ section {
         > * + * {
           margin-top:10px;
         }
-        min-width: 500px;
-        height: 320px;
+        min-width:500px;
         padding: 55.5px 20px;
         color: #fff;
         font-size: 14px;
@@ -302,6 +301,7 @@ section {
         line-height: 1.86;
         box-sizing: border-box;
         text-align: center;
+        background-size:cover;
         position: relative;
         display:flex;
         flex-direction:column;
@@ -335,14 +335,37 @@ section {
       }
       > div {
         width:calc(100% - 500px);
-        max-height:320px;;
-        overflow: hidden;
-        .item {
-          overflow:hidden;
-          img {max-height:320px;}
+        .swiper {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
         }
-        .custom_pagination {
-          border: 1px solid red;
+
+        .swiper-scrollbar-wrap {
+          margin-top:30px;
+          position:absolute;
+          right:0;
+          bottom:0;
+          left:0;
+          z-index:1;
+          &:after {
+            width:100%;
+            border-top:1px solid #ddd;
+            content:'';
+            position:absolute;
+            bottom:0;
+            left:0;
+            z-index:-1;
+            display:block;
+          }
+          .scrollbar {
+            font-size:0;
+            border-bottom:2px solid #000;
+            position:absolute;
+            bottom:0;
+            left:0;
+            transition:width 0.25s;
+          }
         }
       }
     }

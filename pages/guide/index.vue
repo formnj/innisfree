@@ -1279,9 +1279,9 @@ const PC_arry = ([
         sDate:'2024-06-13', eDate:'2024-06-13/2024-06-13', worker:'김희경'
     }, {
         depth:['','','GREEN TEA HERITAGE(T)',''],
-        id:'IN_PC_FOO_01_02', status:'ing',
+        id:'IN_PC_FOO_01_02', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:'김희경'
+        sDate:'2024-06-14', eDate:'2024-06-14/2024-06-14', worker:'김희경'
     }, {
         depth:['','','BETTER FOR EARTH(T)',''],
         id:'IN_PC_FOO_01_03', status:'ing',
