@@ -282,6 +282,41 @@ header {
     }
   }
 
+  &.type_mypage {
+    .header_wrap {
+      padding: 1.3rem 1.6rem;
+      background-color: #000;
+
+      > * {
+        background-color: inherit;
+      }
+
+      h2 {
+        color: #fff;
+        mix-blend-mode: difference;
+      }
+
+      button {
+        background-blend-mode: difference;
+        background-color: inherit;
+
+        &.back {
+          background-position: -10rem -31.5rem;
+        }
+        &.btn_search {
+          background-position: -10rem -35rem;
+        }
+        &.cart {
+          background-position: -13.5rem -31.5rem;
+
+          :deep(em) {
+            background-color: #00BC70;
+          }
+        }
+      }
+    }
+  }
+
   .header_wrap {
     padding: 1rem 2.6rem 0.6rem 2.1rem;
     display: flex;
