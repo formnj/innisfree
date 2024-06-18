@@ -530,12 +530,12 @@ const sch_arry = ([
         sDate:'', eDate:'2024-07-12' , worker:''
     }, {
         depth:['','','주문완료',''],
-        id:'', status:'',
+        id:'IN_PC_ORD_01_30', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-07-12' , worker:''
     }, {
         depth:['','','주문실패',''],
-        id:'', status:'',
+        id:'IN_PC_ORD_01_31', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-07-12' , worker:''
     }, {
@@ -585,9 +585,9 @@ const sch_arry = ([
         sDate:'', eDate:'2024-07-26' , worker:''
     }, {
         depth:['','메인','',''],
-        id:'', status:'',
+        id:'IN_PC_HOM_01_01', status:'com',
         type:'', note:'베너전체보기, 전체보기',
-        sDate:'', eDate:'2024-08-02' , worker:''
+        sDate:'', eDate:'2024-08-02/2024-06-14' , worker:'이종환'
     }, {
         depth:['','마이페이지','주문내역','교환신청'],
         id:'', status:'',
@@ -1280,7 +1280,7 @@ const PC_arry = ([
     }, {
         depth:['','','GREEN TEA HERITAGE(T)',''],
         id:'IN_PC_FOO_01_02', status:'com',
-        type:'', note:'',
+        type:'', note:'스와이퍼 스크롤바 수정-[JH 24.06.17]',
         sDate:'2024-06-14', eDate:'2024-06-14/2024-06-14', worker:'김희경'
     }, {
         depth:['','','BETTER FOR EARTH(T)',''],
