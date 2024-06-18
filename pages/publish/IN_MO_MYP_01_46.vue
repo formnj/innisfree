@@ -241,10 +241,18 @@ const tab_click = (event)=>{
 }
 
 const counter = (event) =>{
-  var content = event.target.value;
-  var num = ref(content)
-  var length = ref(num.length())
-  console.log(length)
+  let content = event.target.value;
+  let num = ref(content)
+  let cont_length = num.value.length
+  console.log(cont_length)
+  let cont = document.querySelector('.txtarea_wrap .count em')
+  if(cont_length.length == 0 || cont_length == ""){
+    cont.innerText=0;
+  }else{
+    cont.innerText=cont_length;
+  }
+
+
 }
 
 const emit = defineEmits(['title']);
