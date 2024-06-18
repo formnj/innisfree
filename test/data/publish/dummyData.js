@@ -1281,6 +1281,8 @@ export const sample_goods = [
 
 export const sam_lnb = ['에센스/세럼/앰플','로션/크림','스킨/토너/미스트','립/아이케어','선케어','오일/마사지','클렌징','팩/마스크','기획 세트','기타']
 
+export const sam_mypage_lnb = ['주문내역', '리뷰', '뷰티포인트', '찜한 제품', '1:1문의', '공병수거 캠페인', '개인정보 수정', '배송지 관리', '원클릭결제 카드관리', '마이샵 관리', '매장찾기']
+
 export const prodImgData = [
   {
     img: ("/_nuxt/public/images/sam/img_prod_swiper_01.png"),
@@ -2840,5 +2842,4 @@ export const mypage_list = [
   { name: "자주하는 질문", url: "#none" },
   { name: "공지사항", url: "#none" },
   { name: "매장찾기", url: "#none" },
-  { name: "고객센터", url: "#none", type: "customer" },
 ]

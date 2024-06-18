@@ -10,10 +10,10 @@
         :type="'type_mypage'"
     />
     <div id="container">
-        <router-view @title="txt = $event" />
+        <router-view :type="'is_login'" @title="txt = $event" />
     </div>
     <FooterMo />
-    <Actionbar />
+    <Actionbar :page-type="'mypage'" />
   </div>
 </template>
 

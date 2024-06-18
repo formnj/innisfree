@@ -15,21 +15,21 @@
               // {text:'새로워진'},
             ]"
           />
-          <Icons class="btn_search" txt="검색" @click="page_link($event, 'IN_MO_SRC_01_02')" />
+          <Icons class="btn_search" txt="검색" />
         </div>
         <h2 v-if="useName">{{ props.txt }}</h2>
       </div>
       <div class="icon_wrap">
         <Icons v-if="useShare" class="share" txt="공유하기" />
-        <a v-if="useHome" href="/publish/IN_MO_HOM_01_01"><Icons class="home" txt="홈" /></a>
+        <a v-if="useHome" :href="path + '/IN_MO_HOM_01_01'"><Icons class="home" txt="홈" /></a>
         <Icons v-if="useAlarm" class="alarm" txt="알람" />
-        <Icons v-if="useSearch" class="btn_search" txt="검색" @click="page_link($event, 'IN_MO_SRC_01_01')" />
-        <Icons v-if="useCart" class="cart" txt="50" @click="page_link($event, 'IN_MO_CAR_01_01')" />
+        <a v-if="useSearch" :href="path + '/IN_MO_SRC_01_01'"><Icons class="btn_search" txt="검색" /></a>
+        <a v-if="useCart" :href="path + '/IN_MO_CAR_01_01'"><Icons class="cart" txt="50" /></a>
         <Icons v-if="useBarcode" class="barcode" />
       </div>
     </div>
     <div class="gnb_wrap">
-      <NavGnb v-if="useNav" :item="gnb_list" :type="props.type === 'main'" />
+      <NavGnb v-if="useNav" :item="gnb_list" :type="props.type" />
 
       <div class="navCategory">
         <!-- mo search -->
@@ -139,10 +139,6 @@ import {
 } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui.js'
 
-import { useRouter } from 'vue-router'
-
-const router = useRouter();
-
 const props = defineProps({
   useBanner: {
     type: Boolean,
@@ -206,15 +202,26 @@ const props = defineProps({
   },
 
 })
-
+const path = '/publish'
 onMounted(() => {
   const header = document.querySelector('header')
+  const mypage_info_wrap = document.querySelector('.info_wrap');
+  const doc_top_banner = document.querySelector('.docTopBanner')
+
   window.scrollY > 0
     ? header.classList.add('fixed')
-    : header.classList.remove('fixed')
+    : header.classList.remove('fixed');
+
   window.addEventListener('scroll', () => {
     if (window.scrollY > 0) header.classList.add('fixed')
     if (window.scrollY <= 0) header.classList.remove('fixed')
+
+    // 마이페이지 스크롤 이벤트
+    if (window.scrollY >= mypage_info_wrap.clientHeight + doc_top_banner.clientHeight) {
+      header.querySelector('.header_wrap').style.cssText = 'background-color: #fff';
+    } else {
+      header.querySelector('.header_wrap').style.cssText = 'background-color: #000';
+    }
   })
 
   document.querySelector('.nav_wrap > ul li').classList.add('active')
@@ -246,13 +253,6 @@ const cate_tab = (e) => {
   nav_cont.scrollTo({ top: target.offsetTop, behavior: 'smooth' })
 };
 
-const page_link = (e, link) => {
-  if (e.target.className === 'back') {
-    router.go(-1);
-  }
-
-  router.push(`/publish/${link}`);
-};
 </script>
 
 <style lang="scss" scoped>
@@ -283,17 +283,20 @@ header {
   }
 
   &.type_mypage {
+    top: 0;
+
     .header_wrap {
       padding: 1.3rem 1.6rem;
       background-color: #000;
 
-      > * {
+      * {
         background-color: inherit;
       }
 
       h2 {
         color: #fff;
         mix-blend-mode: difference;
+        background-color: #000;
       }
 
       button {
@@ -336,6 +339,7 @@ header {
       a {
         display: flex;
       }
+
       img {
         height: 1.6rem;
       }

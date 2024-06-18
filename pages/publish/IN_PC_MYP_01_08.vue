@@ -452,8 +452,6 @@ onMounted(() => {
   function main_tab (){
     let main_tab= document.querySelectorAll('.inner .tab_wrap .type_03 li')
     let main_cont = document.querySelectorAll('.content .inner section')
-    console.log(main_tab)
-    console.log(main_cont)
     var idx
     main_tab.forEach((a,idx)=>{
       a.addEventListener('click',()=>{
@@ -469,8 +467,6 @@ onMounted(() => {
   function sub_tab (){
     let sub_tab= document.querySelectorAll('section.active .tab_wrap .type_04 li')
     let sub_cont = document.querySelectorAll('.inner section article')
-    console.log(sub_tab)
-    console.log(sub_cont)
     var idx
     sub_tab.forEach((a,idx)=>{
       a.addEventListener('click',()=>{
