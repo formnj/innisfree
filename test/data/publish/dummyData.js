@@ -4,6 +4,13 @@
  * jjy11@amorepacific.com
  */
 
+export const qa_imgs = [
+  {img: ("/_nuxt/public/images/sam/SWIFE1.png")},
+  {img: ("/_nuxt/public/images/sam/SWIFE2.png")},
+  {img: ("/_nuxt/public/images/sam/SWIFE3.png")},
+
+]
+
 export const about_greentea_03 = [
   {
     img: ("https://images.innisfree.co.kr/resources/mobile2/images/about/230228/greenTeaHeritage_bg01.png"),
