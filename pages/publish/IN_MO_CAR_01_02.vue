@@ -146,7 +146,7 @@
           <dt>배송비</dt>
           <dd>무료</dd>
         </dl>
-        <div class="total_price">
+        <div class="ord_total_price">
           <dl>
             <dt>결제예정금액</dt>
             <dd>200,000원</dd>
@@ -468,10 +468,6 @@ section {
   }
 }
 
-.fc_red {
-  color: #ff0000;
-}
-
 .prom_box {
     margin-top: 2rem;
     padding: 1.5rem;
@@ -597,7 +593,7 @@ section {
       }
     }
 
-    .total_price {
+    .ord_total_price {
       margin-top: 2rem;
       padding-top: 2rem;
       font-weight: 600;

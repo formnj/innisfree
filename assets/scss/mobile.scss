@@ -1408,6 +1408,17 @@
 }
 
 /* 제품 상세 */
+:deep(.prod_swiper) {
+  .badge {
+    padding: 0 1.4rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    line-height: 3rem;
+    top: auto;
+    bottom: 0;
+    left: 0;
+  }
+}
 :deep(.benefit_list) {
   padding: 0;
   border-top: 0;
@@ -1465,6 +1476,18 @@
     dd {
       ul {
         gap: 1rem 0;
+      }
+    }
+  }
+}
+
+:deep(.my_price.acco_wrap) {
+  .acco_tit {
+    .sub_title_wrap {
+      h4 {
+        button {
+          background-position: -23rem -2rem;
+        }
       }
     }
   }
@@ -1798,8 +1821,6 @@
 
 
 :deep(.selected_list) {
-  max-height: none;
-
   li {
     padding: 1.5rem;
     display: block;
@@ -1832,6 +1853,18 @@
       position: absolute;
       left: 1.5rem;
       bottom: 1.5rem;
+
+      &.small {
+        .count {
+          width: 8rem;
+        }
+      }
+
+      .label_wrap {
+        input {
+          padding: 0;
+        }
+      }
     }
 
     .btn_del {
@@ -2140,10 +2173,6 @@
         height: 7.4rem;
       }
     }
-
-    .fc_red {
-      font-size: 1.3rem;
-    }
   }
 
   &.sample {
@@ -2196,5 +2225,12 @@
         }
       }
     }
+  }
+}
+
+
+:deep(.modal_stock_alert) {
+  .modal_container {
+    width: calc(100% - 40px);
   }
 }

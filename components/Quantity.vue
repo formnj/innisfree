@@ -1,8 +1,8 @@
 <template>
   <div class="count_wrap">
-    <Button class="btn_dec" txt="-" @click="decrease" />  <!-- 클릭 불가일 경우 disabled 속성 추가 -->
-    <Inputs :_id="_id" :_value="quantity" />
-    <Button class="btn_inc" txt="+" @click="increase" />
+    <Button class="btn_dec" txt="-" :disabled="_disabled" @click="decrease" />
+    <Inputs :_id="_id" :_value="quantity" :isDisabled="_disabled" />
+    <Button class="btn_inc" txt="+" @click="increase" :disabled="_disabled" />
   </div>
 </template>
 
@@ -12,7 +12,8 @@
     quantity: {
       type: Number,
       default:0
-    }
+    },
+    _disabled: String,
   });
 
   const increase = (e) => {
@@ -37,10 +38,10 @@
     background-color:#fff;
 
     &:disabled {
-      background-color:#fff;
+      background-color:#f5f5f5;
 
       em {
-        color: #ddd;
+        color: #aaa;
       }
     }
 
@@ -53,10 +54,17 @@
       display:none !important;
     }
   }
-  :deep(input) {
-    padding:0;
-    border:0;
-    text-align:center;
+  :deep(.input_wrap) {
+    input {
+      padding:0;
+      border:0;
+      text-align:center;
+
+      &:disabled {
+        color: #aaa;
+        background-color:#f5f5f5 !important;
+      }
+    }
   }
 }
 </style>

@@ -30,9 +30,11 @@ import {
 #container {
   padding-bottom:100px;
   flex:1 auto;
-  :deep(.inner) {
-    width: 1280px;
-    margin:0 auto;
+  .content {
+    & > :deep(.inner) {
+      width: 1280px;
+      margin:0 auto;
+    }
   }
 }
 </style>
