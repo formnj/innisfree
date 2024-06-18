@@ -12,6 +12,7 @@
             </dt>
             <dd>
               <p>뷰티포인트 소멸시기가 궁금합니다.</p>
+              <Button class="btn_outline btn_sm" txt="문의 취소" @click="modal.open('delete_modal', 'alert')" />
               <div>
                 <span>답변</span>
                 안녕하세요 고객님. 이니스프리입니다.
@@ -24,7 +25,7 @@
                 아모레퍼시픽 뷰티포인트 상담실(080-023-5454/오전 9시 - 6시, 단, 12시 - 1시 점심시간 제외)로 문의부탁드립니다.
                 소중한 시간 내어 문의 주신 점 감사 드립니다.
                 행복한 하루 보내세요.
-                <Button class="btn_outline btn_sm" txt="문의 취소" @click="modal.open('delete_modal', 'alert')" />
+                <Button class="btn_outline btn_sm" txt="추가 문의하기" @click="modal.open('delete_modal', 'alert')" />
               </div>
             </dd>
             <dt>
@@ -37,6 +38,9 @@
             </dt>
             <dd>
               <p>뷰티포인트 소멸시기가 궁금합니다.</p>
+              <div class="img_wrap">
+                <img src="/_nuxt/public/images/sam/SWIFE1.png" alt="">
+              </div>
               <div>
                 <span>답변</span>
                 안녕하세요 고객님. 이니스프리입니다.
@@ -52,6 +56,9 @@
               </div>
             </dd>
           </dl>
+          <div>
+            <Button txt="더보기" class="btn_outline" />
+          </div>
         </div>
 
         <div class="modal_wrap" id="delete_modal">
@@ -226,22 +233,38 @@ accordion('.board_type_toggle', 'click')
         line-height: 1.6rem;
         display: block;
       }
-      :deep(.btn_sm) {
-          width:5.3rem;
-          margin-left:auto;
-          color:#999;
-          font-size:1rem;
-          border:0.1rem solid #999;
-          border-radius:1px;
-          display:block;
-          em {
-            padding:0 5px;
-            color: #999;
-          }
-        }
     }
   }
 }
+
+:deep(.btn_sm) {
+  min-width: 5.3rem;
+  margin-top:1rem;
+  margin-left:auto;
+  color:#999;
+  font-size:1rem;
+  border:0.1rem solid #999;
+  border-radius:1px;
+  display:block;
+  em {
+    padding:0 5px;
+    color: #999;
+  }
+}
 .show {display:block !important;}
+.inner {
+  > div {
+    width:100%;
+    padding:0 2.1rem;
+    > .btn_outline {
+      width:100%;
+      margin:3rem 0;
+      border:1px solid #eee !important;
+      em {
+        color:#666;
+      }
+    }
+  }
+}
 
 </style>
