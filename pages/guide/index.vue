@@ -1688,8 +1688,8 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 문의하기(T)',''],
-        id:'IN_MO_MYP_01_46', status:'ing',
-        type:'', note:'디자인 고도화 수정 필요',
+        id:'IN_MO_MYP_01_46', status:'com',
+        type:'', note:'<del>디자인 고도화 수정 필요</del>/디자인고도화 완료',
         sDate:'2024-04-24', eDate:'2024-04-26/2024-04-24', worker:'김희경'
     }, {
         depth:['','','1:1 답변확인(T)',''],

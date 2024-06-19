@@ -25,7 +25,7 @@
                 아모레퍼시픽 뷰티포인트 상담실(080-023-5454/오전 9시 - 6시, 단, 12시 - 1시 점심시간 제외)로 문의부탁드립니다.
                 소중한 시간 내어 문의 주신 점 감사 드립니다.
                 행복한 하루 보내세요.
-                <Button class="btn_outline btn_sm" txt="추가 문의하기" @click="modal.open('delete_modal', 'alert')" />
+                <Button class="btn_outline btn_sm" txt="추가 문의하기" @click="$router.push('/publish/IN_MO_MYP_01_46')" />
               </div>
             </dd>
             <dt>
@@ -100,6 +100,7 @@
                           <img :src="item.img">
                         </div>
                     </swiper-slide>
+
                   </swiper>
                   <!-- //swiper -->
                 </div>
@@ -156,6 +157,13 @@ const swiper_options = {
     //   disableOnInteraction:false,
     // },
     speed:1000,
+    scrollbar: {
+      el:'.swiper-scrollbar-wrap',
+      draggable: false
+    },
+    pagination: {
+      clickable: true,
+    }
   },
 
 }
@@ -376,13 +384,21 @@ accordion('.board_type_toggle', 'click')
     .modal_content {
       .swiper_wrap {
         img {
-          width:100%;
-          height:100%;;
+          width:330px;
           object-fit:cover !important;
         }
       }
     }
   }
+}
+
+.swiper_wrap {
+  .swiper {
+    padding-bottom:3rem;
+  }
+}
+:deep(.swiper-pagination-bullet-active) {
+  background-color:#000 !important;
 }
 
 </style>
