@@ -9,7 +9,7 @@
                 <button @click="modal.open('sample_modal_search', 'bottom');">상세검색</button>
             </div> -->
             <div class="right_box">
-                <Button v-if="pageType === 'mypage'" class="btn_icon btn_icon_barcode" txt="멤버십 바코드" />
+                <Button v-if="pageType === 'IN_MO_MYP_01_02'" class="btn_icon btn_icon_barcode" txt="멤버십 바코드" @click="modal.open('modal_beauty_barcode', 'bottom beauty_barcode')" />
                 <Button class="btn_icon btn_icon_history" txt="히스토리" @click="$router.push('/publish/IN_MO_HOM_01_18')" />
                 <Button class="btn_icon top_btn" txt="상단 이동" @click="scroll_top()" />
             </div>
@@ -47,6 +47,7 @@
         </div>
         <div class="overlay" @click="modal.close(this);"></div>
     </div>
+
     <div class="modal_wrap" id="sample_modal_search">
         <div class="modal_container">
             <div class="modal_header">
@@ -145,9 +146,33 @@
         </div>
         <div class="overlay" @click="modal.close(this);"></div>
     </div>
+
+    <div id="modal_beauty_barcode" class="modal_wrap">
+        <div class="modal_container">
+            <div class="modal_header">
+                <h2>뷰티포인트 바코드</h2>
+                <button class="btn_close" @click="modal.close(this);">닫기</button>
+            </div>
+            <div class="modal_content">
+              <div class="barcode">
+                <img src="/public/images/sam/mypage_barcode.png">
+              </div>
+              <ul class="num">
+                <li>5279</li>
+                <li>3300</li>
+                <li>1758</li>
+                <li>3890</li>
+              </ul>
+            </div>
+        </div>
+        <div class="overlay" @click="modal.close(this);"></div>
+    </div>
 </template>
 
 <script setup>
+
+import { modal } from '~/assets/js/common-ui.js'
+
 defineProps({
   pageType: {
     type: String,
@@ -195,39 +220,6 @@ const scroll_top = ()=>{
         top:0,
         behavior:'smooth'
     })
-}
-
-const modal = {
-    open: (_target, _type) => {
-        document.getElementById(_target).classList.add('active', _type);
-        const body = document.querySelector("body");
-        const pageY = document.body.scrollTop || document.documentElement.scrollTop;
-
-        if (!body.hasAttribute("scrollY")) {
-            body.setAttribute("scrollY", String(pageY));
-            body.classList.add("lockbody");
-        }
-        body.addEventListener("touchmove", modal.lockScrollHandle, { passive: false });
-    }, close: (_target) => {
-        event.target.closest('.modal_wrap').setAttribute('class','modal_wrap');
-        const body = document.querySelector("body");
-
-        if (body.hasAttribute("scrollY")) {
-            body.classList.remove("lockbody");
-            body.scrollTop = Number(body.getAttribute("scrollY"));
-            body.removeAttribute("scrollY");
-        }
-
-        body.removeEventListener("touchmove", modal.lockScrollHandle, { passive: true });
-    }, lockScrollHandle(event) {
-        const e = event || window.event;
-
-        // 멀티 터치는 터치 되게 한다
-        if (e.touches.length > 1) return;
-
-        // event 초기화 속성이 있음 초기화
-        e.preventDefault();
-    }
 }
 
 /* category layer */
@@ -393,14 +385,15 @@ const cate_layer = {
     }
 
     .right_box {
-        position: absolute;
-        bottom: 0;
-        right: 2.1rem;
         display: flex;
         flex-direction: column;
         gap: 1rem;
         transform: translateY(5rem);
         transition: transform 0.2s linear;
+        position: absolute;
+        bottom: 0;
+        right: 2.1rem;
+        z-index: -1;
 
         &.active {
           transform: translateY(0);
@@ -440,5 +433,75 @@ const cate_layer = {
           }
         }
     }
+}
+
+.modal_wrap.beauty_barcode {
+  .modal_container {
+    .modal_header {
+      width: auto;
+      height: auto;
+      padding: 2.3rem 0;
+      margin: 0 2.1rem;
+      border-bottom: 0.1rem solid #EEE;
+
+      .btn_close {
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 0;
+        background: transparent;
+        transform: translateX(0);
+        top: 2rem;
+        right: 0;
+        left: unset;
+        
+        &:before,
+        &:after {
+          width: 100%;
+          border-top: 1px solid #222;
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 0;
+          display: block;
+        }
+
+        &:before {
+          transform: rotate(45deg);
+        }
+
+        &:after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+    .modal_content {
+      padding: 3rem 4.6rem;
+
+      .barcode {
+        width: 28.3rem;
+        margin-bottom: 2rem;
+
+        img {
+          width: 100%;
+          height: auto;
+          vertical-align: top;
+        }
+      }
+
+      .num {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+
+        li {
+          color: #000;
+          font-size: 1.6rem;
+          font-weight: 600;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
 }
 </style>

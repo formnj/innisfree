@@ -1533,14 +1533,14 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['마이페이지','로그인 전','',''],
-        id:'IN_MO_MYP_01_01', status:'',
+        id:'IN_MO_MYP_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-28', worker:''
+        sDate:'', eDate:'2024-06-28 / 2024-06-18', worker:'형민우'
     }, {
         depth:['','로그인 후','',''],
-        id:'IN_MO_MYP_01_02', status:'',
+        id:'IN_MO_MYP_01_02', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-28', worker:''
+        sDate:'', eDate:'2024-06-28 / 2024-06-18', worker:'형민우'
     }, {
         depth:['','바코드','',''],
         id:'IN_MO_MYP_01_03', status:'',

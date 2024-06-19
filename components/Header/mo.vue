@@ -204,9 +204,7 @@ const props = defineProps({
 })
 const path = '/publish'
 onMounted(() => {
-  const header = document.querySelector('header')
-  const mypage_info_wrap = document.querySelector('.info_wrap');
-  const doc_top_banner = document.querySelector('.docTopBanner')
+  const header = document.querySelector('header');
 
   window.scrollY > 0
     ? header.classList.add('fixed')
@@ -215,13 +213,6 @@ onMounted(() => {
   window.addEventListener('scroll', () => {
     if (window.scrollY > 0) header.classList.add('fixed')
     if (window.scrollY <= 0) header.classList.remove('fixed')
-
-    // 마이페이지 스크롤 이벤트
-    if (window.scrollY >= mypage_info_wrap.clientHeight + doc_top_banner.clientHeight) {
-      header.querySelector('.header_wrap').style.cssText = 'background-color: #fff';
-    } else {
-      header.querySelector('.header_wrap').style.cssText = 'background-color: #000';
-    }
   })
 
   document.querySelector('.nav_wrap > ul li').classList.add('active')

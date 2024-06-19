@@ -41,10 +41,27 @@ definePageMeta({
   layout: 'mo-mypage'
 });
 
-const emit = defineEmits(['title']);
+const emit = defineEmits(['title', 'pageId']);
 
 onMounted(() => {
   emit('title', '마이페이지');
+  emit('pageId', 'IN_MO_MYP_01_01');
+
+  const header = document.querySelector('header');
+  const mypage_info_wrap = document.querySelector('.info_wrap');
+  const doc_top_banner = document.querySelector('.docTopBanner');
+
+  const mypage_scroll = () => {
+    // 마이페이지 스크롤 이벤트
+    if (window.scrollY >= mypage_info_wrap.clientHeight + doc_top_banner.clientHeight) {
+      header.querySelector('.header_wrap').style.cssText = 'background-color: #fff';
+    } else {
+      header.querySelector('.header_wrap').style.cssText = 'background-color: #000';
+    }
+  };
+
+  mypage_scroll();
+  window.addEventListener('scroll', mypage_scroll);
 });
 </script>
 

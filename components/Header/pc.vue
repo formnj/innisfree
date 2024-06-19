@@ -122,7 +122,7 @@
                         <a href="#none" class="wish">관심상품</a>
                     </li>
                     <li>
-                        <a :href="path+'IN_PC_MYP_01_04'" class="mypage">마이페이지</a>
+                        <a :href="path+'IN_PC_MYP_01_08'" class="mypage">마이페이지</a>
                     </li>
                     <li>
                         <a href="#none" class="delivery">배송조회</a>
