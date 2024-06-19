@@ -69,7 +69,7 @@
           <dt>배송비</dt>
           <dd>무료</dd>
         </dl>
-        <div class="total_price">
+        <div class="ord_total_price">
           <dl>
             <dt>결제예정금액</dt>
             <dd>
@@ -308,7 +308,7 @@ definePageMeta({
       }
     }
 
-    .total_price {
+    .ord_total_price {
       margin-top:25px;
       padding-top:20px;
       border-top:1px solid #eee;
@@ -357,9 +357,5 @@ definePageMeta({
       }
     }
   }
-}
-
-.fc_red {
-  color: #ff0000;
 }
 </style>

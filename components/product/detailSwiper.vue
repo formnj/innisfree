@@ -84,15 +84,15 @@ const setThumbsSwiper = (swiper) => {
   position: relative;
 
   .badge {
-    padding: 0 14px;
-    height: 30px;
+    padding: 0 12px;
+    height: 32px;
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
-    line-height: 30px;
+    line-height: 32px;
     background: rgba(0, 0, 0, 0.6);
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     z-index: 2;
   }
@@ -143,13 +143,31 @@ const setThumbsSwiper = (swiper) => {
 
 .thumb_swiper {
   margin: 30px 0;
+  padding: 0 35px;
   position: relative;
 
-  & :deep(.swiper-container) {
+  & :deep(.swiper-wrapper) {
     width: 430px;
 
     .swiper-slide {
+      position: relative;
       cursor: pointer;
+
+      &.swiper-slide-thumb-active {
+        &:after {
+          content: '';
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          border: 1px solid #000;
+        }
+      }
+
+      img {
+        vertical-align: top;
+      }
     }
   }
 

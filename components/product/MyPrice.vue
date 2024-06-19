@@ -5,29 +5,13 @@
   </section>
 
   <!-- 로그인 후 -->
-  <div class="acco_wrap">
+  <div class="acco_wrap my_price">
     <div class="acco_tit" @click="accordionUI">
       <div class="sub_title_wrap">
         <div>
           <h4>
             나의 혜택가
             <Icons class="tooltip" txt="나의 혜택가 안내" @click="modal.open('alert_my_price', 'alert')" />
-            <div id="alert_my_price" class="modal_wrap"><!-- 나의 혜택가 안내 툴팁 -->
-              <div class="modal_container">
-                <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
-                <div class="modal_content">
-                  <h2>나의 혜택가 안내</h2>
-                  <ul class="bul_list txt">
-                    <li>회원님이 보유한 뷰티포인트를 제외한 쿠폰 최대 할인을 반영한 할인금액 입니다.</li>
-                    <li><em>제품 1개를 기준</em>으로 계산되었으며, 주문서에서 해당 쿠폰을 사용시 적용됩니다.</li>
-                  </ul>
-                </div>
-                <div class="modal_footer">
-                  <Button class="btn_big confirm" txt="확인" @click="modal.close(this);" />
-                </div>
-              </div>
-              <div class="overlay" @click="modal.close(this);"></div>
-            </div><!-- //뷰티포인트 적립안내 툴팁 -->
           </h4>
         </div>
         <span class="btn_link_arrw price"><em>36,800원</em></span>
@@ -90,6 +74,23 @@
     </div>
     <div class="overlay" @click="modal.close(this);"></div>
   </div>
+
+  <div id="alert_my_price" class="modal_wrap"><!-- 나의 혜택가 안내 -->
+    <div class="modal_container">
+      <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
+      <div class="modal_content">
+        <h2>나의 혜택가 안내</h2>
+        <ul class="bul_list txt">
+          <li>회원님이 보유한 뷰티포인트를 제외한 쿠폰 최대 할인을 반영한 할인금액 입니다.</li>
+          <li><em>제품 1개를 기준</em>으로 계산되었으며, 주문서에서 해당 쿠폰을 사용시 적용됩니다.</li>
+        </ul>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_big confirm" txt="확인" @click="modal.close(this);" />
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div><!-- //나의 혜택가 안내 -->
 
 </template>
 
@@ -177,6 +178,7 @@ section {
 
   .acco_tit {
     padding: 2rem;
+    cursor: pointer;
 
     .sub_title_wrap {
       margin: 0;
@@ -186,7 +188,11 @@ section {
         line-height: 1.8rem;
 
         button {
-          margin-top: -.2rem;
+          width: 16px;
+          height: 16px;
+          margin-left: 5px;
+          background-position: 0 -260px;
+          vertical-align: middle;
         }
       }
 
@@ -205,6 +211,11 @@ section {
           position: relative;
           top: -.2rem;
         }
+      }
+
+      .btn_link_arrw {
+        min-width: auto;
+        right: 0;
       }
     }
   }
@@ -243,6 +254,7 @@ section {
           .check {
             vertical-align: top;
             em {
+              color: #000;
               overflow: hidden;
               text-overflow: ellipsis;
               display: -webkit-box;

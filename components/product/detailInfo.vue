@@ -14,9 +14,10 @@
       <div class="rate">
         <a href="javascript:void(0);" @click="gotoReview">
           <Reviewpoint width="90" rate="4.7" />
-          <span class="review_cnt">리뷰 {{ prodInfo.cntReview }}</span>
+          <span v-if="!isMo" class="review_cnt">{{ prodInfo.cntReview }}건 리뷰</span>
+          <span v-if="isMo" class="review_cnt">리뷰 {{ prodInfo.cntReview }}</span>
         </a>
-        <span class="review_cnt">포스팅 {{ prodInfo.cntPost }}</span>
+        <span v-if="isMo" class="review_cnt">포스팅 {{ prodInfo.cntPost }}</span>
       </div>
     </div>
     <div class="review_summary">
@@ -66,7 +67,7 @@ const gotoReview = () => {
   }
 
   .name {
-    font-size: 40px;
+    font-size: 32px;
     line-height: 40px;
     letter-spacing: -0.014px;
     color: #000000;
@@ -74,7 +75,7 @@ const gotoReview = () => {
     .top_text {
       margin-bottom: 5px;
       font-size: 18px;
-      line-height: 1.33;
+      line-height: 24px;
     }
 
     strong {
@@ -90,7 +91,7 @@ const gotoReview = () => {
 
     .price {
       font-size: 28px;
-      line-height: 1.29em;
+      line-height: 36px;
       letter-spacing: -0.01em;
       display: flex;
       align-items: center;
@@ -99,7 +100,7 @@ const gotoReview = () => {
         margin-left: 10px;
         font-size: 20px;
         font-weight: 300;
-        line-height: 1.2em;
+        line-height: 24px;
         letter-spacing: -0.01em;
       }
 

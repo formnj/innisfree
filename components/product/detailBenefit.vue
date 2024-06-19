@@ -24,16 +24,15 @@
           </span>
         </li>
       </ul>
+      <p class="text_notify">증정품 한정수량 소진 시 조기 품절될 수 있습니다.</p>
     </dd>
   </dl>
-  <p class="text_notify">증정품 한정수량 소진 시 조기 품절될 수 있습니다.</p>
 </template>
 <script setup>
 </script>
 <style lang="scss" scoped>
 .benefit_list.gift {
   padding: 30px 0;
-  border-top: 1px solid #eee;
   display: flex;
   flex-wrap: wrap;
   gap: 20px 0;
@@ -80,7 +79,7 @@
   }
 }
 .text_notify {
-  margin-top: 1rem;
+  margin-top: .5rem;
   font-size: 1.3rem;
   color: #999;
 
