@@ -294,12 +294,14 @@
 
                     <ul v-if="item.hasOption" class="selected_list">
                       <li v-for="(list, i) in sample_prod_selected_list.slice(0,3)" :key="i">
-                        <span class="name">{{ list.name}}</span>
-                        <span class="price">{{ list.price }}원 <span class="cost">{{ list.cost }}원</span></span>
-                        <div class="quantity_control">
-                          <div class="count">
-                            <Quantity _id="detail_1" :quantity="1" />
+                        <span class="name"><em v-if="item.isExtra">추가구성</em>{{ item.name}}</span>
+                        <div class="box">
+                          <div class="quantity_control small">
+                            <div class="count">
+                              <Quantity _id="detail_1" :quantity="1" />
+                            </div>
                           </div>
+                          <span class="price">{{ item.price }}원 <span class="cost">{{ item.cost }}원</span></span>
                         </div>
                         <button type="button" class="btn_del">옵션 삭제</button>
                       </li>

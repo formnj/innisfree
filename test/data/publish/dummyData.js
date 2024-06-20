@@ -2796,7 +2796,7 @@ export const sample_prod_selected_list = [
   }, {
     name:"그린티 씨드 세럼",
     price:"17,300",
-    cost:"26,000"
+    cost:"26,000",
   }, {
     name:"그린티 씨드 세럼",
     price:"17,300",

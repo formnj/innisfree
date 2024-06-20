@@ -19,7 +19,7 @@
               </dd>
             </dl>
             <dl class="benefit_list txt">
-              <dt>관련 이벤트</dt>
+              <dt @click="modal.open('modal_review_report','alert modal_review_report')">관련 이벤트</dt>
               <dd>
                 <ul>
                   <li><a href="#none">24.4.11~24.4.13<span class="title">~50% 멤버십세일 최대 6,000원 추가할인!</span></a></li>
@@ -62,10 +62,10 @@
             </dl>
           </div>
           <!-- 상품 정보 -->
-          <!-- 상품 옵션 및 가격 : 그 외 옵션 IN_PC_PRD_01_09_button 참고 -->
+          <!-- 상품 옵션 및 가격 : IN_PC_PRD_01_09_button 참고 --
           <div class="prod_option">
+            <!-- 단품 케이스 --
             <p><strong>블랙티 유스 인핸싱 앰플 30mL</strong></p>
-            <!-- 단일 옵션 수량 -->
             <dl class="quantity_control">
               <dt>
                 <span class="name">수량</span>
@@ -78,18 +78,21 @@
                 <div class="cost"><em>39,000</em>원</div>
               </dd>
             </dl>
-            <!-- //단일 옵션 수량 -->
+            <!-- //단품 케이스 --
           </div>
           <div class="total_price">
             <span>총 수량<em>1</em>개</span>
             <span>합계<span><em>23,400</em>원</span></span>
           </div>
-          <!-- //상품 옵션 및 가격 -->
+          <!-- //상품 옵션 및 가격 --
 
           <ProductBottomButtons />  <!-- 구매 버튼 영역 : IN_PC_PRD_01_09_button 참고 -->
 
-          <!-- PC sticky 버튼 -->
-          <div v-if="!isMo" class="btm_fixed_wrap open">
+          <p class="txt fc_red"><strong>출시예정</strong></p>
+          <ProductBottomButtons :useStock="true" /> <!-- 입고알림 신청 -->
+
+          <!-- 구매하기 플로팅 영역 : IN_PC_01_09_button 참고 -->
+          <div class="floating_cart_wrap">
             <div class="inner">
               <Button class="btn_big confirm" txt="구매하기" @click="toggleStickyOption" />
               <div class="header">
@@ -101,22 +104,46 @@
               </div>
               <div class="contents">
                 <div class="cart_area">
-                  장바구니
+                  <div class="option">
+                    <!-- 단품 케이스 -->
+                    <ul class="selected_list">
+                      <li>
+                        <span class="name">그린티 씨드 세럼 대용량 + 리필(130mL+80mL)</span>
+                        <div class="box">
+                          <div class="quantity_control">
+                            <div class="count">
+                              <Quantity _id="detail_1" :quantity="1" />
+                            </div>
+                          </div>
+                          <span class="price">17,300원 <span class="cost">25,000원</span></span>
+                        </div>
+                      </li>
+                    </ul>
+                    <!-- //단품 케이스 -->
+                  </div>
                 </div>
+
                 <div class="btn_area">
-                  <Button class="btn_big" txt="장바구니" @click="cartUI" />
-                  <Button class="btn_big confirm" txt="바로구매" @click="modal.open('bottom_cart','bottom bottom_cart buy')" />
+                  <div class="total_price">
+                    <span>총 수량<em>2</em>개</span>
+                    <span>합계<span><em>60,000</em>원</span></span>
+                  </div>
+                  <div class="btn_wrap">
+                    <Button class="btn_big" txt="장바구니" @click="cartUI" />
+                    <Button class="btn_big confirm" txt="바로구매" @click="modal.open('bottom_cart','bottom bottom_cart buy')" />
+                  </div>
+                  <p class="text_notify">옵션을 선택하지 않고 입고알림 신청을 하시면 옵션에 상관 없이 제품 입고 시 알림을 드립니다.</p>
                 </div>
               </div>
             </div>
           </div>
-          <!-- //PC sticky 버튼 -->
+          <!-- //구매하기 플로팅 영역 -->
         </div>
       </div>
       <!-- //상세 상단 -->
-      <!-- 원포인트 -->
-      <ProductDetailOnepoint />
-      <!-- //원포인트 -->
+
+      <ProductDetailOnepoint /><!-- 원포인트 -->
+
       <!-- 상세 탭 / 컨텐츠 -->
       <div class="prod_detail_cont">
         <productDetailTab /> <!-- 상세 탭 -->
@@ -240,9 +267,17 @@
   <ProductStockAlertModal /> <!-- 입고알림 신청 -->
 
   <!-- 플로팅 배너 -->
-  <div class="floating_wrap open">
+  <div class="floating_wrap bann01 open">
     <button type="button" class="btn_close" @click="float_close">닫기</button>
     <p>지금 <em>2명의 고객님</em>이<br>이 제품을 함께 보고 있습니다!</p>
+    <div class="ipt_wrap">
+      <Inputs _type="checkbox" _text="이 알림을 일주일간 보지 않기" />
+    </div>
+  </div>
+
+  <div class="floating_wrap bann02 open">
+    <button type="button" class="btn_close" @click="float_close">닫기</button>
+    <p><strong class="fc_red">품절임박</strong>이 제품의 재고가 얼마 남지 않았습니다.<br>곧 품절될 예정이니 서두르세요!</p>
     <div class="ipt_wrap">
       <Inputs _type="checkbox" _text="이 알림을 일주일간 보지 않기" />
     </div>
@@ -407,7 +442,7 @@
 <script setup>
 import { onMounted } from 'vue';
 import { modal, setFilter, toast_pop } from '~/assets/js/common-ui'
-import { sample_review } from '~/test/data/publish/dummyData'
+import { sample_review, sample_prod_selected_list } from '~/test/data/publish/dummyData'
 
 definePageMeta({
   layout:'pc-sub'
@@ -417,7 +452,7 @@ const props = defineProps({
   layoutType: {
     type: String,
     default: 'default'
-  }
+  },
 });
 
 const DropDown = () => {
@@ -439,14 +474,29 @@ const float_close = () => {
 }
 
 onMounted(()=>{
-  const flotBanner = document.getElementsByClassName("floating_wrap")[0];
-  setTimeout(()=>{
-    flotBanner.classList.remove("open");
-  }, 6000)
+  //화면 우측 플로팅 배너 닫기
+  const floatBanner = document.querySelectorAll(".floating_wrap");
+  floatBanner.forEach((el)=> {
+    setTimeout(()=>{
+      el.classList.remove("open");
+    }, 6000)
+  })
+
+  // 구매하기 플로팅 버튼 보이기/숨기기
+  const gnbH = document.getElementsByClassName('gnb_wrap')[0].offsetHeight;
+  const flotCart = document.getElementsByClassName('floating_cart_wrap')[0];
+  window.addEventListener('scroll', () => {
+    const posY = document.getElementsByClassName('onepoint')[0].getBoundingClientRect().y - gnbH - 60;
+    if( posY <= 0) {
+      flotCart.classList.add('on');
+    } else if( posY > 0) {
+      flotCart.classList.remove('on');
+    }
+  })
 })
 
 const toggleStickyOption = () => {
-  const fixedArea = document.getElementsByClassName('btm_fixed_wrap')[0];
+  const fixedArea = document.getElementsByClassName('floating_cart_wrap')[0];
   fixedArea.classList.toggle('open');
 }
 
@@ -467,6 +517,11 @@ const zzimUI = (e) => {
 </script>
 
 <style lang="scss" scoped>
+.inner {
+  width: 1280px;
+  margin:0 auto;
+}
+
 .prod_detail_wrap {
   margin-top: 60px;
 
@@ -487,7 +542,7 @@ const zzimUI = (e) => {
       width: 680px;
 
       .prod_option {
-        padding: 30px 0;
+        padding: 20px 0;
         border-top: 1px solid #eee;
 
         p {
@@ -504,15 +559,25 @@ const zzimUI = (e) => {
             font-size: 16px;
             line-height: 20px;
           }
+        }
 
+        & + p.txt {
+          padding-top: 0;
+          border-top: 0;
         }
-        .prod_select {
-          margin-bottom: 10px;
-        }
+      }
+
+      .prod_select {
+        margin-bottom: 10px;
       }
 
       .total_price {
         padding: 20px 0 30px;
+        border-top: 1px solid #f5f5f5;
+      }
+
+      p.fc_red {
+        padding-top: 20px;
         border-top: 1px solid #f5f5f5;
       }
 
@@ -530,6 +595,16 @@ const zzimUI = (e) => {
             }
           }
 
+          .box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          .quantity_control {
+            width: auto;
+          }
+
           .price {
             margin: 1rem 0 0;
             text-align: right;
@@ -537,19 +612,12 @@ const zzimUI = (e) => {
             font-weight: 600;
             line-height: 3rem;
             display: block;
+            position: relative;
           }
 
           .cost {
             font-size: 1rem;
             font-weight: 400;
-          }
-
-          .quantity_control {
-            width: auto;
-            margin: 0;
-            position: absolute;
-            left: 1.5rem;
-            bottom: 1.5rem;
           }
 
           .btn_del {
@@ -561,9 +629,10 @@ const zzimUI = (e) => {
       }
 
       p.txt {
-        padding-bottom: 20px;
+        padding: 20px 0;
         font-size: 18px;
         text-align: right;
+        border-top: 1px solid #eee;
       }
     }
 
@@ -810,11 +879,11 @@ const zzimUI = (e) => {
   width: 280px;
   height: auto;
   padding: 0;
-  top: auto;
-  bottom: -400px;
+  right: 0;
+  transform: translateX(100%);
 
   &.open {
-    bottom: 100px;
+    transform: translateX(-40px);
   }
 
   .btn_close {
@@ -843,16 +912,16 @@ const zzimUI = (e) => {
   }
 
   p {
-    padding: 40px 0 30px;
+    padding: 20px 30px;
     font-size: 16px;
-    line-height: 1.4;
+    color: #666;
+    line-height: 20px;
 
     &:before {
       content: '';
       width: 60px;
       height: 60px;
-      margin: 0 auto 10px;
-      background: url("~/assets/images/common/icon_split.png") -420px -260px no-repeat;
+      margin: 10px auto;
       display: block;
     }
 
@@ -862,8 +931,37 @@ const zzimUI = (e) => {
     }
   }
 
+  &.bann01 {
+    top: 279px;
+
+    p {
+      &:before {
+        background: url("~/assets/images/common/icon_split.png") -420px -260px no-repeat;
+      }
+    }
+  }
+
+  &.bann02 {
+    top: 526px;
+
+    p {
+      font-size: 13px;
+
+      &:before {
+        background: url("~/assets/images/common/icon_split.png") -360px -660px no-repeat;
+      }
+
+      .fc_red {
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 24px;
+        display: block;
+      }
+    }
+  }
+
   .ipt_wrap {
-    padding: 15px 14px;
+    padding: 15px;
     text-align: left;
     border-top: 1px solid #eee;
   }
@@ -973,7 +1071,7 @@ button.tooltip {
   }
 }
 
-.btm_fixed_wrap {
+.floating_cart_wrap {
   width: 100%;
   position: fixed;
   left: 0;
@@ -982,6 +1080,14 @@ button.tooltip {
   transform: translateY(100%);
   transition: all .3s;
 
+  &.on {
+    .inner {
+      & > button {
+        top: -60px;
+      }
+    }
+  }
+
   .inner {
     width: 1280px;
     margin: 0 auto;
@@ -989,14 +1095,15 @@ button.tooltip {
     border: 1px solid #000;
     position: relative;
 
-    & > button.confirm {
+    & > button {
       width: 280px;
       padding: 0 30px;
       position: absolute;
-      top: -60px;
-      right: 0;
+      top: 0;
+      right: -1px;
       justify-content: space-between;
       align-items: center;
+      transition: top .3s;
 
       :deep(em) {
         padding: 0;
@@ -1054,7 +1161,7 @@ button.tooltip {
         }
 
         .btn_like.on:before {
-          background: url('~/assets/images/common/icon_split.png') -215px -360rem / 250px auto no-repeat;
+          background: url('~/assets/images/common/icon_split.png') -215px -360px / 250px auto no-repeat;
         }
 
         :deep(.btn_big):disabled {
@@ -1069,13 +1176,102 @@ button.tooltip {
     .contents {
       padding: 30px;
       display: flex;
+
+      .cart_area {
+        width: 920px;
+        display: flex;
+
+        & > * {
+          width: 50%;
+          max-height: 200px;
+          padding-right: 20px;
+          overflow-y: auto;
+          &::-webkit-scrollbar {
+            width: 5px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background-color: #e5e5e5;
+            border-radius: 5px;
+          }
+          &::-webkit-scrollbar-track {
+            background-color: transparent;
+          }
+
+          & + * {
+            padding-left: 19px;
+            padding-right: 0;
+            border-left: 1px solid #eee;
+          }
+        }
+
+        .option {
+          .selected_list {
+            margin-bottom: 10px;
+          }
+        }
+
+        .selected_area {
+          & > p {
+            padding: 90px 0;
+            color: #aaa;
+            text-align: center;
+          }
+        }
+
+        .selected_list {
+          width: 100%;
+          margin-top: 0;
+
+          li {
+            .name {
+              font-size: 16px;
+            }
+
+            .price {
+              font-size: 16px;
+
+              .cost {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+
+      .btn_area {
+        padding-left: 20px;
+        margin-left: 20px;
+        border-left: 1px solid #eee;
+        flex: 1;
+
+        .total_price {
+          padding: 0 0 20px;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 10px;
+        }
+
+        .btn_wrap {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+
+          button {
+            width: 100%;
+          }
+        }
+
+        .text_notify {
+          margin-top: 20px;
+        }
+      }
     }
   }
 
   &.open {
     transform: translateY(0);
     .inner {
-      & > button.confirm {
+      & > button {
         &:after {
           transform: rotate(-45deg);
           top: 0;

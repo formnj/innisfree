@@ -58,13 +58,15 @@
     <ul v-if="item.hasOption" class="selected_list">
       <li v-for="(item, idx) in sample_prod_selected_list.slice(0,3)" :key="idx">
         <span class="name">{{ item.name}}</span>
-        <div class="quantity_control small">
-          <span class="name">수량</span>
-          <div class="count">
-            <Quantity _id="detail_1" :quantity="1" />
+        <div class="box">
+          <div class="quantity_control small">
+            <span class="name">수량</span>
+            <div class="count">
+              <Quantity _id="detail_1" :quantity="1" />
+            </div>
           </div>
+          <span class="price">{{ item.price }}원 <span class="cost">{{ item.cost }}원</span></span>
         </div>
-        <span class="price">{{ item.price }}원 <span class="cost">{{ item.cost }}원</span></span>
         <button type="button" class="btn_del">옵션 삭제</button>
       </li>
     </ul>
@@ -290,6 +292,10 @@ const props = defineProps({
     max-height: none;
     overflow: hidden;
     padding: 0;
+
+    .name {
+      margin-bottom: 0;
+    }
   }
 
   &.extra {

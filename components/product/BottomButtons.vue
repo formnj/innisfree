@@ -103,11 +103,13 @@
         <ul class="selected_list">
           <li v-for="(item, idx) in sample_prod_selected_list" :key="idx">
             <span class="name"><em v-if="item.isExtra">추가구성</em>{{ item.name}}</span>
-            <span class="price">{{ item.price }}원 <span class="cost">{{ item.cost }}원</span></span>
-            <div class="quantity_control" :class="isMo ? 'small' : '' ">
-              <div class="count">
-                <Quantity _id="detail_1" :quantity="1" />
+            <div class="box">
+              <div class="quantity_control" :class="isMo ? 'small' : '' ">
+                <div class="count">
+                  <Quantity _id="detail_1" :quantity="1" />
+                </div>
               </div>
+              <span class="price">{{ item.price }}원 <span class="cost">{{ item.cost }}원</span></span>
             </div>
             <button type="button" class="btn_del">옵션 삭제</button>
           </li>

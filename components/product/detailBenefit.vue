@@ -78,19 +78,4 @@
     }
   }
 }
-.text_notify {
-  margin-top: .5rem;
-  font-size: 1.3rem;
-  color: #999;
-
-  &:before {
-    content: '';
-    width: 1.6rem;
-    height: 1.6rem;
-    margin-right: .5rem;
-    vertical-align: middle;
-    background:url('~/assets/mo_images/common/icon_split.png') -21rem 0 / 25rem auto no-repeat;
-    display: inline-block;
-  }
-}
 </style>

@@ -331,10 +331,12 @@
                 <ul v-if="item.hasOption" class="selected_list">
                   <li v-for="(list, i) in sample_prod_selected_list.slice(0,3)" :key="i">
                     <span class="name">{{ list.name}}</span>
-                    <span class="price">{{ list.price }}원 <span class="cost">{{ list.cost }}원</span></span>
-                    <div class="quantity_control">
-                      <div class="count">
-                        <Quantity _id="detail_1" :quantity="1" />
+                    <div class="box">
+                      <span class="price">{{ list.price }}원 <span class="cost">{{ list.cost }}원</span></span>
+                      <div class="quantity_control">
+                        <div class="count">
+                          <Quantity _id="detail_1" :quantity="1" />
+                        </div>
                       </div>
                     </div>
                     <button type="button" class="btn_del">옵션 삭제</button>

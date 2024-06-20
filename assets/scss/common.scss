@@ -1287,6 +1287,7 @@ ul.bullet_list {
     }
 
     .name {
+      margin-bottom: 10px;
       font-size: 14px;
       line-height: 24px;
       color: #666;
@@ -1444,6 +1445,27 @@ ul.bullet_list {
     font-weight: 600;
     color: #00BC70;
     padding: 0 .5rem 0 1rem;
+  }
+}
+
+.text_notify {
+  margin-top: .5rem;
+  padding-left: 2.1rem;
+  font-size: 1.3rem;
+  letter-spacing: -.1rem;
+  color: #999;
+  position: relative;
+
+  &:before {
+    content: '';
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: .5rem;
+    vertical-align: middle;
+    background:url('~/assets/mo_images/common/icon_split.png') -21rem 0 / 25rem auto no-repeat;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }
 /* //제품 상세 */
@@ -2139,10 +2161,6 @@ ul.pick_list {
 
             .selected_list {
               margin-top: 20px;
-
-              li {
-                display: flex;
-              }
             }
           }
         }
