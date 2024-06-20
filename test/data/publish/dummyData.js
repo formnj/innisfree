@@ -4,6 +4,13 @@
  * jjy11@amorepacific.com
  */
 
+export const qa_imgs = [
+  {img: ("/_nuxt/public/images/sam/SWIFE1.png")},
+  {img: ("/_nuxt/public/images/sam/SWIFE2.png")},
+  {img: ("/_nuxt/public/images/sam/SWIFE3.png")},
+
+]
+
 export const about_greentea_03 = [
   {
     img: ("https://images.innisfree.co.kr/resources/mobile2/images/about/230228/greenTeaHeritage_bg01.png"),
@@ -2842,4 +2849,5 @@ export const mypage_list = [
   { name: "자주하는 질문", url: "#none" },
   { name: "공지사항", url: "#none" },
   { name: "매장찾기", url: "#none" },
+  { name: "고객센터", url: "#none", type: "customer" },
 ]
