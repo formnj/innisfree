@@ -13,31 +13,22 @@
     <section>
       <div class="list_wrap">
         <ul>
-          <li v-for="(item, idx) in mypage_list.slice(0, 9)" :key="idx">
+          <li v-for="(item, idx) in mypage_list.slice(15, 19)" :key="idx">
             <a :href="item.url">{{ item.name }}</a>
           </li>
         </ul>
-        <ul>
-          <li v-for="(item, idx) in mypage_list.slice(9, 15)" :key="idx">
-            <a :href="item.url">{{ item.name }}</a>
-          </li>
-        </ul>
-        <ul>
-          <li v-for="(item, idx) in mypage_list.slice(15, 19)" :key="idx" :class="item.type">
-            <a :href="item.url">{{ item.name }}</a>
-            <div v-if="item.type === 'customer'" class="customer_wrap">
-              <a href="tel:0803800114" class="phone">
-                080 · 380 · 0114
-                <span>전화하기</span>
-              </a>
-              <ul>
-                <li>평일 오전 9:00 ~ 오후 6:00</li>
-                <li>수신자 요금부담</li>
-              </ul>
-            </div>
-            </li>
+        <div class="customer_wrap">
+          <h4><a href="#none">고객센터</a></h4>
+          <a href="tel:0803800114" class="phone">
+            080 · 380 · 0114
+            <span>전화하기</span>
+          </a>
+          <ul>
+            <li>평일 오전 9:00 ~ 오후 6:00</li>
+            <li>수신자 요금부담</li>
           </ul>
-          <div class="img"><img src="/public/images/sam/logo_mypage.png"></div>
+        </div>
+        <div class="mask"><span>INNISFREE</span></div>
       </div>
     </section>
   </div>
@@ -50,10 +41,27 @@ definePageMeta({
   layout: 'mo-mypage'
 });
 
-const emit = defineEmits(['title']);
+const emit = defineEmits(['title', 'pageId']);
 
 onMounted(() => {
   emit('title', '마이페이지');
+  emit('pageId', 'IN_MO_MYP_01_01');
+
+  const header = document.querySelector('header');
+  const mypage_info_wrap = document.querySelector('.info_wrap');
+  const doc_top_banner = document.querySelector('.docTopBanner');
+
+  const mypage_scroll = () => {
+    // 마이페이지 스크롤 이벤트
+    if (window.scrollY >= mypage_info_wrap.clientHeight + doc_top_banner.clientHeight) {
+      header.querySelector('.header_wrap').style.cssText = 'background-color: #fff';
+    } else {
+      header.querySelector('.header_wrap').style.cssText = 'background-color: #000';
+    }
+  };
+
+  mypage_scroll();
+  window.addEventListener('scroll', mypage_scroll);
 });
 </script>
 
@@ -77,6 +85,7 @@ onMounted(() => {
       p {
         margin-bottom: 4rem;
         font-size: 1.3rem;
+        font-weight: 300;
         line-height: 1.6rem;
       }
 
@@ -130,91 +139,102 @@ onMounted(() => {
               background: url('~/assets/mo_images/common/icon_split.png') no-repeat -8rem -2rem;
               background-size: 25rem auto;
             }
-
-          }
-
-          &.customer {
-            > a {
-              padding-bottom: 2rem;
-              margin-bottom: 2rem;
-              color: #00BC70;
-              border-bottom: 0.1rem solid #F5F5F5;
-              justify-content: flex-start;
-              gap: 0.5rem;
-    
-              &:after {
-                background-position: -10rem -2rem;
-              }
-            }
-
-            .customer_wrap {
-              margin-bottom: 0.4rem;
-
-              .phone {
-                margin-bottom: 1rem;
-                color: #00BC70;
-                font-size: 2.4rem;
-                font-weight: 600;
-                line-height: 2.4rem;
-                justify-content: flex-start;
-                gap: 1rem;
-    
-                &:after {
-                  content: unset;
-                }
-    
-                span {
-                  padding: 0.6rem 0.8rem;
-                  color: #fff;
-                  font-size: 1rem;
-                  line-height: 1.2rem;
-                  border-radius: 1.7rem;
-                  background-color: #00BC70;
-                }
-              }
-
-              > ul {
-                background-color: unset;
-                border: 0;
-                li {
-                  padding: 0;
-                  color: #888;
-                  font-size: 1.2rem;
-                  line-height: 1.6rem;
-                  display: flex;
-                  align-items: center;
-                  gap: 0.5rem;
-
-                  &:before {
-                    content: '';
-                    width: 1.6rem;
-                    height: 1.6rem;
-                    background: url('~/assets/mo_images/common/icon_split.png') no-repeat 0 0;
-                    background-size: 25rem auto;
-                    display: inline-block;
-                  }
-
-                  &:first-child {
-                    margin-bottom: 0.5rem;
-                    &:before {
-                      background-position: -17rem -16rem;
-                    }
-                  }
-                  &:last-child {
-                    &:before {
-                      background-position: -21rem 0;
-                    }
-                  }
-                }
-              }
-            }
-
           }
         }
       }
 
-      .img {
-        padding: 0 2.1rem;
+      .customer_wrap {
+        padding: 3rem 2.6rem 0;
+        margin-bottom: 3rem;
+
+        h4 {
+          padding-bottom: 2rem;
+          margin-bottom: 2rem;
+          color: #00BC70;
+          border-bottom: 0.1rem solid #F5F5F5;
+          display: flex;
+          justify-content: flex-start;
+          gap: 0.5rem;
+
+          
+          &:after {
+            content: '';
+            width: 1.6rem;
+            height: 1.6rem;
+            display: inline-block;
+            background: url('~/assets/mo_images/common/icon_split.png') no-repeat -10rem -2rem;
+            background-size: 25rem auto;
+          }
+        }
+
+        .phone {
+          padding: 0 0 1rem 0;
+          color: #00BC70;
+          font-size: 2.4rem;
+          font-weight: 600;
+          line-height: 2.4rem;
+          display: flex;
+          justify-content: flex-start;
+          gap: 1rem;
+
+          &:after {
+            content: unset;
+          }
+
+          span {
+            padding: 0.6rem 0.8rem;
+            color: #fff;
+            font-size: 1rem;
+            line-height: 1.2rem;
+            border-radius: 1.7rem;
+            background-color: #00BC70;
+          }
+        }
+
+        > ul {
+          background-color: unset;
+          border: 0;
+          li {
+            padding: 0;
+            color: #888;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            &:before {
+              content: '';
+              width: 1.6rem;
+              height: 1.6rem;
+              background: url('~/assets/mo_images/common/icon_split.png') no-repeat 0 0;
+              background-size: 25rem auto;
+              display: inline-block;
+            }
+
+            &:first-child {
+              margin-bottom: 0.5rem;
+              &:before {
+                background-position: -17rem -16rem;
+              }
+            }
+            &:last-child {
+              &:before {
+                background-position: -21rem 0;
+              }
+            }
+          }
+        }
+      }
+
+      .mask {
+        height: 4.3rem;
+        margin: 0 2.1rem;
+        background: url('~/assets/images/common/logo_mypage.png') no-repeat 0 0.1rem / 100% 100%;
+
+        span {
+          font-size: 0;
+        }
       }
     }
   }

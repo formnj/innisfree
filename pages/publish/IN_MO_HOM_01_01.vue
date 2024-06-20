@@ -352,9 +352,9 @@ const navigation = {
 const stickyTop = ref(null); //visual sticky top값
 
 onMounted(() => {
-  console.log(document.querySelector('.navGnb').offsetHeight);
+  // console.log(document.querySelector('.navGnb').offsetHeight);
   stickyTop.value = document.querySelector('.navGnb').offsetHeight;
-  console.log(stickyTop.value);
+  // console.log(stickyTop.value);
 })
 
 const onSwiper = (swiper) => {

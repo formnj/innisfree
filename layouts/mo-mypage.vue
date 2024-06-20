@@ -10,16 +10,17 @@
         :type="'type_mypage'"
     />
     <div id="container">
-        <router-view @title="txt = $event" />
+        <router-view :type="'is_login'" @title="txt = $event" @page-id="mypage = $event" />
     </div>
     <FooterMo />
-    <Actionbar />
+    <Actionbar :page-type="mypage" />
   </div>
 </template>
 
 
 <script setup>
 const txt = ref(null);
+const mypage = ref(null);
 </script>
 
 <style lang="scss" scoped>

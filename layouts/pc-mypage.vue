@@ -18,7 +18,7 @@
                   <span>임직원</span>
                 </p>
                 <a href="#none">
-                  <em>웰컴</em> 멤버시네요! 멤버십 혜택을 확인해보세요.
+                  <em>그린티클럽</em> 멤버시네요! 멤버십 혜택을 확인해보세요.
                 </a>
               </div>
             </div>
@@ -56,7 +56,7 @@
             <!-- lnb -->
             <div class="lnb">
                 <ul>
-                    <li v-for="(menu, idx) in sam_lnb" :key="idx" @click="lnb_click($event)"><a href="#none">{{ menu }}</a></li>
+                    <li v-for="(menu, idx) in sam_mypage_lnb" :key="idx" @click="lnb_click($event)"><a href="#none">{{ menu }}</a></li>
                 </ul>
             </div>
             <!-- //lnb -->
@@ -73,7 +73,7 @@
 <script setup>
 import {
   breadcrumbData,
-  sam_lnb
+  sam_mypage_lnb
 } from '~/test/data/publish/dummyData'
 
 let lnb_click = (event)=>{
@@ -87,6 +87,10 @@ let lnb_click = (event)=>{
   // 전체 li에 active 클래스 제거
   //클릭한 대상에게 active 클래스 추가
 };
+
+onMounted(() => {
+  document.querySelectorAll('.lnb ul li')[0].classList.add('active');
+});
 </script>
 
 <style lang="scss" scoped>

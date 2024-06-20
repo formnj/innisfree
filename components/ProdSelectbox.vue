@@ -3,11 +3,11 @@
     <button type="button" class="btn_select" :disabled="_disabled" @click="selectOpen">{{ _placeholder }}</button>
     <ul class="op_list">
       <li v-for="(select, i) in options" :key="i">
-        <input :id="select.val" type="radio" :name="select.name">
+        <input :id="select.val" type="radio" :name="select.name" :disabled="select.soldout">
         <label :for="select.val" :class="select.soldout ? 'soldout' : ''">
           <em v-if="select.soldout">일시품절</em>
           <span class="name">{{ select.txt }}</span><span v-if="select.extraPrice" class="price">+{{ select.extraPrice}}원</span>
-          <button v-if="select.stockAlert" type="button" class="btn_txt">입고알림 신청</button>
+          <button v-if="select.stockAlert" type="button" class="btn_txt" @click="modal.open('modal_stock_alert','full modal_stock_alert')">입고알림 신청</button>
         </label>
       </li>
     </ul>
@@ -16,6 +16,7 @@
 
 <script setup>
 import { onMounted } from 'vue';
+import { modal } from '~/assets/js/common-ui'
 
 const props = defineProps({
   item: {},
@@ -89,6 +90,7 @@ onMounted(()=> {
     &:disabled {
       color: #aaa;
       background-color: #f5f5f5;
+      cursor: default;
     }
   }
 

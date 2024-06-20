@@ -38,7 +38,11 @@
 import { modal } from '~/assets/js/common-ui'
 </script>
 <style lang="scss" scoped>
-.modal_wrap {
+.modal_stock_alert {
+  .modal_container {
+    width: 540px;
+  }
+
   .modal_content {
     padding: 3rem 2rem;
 

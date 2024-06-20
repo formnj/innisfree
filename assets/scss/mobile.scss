@@ -7,6 +7,30 @@
   min-width:initial;
 }
 
+:deep(button[class*='btn_']) {
+  height: 4rem;
+
+  em {
+    padding: 0 2rem;
+  }
+
+  &[class*='_big'] {
+    height: 6rem;
+  }
+
+  &[class*='_mid'] {
+    height: 5rem;
+  }
+
+  &[class*='_min'] {
+    height: 3rem;
+  }
+
+  &[class*='_sm'] {
+    height: 2.4rem;
+  }
+}
+
 :deep(.title_wrap) {
   max-width:initial;
   margin:3.0rem 0 2.0rem;
@@ -1408,6 +1432,17 @@
 }
 
 /* 제품 상세 */
+:deep(.prod_swiper) {
+  .badge {
+    padding: 0 1.4rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    line-height: 3rem;
+    top: auto;
+    bottom: 0;
+    left: 0;
+  }
+}
 :deep(.benefit_list) {
   padding: 0;
   border-top: 0;
@@ -1465,6 +1500,18 @@
     dd {
       ul {
         gap: 1rem 0;
+      }
+    }
+  }
+}
+
+:deep(.my_price.acco_wrap) {
+  .acco_tit {
+    .sub_title_wrap {
+      h4 {
+        button {
+          background-position: -23rem -2rem;
+        }
       }
     }
   }
@@ -1798,8 +1845,6 @@
 
 
 :deep(.selected_list) {
-  max-height: none;
-
   li {
     padding: 1.5rem;
     display: block;
@@ -1813,8 +1858,15 @@
       }
     }
 
+    .box {
+      margin-top: 1rem;
+      display:flex;
+      justify-content: space-between;
+      align-items: center;;
+    }
+
     .price {
-      margin: 1rem 0 0;
+      padding: 0;
       text-align: right;
       font-size: 1.6rem;
       font-weight: 600;
@@ -1829,9 +1881,18 @@
 
     .quantity_control {
       margin: 0;
-      position: absolute;
-      left: 1.5rem;
-      bottom: 1.5rem;
+
+      &.small {
+        .count {
+          width: 8rem;
+        }
+      }
+
+      .label_wrap {
+        input {
+          padding: 0;
+        }
+      }
     }
 
     .btn_del {
@@ -1898,10 +1959,6 @@
 
           .selected_list {
             li {
-              .quantity_control {
-                position: static;
-              }
-
               .price {
                 .cost {
                   color: #999;
@@ -2140,10 +2197,6 @@
         height: 7.4rem;
       }
     }
-
-    .fc_red {
-      font-size: 1.3rem;
-    }
   }
 
   &.sample {
@@ -2193,6 +2246,47 @@
         dt {
           width: 8.8rem;
           height: 11.7rem;
+        }
+      }
+    }
+  }
+}
+
+
+:deep(.modal_stock_alert) {
+  .modal_container {
+    width: calc(100% - 40px);
+  }
+}
+
+
+:deep(.quantity_control) {
+  .count {
+    .count_wrap {
+      .input_wrap {
+        .input {
+          input {
+            font-size: 1.3rem;
+            line-height: 3.8rem;
+          }
+        }
+      }
+    }
+  }
+  &.small {
+    .count {
+      button {
+        width: 2.8rem;
+        height: 2.8rem;
+      }
+      .count_wrap {
+        .input_wrap {
+          .input {
+            height: 2.8rem;
+            input {
+              line-height: 2.8rem;
+            }
+          }
         }
       }
     }

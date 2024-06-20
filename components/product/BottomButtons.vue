@@ -1,20 +1,59 @@
 <template>
-  <!-- IN_MO_PRD_01_09_button 참고 -->
+  <!-- IN_PC_PRD_01_09_button, IN_MO_PRD_01_09_button 참고 -->
   <div class="btn_wrap">
-    <button type="button" class="btn_share"></button>
-    <button type="button" class="btn_like" @click="zzimUI">찜하기</button> <!-- 활성화시 on 클래스 추가 -->
-    <Button v-if="useCart && !useStock && !useDisabled" class="btn_big" txt="장바구니" @click="modal.open('bottom_cart','bottom bottom_cart')" />
+    <button type="button" class="btn_share" @click="shareUI">공유하기</button>
+    <button type="button" class="btn_like" @click="zzimUI">찜하기</button>
+    <Button v-if="useCart && !useStock && !useDisabled" class="btn_big" txt="장바구니" @click="cartUI" />
     <Button v-if="useBuy && !useStock && !useDisabled" class="btn_big confirm" txt="바로구매" @click="modal.open('bottom_cart','bottom bottom_cart buy')" />
-    <Button v-if="useStock" class="btn_big" txt="입고알림 신청" @click="modal.open('modal_stock_list', 'bottom modal_stock_list')" />
+    <Button v-if="useStock" class="btn_big" txt="입고알림 신청" @click="stockAlertUI" />
     <Button v-if="useDisabled" class="btn_big" txt="구매불가" disabled />
   </div>
 
+  <!-- 공유 모달 -->
+  <div id="modal_share" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_header">
+        <h2>공유하기</h2>
+        <button class="btn_close" @click="modal.close(this);">닫기</button>
+      </div>
+      <div class="modal_content">
+        URL이 복사되었습니다.
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_big confirm" txt="확인" />
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //공유 모달 -->
 
-  <!-- 찜 토스트 팝업 -->
+  <!-- MO 찜 토스트 팝업 -->
   <div class="toast_heart">
     <p>찜</p>
   </div>
-  <!-- //찜 토스트 팝업 -->
+  <!-- //MO 찜 토스트 팝업 -->
+
+  <!-- PC 찜 토스트 팝업 -->
+  <div id="toast_zzim" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_content">
+        찜 목록에 추가되었습니다.
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //PC 찜 토스트 팝업 -->
+
+  <!-- PC 찜 해제 토스트 팝업 -->
+  <div id="toast_zzim_unset" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_content">
+        찜 목록에 삭제되었습니다.
+      </div>
+    </div>
+    <div class="overlay" @click="modal.close(this);"></div>
+  </div>
+  <!-- //PC 찜 해제 토스트 팝업 -->
 
   <!-- 장바구니 -->
   <div id="bottom_cart" class="modal_wrap">
@@ -64,11 +103,13 @@
         <ul class="selected_list">
           <li v-for="(item, idx) in sample_prod_selected_list" :key="idx">
             <span class="name"><em v-if="item.isExtra">추가구성</em>{{ item.name}}</span>
-            <span class="price">{{ item.price }}원 <span class="cost">{{ item.cost }}원</span></span>
-            <div class="quantity_control">
-              <div class="count">
-                <Quantity _id="detail_1" :quantity="1" />
+            <div class="box">
+              <div class="quantity_control" :class="isMo ? 'small' : '' ">
+                <div class="count">
+                  <Quantity _id="detail_1" :quantity="1" />
+                </div>
               </div>
+              <span class="price">{{ item.price }}원 <span class="cost">{{ item.cost }}원</span></span>
             </div>
             <button type="button" class="btn_del">옵션 삭제</button>
           </li>
@@ -80,7 +121,7 @@
         </div>
       </div>
       <div class="modal_footer">
-        <Button class="btn_big" txt="장바구니" @click="modal.open('toast_add_cart', 'toast');toast_pop(3000);"/>
+        <Button class="btn_big" txt="장바구니" @click="modal.open('toast_add_cart', 'toast');toast_pop(2000);"/>
         <Button class="btn_big confirm" txt="바로구매" />
       </div>
     </div>
@@ -147,38 +188,75 @@
 import { sample_prod_selected_list } from '~/test/data/publish/dummyData'
 import { modal, toast_pop } from '~/assets/js/common-ui'
 const props = defineProps({
-  useCart: {
+  useCart: {  //장바구니 버튼 사용여부
     type: Boolean,
     default: true,
   },
-  useBuy: {
+  useBuy: { //바로구매 버튼 사용여부
     type: Boolean,
     default: true,
   },
-  useStock: {
+  useStock: { //입고알림 신청 버튼 사용여부
     type: Boolean,
     default: false,
   },
-  useDisabled: {
+  useDisabled: {  //구매불가 버튼 사용여부
     type: Boolean,
     default: false,
   },
+  isMo: {
+    type: Boolean,  //모바일 여부
+    default: false,
+  }
 })
+
+const shareUI = () => {
+  if(!props.isMo) {
+    modal.open('modal_share', 'alert');
+  }
+}
 
 const zzimUI = (e) => {
   const btn = e.target;
   const toast = document.getElementsByClassName('toast_heart')[0];
 
-  btn.classList.toggle('on')
-  toast.classList.add('active')
-  if(btn.classList.contains('on')) {
-    toast.classList.add('on')
-  }else {
-    toast.classList.remove('on')
+  btn.classList.toggle('on');
+
+  if(props.isMo) {
+    toast.classList.add('active')
+    if(btn.classList.contains('on')) {
+      toast.classList.add('on')
+    }else {
+      toast.classList.remove('on')
+    }
+    setTimeout(()=>{
+      toast.classList.remove('active')
+    }, 2500)
+  } else {
+    if(btn.classList.contains('on')) {
+      modal.open('toast_zzim', 'toast');
+    }else {
+      modal.open('toast_zzim_unset', 'toast');
+    }
+    toast_pop(2000);
   }
-  setTimeout(()=>{
-    toast.classList.remove('active')
-  }, 2500)
+}
+
+const cartUI = () => {
+  if(props.isMo) {
+    modal.open('bottom_cart','bottom bottom_cart');
+  } else {
+    modal.open('toast_add_cart', 'toast');
+    toast_pop(2000);
+  }
+}
+
+const stockAlertUI = () => {
+  if(props.isMo) {
+    modal.open('modal_stock_list', 'bottom modal_stock_list')
+  }else {
+    modal.open('modal_stock_alert', 'alert modal_stock_alert')
+  }
 }
 </script>
 
@@ -238,7 +316,7 @@ const zzimUI = (e) => {
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 10;
+  z-index: 19;
   display: none;
 
   p {
@@ -451,35 +529,6 @@ const zzimUI = (e) => {
   .modal_footer {
     button.confirm {
       display: none;
-    }
-  }
-
-  .select_tit {
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-
-    & > span {
-      font-weight: 600;
-      color: #888;
-
-      &.essential {
-        &:after {
-          content:'*';
-          color: #ff0000;
-          padding-left: 5px
-        }
-      }
-
-      em {
-        font-size: 1.6rem;
-        color: #00BC70;
-        padding:0 .5rem 0 1rem;
-      }
-    }
-
-    .input_wrap {
-      flex: none;
     }
   }
 

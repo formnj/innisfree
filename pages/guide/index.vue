@@ -115,9 +115,9 @@ const sch_arry = ([
         sDate:'', eDate:'/2024-06-14' , worker:'김나람'
     }, {
         depth:['','마이페이지','로그인전',''],
-        id:'IN_MO_MYP_01_01', status:'',
+        id:'IN_MO_MYP_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-07-12' , worker:''
+        sDate:'', eDate:'2024-07-12 / 2024-06-18' , worker:'형민우'
     }, {
         depth:['','메인','',''],
         id:'', status:'com',
@@ -140,9 +140,9 @@ const sch_arry = ([
         sDate:'', eDate:'2024-07-26' , worker:''
     }, {
         depth:['','마이페이지','메인','로그인후'],
-        id:'IN_MO_MYP_01_02', status:'',
+        id:'IN_MO_MYP_01_02', status:'com',
         type:'', note:'<span class="noti">mo_마이페이지(메인)</span>',
-        sDate:'', eDate:'2024-08-02' , worker:''
+        sDate:'', eDate:'2024-08-02 / 2024-06-18' , worker:'형민우'
     }, {
         depth:['','주문내역','주문상세(온라인)',''],
         id:'IN_MO_MYP_01_11', status:'',
@@ -995,12 +995,12 @@ const PC_arry = ([
     }, {
         depth:['마이페이지','로그인 전','',''],
         id:'IN_PC_MYP_01_01', status:'',
-        type:'', note:'',
+        type:'', note:'PC 마이페이지 로그인전 페이지 X',
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','로그인 후','',''],
         id:'IN_PC_MYP_01_02', status:'',
-        type:'', note:'',
+        type:'', note:'PC 마이페이지 주문내역 페이지와 동일 ( IN_PC_MYP_01_08 )',
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','멤버십','멤버십 혜택안내',''],
@@ -1533,14 +1533,14 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['마이페이지','로그인 전','',''],
-        id:'IN_MO_MYP_01_01', status:'',
+        id:'IN_MO_MYP_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-28', worker:''
+        sDate:'', eDate:'2024-06-28 / 2024-06-18', worker:'형민우'
     }, {
         depth:['','로그인 후','',''],
-        id:'IN_MO_MYP_01_02', status:'',
+        id:'IN_MO_MYP_01_02', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-28', worker:''
+        sDate:'', eDate:'2024-06-28 / 2024-06-18', worker:'형민우'
     }, {
         depth:['','바코드','',''],
         id:'IN_MO_MYP_01_03', status:'',

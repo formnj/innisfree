@@ -1,8 +1,8 @@
 <template>
 <div class="inner">
-  <ProductBottomButtons />  <!-- 기본(장바구니/바로구매) -->
-  <ProductBottomButtons :useStock="true" /> <!-- 입고알림 신청 -->
-  <ProductBottomButtons :useDisabled="true" /> <!-- 구매불가 -->
+  <ProductBottomButtons :isMo="true" />  <!-- 기본(장바구니/바로구매) -->
+  <ProductBottomButtons :isMo="true" :useStock="true" /> <!-- 입고알림 신청 -->
+  <ProductBottomButtons :isMo="true" :useDisabled="true" /> <!-- 구매불가 -->
   <Button txt="제품구매 + 추가구성품 할인 – 추가구성품 선택 x" @click="modal.open('alert1','alert')"/>
   <Button txt="결제금액 + 제품구매 할인" @click="modal.open('alert2','alert')"/>
   <Button txt="추가구성품 제한" @click="modal.open('alert3','alert')"/>
