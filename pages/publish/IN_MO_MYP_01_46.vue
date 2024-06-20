@@ -3,15 +3,6 @@
     <div class="inner">
         <section>
             <dl>
-                <dt>문의제품</dt>
-                <dd>
-                <div class="multi_form">
-                <Inputs _type="text" _placeholder="주문 제품을 선택해주세요" />
-                <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'fullMo');" />
-                </div>
-                </dd>
-            </dl>
-            <dl>
                 <dt>
                     문의유형<em class="vital">*</em>
                 </dt>
@@ -34,14 +25,57 @@
                 </dd>
             </dl>
             <dl>
+                <dt>주문제품</dt>
+                <dd>
+                  <div class="multi_form">
+                    <Inputs _type="text" _placeholder="주문 제품을 선택해주세요"/>
+                    <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'fullMo');" />
+                  </div>
+                  <div class="multi_form hide">
+                    <Inputs _type="text" _placeholder="주문 제품을 선택해주세요"/>
+                    <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'fullMo');" />
+                  </div>
+                  <div class="multi_form hide">
+                    <Inputs _type="text" _placeholder="주문 제품을 선택해주세요"/>
+                    <Button txt="제품선택" class="btn_outline" @click="modal.open('choice_modal', 'fullMo');" />
+                  </div>
+                </dd>
+            </dl>
+            <dl>
                 <dt>
                     문의내용<em class="vital">*</em>
                 </dt>
                 <dd>
                     <Inputs _type="text" _placeholder="제목을 입력해주세요. (최대 30자 이내)" />
                     <!-- 24-04-25 Add -->
-                    <Textarea _placeholder="내용을 입력해 주세요. 문의 내용 본문에는 개인정보를 입력하지 말아주세요. 고객정보보호를 위해 마스킹 처리될 수 있습니다.(예 : 성명, 연락처, 이메일주소, 계좌번호 등)" />
+                    <div class="txtarea_wrap">
+                      <Textarea @keydown="counter($event)" _placeholder="내용을 입력해 주세요. 문의 내용 본문에는 개인정보를 입력하지 말아주세요. 고객정보보호를 위해 마스킹 처리될 수 있습니다.(예 : 성명, 연락처, 이메일주소, 계좌번호 등)" />
+                      <span class="count">
+                        <em>0</em>/300</span>
+                    </div>
                     <!-- //24-04-25 Add -->
+                  <ul class="ph_wrap">
+                    <li>
+                      <img src="/_nuxt/public/images/sam/IMG1.png" alt="">
+                      <em></em>
+                    </li>
+                    <li>
+                      <img src="/_nuxt/public/images/sam/IMG2.png" alt="">
+                      <em></em>
+                    </li>
+                    <li>
+                      <img src="/_nuxt/public/images/sam/IMG3.png" alt="">
+                      <em></em>
+                    </li>
+                    <li>
+                      <img src="/_nuxt/public/images/sam/IMG4.png" alt="">
+                      <em></em>
+                    </li>
+                    <li>
+                      <img src="/_nuxt/public/images/sam/IMG5.png" alt="">
+                      <em></em>
+                    </li>
+                  </ul>
                 </dd>
             </dl>
             <Button class="btn_outline" txt="사진 최대 5장(선택)" />
@@ -72,8 +106,11 @@
                 *이메일, 휴대전화번호 정보 수정을 원하시는 경우<br>
                 회원정보 수정을 통해 변경해주시기 바랍니다.
             </em>
-            <Button txt="문의하기" class="btn_" />
-            <Button txt="문의하기" class="btn_ active" @click="modal.open('check_modal', 'full');"/>
+            <em>* 답변 결과는 문자 메세지로 전송됩니다.</em>
+            <div class="btn_wrap">
+              <Button txt="취소" class="btn_mid_outline" />
+              <Button txt="등록" class="btn_mid active confirm" @click="modal.open('check_modal', 'full');"/>
+            </div>
         </section>
     </div>
 
@@ -90,37 +127,75 @@
                         <li><button @click="tab_click($event)">2개월</button></li>
                         <li><button @click="tab_click($event)">3개월</button></li>
                         <li><button @click="tab_click($event)">6개월</button></li>
-
                     </ul>
-                    <div class="date_wrap">
-                        <div class="date">
-                            <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
-                            <div class="dataValue">
-                                2024-03-24
-                            </div>
-                            <em></em>
-                        </div>
-                        <div>~</div>
-                        <div class="date">
-                            <input type="date" id="dpSttlDt1" required="required" value="2024-03-24">
-                            <div class="dataValue">
-                                2024-03-24
-                            </div>
-                            <em></em>
-                        </div>
-                    </div>
-                    <p class="alt">
-                        최근 1년 구매내역만 검색 가능합니다
-                    </p>
-                    <Button class="btn_outline" txt="검색"/>
                 </div>
-                <section>
+                <ul>
+                  <li>
                     <div>
-                        검색 내역이 없습니다.
+                      <span>주문번호</span>
+                      <strong>20542123</strong>
+                      <em>2023-10-26</em>
                     </div>
+                    <dl>
+                      <dt>
+                        <Inputs _type="checkbox" />
+                        <img src="/_nuxt/public/images/sam/IMG.png" alt="">
+                      </dt>
+                      <dd>
+                        <strong>그린티 씨드 히알루론산 세럼 80ml + 그린티7894561234878 </strong>
+                        <span>마이 파운데이션 1.1 - C13호</span>
+                        <i>1개</i>
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>
+                        <Inputs _type="checkbox" />
+                        <img src="/_nuxt/public/images/sam/IMG.png" alt="">
+                      </dt>
+                      <dd>
+                        <strong>그린티 씨드 히알루론산 세럼 80ml + 그린티그린티7894561234878 </strong>
+                        <span>마이 파운데이션 1.1 - C13호</span>
+                        <i>1개</i>
+                      </dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <div>
+                      <span>주문번호</span>
+                      <strong>20542123</strong>
+                      <em>2023-10-26</em>
+                    </div>
+                    <dl>
+                      <dt>
+                        <Inputs _type="checkbox" />
+                        <img src="/_nuxt/public/images/sam/IMG.png" alt="">
+                      </dt>
+                      <dd>
+                        <strong>그린티 씨드 히알루론산 세럼 80ml + 그린티1234564 </strong>
+                        <span>마이 파운데이션 1.1 - C13호</span>
+                        <i>1개</i>
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>
+                        <Inputs _type="checkbox" />
+                        <img src="/_nuxt/public/images/sam/IMG.png" alt="">
+                      </dt>
+                      <dd>
+                        <strong>그린티 씨드 히알루론산 세럼 80ml + 그린티78156811111 </strong>
+                        <span>마이 파운데이션 1.1 - C13호</span>
+                        <i>1개</i>
+                      </dd>
+                    </dl>
+                  </li>
+                </ul>
+                <section>
+                  <div>조회 결과가 없습니다.</div>
                 </section>
             </div>
             <div class="modal_footer">
+              <Button class="btn_big" txt="취소"/>
+              <Button class="btn_big confirm" txt="선택"/>
             </div>
         </div>
     </div>
@@ -165,11 +240,25 @@ const tab_click = (event)=>{
     target.classList.add('active');
 }
 
+const counter = (event) =>{
+  let content = event.target.value;
+  let num = ref(content)
+  let cont_length = num.value.length
+  console.log(cont_length)
+  let cont = document.querySelector('.txtarea_wrap .count em')
+  if(cont_length.length == 0 || cont_length == ""){
+    cont.innerText=0;
+  }else{
+    cont.innerText=cont_length;
+  }
+
+
+}
+
 const emit = defineEmits(['title']);
 
 onMounted(() => {
     emit('title','1:1 고객상담');
-
 });
 
 </script>
@@ -214,6 +303,11 @@ section {
               button.btn_outline {
                 height:auto;
               }
+              &.hide {
+                  button.btn_outline {
+                    visibility:hidden;
+                }
+              }
             }
             :deep(.input) {
                 textarea {
@@ -230,6 +324,44 @@ section {
                 }
 
             }
+          .ph_wrap {
+            display:flex;
+            gap:0.5rem;
+            li {
+              width:19.5%;
+              height:6.4rem;
+              position:relative;
+              img {
+                width:100%;
+                object-fit:fill;
+              }
+              em {
+                content:'';
+                width:1.2rem;
+                height:1.2rem;
+                background:url('~/assets/mo_images/common/icon_split.png') no-repeat -8rem -32rem / 25rem auto;;
+                position:absolute;
+                top:0;
+                right:0;
+                display:block;
+                cursor:pointer;
+              }
+            }
+          }
+          .txtarea_wrap {
+            position:relative;
+            > span {
+              color:#999;
+              font-size:1.2rem;
+              position:absolute;
+              right:1rem;
+              bottom:3rem;
+              em {
+                color:#333;
+                font-weight:600;
+              }
+            }
+          }
         }
     }
     > button {
@@ -248,6 +380,35 @@ section {
                 background-position:-170px -135px;
             }
         }
+    }
+    .btn_wrap {
+      margin-top:3rem;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:1.0rem;
+      .btn_mid {
+        background-color:#EEEEEE;
+        flex:1;
+        :deep(em) {
+          color:#666666 !important;
+          font-weight:600;
+        }
+        &.confirm {
+          background-color:#00BC70 !important;
+          :deep(em) {
+            color:#fff !important;
+          }
+        }
+      }
+      .btn_mid_outline {
+        border:1px solid #DDDDDD;
+        flex:1;
+        :deep(em){
+          color:#666666 !important;
+          font-weight:600;
+        }
+      }
     }
     hr {
         margin-top: 60px;
@@ -282,29 +443,6 @@ section {
         line-height: 1.6rem;
         display: inline-block;
     }
-    > button.btn_ {
-        color:#fff;
-        background-color: #eee;
-        &::before {
-            content:'';
-            width:24px;
-            height:24px;
-            margin-right:-10px;
-            background-image: url('~/assets/mo_images/common/icon_split.png');
-            background-repeat:no-repeat;
-            background-size:250px;
-            background-position:-138px -130px;
-        }
-      &.active {
-        background-color: #000;
-        &::before {
-          background-image: url('~/assets/mo_images/common/icon_split.png');
-            background-repeat:no-repeat;
-            background-size:250px;
-            background-position:-138px -162px;
-        }
-      }
-    }
 }
 
 #choice_modal {
@@ -325,7 +463,7 @@ section {
         }
         .modal_content {
             .inner {
-                padding: 0rem 1rem 2.4rem 1rem;
+                padding: 0rem 2.1rem 2.4rem 2.1rem;
                 border-bottom: 0.5rem solid #F5F5F5;
                 ul {
                     display:flex;
@@ -376,64 +514,117 @@ section {
                         }
                     }
                 }
-                .date_wrap {
-                    margin-top: 1.6rem;
-                    overflow: hidden;
-                    display:flex;
-                    align-items: center;
-                    justify-content:space-between;
-                    .date {
-                        width: calc(50% - 1.35rem);
-                        height: 4rem;
-                        padding: 0 1.5rem;
-                        border: 0.1rem solid #eee;
-                        position: relative;
-                        display: flex;
-                        align-items: center;
-                        justify-content:space-between;
-                        input {
-                            position: absolute;
-                            top: 0;
-                            right: 0;
-                            bottom: 0;
-                            left: 0;
-                            z-index: 10;
-                            width: 100%;
-                            height: 100%;
-                            opacity: 0;
-                            color: #000;
-                        }
-                        > em {
-                            width:16px;
-                            height:16px;
-                            background-image: url('~/assets/mo_images/common/icon_split.png');
-                            background-repeat:no-repeat;
-                            background-size:250px;
-                            background-position:-195px -135px;
-                        }
-                    }
+            }
+            > ul {
+              li {
+                padding:2rem 2.1rem;
+                border:1px solid #f5f5f5;
+                > div {
+                  width:100%;
+                  margin-bottom:2rem;
+                  display:flex;
+                  padding:1.0rem 1.5rem;
+                  background-color:#f5f5f5;
+                  border:1px solid #eee;
+                  span, em {
+                    margin-right:1.0rem;
+                    color:#666;
+                    font-size:1.3rem;
+                    font-weight:400;
+                  }
+                  strong {
+                    font-size:1.3rem;
+                    font-weight:600;
+                  }
+                  em {
+                    margin-left:auto;;
+                    margin-right:0
+                  }
                 }
-                .alt {
-                    margin: 1rem 0 0;
-                    color: #888;
-                    font-size: 1.2rem;
+                dl {
+                  margin-bottom:2rem;
+                  display:flex;
+                  gap:1.5rem;
+                  dt {
+                    min-width:6.9rem;
+                    height:9.2rem;
+                    position:relative;
+                    flex:0 auto;
+                    :deep(.input_wrap) {
+                      position:absolute;
+                      top:0;
+                      left:0;
+                      z-index:10;
+                    }
                     &::before {
-                        content: "*";
-                        margin-right: 0.2rem;
-                        display: inline-block;
+                      content:'';
+                      background:#F5F5F5;
+                      position:absolute;
+                      top:0;
+                      left:0;
+                      right:0;
+                      bottom:0;
                     }
-                }
-                > .btn_outline {
+                    img {
                     width:100%;
-                    margin: 1.6rem auto 0 auto;
+                    object-fit:fill;
+                    position:relative;
+                    z-index:2;
+                    }
+                  }
+                  dd {
+                    display:flex;
+                    flex-direction:column;
+                    overflow:hidden;
+                    > * + * {
+                      margin-top:1rem;
+                      margin-block:0.4rem;;
+                    }
+                    strong {
+                     font-weight:400;
+                     white-space:nowrap;
+                     text-overflow:ellipsis;
+                     overflow:hidden;
+
+                    }
+                    span,i {
+                      color:#999;
+                      font-size:1.2rem;
+                      font-weight:400;
+                    }
+                    i {
+                      font-style:inherit;
+                    }
+                  }
                 }
+              }
             }
             section {
                 div {
-                    padding: 10rem 0;
+                    font-size:1.6rem;
+                    font-weight:600;
                     text-align:center;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    &::before {
+                      content:'';
+                      width:6rem;
+                      height:6rem;
+                      margin-bottom:2rem;
+                      background:url('~/assets/mo_images/common/icon_split.png') no-repeat -4.1em -10rem / 25rem auto;;
+                      display:block
+                    }
                 }
             }
+        }
+        .modal_footer {
+          padding:0;
+          gap:0;
+          > .btn_big {
+            width:50%;
+          }
         }
     }
 }

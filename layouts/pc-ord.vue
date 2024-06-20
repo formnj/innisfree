@@ -50,7 +50,7 @@
                       <strong>+2,030</strong> P
                     </dd>
                   </dl>
-                  <div class="total_price">
+                  <div class="ord_total_price">
                     <dl>
                       <dt>최종 결제 금액</dt>
                       <dd>
@@ -277,7 +277,7 @@ onMounted(()=>{
             }
           }
         }
-        .total_price {
+        .ord_total_price {
           margin-top:30px;
           margin-bottom:30px;
           padding-top:30px;

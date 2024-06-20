@@ -55,7 +55,7 @@
           <dl class="benefit_list">
             <dt>뷰티포인트</dt>
             <dd>
-              결제 금액의 1% 적립
+              결제 금액의 1%적립
               <Icons class="tooltip" txt="뷰티포인트 안내 자세히 보기"
                 @click="modal.open('modal_beauty_point_tip', 'alert tooltip')" />
               <div id="modal_beauty_point_tip" class="modal_wrap"><!-- 뷰티포인트 적립안내 툴팁 -->
@@ -76,9 +76,9 @@
               </div><!-- //뷰티포인트 적립안내 툴팁 -->
             </dd>
             <dt>배송비</dt>
-            <dd>무료배송</dd>
+            <dd>2,500원 (20,000원 이상 구매 시 무료배송)</dd>
             <dt>유의사항</dt>
-            <dd>3.7~9 / 기간 내 5개 / 뷰티포인트 전용, APP 전용 / 할인제외, 증정제외, 구매금액 제외 / 반품교환 불가능 </dd>
+            <dd>3.7~9 / 기간내 n개 / 뷰티포인트 전용, APP 전용 / 할인제외, 증정제외, 구매금액 제외 /반품교환 불가능</dd>
           </dl>
 
           <ProductDetailOnepoint /><!-- 원포인트 -->
@@ -359,7 +359,7 @@
     </div>
 
     <div class="bottom_fixed">
-      <ProductBottomButtons /><!-- 구매 버튼 -->
+      <ProductBottomButtons :isMo="true" /><!-- 구매 버튼 -->
     </div>
   </div>
 
@@ -606,7 +606,10 @@ section {
       width: 100%;
     }
   }
+}
 
+:deep(.text_notify) {
+  margin-top: 1rem;
 }
 
 .tab_cont {

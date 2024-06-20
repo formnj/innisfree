@@ -1,7 +1,7 @@
 <template>
     <div class="action_bar">
         <div class="fix_btn">
-            <Button class="btn_icon btn_icon_back" txt=""/>
+            <Button class="btn_icon btn_icon_back" txt="뒤로가기" />
             <!-- <div class="pdtSortTab_wrap">
                 <div class="sortTab">
                     <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom');" >추천순</button>
@@ -9,8 +9,9 @@
                 <button @click="modal.open('sample_modal_search', 'bottom');">상세검색</button>
             </div> -->
             <div class="right_box">
-                <Button class="btn_icon btn_icon_history" txt="" @click="$router.push('/publish/IN_MO_HOM_01_18')" />
-                <Button class="btn_icon top_btn" txt="" @click="scroll_top()" />
+                <Button v-if="pageType === 'IN_MO_MYP_01_02'" class="btn_icon btn_icon_barcode" txt="멤버십 바코드" @click="modal.open('modal_beauty_barcode', 'bottom beauty_barcode')" />
+                <Button class="btn_icon btn_icon_history" txt="히스토리" @click="$router.push('/publish/IN_MO_HOM_01_18')" />
+                <Button class="btn_icon top_btn" txt="상단 이동" @click="scroll_top()" />
             </div>
         </div>
         <div class="inner">
@@ -46,6 +47,7 @@
         </div>
         <div class="overlay" @click="modal.close(this);"></div>
     </div>
+
     <div class="modal_wrap" id="sample_modal_search">
         <div class="modal_container">
             <div class="modal_header">
@@ -144,37 +146,71 @@
         </div>
         <div class="overlay" @click="modal.close(this);"></div>
     </div>
+
+    <div id="modal_beauty_barcode" class="modal_wrap">
+        <div class="modal_container">
+            <div class="modal_header">
+                <h2>뷰티포인트 바코드</h2>
+                <button class="btn_close" @click="modal.close(this);">닫기</button>
+            </div>
+            <div class="modal_content">
+              <div class="barcode">
+                <img src="/public/images/sam/mypage_barcode.png">
+              </div>
+              <ul class="num">
+                <li>5279</li>
+                <li>3300</li>
+                <li>1758</li>
+                <li>3890</li>
+              </ul>
+            </div>
+        </div>
+        <div class="overlay" @click="modal.close(this);"></div>
+    </div>
 </template>
 
 <script setup>
 
+import { modal } from '~/assets/js/common-ui.js'
+
+defineProps({
+  pageType: {
+    type: String,
+    default: ''
+  }
+});
 
 onMounted(() => {
   let preScrollTop = 0
   window.addEventListener('scroll', () => {
-    let nextScrollTop = window.scrollY
-    let actionbar = document.querySelector('.action_bar')
-    let fix_btn = document.querySelector('.fix_btn')
+    const nextScrollTop = window.scrollY
+    const actionbar = document.querySelector('.action_bar')
+    const fix_btn = document.querySelector('.fix_btn')
+    const right_box = document.querySelector('.right_box')
+
     // let pdtSortTab_wrap = document.querySelector('.fix_btn .pdtSortTab_wrap')
-    let top_btn = document.querySelector('.top_btn')
-    let btn_icon_history = document.querySelector('.btn_icon_history')
+
     if (preScrollTop < nextScrollTop) {
-      actionbar.style.bottom = -(actionbar.offsetHeight + 40) + 'px'
-      fix_btn.style.bottom = 90+'px';
+      if (nextScrollTop >= 350) {
+        // actionbar.style.bottom = -(actionbar.offsetHeight + 40) + 'px';
+        // fix_btn.style.bottom = 90+'px';
+        actionbar.style.transform = 'translateY(100%)';
+        actionbar.querySelector('.inner > a').style.cssText = 'transform: translate(-50%, 32%); transition: all 0.1s linear;';
+      }
+
+      right_box.classList.add('active');
+
       // pdtSortTab_wrap.classList.add('active')
-      btn_icon_history.classList.add('active')
-      top_btn.classList.add('active');
-    } else if(nextScrollTop<20){
-        // console.log(nextScrollTop)
-        top_btn.classList.remove('active');
-        btn_icon_history.classList.remove('active')
-        // pdtSortTab_wrap.classList.add('active')
-        fix_btn.classList.remove('active')
-        // pdtSortTab_wrap.classList.remove('active')
-    }
-    else {
+    } else if(nextScrollTop < 20){
+      right_box.classList.remove('active');
+      fix_btn.classList.remove('active')
+
+      // pdtSortTab_wrap.classList.add('active')
+      // pdtSortTab_wrap.classList.remove('active')
+    } else {
       actionbar.removeAttribute('style');
       fix_btn.removeAttribute('style');
+      actionbar.querySelector('.inner > a').removeAttribute('style');
     }
     preScrollTop = nextScrollTop
   })
@@ -184,39 +220,6 @@ const scroll_top = ()=>{
         top:0,
         behavior:'smooth'
     })
-}
-
-const modal = {
-    open: (_target, _type) => {
-        document.getElementById(_target).classList.add('active', _type);
-        const body = document.querySelector("body");
-        const pageY = document.body.scrollTop || document.documentElement.scrollTop;
-
-        if (!body.hasAttribute("scrollY")) {
-            body.setAttribute("scrollY", String(pageY));
-            body.classList.add("lockbody");
-        }
-        body.addEventListener("touchmove", modal.lockScrollHandle, { passive: false });
-    }, close: (_target) => {
-        event.target.closest('.modal_wrap').setAttribute('class','modal_wrap');
-        const body = document.querySelector("body");
-
-        if (body.hasAttribute("scrollY")) {
-            body.classList.remove("lockbody");
-            body.scrollTop = Number(body.getAttribute("scrollY"));
-            body.removeAttribute("scrollY");
-        }
-
-        body.removeEventListener("touchmove", modal.lockScrollHandle, { passive: true });
-    }, lockScrollHandle(event) {
-        const e = event || window.event;
-
-        // 멀티 터치는 터치 되게 한다
-        if (e.touches.length > 1) return;
-
-        // event 초기화 속성이 있음 초기화
-        e.preventDefault();
-    }
 }
 
 /* category layer */
@@ -240,7 +243,7 @@ const cate_layer = {
   bottom: 0;
   left: 0;
   z-index: 10;
-  transition: bottom 0.25s;
+  transition: transform 0.1s linear;
 
   .inner {
     display: flex;
@@ -282,7 +285,7 @@ const cate_layer = {
     position:absolute;
     right:0;
     left:0;
-    bottom:60px;
+    bottom:52px;
     display:flex;
     align-items:flex-end;
     justify-content:space-between;
@@ -290,17 +293,28 @@ const cate_layer = {
     .btn_icon {
         width: 4rem;
         height: 4rem;
+        background-color: rgba(255, 255, 255, 0.95);
         border-radius: 5px;
         box-shadow: 0.2rem 0.2rem 0.5rem 0 rgba(0, 0, 0, 0.05);
-        background: rgba(255, 255, 255, 0.95) url('~/assets/mo_images/common/icon_split.png') no-repeat;
-        background-size: 25rem auto;
+        
+        :deep(em) {
+          width: 2.4rem;
+          height: 2.4rem;
+          padding: 0;
+          background: url('~/assets/mo_images/common/icon_split.png') no-repeat;
+          background-size: 25rem auto;
+          font-size: 0;
+        }
     }
 
     .btn_icon_back {
-        background-position: -2.2rem -3.2rem;
         position: absolute;
         bottom: 0;
         left: 2.1rem;
+
+        :deep(em) {
+          background-position: -3rem -4rem;
+        }
     }
 
     .pdtSortTab_wrap {
@@ -371,32 +385,123 @@ const cate_layer = {
     }
 
     .right_box {
-        position: absolute;
-        bottom: 0;
-        right: 2.1rem;
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        transform: translateY(5rem);
+        transition: transform 0.2s linear;
+        position: absolute;
+        bottom: 0;
+        right: 2.1rem;
+        z-index: -1;
+
+        &.active {
+          transform: translateY(0);
+
+          .top_btn {
+            transform: translate(0, 0);
+          }
+        }
 
         .btn_icon_history {
-            background-position: -5.6rem -3.2rem;
-            transform:translateY(54px);
-            transition:all 0.2s;
-            &.active {
-                transform:translateY(0px);
+            :deep(em) {
+              background-position: -6.5rem -4rem;
             }
         }
+
         .top_btn {
-            background-position: -9.7rem -3.2rem;
-            transform:translateX(400px);
-            transition:all 0.3s;
-            &.active {
-                transform:translateX(0px);
+            transform:translate(6.1rem, -5rem);
+            transition:all 0.2s linear;
+
+            :deep(em) {
+              background-position: -10.5rem -4rem;
             }
-            em {
-                display:none;
-            }
+        }
+
+        .btn_icon_barcode {
+          width: auto;
+          height: auto;
+          padding: 0.8rem;
+          margin-right: -2.1rem;
+          border-radius: 0.5rem 0 0 0.5rem;
+          background-color: #00BC70;
+
+          :deep(em) {
+            width: 4.3rem;
+            height: 2.4rem;
+            background-position: -16.5rem -18rem;
+          }
         }
     }
+}
+
+.modal_wrap.beauty_barcode {
+  .modal_container {
+    .modal_header {
+      width: auto;
+      height: auto;
+      padding: 2.3rem 0;
+      margin: 0 2.1rem;
+      border-bottom: 0.1rem solid #EEE;
+
+      .btn_close {
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 0;
+        background: transparent;
+        transform: translateX(0);
+        top: 2rem;
+        right: 0;
+        left: unset;
+        
+        &:before,
+        &:after {
+          width: 100%;
+          border-top: 1px solid #222;
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 0;
+          display: block;
+        }
+
+        &:before {
+          transform: rotate(45deg);
+        }
+
+        &:after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+    .modal_content {
+      padding: 3rem 4.6rem;
+
+      .barcode {
+        width: 28.3rem;
+        margin-bottom: 2rem;
+
+        img {
+          width: 100%;
+          height: auto;
+          vertical-align: top;
+        }
+      }
+
+      .num {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+
+        li {
+          color: #000;
+          font-size: 1.6rem;
+          font-weight: 600;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
 }
 </style>

@@ -1,4 +1,5 @@
 <template>
+  <!-- search input -->
   <div class="input_wrap">
     <div class="label_wrap">
         <label class="input">
@@ -11,11 +12,12 @@
               </ul>
             </div>
             <input
+              v-model="input_value"
               type="text"
               @focus="hidePlaceholder"
               @blur="valueChk"
               @keyup="input_btn_chk" />
-              <button class="icon_del" @click="input_btn_fn">Delete</button>
+            <button class="icon_del" @click="input_btn_fn">Delete</button>
         </label>
     </div>
   </div>
@@ -31,6 +33,7 @@
         }, // 검색영역 롤링 문구
     });
 
+    const input_value = ref('');
 
     const hidePlaceholder = (e) => { //focus시 placeholder 숨김
         if(e.currentTarget.parentElement.querySelectorAll('.roll').length > 0){
@@ -52,7 +55,7 @@
     }
 
     const input_btn_chk = (e) => { //keypress 시 value 유무 확인하여 버튼 노출 조절
-        var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');
+        const icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');
         if(e.currentTarget.value.length > 0){
             icon_button.classList.add('active');
         }else{
@@ -61,19 +64,13 @@
     }
 
     const input_btn_fn = (e) => { //label_wrap의 버튼 클릭 시 각 기능
-        var icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');
+        const icon_button = e.currentTarget.closest('.label_wrap').querySelector('button');
         if(icon_button.getAttribute('class').indexOf('icon_del') > -1){ //value 삭제
-            e.currentTarget.closest('.label_wrap').querySelector('input').value = null;
+            input_value.value = '';
             icon_button.classList.remove('active');
             if(e.currentTarget.parentElement.querySelectorAll('.roll').length > 0){
                 e.currentTarget.closest('.label_wrap').querySelector('.roll').classList.remove('hide');
             }
-        } else if(icon_button.getAttribute('class').indexOf('icon_pass') > -1) { //비밀번호 보기
-            e.currentTarget.closest('.label_wrap').querySelector('input').setAttribute('type','text');
-            icon_button.setAttribute('class', 'icon_text active');
-        } else { //비밀번호 숨기기
-            e.currentTarget.closest('.label_wrap').querySelector('input').setAttribute('type','password');
-            icon_button.setAttribute('class', 'icon_pass active');
         }
     }
 
@@ -82,32 +79,28 @@
     const roll_idx = ref(0);
     const roll_time = ref(3000);
     const search_roll_fn = () => {
-        const roll_child = roll_ele.value.children;
+        const roll_child = roll_ele.value.querySelectorAll('li');
         const roll_height = roll_child[0].clientHeight;
 
         roll_idx.value++;
-        roll_ele.value.style.cssText = `transform: translateY(-${roll_height * roll_idx.value}px)`;
+        roll_ele.value.style.cssText = `transform: translateY(-${roll_height * roll_idx.value}px); transition: all 0.5s ease;`;
 
         roll_ele.value.addEventListener('transitionend', () => {
             if (roll_idx.value >= roll_child.length - 1) {
-                roll_ele.value.style.cssText = `transition: unset; transform: translateY(0);`
+                roll_ele.value.style.cssText = `transform: translateY(0); transition: unset;`
                 roll_idx.value = 0;
             }
         });
     }
 
     onMounted(() => {
-        // 검색 롤링 이벤트 element 추가
-        roll_ele.value.append(roll_ele.value.children[0].cloneNode(true));
-        let key_rolling = setInterval(search_roll_fn, roll_time.value);
-
-        document.querySelector('.input input').addEventListener('focus', (e) => {
-          console.log(e);
-          clearInterval(key_rolling);
-        })
-        document.querySelector('.input input').addEventListener('blur', () => {
-          key_rolling = setInterval(search_roll_fn, roll_time.value);
-        })
+        if (props.searchPlaceholder.length >= 2) {
+          // 검색 롤링 이벤트 element 추가
+          roll_ele.value.append(roll_ele.value.children[0].cloneNode(true));
+          let key_rolling = setInterval(search_roll_fn, roll_time.value);
+          document.querySelector('.input input').addEventListener('focus', () => clearInterval(key_rolling), true);
+          document.querySelector('.input input').addEventListener('blur', () => key_rolling = setInterval(search_roll_fn, roll_time.value), true);
+        }
     });
 </script>
 <style lang="scss" scoped>
@@ -125,7 +118,6 @@
         left: 15px;
         pointer-events: none;
       ul {
-        transition: all 0.5s ease;
         li {
           height: 38px;
           color: #aaa;

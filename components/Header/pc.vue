@@ -92,36 +92,9 @@
             </div>
             <div class="keyword_wrap">
                 <div class="keyword">
-                    <ol>
-                        <li>
-                            <a href="#none" class="up"><em>1.</em>Keyword Up</a>
-                        </li>
-                        <li>
-                            <a href="#none"><em>2.</em>Keyword default</a>
-                        </li>
-                        <li>
-                            <a href="#none" class="down"><em>3.</em>Keyword down</a>
-                        </li>
-                        <li>
-                            <a href="#none" class="new"><em>4.</em>Keyword new</a>
-                        </li>
-                        <li>
-                            <a href="#none" class="up"><em>1.</em>Keyword Up</a>
-                        </li>
-                        <li>
-                            <a href="#none"><em>2.</em>Keyword default</a>
-                        </li>
-                        <li>
-                            <a href="#none" class="down"><em>3.</em>Keyword down</a>
-                        </li>
-                        <li>
-                            <a href="#none" class="new"><em>4.</em>Keyword new</a>
-                        </li>
-                        <li>
-                            <a href="#none" class="up"><em>1.</em>Keyword Up</a>
-                        </li>
-                        <li>
-                            <a href="#none"><em>2.</em>Keyword default</a>
+                    <ol ref="roll_ele">
+                        <li v-for="(item, idx) in keyword_list" :key="idx" >
+                            <a href="#none" :class="item.type"><em>{{ item.num }}.</em>{{ item.name }}</a>
                         </li>
                     </ol>
                     <div>
@@ -149,7 +122,7 @@
                         <a href="#none" class="wish">관심상품</a>
                     </li>
                     <li>
-                        <a :href="path+'IN_PC_MYP_01_04'" class="mypage">마이페이지</a>
+                        <a :href="path+'IN_PC_MYP_01_08'" class="mypage">마이페이지</a>
                     </li>
                     <li>
                         <a href="#none" class="delivery">배송조회</a>
@@ -241,38 +214,35 @@ import {
     categoryForSearchLayerData,
     sample_goods,
     latestSearchWordData,
-    global_menu
+    global_menu,
+    keyword_list
 } from '~/test/data/publish/dummyData'
 
 /* path */
 const path = '/publish/';
 
+const roll_ele = ref(null);
+const roll_idx = ref(0);
+const roll_time = ref(3000);
+const roll_fn = () => {
+    const roll_child = roll_ele.value.querySelectorAll('li');
+    const roll_height = roll_child[0].clientHeight;
+
+    roll_idx.value++;
+    roll_ele.value.style.cssText = `transform: translateY(-${roll_height * roll_idx.value}px); transition: all 0.35s ease-in`;
+
+    roll_ele.value.addEventListener('transitionend', () => {
+        if (roll_idx.value >= roll_child.length - 1) {
+            roll_ele.value.style.cssText = `transform: translateY(0); transition: unset;`
+            roll_idx.value = 0;
+        }
+    });
+}
+
 onMounted(() => {
     /* keyword rolling */
-    const keyword_pos = document.querySelector('.keyword_wrap ol'),
-    roll_size = keyword_pos.querySelectorAll('li'),
-    roll_timer = 3000;
-
-    let i = 1;
-    const clone_roll = roll_size[0];
-
-    keyword_pos.insertAdjacentHTML('beforeend', '<li>'+clone_roll.innerHTML+'</li>');
-
-    const roll_fn = () => {
-        keyword_pos.style.cssText='transform:translateY(-'+(i*40)+'px); transition:all 0.35s ease-in;'
-        if(i < (roll_size.length+1)){
-            i++;
-
-            if(i == (roll_size.length+1)){
-                keyword_pos.addEventListener('transitionend', () => {
-                    keyword_pos.removeAttribute('style');
-                }, {once: true});
-                i = 1;
-            }
-        }
-    };
-
-    let key_rolling = setInterval(roll_fn, roll_timer);
+    roll_ele.value.append(roll_ele.value.children[0].cloneNode(true));
+    let key_rolling = setInterval(roll_fn, roll_time.value);
     /* //keyword rolling */
 
     /* keyword menu */
@@ -283,13 +253,13 @@ onMounted(() => {
             e.target.classList.add('active');
             roll_last.style.display='none';
             clearInterval(key_rolling);
-            i=1;
+            roll_idx.value = 0;
             e.target.querySelector('ol').style.cssText='';
         },
         mouseLeave: (e) => {
             e.target.classList.remove('active');
             roll_last.style.display='';
-            key_rolling = setInterval(roll_fn, roll_timer)
+            key_rolling = setInterval(roll_fn, roll_time.value)
         }
     }
     keyword_wrap.addEventListener('mouseenter', keyword_menu.mouseEnter);

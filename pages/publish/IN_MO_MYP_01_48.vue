@@ -12,6 +12,7 @@
             </dt>
             <dd>
               <p>뷰티포인트 소멸시기가 궁금합니다.</p>
+              <Button class="btn_outline btn_sm" txt="문의 취소" @click="modal.open('delete_modal', 'alert')" />
               <div>
                 <span>답변</span>
                 안녕하세요 고객님. 이니스프리입니다.
@@ -24,7 +25,7 @@
                 아모레퍼시픽 뷰티포인트 상담실(080-023-5454/오전 9시 - 6시, 단, 12시 - 1시 점심시간 제외)로 문의부탁드립니다.
                 소중한 시간 내어 문의 주신 점 감사 드립니다.
                 행복한 하루 보내세요.
-                <Button class="btn_outline btn_sm" txt="문의 취소" @click="modal.open('delete_modal', 'alert')" />
+                <Button class="btn_outline btn_sm" txt="추가 문의하기" @click="$router.push('/publish/IN_MO_MYP_01_46')" />
               </div>
             </dd>
             <dt>
@@ -37,6 +38,14 @@
             </dt>
             <dd>
               <p>뷰티포인트 소멸시기가 궁금합니다.</p>
+              <div class="img_wrap">
+                <img src="/_nuxt/public/images/sam/SWIFE1.png" alt="">
+                <button
+                @click="modal.open('img_modal', 'alert img_modal')">
+                  <em>2</em>
+                </button>
+              </div>
+              <Button class="btn_outline btn_sm" txt="문의 취소" @click="modal.open('delete_modal', 'alert')" />
               <div>
                 <span>답변</span>
                 안녕하세요 고객님. 이니스프리입니다.
@@ -52,6 +61,9 @@
               </div>
             </dd>
           </dl>
+          <div>
+            <Button txt="더보기" class="btn_outline" />
+          </div>
         </div>
 
         <div class="modal_wrap" id="delete_modal">
@@ -70,12 +82,40 @@
           <div class="overlay" @click="modal.close(this);"></div>
         </div>
 
+        <div class="modal_wrap img_modal" id="img_modal">
+          <div class="modal_container">
+              <div class="modal_header">
+                  <button class="btn_close" @click="modal.close(this);">닫기</button>
+              </div>
+              <div class="modal_content">
+                <div class="swiper_wrap">
+                  <!-- swiper -->
+                  <swiper
+                    class="swiper"
+                    v-bind="swiper_options.visual"
+                    @swiper="onSwiper"
+                  >
+                    <swiper-slide v-for="(item, idx) in qa_imgs" :key="idx">
+                        <div class="item">
+                          <img :src="item.img">
+                        </div>
+                    </swiper-slide>
+
+                  </swiper>
+                  <!-- //swiper -->
+                </div>
+              </div>
+          </div>
+          <div class="overlay" @click="modal.close(this);"></div>
+        </div>
+
 
 </template>
 
 <script setup>
 import { createUnparsedSourceFile } from 'typescript';
 import { modal } from '~/assets/js/common-ui.js'
+import {qa_imgs} from '~/test/data/publish/dummyData'
 
 definePageMeta({
 layout:'mo-menu-search-cart'
@@ -86,6 +126,49 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
       default: '#none'
   }
 });
+
+// import Swiper core and required components
+import SwiperCore from "swiper";
+import { Navigation, Pagination, A11y, Autoplay, Scrollbar } from "swiper/modules";
+
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
+
+// install Swiper components
+SwiperCore.use([Navigation, Pagination, A11y, Autoplay, Scrollbar]);
+
+
+/* swiper option */
+const setSwiper = ref(null);
+const onSwiper = (swiper) => setSwiper.value = swiper;
+const swiper_options = {
+  visual : {
+    slidesPerView: '1',
+    spaceBetween: 5,
+    loop:true,
+    loopedSlides: 1,
+    // autoplay: {
+    //   delay:500,
+    //   disableOnInteraction:false,
+    // },
+    speed:1000,
+    scrollbar: {
+      el:'.swiper-scrollbar-wrap',
+      draggable: false
+    },
+    pagination: {
+      clickable: true,
+    }
+  },
+
+}
+/* swiper option */
+
 
 const emit = defineEmits(['title']);
 
@@ -154,6 +237,39 @@ accordion('.board_type_toggle', 'click')
   }
 }
 
+.img_wrap {
+  height:18.2rem;
+  padding-top:0 !important;
+  border-top:none !important;
+  position:relative;
+  overflow:hidden;
+  img {
+    object-fit:fill;
+  }
+  > button {
+    padding:0.8rem;
+    background-color:rgba(0,0,0,0.5);
+    position:absolute;
+    bottom:0;
+    right:0;
+    z-index:2;
+    em {
+      color:#fff;
+      font-size:1.0rem;
+      font-weight:700;
+      display:flex;
+      align-items:center;
+      &::before {
+        content: '';
+        width:1.2rem;
+        height:1.2rem;
+        margin-right:0.5rem;
+        background:url('~/assets/mo_images/common/icon_split.png') no-repeat -23rem -7.2rem / 25rem auto;
+        display:inline-block;
+      }
+    }
+  }
+}
 .board_type_toggle {
   dt {
     padding:3rem 3rem;
@@ -226,22 +342,63 @@ accordion('.board_type_toggle', 'click')
         line-height: 1.6rem;
         display: block;
       }
-      :deep(.btn_sm) {
-          width:5.3rem;
-          margin-left:auto;
-          color:#999;
-          font-size:1rem;
-          border:0.1rem solid #999;
-          border-radius:1px;
-          display:block;
-          em {
-            padding:0 5px;
-            color: #999;
-          }
-        }
     }
   }
 }
+
+:deep(.btn_sm) {
+  min-width: 5.3rem;
+  margin-top:1rem;
+  margin-left:auto;
+  color:#999;
+  font-size:1rem;
+  border:0.1rem solid #999;
+  border-radius:1px;
+  display:block;
+  em {
+    padding:0 5px;
+    color: #999;
+  }
+}
 .show {display:block !important;}
+.inner {
+  > div {
+    width:100%;
+    padding:0 2.1rem;
+    > .btn_outline {
+      width:100%;
+      margin:3rem 0;
+      border:1px solid #eee !important;
+      em {
+        color:#666;
+      }
+    }
+  }
+}
+
+.img_modal {
+  .modal_container {
+    .modal_header {
+      border-bottom:0;
+    }
+    .modal_content {
+      .swiper_wrap {
+        img {
+          width:330px;
+          object-fit:cover !important;
+        }
+      }
+    }
+  }
+}
+
+.swiper_wrap {
+  .swiper {
+    padding-bottom:3rem;
+  }
+}
+:deep(.swiper-pagination-bullet-active) {
+  background-color:#000 !important;
+}
 
 </style>

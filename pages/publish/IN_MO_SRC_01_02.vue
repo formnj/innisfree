@@ -10,36 +10,9 @@
             </button>
           </h2>
           <div class="keyword_list">
-              <ol>
-                  <li>
-                      <a href="#none" class="up"><em>1</em><span>장원영 네컷</span></a>
-                  </li>
-                  <li>
-                      <a href="#none" class="up"><em>2</em><span>노세범</span></a>
-                  </li>
-                  <li>
-                      <a href="#none" class="down"><em>3</em><span>메이크업도구</span></a>
-                  </li>
-                  <li>
-                      <a href="#none"><em>4</em><span>그린티 신상</span></a>
-                  </li>
-                  <li>
-                      <a href="#none"><em>5</em><span>아이라이너</span></a>
-                  </li>
-                  <li>
-                      <a href="#none"><em>6</em><span>검색어 최대 9자까지 가능</span></a>
-                  </li>
-                  <li>
-                      <a href="#none" class="down"><em>7</em><span>바디로션</span></a>
-                  </li>
-                  <li>
-                      <a href="#none" class="new"><em>8</em><span>선크림</span></a>
-                  </li>
-                  <li>
-                      <a href="#none"><em>9</em><span>신규 구매 혜택</span></a>
-                  </li>
-                  <li>
-                      <a href="#none" class="up"><em>10</em>이벤트</a>
+              <ol ref="roll_ele">
+                  <li v-for="(item, idx) in keyword_list" :key="idx">
+                      <a href="#none" :class="item.type"><em>{{ item.num }}</em><span>{{ item.name }}</span></a>
                   </li>
               </ol>
           </div>
@@ -204,6 +177,7 @@
 import {
   sample_goods,
   sample_event,
+  keyword_list
 } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui'
 
@@ -249,34 +223,30 @@ definePageMeta({
 
 const emit = defineEmits(['icons']);
 
+const roll_ele = ref(null);
+const roll_idx = ref(0);
+const roll_time = ref(3000);
+const roll_fn = () => {
+    const roll_child = roll_ele.value.querySelectorAll('li');
+    const roll_height = roll_child[0].clientHeight;
+
+    roll_idx.value++;
+    roll_ele.value.style.cssText = `transform: translateY(-${roll_height * roll_idx.value}px); transition: all 0.35s ease-in`;
+
+    roll_ele.value.addEventListener('transitionend', () => {
+        if (roll_idx.value >= roll_child.length - 1) {
+            roll_ele.value.style.cssText = `transform: translateY(0); transition: unset;`
+            roll_idx.value = 0;
+        }
+    });
+}
+
 onMounted(() => {
   emit('icons', 1);
 
-  /* keyword rolling */
-  const keyword_pos = document.querySelector('.search_area ol'),
-  roll_size = keyword_pos.querySelectorAll('li'),
-  roll_timer = 3000;
+  roll_ele.value.append(roll_ele.value.children[0].cloneNode(true));
+  let key_rolling = setInterval(roll_fn, roll_time.value);
 
-  let i = 1;
-  const clone_roll = roll_size[0];
-
-  keyword_pos.insertAdjacentHTML('beforeend', '<li>'+clone_roll.innerHTML+'</li>');
-
-  const roll_fn = () => {
-      keyword_pos.style.cssText='transform:translateY(-'+(i*1.9)+'rem); transition:all 0.35s ease-in;'
-      if(i < (roll_size.length+1)){
-          i++;
-
-          if(i == (roll_size.length+1)){
-              keyword_pos.addEventListener('transitionend', () => {
-                  keyword_pos.removeAttribute('style');
-              }, {once: true});
-              i = 1;
-          }
-      }
-  };
-
-  let key_rolling = setInterval(roll_fn, roll_timer);
   /* //keyword rolling */
   const keyword_wrap = document.querySelector('.keyword_wrap.search_area');
   const roll_last = keyword_wrap.querySelector('ol').lastChild;
@@ -286,11 +256,11 @@ onMounted(() => {
     if (keyword_wrap.classList.contains('active')) {
       roll_last.style.display='none';
       clearInterval(key_rolling);
-      i=1;
+      roll_idx.value = 0;
       keyword_wrap.querySelector('ol').style.cssText='';
     } else {
       roll_last.style.display='';
-      key_rolling = setInterval(roll_fn, roll_timer);
+      key_rolling = setInterval(roll_fn, roll_time.value);
     }
   };
 

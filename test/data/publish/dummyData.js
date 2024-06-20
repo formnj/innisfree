@@ -4,6 +4,13 @@
  * jjy11@amorepacific.com
  */
 
+export const qa_imgs = [
+  {img: ("/_nuxt/public/images/sam/SWIFE1.png")},
+  {img: ("/_nuxt/public/images/sam/SWIFE2.png")},
+  {img: ("/_nuxt/public/images/sam/SWIFE3.png")},
+
+]
+
 export const about_greentea_03 = [
   {
     img: ("https://images.innisfree.co.kr/resources/mobile2/images/about/230228/greenTeaHeritage_bg01.png"),
@@ -1280,6 +1287,8 @@ export const sample_goods = [
 ]
 
 export const sam_lnb = ['에센스/세럼/앰플','로션/크림','스킨/토너/미스트','립/아이케어','선케어','오일/마사지','클렌징','팩/마스크','기획 세트','기타']
+
+export const sam_mypage_lnb = ['주문내역', '리뷰', '뷰티포인트', '찜한 제품', '1:1문의', '공병수거 캠페인', '개인정보 수정', '배송지 관리', '원클릭결제 카드관리', '마이샵 관리', '매장찾기']
 
 export const prodImgData = [
   {
@@ -2806,4 +2815,39 @@ export const sample_prod_selected_list = [
     price:"23,000",
     cost:"26,000"
   },
+]
+
+export const keyword_list = [
+  { num: "1", name: "장원영 네컷", type: "up" },
+  { num: "2", name: "블랙티", type: "" },
+  { num: "3", name: "선크림", type: "down" },
+  { num: "4", name: "그린티", type: "new" },
+  { num: "5", name: "크림", type: "up" },
+  { num: "6", name: "클렌징폼", type: "" },
+  { num: "7", name: "블랙티", type: "down" },
+  { num: "8", name: "선크림", type: "new" },
+  { num: "9", name: "그린티", type: "up" },
+  { num: "10", name: "크림", type: "" },
+]
+
+export const mypage_list = [
+  { name: "취소/교환/반품내역", url: "#none" },
+  { name: "리뷰", url: "#none" },
+  { name: "쿠폰", url: "#none" },
+  { name: "뷰티포인트", url: "#none" },
+  { name: "찜한제품", url: "#none" },
+  { name: "1:1문의", url: "#none" },
+  { name: "입고알림 신청내역", url: "#none" },
+  { name: "공병수거 현황", url: "#none" },
+  { name: "스마트영수증", url: "#none" },
+  { name: "개인정보 수정", url: "#none" },
+  { name: "배송지 관리", url: "#none" },
+  { name: "환불계좌 관리", url: "#none" },
+  { name: "원클릭결제 카드관리", url: "#none" },
+  { name: "마이샵 관리", url: "#none" },
+  { name: "설정", url: "#none" },
+  { name: "자주하는 질문", url: "#none" },
+  { name: "공지사항", url: "#none" },
+  { name: "매장찾기", url: "#none" },
+  { name: "고객센터", url: "#none", type: "customer" },
 ]

@@ -67,6 +67,7 @@ button {
   &.alarm { // 마이페이지 알람 버튼
     background-position: -11rem -28rem;
     background-blend-mode: difference;
+    background-color: inherit;
   }
   &.tooltip { //모바일 사이즈는 mobile.scss로 옮김
     width:24px;

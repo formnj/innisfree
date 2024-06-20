@@ -115,9 +115,9 @@ const sch_arry = ([
         sDate:'', eDate:'/2024-06-14' , worker:'김나람'
     }, {
         depth:['','마이페이지','로그인전',''],
-        id:'IN_MO_MYP_01_01', status:'',
+        id:'IN_MO_MYP_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-07-12' , worker:''
+        sDate:'', eDate:'2024-07-12 / 2024-06-18' , worker:'형민우'
     }, {
         depth:['','메인','',''],
         id:'', status:'com',
@@ -140,9 +140,9 @@ const sch_arry = ([
         sDate:'', eDate:'2024-07-26' , worker:''
     }, {
         depth:['','마이페이지','메인','로그인후'],
-        id:'IN_MO_MYP_01_02', status:'',
+        id:'IN_MO_MYP_01_02', status:'com',
         type:'', note:'<span class="noti">mo_마이페이지(메인)</span>',
-        sDate:'', eDate:'2024-08-02' , worker:''
+        sDate:'', eDate:'2024-08-02 / 2024-06-18' , worker:'형민우'
     }, {
         depth:['','주문내역','주문상세(온라인)',''],
         id:'IN_MO_MYP_01_11', status:'',
@@ -530,12 +530,12 @@ const sch_arry = ([
         sDate:'', eDate:'2024-07-12' , worker:''
     }, {
         depth:['','','주문완료',''],
-        id:'', status:'',
+        id:'IN_PC_ORD_01_30', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-07-12' , worker:''
     }, {
         depth:['','','주문실패',''],
-        id:'', status:'',
+        id:'IN_PC_ORD_01_31', status:'',
         type:'', note:'',
         sDate:'', eDate:'2024-07-12' , worker:''
     }, {
@@ -585,9 +585,9 @@ const sch_arry = ([
         sDate:'', eDate:'2024-07-26' , worker:''
     }, {
         depth:['','메인','',''],
-        id:'', status:'',
+        id:'IN_PC_HOM_01_01', status:'com',
         type:'', note:'베너전체보기, 전체보기',
-        sDate:'', eDate:'2024-08-02' , worker:''
+        sDate:'', eDate:'2024-08-02/2024-06-14' , worker:'이종환'
     }, {
         depth:['','마이페이지','주문내역','교환신청'],
         id:'', status:'',
@@ -995,12 +995,12 @@ const PC_arry = ([
     }, {
         depth:['마이페이지','로그인 전','',''],
         id:'IN_PC_MYP_01_01', status:'',
-        type:'', note:'',
+        type:'', note:'PC 마이페이지 로그인전 페이지 X',
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','로그인 후','',''],
         id:'IN_PC_MYP_01_02', status:'',
-        type:'', note:'',
+        type:'', note:'PC 마이페이지 주문내역 페이지와 동일 ( IN_PC_MYP_01_08 )',
         sDate:'', eDate:'2024-06-28', worker:''
     }, {
         depth:['','멤버십','멤버십 혜택안내',''],
@@ -1279,9 +1279,9 @@ const PC_arry = ([
         sDate:'2024-06-13', eDate:'2024-06-13/2024-06-13', worker:'김희경'
     }, {
         depth:['','','GREEN TEA HERITAGE(T)',''],
-        id:'IN_PC_FOO_01_02', status:'ing',
-        type:'', note:'',
-        sDate:'', eDate:'', worker:'김희경'
+        id:'IN_PC_FOO_01_02', status:'com',
+        type:'', note:'스와이퍼 스크롤바 수정-[JH 24.06.17]',
+        sDate:'2024-06-14', eDate:'2024-06-14/2024-06-14', worker:'김희경'
     }, {
         depth:['','','BETTER FOR EARTH(T)',''],
         id:'IN_PC_FOO_01_03', status:'ing',
@@ -1533,14 +1533,14 @@ const MO_arry = ([
         sDate:'', eDate:'', worker:''
     }, {
         depth:['마이페이지','로그인 전','',''],
-        id:'IN_MO_MYP_01_01', status:'',
+        id:'IN_MO_MYP_01_01', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-28', worker:''
+        sDate:'', eDate:'2024-06-28 / 2024-06-18', worker:'형민우'
     }, {
         depth:['','로그인 후','',''],
-        id:'IN_MO_MYP_01_02', status:'',
+        id:'IN_MO_MYP_01_02', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'2024-06-28', worker:''
+        sDate:'', eDate:'2024-06-28 / 2024-06-18', worker:'형민우'
     }, {
         depth:['','바코드','',''],
         id:'IN_MO_MYP_01_03', status:'',
@@ -1688,8 +1688,8 @@ const MO_arry = ([
         sDate:'', eDate:'2024-04-26', worker:'김희경'
     }, {
         depth:['','','1:1 문의하기(T)',''],
-        id:'IN_MO_MYP_01_46', status:'ing',
-        type:'', note:'디자인 고도화 수정 필요',
+        id:'IN_MO_MYP_01_46', status:'com',
+        type:'', note:'<del>디자인 고도화 수정 필요</del>/디자인고도화 완료',
         sDate:'2024-04-24', eDate:'2024-04-26/2024-04-24', worker:'김희경'
     }, {
         depth:['','','1:1 답변확인(T)',''],

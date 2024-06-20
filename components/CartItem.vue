@@ -58,7 +58,7 @@
     <ul v-if="item.hasOption" class="selected_list">
       <li v-for="(item, idx) in sample_prod_selected_list.slice(0,3)" :key="idx">
         <span class="name">{{ item.name}}</span>
-        <div class="quantity_control">
+        <div class="quantity_control small">
           <span class="name">수량</span>
           <div class="count">
             <Quantity _id="detail_1" :quantity="1" />
@@ -271,10 +271,6 @@ const props = defineProps({
           color: #000;
         }
       }
-    }
-
-    .fc_red {
-      color: #ff0000;
     }
 
     .del {

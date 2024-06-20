@@ -25,14 +25,14 @@
         open: (e) => {
             e.target.closest('dl').querySelector('dd').style.cssText = 'height:0; border:1px solid #aaa; display:block';
             let client_H = (e.target.closest('dl').querySelector('ul').clientHeight + 2);
-            console.log(e.target.closest('dl').querySelector('ul').clientHeight);
+            // console.log(e.target.closest('dl').querySelector('ul').clientHeight);
             e.target.closest('dl').querySelector('dd').style.height=client_H+'px';
         }, close: (e) => {
             e.target.closest('dl').querySelector('dd').style.cssText = 'height:0; border:0;';
         }
     }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .breadcrumb {
     border-bottom:1px solid #ddd;
     .inner {
@@ -61,7 +61,7 @@
             }
             position:relative;
             dt {
-                button {
+                :deep(button) {
                     em {
                         padding:21px 0px !important;
                         color:#999 !important;
