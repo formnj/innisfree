@@ -632,9 +632,6 @@ onMounted(() => {
     }
 
   }
-  &.infor_office {
-
-  }
 }
 
 </style>

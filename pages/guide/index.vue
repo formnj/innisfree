@@ -1289,24 +1289,24 @@ const PC_arry = ([
         sDate:'', eDate:'', worker:'김희경'
     }, {
         depth:['','이용약관','',''],
-        id:'IN_PC_FOO_01_04', status:'',
+        id:'IN_PC_FOO_01_04', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'2024-06-20', eDate:'/2024-06-20', worker:'김희경'
     }, {
         depth:['','개인정보처리방침','',''],
-        id:'IN_PC_FOO_01_05', status:'',
+        id:'IN_PC_FOO_01_05', status:'ing',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'', eDate:'/2024-06-20', worker:'김희경'
     }, {
         depth:['','영상기기관리방침','',''],
-        id:'IN_PC_FOO_01_10', status:'',
+        id:'IN_PC_FOO_01_10', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'2024-06-20', eDate:'/2024-06-20', worker:'김희경'
     }, {
         depth:['','위치기반서비스 이용약관','',''],
-        id:'IN_PC_FOO_01_12', status:'',
+        id:'IN_PC_FOO_01_12', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'', worker:''
+        sDate:'2024-06-20', eDate:'/2024-06-20', worker:'김희경'
     }, {
         depth:['','사업자정보 확인','보안문자 입력',''],
         id:'IN_PC_FOO_01_13', status:'',

@@ -1693,6 +1693,93 @@ ul.pick_list {
 }
 
 /* 약관관련 css */
+.policy_wrap_pc {
+  h3, h2 {
+    margin:20px 0;
+    font-size:18px;
+    font-weight:600;
+  }
+  > p {
+    color:#666;
+    font-size:14px;
+    font-weight:400;
+    line-height:20px;
+  }
+  dl {
+    dt {
+      margin: 30px 0 15px;
+      color: #333;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+    dd {
+      > span,p {
+        color:#666;
+        font-size:14px;
+        font-weight:400;
+        line-height:20px;
+      }
+
+      > ul{
+        > * + * {
+          margin-top:5px !important;
+        }
+        li {
+          margin-left:16px;
+          margin-top:5px;
+          color:#666;
+          font-size:14px;
+          font-weight:400;
+          line-height:20px;
+          display:flex;
+          flex-direction:column;
+          text-indent:-16px;
+          .table_wrap {
+            margin-left: -16px;
+          }
+          ul {
+            li {
+              color:#888;
+              font-size:13px;
+              font-weight:400;
+            }
+          }
+        }
+      }
+    }
+    &.supple_pro {
+      dt {
+        color:#666;
+        font-weight:500;
+      }
+      dd {
+        color:#888;
+        font-weight:400;
+      }
+    }
+  }
+  > ul {
+    margin-top:3rem;
+    > * + * {
+      margin-top:0.5rem;
+    }
+    li {
+      color:#888;
+      font-size:1.3rem;
+      font-weight:400;
+      p {
+        color:#666;
+        font-size:1.3rem;
+        font-weight:500;
+      }
+    }
+  }
+}
+
+
+
+
 .policy_wrap {
   h3, h2 {
     margin:2rem 0;
