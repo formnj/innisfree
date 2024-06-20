@@ -1,16 +1,5 @@
 <template>
   <section>
-    <h2>[공통] Title</h2>
-    <ul class="explain">
-      <li>콘텐츠 타이틀</li>
-    </ul>
-    <div class="design_box"></div>
-    <pre class="code_box"><code>&lt;div class="title_wrap/&gt;
-  &lt;h2&gt;Title&lt;/h2&gt;
-&lt;/div&gt;</code></pre>
-  </section>
-
-  <section>
     <h2>[공통] content</h2>
     <ul class="explain">
       <li>[class="inner"] = max-width:1320px; padding-right:20px; padding-left:20px;</li>
@@ -19,8 +8,8 @@
     <pre class="code_box"><code>&lt;template&gt;
   &lt;div class="inner"&gt;
     &lt;ul class="list_wrap"&gt;
-      &lt;li&gt;list01&lt;//li&gt;
-      &lt;li&gt;list02&lt;//li&gt;
+      &lt;li&gt;list01&lt;/li&gt;
+      &lt;li&gt;list02&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/template&gt;</code></pre>
