@@ -488,15 +488,14 @@ const zzimUI = (e) => {
 
   :deep(.selected_list) {
     li {
-      padding: 1.5rem;
       display: block;
       position: relative;
 
       .name {
-        font-size: 1.3rem;
+        font-size: 13px;
         display: block;
         em {
-          font-size: 1.3rem;
+          font-size: 13px;
         }
       }
 
@@ -511,23 +510,23 @@ const zzimUI = (e) => {
       }
 
       .price {
-        margin: 1rem 0 0;
+        margin: 10px 0 0;
         text-align: right;
-        font-size: 1.6rem;
+        font-size: 16px;
         font-weight: 600;
-        line-height: 3rem;
+        line-height: 30px;
         display: block;
       }
 
       .cost {
-        font-size: 1rem;
+        font-size: 10px;
         font-weight: 400;
       }
 
       .btn_del {
         position: absolute;
-        right: 1rem;
-        top: 1rem;
+        right: 10px;
+        top: 10px;
       }
     }
   }
