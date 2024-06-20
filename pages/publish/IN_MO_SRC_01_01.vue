@@ -126,6 +126,13 @@ onMounted(() => {
     emit('icons', 0)
 
     document.querySelector('.search_wrap .input input').addEventListener('input', auto_complete);
+    document.querySelector('.search_wrap .input button').addEventListener('click', () => {
+        if (document.querySelector('.search_wrap .input input').value === '') {
+            isValid.value = '';
+            isBool.value = false;
+            document.documentElement.style.cssText = ``;
+        }
+    });
 });
 
 const key_item_list = ref([]),
@@ -393,6 +400,7 @@ section {
     }
     .auto_complete_wrap {
         background:rgba(0,0,0,0.6);
+        overflow-y: auto;
         display:none;
         position:fixed;
         top:60px;

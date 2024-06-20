@@ -1,3 +1,9 @@
+// $b-color: #00BC70;
+
+// @mixin b-color {
+//   color: $b-color;
+// }
+
 html {
   font-size:100%;
 }
@@ -1892,8 +1898,6 @@ ul.pick_list {
         }
 
         .table {
-          border-top: 1px solid #000;
-
           table {
             width: 100%;
 

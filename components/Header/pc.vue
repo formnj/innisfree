@@ -8,14 +8,20 @@
             <h1><a :href="path+'IN_PC_HOM_01_01'"><img src="/assets/images/common/logo_innisfree.png"></a></h1>
             <div class="search_wrap">
                 <div class="search">
-                    <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
+                    <SearchInput
+                        :search-placeholder="[
+                            {text: '새로워진 이니스프리 SHOWCASE'},
+                            {text: '새로워진 이니스프리'},
+                            {text: '새로워진'}
+                        ]"
+                    />
                     <Button class="btn_search" />
                 </div>
                 <!-- search layer -->
                 <div class="search_layer">
                     <div class="search">
                         <div>
-                            <Inputs _placeholder="새로워진 이니스프리 SHOWCASE" />
+                            <Inputs />
                             <Button class="btn_search" />
                         </div>
                     </div>
@@ -86,36 +92,9 @@
             </div>
             <div class="keyword_wrap">
                 <div class="keyword">
-                    <ol>
-                        <li>
-                            <a href="#none" class="up"><em>1.</em>Keyword Up</a>
-                        </li>
-                        <li>
-                            <a href="#none"><em>2.</em>Keyword default</a>
-                        </li>
-                        <li>
-                            <a href="#none" class="down"><em>3.</em>Keyword down</a>
-                        </li>
-                        <li>
-                            <a href="#none" class="new"><em>4.</em>Keyword new</a>
-                        </li>
-                        <li>
-                            <a href="#none" class="up"><em>1.</em>Keyword Up</a>
-                        </li>
-                        <li>
-                            <a href="#none"><em>2.</em>Keyword default</a>
-                        </li>
-                        <li>
-                            <a href="#none" class="down"><em>3.</em>Keyword down</a>
-                        </li>
-                        <li>
-                            <a href="#none" class="new"><em>4.</em>Keyword new</a>
-                        </li>
-                        <li>
-                            <a href="#none" class="up"><em>1.</em>Keyword Up</a>
-                        </li>
-                        <li>
-                            <a href="#none"><em>2.</em>Keyword default</a>
+                    <ol ref="roll_ele">
+                        <li v-for="(item, idx) in keyword_list" :key="idx" >
+                            <a href="#none" :class="item.type"><em>{{ item.num }}.</em>{{ item.name }}</a>
                         </li>
                     </ol>
                     <div>
@@ -143,7 +122,7 @@
                         <a href="#none" class="wish">관심상품</a>
                     </li>
                     <li>
-                        <a :href="path+'IN_PC_MYP_01_04'" class="mypage">마이페이지</a>
+                        <a :href="path+'IN_PC_MYP_01_08'" class="mypage">마이페이지</a>
                     </li>
                     <li>
                         <a href="#none" class="delivery">배송조회</a>
@@ -231,158 +210,73 @@
 
 <script setup>
 import {
-  mainTopBannerData,
-  categoryForSearchLayerData,
-  sample_goods,
-  latestSearchWordData
+    mainTopBannerData,
+    categoryForSearchLayerData,
+    sample_goods,
+    latestSearchWordData,
+    global_menu,
+    keyword_list
 } from '~/test/data/publish/dummyData'
 
 /* path */
 const path = '/publish/';
 
+const roll_ele = ref(null);
+const roll_idx = ref(0);
+const roll_time = ref(3000);
+const roll_fn = () => {
+    const roll_child = roll_ele.value.querySelectorAll('li');
+    const roll_height = roll_child[0].clientHeight;
 
-/* sample data */
+    roll_idx.value++;
+    roll_ele.value.style.cssText = `transform: translateY(-${roll_height * roll_idx.value}px); transition: all 0.35s ease-in`;
 
-const global_menu = [
-    {
-        link:'#none', menu:'스킨케어',
-        sub_menu: [
-            {link:'#none', menu:'에센스/세럼/앰플'},
-            {link:'#none', menu:'로션/크림'},
-            {link:'#none', menu:'선케어'},
-            {link:'#none', menu:'클렌징'},
-            {link:'#none', menu:'팩/마스크'},
-            {link:'#none', menu:'립/아이케어'},
-            {link:'#none', menu:'오일/마사지'},
-            {link:'#none', menu:'기획세트'},
-            {link:'#none', menu:'기타'}
-        ],
-        goods: [
-            {img:'https://images.innisfree.co.kr/upload/product/36781_l1_S_240.jpg?T20240313235900', name: '포레스트 포맨 쉐이빙&클렌징 폼', cate:'BEST'},
-            {img:'https://images.innisfree.co.kr/upload/product/36781_l_S_240.jpg?T20240313235900', name: '(스티븐해링턴)레티놀 시카 흔적 앰플 한정판 세트', cate:'NEW'}
-        ]
-    }, {
-        link:'#none', menu:'메이크업',
-        sub_menu: [
-            {link:'#none', menu:'페이스메이크업'},
-            {link:'#none', menu:'아이메이크업'},
-            {link:'#none', menu:'립메이크업'},
-            {link:'#none', menu:'네일'}
-        ]
-    }, {
-        link:'#none', menu:'남성',
-        sub_menu: [
-            {link:'#none', menu:'스킨케어'},
-            {link:'#none', menu:'클렌징'},
-            {link:'#none', menu:'선케어'},
-            {link:'#none', menu:'헤어 스타일링'},
-            {link:'#none', menu:'기획세트'}
-        ]
-    }, {
-        link:'#none', menu:'헤어/바디',
-        sub_menu: [
-            {link:'#none', menu:'핸드/풋케어'},
-            {link:'#none', menu:'바디 로션/미스트'},
-            {link:'#none', menu:'바디 워시/청결제'},
-            {link:'#none', menu:'헤어 에센스/미스트'},
-            {link:'#none', menu:'샴푸/트리트먼트'}
-        ]
-    }, {
-        link:'#none', menu:'기획세트',
-        sub_menu: [
-            {link:'#none', menu:'기획세트'}
-        ]
-    }, {
-        link:'#none', menu:'미용소품',
-        sub_menu: [
-            {link:'#none', menu:'미용소품'},
-            {link:'#none', menu:'헤어/바디소품'},
-            {link:'#none', menu:'화장솜'}
-        ]
-    }, {
-        link:'#none', menu:'남성',
-        sub_menu: [
-            {link:'#none', menu:'스킨케어'},
-            {link:'#none', menu:'클렌징'},
-            {link:'#none', menu:'선케어'},
-            {link:'#none', menu:'헤어 스타일링'},
-            {link:'#none', menu:'기획세트'}
-        ]
-    }, {
-        link:'#none', menu:'고민별제품',
-        sub_menu: [
-            {link:'#none', menu:'수분/보습/속건조'},
-            {link:'#none', menu:'모공/피지/블랙헤드'},
-            {link:'#none', menu:'주름/탄력'},
-            {link:'#none', menu:'트러블/리페어'},
-            {link:'#none', menu:'각질/피부결'},
-            {link:'#none', menu:'영양/토탈 안티에이징'},
-            {link:'#none', menu:'진정/민감'}
-        ]
-    },
-
-]
-/* //sample data */
+    roll_ele.value.addEventListener('transitionend', () => {
+        if (roll_idx.value >= roll_child.length - 1) {
+            roll_ele.value.style.cssText = `transform: translateY(0); transition: unset;`
+            roll_idx.value = 0;
+        }
+    });
+}
 
 onMounted(() => {
     /* keyword rolling */
-    const keyword_pos = document.querySelector('.keyword_wrap ol'),
-    roll_size = keyword_pos.querySelectorAll('li'),
-    roll_timer = 3000;
-
-    let i = 1;
-    const clone_roll = roll_size[0];
-
-    keyword_pos.insertAdjacentHTML('beforeend', '<li>'+clone_roll.innerHTML+'</li>');
-
-    const roll_fn = () => {
-        keyword_pos.style.cssText='transform:translateY(-'+(i*40)+'px); transition:all 0.35s ease-in;'
-        if(i < (roll_size.length+1)){
-            i++;
-
-            if(i == (roll_size.length+1)){
-                keyword_pos.addEventListener('transitionend', () => {
-                    keyword_pos.removeAttribute('style');
-                }, {once: true});
-                i = 1;
-            }
-        }
-    };
-
-    let key_rolling = setInterval(roll_fn, roll_timer);
+    roll_ele.value.append(roll_ele.value.children[0].cloneNode(true));
+    let key_rolling = setInterval(roll_fn, roll_time.value);
     /* //keyword rolling */
 
     /* keyword menu */
     const keyword_wrap = document.querySelector('.keyword_wrap');
     const roll_last = keyword_wrap.querySelector('ol').lastChild;
     const keyword_menu = {
-      mouseEnter: (e) => {
-        e.target.classList.add('active');
-        roll_last.style.display='none';
-        clearInterval(key_rolling);
-        i=1;
-        e.target.querySelector('ol').style.cssText='';
-      },
-      mouseLeave: (e) => {
-        e.target.classList.remove('active');
-        roll_last.style.display='';
-        key_rolling = setInterval(roll_fn, roll_timer)
-      }
+        mouseEnter: (e) => {
+            e.target.classList.add('active');
+            roll_last.style.display='none';
+            clearInterval(key_rolling);
+            roll_idx.value = 0;
+            e.target.querySelector('ol').style.cssText='';
+        },
+        mouseLeave: (e) => {
+            e.target.classList.remove('active');
+            roll_last.style.display='';
+            key_rolling = setInterval(roll_fn, roll_time.value)
+        }
     }
     keyword_wrap.addEventListener('mouseenter', keyword_menu.mouseEnter);
     keyword_wrap.addEventListener('mouseleave', keyword_menu.mouseLeave);
     /* keyword menu */
 
     /* header search layer */
-    document.querySelector('.search_wrap > .search input').addEventListener('focus', (e)=>{
+    document.querySelector('.search_wrap > .search input').addEventListener('focus', () => {
         document.querySelector('.search_layer').classList.add('active');
         document.querySelector('.search_layer .input input').focus();
     });
 
-    document.querySelector('.search_layer').addEventListener('mouseleave', (e)=>{
+    document.querySelector('.search_layer').addEventListener('mouseleave', () => {
         document.querySelector('.search_layer').classList.remove('active');
     });
 
+    /* 스크롤 헤더 이동 */
     window.addEventListener('scroll', () => {
         const target = document.querySelector('.gnb_wrap');
         const rect = target.getBoundingClientRect();
@@ -1029,17 +923,16 @@ header {
                 background-color:#fff;
                 position:relative;
                 display:flex;
-                gap:40px;
                 .nav_wrap {
                     display:flex;
+                    justify-content: space-between;
+                    flex: 1;
                     dl {
                         width: 120px;
-                        & + dl {
-                            margin-left:40px;
-                        }
-                        &:nth-child(8) {
-                            padding-right:40px;
-                            border-right:1px solid #eee;
+                        &:last-child {
+                            width: auto;
+                            padding-left:65px;
+                            border-left:1px solid #eee;
                         }
                         dt {
                             margin-bottom:20px;

@@ -50,7 +50,6 @@ const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 �
 </script>
 
 <style lang="scss" scoped>
-
 .list_wrap {
   margin-top:60px;
 }
