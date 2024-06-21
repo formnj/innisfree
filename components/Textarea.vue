@@ -21,6 +21,7 @@
         isDisabled:false, // disabled 여부
         isRrequired: false, // 필수값 여부
         _rows: Number, //textarea 라인 수
+        _type: String,
     });
 
     const hidePlaceholder = (e) => { //focus시 placeholder 숨김

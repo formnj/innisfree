@@ -1,19 +1,38 @@
 <template>
   <!-- 리뷰 일반 -->
   <div v-if="isModal == false" class="review">
-    <p v-if="item.option.is" class="option_name">옵션<span v-if="isMo == false">)</span> {{ item.option.name }}</p>
-    <div class="review_photo_list_wrap">
+    <p v-if="item.option.is" class="option_name">
+      옵션 <span>{{ item.option.opt }}</span>
+    </p>
+    <div v-if="item.imgs" class="review_photo_list_wrap">
       <ul class="review_photo_list">
-        <li v-for="(img, idx) in item.imgs" :key="idx" :class="idx == 5 ? 'last' : '' ">
-          <a v-if="!isMo" href="#none" @click="modal.open('modal_review','full modal_review');" class="img_wrap"><img :src="img" alt=""></a>
-          <a v-if="isMo && !isPage" href="IN_MO_PRD_01_08" class="img_wrap"><img :src="img" alt=""></a>
-          <span v-if="isMo && isPage" class="img_wrap"><img :src="img" alt=""></span>
+        <li
+          v-for="(img, idx) in item.imgs"
+          :key="idx"
+          :class="idx == 5 ? 'last' : ''">
+          <a
+            v-if="!isMo"
+            href="#none"
+            @click="modal.open('modal_review', 'full modal_review')"
+            class="img_wrap"
+            ><img :src="img" alt=""
+          /></a>
+          <a v-if="isMo && !isPage" href="IN_MO_PRD_01_08" class="img_wrap"
+            ><img :src="img" alt=""
+          /></a>
+          <span v-if="isMo && isPage" class="img_wrap"
+            ><img :src="img" alt=""
+          /></span>
         </li>
       </ul>
     </div>
     <p class="txt">
       <span v-if="item.useMark" class="mark">한달사용</span>
-      <a v-if="!isMo" href="#none" @click="modal.open('modal_review','full modal_review');" v-html="item.txt"></a>
+      <a
+        v-if="!isMo"
+        href="#none"
+        @click="modal.open('modal_review', 'full modal_review')"
+        v-html="item.txt"></a>
       <a v-if="isMo && !isPage" href="IN_MO_PRD_01_08" v-html="item.txt"></a>
       <span v-if="isMo && isPage" v-html="item.txt"></span>
     </p>
@@ -21,12 +40,15 @@
 
   <!-- 리뷰 모달일 경우 -->
   <div v-if="isModal == true" class="review">
-    <p v-if="item.option.is" class="option_name">옵션 <em>{{ item.option.name }}</em></p>
+    <p v-if="item.option.is" class="option_name">
+      옵션 <em>{{ item.option.name }}</em>
+    </p>
 
-    <div v-if="!isMo" class="review_photo_swiper">  <!-- PC일 경우 -->
+    <div v-if="!isMo" class="review_photo_swiper">
+      <!-- PC일 경우 -->
       <swiper v-bind="swiper_options" @swiper="onSwiper">
         <swiper-slide v-for="(img, idx) in item.imgs" :key="idx">
-          <img :src="img" :class="item.user" alt="">
+          <img :src="img" :class="item.user" alt="" />
         </swiper-slide>
       </swiper>
       <div class="custom_nav">
@@ -37,8 +59,11 @@
 
     <div v-if="isMo" class="review_photo_list_wrap">
       <ul class="review_photo_list">
-        <li v-for="(img, idx) in item.imgs" :key="idx" :class="idx == 5 ? 'last' : '' ">
-          <a href="#none"><img :src="img" :class="item.user" alt=""></a>
+        <li
+          v-for="(img, idx) in item.imgs"
+          :key="idx"
+          :class="idx == 5 ? 'last' : ''">
+          <a href="#none"><img :src="img" :class="item.user" alt="" /></a>
         </li>
       </ul>
     </div>
@@ -58,11 +83,12 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import SwiperCore from 'swiper'
 import { Autoplay, Pagination, A11y, Navigation, Thumbs } from 'swiper/modules'
 
-SwiperCore.use([Autoplay, Pagination, A11y, Navigation, Thumbs]);
+SwiperCore.use([Autoplay, Pagination, A11y, Navigation, Thumbs])
 
 const props = defineProps({
   item: {},
-  isModal: {  //리뷰 모달 여부
+  isModal: {
+    //리뷰 모달 여부
     type: Boolean,
     default: false
   },
@@ -76,82 +102,99 @@ const props = defineProps({
   }
 })
 
-const setSwiper = ref(null);
-const onSwiper = (swiper) => setSwiper.value = swiper;
+const setSwiper = ref(null)
+const onSwiper = (swiper) => (setSwiper.value = swiper)
 const swiper_options = {
   slidesPerView: 1,
-  navigation : {
-    prevEl: ".nav_prev",
-    nextEl: ".nav_next",
-    type: "custom",
+  navigation: {
+    prevEl: '.nav_prev',
+    nextEl: '.nav_next',
+    type: 'custom'
   },
-  speed:1000,
-  observer:true,
-  observeParents:true,
+  speed: 1000,
+  observer: true,
+  observeParents: true
 }
 </script>
 <style lang="scss" scoped>
 .review {
   .option_name {
-    margin: 10px 0 30px;
-    font-weight: 600;
-    color: #333;
+    margin: -20px 0 30px;
+    font-weight: 400;
+    color: #888;
+    display: flex;
+    gap: 10px;
+
+    span {
+      color: #333;
+      font-weight: 600;
+
+      &:before {
+        content: '';
+        width: 1px;
+        height: 10px;
+        margin-right: 10px;
+        background-color: #eee;
+        display: inline-block;
+      }
+    }
   }
 
-.review_photo_list_wrap {
-  .review_photo_list {
-    display: flex;
-    gap: 3px;
-    margin-bottom: 30px;
+  .review_photo_list_wrap {
+    .review_photo_list {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 30px;
 
-    li {
-      width: 120px;
-      height: 120px;
-      position: relative;
-
-      .img_wrap {
-        width: 100%;
-        height: 100%;
-        display: block;
+      li {
+        width: 120px;
+        height: 120px;
         position: relative;
 
-        img {
-          vertical-align: middle;
-        }
-      }
+        .img_wrap {
+          width: 100%;
+          height: 100%;
+          display: block;
+          position: relative;
 
-      &.last {
-        a {
-          &:before {
-            content:'';
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
+          img {
+            vertical-align: middle;
           }
+        }
 
-          &:after {
-            content: '';
-            width: 24px;
-            height: 24px;
-            margin: 0 auto 10px;
-            background: url("~/assets/images/common/icon_split.png") -460px -70px no-repeat;
-            display: block;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
+        &.last {
+          a {
+            &:before {
+              content: '';
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.7);
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 1;
+            }
+
+            &:after {
+              content: '';
+              width: 24px;
+              height: 24px;
+              margin: 0 auto 10px;
+              background: url('~/assets/images/common/icon_split.png') -460px -70px
+                no-repeat;
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              z-index: 1;
+            }
           }
         }
       }
     }
   }
-}
 
   .txt {
     line-height: 24px;
@@ -159,17 +202,18 @@ const swiper_options = {
 
     &.open {
       a {
-        -webkit-line-clamp:unset;
+        -webkit-line-clamp: unset;
       }
     }
 
     .mark {
       height: 22px;
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
       padding: 0 5px;
       font-size: 12px;
-      color: #FFFFFF;
-      background-color: #00BC70;
+      color: #ffffff;
+      background-color: #00bc70;
+      white-space: nowrap;
       display: inline-block;
     }
 
@@ -184,12 +228,12 @@ const swiper_options = {
 
       :deep(em) {
         color: #fff;
-        background-color: #00BC70;
+        background-color: #00bc70;
       }
     }
 
     :deep(.hashtag) {
-      color: #00BC70;
+      color: #00bc70;
     }
 
     span {
@@ -221,7 +265,8 @@ const swiper_options = {
       width: 24px;
       height: 24px;
       font-size: 0;
-      background: url('/assets/images/common/icon_split.png') -180px -60px / 250px auto no-repeat;
+      background: url('/assets/images/common/icon_split.png') -180px -60px /
+        250px auto no-repeat;
       position: absolute;
       top: 50%;
       transform: rotate(90deg) translateY(-50%);

@@ -5,16 +5,23 @@
       <div class="prod_detail_top">
         <!-- 상품 이미지, 결제/카드/이벤트 영역 -->
         <div class="prod_swiper_wrap">
-          <productDetailSwiper /> <!-- 상품 이미지 슬라이드 -->
+          <productDetailSwiper />
+          <!-- 상품 이미지 슬라이드 -->
           <!-- 결제/카드/혜택, 이벤트 -->
           <div class="list_wrap">
             <dl class="benefit_list txt">
               <dt>결제/카드 헤택</dt>
               <dd>
                 <ul>
-                  <li><a href="#none">멤버십세일 결제혜택 모음 SAVE 5,000!!</a></li>
-                  <li><a href="#none">KB Pay 3만원 결제 시, 최대 1만원 혜택</a></li>
-                  <li><a href="#none">현대카드 M포인트 결제금액 20% 할인</a></li>
+                  <li>
+                    <a href="#none">멤버십세일 결제혜택 모음 SAVE 5,000!!</a>
+                  </li>
+                  <li>
+                    <a href="#none">KB Pay 3만원 결제 시, 최대 1만원 혜택</a>
+                  </li>
+                  <li>
+                    <a href="#none">현대카드 M포인트 결제금액 20% 할인</a>
+                  </li>
                 </ul>
               </dd>
             </dl>
@@ -22,8 +29,20 @@
               <dt>관련 이벤트</dt>
               <dd>
                 <ul>
-                  <li><a href="#none">24.4.11~24.4.13<span class="title">~50% 멤버십세일 최대 6,000원 추가할인!</span></a></li>
-                  <li><a href="#none">24.4.11~24.4.13<span class="title">그린티 씨드 세럼 대용량 [지구의달 에디션] 출시!</span></a></li>
+                  <li>
+                    <a href="#none"
+                      >24.4.11~24.4.13<span class="title"
+                        >~50% 멤버십세일 최대 6,000원 추가할인!</span
+                      ></a
+                    >
+                  </li>
+                  <li>
+                    <a href="#none"
+                      >24.4.11~24.4.13<span class="title"
+                        >그린티 씨드 세럼 대용량 [지구의달 에디션] 출시!</span
+                      ></a
+                    >
+                  </li>
                 </ul>
               </dd>
             </dl>
@@ -33,32 +52,49 @@
         <div class="prod_detail_info">
           <!-- 상품 정보 -->
           <productDetailInfo />
-          <productMyPrice />
+          <productMyPrice :isMo="false" />
           <div class="list_wrap">
             <productDetailBenefit />
             <dl class="benefit_list">
               <dt>뷰티포인트</dt>
               <dd>
                 결제 금액의 1%적립
-                <Icons class="tooltip" txt="뷰티포인트 안내 자세히 보기" @click="modal.open('modal_beauty_point_tip', 'layer tooltip')" />
-                <div id="modal_beauty_point_tip" class="modal_wrap"><!-- 뷰티포인트 적립안내 툴팁 -->
+                <Icons
+                  class="tooltip"
+                  txt="뷰티포인트 안내 자세히 보기"
+                  @click="
+                    modal.open('modal_beauty_point_tip', 'layer tooltip')
+                  " />
+                <div id="modal_beauty_point_tip" class="modal_wrap">
+                  <!-- 뷰티포인트 적립안내 툴팁 -->
                   <div class="modal_container">
-                    <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
+                    <button class="btn_close" @click="modal.close(this)">
+                      툴팁 닫기
+                    </button>
                     <div class="modal_content">
                       <h2>뷰티포인트 적립안내</h2>
                       <p>
-                        아모레퍼시픽 뷰티포인트 통합회원은 회원 등급과 상관없이<br>(뷰티포인트 적립 대상상품에 한하여) 포인트가 적립됩니다.<br><br>
-                        <strong>포인트 적립률은 제품별, 브랜드별로 상이하며,<br>쿠폰/뷰티포인트 사용 조건과 금액에 따라 상이할 수 있습니다.</strong>
+                        아모레퍼시픽 뷰티포인트 통합회원은 회원 등급과
+                        상관없이<br />(뷰티포인트 적립 대상상품에 한하여)
+                        포인트가 적립됩니다.<br /><br />
+                        <strong
+                          >포인트 적립률은 제품별, 브랜드별로 상이하며,<br />쿠폰/뷰티포인트
+                          사용 조건과 금액에 따라 상이할 수 있습니다.</strong
+                        >
                       </p>
                     </div>
                   </div>
-                  <div class="overlay" @click="modal.close(this);"></div>
-                </div><!-- //뷰티포인트 적립안내 툴팁 -->
+                  <div class="overlay" @click="modal.close(this)"></div>
+                </div>
+                <!-- //뷰티포인트 적립안내 툴팁 -->
               </dd>
               <dt>배송비</dt>
               <dd>2,500원 (20,000원 이상 구매 시 무료배송)</dd>
               <dt>유의사항</dt>
-              <dd>3.7~9 / 기간내 n개 / 뷰티포인트 전용, APP 전용 / 할인제외, 증정제외, 구매금액 제외 /반품교환 불가능</dd>
+              <dd>
+                3.7~9 / 기간내 n개 / 뷰티포인트 전용, APP 전용 / 할인제외,
+                증정제외, 구매금액 제외 /반품교환 불가능
+              </dd>
             </dl>
           </div>
           <!-- 상품 정보 -->
@@ -82,30 +118,43 @@
           </div>
           <div class="total_price">
             <span>총 수량<em>1</em>개</span>
-            <span>합계<span><em>23,400</em>원</span></span>
+            <span
+              >합계<span><em>23,400</em>원</span></span
+            >
           </div>
           <!-- //상품 옵션 및 가격 -->
 
-          <ProductBottomButtons />  <!-- 구매 버튼 영역 : IN_PC_PRD_01_09_button 참고 -->
+          <ProductBottomButtons />
+          <!-- 구매 버튼 영역 : IN_PC_PRD_01_09_button 참고 -->
 
           <!-- PC sticky 버튼 -->
-          <div v-if="!isMo" class="btm_fixed_wrap open">
+          <div v-if="!isMo" class="btm_fixed_wrap">
             <div class="inner">
-              <Button class="btn_big confirm" txt="구매하기" @click="toggleStickyOption" />
+              <Button
+                class="btn_big confirm"
+                txt="구매하기"
+                @click="toggleStickyOption" />
               <div class="header">
                 <strong>그린티 씨드 세럼 대용량 + 리필(130mL+80mL)</strong>
                 <div class="btn_wrap">
-                  <button type="button" class="btn_share" @click="shareUI">공유하기</button>
-                  <button type="button" class="btn_like" @click="zzimUI">찜하기</button>
+                  <button type="button" class="btn_share" @click="shareUI">
+                    공유하기
+                  </button>
+                  <button type="button" class="btn_like" @click="zzimUI">
+                    찜하기
+                  </button>
                 </div>
               </div>
               <div class="contents">
-                <div class="cart_area">
-                  장바구니
-                </div>
+                <div class="cart_area">장바구니</div>
                 <div class="btn_area">
                   <Button class="btn_big" txt="장바구니" @click="cartUI" />
-                  <Button class="btn_big confirm" txt="바로구매" @click="modal.open('bottom_cart','bottom bottom_cart buy')" />
+                  <Button
+                    class="btn_big confirm"
+                    txt="바로구매"
+                    @click="
+                      modal.open('bottom_cart', 'bottom bottom_cart buy')
+                    " />
                 </div>
               </div>
             </div>
@@ -119,58 +168,87 @@
       <!-- //원포인트 -->
       <!-- 상세 탭 / 컨텐츠 -->
       <div class="prod_detail_cont">
-        <productDetailTab /> <!-- 상세 탭 -->
-        <div class="tab_contents">  <!-- 상세 탭 컨텐츠 -->
+        <productDetailTab />
+        <!-- 상세 탭 -->
+        <div class="tab_contents">
+          <!-- 상세 탭 컨텐츠 -->
           <!-- 상세 정보 -->
-          <div class="tab_cont" style="display: block;">
+          <div class="tab_cont" style="display: block">
+            <!-- 제품 상세 배너 -->
+            <a href="#none" class="prod_detail_banner">
+              <img
+                src="~/public/images/sam/img_prod_detail_banner_pc.png"
+                alt="" />
+            </a>
+            <!-- //제품 상세 배너 -->
             <ProductDetailConts />
           </div>
           <!-- //상세 정보 -->
           <!-- 리뷰 -->
-          <div class="tab_cont tab_cont_review" style="display: block;">
-            <ProductReviewSummary limit="10" /> <!-- 리뷰 요약 -->
+          <div class="tab_cont tab_cont_review" style="display: block">
+            <ProductReviewSummary limit="10" />
+            <!-- 리뷰 요약 -->
             <!-- 리뷰 옵션 선택 -->
             <div class="review_option">
               <div class="sort">
-                <button type="button" class="active" @click="setFilter">전체<span>195</span></button>
-                <button type="button" @click="setFilter">포토리뷰<span>127</span></button>
-                <button type="button" @click="setFilter">한달사용<span>52</span></button>
-                <button type="button" @click="setFilter">체험단<span>0</span></button>
-                <button type="button" @click="setFilter">샘플<span>10</span></button>
+                <button type="button" class="active" @click="setFilter">
+                  전체<span>195</span>
+                </button>
+                <button type="button" @click="setFilter">
+                  포토리뷰<span>127</span>
+                </button>
+                <button type="button" @click="setFilter">
+                  한달사용<span>52</span>
+                </button>
+                <button type="button" @click="setFilter">
+                  체험단<span>0</span>
+                </button>
+                <button type="button" @click="setFilter">
+                  샘플<span>10</span>
+                </button>
               </div>
               <div class="sort">
                 <span>
-                  추천순
-                  <Icons class="tooltip" txt="추천순 리뷰 기준 자세히 보기" @click="modal.open('modal_review_standard', 'layer tooltip')" />
-                  <div id="modal_review_standard" class="modal_wrap"><!-- 추천순 리뷰 기준 툴팁 -->
+                  <button type="button" @click="setFilter">추천순</button>
+                  <Icons
+                    class="tooltip"
+                    txt="추천순 리뷰 기준 자세히 보기"
+                    @click="
+                      modal.open('modal_review_standard', 'layer tooltip')
+                    " />
+                  <div id="modal_review_standard" class="modal_wrap">
+                    <!-- 추천순 리뷰 기준 툴팁 -->
                     <div class="modal_container">
-                      <button class="btn_close" @click="modal.close(this);">툴팁 닫기</button>
+                      <button class="btn_close" @click="modal.close(this)">
+                        툴팁 닫기
+                      </button>
                       <div class="modal_content">
                         <h2>추천순 리뷰 기준</h2>
-                        <p>리뷰의 내용을 단위별로 분석해<br>AI가 부여한 점수 산정 기준에 따라<br>높은 점수순으로 리뷰를 정렬합니다.</p>
+                        <p>
+                          리뷰의 내용을 단위별로 분석해<br />AI가 부여한 점수
+                          산정 기준에 따라<br />높은 점수순으로 리뷰를
+                          정렬합니다.
+                        </p>
                       </div>
                     </div>
-                    <div class="overlay" @click="modal.close(this);"></div>
-                  </div><!-- //추천순 리뷰 기준 툴팁 -->
+                    <div class="overlay" @click="modal.close(this)"></div>
+                  </div>
+                  <!-- //추천순 리뷰 기준 툴팁 -->
                 </span>
                 <button type="button" @click="setFilter">최신순</button>
                 <button type="button" @click="setFilter">평점순</button>
-                <div class="dropdown">
-                  <button type="button" class="btn_dropdown" @click="DropDown()">옵션별</button>
-                  <ul>
-                    <li><input id="rv_op00" type="radio" name="v_op"><label for="rv_op00">전체</label></li>
-                    <li><input id="rv_op01" type="radio" name="v_op"><label for="rv_op01">1호 샐먼 베이지</label></li>
-                    <li><input id="rv_op02" type="radio" name="v_op"><label for="rv_op02">2호 피치 베이지</label></li>
-                  </ul>
-                </div>
               </div>
             </div>
             <div class="review_option">
               <div class="custom">
-                <Inputs _type="checkbox" :isswitch="true" _text="프로필 맞춤" /> <span class="txt" style="font-size: 14px; color: #999;">설정된 피부 프로필 없음</span>
-              </div>
-              <div class="filter">
-                <button type="button" @click="modal.open('modal_skin_type', 'full modal_skin_type')">피부 속성 필터</button>
+                <Tabs
+                  tabType="type_02"
+                  :item="[
+                    { txt: '발림성', Cnt: '1,123' },
+                    { txt: '향', Cnt: '1,123' },
+                    { txt: '피부결', Cnt: '1,123' },
+                    { txt: '가격', Cnt: '1,123' }
+                  ]" />
               </div>
             </div>
             <!-- //리뷰 옵션 선택 -->
@@ -180,20 +258,46 @@
                 <li v-for="(item, idx) in sample_review" :key="idx">
                   <div class="review_header">
                     <div class="user_info">
-                      <span class="name">{{ item.user }}</span>
-                      <span class="age">{{ item.age }}</span>
-                      <span class="type">{{ item.type }}</span>
+                      <span v-if="item.user" class="name">{{ item.user }}</span>
+                      <span v-if="!item.user" class="name">회원정보없음</span>
+                      <span class="age">{{ item.age }} {{ item.type }}</span>
+                      <span class="buy_cnt">
+                        <em>{{ item.count }}</em
+                        >회 구매
+                      </span>
+                      <!-- <span class="type">{{ item.type }}</span> -->
                       <div class="rate">
                         <Reviewpoint :width="item.rate" />
                       </div>
                       <span class="date">{{ item.date }}</span>
                     </div>
-                    <div class="btn_wrap ar">
-                      <button type="button">신고</button>
-                      <button type="button">차단하기</button>
+                    <div class="btn_wrap">
+                      <button
+                        v-if="!item.writer"
+                        type="button"
+                        @click="
+                          modal.open(
+                            'modal_review_report',
+                            'alert modal_review_report'
+                          )
+                        ">
+                        신고
+                      </button>
+                      <button v-if="!item.writer" type="button">차단</button>
+                      <button v-if="item.writer" type="button">
+                        <em>수정</em>
+                      </button>
+                      <button v-if="item.writer" type="button">
+                        <em>삭제</em>
+                      </button>
                     </div>
                   </div>
-                  <ProductReview :item="item" /> <!-- 리뷰 -->
+                  <ProductReview :item="item" />
+                  <!-- 리뷰 -->
+                </li>
+
+                <li>
+                  <p>회원님의 요청으로 차단된 리뷰입니다.</p>
                 </li>
               </ul>
               <div class="paging">
@@ -232,17 +336,23 @@
         <!-- //상세 컨텐츠 -->
       </div>
     </div>
-  </div>
 
-  <ProductQnaModal /> <!-- 문의 모달(제품문의 작성) -->
-  <ProductReviewPhotoAllModal />  <!-- 포토리뷰 모아보기 모달-->
-  <ProductReviewModal /> <!-- 리뷰보기 모달 -->
-  <ProductStockAlertModal /> <!-- 입고알림 신청 -->
+    <ProductQnaModal />
+    <!-- 문의 모달(제품문의 작성) -->
+    <ProductReviewPhotoAllModal />
+    <!-- 포토리뷰 모아보기 모달-->
+    <ProductReviewModal />
+    <!-- 리뷰보기 모달 -->
+    <ProductStockAlertModal />
+    <!-- 입고알림 신청 -->
+    <ProductReviewReport />
+    <!-- 신고 팝업 -->
+  </div>
 
   <!-- 플로팅 배너 -->
   <div class="floating_wrap open">
     <button type="button" class="btn_close" @click="float_close">닫기</button>
-    <p>지금 <em>2명의 고객님</em>이<br>이 제품을 함께 보고 있습니다!</p>
+    <p>지금 <em>2명의 고객님</em>이<br />이 제품을 함께 보고 있습니다!</p>
     <div class="ipt_wrap">
       <Inputs _type="checkbox" _text="이 알림을 일주일간 보지 않기" />
     </div>
@@ -252,217 +362,333 @@
   <!-- 피부 속성 필터 모달 -->
   <div id="modal_skin_type" class="modal_wrap">
     <div class="modal_container">
-        <div class="modal_header">
-            <h2>피부 속성 필터</h2>
-            <button class="btn_close" @click="modal.close(this);">닫기</button>
-        </div>
-        <div class="modal_content">
-          <div class="list_wrap">
-            <h3>피부타입(필수 1개)</h3>
-            <ul>
-              <li>
-                <Inputs _id="skinType1" _name="skinType" _type="checkbox" class="checkbox02" _text="건성" />
-              </li>
-              <li>
-                <Inputs _id="skinType2" _name="skinType" _type="checkbox" class="checkbox02" _text="중성" />
-              </li>
-              <li>
-                <Inputs _id="skinType3" _name="skinType" _type="checkbox" class="checkbox02" _text="지성" />
-              </li>
-              <li>
-                <Inputs _id="skinType4" _name="skinType" _type="checkbox" class="checkbox02" _text="민감성" />
-              </li>
-              <li>
-                <Inputs _id="skinType5" _name="skinType" _type="checkbox" class="checkbox02" _text="복합성" />
-              </li>
-              <li>
-                <Inputs _id="skinType6" _name="skinType" _type="checkbox" class="checkbox02" _text="약건성" />
-              </li>
-              <li>
-                <Inputs _id="skinType7" _name="skinType" _type="checkbox" class="checkbox02" _text="트러블성" />
-              </li>
-            </ul>
+      <div class="modal_header">
+        <h2>피부 속성 필터</h2>
+        <button class="btn_close" @click="modal.close(this)">닫기</button>
+      </div>
+      <div class="modal_content">
+        <div class="list_wrap">
+          <h3>피부타입(필수 1개)</h3>
+          <ul>
+            <li>
+              <Inputs
+                _id="skinType1"
+                _name="skinType"
+                _type="checkbox"
+                class="checkbox02"
+                _text="건성" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinType2"
+                _name="skinType"
+                _type="checkbox"
+                class="checkbox02"
+                _text="중성" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinType3"
+                _name="skinType"
+                _type="checkbox"
+                class="checkbox02"
+                _text="지성" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinType4"
+                _name="skinType"
+                _type="checkbox"
+                class="checkbox02"
+                _text="민감성" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinType5"
+                _name="skinType"
+                _type="checkbox"
+                class="checkbox02"
+                _text="복합성" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinType6"
+                _name="skinType"
+                _type="checkbox"
+                class="checkbox02"
+                _text="약건성" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinType7"
+                _name="skinType"
+                _type="checkbox"
+                class="checkbox02"
+                _text="트러블성" />
+            </li>
+          </ul>
 
-            <h3>연령대(필수 1개)</h3>
-            <ul>
-              <li>
-                <Inputs _id="age1" _name="age" _type="checkbox" class="checkbox02" _text="10대" />
-              </li>
-              <li>
-                <Inputs _id="age2" _name="age" _type="checkbox" class="checkbox02" _text="20대" />
-              </li>
-              <li>
-                <Inputs _id="age3" _name="age" _type="checkbox" class="checkbox02" _text="30대" />
-              </li>
-              <li>
-                <Inputs _id="age4" _name="age" _type="checkbox" class="checkbox02" _text="40대" />
-              </li>
-              <li>
-                <Inputs _id="age5" _name="age" _type="checkbox" class="checkbox02" _text="50대 이상" />
-              </li>
-            </ul>
-          </div>
+          <h3>연령대(필수 1개)</h3>
+          <ul>
+            <li>
+              <Inputs
+                _id="age1"
+                _name="age"
+                _type="checkbox"
+                class="checkbox02"
+                _text="10대" />
+            </li>
+            <li>
+              <Inputs
+                _id="age2"
+                _name="age"
+                _type="checkbox"
+                class="checkbox02"
+                _text="20대" />
+            </li>
+            <li>
+              <Inputs
+                _id="age3"
+                _name="age"
+                _type="checkbox"
+                class="checkbox02"
+                _text="30대" />
+            </li>
+            <li>
+              <Inputs
+                _id="age4"
+                _name="age"
+                _type="checkbox"
+                class="checkbox02"
+                _text="40대" />
+            </li>
+            <li>
+              <Inputs
+                _id="age5"
+                _name="age"
+                _type="checkbox"
+                class="checkbox02"
+                _text="50대 이상" />
+            </li>
+          </ul>
+        </div>
 
-          <div class="list_wrap">
-            <h3>피부고민(최대 3개)</h3>
-            <ul>
-              <li>
-                <Inputs _id="skinTrb1" _name="skinTrb" _type="checkbox" class="checkbox02" _text="모공" />
-              </li>
-              <li>
-                <Inputs _id="skinTrb2" _name="skinTrb" _type="checkbox" class="checkbox02" _text="주름" />
-              </li>
-              <li>
-                <Inputs _id="skinTrb15" _name="skinTrb" _type="checkbox" class="checkbox02" _text="탄력" />
-              </li>
-              <li>
-                <Inputs _id="skinTrb3" _name="skinTrb" _type="checkbox" class="checkbox02" _text="블랙헤드" />
-              </li>
-              <li>
-                <Inputs _id="skinTrb4" _name="skinTrb" _type="checkbox" class="checkbox02" _text="트러블" />
-              </li>
-              <li>
-                <Inputs _id="skinTrb5" _name="skinTrb" _type="checkbox" class="checkbox02" _text="각질" />
-              </li>
-              <li>
-                <Inputs _id="skinTrb6" _name="skinTrb" _type="checkbox" class="checkbox02" _text="잡티" />
-              </li>
-              <li>
-                <Inputs _id="skinTrb7" _name="skinTrb" _type="checkbox" class="checkbox02" _text="피지과다" />
-              </li>
-              <li>
-                <Inputs _id="skinTrb8" _name="skinTrb" _type="checkbox" class="checkbox02" _text="건조함" />
-              </li>
-              <li>
-                <Inputs _id="skinTrb9" _name="skinTrb" _type="checkbox" class="checkbox02" _text="민감성" />
-              </li>
-              <li>
-                <Inputs _id="skinTrb10" _name="skinTrb" _type="checkbox" class="checkbox02" _text="색소침착" />
-              </li>
-              <li>
-                <Inputs _id="skinTrb11" _name="skinTrb" _type="checkbox" class="checkbox02" _text="피부톤" />
-              </li>
-              <li>
-                <Inputs _id="skinTrb12" _name="skinTrb" _type="checkbox" class="checkbox02" _text="다크서클" />
-              </li>
-              <li>
-                <Inputs _id="skinTrb13" _name="skinTrb" _type="checkbox" class="checkbox02" _text="피부결" />
-              </li>
-              <li>
-                <Inputs _id="skinTrb14" _name="skinTrb" _type="checkbox" class="checkbox02" _text="홍조" />
-              </li>
-            </ul>
-          </div>
+        <div class="list_wrap">
+          <h3>피부고민(최대 3개)</h3>
+          <ul>
+            <li>
+              <Inputs
+                _id="skinTrb1"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="모공" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinTrb2"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="주름" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinTrb15"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="탄력" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinTrb3"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="블랙헤드" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinTrb4"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="트러블" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinTrb5"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="각질" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinTrb6"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="잡티" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinTrb7"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="피지과다" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinTrb8"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="건조함" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinTrb9"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="민감성" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinTrb10"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="색소침착" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinTrb11"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="피부톤" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinTrb12"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="다크서클" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinTrb13"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="피부결" />
+            </li>
+            <li>
+              <Inputs
+                _id="skinTrb14"
+                _name="skinTrb"
+                _type="checkbox"
+                class="checkbox02"
+                _text="홍조" />
+            </li>
+          </ul>
         </div>
-        <div class="modal_footer">
-          <Button class="btn_outline btn_mid" txt="초기화" disabled />
-          <Button class="btn_mid" txt="적용하기" disabled />
-        </div>
+      </div>
+      <div class="modal_footer">
+        <Button class="btn_outline btn_mid" txt="초기화" disabled />
+        <Button class="btn_mid" txt="적용하기" disabled />
+      </div>
     </div>
-    <div class="overlay" @click="modal.close(this);"></div>
+    <div class="overlay" @click="modal.close(this)"></div>
   </div>
   <!-- //피부 속성 필터 -->
 
-   <!-- 공유 모달 -->
+  <!-- 공유 모달 -->
   <div id="modal_share" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
         <h2>공유하기</h2>
-        <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <button class="btn_close" @click="modal.close(this)">닫기</button>
       </div>
-      <div class="modal_content">
-        URL이 복사되었습니다.
-      </div>
+      <div class="modal_content">URL이 복사되었습니다.</div>
       <div class="modal_footer">
         <Button class="btn_big confirm" txt="확인" />
       </div>
     </div>
-    <div class="overlay" @click="modal.close(this);"></div>
+    <div class="overlay" @click="modal.close(this)"></div>
   </div>
   <!-- //공유 모달 -->
 
-    <!-- PC 찜 토스트 팝업 -->
-    <div id="toast_zzim" class="modal_wrap">
-      <div class="modal_container">
-        <div class="modal_content">
-          찜 목록에 추가되었습니다.
-        </div>
-      </div>
-      <div class="overlay" @click="modal.close(this);"></div>
+  <!-- PC 찜 토스트 팝업 -->
+  <div id="toast_zzim" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_content">찜 목록에 추가되었습니다.</div>
     </div>
-    <!-- //PC 찜 토스트 팝업 -->
+    <div class="overlay" @click="modal.close(this)"></div>
+  </div>
+  <!-- //PC 찜 토스트 팝업 -->
 
-    <!-- PC 찜 해제 토스트 팝업 -->
-    <div id="toast_zzim_unset" class="modal_wrap">
-      <div class="modal_container">
-        <div class="modal_content">
-          찜 목록에 삭제되었습니다.
-        </div>
-      </div>
-      <div class="overlay" @click="modal.close(this);"></div>
+  <!-- PC 찜 해제 토스트 팝업 -->
+  <div id="toast_zzim_unset" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_content">찜 목록에 삭제되었습니다.</div>
     </div>
-    <!-- //PC 찜 해제 토스트 팝업 -->
+    <div class="overlay" @click="modal.close(this)"></div>
+  </div>
+  <!-- //PC 찜 해제 토스트 팝업 -->
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted } from 'vue'
 import { modal, setFilter, toast_pop } from '~/assets/js/common-ui'
 import { sample_review } from '~/test/data/publish/dummyData'
 
 definePageMeta({
-  layout:'pc-sub'
-});
+  layout: 'pc-sub'
+})
 
 const props = defineProps({
   layoutType: {
     type: String,
     default: 'default'
   }
-});
-
-const DropDown = () => {
-  const el = event.currentTarget;
-  const list = el.nextElementSibling;
-  if(list.classList.contains('active')){
-    list.style.cssText=""
-  }else {
-    list.style.cssText="display:block;"
-  }
-  setTimeout(()=>{
-    list.classList.toggle('active');
-  }, 100)
-}
+})
 
 const float_close = () => {
-  const el = event.currentTarget;
-  el.parentElement.classList.remove("open");
+  const el = event.currentTarget
+  el.parentElement.classList.remove('open')
 }
 
-onMounted(()=>{
-  const flotBanner = document.getElementsByClassName("floating_wrap")[0];
-  setTimeout(()=>{
-    flotBanner.classList.remove("open");
+onMounted(() => {
+  const flotBanner = document.getElementsByClassName('floating_wrap')[0]
+  setTimeout(() => {
+    flotBanner.classList.remove('open')
   }, 6000)
 })
 
 const toggleStickyOption = () => {
-  const fixedArea = document.getElementsByClassName('btm_fixed_wrap')[0];
-  fixedArea.classList.toggle('open');
+  const fixedArea = document.getElementsByClassName('btm_fixed_wrap')[0]
+  fixedArea.classList.toggle('open')
 }
 
 const shareUI = () => {
-  modal.open('modal_share', 'alert');
+  modal.open('modal_share', 'alert')
 }
 
 const zzimUI = (e) => {
-  const btn = e.target;
-  btn.classList.toggle('on');
-  if(btn.classList.contains('on')) {
-    modal.open('toast_zzim', 'toast');
-  }else {
-    modal.open('toast_zzim_unset', 'toast');
+  const btn = e.target
+  btn.classList.toggle('on')
+  if (btn.classList.contains('on')) {
+    modal.open('toast_zzim', 'toast')
+  } else {
+    modal.open('toast_zzim_unset', 'toast')
   }
-  toast_pop(2000);
+  toast_pop(2000)
 }
 </script>
 
@@ -504,7 +730,6 @@ const zzimUI = (e) => {
             font-size: 16px;
             line-height: 20px;
           }
-
         }
         .prod_select {
           margin-bottom: 10px;
@@ -592,6 +817,18 @@ const zzimUI = (e) => {
     }
   }
 
+  .prod_detail_cont {
+    .prod_detail_banner {
+      display: block;
+      margin-bottom: 60px;
+      text-align: center;
+
+      img {
+        vertical-align: top;
+      }
+    }
+  }
+
   section {
     padding: 50px 0;
 
@@ -645,7 +882,6 @@ const zzimUI = (e) => {
         }
       }
     }
-
   }
 
   .tab_cont {
@@ -654,7 +890,7 @@ const zzimUI = (e) => {
   }
 
   .review_option {
-    padding: 22px 0 18px;
+    padding: 20px 0;
     border-bottom: 1px solid #f5f5f5;
     display: flex;
     justify-content: space-between;
@@ -686,87 +922,16 @@ const zzimUI = (e) => {
       display: flex;
       align-items: center;
 
-      &>* {
+      & > * {
         color: #666;
-        &+*:before {
+        & + *:before {
           content: '';
           width: 1px;
           height: 10px;
           margin: 0 15px;
           vertical-align: middle;
-          background-color: #EEE;
+          background-color: #eee;
           display: inline-block;
-        }
-      }
-
-      .dropdown {
-        align-items: center;
-        position: relative;
-        display: flex;
-
-        &>button {
-          display: flex;
-          align-items: center;
-          gap: 5px;
-
-          &:after {
-            content: '';
-            width: 8px;
-            height: 8px;
-            margin-top: -5px;
-            border-bottom: 1px solid #000;
-            border-right: 1px solid #000;
-            transform: rotate(45deg);
-            display: inline-block;
-          }
-        }
-
-        ul {
-          width: 170px;
-          height: 0px;
-          padding: 10px 0;
-          background: #fff;
-          border: 1px solid #AAA;
-          box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.05);
-          position: absolute;
-          left: -85px;
-          top: 40px;
-          z-index: 1;
-          overflow: hidden;
-          transition: all 0.2s;
-          display: none;
-
-          &.active {
-            height: auto;
-            opacity: 1;
-          }
-
-          li {
-            input {
-              position: absolute;
-              z-index: -1;
-              opacity: 0;
-
-              &+label {
-                display: block;
-                padding: 10px 15px;
-                color: #888;
-                line-height: 1.43em;
-                cursor: pointer;
-              }
-
-              &:checked {
-                &+label {
-                  background: #fff;
-                  color: #00BC70;
-                }
-              }
-            }
-
-            label {
-              padding: 15px;
-            }
-          }
         }
       }
     }
@@ -775,30 +940,49 @@ const zzimUI = (e) => {
       display: flex;
       align-items: center;
 
+      :deep(.tab_wrap) {
+        .type_02 {
+          margin: 0;
+          gap: 10px;
+
+          li {
+            padding: 0;
+
+            &.current {
+              button {
+                color: #000;
+                border-color: #000;
+
+                span {
+                  color: #00bc70;
+                }
+              }
+            }
+
+            button {
+              padding: 6px 15px;
+              color: #999;
+              font-size: 12px;
+              font-weight: 600;
+              background-color: #fff;
+              border: 1px solid #eee;
+
+              span {
+                font-size: 12px;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+
       .txt {
         &:before {
           content: '';
           width: 1px;
           height: 10px;
           margin: 0 15px;
-          background-color: #EEEEEE;
-          display: inline-block;
-        }
-      }
-    }
-
-    .filter {
-      button {
-        font-weight: 600;
-        color: #000;
-
-        &:after {
-          content: '';
-          width: 16px;
-          height: 16px;
-          margin-left: 10px;
-          background: url(~/assets/images/common/icon_split.png) -130px -60px / 250px auto no-repeat;
-          vertical-align: middle;
+          background-color: #eeeeee;
           display: inline-block;
         }
       }
@@ -852,13 +1036,14 @@ const zzimUI = (e) => {
       width: 60px;
       height: 60px;
       margin: 0 auto 10px;
-      background: url("~/assets/images/common/icon_split.png") -420px -260px no-repeat;
+      background: url('~/assets/images/common/icon_split.png') -420px -260px
+        no-repeat;
       display: block;
     }
 
     em {
       font-weight: 600;
-      color: #00BC70;
+      color: #00bc70;
     }
   }
 
@@ -912,7 +1097,6 @@ const zzimUI = (e) => {
   }
 }
 
-
 /* 상품 상세 내 공통 사용 */
 .bul_list {
   li {
@@ -955,16 +1139,41 @@ button.tooltip {
   height: 16px;
   margin-left: 6px;
   font-size: 0;
-  background: url('~/assets/images/common/icon_split.png') 0px -260px / 250px auto no-repeat;
+  background: url('~/assets/images/common/icon_split.png') 0px -260px / 250px auto
+    no-repeat;
   vertical-align: middle;
   display: inline-block;
 }
 
 .review_list_wrap {
   .review_list {
-    &>li {
+    & > li {
       padding: 40px 0;
       border-bottom: 1px solid #eee;
+
+      & > p {
+        text-align: center;
+      }
+
+      :deep(.review) {
+        .txt {
+          display: flex;
+          gap: 10px;
+
+          .mark {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .btn_wrap {
+        button {
+          em {
+            color: #000;
+            font-weight: 600;
+          }
+        }
+      }
     }
   }
 
@@ -980,7 +1189,7 @@ button.tooltip {
   bottom: 0;
   z-index: 10;
   transform: translateY(100%);
-  transition: all .3s;
+  transition: all 0.3s;
 
   .inner {
     width: 1280px;
@@ -1010,7 +1219,7 @@ button.tooltip {
         border-left: 2px solid #fff;
         border-bottom: 2px solid #fff;
         transform: rotate(135deg);
-        transition: all .2s;
+        transition: all 0.2s;
         position: relative;
         top: 5px;
       }
@@ -1046,15 +1255,18 @@ button.tooltip {
         }
 
         .btn_share:before {
-          background: url('~/assets/images/common/icon_split.png') -170px -170px / 250px auto no-repeat;
+          background: url('~/assets/images/common/icon_split.png') -170px -170px /
+            250px auto no-repeat;
         }
 
         .btn_like:before {
-          background: url('~/assets/images/common/icon_split.png') -215px -324px / 250px auto no-repeat;
+          background: url('~/assets/images/common/icon_split.png') -215px -324px /
+            250px auto no-repeat;
         }
 
         .btn_like.on:before {
-          background: url('~/assets/images/common/icon_split.png') -215px -360rem / 250px auto no-repeat;
+          background: url('~/assets/images/common/icon_split.png') -215px -360rem /
+            250px auto no-repeat;
         }
 
         :deep(.btn_big):disabled {
@@ -1079,6 +1291,49 @@ button.tooltip {
         &:after {
           transform: rotate(-45deg);
           top: 0;
+        }
+      }
+    }
+  }
+}
+
+/* 신고 버튼 모달 PC버전 */
+:deep(.modal_review_report) {
+  .modal_container {
+    width: 540px;
+
+    .modal_header {
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+      h2 {
+        font-size: 20px;
+      }
+    }
+
+    .modal_content {
+      padding: 0 30px 40px;
+
+      h3 {
+        margin: 20px 0 0;
+        font-size: 16px;
+
+        span {
+          color: #888;
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+
+      .input_wrap {
+        width: calc(50% - 8px);
+        display: inline-block;
+
+        &:nth-of-type(even) {
+          margin-left: 15px;
+        }
+
+        &:last-child {
+          width: 100%;
         }
       }
     }

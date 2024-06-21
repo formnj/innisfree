@@ -1,12 +1,5 @@
 <template>
-
-  <!-- 제품 상세 배너 -->
-  <a href="#none" class="prod_detail_banner">
-    <img src="/_nuxt/public/images/sam/img_prod_detail_banner.png" alt="">
-  </a>
-  <!-- //제품 상세 배너 -->
-
-
+  
   <div class="prod_detail_conts" :class="isOpen ? 'open' : ''">
     <!-- 개발시 삭제 -->
     <div class="temp_area">
@@ -34,15 +27,6 @@ const onClick = () => {
 
 </script>
 <style lang="scss" scoped>
-.prod_detail_banner {
-  display: block;
-  margin-bottom: .5rem;
-  text-align: center;
-
-  img {
-    vertical-align: top;
-  }
-}
 
 .prod_detail_conts {
   text-align: center;

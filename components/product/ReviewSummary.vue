@@ -37,7 +37,7 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  limit: Number,  //리뷰 갯수
+  limit: String,  //리뷰 갯수
   usePhotoList: { //리뷰 포토 사용 여부
     type: Boolean,
     default: true

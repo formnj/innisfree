@@ -10,10 +10,10 @@
 <script setup>
   const props = defineProps({
     width: {
-      type:Number,
-      default:0
+      type: String,
+      default: ''
     },
-    rate: Number,
+    rate: String,
     class: String
   });
 </script>

@@ -4,27 +4,41 @@
   <header :class="type">
     <div class="header_wrap">
       <div class="menu_wrap">
-        <h1 v-if="useLogo"><a :href="path + '/IN_MO_HOM_01_01'"><img src="/assets/images/common/logo_innisfree.png" /></a></h1>
+        <h1 v-if="useLogo">
+          <a :href="path + '/IN_MO_HOM_01_01'"
+            ><img src="/assets/images/common/logo_innisfree.png"
+          /></a>
+        </h1>
         <Icons v-if="useBack" class="back" txt="뒤로가기" />
-        <button v-if="useMenu" class="btn_menu" @click="modal.open('modal_nav', 'bottom nav')">{{ props.txt }}</button>
+        <button
+          v-if="useMenu"
+          class="btn_menu"
+          @click="modal.open('modal_nav', 'bottom nav')">
+          {{ props.txt }}
+        </button>
         <div v-if="useSearchWrap" class="search_wrap">
           <SearchInput
             :search-placeholder="[
-              {text:'새로워진 이니스프리 SHOWCASE'},
-              {text:'새로워진 이니스프리'},
+              { text: '새로워진 이니스프리 SHOWCASE' },
+              { text: '새로워진 이니스프리' }
               // {text:'새로워진'},
-            ]"
-          />
+            ]" />
           <Icons class="btn_search" txt="검색" />
         </div>
         <h2 v-if="useName">{{ props.txt }}</h2>
       </div>
       <div class="icon_wrap">
         <Icons v-if="useShare" class="share" txt="공유하기" />
-        <a v-if="useHome" :href="path + '/IN_MO_HOM_01_01'"><Icons class="home" txt="홈" /></a>
+        <a v-if="useHome" :href="path + '/IN_MO_HOM_01_01'"
+          ><Icons class="home" txt="홈"
+        /></a>
         <Icons v-if="useAlarm" class="alarm" txt="알람" />
-        <a v-if="useSearch" :href="path + '/IN_MO_SRC_01_01'"><Icons class="btn_search" txt="검색" /></a>
-        <a v-if="useCart" :href="path + '/IN_MO_CAR_01_01'"><Icons class="cart" txt="50" /></a>
+        <a v-if="useSearch" :href="path + '/IN_MO_SRC_01_01'"
+          ><Icons class="btn_search" txt="검색"
+        /></a>
+        <a v-if="useCart" :href="path + '/IN_MO_CAR_01_01'"
+          ><Icons class="cart" txt="50"
+        /></a>
         <Icons v-if="useBarcode" class="barcode" />
       </div>
     </div>
@@ -72,7 +86,7 @@
                 </ul>
                 <ul v-if="item.goods" class="goods">
                   <li v-for="item_sub in item.goods" :key="item_sub">
-                    <GoodsItem :item="item_sub"/>
+                    <GoodsItem :item="item_sub" />
                   </li>
                 </ul>
               </section>
@@ -112,37 +126,33 @@
     </div>
 
     <div id="modal_nav" class="modal_wrap">
-        <div class="modal_container">
-            <div class="modal_header">
-                <button class="btn_close" @click="modal.close(this);">닫기</button>
-            </div>
-            <div class="modal_content">
-                <ul>
-                    <li class="active"><a href="/publish/IN_MO_MYP_01_91">FAQ</a></li>
-                    <li><a href="#none">1:1고객상담</a></li>
-                    <li><a href="#none">매장안내</a></li>
-                    <li><a href="/publish/IN_MO_MYP_01_92">공지사항</a></li>
-                    <li><a href="/publish/IN_MO_MYP_01_93">전자공고</a></li>
-                </ul>
-            </div>
+      <div class="modal_container">
+        <div class="modal_header">
+          <button class="btn_close" @click="modal.close(this)">닫기</button>
         </div>
-        <div div class="overlay" @click="modal.close(this);"></div>
+        <div class="modal_content">
+          <ul>
+            <li class="active"><a href="/publish/IN_MO_MYP_01_91">FAQ</a></li>
+            <li><a href="#none">1:1고객상담</a></li>
+            <li><a href="#none">매장안내</a></li>
+            <li><a href="/publish/IN_MO_MYP_01_92">공지사항</a></li>
+            <li><a href="/publish/IN_MO_MYP_01_93">전자공고</a></li>
+          </ul>
+        </div>
+      </div>
+      <div div class="overlay" @click="modal.close(this)"></div>
     </div>
   </header>
 </template>
 
 <script setup>
-import {
-  global_menu,
-  gnb_list,
-  nav_goods
-} from '~/test/data/publish/dummyData'
+import { global_menu, gnb_list, nav_goods } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui.js'
 
 const props = defineProps({
   useBanner: {
     type: Boolean,
-    default: true,
+    default: true
   },
   type: {
     type: String,
@@ -199,16 +209,15 @@ const props = defineProps({
   useNav: {
     type: Boolean,
     default: true
-  },
-
+  }
 })
 const path = '/publish'
 onMounted(() => {
-  const header = document.querySelector('header');
+  const header = document.querySelector('header')
 
   window.scrollY > 0
     ? header.classList.add('fixed')
-    : header.classList.remove('fixed');
+    : header.classList.remove('fixed')
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 0) header.classList.add('fixed')
@@ -217,7 +226,7 @@ onMounted(() => {
 
   document.querySelector('.nav_wrap > ul li').classList.add('active')
   document.querySelector('.nav_wrap > div').addEventListener('scroll', (e) => {
-    [...e.target.children].forEach((item, index) => {
+    ;[...e.target.children].forEach((item, index) => {
       document
         .querySelectorAll('.nav_wrap > ul li')
         [index].classList.remove('active')
@@ -242,8 +251,7 @@ const cate_tab = (e) => {
   const target = document.querySelectorAll('.nav_wrap > div section')[index]
 
   nav_cont.scrollTo({ top: target.offsetTop, behavior: 'smooth' })
-};
-
+}
 </script>
 
 <style lang="scss" scoped>
@@ -304,7 +312,7 @@ header {
           background-position: -13.5rem -31.5rem;
 
           :deep(em) {
-            background-color: #00BC70;
+            background-color: #00bc70;
           }
         }
       }
@@ -371,28 +379,29 @@ header {
       flex: 1;
 
       :deep(.input_wrap) {
-          .input {
-            i, input {
-                font-size:1.3rem;
-            }
-            i {
-              left:1.5rem;
-            }
-            input {
-                height:4rem;
-                padding-left:1.5rem;
-                padding-right:0.5rem;
-                border:0;
-            }
+        .input {
+          i,
+          input {
+            font-size: 1.3rem;
           }
+          i {
+            left: 1.5rem;
+          }
+          input {
+            height: 4rem;
+            padding-left: 1.5rem;
+            padding-right: 0.5rem;
+            border: 0;
+          }
+        }
       }
 
       .btn_search {
-          width:2.4rem;
-          height:2.4rem;
-          margin-right:0.8rem;
-          background-color:transparent;
-          background-position:0 -4rem;
+        width: 2.4rem;
+        height: 2.4rem;
+        margin-right: 0.8rem;
+        background-color: transparent;
+        background-position: 0 -4rem;
       }
     }
 
