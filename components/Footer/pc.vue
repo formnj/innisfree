@@ -28,7 +28,7 @@
           <span>
             <strong>㈜토스페이먼츠의 에스크로 서비스 가입 :</strong> 저희 쇼핑몰은 고객님의 안전한 거래를 위해 무통장입금 거래에 대해 구매안전서비스를 적용하고 있습니다.
           </span>
-          <a href="">토스페이먼츠 구매안전 서비스 가입확인</a>
+          <a href="https://consumer.tosspayments.com/escrow/detail?mertid=innisfree">토스페이먼츠 구매안전 서비스 가입확인</a>
         </div>
         <p class="copyRight">Copyright ©2023 이니스프리. All Rights Reserved</p>
         <dl>
@@ -61,10 +61,10 @@
           <li class="pc"><a href="#none">임직원 서비스</a></li>
         </ul>
         <div class="sns">
-          <a href="#none" class="twitter"></a>
-          <a href="#none" class="facebook"></a>
-          <a href="#none" class="instagram"></a>
-          <a href="#none" class="youtube"></a>
+          <a href="https://x.com/innisfree_kr?mx=2" class="twitter" target="_blank"></a>
+          <a href="https://www.facebook.com/innisfreeHQ?fref=ts" class="facebook" target="_blank"></a>
+          <a href="https://www.instagram.com/innisfreeofficial/" class="instagram" target="_blank"></a>
+          <a href="https://www.youtube.com/user/ecoinnisfree11" class="youtube" target="_blank"></a>
           <a href="#none" class="download"></a>
         </div>
       </div>

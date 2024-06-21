@@ -1829,6 +1829,7 @@ ul.pick_list {
           font-size:14px;
           font-weight:400;
           line-height:20px;
+          position:relative;
           display:flex;
           flex-direction:column;
           text-indent:-16px;
@@ -1841,6 +1842,13 @@ ul.pick_list {
               font-size:13px;
               font-weight:400;
             }
+          }
+          > em {
+            margin-left: 16px;
+            color: #888;
+            font-size: 13px;
+            font-weight: 400;
+            display: block;
           }
         }
       }

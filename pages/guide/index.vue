@@ -1294,9 +1294,9 @@ const PC_arry = ([
         sDate:'2024-06-20', eDate:'/2024-06-20', worker:'김희경'
     }, {
         depth:['','개인정보처리방침','',''],
-        id:'IN_PC_FOO_01_05', status:'ing',
+        id:'IN_PC_FOO_01_05', status:'com',
         type:'', note:'',
-        sDate:'', eDate:'/2024-06-20', worker:'김희경'
+        sDate:'2024-06-20', eDate:'/2024-06-20', worker:'김희경'
     }, {
         depth:['','영상기기관리방침','',''],
         id:'IN_PC_FOO_01_10', status:'com',
