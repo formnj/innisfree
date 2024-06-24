@@ -1,97 +1,100 @@
 <template>
-    <div class="event_item" :class="type">
-      <a :href="props.link" class="item">
-        <span class="thumb">
-          <em><img :src="item.img"></em>
-          <button v-if="type === 'type_down'" class="down"><span>쿠폰 다운로드</span></button>
-        </span>
-        <div class="cont">
-            <em v-if="item.sticker" class="sticker">{{ item.cate }}</em>
-            <p v-if="item.date" class="date">{{ item.date }}</p>
-            <strong v-html="item.title"></strong>
-        </div>
-      </a>
+  <div class="event_item" :class="type">
+    <NuxtLink :to="props.link" class="item">
+      <span class="thumb">
+        <em><img :src="item.img" /></em>
+        <button v-if="type === 'type_down'" class="down">
+          <span>쿠폰 다운로드</span>
+        </button>
+      </span>
+      <div class="cont">
+        <em v-if="item.sticker" class="sticker">{{ item.cate }}</em>
+        <p v-if="item.date" class="date">{{ item.date }}</p>
+        <strong v-html="item.title"></strong>
+      </div>
+    </NuxtLink>
   </div>
 </template>
 
 <script setup>
 const props = defineProps({
-    item: {},
-    link: {
-        type: String,
-        default: '#none'
-    },
-    type: {
-        type: String,
-        default: ''
-    }
-});
+  item: {},
+  link: {
+    type: String,
+    default: '#none'
+  },
+  type: {
+    type: String,
+    default: ''
+  }
+})
 </script>
 
 <style lang="scss" scoped>
 .event_item {
-  position:relative;
+  position: relative;
 
   .thumb {
-      width:100%;
-      padding-top:65.859564%;
-      overflow:hidden;
-      position:relative;
-      display:block;
-      em {
-        position:absolute;
-        top:0;
-        right:0;
-        bottom:0;
-        left:0;
-        display:flex;
-        align-items:center;
-        img {
-            width:100%;
-            height:100%;
-            display:block;
-            object-fit:cover;
-            transition:transform 0.3s;
-        }
+    width: 100%;
+    padding-top: 65.859564%;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    em {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transition: transform 0.3s;
       }
+    }
   }
   .cont {
-    height:94px;
-    margin-top:20px;
+    height: 94px;
+    margin-top: 20px;
     .date {
-        color:#666;
-        font-size:14px;
-        letter-spacing: -0.01em;
-        transition:all 0.2s;
+      color: #666;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      transition: all 0.2s;
     }
     strong {
-        margin-top:10px;
-        color: #000;
-        font-size: 16px;
-        font-weight: 600;
-        word-wrap: break-word;
-        display:block;
-        transition:all 0.2s;
+      margin-top: 10px;
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      word-wrap: break-word;
+      display: block;
+      transition: all 0.2s;
     }
     .sticker {
-      padding:2px 5px;
-      font-size:14px;
-      font-weight:400;
-      color:#fff;
-      background-color:#000;
-      position:absolute;
-      top:0;
-      left:0;
-      display:block;
+      padding: 2px 5px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #fff;
+      background-color: #000;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
     }
   }
   &:hover {
     img {
-        transform:scale(1.1);
+      transform: scale(1.1);
     }
     .cont {
-      strong, .date {
-        color:#00BC70;
+      strong,
+      .date {
+        color: #00bc70;
       }
     }
   }
@@ -121,24 +124,24 @@ const props = defineProps({
 
   &.type_column {
     .item {
-      display:flex;
-      align-items:center;
-      flex-wrap:wrap;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 1.6rem;
       .thumb {
         width: 16rem;
         height: 10.6rem;
-        padding-top:0;
+        padding-top: 0;
       }
       .cont {
-        height:auto;
-        margin-top:0;
-        display:flex;
-        flex:1;
-        flex-direction:column-reverse;
+        height: auto;
+        margin-top: 0;
+        display: flex;
+        flex: 1;
+        flex-direction: column-reverse;
         strong {
-          margin-top:0;
-          font-size:1.4rem;
+          margin-top: 0;
+          font-size: 1.4rem;
         }
         .date {
           margin-top: 0.8rem;
@@ -146,10 +149,10 @@ const props = defineProps({
           font-weight: 300;
         }
         .sticker {
-          padding:0.2rem 0.5rem;
-          font-size:1rem;
+          padding: 0.2rem 0.5rem;
+          font-size: 1rem;
           font-weight: 300;
-          line-height:1.4rem;
+          line-height: 1.4rem;
         }
       }
     }
@@ -169,7 +172,7 @@ const props = defineProps({
           transform: translateX(-50%);
 
           span {
-            color: #FFF;
+            color: #fff;
             font-size: 18px;
             font-weight: 600;
             line-height: 24px;
