@@ -338,6 +338,7 @@ import { modal } from '~/assets/js/common-ui.js'
         display: none;
       }
       .btnIconBox {
+        display: none;
         background-color: transparent;
         position: absolute;
         bottom: 0;

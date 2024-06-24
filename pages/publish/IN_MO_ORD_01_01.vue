@@ -150,7 +150,7 @@
         <button class="active" @click="toggle_btn"></button>
       </div>
       <div class="list_wrap">
-        <ul class="cart_list type_default">
+        <ul class="type_default">
           <li>
             <p>함께 드리는 증정품</p>
             <div class="row">
