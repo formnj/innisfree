@@ -1865,9 +1865,9 @@
 
     .box {
       margin-top: 1rem;
-      display:flex;
+      display: flex;
       justify-content: space-between;
-      align-items: center;;
+      align-items: center;
     }
 
     .price {
@@ -2262,7 +2262,6 @@
   }
 }
 
-
 :deep(.quantity_control) {
   .count {
     .count_wrap {
@@ -2294,4 +2293,78 @@
       }
     }
   }
+}
+
+/* 약관관련 css */
+:deep(.policy_wrap) {
+  h3,
+  h2 {
+    margin: 2rem 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  > p {
+    margin: 2rem 0;
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 2rem;
+    > * + * {
+      margin-top: 0.3rem;
+    }
+    span {
+      display: block;
+    }
+  }
+  > dl + dl {
+    margin-top: 3rem;
+  }
+  dl {
+    dt {
+      color: #333;
+      font-weight: 600;
+    }
+    dd {
+      > span + p {
+        margin-top: 0.5rem;
+      }
+      margin-top: 1rem;
+      color: #666;
+      font-size: 1.3rem;
+      font-weight: 400;
+      span,
+      p {
+        line-height: 2rem;
+      }
+    }
+    &.supple_pro {
+      dt {
+        color: #666;
+        font-weight: 500;
+      }
+      dd {
+        color: #888;
+        font-weight: 400;
+      }
+    }
+  }
+
+  ol,
+  ul {
+    ol,
+    ul {
+      li {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+:deep(.err_txt) {
+  margin-top: 0.5rem;
+  color: #ff0000;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  font-style: normal;
+  display: block;
 }

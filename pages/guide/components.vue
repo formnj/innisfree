@@ -5,18 +5,26 @@
       <li>round_square : checkbox, radio 사용 가능</li>
     </ul>
     <ul class="toolbar">
-      <li><button class="current" @click="tool_select('text');">Text</button></li>
-      <li><button @click="tool_select('error');">Error</button></li>
-      <li><button @click="tool_select('pw');">Password</button></li>
-      <li><button @click="tool_select('check');">Checkbox</button></li>
-      <li><button @click="tool_select('check2');">Checkbox02</button></li>
-      <li><button @click="tool_select('check3');">Round_square</button></li>
-      <li><button @click="tool_select('radio');">Radio</button></li>
-      <li><button @click="tool_select('isswitch');">Switch</button></li>
+      <li><button class="current" @click="tool_select('text')">Text</button></li>
+      <li><button @click="tool_select('text_err')">Text Error</button></li>
+      <li><button @click="tool_select('error')">Error Message</button></li>
+      <li><button @click="tool_select('pw')">Password</button></li>
+      <li><button @click="tool_select('check')">Checkbox</button></li>
+      <li><button @click="tool_select('check2')">Checkbox02</button></li>
+      <li><button @click="tool_select('check3')">Round_square</button></li>
+      <li><button @click="tool_select('radio')">Radio</button></li>
+      <li><button @click="tool_select('isswitch')">Switch</button></li>
     </ul>
     <div class="design_box">
-      <Inputs :_type="input_opt.type" :isswitch="input_opt.isswitch" :_placeholder="input_opt.Placeholder" _text="Label"
-        :isDisabled="_disabled" :isError="input_opt.isError" :_err_text="input_opt.err_text" :class="input_opt.class"/>
+      <Inputs
+        :_type="input_opt.type"
+        :isswitch="input_opt.isswitch"
+        :_placeholder="input_opt.Placeholder"
+        _text="Label"
+        :isDisabled="_disabled"
+        :isError="input_opt.isError"
+        :_err_text="input_opt.err_text"
+        :class="input_opt.class" />
     </div>
     <pre class="code_box"><code>&lt;Inputs {{ input_opt.opt }} /&gt;</code></pre>
   </section>
@@ -36,10 +44,13 @@
       <li>Error 문구 : _err_text</li>
     </ul>
     <div class="design_box">
-      <Selectbox :isError="true" _err_text="Error" :options="[
-                    { val: 'value', txt: '옵션01' },
-                    { val: 'value', txt: '옵션02' }
-                ]" />
+      <Selectbox
+        :isError="true"
+        _err_text="Error"
+        :options="[
+          { val: 'value', txt: '옵션01' },
+          { val: 'value', txt: '옵션02' }
+        ]" />
     </div>
     <pre class="code_box"><code>&lt;Selectbox
     :isError="true" _err_text="에러문구"
@@ -49,7 +60,8 @@
   <section>
     <h2>Button</h2>
     <ul class="explain">
-      <li>클래스 규칙 : btn_크기_타입(보더유무)<br />
+      <li>
+        클래스 규칙 : btn_크기_타입(보더유무)<br />
         ex) &lt;Button class="btn_big_outline" /&gt;]
       </li>
       <li>size : default = 40 / [_big] = 60 / [_mid] = 50 / [_min] = 30</li>
@@ -77,6 +89,7 @@
         <Button class="btn_min_outline" txt="btn_min_outline (30px)" />
 
         <Button class="btn_sm_outline" txt="btn_sm_outline (24px)" />
+        <Button class="btn_ confirm" txt="confirm" />
       </div>
     </div>
     <pre class="code_box"><code>&lt;Button /&gt;</code></pre>
@@ -125,27 +138,30 @@
     <h2>Goods Item - default</h2>
     <ul class="explain">
       <li>sold out, coming soon = status:'sold_out' or 'coming_soon' or 'end'</li>
-      <li>Props<br>useMark(마크/스티커 사용여부, default:true)<br>useHas(해시태그 사용여부, default:false)<br>useScore(별점 사용여부, default:true)<br>useGiveaway(증정품 사용여부, default:false)<br>useBigmark(대용량 마크 사용여부, default:true)</li>
-      <li>class<br>type_column, type_cart</li>
+      <li>
+        Props<br />useMark(마크/스티커 사용여부, default:true)<br />useHas(해시태그 사용여부, default:false)<br />useScore(별점 사용여부,
+        default:true)<br />useGiveaway(증정품 사용여부, default:false)<br />useBigmark(대용량 마크 사용여부, default:true)
+      </li>
+      <li>class<br />type_column, type_cart</li>
       <li>기준 : 기획서 PC, MO 제품목록 참고</li>
     </ul>
     <div class="design_box">
       <div class="list_wrap">
         <h3>pc</h3>
         <ul class="goods_list">
-          <li v-for="(item, idx) in sample_goods.slice(0,2)" :key="idx">
+          <li v-for="(item, idx) in sample_goods.slice(0, 2)" :key="idx">
             <GoodsItem :item="item" :link="item.link" />
           </li>
-          <li v-for="(item, idx) in sample_goods.slice(3,6)" :key="idx">
+          <li v-for="(item, idx) in sample_goods.slice(3, 6)" :key="idx">
             <GoodsItem :item="item" :link="item.link" />
           </li>
         </ul>
-        <h3 style="margin-top:40px;">mobile</h3>
-        <ul class="goods_list mobile" style="width:100%;">
-          <li v-for="(item, idx) in sample_goods.slice(0,2)" :key="idx">
+        <h3 style="margin-top: 40px">mobile</h3>
+        <ul class="goods_list mobile" style="width: 100%">
+          <li v-for="(item, idx) in sample_goods.slice(0, 2)" :key="idx">
             <GoodsItem :item="item" :link="item.link" />
           </li>
-          <li v-for="(item, idx) in sample_goods.slice(3,6)" :key="idx">
+          <li v-for="(item, idx) in sample_goods.slice(3, 6)" :key="idx">
             <GoodsItem :item="item" :link="item.link" />
           </li>
         </ul>
@@ -166,14 +182,14 @@
       <li>:useHash="true", default는 false(그 외 props는 default형 설명 참고)</li>
     </ul>
     <div class="design_box">
-      <div class="list_wrap" style="display:flex;">
+      <div class="list_wrap" style="display: flex">
         <ul class="goods_list">
-          <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx">
+          <li v-for="(item, idx) in sample_goods.slice(0, 1)" :key="idx">
             <GoodsItem :item="item" :link="item.link" :useHash="true" />
           </li>
         </ul>
         <ul class="goods_list mobile">
-          <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx">
+          <li v-for="(item, idx) in sample_goods.slice(0, 1)" :key="idx">
             <GoodsItem :item="item" :link="item.link" :useHash="true" />
           </li>
         </ul>
@@ -194,14 +210,15 @@
       <li>:useGiveaway="true", default는 false(그 외 props는 default형 설명 참고)</li>
     </ul>
     <div class="design_box">
-      <div class="list_wrap" style="display:flex;gap:20px;">
+      <div class="list_wrap" style="display: flex; gap: 20px">
         <ul class="goods_list">
-          <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx">
+          <li v-for="(item, idx) in sample_goods.slice(0, 1)" :key="idx">
             <GoodsItem :item="item" :link="item.link" :useGiveaway="true" />
           </li>
         </ul>
-        <ul class="goods_list mobile"><!--mobile 클래스는 가이드용 -->
-          <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx">
+        <ul class="goods_list mobile">
+          <!--mobile 클래스는 가이드용 -->
+          <li v-for="(item, idx) in sample_goods.slice(0, 1)" :key="idx">
             <GoodsItem :item="item" :link="item.link" :useGiveaway="true" />
           </li>
         </ul>
@@ -224,7 +241,7 @@
     <div class="design_box">
       <div class="list_wrap">
         <ul class="goods_list">
-          <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx">
+          <li v-for="(item, idx) in sample_goods.slice(0, 1)" :key="idx">
             <GoodsItem :item="item" :link="item.link" class="type_column" />
           </li>
         </ul>
@@ -246,8 +263,9 @@
     </ul>
     <div class="design_box">
       <div class="list_wrap">
-        <ul class="goods_list mobile"><!--mobile 클래스는 가이드용 -->
-          <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx">
+        <ul class="goods_list mobile">
+          <!--mobile 클래스는 가이드용 -->
+          <li v-for="(item, idx) in sample_goods.slice(0, 1)" :key="idx">
             <GoodsItem :item="item" :link="item.link" class="type_cart" />
           </li>
         </ul>
@@ -269,8 +287,9 @@
     </ul>
     <div class="design_box">
       <div class="list_wrap">
-        <ul class="goods_list mobile"><!--mobile 클래스는 가이드용 -->
-          <li v-for="(item, idx) in sample_goods.slice(0,1)" :key="idx" style="width: 350px;">
+        <ul class="goods_list mobile">
+          <!--mobile 클래스는 가이드용 -->
+          <li v-for="(item, idx) in sample_goods.slice(0, 1)" :key="idx" style="width: 350px">
             <GoodsItem :item="item" :link="item.link" class="type_column type_cart" />
           </li>
         </ul>
@@ -292,8 +311,9 @@
     </ul>
     <div class="design_box">
       <div class="list_wrap">
-        <ul class="goods_list mobile col_3"><!--mobile 클래스는 가이드용 -->
-          <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
+        <ul class="goods_list mobile col_3">
+          <!--mobile 클래스는 가이드용 -->
+          <li v-for="(item, idx) in sample_goods.slice(0, 6)" :key="idx">
             <GoodsItem :item="item" :link="item.link" />
           </li>
         </ul>
@@ -311,12 +331,14 @@
   <section>
     <h2>Event Item</h2>
     <ul class="explain">
-      <li>event item type 추가 : default, type_02, type_column, type_down &lt;EventItem :item="item" type="타입입력 default는 제외" /&gt;</li>
+      <li>
+        event item type 추가 : default, type_02, type_column, type_down &lt;EventItem :item="item" type="타입입력 default는 제외" /&gt;
+      </li>
     </ul>
     <div class="design_box">
       <div class="list_wrap">
         <ul class="event_list">
-          <li v-for="(item, idx) in sample_event.slice(0,3)" :key="idx">
+          <li v-for="(item, idx) in sample_event.slice(0, 3)" :key="idx">
             <EventItem :item="item" :link="item.link" />
           </li>
         </ul>
@@ -334,22 +356,24 @@
   <section>
     <h2>Event Item - type_02, type_down</h2>
     <ul class="explain">
-      <li>event item type 추가 : default, type_02, type_column, type_down &lt;EventItem :item="item" type="타입입력 default는 제외" /&gt;</li>
+      <li>
+        event item type 추가 : default, type_02, type_column, type_down &lt;EventItem :item="item" type="타입입력 default는 제외" /&gt;
+      </li>
     </ul>
     <div class="design_box">
       <div class="list_wrap">
         <ul class="event_list">
-          <li v-for="(item, idx) in sample_event.slice(0,3)" :key="idx">
+          <li v-for="(item, idx) in sample_event.slice(0, 3)" :key="idx">
             <EventItem :item="item" :link="item.link" type="type_02" />
           </li>
           <li>
-            <EventItem :item="sample_event.slice(5,6)[0]" :link="sample_event.slice(4,6)[0].link" type="type_down" />
+            <EventItem :item="sample_event.slice(5, 6)[0]" :link="sample_event.slice(4, 6)[0].link" type="type_down" />
           </li>
           <li>
-            <EventItem :item="sample_event.slice(5,6)[0]" :link="sample_event.slice(4,6)[0].link" type="type_down" />
+            <EventItem :item="sample_event.slice(5, 6)[0]" :link="sample_event.slice(4, 6)[0].link" type="type_down" />
           </li>
           <li>
-            <EventItem :item="sample_event.slice(5,6)[0]" :link="sample_event.slice(4,6)[0].link" type="type_down" />
+            <EventItem :item="sample_event.slice(5, 6)[0]" :link="sample_event.slice(4, 6)[0].link" type="type_down" />
           </li>
         </ul>
       </div>
@@ -366,12 +390,14 @@
   <section>
     <h2>Event Item - type_column (mobile)</h2>
     <ul class="explain">
-      <li>event item type 추가 : default, type_02, type_column, type_down &lt;EventItem :item="item" type="타입입력 default는 제외" /&gt;</li>
+      <li>
+        event item type 추가 : default, type_02, type_column, type_down &lt;EventItem :item="item" type="타입입력 default는 제외" /&gt;
+      </li>
     </ul>
     <div class="design_box">
       <div class="list_wrap">
         <ul class="event_list">
-          <li v-for="(item, idx) in sample_event.slice(0,3)" :key="idx">
+          <li v-for="(item, idx) in sample_event.slice(0, 3)" :key="idx">
             <EventItem :item="item" :link="item.link" type="type_column" />
           </li>
         </ul>
@@ -387,32 +413,12 @@
   </section>
 
   <section>
-    <h2>Live Item</h2>
-    <div class="design_box">
-      <div class="list_wrap">
-        <ul class="goods_list">
-          <li v-for="(item, idx) in sample_live.slice(0,5)" :key="idx">
-            <LiveItem :item="item" :link="item.link" />
-          </li>
-        </ul>
-      </div>
-    </div>
-    <pre class="code_box"><code>&lt;div class="list_wrap"&gt;
-    &lt;ul class="goods_list"&gt;
-        &lt;li v-for="(item, idx) in sample_live" :key="idx"&gt;
-            &lt;LiveItem :item="item" :link="item.link" /&gt;
-        &lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;</code></pre>
-  </section>
-
-  <section>
     <h2>Quantity count</h2>
     <ul class="explain">
       <li>quantity : 초기 input 값</li>
     </ul>
     <div class="design_box">
-      <div style="width:160px;">
+      <div style="width: 160px">
         <Quantity _id="sample" quantity="32" />
       </div>
     </div>
@@ -446,21 +452,21 @@
                   <span>[4/23 ~ 5/1, 기간내 5개]</span>
                 </div>
                 <Selectbox
-                    :options="[
+                  :options="[
                     { val: 'value', txt: '1호 블랙' },
                     { val: 'value', txt: '옵션02' }
-                ]" />
+                  ]" />
               </div>
               <div class="cell count">
                 <Quantity _id="sample" quantity="32" />
               </div>
               <div class="cell price">
-                <span>일시품절</span><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
+                <span>일시품절</span
+                ><!-- 상태 : 일시품절, 판매중지, 출시예정 -->
                 <Button class="btn_min_outline" txt="입고알림신청" />
-                <p>
-                  <strong>52,000</strong>원
-                </p>
-                <em class="point">+529P</em><!-- point -->
+                <p><strong>52,000</strong>원</p>
+                <em class="point">+529P</em
+                ><!-- point -->
               </div>
             </div>
           </li>
@@ -481,7 +487,10 @@
     <h2>Modal</h2>
     <ul class="explain">
       <li>import { modal } from '~/assets/js/common-ui.js' 선언 후 필요한 스타일만 페이지 하단에 적용</li>
-      <li>Open : modal.open(오픈할 모달아이디, 타입);<br /> 타입 = full / alert / bottom : mobile 하단에서 올라오는 팝업 / layer : [tooltip, 공유하기] 등 position absolute 모달</li>
+      <li>
+        Open : modal.open(오픈할 모달아이디, 타입);<br />
+        타입 = full / alert / bottom : mobile 하단에서 올라오는 팝업 / layer : [tooltip, 공유하기] 등 position absolute 모달
+      </li>
       <li>특정 스타일이 필요하여 클래스를 추가할 경우, 특정클래스 추가 가능: ex) Open : modal.open(오픈할 모달아이디, 타입 특정클래스);</li>
       <li>Close : modal.close(); /* 다중팝업 노출 시 바디스크롤 풀림 처리 예정 */</li>
       <li>toast 모달의 경우 import { toast_pop } from '~/assets/js/common-ui.js' 선언 후, 파라미터로 시간 추가하여 진행</li>
@@ -490,14 +499,14 @@
     </ul>
     <div class="design_box">
       <div class="multi_form">
-        <Button txt="Modal full" @click="modal.open('sample_modal', 'full');" />
-        <Button txt="Modal alert" @click="modal.open('sample_modal', 'alert');" />
-        <Button txt="Modal bottom" @click="modal.open('sample_modal', 'bottom');" />
-        <Button txt="Modal detailSearch" @click="modal.open('sample_modal', 'detailSearch');" />
-        <Button id="layer" txt="Modal layer" @click="modal.open('sample_modal', 'layer');" />
-        <Button id="tooltip" txt="Modal layer tooltip" @click="modal.open('sample_modal2', 'layer tooltip');" />
-        <Button txt="Modal fullMo" @click="modal.open('sample_modal', 'fullMo');" />
-        <Button txt="Modal toast" @click="modal.open('sample_modal', 'toast'), toast_pop(3000);" />
+        <Button txt="Modal full" @click="modal.open('sample_modal', 'full')" />
+        <Button txt="Modal alert" @click="modal.open('sample_modal', 'alert')" />
+        <Button txt="Modal bottom" @click="modal.open('sample_modal', 'bottom')" />
+        <Button txt="Modal detailSearch" @click="modal.open('sample_modal', 'detailSearch')" />
+        <Button id="layer" txt="Modal layer" @click="modal.open('sample_modal', 'layer')" />
+        <Button id="tooltip" txt="Modal layer tooltip" @click="modal.open('sample_modal2', 'layer tooltip')" />
+        <Button txt="Modal fullMo" @click="modal.open('sample_modal', 'fullMo')" />
+        <Button txt="Modal toast" @click="modal.open('sample_modal', 'toast'), toast_pop(3000)" />
       </div>
     </div>
     <pre class="code_box"><code>&lt;div class="modal_wrap" id="모달_아이디"&gt;
@@ -556,34 +565,45 @@
       <ul class="form_group">
         <li>
           <p class="form_tit">[Default]</p>
-          <Tabs tabType="" :item="[{txt:'tab01', Cnt:999},{txt:'tab02'}]" :tabidx="0" />
+          <Tabs tabType="" :item="[{ txt: 'tab01', Cnt: 999 }, { txt: 'tab02' }]" :tabidx="0" />
         </li>
         <li>
           <p class="form_tit">[type_01]</p>
-          <Tabs tabType="type_01" :item="[{txt:'tab01'},{txt:'tab02'}]" :tabidx="0" />
+          <Tabs tabType="type_01" :item="[{ txt: 'tab01' }, { txt: 'tab02' }]" :tabidx="0" />
         </li>
         <li>
           <p class="form_tit">[type_02]</p>
-          <Tabs tabType="type_02"
-            :item="[{txt:'tab01'},{txt:'tab02'},{txt:'tab03'},{txt:'tab04'},{txt:'tab05'},{txt:'tab06'},{txt:'tab07'},{txt:'tab08'},{txt:'tab09'},{txt:'tab10'}]"
+          <Tabs
+            tabType="type_02"
+            :item="[
+              { txt: 'tab01' },
+              { txt: 'tab02' },
+              { txt: 'tab03' },
+              { txt: 'tab04' },
+              { txt: 'tab05' },
+              { txt: 'tab06' },
+              { txt: 'tab07' },
+              { txt: 'tab08' },
+              { txt: 'tab09' },
+              { txt: 'tab10' }
+            ]"
             :tabidx="0" />
         </li>
         <li>
           <p class="form_tit">[type_03]</p>
-          <Tabs tabType="type_03" :item="[{txt:'tab01'},{txt:'tab02'}]" :tabidx="0" />
+          <Tabs tabType="type_03" :item="[{ txt: 'tab01' }, { txt: 'tab02' }]" :tabidx="0" />
         </li>
         <li>
           <p class="form_tit">[type_04]</p>
-          <Tabs tabType="type_04" :item="[{txt:'tab01'},{txt:'tab02'}]" :tabidx="0" />
+          <Tabs tabType="type_04" :item="[{ txt: 'tab01' }, { txt: 'tab02' }]" :tabidx="0" />
         </li>
         <li>
           <p class="form_tit">[type_05]</p>
-          <Tabs tabType="type_05" :item="[{txt:'tab01'},{txt:'tab02'},{txt:'tab03'}]" :tabidx="0" />
+          <Tabs tabType="type_05" :item="[{ txt: 'tab01' }, { txt: 'tab02' }, { txt: 'tab03' }]" :tabidx="0" />
         </li>
       </ul>
     </div>
-    <pre
-      class="code_box"><code>&lt;Tabs tabType="" :item="[{txt:'tab01', Cnt:999},{txt:'tab02'}]"  :tabidx="0" /&gt;</code></pre>
+    <pre class="code_box"><code>&lt;Tabs tabType="" :item="[{txt:'tab01', Cnt:999},{txt:'tab02'}]"  :tabidx="0" /&gt;</code></pre>
   </section>
 
   <section>
@@ -594,35 +614,32 @@
     <div class="design_box">
       <div class="swiper_wrap">
         <!-- swiper -->
-        <swiper
-          v-bind="swiperOpt"
-          @swiper="onSwiper"
-          @slideChange="onSlideChange"
-        >
+        <swiper v-bind="swiperOpt" @swiper="onSwiper" @slideChange="onSlideChange">
           <swiper-slide v-for="(item, idx) in mainSam.visual" :key="idx">
             <a href="#none" class="item">
               <!-- visual tag -->
               <div class="tag-card">
-                <span class="cardSt_1">{{item.tag[0]}}</span>
-                <span class="cardSt_2">{{item.tag[1]}}</span>
+                <span class="cardSt_1">{{ item.tag[0] }}</span>
+                <span class="cardSt_2">{{ item.tag[1] }}</span>
               </div>
               <!-- //visual tag -->
 
               <!-- item text content -->
               <div class="cont">
                 <p class="name">
-                  <strong>{{item.name[0]}}</strong>
-                  <span>{{item.name[1]}}</span>
+                  <strong>{{ item.name[0] }}</strong>
+                  <span>{{ item.name[1] }}</span>
                 </p>
-                <p class="price">{{item.price[0]}}
-                  <em>{{item.price[1]}}</em>
+                <p class="price">
+                  {{ item.price[0] }}
+                  <em>{{ item.price[1] }}</em>
                 </p>
               </div>
               <!-- //item text content -->
 
               <!-- visual image -->
               <span class="thumb">
-                <em><img :src="item.img"></em>
+                <em><img :src="item.img" /></em>
               </span>
               <!-- //visual image -->
             </a>
@@ -810,11 +827,11 @@ const onSlideChange = (swiper) => {
       <li>클릭 요소에 active 클래스 추가</li>
       <li>import { setFilter } from '~/assets/js/common-ui.js' 선언</li>
       <li>@click="setFilter($event)"</li>
-      <li style="color:#ff0000;">.active 스타일 별도 적용 필수</li>
+      <li style="color: #ff0000">.active 스타일 별도 적용 필수</li>
     </ul>
     <div class="design_box">
       <label for="skin1" class="setFilter_sample">
-        <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력"><span @click="setFilter($event)">주름/탄력</span>
+        <input id="skin1" type="checkbox" name="typArr" value="FB" alt="주름/탄력" /><span @click="setFilter($event)">주름/탄력</span>
       </label>
     </div>
     <pre class="code_box"><code>&lt;label for="skin1" class="setFilter_sample"&gt;
@@ -847,7 +864,7 @@ const onSlideChange = (swiper) => {
     <div class="modal_container">
       <div class="modal_header">
         <h2>Modal Title</h2>
-        <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <button class="btn_close" @click="modal.close(this)">닫기</button>
       </div>
       <div class="modal_content">
         <div>Sample Modal</div>
@@ -857,84 +874,83 @@ const onSlideChange = (swiper) => {
         <Button txt="OK" />
       </div>
     </div>
-    <div class="overlay" @click="modal.close(this);"></div>
+    <div class="overlay" @click="modal.close(this)"></div>
   </div>
   <!-- //modal -->
 
   <!-- modal tooltip -->
   <div id="sample_modal2" class="modal_wrap">
     <div class="modal_container">
-      <button class="btn_close" @click="modal.close(this);">닫기</button>
+      <button class="btn_close" @click="modal.close(this)">닫기</button>
       <div class="modal_content">
         <h2>Modal Title</h2>
         <div>Sample Modal</div>
       </div>
     </div>
-    <div class="overlay" @click="modal.close(this);"></div>
+    <div class="overlay" @click="modal.close(this)"></div>
   </div>
   <!-- //modal tooltip -->
 
   <!-- 증정품 모달 -->
   <div class="modal_wrap" id="giveaway_01">
     <div class="modal_container">
-        <div class="modal_header">
-            <h2>증정품안내</h2>
-            <button class="btn_close" @click="modal.close(this);">닫기</button>
-        </div>
-        <div class="modal_content">
-          <dl>
-            <dt>
-              <img src="/_nuxt/public/images/sam/giveaway_01.png">
-            </dt>
-            <dd>
-              <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
-              <em>24.3.25 ~ 24.3.31</em>
-              <span>1개 구매시 1개 증정</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>
-              <img src="/_nuxt/public/images/sam/giveaway_02.png">
-            </dt>
-            <dd>
-              <p>비타C 세럼 럭키 박스 (30ml + 랜덤기프트)</p>
-              <em>23.4.11</em>
-              <span>1개 구매시 n개 증정</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>
-              <img src="/_nuxt/public/images/sam/giveaway_03.png">
-            </dt>
-            <dd>
-              <p>레티놀 시카 앰플 포커싱 패치 1ea / 9patches</p>
-              <em>24.2.29 ~ 24.3.31</em>
-              <span>1개 구매시 n개 증정</span>
-            </dd>
-          </dl>
-        </div>
+      <div class="modal_header">
+        <h2>증정품안내</h2>
+        <button class="btn_close" @click="modal.close(this)">닫기</button>
+      </div>
+      <div class="modal_content">
+        <dl>
+          <dt>
+            <img src="/_nuxt/public/images/sam/giveaway_01.png" />
+          </dt>
+          <dd>
+            <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
+            <em>24.3.25 ~ 24.3.31</em>
+            <span>1개 구매시 1개 증정</span>
+          </dd>
+        </dl>
+        <dl>
+          <dt>
+            <img src="/_nuxt/public/images/sam/giveaway_02.png" />
+          </dt>
+          <dd>
+            <p>비타C 세럼 럭키 박스 (30ml + 랜덤기프트)</p>
+            <em>23.4.11</em>
+            <span>1개 구매시 n개 증정</span>
+          </dd>
+        </dl>
+        <dl>
+          <dt>
+            <img src="/_nuxt/public/images/sam/giveaway_03.png" />
+          </dt>
+          <dd>
+            <p>레티놀 시카 앰플 포커싱 패치 1ea / 9patches</p>
+            <em>24.2.29 ~ 24.3.31</em>
+            <span>1개 구매시 n개 증정</span>
+          </dd>
+        </dl>
+      </div>
     </div>
-    <div class="overlay" @click="modal.close(this);"></div>
+    <div class="overlay" @click="modal.close(this)"></div>
   </div>
   <!-- //증정품 모달 -->
-
 </template>
 
 <script setup>
 definePageMeta({
-  layout:'guide'
+  layout: 'guide'
 })
 
-import { modal, Drop_Down, setFilter, toast_pop} from '~/assets/js/common-ui.js'
+import { modal, Drop_Down, setFilter, toast_pop } from '~/assets/js/common-ui.js'
 import { sample_goods, sam_menu, sampleSlide, sample_event, sample_live, mainSam } from '~/test/data/publish/dummyData.js'
 
 /* swiper */
 // import Swiper core and required components
-import SwiperCore from "swiper";
-import { Navigation, Pagination, A11y, Autoplay, Scrollbar } from "swiper/modules";
+import SwiperCore from 'swiper'
+import { Navigation, Pagination, A11y, Autoplay, Scrollbar } from 'swiper/modules'
 
 // Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from "swiper/vue";
+import { Swiper, SwiperSlide } from 'swiper/vue'
 
 // Import Swiper styles
 import 'swiper/scss'
@@ -942,11 +958,11 @@ import 'swiper/scss/navigation'
 import 'swiper/scss/pagination'
 
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y, Autoplay, Scrollbar]);
+SwiperCore.use([Navigation, Pagination, A11y, Autoplay, Scrollbar])
 
 /* swiper sample option */
 const swiperOpt = {
-  slidesPerView: "auto",
+  slidesPerView: 'auto',
   slidesPerGroup: 1,
   spaceBetween: 40,
   loop: true,
@@ -956,505 +972,505 @@ const swiperOpt = {
   },
   autoplay: {
     delay: 300,
-    disableOnInteraction: false,
+    disableOnInteraction: false
   },
   centeredSlides: true,
   slidesOffsetBefore: -330,
   scrollbar: {
     draggable: false
   },
-  observer:true
+  observer: true
 }
 
 const onSwiper = (swiper) => {
   // const total = swiper.loopedSlides,
   const total = swiper.wrapperEl.children.length,
-  current = swiper.realIndex+1,
-  pagination = swiper.wrapperEl.closest('.swiper_wrap').querySelector('.custom_pagination');
+    current = swiper.realIndex + 1,
+    pagination = swiper.wrapperEl.closest('.swiper_wrap').querySelector('.custom_pagination')
 
-  if(total < 10) {
-    pagination.querySelector('.current .idx_01').textContent = '0'+current;
+  if (total < 10) {
+    pagination.querySelector('.current .idx_01').textContent = '0' + current
 
-    if((current+1) > total) {
-      pagination.querySelector('.current .idx_02').textContent = '0'+((total - current)+1);
+    if (current + 1 > total) {
+      pagination.querySelector('.current .idx_02').textContent = '0' + (total - current + 1)
     } else {
-      pagination.querySelector('.current .idx_02').textContent = '0'+(current+1);
+      pagination.querySelector('.current .idx_02').textContent = '0' + (current + 1)
     }
 
-    pagination.querySelector('strong.total').textContent = '0'+total;
+    pagination.querySelector('strong.total').textContent = '0' + total
   }
 
   /* play & pause button */
-  pagination.querySelector('button').addEventListener('click', ()=>{
-    if(event.currentTarget.getAttribute('data') == 'play'){
-      swiper.autoplay.stop();
-      event.currentTarget.setAttribute('data','pause');
+  pagination.querySelector('button').addEventListener('click', () => {
+    if (event.currentTarget.getAttribute('data') == 'play') {
+      swiper.autoplay.stop()
+      event.currentTarget.setAttribute('data', 'pause')
     } else {
-      swiper.autoplay.start();
-      event.currentTarget.setAttribute('data','play');
+      swiper.autoplay.start()
+      event.currentTarget.setAttribute('data', 'play')
     }
-  });
+  })
 }
 
 const onSlideChange = (swiper) => {
   const total = swiper.wrapperEl.children.length,
-  current = swiper.realIndex+1,
-  pagination = swiper.wrapperEl.closest('.swiper_wrap').querySelector('.custom_pagination');
+    current = swiper.realIndex + 1,
+    pagination = swiper.wrapperEl.closest('.swiper_wrap').querySelector('.custom_pagination')
 
-  if(total < 10) {
-    pagination.querySelector('.current .idx_01').textContent = '0'+current;
+  if (total < 10) {
+    pagination.querySelector('.current .idx_01').textContent = '0' + current
 
-    if((current+1) > total) {
-      pagination.querySelector('.current .idx_02').textContent = '0'+((total - current)+1);
+    if (current + 1 > total) {
+      pagination.querySelector('.current .idx_02').textContent = '0' + (total - current + 1)
     } else {
-      pagination.querySelector('.current .idx_02').textContent = '0'+(current+1);
+      pagination.querySelector('.current .idx_02').textContent = '0' + (current + 1)
     }
   }
 
   /* scrollbar */
-  swiper.wrapperEl.closest('.swiper_wrap').querySelector('.scrollbar').style.width = ((swiper.realIndex + 1)/swiper.wrapperEl.children.length) * 100+'%'
+  swiper.wrapperEl.closest('.swiper_wrap').querySelector('.scrollbar').style.width =
+    ((swiper.realIndex + 1) / swiper.wrapperEl.children.length) * 100 + '%'
 }
 
 const pagination = {
-  type:'fraction',
+  type: 'fraction',
   clickable: true,
   renderBullet: function (index, className) {
-    return '<span class="' + className + '">' + (index + 2) + '</span>';
+    return '<span class="' + className + '">' + (index + 2) + '</span>'
   }
 }
 /* //swiper */
 
 /* component sample data */
-const input_opt = reactive(
-    {
-        Placeholder: '문구를 입력해주세요.',
-        isswitch: Boolean,
-        opt: '_type="text" _placeholder="문구를 입력해주세요"',
-        isError: false,
-    }
-)
+const input_opt = reactive({
+  Placeholder: '문구를 입력해주세요.',
+  isswitch: Boolean,
+  opt: '_type="text" _placeholder="문구를 입력해주세요"',
+  isError: false
+})
 
 const select_opt = `[
     { val: 'value', txt: '옵션01' },
     { val: 'value', txt: '옵션02' }
 ]`
-const tabidx= 0;
+const tabidx = 0
 /* //component sample data */
 
 /* inputs type function */
 const tool_select = (props) => {
+  for (var i = 0; i < event.currentTarget.closest('.toolbar').querySelectorAll('button').length; i++) {
+    event.currentTarget.closest('.toolbar').querySelectorAll('button')[i].classList.remove('current')
+  }
+  event.currentTarget.classList.add('current')
 
-    for (var i = 0; i < event.currentTarget.closest('.toolbar').querySelectorAll('button').length; i++) {
-        event.currentTarget.closest('.toolbar').querySelectorAll('button')[i].classList.remove('current');
-    }
-    event.currentTarget.classList.add('current');
+  switch (props) {
+    case 'isswitch':
+      ;(input_opt.isswitch = true),
+        (input_opt.type = 'checkbox'),
+        (input_opt.opt = '_type="' + input_opt.type + '" :isswitch="' + input_opt.isswitch + '" _text="Label"'),
+        (input_opt.class = '')
 
-    switch (props) {
-        case 'isswitch':
-            input_opt.isswitch = true,
-            input_opt.type = 'checkbox',
-            input_opt.opt = '_type="' + input_opt.type + '" :isswitch="' + input_opt.isswitch + '" _text="Label"',
-            input_opt.class = ''
+      break
 
-            break;
+    case 'error':
+      ;(input_opt.isswitch = false), (input_opt.isError = true), (input_opt.err_text = 'Error Text')
+      break
 
-        case 'error':
-            input_opt.isswitch = false,
-            input_opt.type = 'text',
-            input_opt.Placeholder = '문구를 입력해주세요',
-            input_opt.opt = '_type="' + input_opt.type + '" _placeholder="' + input_opt.Placeholder + '"' + '" :isError="' + input_opt.isError + '" _err_text="Error Text"',
-            input_opt.isError = true,
-            input_opt.err_text = 'Error Text',
-            input_opt.class = ''
-            break;
+    case 'pw':
+      ;(input_opt.isswitch = false),
+        (input_opt.type = 'password'),
+        (input_opt.Placeholder = '비밀번호를 입력해주세요'),
+        (input_opt.opt = '_type="' + input_opt.type + '" _placeholder="' + input_opt.Placeholder + '"'),
+        (input_opt.isError = false),
+        (input_opt.class = '')
+      break
 
-        case 'pw':
-            input_opt.isswitch = false,
-            input_opt.type = 'password',
-            input_opt.Placeholder = '비밀번호를 입력해주세요',
-            input_opt.opt = '_type="' + input_opt.type + '" _placeholder="' + input_opt.Placeholder + '"',
-            input_opt.isError = false,
-            input_opt.class = ''
-            break;
+    case 'check':
+      ;(input_opt.isswitch = false),
+        (input_opt.type = 'checkbox'),
+        (input_opt.opt = '_type="' + input_opt.type + '" _text="Label"'),
+        (input_opt.class = '')
+      break
 
-        case 'check':
-            input_opt.isswitch = false,
-            input_opt.type = 'checkbox',
-            input_opt.opt = '_type="' + input_opt.type + '" _text="Label"',
-            input_opt.class = ''
-            break;
+    case 'check2':
+      ;(input_opt.isswitch = false),
+        (input_opt.type = 'checkbox'),
+        (input_opt.opt = '_type="' + input_opt.type + '" _text="Label"' + ' class="checkbox02"')
+      input_opt.class = 'checkbox02'
+      break
 
-        case 'check2':
-            input_opt.isswitch = false,
-            input_opt.type = 'checkbox',
-            input_opt.opt = '_type="' + input_opt.type + '" _text="Label"' + ' class="checkbox02"'
-            input_opt.class = 'checkbox02'
-            break;
+    case 'check3':
+      ;(input_opt.isswitch = false),
+        (input_opt.type = 'checkbox'),
+        (input_opt.opt = '_type="' + input_opt.type + '" _text="Label"' + ' class="round_square"')
+      input_opt.class = 'round_square'
+      break
 
-        case 'check3':
-            input_opt.isswitch = false,
-            input_opt.type = 'checkbox',
-            input_opt.opt = '_type="' + input_opt.type + '" _text="Label"' + ' class="round_square"'
-            input_opt.class = 'round_square'
-            break;
+    case 'radio':
+      ;(input_opt.isswitch = false),
+        (input_opt.type = 'radio'),
+        (input_opt.opt = '_type="' + input_opt.type + '" _text="Label"'),
+        (input_opt.class = '')
+      break
 
-        case 'radio':
-            input_opt.isswitch = false,
-            input_opt.type = 'radio',
-            input_opt.opt = '_type="' + input_opt.type + '" _text="Label"',
-            input_opt.class = ''
-            break;
+    case 'text_err':
+      ;(input_opt.isswitch = false),
+        (input_opt.type = 'text'),
+        (input_opt.opt = '_type="' + input_opt.type + ' class="err"'),
+        (input_opt.isError = false),
+        (input_opt.class = 'err')
+      break
 
-        default:
-            input_opt.isswitch = false,
-            input_opt.type = 'text',
-            input_opt.Placeholder = '문구를 입력해주세요',
-            input_opt.opt = '_type="' + input_opt.type + '" _placeholder="' + input_opt.Placeholder + '"',
-            input_opt.isError = false,
-            input_opt.class = ''
-            break;
-    }
+    case 'text':
+      ;(input_opt.isswitch = false),
+        (input_opt.type = 'text'),
+        (input_opt.Placeholder = '문구를 입력해주세요'),
+        (input_opt.opt = '_type="' + input_opt.type + '" _placeholder="' + input_opt.Placeholder + '"'),
+        (input_opt.isError = false),
+        (input_opt.class = '')
+      break
+  }
 }
 
-
 /* modal layer type sample position */
-onMounted(()=>{
-  document.getElementById('layer').addEventListener('click', (event)=>{
-    document.getElementById('sample_modal').style.cssText="top:"+event.currentTarget.offsetTop+"px; left:"+event.currentTarget.offsetLeft+"px;"
-  });
+onMounted(() => {
+  document.getElementById('layer').addEventListener('click', (event) => {
+    document.getElementById('sample_modal').style.cssText =
+      'top:' + event.currentTarget.offsetTop + 'px; left:' + event.currentTarget.offsetLeft + 'px;'
+  })
 
-  document.getElementById('tooltip').addEventListener('click', (event)=>{
-    document.getElementById('sample_modal2').style.cssText="top:"+event.currentTarget.offsetTop+"px; left:"+event.currentTarget.offsetLeft+"px;"
-  });
-
-});
+  document.getElementById('tooltip').addEventListener('click', (event) => {
+    document.getElementById('sample_modal2').style.cssText =
+      'top:' + event.currentTarget.offsetTop + 'px; left:' + event.currentTarget.offsetLeft + 'px;'
+  })
+})
 /* //inputs type function */
 </script>
 
 <style lang="scss" scoped>
 .guide_wrap {
-    padding:30px 0;
-    > section {
-        margin:0 20px;
-        & + section {
-            margin-top:30px;
-            padding-top:30px;
-            border-top:1px dashed #ababab;
-        }
-        > h2 {
-            margin-bottom:20px;
-            padding:10px 10px 10px 20px;
-            font-size: 24px;
-            font-weight: 700;
-            position:relative;
-            display:flex;
-            &:before {
-                height:15px;
-                border-left:5px solid #ff7200;
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 0;
-                transform:translateY(-50%);
-            }
-            ul {
-                margin-left:auto;
-                display:inline-flex;
-                li {
-                    display:flex;
-                    align-items:center;
-                    a {
-                        color:#222;
-                        padding:0 15px;
-                        font-size:14px;
-                        text-decoration:none;
-                        display:block;
-                    }
-                }
-            }
-        }
-        .explain {
-            margin-bottom:20px;
-            li {
-                padding-left:12px;
-                position:relative;
-                & + li {
-                    margin-top:15px;
-                }
-                &:before {
-                    position:absolute;
-                    top:0;
-                    left:0;
-                    bottom:0;
-                    content:'-';
-                    display:block;
-                }
-                strong {
-                    margin-bottom:8px;
-                    display:block;
-                }
-            }
-        }
-        .toolbar {
-            background-color:#eee;
-            display:flex;
-            flex-wrap:wrap;
-            li {
-                padding:8px;
-                > * {
-                    padding:8px;
-                    border-radius:4px;
-                    display:block;
-                    transition:background 0.25s;
-                    &:hover {
-                        background-color:#ddd;
-                    }
-                    &.current {
-                        background-color:#ccc;
-                    }
-                }
-            }
-        }
-        h3 {
-            margin-top:20px;
-            margin-bottom:10px;
-        }
+  padding: 30px 0;
+  > section {
+    margin: 0 20px;
+    & + section {
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 1px dashed #ababab;
     }
+    > h2 {
+      margin-bottom: 20px;
+      padding: 10px 10px 10px 20px;
+      font-size: 24px;
+      font-weight: 700;
+      position: relative;
+      display: flex;
+      &:before {
+        height: 15px;
+        border-left: 5px solid #ff7200;
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      ul {
+        margin-left: auto;
+        display: inline-flex;
+        li {
+          display: flex;
+          align-items: center;
+          a {
+            color: #222;
+            padding: 0 15px;
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+          }
+        }
+      }
+    }
+    .explain {
+      margin-bottom: 20px;
+      li {
+        padding-left: 12px;
+        position: relative;
+        & + li {
+          margin-top: 15px;
+        }
+        &:before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          content: '-';
+          display: block;
+        }
+        strong {
+          margin-bottom: 8px;
+          display: block;
+        }
+      }
+    }
+    .toolbar {
+      background-color: #eee;
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        padding: 8px;
+        > * {
+          padding: 8px;
+          border-radius: 4px;
+          display: block;
+          transition: background 0.25s;
+          &:hover {
+            background-color: #ddd;
+          }
+          &.current {
+            background-color: #ccc;
+          }
+        }
+      }
+    }
+    h3 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+  }
 }
 .design_box {
-    padding:15px;
-    border:1px solid #eee;
+  padding: 15px;
+  border: 1px solid #eee;
 }
 
 .code_box {
-    padding:15px;
-    color:#fff;
-    line-height:1.8;
-    background-color:#000;
-    border:10px solid #f2f2f2;
-    overflow:auto;
+  padding: 15px;
+  color: #fff;
+  line-height: 1.8;
+  background-color: #000;
+  border: 10px solid #f2f2f2;
+  overflow: auto;
 }
 
 :deep(.breadcrumb) {
-    .inner {
-        margin:0 !important;
-    }
+  .inner {
+    margin: 0 !important;
+  }
 }
 
 .swiper_wrap {
-  width:100%;
-  position:relative;
+  width: 100%;
+  position: relative;
   .swiper {
-    padding-bottom:40px;
+    padding-bottom: 40px;
     .swiper-pagination {
-      bottom:0;
+      bottom: 0;
     }
   }
   .custom_pagination {
-    position:absolute;
-    right:0;
-    bottom:0;
-    left:0;
-    z-index:1;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     em {
-      font-weight:600;
+      font-weight: 600;
       & + em:before {
-        margin:0 3px;
-        content:'/';
+        margin: 0 3px;
+        content: '/';
       }
     }
     strong {
-      margin:0 10px;
-      color:#888;
-      font-weight:400;
-      display:flex;
-      align-items:center;
+      margin: 0 10px;
+      color: #888;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
       &:before {
-        height:8px;
-        margin-right:10px;
-        border-left:1px solid rgba(0,0,0,0.2);
-        content:'';
-        display:block;
+        height: 8px;
+        margin-right: 10px;
+        border-left: 1px solid rgba(0, 0, 0, 0.2);
+        content: '';
+        display: block;
       }
     }
     button {
-      width:20px;
-      height:20px;
-      margin:0;
-      background-color:transparent;
-      background-image:url('~/assets/images/common/icon_split.png');
-      background-repeat:no-repeat;
-      background-size:250px auto;
-      position:static;
-      display:block;
-      transform:rotate(0);
+      width: 20px;
+      height: 20px;
+      margin: 0;
+      background-color: transparent;
+      background-image: url('~/assets/images/common/icon_split.png');
+      background-repeat: no-repeat;
+      background-size: 250px auto;
+      position: static;
+      display: block;
+      transform: rotate(0);
       :deep(em) {
-        font-size:0;
+        font-size: 0;
       }
-      &[data="play"] {
-        background-position:-130px -250px;
+      &[data='play'] {
+        background-position: -130px -250px;
       }
-      &[data="pause"] {
-        background-position:-100px -250px;
+      &[data='pause'] {
+        background-position: -100px -250px;
       }
     }
   }
 }
 :deep(.swiper-slide) {
-  width:620px;
-  opacity:0.2;
-  filter:grayscale(1);
-  transition:opacity 0.25s;
+  width: 620px;
+  opacity: 0.2;
+  filter: grayscale(1);
+  transition: opacity 0.25s;
 
   &.swiper-slide-active {
-    opacity:1;
-    filter:grayscale(0);
+    opacity: 1;
+    filter: grayscale(0);
   }
   &.swiper-slide-active + .swiper-slide {
-    opacity:1;
-    filter:grayscale(0);
+    opacity: 1;
+    filter: grayscale(0);
   }
 }
 .item {
-  position:relative;
+  position: relative;
   &:hover {
     .thumb {
       img {
-        transform:scale(1.2);
+        transform: scale(1.2);
       }
     }
     .cont {
-      transform:translateY(-15px);
+      transform: translateY(-15px);
     }
   }
   .thumb {
-    position:relative;
-    overflow:hidden;
-    display:block;
+    position: relative;
+    overflow: hidden;
+    display: block;
     &:after {
-      padding-top:36.774193%;
-      background:linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
-      content:'';
-      position:absolute;
-      right:0;
-      bottom:0;
-      left:0;
-      display:block;
+      padding-top: 36.774193%;
+      background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
     }
     img {
-      display:block;
-      transition:transform 0.45s;
+      display: block;
+      transition: transform 0.45s;
     }
   }
   .tag-card {
-    position:absolute;
-    top:20px;
-    left:20px;
-    z-index:1;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
     &:after {
-      clear:both;
-      content:'';
-      display:block;
+      clear: both;
+      content: '';
+      display: block;
     }
     & > * {
-      padding:6px 10px;
-      font-size:14px;
-      background-color:#000;
-      color:#fff;
-      float:left;
-      display:block;
+      padding: 6px 10px;
+      font-size: 14px;
+      background-color: #000;
+      color: #fff;
+      float: left;
+      display: block;
       & + * {
-        margin-left:1px;
+        margin-left: 1px;
       }
       &.cardSt_1 {
-        color:#000;
-        font-weight:600;
-        background-color:#FFFF82;
+        color: #000;
+        font-weight: 600;
+        background-color: #ffff82;
       }
     }
   }
   .cont {
-    color:#fff;
-    position:absolute;
-    bottom:40px;
-    left:40px;
-    z-index:1;
-    transition:transform 0.45s;
+    color: #fff;
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    z-index: 1;
+    transition: transform 0.45s;
     .name {
       & > * {
-        margin-top:5px;
-        font-size:32px;
-        display:block;
+        margin-top: 5px;
+        font-size: 32px;
+        display: block;
       }
     }
     .price {
-      margin-top:15px;
-      font-size:32px;
-      font-weight:700;
-      display:flex;
-      align-items:center;
+      margin-top: 15px;
+      font-size: 32px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
       em {
-        margin-left:10px;
-        font-size:20px;
-        font-weight:300;
-        text-decoration:line-through;
+        margin-left: 10px;
+        font-size: 20px;
+        font-weight: 300;
+        text-decoration: line-through;
       }
     }
   }
 }
 
 .navigation {
-  margin:0 -740px;
-  position:absolute;
-  top:50%;
-  right:50%;
-  left:50%;
+  margin: 0 -740px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  left: 50%;
   button {
-    width:60px;
-    height:60px;
-    font-size:0;
+    width: 60px;
+    height: 60px;
+    font-size: 0;
     background: url('~/assets/images/common/icon_split.png') no-repeat 0 -190px;
     background-size: 250px auto;
     &:after {
-      display:none;
+      display: none;
     }
     &.swiper-button-next {
-      transform:rotate(180deg);
+      transform: rotate(180deg);
     }
   }
 }
 
 .swiper-scrollbar-wrap {
-  position:absolute;
-  right:0;
-  bottom:0;
-  left:0;
-  z-index:1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
   &:after {
-    width:100%;
-    border-top:1px solid #ddd;
-    content:'';
-    position:absolute;
-    bottom:0;
-    left:0;
-    z-index:-1;
-    display:block;
+    width: 100%;
+    border-top: 1px solid #ddd;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
   }
   .scrollbar {
-    font-size:0;
-    border-bottom:2px solid #000;
-    position:absolute;
-    bottom:0;
-    left:0;
-    transition:width 0.25s;
+    font-size: 0;
+    border-bottom: 2px solid #000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.25s;
   }
 }
 
-:deep(.pdtSortTab_wrap){
-  justify-content:right;
+:deep(.pdtSortTab_wrap) {
+  justify-content: right;
 }
 
 .setFilter_sample {
@@ -1464,158 +1480,158 @@ onMounted(()=>{
 
   input {
     position: absolute;
-    z-indeX: -1;
+    z-index: -1;
     opacity: 0;
   }
 
   span {
     height: 30px;
     padding: 0 20px;
-    color: #AAAAAA;
+    color: #aaaaaa;
     font-weight: 600;
     font-size: 14px;
     border-radius: 5px;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     line-height: 1.29em;
     letter-spacing: -0.01em;
     display: flex;
     align-items: center;
 
     &.active {
-      color: #FFFFFF;
-      background: #00BC70;
+      color: #ffffff;
+      background: #00bc70;
     }
   }
 }
-
-
-
 
 /* goodsItem */
 .mobile {
   :deep(.goods_item) {
     width: 16.5rem;
-    padding-bottom:calc(24px + 1rem);
+    padding-bottom: calc(24px + 1rem);
     position: relative;
 
     .img_wrap {
-      position:static;
+      position: static;
       &:before {
-        display:none !important;
+        display: none !important;
       }
       .top_sticker {
         height: 2.4rem;
         line-height: 2.4rem;
       }
       .thumb {
-        width:100%;
-        height:22.0rem;
+        width: 100%;
+        height: 22rem;
       }
       .btnIconBox {
-        background-color:transparent;
-        position:absolute;
-        bottom:0;
-        gap:1rem;
-        justify-content:start;
-        transform:translateY(0);
+        background-color: transparent;
+        position: absolute;
+        bottom: 0;
+        gap: 1rem;
+        justify-content: start;
+        transform: translateY(0);
         button {
-          padding:0;
+          padding: 0;
           em {
-            width:24px;
-            height:24px;
-            padding:0;
-            background-image:url('~/assets/mo_images/common/icon_split.png');
-            background-size:250px auto;
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            background-image: url('~/assets/mo_images/common/icon_split.png');
+            background-size: 250px auto;
           }
           &.btn_heart {
             em {
-              background-position:-140px -40px;
+              background-position: -140px -40px;
             }
             &.on {
               em {
-                background-position:-180px -70px;
+                background-position: -180px -70px;
               }
             }
           }
           &.btn_cart em {
-            background-position:-170px -40px;
+            background-position: -170px -40px;
           }
           &.btn_buy em {
-            background-position:-200px -40px;
+            background-position: -200px -40px;
           }
         }
       }
     }
-    &.sold_out, &.coming_soon, &.end {
+    &.sold_out,
+    &.coming_soon,
+    &.end {
       .img_wrap {
         a {
-          position:relative;
-          &:before, &:after {
-            content:'';
-            display:block;
+          position: relative;
+          &:before,
+          &:after {
+            content: '';
+            display: block;
           }
           &:before {
-            background-color:rgba(0,0,0,0.3);
-            background-position:50%;
-            background-repeat:no-repeat;
+            background-color: rgba(0, 0, 0, 0.3);
+            background-position: 50%;
+            background-repeat: no-repeat;
             background-size: 60%;
-            position:absolute;
-            top:0;
-            right:0;
-            bottom:0;
-            left:0;
-            z-index:1;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
           }
         }
       }
     }
     &.sold_out {
       .img_wrap a:before {
-          background-image:url('~/assets/images/ui/overlay_soldout.png');
+        background-image: url('~/assets/images/ui/overlay_soldout.png');
       }
     }
     &.coming_soon {
       .img_wrap a:before {
-          background-image:url('~/assets/images/ui/overlay_comingsoon.png');
+        background-image: url('~/assets/images/ui/overlay_comingsoon.png');
       }
     }
     &.end {
       .img_wrap a:before {
-          background-image:url('~/assets/images/ui/overlay_end.png');
+        background-image: url('~/assets/images/ui/overlay_end.png');
       }
     }
     .cont {
       > .price {
-        margin-top:0.6rem;
-        margin-bottom:1rem;
+        margin-top: 0.6rem;
+        margin-bottom: 1rem;
         strong {
-          margin-right:0.5rem;
-          font-size:1.4rem;
+          margin-right: 0.5rem;
+          font-size: 1.4rem;
         }
         span {
-          font-size:1.2rem;
+          font-size: 1.2rem;
         }
         em {
-          font-size:1rem;
-          display:block;
+          font-size: 1rem;
+          display: block;
         }
       }
       .name {
-        font-size:1.4rem;
+        font-size: 1.4rem;
         strong {
-          color:#000;
+          color: #000;
           .cate {
-            margin:0;
+            margin: 0;
           }
         }
       }
       .review_score {
-        margin-top:1.0rem;
-        font-size:1.0rem;
+        margin-top: 1rem;
+        font-size: 1rem;
       }
       .sticker em {
-        padding:3px 5px;
-        font-size:1rem;
+        padding: 3px 5px;
+        font-size: 1rem;
       }
     }
 
@@ -1637,7 +1653,8 @@ onMounted(()=>{
         }
       }
 
-      &.type_cart { /* .type_column.type_cart */
+      &.type_cart {
+        /* .type_column.type_cart */
         .img_wrap {
           position: static;
           .btnIconBox {
@@ -1655,7 +1672,8 @@ onMounted(()=>{
       }
     }
 
-    &.type_cart { /* .type_cart */
+    &.type_cart {
+      /* .type_cart */
       padding-bottom: 0;
 
       .img_wrap {
@@ -1663,10 +1681,10 @@ onMounted(()=>{
 
         .btnIconBox {
           position: absolute;
-          bottom: .5rem;
+          bottom: 0.5rem;
           right: 0px;
           justify-content: end;
-          gap: .5rem;
+          gap: 0.5rem;
 
           .btn_heart,
           .btn_buy {
@@ -1681,10 +1699,10 @@ onMounted(()=>{
 
 /* goods list */
 :deep(.goods_list).mobile {
-  width:375px;
+  width: 375px;
   &.col_3 {
     display: flex;
-    gap: 2rem .3rem;
+    gap: 2rem 0.3rem;
     > li {
       width: 10.9rem;
       .goods_item {
@@ -1697,11 +1715,5 @@ onMounted(()=>{
       }
     }
   }
-}
-
-@import "~/assets/scss/_mo_mixin";
-
-@include mo_749 {
-  @import "~/assets/scss/mobile.scss";
 }
 </style>

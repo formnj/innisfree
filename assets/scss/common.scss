@@ -1486,6 +1486,13 @@ ul.bullet_list {
     padding-left: 11px;
     line-height: 20px;
 
+    & > ul,
+    & > ol {
+      margin-top: 5px;
+      padding-left: 17px;
+      flex: none;
+    }
+
     & + li {
       margin: 5px 0 0;
     }
@@ -1544,93 +1551,42 @@ ul.bullet_list {
   }
   &.num {
     > li {
-      padding-left: 17px;
+      padding-left: 0;
       color: #666;
-      font-size: 1.3rem;
       font-weight: 400;
-      display: flex;
-      flex-direction: column !important;
+
       &::before {
-        content: '➀';
-        width: 0;
-        margin-right: 1.5rem;
-        color: #666;
-        font-size: 1.3rem;
-        font-weight: 400;
-        top: 0;
+        content: none;
       }
-      &:nth-of-type(2)::before {
-        content: '➁';
+
+      & + li {
+        margin-top: 10px;
       }
-      &:nth-of-type(3)::before {
-        content: '➂';
-      }
-      &:nth-of-type(4)::before {
-        content: '➃';
-      }
-      &:nth-of-type(5)::before {
-        content: '➄';
-      }
-      &:nth-of-type(6)::before {
-        content: '➅';
-      }
-      &:nth-of-type(7)::before {
-        content: '➆';
-      }
-      &:nth-of-type(8)::before {
-        content: '➇';
-      }
-      &:nth-of-type(9)::before {
-        content: '➈';
-      }
-      &:nth-of-type(10)::before {
-        content: '➉';
+
+      span + p {
+        width: calc(100% - 17px);
+        padding-left: 5px;
+        display: inline-block;
+        vertical-align: top;
       }
     }
   }
 }
 
 /* list 들여쓰기 타입*/
-.num_type {
+ol.num_type {
+  list-style: auto;
+
   > * + * {
-    margin-top: 0.3rem !important;
+    margin-top: 3px !important;
   }
   li {
     color: #888;
-    font-size: 1.2rem;
-    display: flex;
+    margin-left: 11px;
+    padding-left: 0;
+    display: list-item;
     &::before {
-      content: '1.';
-      margin-right: 1.5rem;
-      width: 0;
-      top: 0;
-    }
-    &:nth-of-type(2)::before {
-      content: '2.';
-    }
-    &:nth-of-type(3)::before {
-      content: '3.';
-    }
-    &:nth-of-type(4)::before {
-      content: '4.';
-    }
-    &:nth-of-type(5)::before {
-      content: '5.';
-    }
-    &:nth-of-type(6)::before {
-      content: '6.';
-    }
-    &:nth-of-type(7)::before {
-      content: '7.';
-    }
-    &:nth-of-type(8)::before {
-      content: '8.';
-    }
-    &:nth-of-type(9)::before {
-      content: '9.';
-    }
-    &:nth-of-type(10)::before {
-      content: '10.';
+      content: none;
     }
   }
 }
@@ -1875,92 +1831,23 @@ ul.pick_list {
     }
   }
   > ul {
-    margin-top: 3rem;
+    margin-top: 30px;
     > * + * {
-      margin-top: 0.5rem;
+      margin-top: 5px;
     }
     li {
       color: #888;
-      font-size: 1.3rem;
+      font-size: 13px;
       font-weight: 400;
       p {
         color: #666;
-        font-size: 1.3rem;
+        font-size: 13px;
         font-weight: 500;
       }
     }
   }
 }
 
-.policy_wrap {
-  h3,
-  h2 {
-    margin: 2rem 0;
-    font-size: 1.6rem;
-    font-weight: 600;
-  }
-  > p {
-    margin: 2rem 0;
-    color: #333;
-    font-size: 1.3rem;
-    font-weight: 400;
-    line-height: 2rem;
-    > * + * {
-      margin-top: 0.3rem;
-    }
-    span {
-      display: block;
-    }
-  }
-  > dl + dl {
-    margin-top: 3rem;
-  }
-  dl {
-    dt {
-      color: #333;
-      font-weight: 600;
-    }
-    dd {
-      > span + p {
-        margin-top: 0.5rem;
-      }
-      margin-top: 1rem;
-      color: #666;
-      font-size: 1.3rem;
-      font-weight: 400;
-      span,
-      p {
-        line-height: 2rem;
-      }
-    }
-    &.supple_pro {
-      dt {
-        color: #666;
-        font-weight: 500;
-      }
-      dd {
-        color: #888;
-        font-weight: 400;
-      }
-    }
-  }
-  > ul {
-    margin-top: 3rem;
-    > * + * {
-      margin-top: 0.5rem;
-    }
-    li {
-      color: #888;
-      font-size: 1.3rem;
-      font-weight: 400;
-      p {
-        color: #666;
-        font-size: 1.3rem;
-        font-weight: 500;
-      }
-    }
-  }
-}
 .modal_wrap.promotion {
   .modal_container {
     width: 540px;
@@ -2387,4 +2274,13 @@ ul.pick_list {
 
 .fc_red {
   color: #ff0000 !important;
+}
+
+.err_txt {
+  margin-top: 5px;
+  color: #ff0000;
+  font-size: 12px;
+  line-height: 18px;
+  font-style: normal;
+  display: block;
 }

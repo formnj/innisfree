@@ -3,7 +3,7 @@
     <div class="modal_container">
       <div class="modal_header">
         <h2>제품명</h2>
-        <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <button class="btn_close" @click="modal.close(this)">닫기</button>
       </div>
       <div class="modal_content">
         <div v-for="(item, idx) in sample_review.slice(0, 1)" :key="idx" class="review_list">
@@ -30,22 +30,28 @@
               <button type="button">차단하기</button>
             </div>
           </div>
-          <ProductReview :item="item" :isModal="true" :isMo="isMo"/> <!-- 리뷰 -->
+          <ProductReview :item="item" :isModal="true" :isMo="isMo" />
+          <!-- 리뷰 -->
         </div>
 
-        <div v-if="!isMo">
-          <div v-for="(item2, idx2) in sample_log.slice(0, 1)" :key="idx2" class="goods">
-            <GoodsItem :item="item2.item[0]" :link="item2.item.link" class="type_column"/>
-          </div>
+        <div v-if="!isMo" class="list_wrap type_column">
+          <ul class="goods_list">
+            <li v-for="(item2, idx2) in sample_goods.slice(2, 4)" :key="idx2">
+              <GoodsItem :item="item2" :link="item2.link" :use-err-txt="true" class="type_column" />
+            </li>
+            <li v-for="(item2, idx2) in sample_goods.slice(5, 6)" :key="idx2">
+              <GoodsItem :item="item2" :link="item2.link" :use-err-txt="true" class="type_column" />
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="overlay" @click="modal.close(this);"></div>
+    <div class="overlay" @click="modal.close(this)"></div>
   </div>
 </template>
 <script setup>
 import { modal } from '~/assets/js/common-ui'
-import { sample_review, sample_log } from '~/test/data/publish/dummyData'
+import { sample_review, sample_goods } from '~/test/data/publish/dummyData'
 const props = defineProps({
   item: {},
   idx: Number,
@@ -69,7 +75,6 @@ const props = defineProps({
       max-height: 700px;
 
       .review_list {
-
         :deep(.review) {
           .option_name {
             color: #888;
@@ -85,7 +90,7 @@ const props = defineProps({
                 width: 1px;
                 height: 10px;
                 margin: 0 10px;
-                background-color: #EEE;
+                background-color: #eee;
                 display: inline-block;
               }
             }
@@ -98,39 +103,45 @@ const props = defineProps({
         }
       }
 
-      .goods {
+      .list_wrap.type_column {
         margin-top: 30px;
         padding-top: 30px;
         border-top: 1px solid #eee;
         position: relative;
 
-        :deep(.goods_item),
-        :deep(.event_item .item) {
-          display: flex;
+        .goods_list {
+          gap: 5px;
+        }
 
-          .img_wrap,
-          .thumb {
-            width: 90px;
-          }
-
-          .cont {
-            flex: 1;
-          }
+        li {
+          width: 100%;
         }
 
         :deep(.goods_item) {
           align-items: center;
 
           .img_wrap {
-            height: 120px;
-            margin-right: 20px;
+            position: static;
 
             .thumb {
-              height: 100%;
+              width: 90px;
             }
 
             .btnIconBox {
-              display: none;
+              width: 24px;
+              display: flex;
+              flex-direction: column;
+              position: absolute;
+              right: 0;
+              top: 50%;
+              bottom: auto;
+              left: auto;
+              transform: translateY(-50%);
+
+              li:nth-child(2),
+              li:nth-child(3) {
+                display: none;
+              }
             }
           }
 
@@ -139,7 +150,7 @@ const props = defineProps({
 
             .price {
               margin-bottom: 0;
-              >* {
+              > * {
                 font-size: 14px;
               }
 
@@ -149,9 +160,7 @@ const props = defineProps({
             }
           }
 
-          .sticker,
-          .hash,
-          .review_score {
+          .sticker {
             display: none;
           }
         }
