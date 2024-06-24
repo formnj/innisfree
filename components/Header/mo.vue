@@ -1,13 +1,13 @@
 <template>
   <DocTopBanner v-if="useBanner" />
   <!-- type: main, type_sub, type_search -->
-  <header :class="type">
+  <header :class="[type, position]">
     <div class="header_wrap">
       <div class="menu_wrap">
         <h1 v-if="useLogo">
-          <a :href="path + '/IN_MO_HOM_01_01'"
+          <NuxtLink :to="path + 'IN_MO_HOM_01_01'"
             ><img src="/assets/images/common/logo_innisfree.png"
-          /></a>
+          /></NuxtLink>
         </h1>
         <Icons v-if="useBack" class="back" txt="뒤로가기" />
         <button
@@ -29,16 +29,16 @@
       </div>
       <div class="icon_wrap">
         <Icons v-if="useShare" class="share" txt="공유하기" />
-        <a v-if="useHome" :href="path + '/IN_MO_HOM_01_01'"
+        <NuxtLink v-if="useHome" :to="path + 'IN_MO_HOM_01_01'"
           ><Icons class="home" txt="홈"
-        /></a>
+        /></NuxtLink>
         <Icons v-if="useAlarm" class="alarm" txt="알람" />
-        <a v-if="useSearch" :href="path + '/IN_MO_SRC_01_01'"
+        <NuxtLink v-if="useSearch" :to="path + 'IN_MO_SRC_01_01'"
           ><Icons class="btn_search" txt="검색"
-        /></a>
-        <a v-if="useCart" :href="path + '/IN_MO_CAR_01_01'"
+        /></NuxtLink>
+        <NuxtLink v-if="useCart" :to="path + 'IN_MO_CAR_01_01'"
           ><Icons class="cart" txt="50"
-        /></a>
+        /></NuxtLink>
         <Icons v-if="useBarcode" class="barcode" />
       </div>
     </div>
@@ -53,11 +53,21 @@
         </div>
         <div class="modal_content">
           <ul>
-            <li class="active"><a href="/publish/IN_MO_MYP_01_91">FAQ</a></li>
-            <li><a href="#none">1:1고객상담</a></li>
-            <li><a href="#none">매장안내</a></li>
-            <li><a href="/publish/IN_MO_MYP_01_92">공지사항</a></li>
-            <li><a href="/publish/IN_MO_MYP_01_93">전자공고</a></li>
+            <li class="active">
+              <NuxtLink :to="path + 'IN_MO_MYP_01_91'">FAQ</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink :to="path + 'IN_MO_MYP_01_45'">1:1고객상담</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink :to="path + 'IN_MO_MYP_01_85'">매장안내</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink :to="path + 'IN_MO_MYP_01_92'">공지사항</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink :to="path + 'IN_MO_MYP_01_93'">전자공고</NuxtLink>
+            </li>
           </ul>
         </div>
       </div>
@@ -71,13 +81,21 @@ import { gnb_list } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui.js'
 
 const props = defineProps({
-  useBanner: {
-    type: Boolean,
-    default: true
-  },
   type: {
     type: String,
     default: ''
+  },
+  txt: {
+    type: String,
+    default: ''
+  },
+  position: {
+    type: String,
+    default: ''
+  },
+  useBanner: {
+    type: Boolean,
+    default: true
   },
   useLogo: {
     type: Boolean,
@@ -98,10 +116,6 @@ const props = defineProps({
   useName: {
     type: Boolean,
     default: false
-  },
-  txt: {
-    type: String,
-    default: ''
   },
   useShare: {
     type: Boolean,
@@ -132,7 +146,7 @@ const props = defineProps({
     default: true
   }
 })
-const path = '/publish'
+const path = '/publish/'
 onMounted(() => {
   const header = document.querySelector('header')
 
@@ -157,18 +171,22 @@ header {
   &.fixed {
     background: #fff;
 
-    .navGnb {
+    .nav_gnb {
       box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.05);
     }
   }
 
   &.type_sub {
+    top: 0;
+
     .header_wrap {
       padding: 1.3rem 1.6rem;
     }
   }
 
   &.type_search {
+    top: 0;
+
     .header_wrap {
       padding: 1rem 1.6rem;
     }
@@ -212,6 +230,14 @@ header {
     }
   }
 
+  &.static {
+    position: static;
+
+    .nav_gnb {
+      box-shadow: none;
+    }
+  }
+
   .header_wrap {
     padding: 1rem 2.6rem 0.6rem 2.1rem;
     display: flex;
@@ -238,10 +264,17 @@ header {
     }
 
     h2 {
+      max-width: 20rem;
       margin-left: 1.5rem;
       color: #000;
       font-size: 1.8rem;
       font-weight: 500;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      word-break: break-word;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
     }
 
     .btn_menu {

@@ -12,7 +12,7 @@
 
     <!-- mo banner -->
     <div class="banner">
-      <NuxtLink to="#">한정 기간 특가할인 / 사은품 증정 제품 모아보기</NuxtLink>
+      <a href="#">한정 기간 특가할인 / 사은품 증정 제품 모아보기</a>
     </div>
     <!-- //mo banner -->
 
@@ -27,15 +27,13 @@
         </ul>
         <div class="nav_list">
           <section v-for="(item, idx) in global_menu" :key="idx">
-            <NuxtLink :to="path + 'IN_MO_PRD_01_01'"
-              >{{ item.menu }} 전체</NuxtLink
-            >
+            <a :href="path + 'IN_MO_PRD_01_01'">{{ item.menu }} 전체</a>
             <ul class="list">
               <li v-for="(item_sub, idx_sub) in item.sub_menu" :key="idx_sub">
-                <NuxtLink :to="path + 'IN_MO_PRD_01_01'">
+                <a :href="path + 'IN_MO_PRD_01_01'">
                   <img :src="item_sub.img" />
                   {{ item_sub.menu }}
-                </NuxtLink>
+                </a>
               </li>
             </ul>
             <ul v-if="item.goods" class="goods">
@@ -49,22 +47,22 @@
       <div class="quick_wrap">
         <ul class="quick">
           <li>
-            <NuxtLink :to="path + 'IN_MO_HOM_01_05'">신규가입혜택</NuxtLink>
+            <a :href="path + 'IN_MO_HOM_01_05'">신규가입혜택</a>
           </li>
           <li>
-            <NuxtLink :to="path + 'IN_MO_MYP_01_04'">멤버십 혜택</NuxtLink>
+            <a :href="path + 'IN_MO_MYP_01_04'">멤버십 혜택</a>
           </li>
           <li>
-            <NuxtLink :to="'#'">ABOUT</NuxtLink>
+            <a :href="path + 'IN_MO_FOO_01_01'">ABOUT</a>
           </li>
           <li>
-            <NuxtLink :to="'#'">공병수거</NuxtLink>
+            <a :href="'#'">공병수거</a>
           </li>
           <li>
-            <NuxtLink :to="path + 'IN_MO_MYP_01_85'">매장안내</NuxtLink>
+            <a :href="path + 'IN_MO_MYP_01_85'">매장안내</a>
           </li>
           <li>
-            <NuxtLink :to="path + 'IN_MO_MYP_01_85'">마이샵</NuxtLink>
+            <a :href="path + 'IN_MO_MYP_01_85'">마이샵</a>
           </li>
         </ul>
       </div>

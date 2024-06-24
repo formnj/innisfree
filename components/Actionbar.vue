@@ -289,7 +289,6 @@ onMounted(() => {
     const actionbar = document.querySelector('.action_bar')
     const fix_btn = document.querySelector('.fix_btn')
     const right_box = document.querySelector('.right_box')
-    console.log(nextScrollTop)
 
     // let pdtSortTab_wrap = document.querySelector('.fix_btn .pdtSortTab_wrap')
 
