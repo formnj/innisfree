@@ -3,11 +3,17 @@
     <div class="fix_btn">
       <Button class="btn_icon btn_icon_back" txt="뒤로가기" />
       <!-- <div class="pdtSortTab_wrap">
-                <div class="sortTab">
-                    <button class="btn_dropdown" @click="modal.open('modal_sort', 'bottom');" >추천순</button>
-                </div>
-                <button @click="modal.open('sample_modal_search', 'bottom');">상세검색</button>
-            </div> -->
+        <div class="sortTab">
+          <button
+            class="btn_dropdown"
+            @click="modal.open('modal_sort', 'bottom')">
+            추천순
+          </button>
+        </div>
+        <button @click="modal.open('modal_search', 'bottom')">
+          상세검색
+        </button>
+      </div> -->
       <div class="right_box">
         <Button
           v-if="pageType === 'IN_MO_MYP_01_02'"
@@ -27,28 +33,28 @@
       </div>
     </div>
     <div class="inner">
-      <a href="/publish/IN_MO_HOM_01_01"
+      <NuxtLink :to="path + 'IN_MO_HOM_01_01'"
         ><img src="~/assets/images/actionbar/Logo_Motion.png" alt=""
-      /></a>
+      /></NuxtLink>
       <div>
-        <button @click="cate_layer.open">
+        <NuxtLink :to="path + 'IN_MO_HOM_01_19'">
           <img src="~/assets/images/actionbar/Category.png" alt="" />
-        </button>
-        <button class="best">
+        </NuxtLink>
+        <NuxtLink :to="path + 'IN_MO_HOM_01_05'">
           <img src="~/assets/images/actionbar/Best.png" alt="" />
-        </button>
+        </NuxtLink>
       </div>
       <div>
-        <button class="mypage">
+        <NuxtLink :to="path + 'IN_MO_MYP_01_01'">
           <img src="~/assets/images/actionbar/MyPage.png" alt="" />
-        </button>
-        <button>
+        </NuxtLink>
+        <NuxtLink :to="path + 'IN_MO_HOM_01_18'">
           <img src="~/assets/images/actionbar/History.png" alt="" />
-        </button>
+        </NuxtLink>
       </div>
     </div>
   </div>
-  <div class="modal_wrap" id="sample_modal_sort">
+  <div id="modal_sort" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
         <button class="btn_close" @click="modal.close(this)"></button>
@@ -70,7 +76,7 @@
     <div class="overlay" @click="modal.close(this)"></div>
   </div>
 
-  <div class="modal_wrap" id="sample_modal_search">
+  <div id="modal_search" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
         <h2>상세검색</h2>
@@ -274,6 +280,8 @@ defineProps({
   }
 })
 
+const path = '/publish/'
+
 onMounted(() => {
   let preScrollTop = 0
   window.addEventListener('scroll', () => {
@@ -281,6 +289,7 @@ onMounted(() => {
     const actionbar = document.querySelector('.action_bar')
     const fix_btn = document.querySelector('.fix_btn')
     const right_box = document.querySelector('.right_box')
+    console.log(nextScrollTop)
 
     // let pdtSortTab_wrap = document.querySelector('.fix_btn .pdtSortTab_wrap')
 
@@ -362,7 +371,7 @@ const cate_layer = {
       display: flex;
       gap: 4.1rem;
 
-      button {
+      a {
         width: 3.2rem;
         height: 3.2rem;
 
