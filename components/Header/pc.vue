@@ -279,23 +279,18 @@ onMounted(() => {
 
   /* 스크롤 헤더 이동 */
   window.addEventListener('scroll', () => {
-    const target = document.querySelector('.gnb_wrap')
-    const rect = target.getBoundingClientRect()
-
+    const rect = document.querySelector('.gnb_wrap').getBoundingClientRect()
     if (rect.top <= 0) {
-      document.querySelector('#wrap').classList.add('fixed')
-      document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree_bk.png'
+      document.querySelector('header').classList.add('fixed')
       document.querySelector('.keyword_wrap').classList.remove('active')
     } else {
-      document.querySelector('#wrap').classList.remove('fixed')
-      document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree.png'
+      document.querySelector('header').classList.remove('fixed')
     }
   })
 
   const rect = document.querySelector('.gnb_wrap').getBoundingClientRect()
   if (rect.top <= 0) {
-    document.querySelector('#wrap').classList.add('fixed')
-    document.querySelector('header h1 img').src = '/_nuxt/assets/images/common/logo_innisfree_bk.png'
+    document.querySelector('header').classList.add('fixed')
   }
 
   document.querySelector('.search_layer .input input').addEventListener('input', auto_complete)
@@ -345,9 +340,15 @@ const cate_layer = {
 </script>
 
 <style lang="scss" scoped>
-#wrap.fixed {
-  header {
+header {
+  border-bottom: 1px solid #f5f5f5;
+  position: sticky;
+  top: -100px;
+  z-index: 12;
+
+  &.fixed {
     border: 0;
+
     .inner {
       h1 {
         a {
@@ -358,7 +359,7 @@ const cate_layer = {
           img {
             width: 80px;
             height: 80px;
-            background: #000;
+            // background: #000;
           }
         }
       }
@@ -378,43 +379,37 @@ const cate_layer = {
         }
       }
     }
-  }
-  .gnb_wrap {
-    height: 80px;
-    border: 0;
-    .inner {
+    .gnb_wrap {
       height: 80px;
+      border: 0;
+      .inner {
+        height: 80px;
+        .btn_category {
+          height: 80px;
+          margin-left: 110px;
+        }
+        .quick {
+          display: none;
+        }
+      }
+      .navGnb {
+        a {
+          height: 80px;
+        }
+        .active a:after {
+          bottom: 0;
+        }
+      }
+    }
+    .nav_category {
       .btn_category {
         height: 80px;
-        margin-left: 110px;
-      }
-      .quick {
-        display: none;
-      }
-    }
-    .navGnb {
-      a {
-        height: 80px;
-      }
-      .active a:after {
-        bottom: 0;
+        padding: 0 41px 0 30px;
+        left: 100px;
       }
     }
   }
-  .nav_category {
-    .btn_category {
-      height: 80px;
-      padding: 0 41px 0 30px;
-      left: 100px;
-    }
-  }
-}
 
-header {
-  border-bottom: 1px solid #f5f5f5;
-  position: sticky;
-  top: -100px;
-  z-index: 12;
   .inner {
     max-width: 1320px;
     margin: 0 auto;

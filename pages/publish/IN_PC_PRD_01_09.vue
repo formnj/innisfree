@@ -13,9 +13,15 @@
               <dt>결제/카드 헤택</dt>
               <dd>
                 <ul>
-                  <li><a href="#none">멤버십세일 결제혜택 모음 SAVE 5,000!!</a></li>
-                  <li><a href="#none">KB Pay 3만원 결제 시, 최대 1만원 혜택</a></li>
-                  <li><a href="#none">현대카드 M포인트 결제금액 20% 할인</a></li>
+                  <li>
+                    <a href="#none">멤버십세일 결제혜택 모음 SAVE 5,000!!</a>
+                  </li>
+                  <li>
+                    <a href="#none">KB Pay 3만원 결제 시, 최대 1만원 혜택</a>
+                  </li>
+                  <li>
+                    <a href="#none">현대카드 M포인트 결제금액 20% 할인</a>
+                  </li>
                 </ul>
               </dd>
             </dl>
@@ -38,7 +44,7 @@
         <div class="prod_detail_info">
           <!-- 상품 정보 -->
           <productDetailInfo />
-          <productMyPrice />
+          <productMyPrice :isMo="false" />
           <div class="list_wrap">
             <productDetailBenefit />
             <dl class="benefit_list">
@@ -165,6 +171,11 @@
           <!-- 상세 탭 컨텐츠 -->
           <!-- 상세 정보 -->
           <div class="tab_cont" style="display: block">
+            <!-- 제품 상세 배너 -->
+            <a href="#none" class="prod_detail_banner">
+              <img src="~/public/images/sam/img_prod_detail_banner_pc.png" alt="" />
+            </a>
+            <!-- //제품 상세 배너 -->
             <ProductDetailConts />
           </div>
           <!-- //상세 정보 -->
@@ -183,7 +194,7 @@
               </div>
               <div class="sort">
                 <span>
-                  추천순
+                  <button type="button" @click="setFilter">추천순</button>
                   <Icons class="tooltip" txt="추천순 리뷰 기준 자세히 보기" @click="modal.open('modal_review_standard', 'layer tooltip')" />
                   <div id="modal_review_standard" class="modal_wrap">
                     <!-- 추천순 리뷰 기준 툴팁 -->
@@ -200,23 +211,18 @@
                 </span>
                 <button type="button" @click="setFilter">최신순</button>
                 <button type="button" @click="setFilter">평점순</button>
-                <div class="dropdown">
-                  <button type="button" class="btn_dropdown" @click="DropDown()">옵션별</button>
-                  <ul>
-                    <li><input id="rv_op00" type="radio" name="v_op" /><label for="rv_op00">전체</label></li>
-                    <li><input id="rv_op01" type="radio" name="v_op" /><label for="rv_op01">1호 샐먼 베이지</label></li>
-                    <li><input id="rv_op02" type="radio" name="v_op" /><label for="rv_op02">2호 피치 베이지</label></li>
-                  </ul>
-                </div>
               </div>
             </div>
             <div class="review_option">
               <div class="custom">
-                <Inputs _type="checkbox" :isswitch="true" _text="프로필 맞춤" />
-                <span class="txt" style="font-size: 14px; color: #999">설정된 피부 프로필 없음</span>
-              </div>
-              <div class="filter">
-                <button type="button" @click="modal.open('modal_skin_type', 'full modal_skin_type')">피부 속성 필터</button>
+                <Tabs
+                  tabType="type_02"
+                  :item="[
+                    { txt: '발림성', Cnt: '1,123' },
+                    { txt: '향', Cnt: '1,123' },
+                    { txt: '피부결', Cnt: '1,123' },
+                    { txt: '가격', Cnt: '1,123' }
+                  ]" />
               </div>
             </div>
             <!-- //리뷰 옵션 선택 -->
@@ -226,21 +232,38 @@
                 <li v-for="(item, idx) in sample_review" :key="idx">
                   <div class="review_header">
                     <div class="user_info">
-                      <span class="name">{{ item.user }}</span>
-                      <span class="age">{{ item.age }}</span>
-                      <span class="type">{{ item.type }}</span>
+                      <span v-if="item.user" class="name">{{ item.user }}</span>
+                      <span v-if="!item.user" class="name">회원정보없음</span>
+                      <span class="age">{{ item.age }} {{ item.type }}</span>
+                      <span class="buy_cnt">
+                        <em>{{ item.count }}</em
+                        >회 구매
+                      </span>
+                      <!-- <span class="type">{{ item.type }}</span> -->
                       <div class="rate">
                         <Reviewpoint :width="item.rate" />
                       </div>
                       <span class="date">{{ item.date }}</span>
                     </div>
-                    <div class="btn_wrap ar">
-                      <button type="button">신고</button>
-                      <button type="button">차단하기</button>
+                    <div class="btn_wrap">
+                      <button v-if="!item.writer" type="button" @click="modal.open('modal_review_report', 'alert modal_review_report')">
+                        신고
+                      </button>
+                      <button v-if="!item.writer" type="button">차단</button>
+                      <button v-if="item.writer" type="button">
+                        <em>수정</em>
+                      </button>
+                      <button v-if="item.writer" type="button">
+                        <em>삭제</em>
+                      </button>
                     </div>
                   </div>
                   <ProductReview :item="item" />
                   <!-- 리뷰 -->
+                </li>
+
+                <li>
+                  <p>회원님의 요청으로 차단된 리뷰입니다.</p>
                 </li>
               </ul>
               <div class="paging">
@@ -279,16 +302,18 @@
         <!-- //상세 컨텐츠 -->
       </div>
     </div>
-  </div>
 
-  <ProductQnaModal />
-  <!-- 문의 모달(제품문의 작성) -->
-  <ProductReviewPhotoAllModal />
-  <!-- 포토리뷰 모아보기 모달-->
-  <ProductReviewModal />
-  <!-- 리뷰보기 모달 -->
-  <ProductStockAlertModal />
-  <!-- 입고알림 신청 -->
+    <ProductQnaModal />
+    <!-- 문의 모달(제품문의 작성) -->
+    <ProductReviewPhotoAllModal />
+    <!-- 포토리뷰 모아보기 모달-->
+    <ProductReviewModal />
+    <!-- 리뷰보기 모달 -->
+    <ProductStockAlertModal />
+    <!-- 입고알림 신청 -->
+    <ProductReviewReport />
+    <!-- 신고 팝업 -->
+  </div>
 
   <!-- 플로팅 배너 -->
   <div class="floating_wrap bann01 open">
@@ -472,19 +497,6 @@ const props = defineProps({
     default: 'default'
   }
 })
-
-const DropDown = () => {
-  const el = event.currentTarget
-  const list = el.nextElementSibling
-  if (list.classList.contains('active')) {
-    list.style.cssText = ''
-  } else {
-    list.style.cssText = 'display:block;'
-  }
-  setTimeout(() => {
-    list.classList.toggle('active')
-  }, 100)
-}
 
 const float_close = () => {
   const el = event.currentTarget
@@ -679,6 +691,18 @@ const zzimUI = (e) => {
     }
   }
 
+  .prod_detail_cont {
+    .prod_detail_banner {
+      display: block;
+      margin-bottom: 60px;
+      text-align: center;
+
+      img {
+        vertical-align: top;
+      }
+    }
+  }
+
   section {
     padding: 50px 0;
 
@@ -740,7 +764,7 @@ const zzimUI = (e) => {
   }
 
   .review_option {
-    padding: 22px 0 18px;
+    padding: 20px 0;
     border-bottom: 1px solid #f5f5f5;
     display: flex;
     justify-content: space-between;
@@ -784,82 +808,47 @@ const zzimUI = (e) => {
           display: inline-block;
         }
       }
-
-      .dropdown {
-        align-items: center;
-        position: relative;
-        display: flex;
-
-        & > button {
-          display: flex;
-          align-items: center;
-          gap: 5px;
-
-          &:after {
-            content: '';
-            width: 8px;
-            height: 8px;
-            margin-top: -5px;
-            border-bottom: 1px solid #000;
-            border-right: 1px solid #000;
-            transform: rotate(45deg);
-            display: inline-block;
-          }
-        }
-
-        ul {
-          width: 170px;
-          height: 0px;
-          padding: 10px 0;
-          background: #fff;
-          border: 1px solid #aaa;
-          box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.05);
-          position: absolute;
-          left: -85px;
-          top: 40px;
-          z-index: 1;
-          overflow: hidden;
-          transition: all 0.2s;
-          display: none;
-
-          &.active {
-            height: auto;
-            opacity: 1;
-          }
-
-          li {
-            input {
-              position: absolute;
-              z-index: -1;
-              opacity: 0;
-
-              & + label {
-                display: block;
-                padding: 10px 15px;
-                color: #888;
-                line-height: 1.43em;
-                cursor: pointer;
-              }
-
-              &:checked {
-                & + label {
-                  background: #fff;
-                  color: #00bc70;
-                }
-              }
-            }
-
-            label {
-              padding: 15px;
-            }
-          }
-        }
-      }
     }
 
     .custom {
       display: flex;
       align-items: center;
+
+      :deep(.tab_wrap) {
+        .type_02 {
+          margin: 0;
+          gap: 10px;
+
+          li {
+            padding: 0;
+
+            &.current {
+              button {
+                color: #000;
+                border-color: #000;
+
+                span {
+                  color: #00bc70;
+                }
+              }
+            }
+
+            button {
+              padding: 6px 15px;
+              color: #999;
+              font-size: 12px;
+              font-weight: 600;
+              background-color: #fff;
+              border: 1px solid #eee;
+
+              span {
+                font-size: 12px;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
 
       .txt {
         &:before {
@@ -868,23 +857,6 @@ const zzimUI = (e) => {
           height: 10px;
           margin: 0 15px;
           background-color: #eeeeee;
-          display: inline-block;
-        }
-      }
-    }
-
-    .filter {
-      button {
-        font-weight: 600;
-        color: #000;
-
-        &:after {
-          content: '';
-          width: 16px;
-          height: 16px;
-          margin-left: 10px;
-          background: url(~/assets/images/common/icon_split.png) -130px -60px / 250px auto no-repeat;
-          vertical-align: middle;
           display: inline-block;
         }
       }
@@ -1079,6 +1051,30 @@ button.tooltip {
     & > li {
       padding: 40px 0;
       border-bottom: 1px solid #eee;
+
+      & > p {
+        text-align: center;
+      }
+
+      :deep(.review) {
+        .txt {
+          display: flex;
+          gap: 10px;
+
+          .mark {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .btn_wrap {
+        button {
+          em {
+            color: #000;
+            font-weight: 600;
+          }
+        }
+      }
     }
   }
 
@@ -1133,6 +1129,7 @@ button.tooltip {
         border-left: 2px solid #fff;
         border-bottom: 2px solid #fff;
         transform: rotate(135deg);
+        transition: all 0.2s;
         transition: all 0.2s;
         position: relative;
         top: 5px;
@@ -1291,6 +1288,49 @@ button.tooltip {
         &:after {
           transform: rotate(-45deg);
           top: 0;
+        }
+      }
+    }
+  }
+}
+
+/* 신고 버튼 모달 PC버전 */
+:deep(.modal_review_report) {
+  .modal_container {
+    width: 540px;
+
+    .modal_header {
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+      h2 {
+        font-size: 20px;
+      }
+    }
+
+    .modal_content {
+      padding: 0 30px 40px;
+
+      h3 {
+        margin: 20px 0 0;
+        font-size: 16px;
+
+        span {
+          color: #888;
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+
+      .input_wrap {
+        width: calc(50% - 8px);
+        display: inline-block;
+
+        &:nth-of-type(even) {
+          margin-left: 15px;
+        }
+
+        &:last-child {
+          width: 100%;
         }
       }
     }

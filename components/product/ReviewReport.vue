@@ -6,11 +6,11 @@
       <button class="btn_close" @click="modal.close(this);">닫기</button>
     </div>
     <div class="modal_content">
-      <h3>무엇을 신고하시겠습니까?<span>(중복 선택 가능)</span></h3>
+      <h3>무엇을 신고하시겠습니까? <span>(중복 선택 가능)</span></h3>
       <Inputs _type="checkbox" _text="게시글" _name="type" />
       <Inputs _type="checkbox" _text="사용자" _name="type" />
 
-      <h3>신고 사유를 선택해주세요<span>(택1)</span></h3>
+      <h3>신고 사유를 선택해주세요 <span>(택1)</span></h3>
       <Inputs _type="radio" _text="상품과 관련없음" _name="cont" />
       <Inputs _type="radio" _text="음란, 욕설, 비방, 성희롱" _name="cont" />
       <Inputs _type="radio" _text="상업적 홍보 및 광고" _name="cont" />

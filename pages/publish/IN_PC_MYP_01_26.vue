@@ -4,7 +4,10 @@
     <div class="profile_wrap">
       <div>
         <strong>김이니님, 아직 프로필 등록을 하지 않으셨네요!</strong>
-        <p>지금 바로 프로필을 등록하고, 나에게 딱 맞는 맞춤형 정보와 <em>500P</em>까지 챙겨가세요!</p>
+        <p>
+          지금 바로 프로필을 등록하고, 나에게 딱 맞는 맞춤형 정보와
+          <em>500P</em>까지 챙겨가세요!
+        </p>
       </div>
       <Button class="btn_outline" txt="프로필등록하기" />
     </div>
@@ -20,27 +23,35 @@
   <!-- //title washed -->
 
   <div class="inner">
-    <Tabs tabType="type_03" :item="[{txt:'작성 가능한 리뷰'},{txt:'내가 작성한 리뷰'}]" :tabidx="1" />
+    <Tabs
+      tabType="type_03"
+      :item="[{ txt: '작성 가능한 리뷰' }, { txt: '내가 작성한 리뷰' }]"
+      :tabidx="1" />
 
     <div class="list_wrap">
-
       <div class="list_top">
-        <Selectbox class="ar"
-            :options="[
+        <Selectbox
+          class="ar"
+          :options="[
             { val: 'value', txt: '옵션01' },
             { val: 'value', txt: '옵션02' }
-        ]" />
+          ]" />
       </div>
 
       <ul class="review_list">
-        <li v-for="(item, idx) in review" :key="idx">
+        <li v-for="(item, idx) in sample_review.slice(0, 2)" :key="idx">
           <div class="review_header">
             <div class="user_info">
               <span class="name">{{ item.user }}</span>
-              <span>{{item.age}}대</span>
-              <em>{{item.gender}}</em>
-              <Reviewpoint :width="item.point" />
-              <em class="date">{{item.date}}</em>
+              <Reviewpoint :width="item.rate" />
+              <span class="date">
+                {{ item.date }}&nbsp;
+                <em v-if="item.date">({{ item.date }})</em>
+              </span>
+              <span class="buy_cnt">
+                <em>{{ item.count }}</em>
+                회 구매
+              </span>
             </div>
             <div class="btn_wrap ar">
               <button type="button">수정</button>
@@ -49,24 +60,24 @@
           </div>
 
           <div class="review_cont">
-            <p v-html="item.review"></p>
+            <p v-html="item.txt"></p>
           </div>
 
           <GoodsItem :item="item.goods" class="type_column" />
         </li>
       </ul>
     </div>
-	</div>
+  </div>
 
   <ProductListCartModal /><!-- 장바구니/바로구매 모달 -->
 </template>
 
 <script setup>
 definePageMeta({
-layout:'pc-mypage'
-});
+  layout: 'pc-mypage'
+})
 
-import {review} from '~/test/data/publish/dummyData'
+import { sample_review } from '~/test/data/publish/dummyData'
 
 import { modal } from '~/assets/js/common-ui.js'
 /* //component sample data */
@@ -74,53 +85,53 @@ import { modal } from '~/assets/js/common-ui.js'
 
 <style lang="scss" scoped>
 .review_list {
-  border-top:2px solid #000;
+  border-top: 2px solid #000;
   > li {
-    padding:40px 0;
-    border-bottom:1px solid #f5f5f5;
+    padding: 40px 0;
+    border-bottom: 1px solid #f5f5f5;
   }
 }
 
 .list_wrap {
-  margin-top:50px;
+  margin-top: 50px;
 }
 
 .profile_wrap {
-  margin-top:60px;
-  padding:50px 35px;
-  border:1px solid #eee;
-  border-radius:3px;
-  box-shadow:0px 2px 5px rgba(0, 0, 0, 0.05);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  margin-top: 60px;
+  padding: 50px 35px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   div {
     strong {
-      color:#333;
-      font-size:20px;
-      font-weight:600;
+      color: #333;
+      font-size: 20px;
+      font-weight: 600;
     }
     p {
-      margin-top:10px;
-      color:#666;
-      font-size:14px;
+      margin-top: 10px;
+      color: #666;
+      font-size: 14px;
       em {
-        color:#00BC70;
+        color: #00bc70;
       }
     }
   }
   .btn_outline {
-    border-radius:1px;
+    border-radius: 1px;
   }
 }
 
 .review_cont {
-  padding:0 0 30px;
+  padding: 0 0 30px;
 }
 
 :deep(.goods_item) {
   padding: 20px;
-  border: 1px solid #EEEEEE;
+  border: 1px solid #eeeeee;
   border-radius: 0px 0px 3px 3px;
 
   &.type_column {
@@ -132,40 +143,40 @@ import { modal } from '~/assets/js/common-ui.js'
         height: 90px;
       }
       .btnIconBox {
-        background-color:transparent;
-        display:flex;
-        position:absolute;
+        background-color: transparent;
+        display: flex;
+        position: absolute;
         left: auto;
         right: 20px;
-        bottom:auto;
-        top:50%;
-        gap:1rem;
-        justify-content:start;
-        transform:translateY(-50%);
+        bottom: auto;
+        top: 50%;
+        gap: 1rem;
+        justify-content: start;
+        transform: translateY(-50%);
         button {
-          padding:0;
+          padding: 0;
           em {
-            width:24px;
-            height:24px;
-            padding:0;
-            background-image:url('~/assets/mo_images/common/icon_split.png');
-            background-size:250px auto;
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            background-image: url('~/assets/mo_images/common/icon_split.png');
+            background-size: 250px auto;
           }
           &.btn_heart {
             em {
-              background-position:-140px -40px;
+              background-position: -140px -40px;
             }
             &.on {
               em {
-                background-position:-180px -70px;
+                background-position: -180px -70px;
               }
             }
           }
           &.btn_cart em {
-            background-position:-170px -40px;
+            background-position: -170px -40px;
           }
           &.btn_buy em {
-            background-position:-200px -40px;
+            background-position: -200px -40px;
           }
         }
       }

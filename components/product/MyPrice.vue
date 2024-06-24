@@ -11,7 +11,8 @@
         <div>
           <h4>
             나의 혜택가
-            <Icons class="tooltip" txt="나의 혜택가 안내" @click="modal.open('alert_my_price', 'alert')" />
+            <Icons v-if="isMo" class="tooltip" txt="나의 혜택가 안내" @click="modal.open('alert_my_price', 'alert')" />
+            <Icons v-if="!isMo" class="tooltip" txt="나의 혜택가 안내" @click="modal.open('alert_my_price', 'layer tooltip my_price_modal');modalPositioning();" />
           </h4>
         </div>
         <span class="btn_link_arrw price"><em>36,800원</em></span>
@@ -96,8 +97,19 @@
 
 <script setup>
 import { modal, toast_pop } from '~/assets/js/common-ui'
+const props = defineProps({
+  isMo: {
+    type: Boolean,
+    default: true
+  } // 나의 혜택가 툴팁 pc,mo 체크
+});
 const accordionUI = (e) => {
   e.target.closest('.acco_tit').parentElement.classList.toggle('open');
+}
+const modalPositioning = () => {
+  const top = window.scrollY + event.target.getBoundingClientRect().top;
+  const right = window.outerWidth - event.target.getBoundingClientRect().left + 80; //80은 modal_reply_menu의 너비
+  document.getElementsByClassName('my_price_modal')[0].style.cssText="top:" + top + "px;left:unset;right:" + right + "px;bottom:unset;"
 }
 </script>
 
@@ -124,7 +136,7 @@ section {
   }
 }
 
-:deep(.modal_wrap){
+.modal_wrap {
   &.alert {
     .modal_content {
       padding: 30px 20px;
@@ -154,6 +166,28 @@ section {
           color: #00BC70;
           font-weight: bold;
         }
+      }
+    }
+  }
+
+  &.tooltip {
+    .modal_container {
+      width: 323px;
+
+      .modal_content {
+        .txt {
+          li {
+            font-size: 13px;
+          }
+
+          em {
+            color: #00BC70;
+          }
+        }
+      }
+
+      .modal_footer {
+        display: none;
       }
     }
   }
