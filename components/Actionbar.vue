@@ -33,24 +33,24 @@
       </div>
     </div>
     <div class="inner">
-      <NuxtLink :to="path + 'IN_MO_HOM_01_01'"
+      <a :href="path + 'IN_MO_HOM_01_01'"
         ><img src="~/assets/images/actionbar/Logo_Motion.png" alt=""
-      /></NuxtLink>
+      /></a>
       <div>
-        <NuxtLink :to="path + 'IN_MO_HOM_01_19'">
+        <a :href="path + 'IN_MO_HOM_01_19'">
           <img src="~/assets/images/actionbar/Category.png" alt="" />
-        </NuxtLink>
-        <NuxtLink :to="path + 'IN_MO_HOM_01_05'">
+        </a>
+        <a :href="path + 'IN_MO_HOM_01_05'">
           <img src="~/assets/images/actionbar/Best.png" alt="" />
-        </NuxtLink>
+        </a>
       </div>
       <div>
-        <NuxtLink :to="path + 'IN_MO_MYP_01_01'">
+        <a :href="path + 'IN_MO_MYP_01_01'">
           <img src="~/assets/images/actionbar/MyPage.png" alt="" />
-        </NuxtLink>
-        <NuxtLink :to="path + 'IN_MO_HOM_01_18'">
+        </a>
+        <a :href="path + 'IN_MO_HOM_01_18'">
           <img src="~/assets/images/actionbar/History.png" alt="" />
-        </NuxtLink>
+        </a>
       </div>
     </div>
   </div>
@@ -289,7 +289,6 @@ onMounted(() => {
     const actionbar = document.querySelector('.action_bar')
     const fix_btn = document.querySelector('.fix_btn')
     const right_box = document.querySelector('.right_box')
-    console.log(nextScrollTop)
 
     // let pdtSortTab_wrap = document.querySelector('.fix_btn .pdtSortTab_wrap')
 

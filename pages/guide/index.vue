@@ -2805,16 +2805,6 @@ const MO_arry = [
     worker: '이종환'
   },
   {
-    depth: ['', '전체메뉴', '', ''],
-    id: 'IN_MO_HOM_01_19',
-    status: 'com',
-    type: '',
-    note: '',
-    sDate: '',
-    eDate: '',
-    worker: '형민우'
-  },
-  {
     depth: ['샘플마켓', '목록', '', ''],
     id: 'IN_MO_APP_01_06_01',
     status: 'com',
@@ -3216,10 +3206,10 @@ const MO_arry = [
   },
   {
     depth: ['', '임직원 인증/해제', '', ''],
-    id: 'IN_MO_MYP_01_28',
+    id: '<del>IN_MO_MYP_01_28</del>',
     status: 'com',
     type: '',
-    note: '',
+    note: 'SB 변경 5/21 프로세스 변경에 따른 삭제',
     sDate: '',
     eDate: '2024-05-17/2024-05-16',
     worker: '형민우'
@@ -3337,9 +3327,9 @@ const MO_arry = [
   {
     depth: ['', '', '1:1 문의하기(T)', ''],
     id: 'IN_MO_MYP_01_46',
-    status: 'com',
+    status: 'ing',
     type: '',
-    note: '<del>디자인 고도화 수정 필요</del>/디자인고도화 완료',
+    note: '디자인 고도화 수정 필요',
     sDate: '2024-04-24',
     eDate: '2024-04-26/2024-04-24',
     worker: '김희경'

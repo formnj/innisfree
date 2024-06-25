@@ -2549,17 +2549,17 @@ export const global_menu = [
 
 /* mo sample menu */
 export const gnb_list = [
-  { tit: '특가', url: '/publish/publish/IN_MO_HOM_01_04', admChk: true },
-  { tit: '이벤트', url: '/publish/publish/IN_MO_HOM_01_05' },
-  { tit: '랭킹', url: '/publish/publish/IN_MO_HOM_01_07', active: true },
+  { tit: '특가', url: '/publish/IN_MO_HOM_01_04', admChk: true },
+  { tit: '이벤트', url: '/publish/IN_MO_HOM_01_05' },
+  { tit: '랭킹', url: '/publish/IN_MO_HOM_01_07', active: true },
   { tit: '쿠폰존', url: '#none' },
-  { tit: '에디터', url: '/publish/publish/IN_MO_HOM_01_08' },
-  { tit: '샘플마켓', url: '/publish/publish/IN_MO_APP_01_06_01' },
+  { tit: '에디터', url: '/publish/IN_MO_HOM_01_08' },
+  { tit: '샘플마켓', url: '/publish/IN_MO_APP_01_06_01' },
   { tit: 'AI케어', url: '#none' },
-  { tit: '쇼케이스', url: '/publish/publish/IN_MO_HOM_01_12' },
-  { tit: '라이브', url: '/publish/publish/IN_MO_HOM_01_14' },
-  { tit: 'FOR ME', url: '/publish/publish/IN_MO_HOM_01_15' },
-  { tit: '임직원샵', url: '/publish/publish/IN_MO_HOM_01_16' },
+  { tit: '쇼케이스', url: '/publish/IN_MO_HOM_01_12' },
+  { tit: '라이브', url: '/publish/IN_MO_HOM_01_14' },
+  { tit: 'FOR ME', url: '/publish/IN_MO_HOM_01_15' },
+  { tit: '임직원샵', url: '/publish/IN_MO_HOM_01_16' },
   { tit: 'ABOUT', url: '#none' }
 ]
 

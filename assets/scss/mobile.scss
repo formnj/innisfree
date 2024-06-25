@@ -1347,9 +1347,9 @@
 :deep(.tab_wrap) {
   &.membership_tab {
     position: sticky;
-    top: 0;
+    top: 0.8rem;
     background-color: #fff;
-    z-index: 2;
+    z-index: 11;
   }
 
   &.membership_tab,
@@ -1468,6 +1468,7 @@
       }
     }
   }
+
   > ul {
     width: 15rem;
     display: flex;
@@ -1516,6 +1517,31 @@
       }
     }
   }
+
+  // 마이페이지 멤버십 로그인 정보 X
+  .no_info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+
+    > p {
+      color: #222;
+      font-size: 1.3rem;
+    }
+
+    > button {
+      width: 11rem;
+      height: 3.2rem;
+      font-size: 1.6rem;
+      line-height: 3rem;
+      text-align: center;
+      border: 0.1rem solid #222;
+      border-radius: 1.6rem;
+      display: block;
+    }
+  }
 }
 @keyframes vip_bar {
   0% {
@@ -1557,6 +1583,7 @@
     left: 97%;
   }
 }
+/* //마이페이지 멤버십 */
 
 :deep(.onepoint) {
   padding-bottom: 0;

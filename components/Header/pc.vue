@@ -139,7 +139,7 @@
     <div class="gnb_wrap">
       <div class="inner">
         <Button class="btn_category" txt="카테고리" @mouseover="cate_layer.open" />
-        <nav class="navGnb">
+        <nav class="nav_gnb">
           <ul>
             <li>
               <a :href="path + 'IN_PC_HOM_01_05'"><em>이벤트</em></a>
@@ -392,7 +392,7 @@ header {
           display: none;
         }
       }
-      .navGnb {
+      .nav_gnb {
         a {
           height: 80px;
         }
@@ -847,7 +847,7 @@ header {
           display: block;
         }
       }
-      .navGnb {
+      .nav_gnb {
         padding-left: 40px;
         ul {
           gap: 24px;

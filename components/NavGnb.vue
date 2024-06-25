@@ -1,10 +1,10 @@
 <template>
-  <nav class="navGnb" :class="{ main: type === 'main' }">
+  <nav class="nav_gnb" :class="{ main: type === 'main' }">
     <ul>
       <!-- active: true 면 active 클래스 적용 -->
       <li v-for="(con, idx) in item" :key="idx" :class="{ active: con.active }">
-        <!-- admChk: true 면 point 클래스 적용 -->
-        <a :href="con.url" :class="{ point: con.admChk }">
+        <!-- admChk: true 면 dot 클래스 적용 -->
+        <a :href="con.url" :class="{ dot: con.admChk }">
           <em>{{ con.tit }}</em>
         </a>
       </li>
@@ -23,11 +23,11 @@ const props = defineProps({
     type: String,
     default: ''
   }
-});
+})
 </script>
 
 <style lang="scss" scoped>
-.navGnb {
+.nav_gnb {
   height: 4.6rem;
   padding: 0 2.1rem;
   overflow: auto;
@@ -60,18 +60,18 @@ const props = defineProps({
       white-space: nowrap;
       position: relative;
       display: flex;
-      
+
       em {
         color: #999;
         position: relative;
         display: block;
       }
 
-      &.point {
+      &.dot {
         em:after {
           width: 0.5rem;
           height: 0.5rem;
-          background: #00BC70;
+          background: #00bc70;
           border-radius: 50%;
           content: '';
           position: absolute;
@@ -82,7 +82,8 @@ const props = defineProps({
       }
     }
 
-    &.active { // 현재 페이지 표시
+    &.active {
+      // 현재 페이지 표시
       a {
         font-weight: 600;
 
@@ -90,7 +91,7 @@ const props = defineProps({
           content: '';
           width: 100%;
           height: 2px;
-          background: #00BC70;
+          background: #00bc70;
           position: absolute;
           bottom: -0.04rem;
           left: 0;

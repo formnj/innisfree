@@ -1,10 +1,34 @@
 <template>
+  <div class="sub_gnb">
+    <div class="menu_wrap">
+      <button
+        class="btn_menu"
+        @click="modal.open('modal_sub_nav', 'bottom nav')">
+        특가
+      </button>
+    </div>
+    <div class="icon_wrap">
+      <a :href="path + 'IN_MO_SRC_01_01'"
+        ><Icons class="btn_search" txt="검색"
+      /></a>
+      <a :href="path + 'IN_MO_CAR_01_01'"><Icons class="cart" txt="50" /></a>
+    </div>
+  </div>
+
   <div class="inner title_wrap_inner">
     <div class="tab_scroll_wrap">
-      <Tabs tabType="type_02"
-        :item="[{txt:'립 ~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'},{txt:'마스크팩~50%'}]"
+      <Tabs
+        tabType="type_02"
+        :item="[
+          { txt: '립 ~50%' },
+          { txt: '마스크팩~50%' },
+          { txt: '마스크팩~50%' },
+          { txt: '마스크팩~50%' },
+          { txt: '마스크팩~50%' },
+          { txt: '마스크팩~50%' }
+        ]"
         :tabidx="0" />
-        <Inputs _type="checkbox" _text="혜택" class="checkbox02" />
+      <Inputs _type="checkbox" _text="혜택" class="checkbox02" />
     </div>
   </div>
 
@@ -13,10 +37,14 @@
       <!-- title washed -->
       <div class="sub_title_wrap">
         <div>
-          <h3>{{ item.sub_title }}
-            <Icons class="tooltip" txt="툴팁" @click="modal.open('sample_01', 'alert sample_01');" />
+          <h3>
+            {{ item.sub_title }}
+            <Icons
+              class="tooltip"
+              txt="툴팁"
+              @click="modal.open('sample_01', 'alert sample_01')" />
           </h3>
-          <p class="explain">{{item.desc}}</p>
+          <p class="explain">{{ item.desc }}</p>
         </div>
       </div>
       <!-- //title washed -->
@@ -42,8 +70,14 @@
 
       <div class="list_wrap">
         <ul class="goods_list col_3">
-          <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
-            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" :useMark="false" :useScore="false" />
+          <li v-for="(item, idx) in sample_goods.slice(0, 6)" :key="idx">
+            <GoodsItem
+              :item="item"
+              :link="item.link"
+              class="type_cart"
+              modal_type="bottom"
+              :useMark="false"
+              :useScore="false" />
           </li>
         </ul>
       </div>
@@ -55,16 +89,26 @@
   <section>
     <div class="sub_title_wrap">
       <div>
-        <h3>이니스프리 혜택 모음
-          <Icons class="tooltip" txt="툴팁" @click="modal.open('sample_01', 'alert sample_01');" />
+        <h3>
+          이니스프리 혜택 모음
+          <Icons
+            class="tooltip"
+            txt="툴팁"
+            @click="modal.open('sample_01', 'alert sample_01')" />
         </h3>
       </div>
     </div>
     <div class="inner">
       <div class="list_wrap">
         <ul class="goods_list">
-          <li v-for="(item, idx) in sample_goods.slice(0,6)" :key="idx">
-            <GoodsItem :item="item" :link="item.link" class="type_cart" modal_type="bottom" :useGiveaway="true" :useScore="false" />
+          <li v-for="(item, idx) in sample_goods.slice(0, 6)" :key="idx">
+            <GoodsItem
+              :item="item"
+              :link="item.link"
+              class="type_cart"
+              modal_type="bottom"
+              :useGiveaway="true"
+              :useScore="false" />
           </li>
         </ul>
       </div>
@@ -76,7 +120,7 @@
     <div class="modal_container">
       <div class="modal_header">
         <h2>프로모션 제품 구매시 유의사항</h2>
-        <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <button class="btn_close" @click="modal.close(this)">닫기</button>
       </div>
       <div class="modal_content">
         <div>
@@ -87,25 +131,23 @@
       <div class="modal_footer">
         <Button txt="확인" class="btn_big confirm" />
       </div>
-
     </div>
-    <div class="overlay" @click="modal.close(this);"></div>
+    <div class="overlay" @click="modal.close(this)"></div>
   </div>
   <!-- //tooltip modal -->
-
 
   <!-- 증정품 모달 -->
   <div id="modal_gift" class="modal_wrap">
     <div class="modal_container">
       <div class="modal_header">
         <h2>증정품안내</h2>
-        <button class="btn_close" @click="modal.close(this);">닫기</button>
+        <button class="btn_close" @click="modal.close(this)">닫기</button>
       </div>
       <div class="modal_content">
         <div class="giveaway_list">
           <dl>
             <dt>
-              <img src="/_nuxt/public/images/sam/giveaway_01.png">
+              <img src="/_nuxt/public/images/sam/giveaway_01.png" />
             </dt>
             <dd>
               <p>제주 루트 에너지 마스크[당근] 5매 세트</p>
@@ -115,7 +157,7 @@
           </dl>
           <dl>
             <dt>
-              <img src="/_nuxt/public/images/sam/giveaway_02.png">
+              <img src="/_nuxt/public/images/sam/giveaway_02.png" />
             </dt>
             <dd>
               <p>비타C 세럼 럭키 박스 (30ml + 랜덤기프트)</p>
@@ -125,7 +167,7 @@
           </dl>
           <dl>
             <dt>
-              <img src="/_nuxt/public/images/sam/giveaway_03.png">
+              <img src="/_nuxt/public/images/sam/giveaway_03.png" />
             </dt>
             <dd>
               <p>레티놀 시카 앰플 포커싱 패치 1ea / 9patches</p>
@@ -136,12 +178,62 @@
         </div>
       </div>
     </div>
-    <div class="overlay" @click="modal.close(this);"></div>
+    <div class="overlay" @click="modal.close(this)"></div>
   </div>
   <!-- //증정품 모달 -->
 
-  <ProductListCartModal />  <!-- 장바구니/바로구매 모달 -->
+  <ProductListCartModal />
+  <!-- 장바구니/바로구매 모달 -->
 
+  <!-- gnb 메뉴 모달 -->
+  <div id="modal_sub_nav" class="modal_wrap">
+    <div class="modal_container">
+      <div class="modal_header">
+        <button class="btn_close" @click="modal.close(this)">닫기</button>
+      </div>
+      <div class="modal_content">
+        <ul>
+          <li class="active">
+            <a :href="path + 'IN_MO_HOM_01_04'">특가</a>
+          </li>
+          <li>
+            <a :href="path + 'IN_MO_HOM_01_05'">이벤트</a>
+          </li>
+          <li>
+            <a :href="path + 'IN_MO_HOM_01_07'">랭킹</a>
+          </li>
+          <li>
+            <a :href="path + 'IN_MO_MYP_01_35'">쿠폰존</a>
+          </li>
+          <li>
+            <a :href="path + 'IN_MO_HOM_01_08'">에디터</a>
+          </li>
+          <li>
+            <a :href="path + 'IN_MO_APP_01_06_01'">샘플마켓</a>
+          </li>
+          <li>
+            <a :href="path + ''">AI케어</a>
+          </li>
+          <li>
+            <a :href="path + 'IN_MO_HOM_01_12'">쇼케이스</a>
+          </li>
+          <li>
+            <a :href="path + 'IN_MO_HOM_01_14'">라이브</a>
+          </li>
+          <li>
+            <a :href="path + 'IN_MO_HOM_01_15'">FOR ME</a>
+          </li>
+          <li>
+            <a :href="path + 'IN_MO_HOM_01_16'">임직원샵</a>
+          </li>
+          <li>
+            <a :href="path + 'IN_MO_FOO_01_01'">ABOUT</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div div class="overlay" @click="modal.close(this)"></div>
+  </div>
 </template>
 
 <script setup>
@@ -149,33 +241,82 @@ import { sample_goods, sample_data } from '~/test/data/publish/dummyData'
 import { modal } from '~/assets/js/common-ui'
 
 definePageMeta({
-layout:'mo-default'
-});
+  layout: 'mo-nosticky'
+})
 
-const props = defineProps({ //default값이 'default'가 아니면 lnb 노출 없음
-    link: {
-        type: String,
-        default: '#none'
-    }
-});
+const path = '/publish/'
 
+const props = defineProps({
+  //default값이 'default'가 아니면 lnb 노출 없음
+  link: {
+    type: String,
+    default: '#none'
+  }
+})
 
 onMounted(() => {
-  // const header = document.querySelector('header');
-  // const header_height = header.offsetHeight
-  // const title_wrap_inner = document.querySelector('.title_wrap_inner')
-  // title_wrap_inner.style.top = header_height - 1 + 'px';
-});
+  /* 특가 페이지 스크롤 헤더 변경 함수 */
+  // 로드시 위치에 따른 헤더 변경
+  if (window.scrollY >= document.querySelector('.gnb_wrap').offsetTop)
+    document.querySelector('.sub_gnb').style.display = 'flex'
+  else document.querySelector('.sub_gnb').style.display = 'none'
 
-
+  // 스크롤시 헤더 변경
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= document.querySelector('.gnb_wrap').offsetTop)
+      document.querySelector('.sub_gnb').style.display = 'flex'
+    else document.querySelector('.sub_gnb').style.display = 'none'
+  })
+})
 </script>
 
 <style lang="scss" scoped>
+.sub_gnb {
+  padding: 0.7rem 2.6rem 0.7rem 2.1rem;
+  background-color: #fff;
+  display: none;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 12;
+
+  .menu_wrap {
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    .btn_menu {
+      font-size: 1.8rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      &:after {
+        content: '';
+        width: 1.6rem;
+        height: 1.6rem;
+        background: url('~/assets/images/common/icon_split.png') no-repeat -11rem -6rem;
+        background-size: 25rem auto;
+      }
+    }
+  }
+
+  .icon_wrap {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
 section {
   padding: 3rem 2.1rem;
 
-  &+section {
-    border-top: .5rem solid #f5f5f5;
+  & + section {
+    border-top: 0.5rem solid #f5f5f5;
   }
 
   .sub_title_wrap {
@@ -187,7 +328,7 @@ section {
   &.title_wrap_inner {
     height: 100%;
     padding: 1.6rem 2.1rem;
-    border-top: 0.1rem solid #EEE;
+    border-top: 0.1rem solid #eee;
     background: #fff;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
     position: sticky;
@@ -213,7 +354,7 @@ section {
         }
 
         .benefit {
-          >* {
+          > * {
             border-color: transparent !important;
             background-color: #fff !important;
           }
@@ -237,17 +378,17 @@ section {
         }
 
         &.checkbox02 {
-          input+.label {
+          input + .label {
             width: auto;
             height: 3rem;
             padding: 0 1.5rem;
             font-size: 1.4rem;
-            color: #00BC70;
+            color: #00bc70;
             line-height: 2.6rem;
-            border: 2px solid #00BC70;
+            border: 2px solid #00bc70;
           }
 
-          input:checked+.label {
+          input:checked + .label {
             color: #fff;
           }
         }
@@ -283,7 +424,7 @@ section {
         content: '';
         width: 100%;
         height: 1px;
-        background: #1D1D1D;
+        background: #1d1d1d;
         position: absolute;
         left: 1px;
         top: 24px;
@@ -293,7 +434,7 @@ section {
       }
 
       span {
-        color: #FFFFFF;
+        color: #ffffff;
         font-size: 18px;
         line-height: 0.83em;
         letter-spacing: -0.01em;
@@ -321,12 +462,11 @@ section {
 
         h2 {
           font-size: 1.8rem;
-          ;
         }
       }
 
       .modal_content {
-        padding: 2.0rem;
+        padding: 2rem;
 
         p {
           font-size: 1.3rem;
@@ -351,7 +491,7 @@ section {
   }
 }
 
-:deep([class*=btn_][class*=_outline]).btn_list_btm {
+:deep([class*='btn_'][class*='_outline']).btn_list_btm {
   width: 100%;
   margin-top: 3rem;
   font-size: 14px;
