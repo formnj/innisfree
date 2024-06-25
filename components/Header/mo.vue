@@ -5,9 +5,9 @@
     <div class="header_wrap">
       <div class="menu_wrap">
         <h1 v-if="useLogo">
-          <NuxtLink :to="path + 'IN_MO_HOM_01_01'"
+          <a :href="path + 'IN_MO_HOM_01_01'"
             ><img src="/assets/images/common/logo_innisfree.png"
-          /></NuxtLink>
+          /></a>
         </h1>
         <Icons v-if="useBack" class="back" txt="뒤로가기" />
         <button
@@ -29,16 +29,16 @@
       </div>
       <div class="icon_wrap">
         <Icons v-if="useShare" class="share" txt="공유하기" />
-        <NuxtLink v-if="useHome" :to="path + 'IN_MO_HOM_01_01'"
+        <a v-if="useHome" :href="path + 'IN_MO_HOM_01_01'"
           ><Icons class="home" txt="홈"
-        /></NuxtLink>
+        /></a>
         <Icons v-if="useAlarm" class="alarm" txt="알람" />
-        <NuxtLink v-if="useSearch" :to="path + 'IN_MO_SRC_01_01'"
+        <a v-if="useSearch" :href="path + 'IN_MO_SRC_01_01'"
           ><Icons class="btn_search" txt="검색"
-        /></NuxtLink>
-        <NuxtLink v-if="useCart" :to="path + 'IN_MO_CAR_01_01'"
+        /></a>
+        <a v-if="useCart" :href="path + 'IN_MO_CAR_01_01'"
           ><Icons class="cart" txt="50"
-        /></NuxtLink>
+        /></a>
         <Icons v-if="useBarcode" class="barcode" />
       </div>
     </div>
@@ -54,19 +54,19 @@
         <div class="modal_content">
           <ul>
             <li class="active">
-              <NuxtLink :to="path + 'IN_MO_MYP_01_91'">FAQ</NuxtLink>
+              <a :href="path + 'IN_MO_MYP_01_91'">FAQ</a>
             </li>
             <li>
-              <NuxtLink :to="path + 'IN_MO_MYP_01_45'">1:1고객상담</NuxtLink>
+              <a :href="path + 'IN_MO_MYP_01_45'">1:1고객상담</a>
             </li>
             <li>
-              <NuxtLink :to="path + 'IN_MO_MYP_01_85'">매장안내</NuxtLink>
+              <a :href="path + 'IN_MO_MYP_01_85'">매장안내</a>
             </li>
             <li>
-              <NuxtLink :to="path + 'IN_MO_MYP_01_92'">공지사항</NuxtLink>
+              <a :href="path + 'IN_MO_MYP_01_92'">공지사항</a>
             </li>
             <li>
-              <NuxtLink :to="path + 'IN_MO_MYP_01_93'">전자공고</NuxtLink>
+              <a :href="path + 'IN_MO_MYP_01_93'">전자공고</a>
             </li>
           </ul>
         </div>

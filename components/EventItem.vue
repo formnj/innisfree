@@ -1,6 +1,6 @@
 <template>
   <div class="event_item" :class="type">
-    <NuxtLink :to="props.link" class="item">
+    <a :href="props.link" class="item">
       <span class="thumb">
         <em><img :src="item.img" /></em>
         <button v-if="type === 'type_down'" class="down">
@@ -12,7 +12,7 @@
         <p v-if="item.date" class="date">{{ item.date }}</p>
         <strong v-html="item.title"></strong>
       </div>
-    </NuxtLink>
+    </a>
   </div>
 </template>
 

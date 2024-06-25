@@ -8,12 +8,10 @@
       </button>
     </div>
     <div class="icon_wrap">
-      <NuxtLink :to="path + 'IN_MO_SRC_01_01'"
+      <a :href="path + 'IN_MO_SRC_01_01'"
         ><Icons class="btn_search" txt="검색"
-      /></NuxtLink>
-      <NuxtLink :to="path + 'IN_MO_CAR_01_01'"
-        ><Icons class="cart" txt="50"
-      /></NuxtLink>
+      /></a>
+      <a :href="path + 'IN_MO_CAR_01_01'"><Icons class="cart" txt="50" /></a>
     </div>
   </div>
 
@@ -202,34 +200,34 @@
             <a :href="path + 'IN_MO_HOM_01_05'">이벤트</a>
           </li>
           <li>
-            <NuxtLink :to="path + 'IN_MO_HOM_01_07'">랭킹</NuxtLink>
+            <a :href="path + 'IN_MO_HOM_01_07'">랭킹</a>
           </li>
           <li>
-            <NuxtLink :to="path + 'IN_MO_MYP_01_35'">쿠폰존</NuxtLink>
+            <a :href="path + 'IN_MO_MYP_01_35'">쿠폰존</a>
           </li>
           <li>
-            <NuxtLink :to="path + 'IN_MO_HOM_01_08'">에디터</NuxtLink>
+            <a :href="path + 'IN_MO_HOM_01_08'">에디터</a>
           </li>
           <li>
-            <NuxtLink :to="path + 'IN_MO_APP_01_06_01'">샘플마켓</NuxtLink>
+            <a :href="path + 'IN_MO_APP_01_06_01'">샘플마켓</a>
           </li>
           <li>
-            <NuxtLink :to="path + ''">AI케어</NuxtLink>
+            <a :href="path + ''">AI케어</a>
           </li>
           <li>
-            <NuxtLink :to="path + 'IN_MO_HOM_01_12'">쇼케이스</NuxtLink>
+            <a :href="path + 'IN_MO_HOM_01_12'">쇼케이스</a>
           </li>
           <li>
-            <NuxtLink :to="path + 'IN_MO_HOM_01_14'">라이브</NuxtLink>
+            <a :href="path + 'IN_MO_HOM_01_14'">라이브</a>
           </li>
           <li>
-            <NuxtLink :to="path + 'IN_MO_HOM_01_15'">FOR ME</NuxtLink>
+            <a :href="path + 'IN_MO_HOM_01_15'">FOR ME</a>
           </li>
           <li>
-            <NuxtLink :to="path + 'IN_MO_HOM_01_16'">임직원샵</NuxtLink>
+            <a :href="path + 'IN_MO_HOM_01_16'">임직원샵</a>
           </li>
           <li>
-            <NuxtLink :to="path + 'IN_MO_FOO_01_01'">ABOUT</NuxtLink>
+            <a :href="path + 'IN_MO_FOO_01_01'">ABOUT</a>
           </li>
         </ul>
       </div>
